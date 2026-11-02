@@ -166,7 +166,11 @@
     "price_h": "Kostenlos nutzbar. sisma+, wenn du mehr willst.",
     "price_p": "Teste sisma+ 7 Tage kostenlos.",
     "lang_h": "Spricht deine Sprache",
-    "footer": "Daten: USGS, EMSC, GeoNet, JMA. sisma.io ist kein offizieller Warndienst – folge immer den Anweisungen der örtlichen Behörden."
+    "footer": "Daten: USGS, EMSC, GeoNet, JMA. sisma.io ist kein offizieller Warndienst – folge immer den Anweisungen der örtlichen Behörden.",
+    "privacy": "Datenschutzerklärung",
+    "privacy_updated": "Zuletzt aktualisiert: {date}",
+    "privacy_english": "Diese Erklärung wird auf Englisch veröffentlicht.",
+    "privacy_open_app": "App öffnen"
   },
   "dash": {
     "overview": "Übersicht",

@@ -166,7 +166,11 @@
     "price_h": "免费使用。想要更多，就选 sisma+。",
     "price_p": "免费试用 sisma+ 7 天。",
     "lang_h": "说你的语言",
-    "footer": "数据：USGS、EMSC、GeoNet、JMA。sisma.io 并非官方预警服务——请始终遵从当地政府指示。"
+    "footer": "数据：USGS、EMSC、GeoNet、JMA。sisma.io 并非官方预警服务——请始终遵从当地政府指示。",
+    "privacy": "隐私政策",
+    "privacy_updated": "最后更新：{date}",
+    "privacy_english": "本政策以英文发布。",
+    "privacy_open_app": "打开应用"
   },
   "dash": {
     "overview": "概览",

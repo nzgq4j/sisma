@@ -166,7 +166,11 @@
     "price_h": "Gratis digunakan. sisma+ saat Anda butuh lebih.",
     "price_p": "Coba sisma+ gratis selama 7 hari.",
     "lang_h": "Berbicara dalam bahasa Anda",
-    "footer": "Data: USGS, EMSC, GeoNet, JMA. sisma.io bukan layanan peringatan resmi — selalu ikuti arahan otoritas setempat."
+    "footer": "Data: USGS, EMSC, GeoNet, JMA. sisma.io bukan layanan peringatan resmi — selalu ikuti arahan otoritas setempat.",
+    "privacy": "Kebijakan privasi",
+    "privacy_updated": "Terakhir diperbarui {date}",
+    "privacy_english": "Kebijakan ini diterbitkan dalam bahasa Inggris.",
+    "privacy_open_app": "Buka aplikasi"
   },
   "dash": {
     "overview": "Ringkasan",

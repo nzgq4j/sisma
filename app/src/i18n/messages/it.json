@@ -166,7 +166,11 @@
     "price_h": "Gratis da usare. sisma+ quando vuoi di più.",
     "price_p": "Prova sisma+ gratis per 7 giorni.",
     "lang_h": "Parla la tua lingua",
-    "footer": "Dati: USGS, EMSC, GeoNet, JMA. sisma.io non è un servizio di allerta ufficiale — segui sempre le autorità locali."
+    "footer": "Dati: USGS, EMSC, GeoNet, JMA. sisma.io non è un servizio di allerta ufficiale — segui sempre le autorità locali.",
+    "privacy": "Informativa sulla privacy",
+    "privacy_updated": "Ultimo aggiornamento: {date}",
+    "privacy_english": "Questa informativa è pubblicata in inglese.",
+    "privacy_open_app": "Apri l’app"
   },
   "dash": {
     "overview": "Panoramica",

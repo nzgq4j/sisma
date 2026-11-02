@@ -30,8 +30,9 @@ is clicking through Google's consoles. Where code is needed, the step says **"�
 
 ## 0. Prerequisites
 
-1. **A sisma.io email** — e.g. hello@sisma.io. Google asks for a support email in several places. See `docs/email-setup.md`.
-2. **A privacy policy page** at e.g. https://sisma.io/privacy. Google Play and Google sign-in both refuse apps without
+1. **A sisma.io email** — done: mail is hosted at InMotion (david@sisma.io), with privacy@ and support@ forwarding to it. Use **support@sisma.io** wherever Google asks for a support email.
+2. **A privacy policy page** — drafted at https://sisma.io/privacy (operator: Crucible Insight LLC; details in
+   `app/src/lib/site.ts` → `legal`). Have it reviewed before launch. Google Play and Google sign-in both refuse apps without
    one. It must say what data sisma collects (email for accounts, approximate location in felt reports, saved places,
    subscription status), why, who processes it (Supabase, Vercel, Resend, Stripe, Google), and how to delete it.
    **→ Claude:** I can draft the page and the account-deletion page from what the app actually does; have a lawyer review it.
@@ -41,8 +42,9 @@ is clicking through Google's consoles. Where code is needed, the step says **"�
 
 ## 1. Google Play Console account
 
-1. Go to **play.google.com/console** and sign in with the Google account that will own the app (ideally the business
-   one, e.g. hello@sisma.io if you chose Google Workspace).
+1. Go to **play.google.com/console** and sign in with the Google account that will own the app. A business account is
+   best: you can create a Google account for **david@sisma.io** at accounts.google.com → *Create account* →
+   *Use your existing email* (no Gmail needed). Forwarding addresses like support@ can't be Google accounts.
 2. Choose **Personal** or **Organization** (see step 0.3), pay the one-time **US$25** registration fee.
 3. Complete **identity verification** (government ID; for organizations also the D-U-N-S number and a website — use
    https://sisma.io). This can take from a few hours to several days.
@@ -98,7 +100,7 @@ Today sisma signs people in with an **email link** (no password). Adding "Contin
 convenient. Skip this step if you don't want it.
 
 1. Cloud console (sisma project) ☰ **APIs & Services → OAuth consent screen** (may be called **Google Auth Platform**):
-   - **Branding:** App name *sisma*, support email *hello@sisma.io*, logo (`app/public/icons/icon-512.png`),
+   - **Branding:** App name *sisma*, support email *support@sisma.io*, logo (`app/public/icons/icon-512.png`),
      home page `https://sisma.io`, privacy policy `https://sisma.io/privacy`, terms (if you have one).
      Authorized domains: **sisma.io** and **supabase.co**. Developer contact: your email.
    - **Audience:** *External*. Scopes: only the defaults (`email`, `profile`, `openid`) — then Google review isn't needed.
@@ -184,7 +186,7 @@ key yourself, because it must stay on your machine.
    - Short description (max 80 characters), e.g. *Live earthquakes worldwide — map, 3D globe and clear science.*
    - Full description (what it shows, data sources USGS/EMSC/GeoNet/JMA, sisma+, and "not an official warning service").
    - App icon 512×512 PNG, **feature graphic** 1024×500, 2–8 phone screenshots. **→ Claude** can produce these from the app.
-   - Category: **Weather** (or Education), contact email hello@sisma.io, website https://sisma.io.
+   - Category: **Weather** (or Education), contact email support@sisma.io, website https://sisma.io.
 3. **App content** (Policy → App content) — each is a short form:
    - **Privacy policy:** https://sisma.io/privacy
    - **Ads:** No ads.
@@ -198,7 +200,7 @@ key yourself, because it must stay on your machine.
      - *Purchase history* — collected (subscription status), app functionality.
      - Encrypted in transit: **Yes**. Users can request deletion: **Yes**.
    - **Account deletion:** Google requires a web link where people can delete their account without the app:
-     use https://sisma.io/app/me (Account → Delete account) — **→ Claude** can add a dedicated page that explains it.
+     use **https://sisma.io/privacy#delete** (explains the steps; deletion itself is in Me → Account → Delete account).
    - **Government apps / financial features / health:** No. **News app:** No.
 4. **Location permission:** sisma only asks while the app is in use (foreground), so no background-location
    declaration is needed.
