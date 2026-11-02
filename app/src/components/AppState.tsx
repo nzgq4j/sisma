@@ -16,6 +16,16 @@ interface AppState {
 }
 const Ctx = createContext<AppState | null>(null);
 
+interface NativeGeo {
+  requestPermissions: () => Promise<{ location: string }>;
+  getCurrentPosition: (o: { enableHighAccuracy: boolean; timeout: number }) => Promise<{ coords: { latitude: number; longitude: number } }>;
+}
+/** @capacitor/geolocation when running inside the Android app; null in a browser. */
+function nativeGeolocation(): NativeGeo | null {
+  const cap = (window as { Capacitor?: { isNativePlatform?: () => boolean; Plugins?: { Geolocation?: NativeGeo } } }).Capacitor;
+  return cap?.isNativePlatform?.() && cap.Plugins?.Geolocation ? cap.Plugins.Geolocation : null;
+}
+
 // TODO: back saved locations with Supabase (saved_locations; the DB trigger enforces the plan limit). Device-only for now.
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const { plan } = useAccount();
@@ -23,13 +33,29 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [active, setActive] = useState(0);
   const [sheet, setSheet] = useState<AppState['sheet']>(null);
 
-  const locateMe = useCallback(() => new Promise<LocateResult>(resolve => {
-    if (!navigator.geolocation) return resolve('unavailable');
-    navigator.geolocation.getCurrentPosition(p => {
-      setLocations(l => [{ name: 'My location', lat: p.coords.latitude, lon: p.coords.longitude, fromDevice: true }, ...l.slice(1)]);
-      setActive(0); resolve('ok');
-    }, e => resolve(e.code === e.PERMISSION_DENIED ? 'denied' : 'unavailable'), { maximumAge: 600_000, timeout: 15_000 });
-  }), []);
+  const locateMe = useCallback(async (): Promise<LocateResult> => {
+    const setDevice = (lat: number, lon: number) => {
+      setLocations(l => [{ name: 'My location', lat, lon, fromDevice: true }, ...l.slice(1)]);
+      setActive(0);
+    };
+    // Android app: ask through the native plugin so the system permission dialog appears (a WebView won't prompt itself).
+    const G = nativeGeolocation();
+    if (G) {
+      try {
+        const perm = await G.requestPermissions();
+        if (perm.location === 'denied') return 'denied';
+        const p = await G.getCurrentPosition({ enableHighAccuracy: false, timeout: 15_000 });
+        setDevice(p.coords.latitude, p.coords.longitude); return 'ok';
+      } catch { return 'unavailable'; }
+    }
+    if (!navigator.geolocation) return 'unavailable';
+    // Browser: shows the permission prompt when the user hasn't decided yet; resolves at once when already allowed.
+    return new Promise<LocateResult>(resolve => navigator.geolocation.getCurrentPosition(
+      p => { setDevice(p.coords.latitude, p.coords.longitude); resolve('ok'); },
+      e => resolve(e.code === e.PERMISSION_DENIED ? 'denied' : 'unavailable'),
+      { maximumAge: 300_000, timeout: 20_000 },
+    ));
+  }, []);
 
   // Never prompt on load (onboarding and Me ask with an explanation); only refresh when access was already granted.
   useEffect(() => {

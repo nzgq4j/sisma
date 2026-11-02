@@ -289,7 +289,8 @@
     "loc_unavailable": "Impossible de trouver votre position. Réessayez plus tard.",
     "search_soon": "La recherche de lieux arrive bientôt. En attendant, utilisez votre position actuelle.",
     "intro": "Revoir la présentation",
-    "billing_soon": "Les paiements ne sont pas encore disponibles. Revenez bientôt."
+    "billing_soon": "Les paiements ne sont pas encore disponibles. Revenez bientôt.",
+    "loc_help": "Pour l’autoriser, ouvrez les paramètres du site (l’icône à côté de l’adresse), réglez Position sur Autoriser, puis réessayez."
   },
   "onboard": {
     "skip": "Passer",
@@ -310,6 +311,9 @@
     "loc_later": "Plus tard",
     "imp_h": "Important",
     "imp_p": "sisma n’est pas un service d’alerte officiel. En cas d’urgence, suivez toujours les consignes de la sécurité civile locale.",
-    "imp_ok": "J’ai compris"
+    "imp_ok": "J’ai compris",
+    "loc_finding": "Recherche de votre position…",
+    "loc_set": "Position enregistrée",
+    "try_again": "Réessayer"
   }
 }

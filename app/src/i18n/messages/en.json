@@ -289,7 +289,8 @@
     "loc_unavailable": "Your location couldn’t be found. Please try again later.",
     "search_soon": "Searching for a place is coming soon. For now, use your current location.",
     "intro": "Show introduction",
-    "billing_soon": "Payments aren’t available yet. Please check back soon."
+    "billing_soon": "Payments aren’t available yet. Please check back soon.",
+    "loc_help": "To allow it, open this site’s settings (the icon next to the web address), set Location to Allow, then try again."
   },
   "onboard": {
     "skip": "Skip",
@@ -310,6 +311,9 @@
     "loc_later": "Not now",
     "imp_h": "Important",
     "imp_p": "sisma is not an official warning service. In an emergency, always follow your local civil protection authority.",
-    "imp_ok": "I understand"
+    "imp_ok": "I understand",
+    "loc_finding": "Finding your location…",
+    "loc_set": "Location set",
+    "try_again": "Try again"
   }
 }

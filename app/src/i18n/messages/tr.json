@@ -289,7 +289,8 @@
     "loc_unavailable": "Konumun bulunamadı. Lütfen daha sonra tekrar dene.",
     "search_soon": "Yer arama yakında geliyor. Şimdilik mevcut konumunu kullan.",
     "intro": "Tanıtımı göster",
-    "billing_soon": "Ödemeler henüz kullanılamıyor. Lütfen yakında tekrar bak."
+    "billing_soon": "Ödemeler henüz kullanılamıyor. Lütfen yakında tekrar bak.",
+    "loc_help": "İzin vermek için site ayarlarını aç (web adresinin yanındaki simge), Konum’u İzin ver olarak ayarla ve tekrar dene."
   },
   "onboard": {
     "skip": "Atla",
@@ -310,6 +311,9 @@
     "loc_later": "Şimdi değil",
     "imp_h": "Önemli",
     "imp_p": "sisma resmi bir uyarı servisi değildir. Acil bir durumda her zaman yerel afet ve acil durum yetkililerinin talimatlarına uy.",
-    "imp_ok": "Anladım"
+    "imp_ok": "Anladım",
+    "loc_finding": "Konumun bulunuyor…",
+    "loc_set": "Konum ayarlandı",
+    "try_again": "Tekrar dene"
   }
 }

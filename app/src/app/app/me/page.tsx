@@ -170,10 +170,10 @@ function Locations({ onLocked }: { onLocked: () => void }) {
         ))}
         {!hasDevice && (
           <button type="button" className={`${styles.row} ${styles.accent}`} disabled={loc === 'busy'} onClick={async () => { setLoc('busy'); setLoc(await locateMe()); }}>
-            <span className="ms" aria-hidden="true">near_me</span><span className={styles.grow}>{m.acct.use_location}</span>
+            <span className="ms" aria-hidden="true">near_me</span><span className={styles.grow}>{loc === 'busy' ? m.onboard.loc_finding : m.acct.use_location}</span>
           </button>
         )}
-        {(loc === 'denied' || loc === 'unavailable') && <p className={styles.errLine} role="status">{loc === 'denied' ? m.acct.loc_denied : m.acct.loc_unavailable}</p>}
+        {(loc === 'denied' || loc === 'unavailable') && <p className={styles.errLine} role="status">{loc === 'denied' ? `${m.acct.loc_denied} ${m.acct.loc_help}` : m.acct.loc_unavailable}</p>}
         <button type="button" className={`${styles.row} ${styles.accent}`} onClick={() => (locked ? onLocked() : setAddOpen(true))}>
           <span className="ms" aria-hidden="true">add_location_alt</span><span className={styles.grow}>{t('add_location')}</span>
           {locked && <Lock />}
