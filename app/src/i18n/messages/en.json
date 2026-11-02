@@ -182,5 +182,76 @@
     "chart_view": "Show as chart",
     "loading": "Loading earthquakes…",
     "distance": "Distance"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "Convergent",
+      "divergent": "Divergent",
+      "transform": "Transform",
+      "normal": "Normal",
+      "reverse": "Reverse",
+      "strike": "Strike-slip",
+      "P": "P wave",
+      "S": "S wave",
+      "R": "Surface"
+    },
+    "cap": {
+      "convergent": "Oceanic plate sinks beneath a continent. Coral flashes are earthquakes tracing the slab down to ~700 km.",
+      "divergent": "Plates pull apart; rising magma freezes into new crust and records alternating magnetic stripes.",
+      "transform": "Plates slide horizontally. Stress builds where the boundary locks, then releases in earthquakes.",
+      "normal": "Stretching: the hanging wall slides down the fault.",
+      "reverse": "Compression: the hanging wall is pushed up and over.",
+      "strike": "Shear: the blocks slide sideways and the road is offset.",
+      "P": "P wave · ≈ 6 km/s · rock compresses along the direction of travel. Follow the coral particle.",
+      "S": "S wave · ≈ 3.5 km/s · rock shears at right angles to travel. Follow the coral particle.",
+      "R": "Rayleigh surface wave · ≈ 3 km/s · the ground rolls in ellipses that fade with depth.",
+      "tsunami": "Speed = √(g × depth). Watch the wave slow down and grow taller as the sea shallows."
+    },
+    "lbl": {
+      "surface": "Surface",
+      "direction": "Direction of travel",
+      "top_view": "Top view",
+      "footwall": "Footwall",
+      "hanging_wall": "Hanging wall",
+      "oceanic": "Oceanic plate",
+      "continental": "Continental plate",
+      "volcano": "Volcano",
+      "ridge": "Mid-ocean ridge",
+      "magma": "Rising magma",
+      "coast": "Coast",
+      "depth_m": "Depth ≈ {m} m",
+      "speed": "Speed ≈ {v} km/h · height ×{g}"
+    },
+    "mag": {
+      "area_note": "Circle area = energy released. Each step ≈ 32× more.",
+      "energy": "Energy ≈",
+      "worldwide": "Worldwide",
+      "per_year": "≈ {n} / year",
+      "every_years": "≈ 1 every {n} years",
+      "comparable": "Comparable:",
+      "tnt_t": "{n} t TNT",
+      "tnt_kt": "{n} kt TNT",
+      "tnt_mt": "{n} Mt TNT",
+      "ex_45": "Widely felt, rarely damaging",
+      "ex_30": "Felt by people nearby",
+      "ex_20": "Recorded, rarely felt"
+    },
+    "depth": {
+      "live": "Live: depth of {n} recent earthquakes ({range})",
+      "shallow": "Shallow · 0–70 km",
+      "intermediate": "Intermediate · 70–300 km",
+      "deep": "Deep · 300–700 km",
+      "omori": "Aftershocks per day after a mainshock (Omori’s law)",
+      "day": "Day {n}"
+    },
+    "prep": {
+      "drop": "Drop",
+      "cover": "Cover",
+      "hold": "Hold on",
+      "kit_title": "Your 3-day kit"
+    },
+    "next": "Next topic",
+    "pause": "Pause animation",
+    "play": "Play animation"
   }
 }

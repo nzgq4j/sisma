@@ -182,5 +182,76 @@
     "chart_view": "Mostra come grafico",
     "loading": "Caricamento dei terremoti…",
     "distance": "Distanza"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "Convergente",
+      "divergent": "Divergente",
+      "transform": "Trasforme",
+      "normal": "Diretta",
+      "reverse": "Inversa",
+      "strike": "Trascorrente",
+      "P": "Onda P",
+      "S": "Onda S",
+      "R": "Superficiale"
+    },
+    "cap": {
+      "convergent": "La placca oceanica sprofonda sotto un continente. I lampi corallo sono terremoti che seguono la placca fino a ~700 km.",
+      "divergent": "Le placche si allontanano; il magma che risale si solidifica in nuova crosta e registra bande magnetiche alternate.",
+      "transform": "Le placche scorrono in orizzontale. Lo sforzo si accumula dove il margine è bloccato e si libera con i terremoti.",
+      "normal": "Distensione: il tetto scivola verso il basso lungo la faglia.",
+      "reverse": "Compressione: il tetto viene spinto verso l’alto e sopra il letto.",
+      "strike": "Taglio: i blocchi scorrono lateralmente e la strada si sposta.",
+      "P": "Onda P · ≈ 6 km/s · la roccia si comprime nella direzione di propagazione. Segui la particella corallo.",
+      "S": "Onda S · ≈ 3,5 km/s · la roccia subisce taglio ad angolo retto rispetto alla propagazione. Segui la particella corallo.",
+      "R": "Onda superficiale di Rayleigh · ≈ 3 km/s · il suolo ruota in ellissi che si attenuano con la profondità.",
+      "tsunami": "Velocità = √(g × profondità). Guarda l’onda rallentare e alzarsi man mano che il mare diventa basso."
+    },
+    "lbl": {
+      "surface": "Superficie",
+      "direction": "Direzione di propagazione",
+      "top_view": "Vista dall’alto",
+      "footwall": "Letto",
+      "hanging_wall": "Tetto",
+      "oceanic": "Placca oceanica",
+      "continental": "Placca continentale",
+      "volcano": "Vulcano",
+      "ridge": "Dorsale oceanica",
+      "magma": "Magma in risalita",
+      "coast": "Costa",
+      "depth_m": "Profondità ≈ {m} m",
+      "speed": "Velocità ≈ {v} km/h · altezza ×{g}"
+    },
+    "mag": {
+      "area_note": "Area del cerchio = energia rilasciata. Ogni passo ≈ 32 volte di più.",
+      "energy": "Energia ≈",
+      "worldwide": "Nel mondo",
+      "per_year": "≈ {n} / anno",
+      "every_years": "≈ 1 ogni {n} anni",
+      "comparable": "Paragonabile a:",
+      "tnt_t": "{n} t di TNT",
+      "tnt_kt": "{n} kt di TNT",
+      "tnt_mt": "{n} Mt di TNT",
+      "ex_45": "Avvertito su ampie zone, raramente dannoso",
+      "ex_30": "Avvertito dalle persone vicine",
+      "ex_20": "Registrato, raramente avvertito"
+    },
+    "depth": {
+      "live": "In diretta: profondità di {n} terremoti recenti ({range})",
+      "shallow": "Superficiale · 0–70 km",
+      "intermediate": "Intermedio · 70–300 km",
+      "deep": "Profondo · 300–700 km",
+      "omori": "Repliche al giorno dopo una scossa principale (legge di Omori)",
+      "day": "Giorno {n}"
+    },
+    "prep": {
+      "drop": "Abbassati",
+      "cover": "Riparati",
+      "hold": "Tieniti",
+      "kit_title": "Il tuo kit per 3 giorni"
+    },
+    "next": "Argomento successivo",
+    "pause": "Metti in pausa l’animazione",
+    "play": "Avvia l’animazione"
   }
 }

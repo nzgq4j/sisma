@@ -182,5 +182,76 @@
     "chart_view": "Tampilkan sebagai grafik",
     "loading": "Memuat data gempa…",
     "distance": "Jarak"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "Konvergen",
+      "divergent": "Divergen",
+      "transform": "Transform",
+      "normal": "Normal",
+      "reverse": "Naik",
+      "strike": "Geser",
+      "P": "Gelombang P",
+      "S": "Gelombang S",
+      "R": "Permukaan"
+    },
+    "cap": {
+      "convergent": "Lempeng samudra menunjam ke bawah benua. Kilatan koral adalah gempa yang menelusuri lempeng hingga ~700 km.",
+      "divergent": "Lempeng saling menjauh; magma yang naik membeku menjadi kerak baru dan merekam pita magnetik bergantian.",
+      "transform": "Lempeng bergeser secara horizontal. Tegangan menumpuk di bagian batas yang terkunci, lalu lepas sebagai gempa.",
+      "normal": "Tarikan: dinding gantung turun menyusuri sesar.",
+      "reverse": "Tekanan: dinding gantung terdorong naik dan menindih.",
+      "strike": "Geser: blok bergeser ke samping dan jalan ikut bergeser.",
+      "P": "Gelombang P · ≈ 6 km/s · batuan memampat searah rambatan. Ikuti partikel koral.",
+      "S": "Gelombang S · ≈ 3,5 km/s · batuan bergeser tegak lurus rambatan. Ikuti partikel koral.",
+      "R": "Gelombang permukaan Rayleigh · ≈ 3 km/s · tanah berguling dalam elips yang melemah seiring kedalaman.",
+      "tsunami": "Kecepatan = √(g × kedalaman). Lihat gelombang melambat dan meninggi saat laut makin dangkal."
+    },
+    "lbl": {
+      "surface": "Permukaan",
+      "direction": "Arah rambatan",
+      "top_view": "Tampak atas",
+      "footwall": "Dinding alas",
+      "hanging_wall": "Dinding gantung",
+      "oceanic": "Lempeng samudra",
+      "continental": "Lempeng benua",
+      "volcano": "Gunung api",
+      "ridge": "Punggung tengah samudra",
+      "magma": "Magma naik",
+      "coast": "Pantai",
+      "depth_m": "Kedalaman ≈ {m} m",
+      "speed": "Kecepatan ≈ {v} km/jam · tinggi ×{g}"
+    },
+    "mag": {
+      "area_note": "Luas lingkaran = energi yang dilepas. Tiap langkah ≈ 32× lebih besar.",
+      "energy": "Energi ≈",
+      "worldwide": "Di seluruh dunia",
+      "per_year": "≈ {n} / tahun",
+      "every_years": "≈ 1 kali tiap {n} tahun",
+      "comparable": "Setara dengan:",
+      "tnt_t": "{n} t TNT",
+      "tnt_kt": "{n} kt TNT",
+      "tnt_mt": "{n} Mt TNT",
+      "ex_45": "Terasa luas, jarang merusak",
+      "ex_30": "Dirasakan orang di dekatnya",
+      "ex_20": "Tercatat, jarang terasa"
+    },
+    "depth": {
+      "live": "Langsung: kedalaman {n} gempa terbaru ({range})",
+      "shallow": "Dangkal · 0–70 km",
+      "intermediate": "Menengah · 70–300 km",
+      "deep": "Dalam · 300–700 km",
+      "omori": "Gempa susulan per hari setelah gempa utama (hukum Omori)",
+      "day": "Hari ke-{n}"
+    },
+    "prep": {
+      "drop": "Merunduk",
+      "cover": "Berlindung",
+      "hold": "Berpegangan",
+      "kit_title": "Tas siaga 3 hari Anda"
+    },
+    "next": "Topik berikutnya",
+    "pause": "Jeda animasi",
+    "play": "Putar animasi"
   }
 }

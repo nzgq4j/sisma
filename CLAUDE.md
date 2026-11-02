@@ -23,8 +23,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 3. Felt report sheet (quick → details → thanks) + POST /api/reports + felt_reports table
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
-6. Science: list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
-   magnitude / depth / preparedness widgets
+6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
+   magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
 7. Me: plan card, alerts (sisma+), saved locations (limit), language sheet, appearance
 8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_settings

@@ -16,3 +16,10 @@ export function magColor(m: number) {
 export const depthColor = (km: number) => (km < 70 ? '#2CCB9A' : km < 300 ? '#7B61FF' : '#B5179E');
 export const MMI_COLORS = ['#86DCC4', '#86DCC4', '#F7CF4A', '#F7CF4A', '#FFA94D', '#FF7A59', '#EE4266', '#EE4266', '#B5179E', '#B5179E'];
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
+// Science diagram palette (design: SCP) — light and dark steps for the canvas visuals.
+export const SCIENCE_PALETTE = {
+  light: { ink: '#1B1530', ink2: '#5E587A', a: '#6C4BF4', b: '#2CCB9A', warm: '#FF7A59', sand: '#EFC48E', ocean: '#5A44D6', sea: '#BDEBDD', floor: '#D8D0EE', mantle: '#F4EFFF', bands: ['#D9CFFB', '#F6DA9A', '#B5EBDA', '#F7C2B4', '#E6E0F6'], road: '#4A4560', lane: '#F6DA9A' },
+  dark: { ink: '#F2EFFB', ink2: '#A9A2C6', a: '#8F74FF', b: '#3FE0AE', warm: '#FF8A6B', sand: '#A87F52', ocean: '#5B47D9', sea: '#1D4A42', floor: '#3A3260', mantle: '#221B3B', bands: ['#4A3D8A', '#7D6738', '#2F6E5C', '#7E4537', '#3A3260'], road: '#CFC8E8', lane: '#7D6738' },
+};
+export type SciencePalette = (typeof SCIENCE_PALETTE)['light'];

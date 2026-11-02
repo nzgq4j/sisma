@@ -182,5 +182,76 @@
     "chart_view": "以图表显示",
     "loading": "正在加载地震数据…",
     "distance": "距离"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "汇聚型",
+      "divergent": "离散型",
+      "transform": "转换型",
+      "normal": "正断层",
+      "reverse": "逆断层",
+      "strike": "走滑断层",
+      "P": "P波",
+      "S": "S波",
+      "R": "面波"
+    },
+    "cap": {
+      "convergent": "大洋板块俯冲到大陆之下。珊瑚色闪光是沿俯冲板片深达约700公里的地震。",
+      "divergent": "板块相互分离；上涌的岩浆冷凝成新地壳，并记录下交替的磁条带。",
+      "transform": "板块水平错动。边界锁住的地方积累应力，再以地震的形式释放。",
+      "normal": "拉张：上盘沿断层下滑。",
+      "reverse": "挤压：上盘被向上推挤并逆冲到下盘之上。",
+      "strike": "剪切：岩块侧向滑动，道路随之错开。",
+      "P": "P波 · 约6 km/s · 岩石沿传播方向压缩。请跟随珊瑚色粒子。",
+      "S": "S波 · 约3.5 km/s · 岩石垂直于传播方向剪切。请跟随珊瑚色粒子。",
+      "R": "瑞利面波 · 约3 km/s · 地面以椭圆轨迹滚动，随深度减弱。",
+      "tsunami": "速度 = √(g × 水深)。观察海水变浅时波浪如何减速并升高。"
+    },
+    "lbl": {
+      "surface": "地表",
+      "direction": "传播方向",
+      "top_view": "俯视图",
+      "footwall": "下盘",
+      "hanging_wall": "上盘",
+      "oceanic": "大洋板块",
+      "continental": "大陆板块",
+      "volcano": "火山",
+      "ridge": "洋中脊",
+      "magma": "上涌岩浆",
+      "coast": "海岸",
+      "depth_m": "水深 ≈ {m} 米",
+      "speed": "速度 ≈ {v} km/h · 高度 ×{g}"
+    },
+    "mag": {
+      "area_note": "圆面积 = 释放的能量。每级约多 32 倍。",
+      "energy": "能量 ≈",
+      "worldwide": "全球",
+      "per_year": "≈ 每年 {n} 次",
+      "every_years": "≈ 每 {n} 年 1 次",
+      "comparable": "相当于：",
+      "tnt_t": "{n} 吨 TNT",
+      "tnt_kt": "{n} 千吨 TNT",
+      "tnt_mt": "{n} 百万吨 TNT",
+      "ex_45": "大范围有感，很少造成破坏",
+      "ex_30": "附近的人有感",
+      "ex_20": "有记录，很少有感"
+    },
+    "depth": {
+      "live": "实时：最近 {n} 次地震的深度（{range}）",
+      "shallow": "浅源 · 0–70 km",
+      "intermediate": "中源 · 70–300 km",
+      "deep": "深源 · 300–700 km",
+      "omori": "主震后每天的余震次数（大森定律）",
+      "day": "第 {n} 天"
+    },
+    "prep": {
+      "drop": "趴下",
+      "cover": "掩护",
+      "hold": "抓牢",
+      "kit_title": "你的3天应急包"
+    },
+    "next": "下一个主题",
+    "pause": "暂停动画",
+    "play": "播放动画"
   }
 }
