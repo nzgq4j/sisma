@@ -50,6 +50,28 @@ div.row { cursor: default; }
 .hint { margin: 0; font-size: 12px; line-height: 1.5; color: var(--ink2); }
 .errLine { margin: 0; padding: 0 0 12px; font-size: 13px; font-weight: 600; color: var(--warm-text); }
 
+.placeRow { display: flex; align-items: center; gap: 4px; }
+.placeRow + .placeRow, .placeRow + .row, .row + .placeRow, .empty + .row { border-top: 1px solid var(--line); }
+.placeRow > .row { flex: 1; min-width: 0; }
+.placeName { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.placeDetail { display: block; font-size: 13px; font-weight: 500; color: var(--ink2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.iconBtn { width: 44px; height: 44px; border: 0; border-radius: 22px; background: transparent; color: var(--ink2); cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none; }
+.iconBtn:hover { background: var(--surface2); }
+.iconBtn :global(.ms) { font-size: 20px; }
+.empty { margin: 0; padding: 14px 0; font-size: 14px; line-height: 1.5; color: var(--ink2); }
+.row[aria-disabled="true"] { opacity: .55; cursor: default; }
+.searchForm { display: flex; align-items: center; gap: 8px; background: var(--surface2); border-radius: 16px; padding: 4px 4px 4px 12px; }
+.searchIcon { font-size: 22px; color: var(--ink2); }
+.searchInput { flex: 1; min-width: 0; height: 44px; border: 0; background: transparent; color: var(--ink); font: 500 16px var(--font-figtree), sans-serif; outline: none; }
+.searchInput::-webkit-search-cancel-button { display: none; }
+.searchBtn { height: 44px; border: 0; border-radius: 12px; background: var(--violet); color: var(--on-violet); font: 800 14px var(--font-figtree), sans-serif; padding: 0 16px; cursor: pointer; }
+.searchBtn:disabled { opacity: .5; cursor: default; }
+.searchForm:focus-within { outline: 2px solid var(--violet); outline-offset: 1px; }
+.results { display: flex; flex-direction: column; }
+.resultRow { display: flex; align-items: center; gap: 12px; min-height: 60px; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: 600 15px var(--font-figtree), sans-serif; padding: 0 4px; }
+.resultRow > :global(.ms) { font-size: 22px; color: var(--violet-text); }
+.resultRow:disabled { opacity: .6; cursor: progress; }
+.attrib { margin: 4px 0 0; font-size: 11px; color: var(--ink2); text-align: right; }
 .block { display: flex; flex-direction: column; gap: 10px; padding: 14px 0; }
 .blockHead { display: flex; align-items: center; gap: 12px; font: 600 15px var(--font-figtree), sans-serif; }
 .seg { display: flex; background: var(--surface2); border-radius: 14px; padding: 4px; gap: 4px; }

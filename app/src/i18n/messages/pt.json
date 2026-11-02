@@ -287,10 +287,18 @@
     "use_location": "Usar minha localização atual",
     "loc_denied": "O acesso à localização está desativado. Você pode ativá-lo nas configurações do navegador ou do dispositivo.",
     "loc_unavailable": "Não foi possível encontrar sua localização. Tente novamente mais tarde.",
-    "search_soon": "A busca de lugares chega em breve. Por enquanto, use sua localização atual.",
     "intro": "Ver a introdução",
     "billing_soon": "Os pagamentos ainda não estão disponíveis. Volte em breve.",
-    "loc_help": "Para permitir, abra as configurações do site (o ícone ao lado do endereço), defina Localização como Permitir e tente novamente."
+    "loc_help": "Para permitir, abra as configurações do site (o ícone ao lado do endereço), defina Localização como Permitir e tente novamente.",
+    "search_ph": "Busque uma cidade",
+    "search": "Buscar",
+    "searching": "Buscando…",
+    "no_results": "Nenhum lugar encontrado. Tente outra grafia.",
+    "search_error": "A busca não está disponível agora. Tente novamente.",
+    "rate_limited": "Muitas buscas. Aguarde um minuto.",
+    "remove": "Remover {name}",
+    "limit_reached": "Você atingiu o limite de {n} locais salvos.",
+    "no_places": "Adicione um lugar ou use sua localização atual para ver os terremotos mais próximos."
   },
   "onboard": {
     "skip": "Pular",

@@ -15,6 +15,7 @@ import { setTheme, useTheme, type ThemePref } from '@/components/Theme';
 import { openOnboarding } from '@/components/onboarding/store';
 import { supabaseBrowser } from '@/lib/supabase-browser';
 import { PRICES, limits } from '@/lib/entitlements';
+import type { PlaceHit } from '@/lib/places';
 import styles from './me.module.css';
 
 const RADII = [100, 250, 500, 1000, 0];
@@ -152,37 +153,117 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
 
 function Locations({ onLocked }: { onLocked: () => void }) {
   const { t, m } = useT();
-  const { plan, locations, active, setActive, locateMe } = useApp();
+  const a = m.acct;
+  const { plan, locations, active, setActive, locateMe, removePlace, canAddPlace } = useApp();
   const [loc, setLoc] = useState<LocateResult | 'busy' | null>(null);
-  const hasDevice = locations.some(l => l.fromDevice);
-  const locked = locations.length >= limits(plan).maxLocations;
   const [addOpen, setAddOpen] = useState(false);
+  const hasDevice = locations.some(l => l.fromDevice);
+  const shown = locations.filter(l => !l.fallback);
+  const atPlusLimit = !canAddPlace && plan === 'plus';
   return (
     <>
       <div className={styles.sectionLabel}>{t('locations')}</div>
       <div className={styles.card}>
-        {locations.map((l, i) => (
-          <button key={`${l.name}-${i}`} type="button" className={styles.row} aria-pressed={i === active} onClick={() => setActive(i)}>
-            <span className="ms" aria-hidden="true" style={{ color: l.fromDevice ? 'var(--mint-text)' : undefined }}>{l.fromDevice ? 'my_location' : 'location_on'}</span>
-            <span className={styles.grow}>{l.fromDevice ? m.acct.my_location : l.name}</span>
-            {i === active && <span className={`ms ${styles.check}`} aria-hidden="true">check</span>}
-          </button>
-        ))}
+        {shown.length === 0 && <p className={styles.empty}>{a.no_places}</p>}
+        {shown.map(l => {
+          const i = locations.indexOf(l);
+          return (
+            <div key={l.key} className={styles.placeRow}>
+              <button type="button" className={styles.row} aria-pressed={i === active} onClick={() => setActive(i)}>
+                <span className="ms" aria-hidden="true" style={{ color: l.fromDevice ? 'var(--mint-text)' : undefined }}>{l.fromDevice ? 'my_location' : 'location_on'}</span>
+                <span className={styles.grow}>
+                  <span className={styles.placeName}>{l.fromDevice ? a.my_location : l.name}</span>
+                  {l.detail && <span className={styles.placeDetail}>{l.detail}</span>}
+                </span>
+                {i === active && <span className={`ms ${styles.check}`} aria-hidden="true">check</span>}
+              </button>
+              {!l.fromDevice && (
+                <button type="button" className={styles.iconBtn} aria-label={a.remove.replace('{name}', l.name)} onClick={() => void removePlace(l.key)}>
+                  <span className="ms" aria-hidden="true">close</span>
+                </button>
+              )}
+            </div>
+          );
+        })}
         {!hasDevice && (
           <button type="button" className={`${styles.row} ${styles.accent}`} disabled={loc === 'busy'} onClick={async () => { setLoc('busy'); setLoc(await locateMe()); }}>
-            <span className="ms" aria-hidden="true">near_me</span><span className={styles.grow}>{loc === 'busy' ? m.onboard.loc_finding : m.acct.use_location}</span>
+            <span className="ms" aria-hidden="true">near_me</span><span className={styles.grow}>{loc === 'busy' ? m.onboard.loc_finding : a.use_location}</span>
           </button>
         )}
-        {(loc === 'denied' || loc === 'unavailable') && <p className={styles.errLine} role="status">{loc === 'denied' ? `${m.acct.loc_denied} ${m.acct.loc_help}` : m.acct.loc_unavailable}</p>}
-        <button type="button" className={`${styles.row} ${styles.accent}`} onClick={() => (locked ? onLocked() : setAddOpen(true))}>
+        {(loc === 'denied' || loc === 'unavailable') && <p className={styles.errLine} role="status">{loc === 'denied' ? `${a.loc_denied} ${a.loc_help}` : a.loc_unavailable}</p>}
+        <button type="button" className={`${styles.row} ${styles.accent}`} aria-disabled={atPlusLimit}
+          onClick={() => (canAddPlace ? setAddOpen(true) : plan === 'free' ? onLocked() : undefined)}>
           <span className="ms" aria-hidden="true">add_location_alt</span><span className={styles.grow}>{t('add_location')}</span>
-          {locked && <Lock />}
+          {!canAddPlace && plan === 'free' && <Lock />}
         </button>
+        {atPlusLimit && <p className={styles.hint}>{a.limit_reached.replace('{n}', String(limits(plan).maxLocations))}</p>}
       </div>
-      <Sheet open={addOpen} onClose={() => setAddOpen(false)} title={t('add_location')}>
-        <p className={styles.sheetP}>{m.acct.search_soon}</p>
-      </Sheet>
+      <AddPlaceSheet open={addOpen} onClose={() => setAddOpen(false)} onLimit={() => { setAddOpen(false); if (plan === 'free') onLocked(); }} />
     </>
+  );
+}
+
+/** Place search (OpenStreetMap / Nominatim via /api/places). Searches when submitted, not while typing (usage policy). */
+function AddPlaceSheet({ open, onClose, onLimit }: { open: boolean; onClose: () => void; onLimit: () => void }) {
+  const { t, m, locale } = useT();
+  const a = m.acct;
+  const { addPlace } = useApp();
+  const [q, setQ] = useState('');
+  const [state, setState] = useState<'idle' | 'busy' | 'done' | 'error' | 'rate' | 'saving' | 'save_error'>('idle');
+  const [results, setResults] = useState<PlaceHit[]>([]);
+  const [attribution, setAttribution] = useState('© OpenStreetMap contributors');
+  const close = () => { onClose(); setState('idle'); setResults([]); setQ(''); };
+
+  const search = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const query = q.trim(); if (query.length < 2) return;
+    setState('busy');
+    try {
+      const r = await fetch(`/api/places?q=${encodeURIComponent(query)}&lang=${locale}`);
+      const j = (await r.json()) as { results?: PlaceHit[]; attribution?: string };
+      if (j.attribution) setAttribution(j.attribution);
+      if (r.status === 429) return setState('rate');
+      if (!r.ok) return setState('error');
+      setResults(j.results ?? []); setState('done');
+    } catch { setState('error'); }
+  };
+  const pick = async (hit: PlaceHit) => {
+    setState('saving');
+    const res = await addPlace(hit);
+    if (res === 'ok') close(); else if (res === 'limit') { close(); onLimit(); } else setState('save_error');
+  };
+
+  return (
+    <Sheet open={open} onClose={close} title={t('add_location')}>
+      <div className={styles.sheetBody}>
+        <form className={styles.searchForm} onSubmit={search} role="search">
+          <label htmlFor="place-q" className="sr-only">{a.search_ph}</label>
+          <span className={`ms ${styles.searchIcon}`} aria-hidden="true">search</span>
+          <input id="place-q" className={styles.searchInput} type="search" enterKeyHint="search" autoComplete="off" placeholder={a.search_ph}
+            value={q} onChange={e => setQ(e.target.value)} maxLength={100} />
+          <button type="submit" className={styles.searchBtn} disabled={q.trim().length < 2 || state === 'busy'}>{a.search}</button>
+        </form>
+        <div aria-live="polite">
+          {state === 'busy' && <p className={styles.sheetP}>{a.searching}</p>}
+          {state === 'error' && <p className={styles.errLine}>{a.search_error}</p>}
+          {state === 'rate' && <p className={styles.errLine}>{a.rate_limited}</p>}
+          {state === 'save_error' && <p className={styles.errLine}>{a.error}</p>}
+          {state === 'done' && results.length === 0 && <p className={styles.sheetP}>{a.no_results}</p>}
+        </div>
+        {results.length > 0 && (
+          <div className={styles.results}>
+            {results.map(h => (
+              <button key={`${h.name}|${h.detail}|${h.lat}`} type="button" className={styles.resultRow} disabled={state === 'saving'} onClick={() => void pick(h)}>
+                <span className="ms" aria-hidden="true">location_on</span>
+                <span className={styles.grow}><span className={styles.placeName}>{h.name}</span>{h.detail && <span className={styles.placeDetail}>{h.detail}</span>}</span>
+                <span className="ms" aria-hidden="true">add</span>
+              </button>
+            ))}
+          </div>
+        )}
+        <p className={styles.attrib}>{attribution}</p>
+      </div>
+    </Sheet>
   );
 }
 

@@ -14,3 +14,5 @@ Always credit sources in the UI. Verify each provider's terms of use before laun
 Plate boundaries: PB2002 (Bird, 2003) via github.com/fraxen/tectonicplates — bundled as app/public/data/plate-boundaries.json (ODC-BY; credit shown on the map when plates are on).
 
 Lakes: Natural Earth 1:50m lakes (public domain) — bundled as app/public/data/lakes.json, built by app/scripts/build-lakes.mjs.
+
+Place search: Nominatim (OpenStreetMap data, ODbL) via app/src/app/api/places — search on submit only (no search-as-you-type), ≤ 1 request/s per server instance, results cached for a week, "© OpenStreetMap contributors" shown under the results. The public Nominatim service is for low volume; if usage grows, switch to a hosted geocoder by adding an adapter in app/src/lib/places.ts.

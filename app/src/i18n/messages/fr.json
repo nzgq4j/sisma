@@ -287,10 +287,18 @@
     "use_location": "Utiliser ma position actuelle",
     "loc_denied": "L’accès à la position est désactivé. Vous pouvez l’activer dans les réglages du navigateur ou de l’appareil.",
     "loc_unavailable": "Impossible de trouver votre position. Réessayez plus tard.",
-    "search_soon": "La recherche de lieux arrive bientôt. En attendant, utilisez votre position actuelle.",
     "intro": "Revoir la présentation",
     "billing_soon": "Les paiements ne sont pas encore disponibles. Revenez bientôt.",
-    "loc_help": "Pour l’autoriser, ouvrez les paramètres du site (l’icône à côté de l’adresse), réglez Position sur Autoriser, puis réessayez."
+    "loc_help": "Pour l’autoriser, ouvrez les paramètres du site (l’icône à côté de l’adresse), réglez Position sur Autoriser, puis réessayez.",
+    "search_ph": "Rechercher une ville ou un village",
+    "search": "Rechercher",
+    "searching": "Recherche…",
+    "no_results": "Aucun lieu trouvé. Essayez une autre orthographe.",
+    "search_error": "La recherche n’est pas disponible pour le moment. Réessayez.",
+    "rate_limited": "Trop de recherches. Patientez une minute.",
+    "remove": "Retirer {name}",
+    "limit_reached": "Vous avez atteint la limite de {n} lieux enregistrés.",
+    "no_places": "Ajoutez un lieu ou utilisez votre position actuelle pour voir les séismes les plus proches."
   },
   "onboard": {
     "skip": "Passer",

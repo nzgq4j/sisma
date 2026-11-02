@@ -29,8 +29,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
 7. Me / account dashboard (skeleton done: app/app/me): email-link sign-in (components/Account.tsx), profile + plan, alerts saved to
-   alert_settings, language, appearance (components/Theme.tsx), delete account (DELETE /api/account). Todo: saved locations in
-   Supabase, place search, display name, subscription management
+   alert_settings, language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
+   saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
+   Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Todo: display name, subscription management
 8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet (done: components/Paywall.tsx)
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_settings
 10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets

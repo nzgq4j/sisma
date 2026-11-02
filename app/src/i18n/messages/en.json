@@ -287,10 +287,18 @@
     "use_location": "Use my current location",
     "loc_denied": "Location access is off. You can turn it on in your browser or device settings.",
     "loc_unavailable": "Your location couldn’t be found. Please try again later.",
-    "search_soon": "Searching for a place is coming soon. For now, use your current location.",
     "intro": "Show introduction",
     "billing_soon": "Payments aren’t available yet. Please check back soon.",
-    "loc_help": "To allow it, open this site’s settings (the icon next to the web address), set Location to Allow, then try again."
+    "loc_help": "To allow it, open this site’s settings (the icon next to the web address), set Location to Allow, then try again.",
+    "search_ph": "Search for a city or town",
+    "search": "Search",
+    "searching": "Searching…",
+    "no_results": "No places found. Try another spelling.",
+    "search_error": "Search isn’t available right now. Please try again.",
+    "rate_limited": "Too many searches. Please wait a minute.",
+    "remove": "Remove {name}",
+    "limit_reached": "You’ve reached the limit of {n} saved locations.",
+    "no_places": "Add a place or use your current location to see the earthquakes nearest to you."
   },
   "onboard": {
     "skip": "Skip",

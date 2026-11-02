@@ -287,10 +287,18 @@
     "use_location": "Gunakan lokasi saya saat ini",
     "loc_denied": "Akses lokasi nonaktif. Anda bisa mengaktifkannya di pengaturan browser atau perangkat.",
     "loc_unavailable": "Lokasi Anda tidak dapat ditemukan. Silakan coba lagi nanti.",
-    "search_soon": "Pencarian tempat segera hadir. Untuk sekarang, gunakan lokasi Anda saat ini.",
     "intro": "Tampilkan pengenalan",
     "billing_soon": "Pembayaran belum tersedia. Silakan kembali lagi nanti.",
-    "loc_help": "Untuk mengizinkannya, buka pengaturan situs (ikon di samping alamat web), ubah Lokasi menjadi Izinkan, lalu coba lagi."
+    "loc_help": "Untuk mengizinkannya, buka pengaturan situs (ikon di samping alamat web), ubah Lokasi menjadi Izinkan, lalu coba lagi.",
+    "search_ph": "Cari kota atau desa",
+    "search": "Cari",
+    "searching": "Mencari…",
+    "no_results": "Tempat tidak ditemukan. Coba ejaan lain.",
+    "search_error": "Pencarian sedang tidak tersedia. Silakan coba lagi.",
+    "rate_limited": "Terlalu banyak pencarian. Tunggu sebentar.",
+    "remove": "Hapus {name}",
+    "limit_reached": "Anda telah mencapai batas {n} lokasi tersimpan.",
+    "no_places": "Tambahkan tempat atau gunakan lokasi Anda saat ini untuk melihat gempa terdekat."
   },
   "onboard": {
     "skip": "Lewati",
