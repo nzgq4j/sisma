@@ -28,7 +28,7 @@ export function QuakeDetail({ q, onClose }: { q: Row; onClose?: () => void }) {
         <div><dt>{t('coords')}</dt><dd>{q.lat.toFixed(2)}°, {q.lon.toFixed(2)}°</dd></div>
         <div><dt>{t('source')}</dt><dd>{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</dd></div>
       </dl>
-      <FeltButton q={q} variant="block" />
+      <FeltButton q={q} variant="block" fallback={<p className={styles.windowNote}>{t('report_window')}</p>} />
       {!!q.felt && <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span>{t('felt_by', { n: nf.format(q.felt) })}</p>}
     </>
   );
