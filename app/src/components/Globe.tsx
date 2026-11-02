@@ -7,7 +7,7 @@ import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select, pointer } from 'd3-selection';
 import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, magColor } from '@/lib/theme';
-import { LAND, SPHERE, usePlates } from '@/lib/world';
+import { LAND, SPHERE, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
 
 export interface GlobeHandle { zoomBy: (f: number) => void }
@@ -32,9 +32,11 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
   const sorted = useRef<{ src: Quake[] | null; list: Quake[] }>({ src: null, list: [] });
   const plateData = usePlates(props.plates);
   const platesRef = useRef(plateData);
+  const lakeData = useLakes();
+  const lakesRef = useRef(lakeData);
   const zoomRef = useRef<{ z: ZoomBehavior<HTMLCanvasElement, unknown>; el: HTMLCanvasElement } | null>(null);
   useEffect(() => {
-    live.current = props; platesRef.current = plateData;
+    live.current = props; platesRef.current = plateData; lakesRef.current = lakeData;
     // Ascending magnitude so the strongest events are drawn last (on top); recomputed only when the data changes.
     if (sorted.current.src !== props.quakes) sorted.current = { src: props.quakes, list: [...props.quakes].sort((a, b) => a.mag - b.mag) };
   });
@@ -103,6 +105,8 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       ctx.beginPath(); path(SPHERE); ctx.fillStyle = theme.sea; ctx.fill();
       ctx.beginPath(); path(GRATICULE); ctx.strokeStyle = theme.grat; ctx.lineWidth = 0.7; ctx.stroke();
       ctx.beginPath(); path(LAND); ctx.fillStyle = theme.land; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.6; ctx.stroke();
+      const lakes = lakesRef.current;
+      if (lakes) { ctx.beginPath(); path(lakes); ctx.fillStyle = theme.sea; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.5; ctx.stroke(); }
       const plates = platesRef.current;
       if (p.plates && plates) { ctx.beginPath(); path(plates); ctx.strokeStyle = theme.plate; ctx.globalAlpha = 0.65; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; }
 
