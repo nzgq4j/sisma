@@ -298,7 +298,12 @@
     "rate_limited": "Çok fazla arama yapıldı. Lütfen bir dakika bekle.",
     "remove": "{name} öğesini kaldır",
     "limit_reached": "{n} kayıtlı konum sınırına ulaştın.",
-    "no_places": "En yakın depremleri görmek için bir yer ekle veya mevcut konumunu kullan."
+    "no_places": "En yakın depremleri görmek için bir yer ekle veya mevcut konumunu kullan.",
+    "display_name": "Görünen ad",
+    "display_name_ph": "Adın",
+    "display_name_hint": "Hesabında gösterilir. E-postanı kullanmak için boş bırak.",
+    "not_set": "Ayarlanmadı",
+    "save": "Kaydet"
   },
   "onboard": {
     "skip": "Atla",

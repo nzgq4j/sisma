@@ -298,7 +298,12 @@
     "rate_limited": "Too many searches. Please wait a minute.",
     "remove": "Remove {name}",
     "limit_reached": "You’ve reached the limit of {n} saved locations.",
-    "no_places": "Add a place or use your current location to see the earthquakes nearest to you."
+    "no_places": "Add a place or use your current location to see the earthquakes nearest to you.",
+    "display_name": "Display name",
+    "display_name_ph": "Your name",
+    "display_name_hint": "Shown on your account. Leave it empty to use your email.",
+    "not_set": "Not set",
+    "save": "Save"
   },
   "onboard": {
     "skip": "Skip",

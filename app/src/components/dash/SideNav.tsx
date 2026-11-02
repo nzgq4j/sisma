@@ -1,9 +1,8 @@
 'use client';
-// Desktop navigation rail. Replaces the bottom bar at >= 1024px (see dash.module.css).
+// Desktop navigation rail. Replaces the bottom bar at >= 1024px (see dash.module.css). Language is chosen in Me.
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useT } from '@/i18n/I18nProvider';
-import { LanguagePicker } from '@/components/LanguagePicker';
 import { useApp } from '@/components/AppState';
 import { LogoMark } from '@/components/Logo';
 import styles from './dash.module.css';
@@ -43,13 +42,6 @@ export function SideNav() {
           <strong>{plan === 'plus' ? 'sisma+' : t('plan_free')}</strong>
           {plan === 'free' && <Link href="/app/me" className={styles.planBtn}>{t('upgrade')}</Link>}
         </div>
-        <LanguagePicker>{(open, cur) => (
-          <button type="button" className={styles.langRow} onClick={open} aria-haspopup="dialog" aria-label={`${t('language')}: ${cur.name}`}>
-            <span className="ms" aria-hidden="true">translate</span>
-            <span className={styles.langName}>{cur.name}</span>
-            <span className="ms" aria-hidden="true">expand_less</span>
-          </button>
-        )}</LanguagePicker>
       </div>
     </aside>
   );

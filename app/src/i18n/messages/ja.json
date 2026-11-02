@@ -298,7 +298,12 @@
     "rate_limited": "検索回数が多すぎます。1 分ほどお待ちください。",
     "remove": "{name} を削除",
     "limit_reached": "保存できる地点は {n} 件までです。",
-    "no_places": "場所を追加するか現在地を使うと、近くの地震が表示されます。"
+    "no_places": "場所を追加するか現在地を使うと、近くの地震が表示されます。",
+    "display_name": "表示名",
+    "display_name_ph": "お名前",
+    "display_name_hint": "アカウントに表示されます。空欄にするとメールアドレスが使われます。",
+    "not_set": "未設定",
+    "save": "保存"
   },
   "onboard": {
     "skip": "スキップ",

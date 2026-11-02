@@ -298,7 +298,12 @@
     "rate_limited": "Trop de recherches. Patientez une minute.",
     "remove": "Retirer {name}",
     "limit_reached": "Vous avez atteint la limite de {n} lieux enregistrés.",
-    "no_places": "Ajoutez un lieu ou utilisez votre position actuelle pour voir les séismes les plus proches."
+    "no_places": "Ajoutez un lieu ou utilisez votre position actuelle pour voir les séismes les plus proches.",
+    "display_name": "Nom affiché",
+    "display_name_ph": "Votre nom",
+    "display_name_hint": "Affiché sur votre compte. Laissez vide pour utiliser votre e-mail.",
+    "not_set": "Non défini",
+    "save": "Enregistrer"
   },
   "onboard": {
     "skip": "Passer",

@@ -298,7 +298,12 @@
     "rate_limited": "Muitas buscas. Aguarde um minuto.",
     "remove": "Remover {name}",
     "limit_reached": "Você atingiu o limite de {n} locais salvos.",
-    "no_places": "Adicione um lugar ou use sua localização atual para ver os terremotos mais próximos."
+    "no_places": "Adicione um lugar ou use sua localização atual para ver os terremotos mais próximos.",
+    "display_name": "Nome de exibição",
+    "display_name_ph": "Seu nome",
+    "display_name_hint": "Aparece na sua conta. Deixe em branco para usar seu e-mail.",
+    "not_set": "Não definido",
+    "save": "Salvar"
   },
   "onboard": {
     "skip": "Pular",

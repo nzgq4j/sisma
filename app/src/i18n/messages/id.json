@@ -298,7 +298,12 @@
     "rate_limited": "Terlalu banyak pencarian. Tunggu sebentar.",
     "remove": "Hapus {name}",
     "limit_reached": "Anda telah mencapai batas {n} lokasi tersimpan.",
-    "no_places": "Tambahkan tempat atau gunakan lokasi Anda saat ini untuk melihat gempa terdekat."
+    "no_places": "Tambahkan tempat atau gunakan lokasi Anda saat ini untuk melihat gempa terdekat.",
+    "display_name": "Nama tampilan",
+    "display_name_ph": "Nama Anda",
+    "display_name_hint": "Ditampilkan di akun Anda. Biarkan kosong untuk memakai email.",
+    "not_set": "Belum diatur",
+    "save": "Simpan"
   },
   "onboard": {
     "skip": "Lewati",
