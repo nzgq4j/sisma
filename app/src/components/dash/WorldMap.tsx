@@ -1,7 +1,7 @@
 'use client';
 // 2D world map shared by the Map tab and the desktop dashboard.
-// Map tab (design drawMap): Mercator rotated to the user's longitude, scale (H/2)/1.9, zoom 1–14, horizontal pan limit,
-// user pin, optional plate boundaries, tap empty map to deselect. Dashboard: Equal Earth, zoom 1–12.
+// Map tab (design drawMap): Mercator rotated to the user's longitude, scale (H/2)/1.9, zoom 1–40, endless horizontal
+// scrolling (the world is drawn up to three times side by side and the pan is wrapped by one world-width), user pin, optional plate boundaries, tap empty map to deselect. Dashboard: Equal Earth, zoom 1–12.
 // Dots are sized (mag − 1.6) × 2.1 and coloured by MAG_SCALE in both.
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
@@ -11,7 +11,7 @@ import { MMI_COLORS, magColor } from '@/lib/theme';
 import type { FeltCell } from '@/components/FeltReport';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
-import { COUNTRIES, SPHERE, usePlates } from '@/lib/world';
+import { BORDERS, COUNTRIES, SPHERE, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
 import styles from './dash.module.css';
 
@@ -38,6 +38,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [k, setK] = useState(1);
+  // Extra world copies needed to fill the view while scrolling endlessly (bit 1 = left, bit 2 = right).
+  const [sides, setSides] = useState(0);
   const [hover, setHover] = useState<{ q: Quake; x: number; y: number } | null>(null);
   const plateData = usePlates(plates);
   const mercator = projection === 'mercator';
@@ -61,13 +63,31 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     return { path: geoPath(p), project: (lon: number, lat: number) => p([lon, lat]), sc };
   }, [size.w, size.h, center.lon, mercator]);
 
+  // One world-width in map units (Mercator spans 2π·scale horizontally); never narrower than the view.
+  const worldW = mercator ? 2 * Math.PI * sc : 0;
+
   useEffect(() => {
     const svg = svgRef.current; if (!svg || !size.w || !size.h) return;
+    const W = worldW, cx = size.w / 2;
     const z = zoom<SVGSVGElement, unknown>()
       .scaleExtent([1, mercator ? 40 : 12])
       .extent([[0, 0], [size.w, size.h]])
-      .translateExtent(mercator ? [[size.w / 2 - Math.PI * sc, 0], [size.w / 2 + Math.PI * sc, size.h]] : [[0, 0], [size.w, size.h]])
-      .on('zoom', e => { gRef.current?.setAttribute('transform', e.transform.toString()); setK(e.transform.k); setHover(null); });
+      // Mercator: free horizontally (wrapped below), clamped vertically. Equal Earth: stays inside the frame.
+      .translateExtent(mercator ? [[-Infinity, 0], [Infinity, size.h]] : [[0, 0], [size.w, size.h]])
+      .on('zoom', e => {
+        const { k: tk, y } = e.transform; let x = e.transform.x;
+        if (W) {
+          // d3 keeps the unbounded pan; draw it wrapped to within half a world of the centred position,
+          // so the three copies always cover the screen however far the map is dragged.
+          const kW = tk * W, x0 = cx * (1 - tk);
+          let d = ((x - x0) % kW + kW) % kW; if (d >= kW / 2) d -= kW;
+          x = x0 + d;
+          const left = -x / tk < cx - W / 2 ? 1 : 0, right = (size.w - x) / tk > cx + W / 2 ? 2 : 0;
+          setSides(left | right);
+        }
+        gRef.current?.setAttribute('transform', `translate(${x},${y}) scale(${tk})`);
+        setK(tk); setHover(null);
+      });
     zoomRef.current = z;
     let start = zoomIdentity;
     const fp = focus ? project(focus.lon, focus.lat) : null;
@@ -75,7 +95,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const sel = select(svg).call(z).on('dblclick.zoom', null).call(z.transform, start);
     return () => { sel.on('.zoom', null); };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- re-apply only when the focus target (key) changes
-  }, [size.w, size.h, mercator, sc, project, focus?.key]);
+  }, [size.w, size.h, mercator, sc, worldW, project, focus?.key]);
 
   // Smallest on top would hide big events, so draw ascending by magnitude.
   const dots = useMemo(() => quakes
@@ -94,56 +114,69 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const zoomBy = (f: number) => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.scaleBy, f); };
   const reset = () => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); onReset?.(); };
 
+  // The world layer; on the Mercator map it is repeated one world-width to the left and/or right while scrolling.
+  const world = (
+    <>
+      {!mercator && <path d={path(SPHERE) ?? ''} fill="var(--map-sea)" />}
+      {!mercator && <path d={path(GRATICULE) ?? ''} fill="none" stroke="var(--map-grat)" vectorEffect="non-scaling-stroke" />}
+      <path d={path(COUNTRIES) ?? ''} fill="var(--map-land)" />
+      <path d={path(BORDERS) ?? ''} fill="none" stroke="var(--map-line)" strokeWidth={0.6} vectorEffect="non-scaling-stroke" />
+      {plates && plateData && (
+        <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />
+      )}
+      <g aria-hidden="true">
+        {dots.map(({ q, xy }) => (
+          <circle key={q.id} cx={xy[0]} cy={xy[1]} r={dotRadius(q.mag) * rScale}
+            fill={magColor(q.mag).fill} fillOpacity={blobs.length && q.id !== selectedId ? 0.25 : 0.88} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke"
+            className={styles.dot}
+            onPointerEnter={e => { if (e.pointerType !== 'mouse') return; const b = wrapRef.current!.getBoundingClientRect(); setHover({ q, x: e.clientX - b.left, y: e.clientY - b.top }); }}
+            onClick={e => { e.stopPropagation(); onSelect(q); }} />
+        ))}
+      </g>
+      {blobs.length > 0 && (
+        <g aria-hidden="true" pointerEvents="none">
+          {blobs.map(b => (
+            <circle key={`${b.lat},${b.lon}`} cx={b.x} cy={b.y} r={Math.max(b.geoR * 1.6, 18 / k) * (1 + Math.min(1, (b.n - 1) / 10) * 0.5)}
+              fill={`url(#${gid}felt${Math.min(10, Math.max(1, Math.round(b.mmi)))})`} />
+          ))}
+        </g>
+      )}
+      <g aria-hidden="true">
+        {selected && (
+          <circle cx={selected.xy[0]} cy={selected.xy[1]} r={(dotRadius(selected.q.mag) + 4) * rScale}
+            fill="none" stroke="var(--ink)" strokeWidth={2.4} vectorEffect="non-scaling-stroke" pointerEvents="none" />
+        )}
+        {me && (
+          <g transform={`translate(${me[0]},${me[1]}) scale(${1 / k})`} pointerEvents="none">
+            <circle r={14} fill="var(--violet)" fillOpacity={0.2} />
+            <circle r={5.5} fill="var(--violet)" stroke="#fff" strokeWidth={2} />
+          </g>
+        )}
+      </g>
+    </>
+  );
+  const offsets = worldW ? [0, ...(sides & 1 ? [-worldW] : []), ...(sides & 2 ? [worldW] : [])] : [0];
+
   return (
     <div ref={wrapRef} className={styles.mapWrap} onMouseLeave={() => setHover(null)}>
       {size.w > 0 && (
         <svg ref={svgRef} width={size.w} height={size.h} role="img" aria-label={t('count', { n: quakes.length })} className={styles.mapSvg}
           style={{ background: 'var(--map-sea)' }} onClick={() => selectedId && onSelect(null)}>
-          <g ref={gRef}>
-            {!mercator && <path d={path(SPHERE) ?? ''} fill="var(--map-sea)" />}
-            {!mercator && <path d={path(GRATICULE) ?? ''} fill="none" stroke="var(--map-grat)" vectorEffect="non-scaling-stroke" />}
-            <path d={path(COUNTRIES) ?? ''} fill="var(--map-land)" stroke="var(--map-line)" strokeWidth={0.6} vectorEffect="non-scaling-stroke" />
-            {plates && plateData && (
-              <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />
-            )}
-            <g aria-hidden="true">
-              {dots.map(({ q, xy }) => (
-                <circle key={q.id} cx={xy[0]} cy={xy[1]} r={dotRadius(q.mag) * rScale}
-                  fill={magColor(q.mag).fill} fillOpacity={blobs.length && q.id !== selectedId ? 0.25 : 0.88} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke"
-                  className={styles.dot}
-                  onPointerEnter={e => { if (e.pointerType !== 'mouse') return; const b = wrapRef.current!.getBoundingClientRect(); setHover({ q, x: e.clientX - b.left, y: e.clientY - b.top }); }}
-                  onClick={e => { e.stopPropagation(); onSelect(q); }} />
+          {blobs.length > 0 && (
+            <defs>
+              {MMI_COLORS.map((c, i) => (
+                <radialGradient key={i} id={`${gid}felt${i + 1}`}>
+                  <stop offset="0%" stopColor={c} stopOpacity={0.75} />
+                  <stop offset="60%" stopColor={c} stopOpacity={0.35} />
+                  <stop offset="100%" stopColor={c} stopOpacity={0} />
+                </radialGradient>
               ))}
-            </g>
-            {blobs.length > 0 && (
-              <g aria-hidden="true" pointerEvents="none">
-                <defs>
-                  {MMI_COLORS.map((c, i) => (
-                    <radialGradient key={i} id={`${gid}felt${i + 1}`}>
-                      <stop offset="0%" stopColor={c} stopOpacity={0.75} />
-                      <stop offset="60%" stopColor={c} stopOpacity={0.35} />
-                      <stop offset="100%" stopColor={c} stopOpacity={0} />
-                    </radialGradient>
-                  ))}
-                </defs>
-                {blobs.map(b => (
-                  <circle key={`${b.lat},${b.lon}`} cx={b.x} cy={b.y} r={Math.max(b.geoR * 1.6, 18 / k) * (1 + Math.min(1, (b.n - 1) / 10) * 0.5)}
-                    fill={`url(#${gid}felt${Math.min(10, Math.max(1, Math.round(b.mmi)))})`} />
-                ))}
-              </g>
-            )}
-            <g aria-hidden="true">
-              {selected && (
-                <circle cx={selected.xy[0]} cy={selected.xy[1]} r={(dotRadius(selected.q.mag) + 4) * rScale}
-                  fill="none" stroke="var(--ink)" strokeWidth={2.4} vectorEffect="non-scaling-stroke" pointerEvents="none" />
-              )}
-              {me && (
-                <g transform={`translate(${me[0]},${me[1]}) scale(${1 / k})`} pointerEvents="none">
-                  <circle r={14} fill="var(--violet)" fillOpacity={0.2} />
-                  <circle r={5.5} fill="var(--violet)" stroke="#fff" strokeWidth={2} />
-                </g>
-              )}
-            </g>
+            </defs>
+          )}
+          <g ref={gRef}>
+            {offsets.map(off => (
+              <g key={off} transform={off ? `translate(${off},0)` : undefined}>{world}</g>
+            ))}
           </g>
         </svg>
       )}
