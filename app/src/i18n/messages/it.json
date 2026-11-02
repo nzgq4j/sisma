@@ -159,5 +159,29 @@
     "price_p": "Prova sisma+ gratis per 7 giorni.",
     "lang_h": "Parla la tua lingua",
     "footer": "Dati: USGS, EMSC, GeoNet, JMA. sisma.io non è un servizio di allerta ufficiale — segui sempre le autorità locali."
+  },
+  "dash": {
+    "overview": "Panoramica",
+    "quakes": "Terremoti",
+    "strongest": "Più forte",
+    "tsunami_n": "Allerte tsunami",
+    "activity": "Attività",
+    "per_day": "Terremoti al giorno",
+    "per_hour": "Terremoti all'ora",
+    "mag_dist": "Per magnitudo",
+    "top_regions": "Regioni principali",
+    "details": "Dettagli",
+    "select_hint": "Seleziona un terremoto sulla mappa o nell'elenco per vederne i dettagli.",
+    "none": "Nessun terremoto corrisponde a questi filtri.",
+    "open_source": "Apri alla fonte",
+    "zoom_in": "Ingrandisci",
+    "zoom_out": "Riduci",
+    "reset_view": "Ripristina vista",
+    "count_label": "{n} terremoti",
+    "website": "Sito web di sisma.io",
+    "table_view": "Mostra come tabella",
+    "chart_view": "Mostra come grafico",
+    "loading": "Caricamento dei terremoti…",
+    "distance": "Distanza"
   }
 }

@@ -159,5 +159,29 @@
     "price_p": "sisma+ を7日間無料でお試しください。",
     "lang_h": "あなたの言語で",
     "footer": "データ：USGS、EMSC、GeoNet、JMA。sisma.io は公式の警報サービスではありません。必ず地域の当局の指示に従ってください。"
+  },
+  "dash": {
+    "overview": "概要",
+    "quakes": "地震",
+    "strongest": "最大",
+    "tsunami_n": "津波警報",
+    "activity": "活動状況",
+    "per_day": "1日あたりの地震数",
+    "per_hour": "1時間あたりの地震数",
+    "mag_dist": "マグニチュード別",
+    "top_regions": "主な地域",
+    "details": "詳細",
+    "select_hint": "地図またはリストで地震を選ぶと詳細が表示されます。",
+    "none": "条件に一致する地震はありません。",
+    "open_source": "提供元で開く",
+    "zoom_in": "拡大",
+    "zoom_out": "縮小",
+    "reset_view": "表示をリセット",
+    "count_label": "地震 {n} 件",
+    "website": "sisma.io ウェブサイト",
+    "table_view": "表で表示",
+    "chart_view": "グラフで表示",
+    "loading": "地震データを読み込み中…",
+    "distance": "距離"
   }
 }

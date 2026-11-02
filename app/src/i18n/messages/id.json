@@ -159,5 +159,29 @@
     "price_p": "Coba sisma+ gratis selama 7 hari.",
     "lang_h": "Berbicara dalam bahasa Anda",
     "footer": "Data: USGS, EMSC, GeoNet, JMA. sisma.io bukan layanan peringatan resmi — selalu ikuti arahan otoritas setempat."
+  },
+  "dash": {
+    "overview": "Ringkasan",
+    "quakes": "Gempa",
+    "strongest": "Terkuat",
+    "tsunami_n": "Peringatan tsunami",
+    "activity": "Aktivitas",
+    "per_day": "Gempa per hari",
+    "per_hour": "Gempa per jam",
+    "mag_dist": "Menurut magnitudo",
+    "top_regions": "Wilayah teratas",
+    "details": "Detail",
+    "select_hint": "Pilih gempa di peta atau daftar untuk melihat detailnya.",
+    "none": "Tidak ada gempa yang cocok dengan filter ini.",
+    "open_source": "Buka di sumber",
+    "zoom_in": "Perbesar",
+    "zoom_out": "Perkecil",
+    "reset_view": "Atur ulang tampilan",
+    "count_label": "{n} gempa",
+    "website": "Situs web sisma.io",
+    "table_view": "Tampilkan sebagai tabel",
+    "chart_view": "Tampilkan sebagai grafik",
+    "loading": "Memuat data gempa…",
+    "distance": "Jarak"
   }
 }

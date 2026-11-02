@@ -1,15 +1,23 @@
 'use client';
 // Feed tab. Spec: design/SismaApp.dc.html (isFeed block + detail sheet). Remaining TODOs are marked.
+// At >= 1024px this route shows the desktop dashboard (components/dash) instead.
 import { useEffect, useMemo, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { QuakeRow } from '@/components/QuakeRow';
 import { Sheet } from '@/components/Sheet';
 import type { Quake, RangeKey, SortKey } from '@/lib/quakes/types';
+import { Dashboard } from '@/components/dash/Dashboard';
+import { useDesktop } from '@/components/dash/useDesktop';
 
 type Row = Quake & { distanceKm: number | null };
 
+// Desktop renders the overview dashboard; phones (and the website's phone preview) get the feed.
 export default function FeedPage() {
+  return useDesktop() ? <Dashboard /> : <MobileFeed />;
+}
+
+function MobileFeed() {
   const { t } = useT();
   const { locations, active, plan, setSheet, sheet } = useApp();
   const loc = locations[active];

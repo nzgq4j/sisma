@@ -159,5 +159,29 @@
     "price_p": "Try sisma+ free for 7 days.",
     "lang_h": "Speaks your language",
     "footer": "Data: USGS, EMSC, GeoNet, JMA. sisma.io is not an official warning service — always follow local authorities."
+  },
+  "dash": {
+    "overview": "Overview",
+    "quakes": "Earthquakes",
+    "strongest": "Strongest",
+    "tsunami_n": "Tsunami alerts",
+    "activity": "Activity",
+    "per_day": "Earthquakes per day",
+    "per_hour": "Earthquakes per hour",
+    "mag_dist": "By magnitude",
+    "top_regions": "Top regions",
+    "details": "Details",
+    "select_hint": "Select an earthquake on the map or in the list to see its details.",
+    "none": "No earthquakes match these filters.",
+    "open_source": "Open at source",
+    "zoom_in": "Zoom in",
+    "zoom_out": "Zoom out",
+    "reset_view": "Reset view",
+    "count_label": "{n} earthquakes",
+    "website": "sisma.io website",
+    "table_view": "Show as table",
+    "chart_view": "Show as chart",
+    "loading": "Loading earthquakes…",
+    "distance": "Distance"
   }
 }

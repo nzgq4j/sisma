@@ -1,15 +1,21 @@
 'use client';
+import { usePathname } from 'next/navigation';
 import { BottomNav } from '@/components/BottomNav';
 import { AppStateProvider } from '@/components/AppState';
+import { SideNav } from '@/components/dash/SideNav';
+import styles from '@/components/dash/dash.module.css';
 
-// App shell for /app/*: top app bar lives in each page; bottom nav is shared. Edge-to-edge on Android.
+// App shell for /app/*. Phone (< 1024px): bottom nav, content column up to 520px, edge-to-edge on Android.
+// Desktop (>= 1024px): side navigation; /app is a full-width dashboard, other tabs sit in a centred column.
 export default function AppLayout({ children }: { children: React.ReactNode }) {
+  const path = usePathname();
   return (
     <AppStateProvider>
-      <div style={{ minHeight: '100dvh', paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'calc(80px + env(safe-area-inset-bottom))', maxWidth: 520, margin: '0 auto' }}>
+      <SideNav />
+      <div className={path === '/app' ? styles.shell : `${styles.shell} ${styles.shellNarrow}`}>
         {children}
       </div>
-      <BottomNav />
+      <div className={styles.mobileOnly}><BottomNav /></div>
     </AppStateProvider>
   );
 }

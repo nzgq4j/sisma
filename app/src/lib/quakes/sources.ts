@@ -40,15 +40,35 @@ export const geonet: Fetcher = async () => {
   });
 };
 
+/** ISO 6709 angle as JMA writes it: decimal degrees (+35.7) or degrees + minutes (+3543.3 = 35°43.3′). */
+function iso6709Angle(raw: string, maxDeg: number): number {
+  const v = parseFloat(raw);
+  if (!Number.isFinite(v) || Math.abs(v) <= maxDeg) return v;
+  const a = Math.abs(v), deg = Math.trunc(a / 100);
+  return Math.sign(v) * (deg + (a - deg * 100) / 60);
+}
+
+/** Parses JMA's `cod` field ("+35.7+140.7-10000/" or "+3543.3+14042.9-10000/") into degrees and km. */
+export function parseJmaCod(cod: string): { lat: number; lon: number; depthKm: number } | null {
+  const m = /([+-][\d.]+)([+-][\d.]+)([+-]\d+)?/.exec(cod);
+  if (!m) return null;
+  const lat = iso6709Angle(m[1], 90), lon = iso6709Angle(m[2], 180);
+  if (!(Math.abs(lat) <= 90 && Math.abs(lon) <= 180)) return null;
+  return { lat, lon, depthKm: m[3] ? Math.abs(parseInt(m[3], 10)) / 1000 : 0 };
+}
+
 export const jma: Fetcher = async () => {
   const res = await fetch('https://www.jma.go.jp/bosai/quake/data/list.json', { next: { revalidate: 60 } });
   const list: any[] = await res.json();
-  return list.filter(e => e.cod && e.mag && e.mag !== 'Ｍ不明').map((e): Quake => {
-    const m = /([+-][\d.]+)([+-][\d.]+)([+-]\d+)?/.exec(e.cod) ?? [];
-    return { id: 'jma:' + e.eid, source: 'jma', mag: parseFloat(e.mag), title: e.en_anm ?? e.anm, region: 'Japan', time: Date.parse(e.at),
-      lat: parseFloat(m[1]), lon: parseFloat(m[2]), depthKm: m[3] ? Math.abs(parseInt(m[3], 10)) / 1000 : 0, tsunami: false,
-      url: 'https://www.jma.go.jp/bosai/map.html#contents=earthquake_map' };
-  }).filter(q => Number.isFinite(q.lat));
+  // The list holds every bulletin for an event (newest first); keep only the latest one per event id.
+  const seen = new Set<string>();
+  return list.filter(e => e.cod && e.mag && e.mag !== 'Ｍ不明').flatMap((e): Quake[] => {
+    const pos = parseJmaCod(e.cod);
+    if (!pos || seen.has(e.eid)) return [];
+    seen.add(e.eid);
+    return [{ id: 'jma:' + e.eid, source: 'jma', mag: parseFloat(e.mag), title: e.en_anm ?? e.anm, region: 'Japan', time: Date.parse(e.at),
+      ...pos, tsunami: false, url: 'https://www.jma.go.jp/bosai/map.html#contents=earthquake_map' }];
+  });
 };
 
 const titleCase = (s: string) => s.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
