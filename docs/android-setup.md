@@ -42,8 +42,9 @@ is clicking through Google's consoles. Where code is needed, the step says **"�
 
 ## 1. Google Play Console account
 
-1. Go to **play.google.com/console** and sign in with the Google account that will own the app (ideally the business
-   one, e.g. support@sisma.io if you chose Google Workspace).
+1. Go to **play.google.com/console** and sign in with the Google account that will own the app. A business account is
+   best: you can create a Google account for **david@sisma.io** at accounts.google.com → *Create account* →
+   *Use your existing email* (no Gmail needed). Forwarding addresses like support@ can't be Google accounts.
 2. Choose **Personal** or **Organization** (see step 0.3), pay the one-time **US$25** registration fee.
 3. Complete **identity verification** (government ID; for organizations also the D-U-N-S number and a website — use
    https://sisma.io). This can take from a few hours to several days.
