@@ -182,5 +182,76 @@
     "chart_view": "Als Diagramm anzeigen",
     "loading": "Erdbeben werden geladen…",
     "distance": "Entfernung"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "Konvergent",
+      "divergent": "Divergent",
+      "transform": "Transform",
+      "normal": "Abschiebung",
+      "reverse": "Aufschiebung",
+      "strike": "Blattverschiebung",
+      "P": "P-Welle",
+      "S": "S-Welle",
+      "R": "Oberfläche"
+    },
+    "cap": {
+      "convergent": "Die ozeanische Platte taucht unter einen Kontinent ab. Die korallfarbenen Blitze sind Erdbeben, die die Platte bis ~700 km Tiefe nachzeichnen.",
+      "divergent": "Die Platten driften auseinander; aufsteigendes Magma erstarrt zu neuer Kruste und zeichnet wechselnde Magnetstreifen auf.",
+      "transform": "Die Platten gleiten horizontal aneinander vorbei. Wo die Grenze verhakt ist, baut sich Spannung auf und entlädt sich in Erdbeben.",
+      "normal": "Dehnung: die hangende Scholle gleitet an der Verwerfung hinab.",
+      "reverse": "Einengung: die hangende Scholle wird nach oben und darüber geschoben.",
+      "strike": "Scherung: die Schollen gleiten seitlich und die Straße wird versetzt.",
+      "P": "P-Welle · ≈ 6 km/s · das Gestein wird in Ausbreitungsrichtung gestaucht. Folge dem korallfarbenen Teilchen.",
+      "S": "S-Welle · ≈ 3,5 km/s · das Gestein wird quer zur Ausbreitung geschert. Folge dem korallfarbenen Teilchen.",
+      "R": "Rayleigh-Oberflächenwelle · ≈ 3 km/s · der Boden rollt in Ellipsen, die mit der Tiefe abklingen.",
+      "tsunami": "Geschwindigkeit = √(g × Tiefe). Sieh, wie die Welle langsamer und höher wird, wenn das Meer flacher wird."
+    },
+    "lbl": {
+      "surface": "Oberfläche",
+      "direction": "Ausbreitungsrichtung",
+      "top_view": "Draufsicht",
+      "footwall": "Liegende Scholle",
+      "hanging_wall": "Hangende Scholle",
+      "oceanic": "Ozeanische Platte",
+      "continental": "Kontinentale Platte",
+      "volcano": "Vulkan",
+      "ridge": "Mittelozeanischer Rücken",
+      "magma": "Aufsteigendes Magma",
+      "coast": "Küste",
+      "depth_m": "Tiefe ≈ {m} m",
+      "speed": "Geschwindigkeit ≈ {v} km/h · Höhe ×{g}"
+    },
+    "mag": {
+      "area_note": "Kreisfläche = freigesetzte Energie. Jede Stufe ≈ 32-mal mehr.",
+      "energy": "Energie ≈",
+      "worldwide": "Weltweit",
+      "per_year": "≈ {n} pro Jahr",
+      "every_years": "≈ 1 alle {n} Jahre",
+      "comparable": "Vergleichbar:",
+      "tnt_t": "{n} t TNT",
+      "tnt_kt": "{n} kt TNT",
+      "tnt_mt": "{n} Mt TNT",
+      "ex_45": "Weit spürbar, selten schädlich",
+      "ex_30": "Von Menschen in der Nähe gespürt",
+      "ex_20": "Gemessen, selten gespürt"
+    },
+    "depth": {
+      "live": "Live: Tiefe von {n} aktuellen Erdbeben ({range})",
+      "shallow": "Flach · 0–70 km",
+      "intermediate": "Mitteltief · 70–300 km",
+      "deep": "Tief · 300–700 km",
+      "omori": "Nachbeben pro Tag nach einem Hauptbeben (Omori-Gesetz)",
+      "day": "Tag {n}"
+    },
+    "prep": {
+      "drop": "Runter",
+      "cover": "Schützen",
+      "hold": "Festhalten",
+      "kit_title": "Dein 3-Tage-Notfallset"
+    },
+    "next": "Nächstes Thema",
+    "pause": "Animation anhalten",
+    "play": "Animation abspielen"
   }
 }

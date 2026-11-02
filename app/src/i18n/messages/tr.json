@@ -182,5 +182,76 @@
     "chart_view": "Grafik olarak göster",
     "loading": "Depremler yükleniyor…",
     "distance": "Mesafe"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "Yakınsak",
+      "divergent": "Iraksak",
+      "transform": "Dönüşüm",
+      "normal": "Normal",
+      "reverse": "Ters",
+      "strike": "Doğrultu atımlı",
+      "P": "P dalgası",
+      "S": "S dalgası",
+      "R": "Yüzey"
+    },
+    "cap": {
+      "convergent": "Okyanus levhası bir kıtanın altına dalar. Mercan renkli parıltılar, levhayı ~700 km derinliğe kadar izleyen depremlerdir.",
+      "divergent": "Levhalar birbirinden uzaklaşır; yükselen magma donarak yeni kabuk oluşturur ve değişen manyetik şeritleri kaydeder.",
+      "transform": "Levhalar yatay olarak kayar. Sınırın kilitlendiği yerde gerilim birikir ve depremlerle boşalır.",
+      "normal": "Gerilme: tavan bloğu fay boyunca aşağı kayar.",
+      "reverse": "Sıkışma: tavan bloğu yukarı ve üste doğru itilir.",
+      "strike": "Makaslama: bloklar yana kayar ve yol ötelenir.",
+      "P": "P dalgası · ≈ 6 km/s · kaya ilerleme yönünde sıkışır. Mercan renkli parçacığı izleyin.",
+      "S": "S dalgası · ≈ 3,5 km/s · kaya ilerlemeye dik açıyla makaslanır. Mercan renkli parçacığı izleyin.",
+      "R": "Rayleigh yüzey dalgası · ≈ 3 km/s · zemin, derinlikle sönümlenen elipsler çizerek yuvarlanır.",
+      "tsunami": "Hız = √(g × derinlik). Deniz sığlaştıkça dalganın yavaşlayıp yükseldiğini izleyin."
+    },
+    "lbl": {
+      "surface": "Yüzey",
+      "direction": "İlerleme yönü",
+      "top_view": "Üstten görünüm",
+      "footwall": "Taban bloğu",
+      "hanging_wall": "Tavan bloğu",
+      "oceanic": "Okyanus levhası",
+      "continental": "Kıta levhası",
+      "volcano": "Volkan",
+      "ridge": "Okyanus ortası sırtı",
+      "magma": "Yükselen magma",
+      "coast": "Kıyı",
+      "depth_m": "Derinlik ≈ {m} m",
+      "speed": "Hız ≈ {v} km/sa · yükseklik ×{g}"
+    },
+    "mag": {
+      "area_note": "Daire alanı = açığa çıkan enerji. Her adım ≈ 32 kat fazla.",
+      "energy": "Enerji ≈",
+      "worldwide": "Dünya genelinde",
+      "per_year": "≈ yılda {n}",
+      "every_years": "≈ {n} yılda bir",
+      "comparable": "Benzeri:",
+      "tnt_t": "{n} t TNT",
+      "tnt_kt": "{n} kt TNT",
+      "tnt_mt": "{n} Mt TNT",
+      "ex_45": "Geniş alanda hissedilir, nadiren hasar verir",
+      "ex_30": "Yakındaki insanlar hisseder",
+      "ex_20": "Kaydedilir, nadiren hissedilir"
+    },
+    "depth": {
+      "live": "Canlı: son {n} depremin derinliği ({range})",
+      "shallow": "Sığ · 0–70 km",
+      "intermediate": "Orta · 70–300 km",
+      "deep": "Derin · 300–700 km",
+      "omori": "Ana şoktan sonra günlük artçı sayısı (Omori yasası)",
+      "day": "{n}. gün"
+    },
+    "prep": {
+      "drop": "Çök",
+      "cover": "Kapan",
+      "hold": "Tutun",
+      "kit_title": "3 günlük afet çantanız"
+    },
+    "next": "Sonraki konu",
+    "pause": "Animasyonu duraklat",
+    "play": "Animasyonu oynat"
   }
 }

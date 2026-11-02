@@ -182,5 +182,76 @@
     "chart_view": "Ver como gráfico",
     "loading": "Cargando sismos…",
     "distance": "Distancia"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "Convergente",
+      "divergent": "Divergente",
+      "transform": "Transformante",
+      "normal": "Normal",
+      "reverse": "Inversa",
+      "strike": "De desgarre",
+      "P": "Onda P",
+      "S": "Onda S",
+      "R": "Superficial"
+    },
+    "cap": {
+      "convergent": "La placa oceánica se hunde bajo un continente. Los destellos coral son sismos que trazan la placa hasta ~700 km.",
+      "divergent": "Las placas se separan; el magma que asciende se solidifica en corteza nueva y registra franjas magnéticas alternas.",
+      "transform": "Las placas se deslizan en horizontal. La tensión se acumula donde el límite se traba y se libera en sismos.",
+      "normal": "Extensión: el bloque colgante desciende por la falla.",
+      "reverse": "Compresión: el bloque colgante es empujado hacia arriba y por encima.",
+      "strike": "Cizalla: los bloques se deslizan de lado y la carretera se desplaza.",
+      "P": "Onda P · ≈ 6 km/s · la roca se comprime en la dirección de avance. Sigue la partícula coral.",
+      "S": "Onda S · ≈ 3,5 km/s · la roca se cizalla en ángulo recto al avance. Sigue la partícula coral.",
+      "R": "Onda superficial de Rayleigh · ≈ 3 km/s · el suelo rueda en elipses que se atenúan con la profundidad.",
+      "tsunami": "Velocidad = √(g × profundidad). Mira cómo la ola se frena y crece al disminuir la profundidad."
+    },
+    "lbl": {
+      "surface": "Superficie",
+      "direction": "Dirección de avance",
+      "top_view": "Vista superior",
+      "footwall": "Bloque yacente",
+      "hanging_wall": "Bloque colgante",
+      "oceanic": "Placa oceánica",
+      "continental": "Placa continental",
+      "volcano": "Volcán",
+      "ridge": "Dorsal oceánica",
+      "magma": "Magma ascendente",
+      "coast": "Costa",
+      "depth_m": "Profundidad ≈ {m} m",
+      "speed": "Velocidad ≈ {v} km/h · altura ×{g}"
+    },
+    "mag": {
+      "area_note": "Área del círculo = energía liberada. Cada paso ≈ 32× más.",
+      "energy": "Energía ≈",
+      "worldwide": "En el mundo",
+      "per_year": "≈ {n} / año",
+      "every_years": "≈ 1 cada {n} años",
+      "comparable": "Comparable:",
+      "tnt_t": "{n} t de TNT",
+      "tnt_kt": "{n} kt de TNT",
+      "tnt_mt": "{n} Mt de TNT",
+      "ex_45": "Se siente en una zona amplia, rara vez causa daños",
+      "ex_30": "Lo sienten las personas cercanas",
+      "ex_20": "Se registra, rara vez se siente"
+    },
+    "depth": {
+      "live": "En vivo: profundidad de {n} sismos recientes ({range})",
+      "shallow": "Superficial · 0–70 km",
+      "intermediate": "Intermedio · 70–300 km",
+      "deep": "Profundo · 300–700 km",
+      "omori": "Réplicas por día tras un sismo principal (ley de Omori)",
+      "day": "Día {n}"
+    },
+    "prep": {
+      "drop": "Agáchate",
+      "cover": "Cúbrete",
+      "hold": "Sujétate",
+      "kit_title": "Tu kit para 3 días"
+    },
+    "next": "Siguiente tema",
+    "pause": "Pausar animación",
+    "play": "Reproducir animación"
   }
 }

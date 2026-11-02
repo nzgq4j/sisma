@@ -1,19 +1,27 @@
 'use client';
+// Science list. Spec: design/SismaApp.dc.html (isSciList block).
 import Link from 'next/link';
 import science from '@/content/science.json';
 import { useT } from '@/i18n/I18nProvider';
+import styles from '@/components/science/science.module.css';
 
 export default function SciencePage() {
   const { m, t } = useT();
   return (
-    <div style={{ padding: '4px 16px 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
-      <p style={{ color: 'var(--ink2)' }}>{m.sci_sub}</p>
-      {science.map((a, i) => (
-        <Link key={a.id} href={'/app/science/' + a.id} style={{ display: 'flex', gap: 14, padding: 14, borderRadius: 22, background: 'var(--surface)', color: 'var(--ink)', textDecoration: 'none' }}>
-          <span className="ms" style={{ fontSize: 28 }}>{a.icon}</span>
-          <span><small>{String(i + 1).padStart(2, '0')} · {t('min_read', { n: a.mins })}</small><br /><strong>{m.sci_t[i]}</strong></span>
-        </Link>
-      ))}
+    <div className={styles.list}>
+      <p className={styles.lead}>{m.sci_sub}</p>
+      <div className={styles.topics}>
+        {science.map((a, i) => (
+          <Link key={a.id} href={'/app/science/' + a.id} className={styles.topic}>
+            <span className={`${styles.tile} ${styles[a.tone as 'violet' | 'mint' | 'warm']}`}><span className="ms" aria-hidden="true">{a.icon}</span></span>
+            <span className={styles.topicText}>
+              <span className={styles.meta}>{String(i + 1).padStart(2, '0')} · {t('min_read', { n: a.mins })}</span>
+              <span className={styles.topicTitle}>{m.sci_t[i]}</span>
+              <span className={styles.blurb}>{a.intro}</span>
+            </span>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

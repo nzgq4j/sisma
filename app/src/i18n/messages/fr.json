@@ -182,5 +182,76 @@
     "chart_view": "Afficher en graphique",
     "loading": "Chargement des séismes…",
     "distance": "Distance"
+  },
+  "sci": {
+    "modes": {
+      "convergent": "Convergente",
+      "divergent": "Divergente",
+      "transform": "Transformante",
+      "normal": "Normale",
+      "reverse": "Inverse",
+      "strike": "Décrochante",
+      "P": "Onde P",
+      "S": "Onde S",
+      "R": "Surface"
+    },
+    "cap": {
+      "convergent": "La plaque océanique plonge sous un continent. Les éclairs corail sont des séismes qui dessinent la plaque jusqu’à ~700 km.",
+      "divergent": "Les plaques s’écartent ; le magma qui remonte se fige en nouvelle croûte et enregistre des bandes magnétiques alternées.",
+      "transform": "Les plaques coulissent horizontalement. Les contraintes s’accumulent là où la limite est bloquée, puis se libèrent en séismes.",
+      "normal": "Extension : le toit glisse vers le bas le long de la faille.",
+      "reverse": "Compression : le toit est poussé vers le haut et chevauche.",
+      "strike": "Cisaillement : les blocs coulissent latéralement et la route est décalée.",
+      "P": "Onde P · ≈ 6 km/s · la roche se comprime dans le sens de propagation. Suivez la particule corail.",
+      "S": "Onde S · ≈ 3,5 km/s · la roche est cisaillée perpendiculairement à la propagation. Suivez la particule corail.",
+      "R": "Onde de surface de Rayleigh · ≈ 3 km/s · le sol roule en ellipses qui s’atténuent avec la profondeur.",
+      "tsunami": "Vitesse = √(g × profondeur). Regardez la vague ralentir et grandir à mesure que la mer devient moins profonde."
+    },
+    "lbl": {
+      "surface": "Surface",
+      "direction": "Sens de propagation",
+      "top_view": "Vue de dessus",
+      "footwall": "Mur",
+      "hanging_wall": "Toit",
+      "oceanic": "Plaque océanique",
+      "continental": "Plaque continentale",
+      "volcano": "Volcan",
+      "ridge": "Dorsale océanique",
+      "magma": "Magma ascendant",
+      "coast": "Côte",
+      "depth_m": "Profondeur ≈ {m} m",
+      "speed": "Vitesse ≈ {v} km/h · hauteur ×{g}"
+    },
+    "mag": {
+      "area_note": "Aire du cercle = énergie libérée. Chaque pas ≈ 32 × plus.",
+      "energy": "Énergie ≈",
+      "worldwide": "Dans le monde",
+      "per_year": "≈ {n} / an",
+      "every_years": "≈ 1 tous les {n} ans",
+      "comparable": "Comparable :",
+      "tnt_t": "{n} t de TNT",
+      "tnt_kt": "{n} kt de TNT",
+      "tnt_mt": "{n} Mt de TNT",
+      "ex_45": "Ressenti largement, rarement destructeur",
+      "ex_30": "Ressenti par les personnes proches",
+      "ex_20": "Enregistré, rarement ressenti"
+    },
+    "depth": {
+      "live": "En direct : profondeur de {n} séismes récents ({range})",
+      "shallow": "Superficiel · 0–70 km",
+      "intermediate": "Intermédiaire · 70–300 km",
+      "deep": "Profond · 300–700 km",
+      "omori": "Répliques par jour après un choc principal (loi d’Omori)",
+      "day": "Jour {n}"
+    },
+    "prep": {
+      "drop": "Baissez-vous",
+      "cover": "Abritez-vous",
+      "hold": "Tenez bon",
+      "kit_title": "Votre kit pour 3 jours"
+    },
+    "next": "Sujet suivant",
+    "pause": "Mettre l’animation en pause",
+    "play": "Lire l’animation"
   }
 }
