@@ -26,7 +26,8 @@ What's already there (Vercel → Domains → sisma.io → DNS Records):
 | Cost | Paid per user per month (see workspace.google.com for the current price) | Free (ImprovMX free plan + Resend, which you already have) |
 | Good for | Running the business long term; using the same account for Play Console | Getting started today |
 
-Other paid inboxes (Zoho Mail, Fastmail, Proton) work the same way: they give you MX/TXT records to paste.
+Other inboxes work the same way: they give you MX/TXT records to paste. **Option C** below covers InMotion Hosting
+(cPanel), which you may already pay for.
 
 ---
 
@@ -85,6 +86,34 @@ Other paid inboxes (Zoho Mail, Fastmail, Proton) work the same way: they give yo
    **Secured connection using SSL** → Add account.
 4. Gmail emails a confirmation code to hello@sisma.io — it arrives in the same Gmail through ImprovMX. Enter it.
 5. When replying, pick **hello@sisma.io** in the From field (or make it the default in the same settings page).
+
+## Option C — InMotion Hosting (cPanel mail)
+
+Keep sisma.io's DNS at Vercel (the website stays on Vercel); only mail goes to InMotion.
+
+**In cPanel**
+
+1. **Domains** → add **sisma.io**. If cPanel suggests changing nameservers to InMotion's, **don't** — that would move
+   the website off Vercel.
+2. **Email Accounts → Create** → e.g. **hello@sisma.io** (set a strong password).
+3. **Email Routing** → select sisma.io → **Local Mail Exchanger**. (cPanel may choose "Remote" because the DNS isn't
+   at InMotion; then incoming mail would bounce.)
+4. **Email Accounts → Connect Devices** (next to hello@sisma.io) → note the **incoming server** name, e.g.
+   `secureXXX.inmotionhosting.com`. Use the same name and ports in phone/desktop mail apps.
+5. **Email Deliverability** → sisma.io shows the exact **SPF** and **DKIM** records cPanel wants (it reports them as
+   problems because it can't edit Vercel's DNS). Copy them.
+
+**In Vercel** (Domains → sisma.io → DNS Records → Add):
+
+| Name | Type | Value | Priority |
+| --- | --- | --- | --- |
+| *(empty)* | MX | the incoming server name from step 4 | 0 |
+| *(empty)* | TXT | the SPF value from step 5 (starts `v=spf1`) | |
+| `default._domainkey` | TXT | the DKIM value from step 5 | |
+| `_dmarc` | TXT | `v=DMARC1; p=none; rua=mailto:hello@sisma.io` | |
+
+After 15–60 minutes, **Email Deliverability** should show sisma.io as valid. Read and send mail in InMotion's webmail
+or any mail app. App emails (sign-in links) keep going through Resend and need nothing in this SPF record.
 
 ---
 
