@@ -173,7 +173,6 @@
     "details": "Détails",
     "select_hint": "Sélectionnez un séisme sur la carte ou dans la liste pour voir ses détails.",
     "none": "Aucun séisme ne correspond à ces filtres.",
-    "open_source": "Ouvrir à la source",
     "zoom_in": "Zoom avant",
     "zoom_out": "Zoom arrière",
     "reset_view": "Réinitialiser la vue",

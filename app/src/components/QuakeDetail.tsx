@@ -1,0 +1,33 @@
+'use client';
+// Quake detail: used by the desktop dashboard panel and the phone detail sheet (Feed, Map, Globe).
+import { useT } from '@/i18n/I18nProvider';
+import { MagBadge } from './MagBadge';
+import type { Row } from './QuakeData';
+import styles from './dash/dash.module.css';
+
+export function QuakeDetail({ q, onClose }: { q: Row; onClose?: () => void }) {
+  const { t, m, nf, locale } = useT();
+  const dateFmt = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' });
+  return (
+    <>
+      <div className={styles.detailHead}>
+        <MagBadge mag={q.mag} size={56} />
+        <div className={styles.detailTitle}>
+          <strong>{q.region}</strong>
+          <span>{q.title}</span>
+        </div>
+        {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
+      </div>
+      {q.tsunami && <div className={styles.banner}><span className="ms" aria-hidden="true">tsunami</span>{t('tsunami')}</div>}
+      <dl className={styles.stats}>
+        <div><dt>{t('magnitude')}</dt><dd>{q.mag.toFixed(1)}{q.magType ? ` ${q.magType}` : ''}</dd></div>
+        <div><dt>{t('depth')}</dt><dd>{nf.format(Math.round(q.depthKm))} km</dd></div>
+        <div><dt>{t('time')}</dt><dd>{dateFmt.format(q.time)}</dd></div>
+        <div><dt>{m.dash.distance}</dt><dd>{q.distanceKm != null ? `${nf.format(Math.round(q.distanceKm))} km` : '—'}</dd></div>
+        <div><dt>{t('coords')}</dt><dd>{q.lat.toFixed(2)}°, {q.lon.toFixed(2)}°</dd></div>
+        <div><dt>{t('source')}</dt><dd>{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</dd></div>
+      </dl>
+      {!!q.felt && <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span>{t('felt_by', { n: nf.format(q.felt) })}</p>}
+    </>
+  );
+}

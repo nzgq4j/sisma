@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useT, LOCALES, type Locale } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
+import { LogoMark } from '@/components/Logo';
 import styles from './dash.module.css';
 
 const TABS = [
@@ -21,7 +22,7 @@ export function SideNav() {
   return (
     <aside className={styles.side}>
       <Link href="/" className={styles.sideBrand} aria-label={m.dash.website}>
-        <span className={styles.brandMark}><span className="ms">earthquake</span></span>
+        <LogoMark size={34} />
         <span className={styles.wordmark}>sisma<span>.io</span></span>
       </Link>
       <nav className={styles.sideNav}>

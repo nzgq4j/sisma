@@ -173,7 +173,6 @@
     "details": "Detalles",
     "select_hint": "Selecciona un sismo en el mapa o en la lista para ver sus detalles.",
     "none": "Ningún sismo coincide con estos filtros.",
-    "open_source": "Abrir en la fuente",
     "zoom_in": "Acercar",
     "zoom_out": "Alejar",
     "reset_view": "Restablecer vista",

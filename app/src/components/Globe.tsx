@@ -1,0 +1,145 @@
+'use client';
+// 3D globe (design: initGlobe). Canvas d3.geoOrthographic; d3-zoom drives drag-rotate and pinch/wheel zoom
+// (0.8–10×: scale changes only zoom, pans only rotate); auto-spin 0.12°/frame ÷ zoom; Depth mode draws radial
+// lines scaled 1 − depth/700 × 0.4 coloured by depthColor; plate boundaries; tap within 20 px to select.
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
+import { select, pointer } from 'd3-selection';
+import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
+import { depthColor, magColor } from '@/lib/theme';
+import { LAND, SPHERE, usePlates } from '@/lib/world';
+import type { Quake } from '@/lib/quakes/types';
+
+export interface GlobeHandle { zoomBy: (f: number) => void }
+interface Props {
+  quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
+  depthMode: boolean; plates: boolean; spin: boolean; label: string;
+}
+
+const GRATICULE = geoGraticule10();
+// Remember the view between visits to the tab, like the design (globeRot / globeK).
+const memo: { rot: [number, number, number] | null; k: number } = { rot: null, k: 1 };
+
+function readTheme() {
+  const cs = getComputedStyle(document.documentElement), v = (n: string) => cs.getPropertyValue(n).trim();
+  return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet') };
+}
+
+export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const live = useRef(props);
+  const sorted = useRef<{ src: Quake[] | null; list: Quake[] }>({ src: null, list: [] });
+  const plateData = usePlates(props.plates);
+  const platesRef = useRef(plateData);
+  const zoomRef = useRef<{ z: ZoomBehavior<HTMLCanvasElement, unknown>; el: HTMLCanvasElement } | null>(null);
+  useEffect(() => {
+    live.current = props; platesRef.current = plateData;
+    // Ascending magnitude so the strongest events are drawn last (on top); recomputed only when the data changes.
+    if (sorted.current.src !== props.quakes) sorted.current = { src: props.quakes, list: [...props.quakes].sort((a, b) => a.mag - b.mag) };
+  });
+
+  useImperativeHandle(ref, () => ({
+    zoomBy: f => { const h = zoomRef.current; if (h) select(h.el).call(h.z.scaleBy, f); },
+  }), []);
+
+  useEffect(() => {
+    const wrap = wrapRef.current, cv = canvasRef.current; if (!wrap || !cv) return;
+    const ctx = cv.getContext('2d'); if (!ctx) return;
+    let W = 0, H = 0, R = 1, cx = 0, cy = 0, raf = 0, frameNo = 0;
+    let theme = readTheme();
+    const { center } = live.current;
+    const proj = geoOrthographic().clipAngle(90).precision(0.6)
+      .rotate(memo.rot ?? [-center.lon, -Math.max(-40, Math.min(40, center.lat)) * 0.7, 0]);
+    const path = geoPath(proj, ctx);
+    const st = { drag: false, moved: false, px: 0, py: 0, pk: memo.k, pts: [] as [number, number, Quake][] };
+
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      W = wrap.clientWidth; H = wrap.clientHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      cv.style.width = W + 'px'; cv.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cx = W / 2; cy = H / 2 - 6; R = Math.max(60, Math.min(W * 0.45, (H - 140) / 2));
+      proj.translate([cx, cy]).scale(R * memo.k);
+    };
+    resize();
+    const ro = new ResizeObserver(resize); ro.observe(wrap);
+
+    const pick = (x: number, y: number) => {
+      let best: Quake | null = null, bd = 20 * 20;
+      for (const [px, py, q] of st.pts) { const d = (px - x) ** 2 + (py - y) ** 2; if (d < bd) { bd = d; best = q; } }
+      live.current.onSelect(best);
+    };
+
+    const z = zoom<HTMLCanvasElement, unknown>().scaleExtent([0.8, 10])
+      .on('start', () => { st.drag = true; st.moved = false; })
+      .on('zoom', e => {
+        const tr = e.transform, dx = tr.x - st.px, dy = tr.y - st.py, scaled = Math.abs(tr.k / st.pk - 1) > 1e-4;
+        st.px = tr.x; st.py = tr.y; st.pk = tr.k;
+        if (scaled) { proj.scale(R * tr.k); memo.k = tr.k; st.moved = true; }
+        else if (dx || dy) {
+          st.moved = true;
+          const r = proj.rotate(), f = 70 / proj.scale();
+          proj.rotate([r[0] + dx * f, Math.max(-85, Math.min(85, r[1] - dy * f)), 0]);
+        }
+      })
+      .on('end', e => {
+        st.drag = false;
+        if (!st.moved && e.sourceEvent) { const [x, y] = pointer(e.sourceEvent, cv); pick(x, y); }
+      });
+    const sel = select(cv).call(z).on('dblclick.zoom', null).call(z.transform, zoomIdentity.scale(memo.k));
+    st.px = 0; st.py = 0; st.pk = memo.k;
+    zoomRef.current = { z, el: cv };
+
+    const frame = () => {
+      const p = live.current;
+      if (++frameNo % 30 === 0) theme = readTheme();
+      if (p.spin && !st.drag) { const r = proj.rotate(); proj.rotate([r[0] + 0.12 / memo.k, r[1], 0]); }
+      memo.rot = proj.rotate();
+      ctx.clearRect(0, 0, W, H);
+      const Rs = proj.scale(), grd = ctx.createRadialGradient(cx, cy, Rs * 0.92, cx, cy, Rs * 1.3);
+      grd.addColorStop(0, theme.glow); grd.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
+      ctx.beginPath(); path(SPHERE); ctx.fillStyle = theme.sea; ctx.fill();
+      ctx.beginPath(); path(GRATICULE); ctx.strokeStyle = theme.grat; ctx.lineWidth = 0.7; ctx.stroke();
+      ctx.beginPath(); path(LAND); ctx.fillStyle = theme.land; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.6; ctx.stroke();
+      const plates = platesRef.current;
+      if (p.plates && plates) { ctx.beginPath(); path(plates); ctx.strokeStyle = theme.plate; ctx.globalAlpha = 0.65; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; }
+
+      const r = proj.rotate(), c: [number, number] = [-r[0], -r[1]], pts: [number, number, Quake][] = [];
+      for (const q of sorted.current.list) {
+        if (geoDistance([q.lon, q.lat], c) > 1.55) continue;
+        const xy = proj([q.lon, q.lat]); if (!xy) continue;
+        let [x, y] = xy;
+        if (p.depthMode) {
+          const f = 1 - (Math.min(q.depthKm, 700) / 700) * 0.4, xi = cx + (x - cx) * f, yi = cy + (y - cy) * f;
+          ctx.strokeStyle = depthColor(q.depthKm); ctx.globalAlpha = 0.55; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(xi, yi); ctx.stroke(); ctx.globalAlpha = 1;
+          x = xi; y = yi; ctx.fillStyle = depthColor(q.depthKm);
+        } else ctx.fillStyle = magColor(q.mag).fill;
+        const rr = Math.max(1.8, (q.mag - 1.8) * 1.6);
+        ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
+        if (q.id === p.selectedId) { ctx.strokeStyle = theme.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, rr + 4, 0, 7); ctx.stroke(); }
+        pts.push([x, y, q]);
+      }
+      const L = p.center;
+      if (geoDistance([L.lon, L.lat], c) < 1.55) {
+        const xy = proj([L.lon, L.lat]);
+        if (xy) {
+          ctx.fillStyle = theme.violet; ctx.globalAlpha = 0.22; ctx.beginPath(); ctx.arc(xy[0], xy[1], 12, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
+          ctx.beginPath(); ctx.arc(xy[0], xy[1], 5, 0, 7); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+        }
+      }
+      st.pts = pts;
+      raf = requestAnimationFrame(frame);
+    };
+    raf = requestAnimationFrame(frame);
+    return () => { cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null; };
+  }, []);
+
+  return (
+    <div ref={wrapRef} style={{ position: 'absolute', inset: 0 }}>
+      <canvas ref={canvasRef} role="img" aria-label={props.label} style={{ display: 'block', touchAction: 'none', cursor: 'grab' }} />
+    </div>
+  );
+});
