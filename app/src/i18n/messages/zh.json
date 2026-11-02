@@ -336,6 +336,12 @@
     "loc_set": "位置已设置",
     "try_again": "重试"
   },
+  "date": "日期",
+  "country": "国家/地区",
+  "near_country": "{country}附近",
+  "share": "分享",
+  "link_copied": "链接已复制",
+  "depth_deep": "深度 {n} 公里",
   "mag_chip": "震级",
   "all_mags": "全部震级"
 }

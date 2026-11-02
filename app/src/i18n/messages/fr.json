@@ -336,6 +336,12 @@
     "loc_set": "Position enregistrée",
     "try_again": "Réessayer"
   },
+  "date": "Date",
+  "country": "Pays",
+  "near_country": "Près de : {country}",
+  "share": "Partager",
+  "link_copied": "Lien copié",
+  "depth_deep": "{n} km de profondeur",
   "mag_chip": "Magnitude",
   "all_mags": "Toutes les magnitudes"
 }
