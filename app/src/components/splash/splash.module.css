@@ -1,0 +1,23 @@
+.splash {
+  position: fixed; inset: 0; z-index: 3000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--brand); color: var(--on-brand);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  transition: opacity .32s ease, visibility 0s linear .32s;
+}
+.leaving { opacity: 0; visibility: hidden; pointer-events: none; }
+.center { display: flex; flex-direction: column; align-items: center; gap: 10px; transform: translateY(-4vh); }
+.mark { width: 88px; height: 88px; fill: currentColor; animation: settle .9s cubic-bezier(.2,.8,.2,1) both; }
+.word { font-size: 40px; font-weight: 800; letter-spacing: -.03em; line-height: 1; margin-top: 6px; }
+.tag { font-size: 15px; font-weight: 600; opacity: .8; text-align: center; padding: 0 24px; }
+.trace { position: absolute; left: 0; right: 0; bottom: calc(14vh + env(safe-area-inset-bottom)); width: 100%; height: 60px; overflow: visible; }
+.trace path { fill: none; stroke: currentColor; stroke-opacity: .55; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round;
+  vector-effect: non-scaling-stroke; }
+.trace { clip-path: inset(0 100% 0 0); animation: draw 1.6s ease-out .15s forwards; }
+@keyframes draw { to { clip-path: inset(0 0 0 0); } }
+@keyframes settle { 0% { transform: translateX(0) scale(.92); opacity: 0; } 30% { transform: translateX(-4px) scale(1); opacity: 1; }
+  45% { transform: translateX(4px); } 60% { transform: translateX(-2px); } 75% { transform: translateX(1px); } 100% { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .splash { transition: none; }
+  .mark { animation: none; }
+  .trace { animation: none; clip-path: none; }
+}

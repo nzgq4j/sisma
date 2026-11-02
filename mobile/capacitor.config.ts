@@ -12,7 +12,8 @@ const config: CapacitorConfig = {
   },
   android: { allowMixedContent: false, backgroundColor: '#6C4BF4' },
   plugins: {
-    SplashScreen: { launchShowDuration: 3000, launchAutoHide: true, launchFadeOutDuration: 250, backgroundColor: '#6C4BF4', showSpinner: false },
+    // Hidden by the web splash (app/src/components/splash/Splash.tsx) once it is painted; 10 s is only the fallback.
+    SplashScreen: { launchShowDuration: 10000, launchAutoHide: true, launchFadeOutDuration: 0, backgroundColor: '#6C4BF4', showSpinner: false },
     SystemBars: { insetsHandling: 'native', initialViewportFitValueHint: 'cover' },
     PushNotifications: { presentationOptions: ['badge', 'sound', 'alert'] },
   },

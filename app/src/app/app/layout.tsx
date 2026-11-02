@@ -6,6 +6,7 @@ import { AppStateProvider } from '@/components/AppState';
 import { QuakeDataProvider } from '@/components/QuakeData';
 import { FeltReportProvider } from '@/components/FeltReport';
 import { SideNav } from '@/components/dash/SideNav';
+import { Splash } from '@/components/splash/Splash';
 import styles from '@/components/dash/dash.module.css';
 
 // App shell for /app/*. Phone (< 1024px): top app bar + bottom nav, content column up to 520px, edge-to-edge on Android.
@@ -25,6 +26,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
         <div className={styles.mobileOnly}><BottomNav /></div>
+        <Splash />
       </FeltReportProvider>
       </QuakeDataProvider>
     </AppStateProvider>

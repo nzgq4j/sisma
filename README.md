@@ -27,7 +27,7 @@ Open them in a browser; they run on live USGS data.
 
     cd app && npm install && npm run dev      # http://localhost:3000 and /app
     cd mobile && npm install && npx cap sync android && npx cap open android
-    cd mobile && npx @capacitor/assets generate --android   # launcher icons from mobile/assets/
+    cd mobile && npx @capacitor/assets generate --android   # launcher icons and splash (splash.png, splash-dark.png) from mobile/assets/
 
 Supabase: project `sisma` (ref `ukmvbfhfbohdlxoxlqhc`, us-east-1). Migrations in supabase/migrations are applied.
 Vercel is connected to it through the Supabase integration (STORAGE_-prefixed variables, read by app/src/lib/supabase-env.ts). Full checklist (auth URLs, email templates, SMTP, …): docs/supabase-setup.md.
