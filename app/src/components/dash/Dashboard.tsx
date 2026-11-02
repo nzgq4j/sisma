@@ -14,6 +14,7 @@ import { QuakeDetail, QuakeSummary } from '@/components/QuakeDetail';
 import { FeltButton } from '@/components/FeltReport';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import { WorldMap } from './WorldMap';
+import { MagFilterChip } from '@/components/stage/StageParts';
 import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
 import styles from './dash.module.css';
 
@@ -24,7 +25,7 @@ export function Dashboard() {
   const { t, m, nf, locale } = useT();
   const { locations, active, plan } = useApp();
   const loc = locations[active];
-  const { range, setRange, region, setRegion, loaded, list, regions, loadedAt: now } = useQuakeData();
+  const { range, setRange, region, setRegion, loaded, list, mapList, regions, loadedAt: now } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
   const [selId, setSelId] = useState<string | null>(null);
   const [detailOpen, setDetailOpen] = useState(false);
@@ -120,7 +121,8 @@ export function Dashboard() {
       <div className={styles.main}>
         <div className={styles.leftCol}>
           <section className={`${styles.card} ${styles.mapCard}`}>
-            <WorldMap projection="mercator" quakes={list} center={loc} selectedId={selId} onSelect={q => setSelId(q?.id ?? null)} />
+            <WorldMap projection="mercator" quakes={mapList} center={loc} selectedId={selId} onSelect={q => setSelId(q?.id ?? null)} />
+            <div className={styles.mapFilter}><MagFilterChip /></div>
             <div className={styles.mapLegend} aria-hidden="true">
               <span>M</span>
               {[...MAG_SCALE].reverse().map(([min, fill]) => <i key={min} style={{ background: fill }} />)}

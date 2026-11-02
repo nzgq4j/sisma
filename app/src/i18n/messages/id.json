@@ -341,5 +341,7 @@
   "near_country": "Dekat {country}",
   "share": "Bagikan",
   "link_copied": "Tautan disalin",
-  "depth_deep": "kedalaman {n} km"
+  "depth_deep": "kedalaman {n} km",
+  "mag_chip": "Magnitudo",
+  "all_mags": "Semua magnitudo"
 }

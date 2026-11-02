@@ -341,5 +341,7 @@
   "near_country": "Near {country}",
   "share": "Share",
   "link_copied": "Link copied",
-  "depth_deep": "{n} km deep"
+  "depth_deep": "{n} km deep",
+  "mag_chip": "Magnitude",
+  "all_mags": "All magnitudes"
 }

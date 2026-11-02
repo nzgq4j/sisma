@@ -341,5 +341,7 @@
   "near_country": "{country}付近",
   "share": "共有",
   "link_copied": "リンクをコピーしました",
-  "depth_deep": "深さ {n} km"
+  "depth_deep": "深さ {n} km",
+  "mag_chip": "マグニチュード",
+  "all_mags": "すべてのマグニチュード"
 }

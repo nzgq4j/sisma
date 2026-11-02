@@ -4,6 +4,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useApp } from './AppState';
 import type { Quake } from '@/lib/quakes/types';
+import { can } from '@/lib/entitlements';
 
 export type ViewRange = '24h' | '7d' | '30d' | '1y';
 export const VIEW_RANGES: ViewRange[] = ['24h', '7d', '30d', '1y'];
@@ -25,12 +26,17 @@ interface QuakeData {
   regions: [string, number][];
   /** time of the last successful load (keeps render functions pure) */
   loadedAt: number;
+  /** Map/Globe magnitude filter (sisma+ advanced filter): show only events at or above this magnitude; null = all. */
+  minMag: number | null; setMinMag: (m: number | null) => void;
+  /** `list` with the magnitude filter applied — what the Map tab, Globe and dashboard map draw. */
+  mapList: Row[];
 }
 const Ctx = createContext<QuakeData | null>(null);
 
 export function QuakeDataProvider({ children }: { children: ReactNode }) {
-  const { locations, active } = useApp();
+  const { locations, active, plan } = useApp();
   const loc = locations[active];
+  const [minMag, setMinMag] = useState<number | null>(null);
   const [range, setRange] = useState<ViewRange>('7d');
   const [region, setRegion] = useState('all');
   const [rows, setRows] = useState<Row[] | null>(null);
@@ -58,8 +64,11 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
     all.forEach(q => counts.set(q.region, (counts.get(q.region) ?? 0) + 1));
     const regions = [...counts.entries()].sort((a, b) => b[1] - a[1]);
     const list = region === 'all' ? all : all.filter(q => q.region === region);
-    return { range, setRange, region, setRegion, loaded: rows !== null, all, list, regions, loadedAt };
-  }, [rows, range, region, loadedAt]);
+    // Advanced filters are sisma+ (lib/entitlements.ts); the setting is kept but not applied on Free.
+    const mag = can(plan, 'advancedFilters') ? minMag : null;
+    const mapList = mag == null ? list : list.filter(q => q.mag >= mag);
+    return { range, setRange, region, setRegion, loaded: rows !== null, all, list, regions, loadedAt, minMag: mag, setMinMag, mapList };
+  }, [rows, range, region, loadedAt, minMag, plan]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
