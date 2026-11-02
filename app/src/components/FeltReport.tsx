@@ -2,7 +2,7 @@
 // "I felt it" felt-report flow (design: sheetReport). Quick step (intensity slider + note) → optional details
 // (where, duration, what moved, damage) → thanks. Open from anywhere with useFeltReport().open(quake).
 // Reports are accepted for quakes up to 6 hours old; the server re-checks (POST /api/reports).
-import { createContext, useCallback, useContext, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from './AppState';
 import { Sheet } from './Sheet';
@@ -25,7 +25,9 @@ const readClock = () => (nowCache ||= Date.now());
 export function useNow() { return useSyncExternalStore(subscribeClock, readClock, () => 0); }
 
 // ---- reports this device has sent (so the button turns into "Your report") ----
-type Mine = Record<string, number>; // quake id → MMI
+// quake id → the report this device sent (MMI and, when the device gave a location, its ~10 km cell)
+type MineEntry = { mmi: number; lat?: number; lon?: number };
+type Mine = Record<string, MineEntry>;
 const MINE_KEY = 'sisma.reports';
 const mineSubs = new Set<() => void>();
 let mineMemory = '{}';
@@ -39,7 +41,12 @@ const Ctx = createContext<FeltCtx | null>(null);
 export function FeltReportProvider({ children }: { children: ReactNode }) {
   const [quake, setQuake] = useState<Quake | null>(null);
   const raw = useSyncExternalStore(subscribeMine, readMine, () => '{}');
-  const mine = useMemo<Mine>(() => { try { return JSON.parse(raw); } catch { return {}; } }, [raw]);
+  const mine = useMemo<Mine>(() => {
+    try {
+      const o = JSON.parse(raw) as Record<string, number | MineEntry>;
+      return Object.fromEntries(Object.entries(o).map(([k, v]) => [k, typeof v === 'number' ? { mmi: v } : v]));
+    } catch { return {}; }
+  }, [raw]);
   const open = useCallback((q: Quake) => setQuake(q), []);
   const value = useMemo(() => ({ open, mine }), [open, mine]);
   return (
@@ -47,7 +54,7 @@ export function FeltReportProvider({ children }: { children: ReactNode }) {
       {children}
       <Sheet open={!!quake} onClose={() => setQuake(null)}>
         {quake && <ReportForm key={quake.id} q={quake} onClose={() => setQuake(null)}
-          onSent={mmi => writeMine(JSON.stringify({ ...mine, [quake.id]: mmi }))} />}
+          onSent={entry => writeMine(JSON.stringify({ ...mine, [quake.id]: entry }))} />}
       </Sheet>
     </Ctx.Provider>
   );
@@ -64,7 +71,7 @@ export function FeltButton({ q, variant = 'pill', fallback = null }: { q: Quake;
   const { t } = useT();
   const { open, mine } = useFeltReport();
   const now = useNow();
-  const sent = mine[q.id];
+  const sent = mine[q.id]?.mmi;
   if (sent) {
     return (
       <span className={variant === 'block' ? styles.sentBlock : styles.sentPill}>
@@ -82,7 +89,7 @@ export function FeltButton({ q, variant = 'pill', fallback = null }: { q: Quake;
 
 const DURATIONS = ['< 10 s', '10–30 s', '30–60 s', '> 1 min'];
 
-function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onSent: (mmi: number) => void }) {
+function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onSent: (entry: MineEntry) => void }) {
   const { t, m, locale, nf } = useT();
   const { locations, active } = useApp();
   const [step, setStep] = useState<'quick' | 'details' | 'done'>('quick');
@@ -107,7 +114,8 @@ function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onS
         }),
       });
       if (!r.ok) throw new Error(String(r.status));
-      onSent(mmi); setState('idle'); setStep('done');
+      const cell = loc?.fromDevice ? { lat: Math.round(loc.lat * 10) / 10, lon: Math.round(loc.lon * 10) / 10 } : {};
+      onSent({ mmi, ...cell }); setState('idle'); setStep('done');
     } catch { setState('error'); }
   };
 
@@ -167,4 +175,30 @@ function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onS
       {step === 'quick' && <button type="button" className={styles.link} onClick={() => setStep('details')}>{t('more_detail')} ›</button>}
     </form>
   );
+}
+
+export interface FeltCell { lat: number; lon: number; n: number; mmi: number }
+
+/**
+ * Felt reports for a quake as ~10 km cells (GET /api/reports). In demo mode nothing is stored on the server,
+ * so this device's own report (if it had a location) is shown on its own.
+ */
+export function useFeltCells(quakeId: string | null) {
+  const { mine } = useFeltReport();
+  const [data, setData] = useState<{ id: string; cells: FeltCell[]; demo: boolean } | null>(null);
+  useEffect(() => {
+    if (!quakeId) return;
+    let alive = true;
+    fetch('/api/reports?quakeId=' + encodeURIComponent(quakeId))
+      .then(r => (r.ok ? r.json() : null))
+      .then(j => { if (alive) setData({ id: quakeId, cells: j?.cells ?? [], demo: !j || !!j.demo }); })
+      .catch(() => { if (alive) setData({ id: quakeId, cells: [], demo: true }); });
+    return () => { alive = false; };
+  }, [quakeId]);
+  return useMemo(() => {
+    if (!quakeId || data?.id !== quakeId) return { loading: !!quakeId, cells: [] as FeltCell[], total: 0 };
+    const own = mine[quakeId];
+    const cells = data.demo && own?.lat != null && own.lon != null ? [...data.cells, { lat: own.lat, lon: own.lon, n: 1, mmi: own.mmi }] : data.cells;
+    return { loading: false, cells, total: cells.reduce((s, c) => s + c.n, 0) };
+  }, [quakeId, data, mine]);
 }

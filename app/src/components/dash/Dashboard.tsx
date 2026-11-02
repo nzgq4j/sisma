@@ -12,6 +12,7 @@ import type { SortKey } from '@/lib/quakes/types';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/QuakeData';
 import { QuakeDetail } from '@/components/QuakeDetail';
 import { FeltButton } from '@/components/FeltReport';
+import { Sheet, SheetOptions } from '@/components/Sheet';
 import { WorldMap } from './WorldMap';
 import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
 import styles from './dash.module.css';
@@ -26,6 +27,7 @@ export function Dashboard() {
   const { range, setRange, region, setRegion, loaded, list, regions, loadedAt: now } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
   const [selId, setSelId] = useState<string | null>(null);
+  const [regionSheet, setRegionSheet] = useState(false);
 
   const sorted = useMemo(() => {
     const s = [...list];
@@ -79,13 +81,15 @@ export function Dashboard() {
                 : <button key={r} type="button" className={styles.segBtn} aria-pressed={range === r} onClick={() => setRange(r)}>{t(RANGE_LABEL[r])}</button>;
             })}
           </div>
-          <label className={styles.selectWrap}>
+          <button type="button" className={styles.selectWrap} onClick={() => setRegionSheet(true)} aria-haspopup="dialog" aria-label={`${t('regions')}: ${region === 'all' ? t('all_regions') : region}`}>
             <span className="ms" aria-hidden="true">location_on</span>
-            <select value={region} onChange={e => { setRegion(e.target.value); setSelId(null); }} aria-label={t('regions')}>
-              <option value="all">{t('all_regions')}</option>
-              {regions.map(([r, n]) => <option key={r} value={r}>{r} ({nf.format(n)})</option>)}
-            </select>
-          </label>
+            <span className={styles.selectLabel}>{region === 'all' ? t('all_regions') : `${region} (${nf.format(list.length)})`}</span>
+            <span className="ms" aria-hidden="true">expand_more</span>
+          </button>
+          <Sheet open={regionSheet} onClose={() => setRegionSheet(false)} title={t('regions')}>
+            <SheetOptions value={region} onPick={r => { setRegion(r); setSelId(null); setRegionSheet(false); }}
+              options={[{ value: 'all', label: t('all_regions') }, ...regions.map(([r, n]) => ({ value: r, label: r, meta: nf.format(n) }))]} />
+          </Sheet>
         </div>
       </header>
 

@@ -16,6 +16,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 - Quake data is always the normalised Quake type (src/lib/quakes/types.ts). New sources = new adapter + test.
 - Mobile first: 360-412 px widths, 44 px touch targets, env(safe-area-inset-*) padding.
 - sisma is not an official warning service; keep the disclaimer on Me and the site footer.
+- Selectors and pop-ups use components/Sheet.tsx (as in the polar lights app: swipe down, double tap away from
+  controls, tap outside or Escape to close). Lists of choices use SheetOptions; no native <select> in the UI.
 
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)

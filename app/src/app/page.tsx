@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useT, LOCALES, type Locale } from '@/i18n/I18nProvider';
 import { AppPreview } from '@/components/site/AppPreview';
 import { LogoMark } from '@/components/Logo';
+import { LanguagePicker } from '@/components/LanguagePicker';
 import styles from '@/components/site/site.module.css';
 import science from '@/content/science.json';
 import { MAG_SCALE } from '@/lib/theme';
@@ -45,9 +46,13 @@ export default function Home() {
             <a href="#pricing">{w.nav_pricing}</a>
           </nav>
           <div className={styles.headerActions}>
-            <select className={styles.langSelect} value={locale} onChange={e => setLocale(e.target.value as Locale)} aria-label={t('language')}>
-              {LOCALES.map(l => <option key={l.code} value={l.code}>{l.name}</option>)}
-            </select>
+            <LanguagePicker sheetClassName={styles.lightVars}>{(open, cur) => (
+              <button type="button" className={styles.langSelect} onClick={open} aria-haspopup="dialog" aria-label={`${t('language')}: ${cur.name}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- tiny bundled SVGs */}
+                {cur.flag && <img src={`/flags/${cur.flag}.svg`} alt="" width={20} height={20} className={styles.flagSm} />}
+                {cur.name}<span className={styles.ms} aria-hidden="true">expand_more</span>
+              </button>
+            )}</LanguagePicker>
             <Link href={SITE.appPath} className={styles.pillSmall}>{w.open_app}</Link>
           </div>
         </div>
