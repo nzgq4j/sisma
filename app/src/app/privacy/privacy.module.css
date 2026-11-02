@@ -19,3 +19,4 @@
 .tableWrap th { background: var(--surface2); font-size: 13px; color: var(--ink2); }
 .tableWrap tr:last-child td { border-bottom: 0; }
 .tableWrap th:nth-child(1) { width: 30%; } .tableWrap th:nth-child(2) { width: 26%; } .tableWrap th:nth-child(3) { width: 24%; } .tableWrap th:nth-child(4) { width: 20%; }
+.address { font-style: normal; line-height: 1.7; }
