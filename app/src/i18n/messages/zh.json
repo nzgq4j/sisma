@@ -173,7 +173,6 @@
     "details": "详情",
     "select_hint": "在地图或列表中选择一次地震以查看详情。",
     "none": "没有符合这些筛选条件的地震。",
-    "open_source": "在来源处打开",
     "zoom_in": "放大",
     "zoom_out": "缩小",
     "reset_view": "重置视图",

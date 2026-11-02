@@ -11,5 +11,4 @@ Merging (src/lib/quakes/merge.ts): two events are the same if within 90 s and 10
 authority wins inside its region (JMA in Japan, GeoNet in New Zealand), otherwise USGS, then EMSC.
 Always credit sources in the UI. Verify each provider's terms of use before launch.
 
-Plate boundaries: PB2002 (Bird, 2003) via github.com/fraxen/tectonicplates — bundle a simplified copy
-in public/geo/ for production instead of fetching from GitHub.
+Plate boundaries: PB2002 (Bird, 2003) via github.com/fraxen/tectonicplates — bundled as app/public/data/plate-boundaries.json (ODC-BY; credit shown on the map when plates are on).

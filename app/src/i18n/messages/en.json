@@ -173,7 +173,6 @@
     "details": "Details",
     "select_hint": "Select an earthquake on the map or in the list to see its details.",
     "none": "No earthquakes match these filters.",
-    "open_source": "Open at source",
     "zoom_in": "Zoom in",
     "zoom_out": "Zoom out",
     "reset_view": "Reset view",

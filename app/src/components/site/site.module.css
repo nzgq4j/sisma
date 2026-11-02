@@ -19,8 +19,6 @@
 .header { position: sticky; top: 0; z-index: 20; background: rgba(246, 244, 252, .88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .headerInner { max-width: 1180px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .site a.brand { display: flex; align-items: center; gap: 10px; color: var(--ink); }
-.brandMark { width: 34px; height: 34px; border-radius: 11px; background: var(--violet); display: flex; align-items: center; justify-content: center; }
-.brandMark .ms { font-size: 22px; color: #fff; }
 .wordmark { font-size: 20px; font-weight: 800; letter-spacing: -.02em; }
 .wordmark span { color: var(--ink2); font-weight: 600; }
 .nav { display: flex; gap: 22px; flex: 1; font-size: 15px; font-weight: 600; flex-wrap: wrap; }

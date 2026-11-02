@@ -27,6 +27,7 @@ Open them in a browser; they run on live USGS data.
 
     cd app && npm install && npm run dev      # http://localhost:3000 and /app
     cd mobile && npm install && npx cap sync android && npx cap open android
+    cd mobile && npx @capacitor/assets generate --android   # launcher icons from mobile/assets/
 
 Copy app/.env.example to app/.env.local. Without Supabase/Stripe keys the app runs in demo mode
 (local plan toggle, reports kept in memory).

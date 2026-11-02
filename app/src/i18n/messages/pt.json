@@ -173,7 +173,6 @@
     "details": "Detalhes",
     "select_hint": "Selecione um terremoto no mapa ou na lista para ver os detalhes.",
     "none": "Nenhum terremoto corresponde a estes filtros.",
-    "open_source": "Abrir na fonte",
     "zoom_in": "Aproximar",
     "zoom_out": "Afastar",
     "reset_view": "Redefinir visualização",

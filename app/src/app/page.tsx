@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useT, LOCALES, type Locale } from '@/i18n/I18nProvider';
 import { AppPreview } from '@/components/site/AppPreview';
+import { LogoMark } from '@/components/Logo';
 import styles from '@/components/site/site.module.css';
 import science from '@/content/science.json';
 import { MAG_SCALE } from '@/lib/theme';
@@ -35,7 +36,7 @@ export default function Home() {
       <header className={styles.header}>
         <div className={styles.headerInner}>
           <a href="#top" className={styles.brand}>
-            <span className={styles.brandMark}><span className={styles.ms}>earthquake</span></span>
+            <LogoMark size={34} fixed />
             <span className={styles.wordmark}>sisma<span>.io</span></span>
           </a>
           <nav className={styles.nav}>
