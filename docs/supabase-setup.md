@@ -11,18 +11,17 @@ Already done (by Claude, through the Supabase and Vercel connectors):
 | `20261102000200_fk_indexes.sql` | Applied |
 | Security advisor | Clean apart from the intentional "RLS enabled, no policy" on `felt_reports` |
 | Vercel env `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable key) | Added for Production, Preview, Development |
+| Vercel ↔ Supabase integration (`STORAGE_` variables, incl. the secret key) | Connected by you |
 
 Everything below is done by hand in the dashboards. Menu names are given first; links are shortcuts.
 
-## 1. Secret key → Vercel (needed now: felt reports are not stored without it)
+## 1. Secret key → Vercel (done)
 
-1. Supabase → **Project Settings → API Keys** (`/settings/api-keys`) → **Secret keys** → copy the default secret key
-   (`sb_secret_…`). If the project only shows legacy keys, use **service_role** under *Legacy API keys*.
-2. Vercel → **sisma → Settings → Environment Variables** → add `SUPABASE_SERVICE_ROLE_KEY`, type **Sensitive**,
-   environments **Production** and **Preview**.
-3. Redeploy production (Vercel → Deployments → latest → Redeploy), or ask Claude to.
-
-Never put this key in the app, a `NEXT_PUBLIC_` variable, the repo or a chat.
+Connected through **Vercel → Storage → Supabase** with the env prefix `STORAGE`, which added `STORAGE_SUPABASE_URL`,
+`STORAGE_SUPABASE_SECRET_KEY`, `STORAGE_SUPABASE_SERVICE_ROLE_KEY`, `STORAGE_POSTGRES_*` and the public
+`NEXT_PUBLIC_STORAGE_SUPABASE_*` keys (Production and Preview). The server reads them through
+`app/src/lib/supabase-env.ts`, which also accepts the unprefixed names (`SUPABASE_SERVICE_ROLE_KEY`). Never put the
+secret key in the app, a `NEXT_PUBLIC_` variable, the repo or a chat.
 
 ## 2. Authentication → URL Configuration (`/auth/url-configuration`)
 
@@ -84,6 +83,10 @@ your own SMTP provider (for example Resend, Postmark or Amazon SES):
    point to Vercel). Wait for the provider to verify the domain.
 2. In Supabase, enable custom SMTP with the provider's host, port (465 or 587), username and password/API key.
 3. Sender email **no-reply@sisma.io**, sender name **sisma**.
+
+With **Resend**: host `smtp.resend.com`, port `465`, username `resend`, password = a Resend API key with
+**Sending access** limited to the sisma.io domain. The key goes only into this Supabase form; it is not needed in
+Vercel or the repo (the app sends no email itself).
 
 ## 6. Authentication → Rate Limits (`/auth/rate-limits`)
 

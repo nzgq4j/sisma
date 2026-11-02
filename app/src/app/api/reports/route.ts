@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { supabaseAdminConfig } from '@/lib/supabase-env';
 import { SOURCES } from '@/lib/quakes/sources';
 import { mergeQuakes } from '@/lib/quakes/merge';
 import { REPORT_GRACE_MS, REPORT_WINDOW_MS } from '@/lib/quakes/report-window';
@@ -40,9 +41,9 @@ export async function POST(req: NextRequest) {
     lat: lat === null ? null : Math.round(lat * 10) / 10, lon: lon === null ? null : Math.round(lon * 10) / 10,
     locale: String(b.locale ?? 'en').slice(0, 5),
   };
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL, key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return NextResponse.json({ ok: true, demo: true });
-  const { error } = await createClient(url, key).from('felt_reports').insert(row);
+  const db = supabaseAdminConfig();
+  if (!db) return NextResponse.json({ ok: true, demo: true });
+  const { error } = await createClient(db.url, db.key, { auth: { persistSession: false } }).from('felt_reports').insert(row);
   if (error) return NextResponse.json({ error: 'store_failed' }, { status: 500 });
   return NextResponse.json({ ok: true });
 }
@@ -52,9 +53,9 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
   const quakeId = req.nextUrl.searchParams.get('quakeId');
   if (!quakeId) return NextResponse.json({ error: 'invalid' }, { status: 400 });
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL, key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) return NextResponse.json({ quakeId, total: 0, cells: [], demo: true });
-  const { data, error } = await createClient(url, key).from('felt_reports').select('lat, lon, mmi').eq('quake_id', quakeId).limit(5000);
+  const db = supabaseAdminConfig();
+  if (!db) return NextResponse.json({ quakeId, total: 0, cells: [], demo: true });
+  const { data, error } = await createClient(db.url, db.key, { auth: { persistSession: false } }).from('felt_reports').select('lat, lon, mmi').eq('quake_id', quakeId).limit(5000);
   if (error) return NextResponse.json({ error: 'read_failed' }, { status: 500 });
   const cells = new Map<string, { lat: number; lon: number; n: number; sum: number }>();
   for (const r of data ?? []) {
