@@ -15,6 +15,15 @@
 .p { margin: 0; font-size: 17px; line-height: 1.5; color: var(--ink2); text-wrap: pretty; }
 .small { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink2); display: flex; gap: 8px; align-items: flex-start; }
 .small :global(.ms) { font-size: 18px; color: var(--mint-text); margin-top: 1px; }
+.locStatus { width: 100%; display: flex; flex-direction: column; }
+.info, .ok { margin: 0; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; border-radius: 14px; padding: 12px 14px; }
+.info { background: var(--violet-soft); color: var(--violet-text); }
+.ok { background: var(--mint-soft); color: var(--mint-text); }
+.ok > :global(.ms), .info > :global(.ms) { font-size: 22px; flex: none; }
+.ok strong { display: block; }
+.coords { display: block; font: 500 13px var(--font-plex-mono), monospace; opacity: .85; margin-top: 2px; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 .warn { margin: 0; font-size: 14px; font-weight: 600; color: var(--warm-text); background: var(--warm-soft); border-radius: 14px; padding: 10px 12px; }
 .points { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; width: 100%; }
 .points li { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; background: var(--surface); border-radius: 18px; padding: 12px 14px; }
@@ -36,5 +45,6 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .step, .fromLeft { animation-name: fade; }
+  .spin { animation-duration: 2.4s; }
   @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 }

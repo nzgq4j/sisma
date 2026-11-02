@@ -289,7 +289,8 @@
     "loc_unavailable": "Impossibile trovare la tua posizione. Riprova più tardi.",
     "search_soon": "La ricerca di un luogo arriverà presto. Per ora usa la tua posizione attuale.",
     "intro": "Mostra l’introduzione",
-    "billing_soon": "I pagamenti non sono ancora disponibili. Torna presto."
+    "billing_soon": "I pagamenti non sono ancora disponibili. Torna presto.",
+    "loc_help": "Per consentirlo, apri le impostazioni del sito (l’icona accanto all’indirizzo web), imposta Posizione su Consenti e riprova."
   },
   "onboard": {
     "skip": "Salta",
@@ -310,6 +311,9 @@
     "loc_later": "Non ora",
     "imp_h": "Importante",
     "imp_p": "sisma non è un servizio di allerta ufficiale. In caso di emergenza, segui sempre le indicazioni della protezione civile locale.",
-    "imp_ok": "Ho capito"
+    "imp_ok": "Ho capito",
+    "loc_finding": "Ricerca della tua posizione…",
+    "loc_set": "Posizione impostata",
+    "try_again": "Riprova"
   }
 }

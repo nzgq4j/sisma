@@ -11,6 +11,7 @@ import { finishOnboarding, useOnboardingOpen } from './store';
 import styles from './onboarding.module.css';
 
 const STEPS = ['welcome', 'language', 'location', 'important'] as const;
+const fmtCoords = (lat: number, lon: number) => `${Math.abs(lat).toFixed(2)}° ${lat >= 0 ? 'N' : 'S'}, ${Math.abs(lon).toFixed(2)}° ${lon >= 0 ? 'E' : 'W'}`;
 type Step = (typeof STEPS)[number];
 
 export function Onboarding() {
@@ -21,7 +22,8 @@ export function Onboarding() {
 function Flow() {
   const { m } = useT();
   const o = m.onboard;
-  const { locateMe } = useApp();
+  const { locateMe, locations } = useApp();
+  const device = locations.find(l => l.fromDevice);
   const [i, setI] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
   const [loc, setLoc] = useState<LocateResult | 'busy' | null>(null);
@@ -42,7 +44,9 @@ function Flow() {
   // Lock page scroll behind the overlay.
   useEffect(() => { const b = document.body.style.overflow; document.body.style.overflow = 'hidden'; return () => { document.body.style.overflow = b; }; }, []);
 
-  const askLocation = async () => { setLoc('busy'); const r = await locateMe(); setLoc(r); if (r === 'ok') next(); };
+  // Stay on the step and show the outcome: when access was already allowed there is no browser prompt, so a silent
+  // jump to the next step looked like nothing happened.
+  const askLocation = async () => { setLoc('busy'); setLoc(await locateMe()); };
 
   const swipe = {
     onPointerDown: (e: React.PointerEvent) => { if (e.pointerType !== 'mouse') start.current = { x: e.clientX, y: e.clientY }; },
@@ -90,8 +94,15 @@ function Flow() {
               {heading(o.loc_h)}
               <p className={styles.p}>{o.loc_p}</p>
               <p className={styles.small}><span className="ms" aria-hidden="true">lock</span>{o.loc_privacy}</p>
-              {loc === 'denied' && <p className={styles.warn} role="status">{m.acct.loc_denied}</p>}
-              {loc === 'unavailable' && <p className={styles.warn} role="status">{m.acct.loc_unavailable}</p>}
+              <div aria-live="polite" className={styles.locStatus}>
+                {loc === 'busy' && <p className={styles.info}><span className={`ms ${styles.spin}`} aria-hidden="true">progress_activity</span>{o.loc_finding}</p>}
+                {loc === 'ok' && device && (
+                  <p className={styles.ok}><span className="ms" aria-hidden="true">check_circle</span>
+                    <span><strong>{o.loc_set}</strong><span className={styles.coords}>{fmtCoords(device.lat, device.lon)}</span></span></p>
+                )}
+                {loc === 'denied' && <p className={styles.warn}>{m.acct.loc_denied} {m.acct.loc_help}</p>}
+                {loc === 'unavailable' && <p className={styles.warn}>{m.acct.loc_unavailable}</p>}
+              </div>
             </>
           )}
           {step === 'important' && (
@@ -109,10 +120,17 @@ function Flow() {
           </div>
           {step === 'location' ? (
             <div className={styles.actions}>
-              {loc === 'denied' || loc === 'unavailable'
-                ? <button type="button" className={styles.primary} onClick={next}>{o.next}</button>
-                : <button type="button" className={styles.primary} onClick={askLocation} disabled={loc === 'busy'}><span className="ms" aria-hidden="true">my_location</span>{o.loc_use}</button>}
-              <button type="button" className={styles.secondary} onClick={next}>{o.loc_later}</button>
+              {loc === 'ok' ? (
+                <button type="button" className={styles.primary} onClick={next}>{o.next}</button>
+              ) : (
+                <>
+                  <button type="button" className={styles.primary} onClick={askLocation} disabled={loc === 'busy'}>
+                    <span className="ms" aria-hidden="true">{loc === 'denied' || loc === 'unavailable' ? 'refresh' : 'my_location'}</span>
+                    {loc === 'denied' || loc === 'unavailable' ? o.try_again : o.loc_use}
+                  </button>
+                  <button type="button" className={styles.secondary} onClick={next}>{o.loc_later}</button>
+                </>
+              )}
             </div>
           ) : last ? (
             <button type="button" className={styles.primary} onClick={finishOnboarding}>{o.imp_ok}</button>

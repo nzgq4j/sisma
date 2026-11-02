@@ -289,7 +289,8 @@
     "loc_unavailable": "No se pudo encontrar tu ubicación. Inténtalo más tarde.",
     "search_soon": "Pronto podrás buscar un lugar. Por ahora, usa tu ubicación actual.",
     "intro": "Ver la introducción",
-    "billing_soon": "Los pagos aún no están disponibles. Vuelve pronto."
+    "billing_soon": "Los pagos aún no están disponibles. Vuelve pronto.",
+    "loc_help": "Para permitirlo, abre la configuración del sitio (el icono junto a la dirección web), cambia Ubicación a Permitir y vuelve a intentarlo."
   },
   "onboard": {
     "skip": "Omitir",
@@ -310,6 +311,9 @@
     "loc_later": "Ahora no",
     "imp_h": "Importante",
     "imp_p": "sisma no es un servicio oficial de alertas. En una emergencia, sigue siempre a tu autoridad local de protección civil.",
-    "imp_ok": "Entendido"
+    "imp_ok": "Entendido",
+    "loc_finding": "Buscando tu ubicación…",
+    "loc_set": "Ubicación lista",
+    "try_again": "Reintentar"
   }
 }

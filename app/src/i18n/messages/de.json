@@ -289,7 +289,8 @@
     "loc_unavailable": "Dein Standort konnte nicht ermittelt werden. Bitte versuche es später erneut.",
     "search_soon": "Die Ortssuche kommt bald. Verwende bis dahin deinen aktuellen Standort.",
     "intro": "Einführung anzeigen",
-    "billing_soon": "Zahlungen sind noch nicht verfügbar. Schau bald wieder vorbei."
+    "billing_soon": "Zahlungen sind noch nicht verfügbar. Schau bald wieder vorbei.",
+    "loc_help": "Öffne dazu die Website-Einstellungen (das Symbol neben der Webadresse), stelle Standort auf Zulassen und versuche es erneut."
   },
   "onboard": {
     "skip": "Überspringen",
@@ -310,6 +311,9 @@
     "loc_later": "Später",
     "imp_h": "Wichtig",
     "imp_p": "sisma ist kein offizieller Warndienst. Folge im Notfall immer den Anweisungen deines örtlichen Katastrophenschutzes.",
-    "imp_ok": "Verstanden"
+    "imp_ok": "Verstanden",
+    "loc_finding": "Standort wird ermittelt …",
+    "loc_set": "Standort festgelegt",
+    "try_again": "Erneut versuchen"
   }
 }
