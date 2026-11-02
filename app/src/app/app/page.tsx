@@ -57,7 +57,7 @@ function MobileFeed() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {rows.slice(0, 60).map(q => <QuakeRow key={q.id} q={q} onOpen={() => setSelId(q.id)} />)}
       </div>
-      <Sheet open={!!sel} onClose={() => setSelId(null)}>
+      <Sheet open={!!sel} onClose={() => setSelId(null)} label={sel?.region}>
         {/* TODO: "Report what you felt" → report sheet */}
         {sel && <QuakeDetail q={sel} onClose={() => setSelId(null)} />}
       </Sheet>

@@ -1,11 +1,14 @@
 /* Overview website. Spec: design/Sisma Website.dc.html.
    The design is light-only, so the site pins the light palette from globals.css / theme.ts
    regardless of the system colour scheme. The app under /app keeps its own theme handling. */
-.site {
+.lightVars, .site {
   --bg: #F6F4FC; --surface: #FFFFFF; --surface2: #EFECF8; --ink: #1B1530; --ink2: #5E587A; --line: #E4E0F0;
   --violet: #6C4BF4; --on-violet: #FFFFFF; --violet-soft: #ECE7FF; --violet-text: #5A38E0;
-  --mint: #2CCB9A; --mint-soft: #D9F7EC; --mint-text: #0A7558; --warm-soft: #FFE9E1; --warm-text: #B3401F;
+  --mint: #2CCB9A; --mint-soft: #D9F7EC; --mint-text: #0A7558; --warm-soft: #FFE9E1; --warm-text: #B3401F; --scrim: rgba(27, 21, 48, .42);
   color-scheme: light;
+}
+/* .lightVars carries the palette to pieces rendered outside .site (the language sheet is portalled to <body>). */
+.site {
   min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
@@ -25,7 +28,9 @@
 .site .nav a { color: var(--ink2); }
 .site .nav a:hover { color: var(--violet); }
 .headerActions { display: flex; gap: 10px; align-items: center; }
-.langSelect { height: 40px; border: 1px solid var(--line); border-radius: 20px; background: #fff; color: var(--ink); padding: 0 12px; font: 600 14px var(--font-figtree), Figtree, sans-serif; cursor: pointer; }
+.langSelect { height: 40px; border: 1px solid var(--line); border-radius: 20px; background: #fff; color: var(--ink); padding: 0 10px 0 8px; font: 600 14px var(--font-figtree), Figtree, sans-serif; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.langSelect .ms { font-size: 20px; color: var(--ink2); }
+.flagSm { width: 20px; height: 20px; border-radius: 10px; object-fit: cover; box-shadow: 0 0 0 1px rgba(27, 21, 48, .1); }
 .site a.pillSmall { height: 40px; border-radius: 20px; background: var(--violet); color: #fff; padding: 0 18px; display: flex; align-items: center; font: 700 14px var(--font-figtree), Figtree, sans-serif; white-space: nowrap; }
 
 /* Hero */

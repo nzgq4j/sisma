@@ -49,10 +49,10 @@ export function Legend({ depth = false }: { depth?: boolean }) {
 }
 
 /** The selected quake: bottom card + detail sheet on phones, floating detail panel on desktop. */
-export function Selection({ q, open, setOpen, onClear }: { q: Row; open: boolean; setOpen: (v: boolean) => void; onClear: () => void }) {
+export function Selection({ q, open, setOpen, onClear, onShowRegion }: { q: Row; open: boolean; setOpen: (v: boolean) => void; onClear: () => void; onShowRegion?: () => void }) {
   const { t, m, nf } = useT();
   const desktop = useDesktop();
-  if (desktop) return <aside className={styles.panel} aria-live="polite"><QuakeDetail q={q} onClose={onClear} /></aside>;
+  if (desktop) return <aside className={styles.panel} aria-live="polite"><QuakeDetail q={q} onClose={onClear} onShowRegion={onShowRegion} /></aside>;
   return (
     <>
       <div className={styles.selCard}>
@@ -66,7 +66,7 @@ export function Selection({ q, open, setOpen, onClear }: { q: Row; open: boolean
           <span className="ms" aria-hidden="true">info</span>
         </button>
       </div>
-      <Sheet open={open} onClose={() => setOpen(false)}><QuakeDetail q={q} onClose={() => setOpen(false)} /></Sheet>
+      <Sheet open={open} onClose={() => setOpen(false)} label={q.region}><QuakeDetail q={q} onClose={() => setOpen(false)} onShowRegion={onShowRegion && (() => { setOpen(false); onShowRegion(); })} /></Sheet>
     </>
   );
 }

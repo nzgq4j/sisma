@@ -2,7 +2,8 @@
 // Desktop navigation rail. Replaces the bottom bar at >= 1024px (see dash.module.css).
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useT, LOCALES, type Locale } from '@/i18n/I18nProvider';
+import { useT } from '@/i18n/I18nProvider';
+import { LanguagePicker } from '@/components/LanguagePicker';
 import { useApp } from '@/components/AppState';
 import { LogoMark } from '@/components/Logo';
 import styles from './dash.module.css';
@@ -17,7 +18,7 @@ const TABS = [
 
 export function SideNav() {
   const path = usePathname();
-  const { t, m, locale, setLocale } = useT();
+  const { t, m } = useT();
   const { plan } = useApp();
   return (
     <aside className={styles.side}>
@@ -42,12 +43,13 @@ export function SideNav() {
           <strong>{plan === 'plus' ? 'sisma+' : t('plan_free')}</strong>
           {plan === 'free' && <Link href="/app/me" className={styles.planBtn}>{t('upgrade')}</Link>}
         </div>
-        <label className={styles.langRow}>
-          <span className="ms" aria-hidden="true">translate</span>
-          <select value={locale} onChange={e => setLocale(e.target.value as Locale)} aria-label={t('language')}>
-            {LOCALES.map(l => <option key={l.code} value={l.code}>{l.name}</option>)}
-          </select>
-        </label>
+        <LanguagePicker>{(open, cur) => (
+          <button type="button" className={styles.langRow} onClick={open} aria-haspopup="dialog" aria-label={`${t('language')}: ${cur.name}`}>
+            <span className="ms" aria-hidden="true">translate</span>
+            <span className={styles.langName}>{cur.name}</span>
+            <span className="ms" aria-hidden="true">expand_less</span>
+          </button>
+        )}</LanguagePicker>
       </div>
     </aside>
   );

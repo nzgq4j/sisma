@@ -30,7 +30,9 @@
 .planBtn:hover { color: var(--on-violet); filter: brightness(1.06); }
 .langRow { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink2); }
 .langRow :global(.ms) { font-size: 20px; }
-.langRow select { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font: 600 14px inherit; font-family: inherit; cursor: pointer; }
+.langRow { width: 100%; background: transparent; font: inherit; cursor: pointer; text-align: left; }
+.langRow:hover { background: var(--surface2); color: var(--ink); }
+.langName { flex: 1; min-width: 0; color: var(--ink); font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ---------- Dashboard ---------- */
 .dash { padding: 22px 28px 28px; display: flex; flex-direction: column; gap: 18px; max-width: 1680px; }
@@ -47,7 +49,9 @@
 .segBtn[aria-pressed='true'] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 4px rgba(27, 21, 48, .12); }
 .selectWrap { display: flex; align-items: center; gap: 6px; height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink2); }
 .selectWrap :global(.ms) { font-size: 20px; }
-.selectWrap select { border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 14px; font-weight: 600; max-width: 240px; cursor: pointer; }
+.selectWrap { font: inherit; cursor: pointer; }
+.selectWrap:hover { border-color: var(--violet); }
+.selectLabel { color: var(--ink); font-size: 14px; font-weight: 600; max-width: 240px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .kpi { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 16px 18px; border: 0; border-radius: 22px; background: var(--surface); color: var(--ink); font: inherit; text-align: left; min-width: 0; }
@@ -134,6 +138,9 @@ button.kpi:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--violet-soft)
 .stats div { padding: 10px 12px; border-radius: 14px; background: var(--surface2); min-width: 0; }
 .stats dt { font-size: 12px; font-weight: 700; color: var(--ink2); }
 .stats dd { margin: 2px 0 0; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.regionBtn { width: 100%; height: 48px; border: 1px solid var(--line); border-radius: 24px; background: transparent; color: var(--ink); font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.regionBtn:hover { border-color: var(--violet); color: var(--violet-text); }
+.regionBtn :global(.ms) { font-size: 20px; }
 .windowNote { margin: 0; font-size: 12px; color: var(--ink2); }
 .felt { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink2); }
 .felt :global(.ms), .banner :global(.ms) { font-size: 20px; }

@@ -1,0 +1,29 @@
+/* Bottom sheet (behaviour from the polar lights app's BottomSheet; look from design/SismaApp.dc.html sheets). */
+.wrap { position: fixed; inset: 0; z-index: 1500; display: flex; flex-direction: column; justify-content: flex-end; touch-action: none; overscroll-behavior: contain; }
+.backdrop { position: absolute; inset: 0; border: 0; padding: 0; background: var(--scrim); cursor: default; animation: fade .2s ease-out; transition: opacity .18s ease-out; touch-action: none; }
+.panel {
+  position: relative; display: flex; flex-direction: column; gap: 16px; max-height: 88vh; overflow-y: auto; outline: none;
+  width: 100%; max-width: 520px; margin: 0 auto; box-sizing: border-box;
+  padding: 10px max(20px, env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  border-radius: 28px 28px 0 0; background: var(--surface); color: var(--ink);
+  animation: up .26s cubic-bezier(.2, .8, .2, 1); transition: transform .18s ease-out; touch-action: pan-y; overscroll-behavior: contain;
+}
+.panel > * { flex-shrink: 0; }
+.dragging { transition: none; }
+.handle { width: 36px; height: 4px; border-radius: 2px; background: var(--line); align-self: center; }
+.title { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+@keyframes up { from { transform: translateY(100%); } }
+@keyframes fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .panel, .backdrop { animation: none; } }
+
+/* Option rows (language, region …) */
+.rows { border-radius: 18px; background: var(--surface2); overflow: hidden; }
+.row { display: flex; align-items: center; gap: 14px; width: 100%; min-height: 52px; padding: 0 16px; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink); font: inherit; font-size: 16px; font-weight: 500; text-align: left; cursor: pointer; }
+.row:last-child { border-bottom: 0; }
+.row:hover { background: color-mix(in srgb, var(--surface2) 70%, var(--line)); }
+.row:active { background: var(--line); }
+.row[aria-pressed='true'] { font-weight: 700; }
+.rowLabel { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rowMeta { font-size: 14px; color: var(--ink2); font-variant-numeric: tabular-nums; }
+.check { color: var(--mint-text); font-size: 22px; }
+.flag { width: 26px; height: 26px; border-radius: 13px; object-fit: cover; box-shadow: 0 0 0 1px rgba(27, 21, 48, .1); flex: none; }
