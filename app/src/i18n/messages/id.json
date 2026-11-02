@@ -335,5 +335,7 @@
     "loc_finding": "Mencari lokasi Anda…",
     "loc_set": "Lokasi disetel",
     "try_again": "Coba lagi"
-  }
+  },
+  "mag_chip": "Magnitudo",
+  "all_mags": "Semua magnitudo"
 }

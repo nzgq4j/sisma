@@ -79,6 +79,7 @@ button.kpi:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--violet-soft)
 .mapTools button { width: 40px; height: 40px; border: 0; border-radius: 12px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; cursor: pointer; }
 .mapTools button:hover { color: var(--violet-text); }
 .mapTools :global(.ms) { font-size: 22px; }
+.mapFilter { position: absolute; left: 14px; top: 14px; z-index: 2; display: flex; }
 .mapLegend { position: absolute; left: 14px; bottom: 14px; display: flex; align-items: center; gap: 4px; padding: 8px 12px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); font-size: 12px; font-weight: 700; color: var(--ink2); }
 .mapLegend i { width: 26px; height: 8px; border-radius: 4px; }
 .mapLegend span:first-child { margin-right: 4px; }

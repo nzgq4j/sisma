@@ -6,7 +6,7 @@ import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData } from '@/components/QuakeData';
 import { Globe, type GlobeHandle } from '@/components/Globe';
-import { Legend, RangeChips, Selection, ToggleChip } from '@/components/stage/StageParts';
+import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip } from '@/components/stage/StageParts';
 import styles from '@/components/stage/stage.module.css';
 
 const RM = '(prefers-reduced-motion: reduce)';
@@ -15,7 +15,7 @@ const subscribeRM = (cb: () => void) => { const q = matchMedia(RM); q.addEventLi
 export default function GlobePage() {
   const { t, m } = useT();
   const { locations, active } = useApp();
-  const { list, loaded } = useQuakeData();
+  const { mapList: list, loaded } = useQuakeData();
   const reducedMotion = useSyncExternalStore(subscribeRM, () => matchMedia(RM).matches, () => false);
   const globe = useRef<GlobeHandle>(null);
   const [depth, setDepth] = useState(false);
@@ -35,6 +35,7 @@ export default function GlobePage() {
         <ToggleChip on={plates} onClick={() => setPlates(v => !v)} icon="texture" label={t('plates')} />
         <ToggleChip on={spin} onClick={() => setSpin(!spin)} icon="3d_rotation" label={t('spin')} />
         <RangeChips />
+        <MagFilterChip />
       </div>
       <div className={styles.zoomPill}>
         <button type="button" onClick={() => globe.current?.zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>

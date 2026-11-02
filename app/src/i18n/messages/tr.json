@@ -335,5 +335,7 @@
     "loc_finding": "Konumun bulunuyor…",
     "loc_set": "Konum ayarlandı",
     "try_again": "Tekrar dene"
-  }
+  },
+  "mag_chip": "Büyüklük",
+  "all_mags": "Tüm büyüklükler"
 }

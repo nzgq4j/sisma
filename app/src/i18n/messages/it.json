@@ -335,5 +335,7 @@
     "loc_finding": "Ricerca della tua posizione…",
     "loc_set": "Posizione impostata",
     "try_again": "Riprova"
-  }
+  },
+  "mag_chip": "Magnitudo",
+  "all_mags": "Tutte le magnitudo"
 }
