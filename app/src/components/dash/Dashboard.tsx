@@ -11,6 +11,7 @@ import { MAG_SCALE, magColor } from '@/lib/theme';
 import type { SortKey } from '@/lib/quakes/types';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/QuakeData';
 import { QuakeDetail } from '@/components/QuakeDetail';
+import { FeltButton } from '@/components/FeltReport';
 import { WorldMap } from './WorldMap';
 import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
 import styles from './dash.module.css';
@@ -155,7 +156,7 @@ export function Dashboard() {
             </header>
             <ul className={styles.list}>
               {sorted.slice(0, 250).map(q => (
-                <li key={q.id}>
+                <li key={q.id} className={styles.rowItem}>
                   <button type="button" className={styles.row} aria-pressed={q.id === selId} onClick={() => setSelId(q.id)}>
                     <MagBadge mag={q.mag} size={38} />
                     <span className={styles.rowText}>
@@ -167,6 +168,7 @@ export function Dashboard() {
                       {q.distanceKm != null && <span>{nf.format(Math.round(q.distanceKm))} km</span>}
                     </span>
                   </button>
+                  <FeltButton q={q} />
                 </li>
               ))}
               {loaded && !list.length && <li className={styles.empty}>{m.dash.none}</li>}

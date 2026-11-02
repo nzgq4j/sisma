@@ -20,7 +20,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)
 2. Feed (scaffolded): nearest card, sort segmented control, range + region chips, rows, detail sheet
-3. Felt report sheet (quick → details → thanks) + POST /api/reports + felt_reports table
+3. Felt report sheet (done): "I felt it" on quakes < 6 h old (lib/quakes/report-window.ts), quick → details → thanks
+   (components/FeltReport.tsx), POST /api/reports re-checks the quake and the window. Todo: rate limiting, show felt_summary
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the

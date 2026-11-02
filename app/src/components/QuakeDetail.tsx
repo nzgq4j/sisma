@@ -2,6 +2,7 @@
 // Quake detail: used by the desktop dashboard panel and the phone detail sheet (Feed, Map, Globe).
 import { useT } from '@/i18n/I18nProvider';
 import { MagBadge } from './MagBadge';
+import { FeltButton } from './FeltReport';
 import type { Row } from './QuakeData';
 import styles from './dash/dash.module.css';
 
@@ -27,6 +28,7 @@ export function QuakeDetail({ q, onClose }: { q: Row; onClose?: () => void }) {
         <div><dt>{t('coords')}</dt><dd>{q.lat.toFixed(2)}°, {q.lon.toFixed(2)}°</dd></div>
         <div><dt>{t('source')}</dt><dd>{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</dd></div>
       </dl>
+      <FeltButton q={q} variant="block" fallback={<p className={styles.windowNote}>{t('report_window')}</p>} />
       {!!q.felt && <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span>{t('felt_by', { n: nf.format(q.felt) })}</p>}
     </>
   );

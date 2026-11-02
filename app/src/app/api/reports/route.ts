@@ -1,21 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { SOURCES } from '@/lib/quakes/sources';
+import { mergeQuakes } from '@/lib/quakes/merge';
+import { REPORT_GRACE_MS, REPORT_WINDOW_MS } from '@/lib/quakes/report-window';
+
+const int = (v: unknown, min: number, max: number) => (Number.isInteger(v) && (v as number) >= min && (v as number) <= max ? (v as number) : null);
+
+/** Finds the quake in the last day's merged feed (source responses are cached for 60 s). */
+async function findRecentQuake(id: string) {
+  const results = await Promise.allSettled([
+    SOURCES.usgs({ days: 1, minMag: 2.5 }), SOURCES.emsc({ days: 1, minMag: 2.5 }),
+    SOURCES.geonet({ days: 1, minMag: 0 }), SOURCES.jma({ days: 1, minMag: 0 }),
+  ]);
+  const merged = mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])));
+  return merged.find(q => q.id === id) ?? null;
+}
 
 // POST /api/reports  { quakeId, mmi 1-10, note?, place? 0|1, duration? 0-3, moved?: number[], damage? 0-3, lat?, lon?, locale }
+// Reports are only accepted for quakes up to 6 hours old (plus a short grace period for forms already open).
 export async function POST(req: NextRequest) {
-  const b = await req.json();
-  const mmi = Number(b.mmi);
-  if (!b.quakeId || !(mmi >= 1 && mmi <= 10)) return NextResponse.json({ error: 'invalid' }, { status: 400 });
+  let b: Record<string, unknown>;
+  try { b = await req.json(); } catch { return NextResponse.json({ error: 'invalid' }, { status: 400 }); }
+  const mmi = int(b.mmi, 1, 10);
+  if (typeof b.quakeId !== 'string' || !b.quakeId || mmi === null) return NextResponse.json({ error: 'invalid' }, { status: 400 });
+
+  const quake = await findRecentQuake(b.quakeId);
+  if (!quake) return NextResponse.json({ error: 'unknown_quake' }, { status: 404 });
+  if (Date.now() - quake.time > REPORT_WINDOW_MS + REPORT_GRACE_MS) return NextResponse.json({ error: 'closed' }, { status: 409 });
+
+  const lat = typeof b.lat === 'number' && Math.abs(b.lat) <= 90 ? b.lat : null;
+  const lon = typeof b.lon === 'number' && Math.abs(b.lon) <= 180 ? b.lon : null;
   const row = {
-    quake_id: String(b.quakeId), mmi, note: typeof b.note === 'string' ? b.note.slice(0, 500) : null,
-    place: b.place ?? null, duration: b.duration ?? null, moved: Array.isArray(b.moved) ? b.moved.slice(0, 5) : null, damage: b.damage ?? null,
+    quake_id: quake.id, mmi, note: typeof b.note === 'string' && b.note.trim() ? b.note.trim().slice(0, 500) : null,
+    place: int(b.place, 0, 1), duration: int(b.duration, 0, 3), damage: int(b.damage, 0, 3),
+    moved: Array.isArray(b.moved) ? [...new Set(b.moved.filter(x => int(x, 0, 4) !== null) as number[])].slice(0, 5) : null,
     // Coarsen location to ~10 km to protect privacy.
-    lat: Number.isFinite(b.lat) ? Math.round(b.lat * 10) / 10 : null, lon: Number.isFinite(b.lon) ? Math.round(b.lon * 10) / 10 : null,
+    lat: lat === null ? null : Math.round(lat * 10) / 10, lon: lon === null ? null : Math.round(lon * 10) / 10,
     locale: String(b.locale ?? 'en').slice(0, 5),
   };
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL, key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) return NextResponse.json({ ok: true, demo: true });
   const { error } = await createClient(url, key).from('felt_reports').insert(row);
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  if (error) return NextResponse.json({ error: 'store_failed' }, { status: 500 });
   return NextResponse.json({ ok: true });
 }
