@@ -340,5 +340,6 @@
   "country": "国家/地区",
   "near_country": "{country}附近",
   "share": "分享",
-  "link_copied": "链接已复制"
+  "link_copied": "链接已复制",
+  "depth_deep": "深度 {n} 公里"
 }

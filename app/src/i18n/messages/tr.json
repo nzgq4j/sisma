@@ -340,5 +340,6 @@
   "country": "Ülke",
   "near_country": "{country} yakınında",
   "share": "Paylaş",
-  "link_copied": "Bağlantı kopyalandı"
+  "link_copied": "Bağlantı kopyalandı",
+  "depth_deep": "{n} km derinlik"
 }

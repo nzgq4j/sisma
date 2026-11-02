@@ -340,5 +340,6 @@
   "country": "País",
   "near_country": "Perto de {country}",
   "share": "Compartilhar",
-  "link_copied": "Link copiado"
+  "link_copied": "Link copiado",
+  "depth_deep": "{n} km de profundidade"
 }

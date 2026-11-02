@@ -1,5 +1,6 @@
 'use client';
-// Quake detail: used by the desktop dashboard panel and the phone detail sheet (Feed, Map, Globe).
+// Event views: QuakeSummary is the default (map panels, dashboard); QuakeDetail is the detailed view, opened from
+// its Details button and from Feed rows.
 /* eslint-disable @next/next/no-img-element -- small bundled flag SVGs */
 import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -15,13 +16,58 @@ import styles from './dash/dash.module.css';
 /** Map URL that zooms to a quake and shows its felt reports. */
 export const regionHref = (id: string) => '/app/map?focus=' + encodeURIComponent(id);
 
-export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: () => void; onShowRegion?: () => void }) {
-  const { t, m, nf, locale } = useT();
-  const router = useRouter();
+/** Values shared by the compact summary and the detailed view. */
+function useQuakeFacts(q: Row) {
+  const { locale } = useT();
   const country = useMemo(() => countryAt(q.lat, q.lon), [q.lat, q.lon]);
-  const countryName = country ? regionName(locale, country.code) : null;
-  const date = new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(q.time);
-  const time = new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(q.time);
+  return {
+    country,
+    countryName: country ? regionName(locale, country.code) : null,
+    date: new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(q.time),
+    time: new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }).format(q.time),
+  };
+}
+
+function Place({ q, code }: { q: Row; code?: string }) {
+  return (
+    <span className={styles.detailPlace}>
+      {code && <img src={`/flags/${code}.svg`} alt="" width={20} height={20} className={styles.detailFlag} />}
+      <FitLine as="strong" min={12}>{q.region}</FitLine>
+    </span>
+  );
+}
+
+/** Default view of a selected event (map panels, dashboard): the key facts, "I felt it" and a Details button. */
+export function QuakeSummary({ q, onClose, onDetails }: { q: Row; onClose?: () => void; onDetails: () => void }) {
+  const { t, m, nf } = useT();
+  const { country, date, time } = useQuakeFacts(q);
+  return (
+    <div className={styles.summary}>
+      <div className={styles.detailHead}>
+        <MagBadge mag={q.mag} size={56} />
+        <div className={styles.detailTitle}>
+          <Place q={q} code={country?.code} />
+          <FitLine min={10}>{date} · {time}</FitLine>
+          <FitLine min={10}>{q.distanceKm != null ? `${nf.format(Math.round(q.distanceKm))} km · ` : ''}{t('depth_deep', { n: nf.format(Math.round(q.depthKm)) })}</FitLine>
+        </div>
+        {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
+      </div>
+      {q.tsunami && <div className={styles.banner}><span className="ms" aria-hidden="true">tsunami</span>{t('tsunami')}</div>}
+      <div className={styles.summaryActions}>
+        <FeltButton q={q} />
+        <button type="button" className={styles.detailsBtn} onClick={onDetails} aria-haspopup="dialog">
+          {m.dash.details}<span className="ms" aria-hidden="true">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/** Detailed view of an event (opened from Details, and from Feed rows): every data point, Share and Show region. */
+export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: () => void; onShowRegion?: () => void }) {
+  const { t, m, nf } = useT();
+  const router = useRouter();
+  const { country, countryName, date, time } = useQuakeFacts(q);
   const [copied, setCopied] = useState(false);
 
   const share = async () => {
@@ -38,10 +84,7 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
       <div className={styles.detailHead}>
         <MagBadge mag={q.mag} size={56} />
         <div className={styles.detailTitle}>
-          <span className={styles.detailPlace}>
-            {country && <img src={`/flags/${country.code}.svg`} alt="" width={20} height={20} className={styles.detailFlag} />}
-            <FitLine as="strong" min={12}>{q.region}</FitLine>
-          </span>
+          <Place q={q} code={country?.code} />
           <FitLine min={10}>{q.title}</FitLine>
         </div>
         {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}

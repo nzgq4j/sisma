@@ -4,12 +4,8 @@ import Link from 'next/link';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/QuakeData';
-import { MagBadge } from '@/components/MagBadge';
-import { QuakeDetail } from '@/components/QuakeDetail';
-import { FeltButton } from '@/components/FeltReport';
-import { FitLine } from '@/components/FitLine';
+import { QuakeDetail, QuakeSummary } from '@/components/QuakeDetail';
 import { Sheet } from '@/components/Sheet';
-import { timeAgo } from '@/components/QuakeRow';
 import { useDesktop } from '@/components/dash/useDesktop';
 import { MAG_SCALE } from '@/lib/theme';
 import styles from './stage.module.css';
@@ -51,23 +47,15 @@ export function Legend({ depth = false }: { depth?: boolean }) {
 
 /** The selected quake: bottom card + detail sheet on phones, floating detail panel on desktop. */
 export function Selection({ q, open, setOpen, onClear, onShowRegion }: { q: Row; open: boolean; setOpen: (v: boolean) => void; onClear: () => void; onShowRegion?: () => void }) {
-  const { t, m, nf } = useT();
   const desktop = useDesktop();
-  if (desktop) return <aside className={styles.panel} aria-live="polite"><QuakeDetail q={q} onClose={onClear} onShowRegion={onShowRegion} /></aside>;
   return (
     <>
-      <div className={styles.selCard}>
-        <MagBadge mag={q.mag} size={52} />
-        <div className={styles.selText}>
-          <FitLine as="strong" min={12}>{q.region}</FitLine>
-          <FitLine>{timeAgo(t as never, q.time)}{q.distanceKm != null ? ` · ${nf.format(Math.round(q.distanceKm))} km` : ''} · ↓ {nf.format(Math.round(q.depthKm))} km</FitLine>
-        </div>
-        <FeltButton q={q} />
-        <button type="button" className={styles.selBtn} onClick={() => setOpen(true)} aria-label={m.dash.details}>
-          <span className="ms" aria-hidden="true">info</span>
-        </button>
-      </div>
-      <Sheet open={open} onClose={() => setOpen(false)} label={q.region}><QuakeDetail q={q} onClose={() => setOpen(false)} onShowRegion={onShowRegion && (() => { setOpen(false); onShowRegion(); })} /></Sheet>
+      <aside className={desktop ? styles.panel : styles.selCard} aria-live="polite">
+        <QuakeSummary q={q} onClose={desktop ? onClear : undefined} onDetails={() => setOpen(true)} />
+      </aside>
+      <Sheet open={open} onClose={() => setOpen(false)} label={q.region}>
+        <QuakeDetail q={q} onClose={() => setOpen(false)} onShowRegion={onShowRegion && (() => { setOpen(false); onShowRegion(); })} />
+      </Sheet>
     </>
   );
 }

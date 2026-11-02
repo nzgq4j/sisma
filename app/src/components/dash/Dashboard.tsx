@@ -10,7 +10,7 @@ import { timeAgo } from '@/components/QuakeRow';
 import { MAG_SCALE, magColor } from '@/lib/theme';
 import type { SortKey } from '@/lib/quakes/types';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/QuakeData';
-import { QuakeDetail } from '@/components/QuakeDetail';
+import { QuakeDetail, QuakeSummary } from '@/components/QuakeDetail';
 import { FeltButton } from '@/components/FeltReport';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import { WorldMap } from './WorldMap';
@@ -27,6 +27,7 @@ export function Dashboard() {
   const { range, setRange, region, setRegion, loaded, list, regions, loadedAt: now } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
   const [selId, setSelId] = useState<string | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
   const [regionSheet, setRegionSheet] = useState(false);
 
   const sorted = useMemo(() => {
@@ -143,7 +144,7 @@ export function Dashboard() {
         <aside className={styles.rightCol}>
           <section className={`${styles.card} ${styles.detail}`} aria-live="polite">
             {sel ? (
-              <QuakeDetail q={sel} onClose={() => setSelId(null)} />
+              <QuakeSummary q={sel} onClose={() => setSelId(null)} onDetails={() => setDetailOpen(true)} />
             ) : (
               <div className={styles.empty}><span className="ms" aria-hidden="true">touch_app</span>{m.dash.select_hint}</div>
             )}
@@ -179,6 +180,9 @@ export function Dashboard() {
             </ul>
           </section>
         </aside>
+        <Sheet open={detailOpen && !!sel} onClose={() => setDetailOpen(false)} label={sel?.region}>
+          {sel && <QuakeDetail q={sel} onClose={() => setDetailOpen(false)} />}
+        </Sheet>
       </div>
       <p className={styles.disclaimer}>{m.web.footer}</p>
     </div>

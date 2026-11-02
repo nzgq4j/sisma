@@ -340,5 +340,6 @@
   "country": "Negara",
   "near_country": "Dekat {country}",
   "share": "Bagikan",
-  "link_copied": "Tautan disalin"
+  "link_copied": "Tautan disalin",
+  "depth_deep": "kedalaman {n} km"
 }
