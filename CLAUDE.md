@@ -32,3 +32,5 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_settings
 10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets
+11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
+12. Onboarding (backlog): first-run flow — welcome, language, location primer, alerts, disclaimer. Spec: docs/onboarding.md
