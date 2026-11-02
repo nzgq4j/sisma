@@ -18,3 +18,12 @@
 .google:disabled { opacity: .7; cursor: progress; }
 .or { display: flex; align-items: center; gap: 12px; color: var(--ink2); font-size: 13px; font-weight: 600; margin: 4px 0; }
 .or::before, .or::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.seg { display: flex; background: var(--surface2); border-radius: 14px; padding: 4px; gap: 4px; }
+.seg button { flex: 1; height: 40px; border: 0; border-radius: 10px; background: transparent; color: var(--ink2); font: 700 14px var(--font-figtree), sans-serif; cursor: pointer; }
+.seg button[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(27, 21, 48, .12); }
+.pwWrap { position: relative; display: flex; }
+.pwWrap .input { flex: 1; padding-right: 52px; }
+.eye { position: absolute; right: 4px; top: 4px; width: 44px; height: 44px; border: 0; border-radius: 12px; background: transparent; color: var(--ink2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.eye :global(.ms) { font-size: 22px; }
+.hint { margin: -4px 0 0; font-size: 13px; color: var(--ink2); }
+.links { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; }

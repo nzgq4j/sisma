@@ -4,7 +4,7 @@
 // lines scaled 1 − depth/700 × 0.4 coloured by depthColor; plate boundaries; tap within 20 px to select.
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
-import { select, pointer } from 'd3-selection';
+import { select } from 'd3-selection';
 import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, magColor } from '@/lib/theme';
 import { LAND, SPHERE, useLakes, usePlates } from '@/lib/world';
@@ -68,8 +68,8 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     resize();
     const ro = new ResizeObserver(resize); ro.observe(wrap);
 
-    const pick = (x: number, y: number) => {
-      let best: Quake | null = null, bd = 20 * 20;
+    const pick = (x: number, y: number, radius = 20) => {
+      let best: Quake | null = null, bd = radius * radius;
       for (const [px, py, q] of st.pts) { const d = (px - x) ** 2 + (py - y) ** 2; if (d < bd) { bd = d; best = q; } }
       live.current.onSelect(best);
     };
@@ -86,10 +86,22 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
           proj.rotate([r[0] + dx * f, Math.max(-85, Math.min(85, r[1] - dy * f)), 0]);
         }
       })
-      .on('end', e => {
-        st.drag = false;
-        if (!st.moved && e.sourceEvent) { const [x, y] = pointer(e.sourceEvent, cv); pick(x, y); }
-      });
+      .on('end', () => { st.drag = false; });
+
+    // Taps and clicks select the nearest marker. Detected with pointer events rather than the zoom gesture's end:
+    // a touchend carries no coordinates, and the slightest mouse jitter registers as a drag.
+    let down: { x: number; y: number; t: number; id: number } | null = null;
+    const onDown = (e: PointerEvent) => { if (e.isPrimary) down = { x: e.clientX, y: e.clientY, t: e.timeStamp, id: e.pointerId }; };
+    const onUp = (e: PointerEvent) => {
+      const d = down; down = null;
+      if (!d || d.id !== e.pointerId || Math.hypot(e.clientX - d.x, e.clientY - d.y) > 6 || e.timeStamp - d.t > 500) return;
+      const b = cv.getBoundingClientRect();
+      pick(e.clientX - b.left, e.clientY - b.top, e.pointerType === 'touch' ? 28 : 20);
+    };
+    const onCancel = () => { down = null; };
+    cv.addEventListener('pointerdown', onDown);
+    cv.addEventListener('pointerup', onUp);
+    cv.addEventListener('pointercancel', onCancel);
     const sel = select(cv).call(z).on('dblclick.zoom', null).call(z.transform, zoomIdentity.scale(memo.k));
     st.px = 0; st.py = 0; st.pk = memo.k;
     zoomRef.current = { z, el: cv };
@@ -138,7 +150,10 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null; };
+    return () => {
+      cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null;
+      cv.removeEventListener('pointerdown', onDown); cv.removeEventListener('pointerup', onUp); cv.removeEventListener('pointercancel', onCancel);
+    };
   }, []);
 
   return (

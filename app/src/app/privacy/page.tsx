@@ -39,7 +39,7 @@ export default function PrivacyPage() {
         <table>
           <thead><tr><th>Data</th><th>When</th><th>Why</th><th>How long</th></tr></thead>
           <tbody>
-            <tr><td><strong>Email address</strong></td><td>You create an account (by an emailed sign-in link — there is no password — or with Google)</td><td>To sign you in and contact you about your account</td><td>Until you delete your account</td></tr>
+            <tr><td><strong>Email address</strong></td><td>You create an account (with an emailed sign-in link, a password, or Google). Passwords are stored only as a secure hash by our sign-in provider; we can’t see them</td><td>To sign you in and contact you about your account</td><td>Until you delete your account</td></tr>
             <tr><td><strong>Google profile</strong> (name, email address, profile picture link)</td><td>You choose “Continue with Google”</td><td>To sign you in; your Google name becomes your display name, which you can change</td><td>Until you delete your account. Google never shares your password with us</td></tr>
             <tr><td><strong>Display name</strong>, language, appearance setting</td><td>You set them in Me</td><td>To show your account and keep your settings on every device</td><td>Until you change them or delete your account</td></tr>
             <tr><td><strong>Saved places</strong> (name, region, country, coordinates of the place) and your default place</td><td>You save a place while signed in</td><td>To show the earthquakes nearest to the places you care about</td><td>Until you remove them or delete your account</td></tr>
