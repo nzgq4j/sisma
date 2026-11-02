@@ -1,6 +1,7 @@
 'use client';
 // Overlay pieces shared by the Map and Globe tabs.
 import Link from 'next/link';
+import { useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/QuakeData';
@@ -8,7 +9,8 @@ import { MagBadge } from '@/components/MagBadge';
 import { QuakeDetail } from '@/components/QuakeDetail';
 import { FeltButton } from '@/components/FeltReport';
 import { FitLine } from '@/components/FitLine';
-import { Sheet } from '@/components/Sheet';
+import { Sheet, SheetOptions } from '@/components/Sheet';
+import { can } from '@/lib/entitlements';
 import { timeAgo } from '@/components/QuakeRow';
 import { useDesktop } from '@/components/dash/useDesktop';
 import { MAG_SCALE } from '@/lib/theme';
@@ -29,6 +31,34 @@ export function RangeChips() {
           <span className="ms" aria-hidden="true">location_on</span>{region}<span className="ms" aria-hidden="true">close</span>
         </button>
       )}
+    </>
+  );
+}
+
+const MAG_STEPS = [2.5, 3, 4, 5, 6, 7];
+
+/** Minimum-magnitude filter for the maps (sisma+). Free users see a lock that opens the paywall. */
+export function MagFilterChip() {
+  const { t, m, nf } = useT();
+  const { plan, setSheet } = useApp();
+  const { minMag, setMinMag, list } = useQuakeData();
+  const [open, setOpen] = useState(false);
+  const locked = !can(plan, 'advancedFilters');
+  const label = minMag != null ? `M${nf.format(minMag)}+` : t('mag_chip');
+  return (
+    <>
+      <button type="button" className={styles.chip} aria-pressed={minMag != null} aria-haspopup="dialog"
+        aria-label={`${t('min_mag')}: ${minMag != null ? label : m.all_mags}`} onClick={() => (locked ? setSheet('paywall') : setOpen(true))}>
+        <span className="ms" aria-hidden="true">filter_alt</span>{label}
+        {locked && <span className="ms" aria-hidden="true">lock</span>}
+      </button>
+      <Sheet open={open} onClose={() => setOpen(false)} title={t('min_mag')}>
+        <SheetOptions value={minMag == null ? 'all' : String(minMag)} onPick={v => { setMinMag(v === 'all' ? null : Number(v)); setOpen(false); }}
+          options={[
+            { value: 'all', label: m.all_mags, meta: nf.format(list.length) },
+            ...MAG_STEPS.map(s => ({ value: String(s), label: `M${nf.format(s)}+`, meta: nf.format(list.filter(q => q.mag >= s).length) })),
+          ]} />
+      </Sheet>
     </>
   );
 }

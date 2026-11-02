@@ -335,5 +335,7 @@
     "loc_finding": "正在获取你的位置…",
     "loc_set": "位置已设置",
     "try_again": "重试"
-  }
+  },
+  "mag_chip": "震级",
+  "all_mags": "全部震级"
 }

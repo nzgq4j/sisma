@@ -335,5 +335,7 @@
     "loc_finding": "Standort wird ermittelt …",
     "loc_set": "Standort festgelegt",
     "try_again": "Erneut versuchen"
-  }
+  },
+  "mag_chip": "Magnitude",
+  "all_mags": "Alle Magnituden"
 }

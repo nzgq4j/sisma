@@ -11,7 +11,7 @@ import { useFeltCells } from '@/components/FeltReport';
 import { regionHref } from '@/components/QuakeDetail';
 import { WorldMap } from '@/components/dash/WorldMap';
 import { FitLine } from '@/components/FitLine';
-import { Legend, RangeChips, Selection, ToggleChip } from '@/components/stage/StageParts';
+import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip } from '@/components/stage/StageParts';
 import { MMI_COLORS, ROMAN } from '@/lib/theme';
 import styles from '@/components/stage/stage.module.css';
 
@@ -26,7 +26,7 @@ function MapView() {
   const router = useRouter();
   const focusId = useSearchParams().get('focus');
   const { locations, active } = useApp();
-  const { list, all, loaded } = useQuakeData();
+  const { mapList: list, all, loaded } = useQuakeData();
   const [plates, setPlates] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
@@ -56,6 +56,7 @@ function MapView() {
         cells={focusQuake ? felt.cells : []} onReset={focusId ? exitRegion : undefined} />
       <div className={styles.chips}>
         <RangeChips />
+        <MagFilterChip />
         <ToggleChip on={plates} onClick={() => setPlates(v => !v)} icon="texture" label={t('plates')} />
       </div>
       {focusId && (
