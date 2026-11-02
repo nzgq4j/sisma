@@ -119,7 +119,7 @@ export function Dashboard() {
       <div className={styles.main}>
         <div className={styles.leftCol}>
           <section className={`${styles.card} ${styles.mapCard}`}>
-            <WorldMap quakes={list} center={loc} selectedId={selId} onSelect={q => setSelId(q?.id ?? null)} />
+            <WorldMap projection="mercator" quakes={list} center={loc} selectedId={selId} onSelect={q => setSelId(q?.id ?? null)} />
             <div className={styles.mapLegend} aria-hidden="true">
               <span>M</span>
               {[...MAG_SCALE].reverse().map(([min, fill]) => <i key={min} style={{ background: fill }} />)}

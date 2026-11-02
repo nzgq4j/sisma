@@ -1,7 +1,9 @@
 'use client';
 // 2D world map shared by the Map tab and the desktop dashboard.
 // Map tab (design drawMap): Mercator rotated to the user's longitude, scale (H/2)/1.9, zoom 1–40, endless horizontal
-// scrolling (the world is drawn up to three times side by side and the pan is wrapped by one world-width), user pin, optional plate boundaries, tap empty map to deselect. Dashboard: Equal Earth, zoom 1–12.
+// scrolling (the world is drawn up to three times side by side and the pan is wrapped by one world-width), user pin,
+// optional plate boundaries, tap empty map to deselect. The dashboard uses the same wrapping Mercator.
+// Equal Earth (zoom 1–12, fixed frame) remains available as a projection option.
 // Dots are sized (mag − 1.6) × 2.1 and coloured by MAG_SCALE in both.
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
@@ -11,7 +13,7 @@ import { MMI_COLORS, magColor } from '@/lib/theme';
 import type { FeltCell } from '@/components/FeltReport';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
-import { BORDERS, COUNTRIES, SPHERE, usePlates } from '@/lib/world';
+import { BORDERS, COUNTRIES, SPHERE, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
 import styles from './dash.module.css';
 
@@ -42,6 +44,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const [sides, setSides] = useState(0);
   const [hover, setHover] = useState<{ q: Quake; x: number; y: number } | null>(null);
   const plateData = usePlates(plates);
+  const lakes = useLakes();
   const mercator = projection === 'mercator';
 
   useEffect(() => {
@@ -62,6 +65,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     }
     return { path: geoPath(p), project: (lon: number, lat: number) => p([lon, lat]), sc };
   }, [size.w, size.h, center.lon, mercator]);
+  const lakesD = useMemo(() => (lakes ? path(lakes) ?? '' : ''), [lakes, path]);
 
   // One world-width in map units (Mercator spans 2π·scale horizontally); never narrower than the view.
   const worldW = mercator ? 2 * Math.PI * sc : 0;
@@ -120,6 +124,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {!mercator && <path d={path(SPHERE) ?? ''} fill="var(--map-sea)" />}
       {!mercator && <path d={path(GRATICULE) ?? ''} fill="none" stroke="var(--map-grat)" vectorEffect="non-scaling-stroke" />}
       <path d={path(COUNTRIES) ?? ''} fill="var(--map-land)" />
+      {lakesD && <path d={lakesD} fill="var(--map-sea)" stroke="var(--map-line)" strokeWidth={0.5} vectorEffect="non-scaling-stroke" />}
       <path d={path(BORDERS) ?? ''} fill="none" stroke="var(--map-line)" strokeWidth={0.6} vectorEffect="non-scaling-stroke" />
       {plates && plateData && (
         <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />

@@ -1,10 +1,11 @@
 'use client';
 // Shared geography for the map, globe and dashboard: world-atlas 110m countries/land, and the
-// PB2002 plate boundaries (public/data/plate-boundaries.json, loaded once when first needed).
+// PB2002 plate boundaries (public/data/plate-boundaries.json) and Natural Earth lakes (public/data/lakes.json),
+// each loaded once when first needed.
 import { useEffect, useState } from 'react';
 import { feature, mesh } from 'topojson-client';
 import type { Topology, GeometryCollection } from 'topojson-specification';
-import type { MultiLineString } from 'geojson';
+import type { MultiLineString, MultiPolygon } from 'geojson';
 import world from 'world-atlas/countries-110m.json';
 
 const topo = world as unknown as Topology<{ countries: GeometryCollection; land: GeometryCollection }>;
@@ -34,5 +35,24 @@ export function usePlates(wanted: boolean) {
     loadPlates().then(d => { if (alive) setData(d); });
     return () => { alive = false; };
   }, [wanted, data]);
+  return data;
+}
+
+let lakesPromise: Promise<MultiPolygon | null> | null = null;
+let lakesCache: MultiPolygon | null = null;
+
+/** Major lakes (Natural Earth 1:50m), drawn in the sea colour over the land. Fetched once, after first render. */
+export function useLakes() {
+  const [data, setData] = useState<MultiPolygon | null>(lakesCache);
+  useEffect(() => {
+    if (data) return;
+    let alive = true;
+    lakesPromise ??= fetch('/data/lakes.json')
+      .then(r => (r.ok ? (r.json() as Promise<MultiPolygon>) : null))
+      .then(d => (lakesCache = d))
+      .catch(() => null);
+    lakesPromise.then(d => { if (alive) setData(d); });
+    return () => { alive = false; };
+  }, [data]);
   return data;
 }
