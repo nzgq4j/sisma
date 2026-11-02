@@ -1,9 +1,9 @@
 'use client';
-// Account state for /app: Supabase session (passwordless email link, or Google when enabled in Supabase), the user's
+// Account state for /app: Supabase session (emailed link, email + password, or Google when enabled in Supabase), the user's
 // profile row and effective plan.
 // Guest mode when Supabase isn't configured or nobody is signed in. Paid features are re-checked on the server
 // (/api routes and public.effective_plan()); the plan here only drives the UI.
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { enabledProviders, supabaseBrowser } from '@/lib/supabase-browser';
 import { listenForOAuthReturn, startOAuth } from '@/lib/oauth';
@@ -23,6 +23,8 @@ interface AccountCtx {
   accessToken: () => Promise<string | null>;
   signOut: () => Promise<void>;
   openSignIn: () => void;
+  /** Set or change the account password (also opened by the password-reset email link). */
+  openPassword: () => void;
 }
 const Ctx = createContext<AccountCtx | null>(null);
 const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end';
@@ -34,6 +36,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [ready, setReady] = useState(!sb);
   const [signIn, setSignIn] = useState(false);
+  const [pwOpen, setPwOpen] = useState(false);
+  const localeSynced = useRef('');
 
   useEffect(() => {
     if (!sb) return;
@@ -53,7 +57,11 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       if (alive) { setProfile(prof); setReady(true); }
     };
     sb.auth.getSession().then(({ data }) => load(data.session?.user ?? null));
-    const { data: sub } = sb.auth.onAuthStateChange((_e, session) => { void load(session?.user ?? null); });
+    const { data: sub } = sb.auth.onAuthStateChange((event, session) => {
+      void load(session?.user ?? null);
+      // Arrived from the "Reset your password" email: ask for the new password straight away.
+      if (event === 'PASSWORD_RECOVERY') setPwOpen(true);
+    });
     return () => { alive = false; sub.subscription.unsubscribe(); };
   }, [sb]);
 
@@ -63,7 +71,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   // Keep the language used for auth emails ({{ .Data.locale }}) and the profile in step with the app language.
   useEffect(() => {
     if (!sb || !user) return;
-    if (user.user_metadata?.locale !== locale) void sb.auth.updateUser({ data: { locale } });
+    // Once per account + language: updateUser fires USER_UPDATED, which reloads `user` and re-runs this effect.
+    const key = `${user.id}:${locale}`;
+    if (user.user_metadata?.locale !== locale && localeSynced.current !== key) { localeSynced.current = key; void sb.auth.updateUser({ data: { locale } }); }
     if (profile && profile.locale !== locale) {
       void sb.from('profiles').update({ locale }).eq('id', user.id).then(({ error }) => { if (!error) setProfile(p => (p ? { ...p, locale } : p)); });
     }
@@ -83,69 +93,187 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     accessToken: async () => (sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null),
     signOut: async () => { await sb?.auth.signOut(); },
     openSignIn: () => setSignIn(true),
+    openPassword: () => setPwOpen(true),
   }), [sb, ready, user, profile, savePrefs]);
 
   return (
     <Ctx.Provider value={value}>
       {children}
       <SignInSheet open={signIn} onClose={() => setSignIn(false)} />
+      {pwOpen && <PasswordSheet onClose={() => setPwOpen(false)} />}
     </Ctx.Provider>
   );
 }
 
 export const useAccount = () => { const v = useContext(Ctx); if (!v) throw new Error('useAccount outside AccountProvider'); return v; };
 
-/** Email-link sign-in (no password). New addresses get the "Confirm sign up" email, existing ones the magic link. */
+type Mode = 'link' | 'password' | 'signup';
+type Status = 'idle' | 'busy' | 'link_sent' | 'signup_sent' | 'reset_sent' | 'oauth';
+
+const authError = (code: string | undefined, a: Record<string, string>) =>
+  code === 'invalid_credentials' ? a.err_credentials
+    : code === 'email_not_confirmed' ? a.err_unconfirmed
+      : code === 'weak_password' ? a.err_weak
+        : code === 'user_already_exists' || code === 'email_exists' ? a.err_exists
+          : code === 'over_email_send_rate_limit' || code === 'over_request_rate_limit' ? a.rate_limited
+            : a.error;
+
+/** Sign in: Google (when enabled), an emailed link (no password), or email + password, with sign-up and reset. */
 function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { t, m, locale } = useT();
+  const a = m.acct as unknown as Record<string, string>;
   const sb = supabaseBrowser();
+  const [mode, setMode] = useState<Mode>('link');
   const [email, setEmail] = useState('');
-  const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error' | 'oauth' | 'oauth_error'>('idle');
+  const [password, setPassword] = useState('');
+  const [show, setShow] = useState(false);
+  const [status, setStatus] = useState<Status>('idle');
+  const [err, setErr] = useState<string | null>(null);
   const [providers, setProviders] = useState<string[]>([]);
   useEffect(() => { if (open) void enabledProviders().then(setProviders); }, [open]);
-  const close = () => { onClose(); if (state !== 'sending') setState('idle'); };
-  const google = async () => {
+  const redirect = () => `${location.origin}/app/me`; // read on click: `location` doesn't exist while prerendering
+  const reset = (to: Mode = mode) => { setMode(to); setStatus('idle'); setErr(null); };
+  const close = () => { onClose(); if (status !== 'busy') { setStatus('idle'); setErr(null); setPassword(''); } };
+
+  const run = async (fn: () => Promise<{ error: { code?: string } | null }>, ok: Status | 'close') => {
     if (!sb) return;
-    setState('oauth');
-    try { await startOAuth(sb, 'google'); } catch { setState('oauth_error'); }
+    setStatus('busy'); setErr(null);
+    const { error } = await fn();
+    if (error) { setStatus('idle'); setErr(authError(error.code, a)); return; }
+    if (ok === 'close') { setPassword(''); setStatus('idle'); onClose(); } else setStatus(ok);
   };
-  const send = async (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!sb) return;
-    setState('sending');
-    const { error } = await sb.auth.signInWithOtp({ email: email.trim(), options: { emailRedirectTo: `${location.origin}/app/me`, data: { locale } } });
-    setState(error ? 'error' : 'sent');
+    const mail = email.trim();
+    if (mode === 'link') void run(() => sb.auth.signInWithOtp({ email: mail, options: { emailRedirectTo: redirect(), data: { locale } } }), 'link_sent');
+    else if (mode === 'password') void run(() => sb.auth.signInWithPassword({ email: mail, password }), 'close');
+    else void run(async () => {
+      const r = await sb.auth.signUp({ email: mail, password, options: { emailRedirectTo: redirect(), data: { locale } } });
+      if (!r.error && r.data.session) { setPassword(''); onClose(); return { error: null }; } // email confirmation is off
+      return r;
+    }, 'signup_sent');
   };
+  const forgot = () => {
+    if (!sb) return;
+    if (!email.trim()) { setErr(a.enter_email); return; }
+    void run(() => sb.auth.resetPasswordForEmail(email.trim(), { redirectTo: redirect() }), 'reset_sent');
+  };
+  const google = async () => {
+    if (!sb) return;
+    setStatus('oauth'); setErr(null);
+    try { await startOAuth(sb, 'google'); } catch { setStatus('idle'); setErr(a.oauth_error); }
+  };
+
+  const sentBody = status === 'link_sent' ? a.sent_p : status === 'signup_sent' ? a.signup_sent_p : a.reset_sent_p;
   return (
-    <Sheet open={open} onClose={close} title={t('sign_in')}>
+    <Sheet open={open} onClose={close} title={mode === 'signup' ? a.create_account : t('sign_in')}>
       <div className={styles.signIn}>
-        {!sb ? <p className={styles.note}>{m.acct.unavailable}</p>
-          : state === 'sent' ? (
+        {!sb ? <p className={styles.note}>{a.unavailable}</p>
+          : status === 'link_sent' || status === 'signup_sent' || status === 'reset_sent' ? (
             <>
               <span className={`ms ${styles.bigIcon}`} aria-hidden="true">mark_email_read</span>
-              <h3 className={styles.h}>{m.acct.sent_h}</h3>
-              <p className={styles.p}>{m.acct.sent_p.replace('{email}', email.trim())}</p>
-              <button type="button" className={styles.linkBtn} onClick={() => setState('idle')}>{m.acct.other_email}</button>
+              <h3 className={styles.h}>{a.sent_h}</h3>
+              <p className={styles.p}>{sentBody.replace('{email}', email.trim())}</p>
+              <button type="button" className={styles.linkBtn} onClick={() => reset(status === 'link_sent' ? 'link' : 'password')}>{a.back_to_sign_in}</button>
             </>
           ) : (
-            <form onSubmit={send} className={styles.form}>
-              {providers.includes('google') && (
+            <form onSubmit={submit} className={styles.form}>
+              {providers.includes('google') && mode !== 'signup' && (
                 <>
-                  <button type="button" className={styles.google} onClick={google} disabled={state === 'oauth'}>
-                    <GoogleMark />{m.acct.continue_google}
+                  <button type="button" className={styles.google} onClick={google} disabled={status === 'oauth'}>
+                    <GoogleMark />{a.continue_google}
                   </button>
-                  {state === 'oauth_error' && <p className={styles.err} role="alert">{m.acct.oauth_error}</p>}
-                  <div className={styles.or} aria-hidden="true"><span>{m.acct.or_email}</span></div>
+                  <div className={styles.or} aria-hidden="true"><span>{a.or_email}</span></div>
                 </>
               )}
-              <p className={styles.p}>{m.acct.sign_in_p}</p>
-              <label className={styles.label} htmlFor="sisma-email">{m.acct.email}</label>
+              {mode !== 'signup' && (
+                <div className={styles.seg} role="tablist" aria-label={t('sign_in')}>
+                  {(['link', 'password'] as const).map(k => (
+                    <button key={k} type="button" role="tab" aria-selected={mode === k} onClick={() => reset(k)}>{k === 'link' ? a.tab_link : a.tab_password}</button>
+                  ))}
+                </div>
+              )}
+              <p className={styles.p}>{mode === 'link' ? a.sign_in_p : mode === 'password' ? a.password_p : a.signup_p}</p>
+              <label className={styles.label} htmlFor="sisma-email">{a.email}</label>
               <input id="sisma-email" className={styles.input} type="email" inputMode="email" autoComplete="email" required
-                placeholder={m.acct.email_ph} value={email} onChange={e => setEmail(e.target.value)} />
-              {state === 'error' && <p className={styles.err} role="alert">{m.acct.error}</p>}
-              <button type="submit" className={styles.primary} disabled={state === 'sending'}>{m.acct.send_link}</button>
+                placeholder={a.email_ph} value={email} onChange={e => setEmail(e.target.value)} />
+              {mode !== 'link' && (
+                <>
+                  <label className={styles.label} htmlFor="sisma-password">{a.password}</label>
+                  <div className={styles.pwWrap}>
+                    <input id="sisma-password" className={styles.input} type={show ? 'text' : 'password'} required minLength={mode === 'signup' ? 8 : undefined}
+                      autoComplete={mode === 'signup' ? 'new-password' : 'current-password'} value={password} onChange={e => setPassword(e.target.value)} />
+                    <button type="button" className={styles.eye} onClick={() => setShow(v => !v)} aria-label={a.show_password} aria-pressed={show}>
+                      <span className="ms" aria-hidden="true">{show ? 'visibility_off' : 'visibility'}</span>
+                    </button>
+                  </div>
+                  {mode === 'signup' && <p className={styles.hint}>{a.password_rules}</p>}
+                </>
+              )}
+              {err && <p className={styles.err} role="alert">{err}</p>}
+              <button type="submit" className={styles.primary} disabled={status === 'busy'}>
+                {mode === 'link' ? a.send_link : mode === 'password' ? t('sign_in') : a.create_account}
+              </button>
+              {mode === 'password' && (
+                <div className={styles.links}>
+                  <button type="button" className={styles.linkBtn} onClick={forgot}>{a.forgot}</button>
+                  <button type="button" className={styles.linkBtn} onClick={() => reset('signup')}>{a.no_account}</button>
+                </div>
+              )}
+              {mode === 'signup' && <button type="button" className={styles.linkBtn} onClick={() => reset('password')}>{a.have_account}</button>}
             </form>
           )}
+      </div>
+    </Sheet>
+  );
+}
+
+/** Set or change the password of the signed-in account (also after following a password-reset link). */
+function PasswordSheet({ onClose }: { onClose: () => void }) {
+  const { m } = useT();
+  const a = m.acct as unknown as Record<string, string>;
+  const sb = supabaseBrowser();
+  const [pw, setPw] = useState('');
+  const [pw2, setPw2] = useState('');
+  const [show, setShow] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'busy' | 'done'>('idle');
+  const [err, setErr] = useState<string | null>(null);
+  const save = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!sb) return;
+    if (pw !== pw2) { setErr(a.password_mismatch); return; }
+    setStatus('busy'); setErr(null);
+    const { error } = await sb.auth.updateUser({ password: pw });
+    if (!error) { setStatus('done'); return; }
+    setStatus('idle');
+    setErr(error.code === 'reauthentication_needed' ? a.err_reauth : error.code === 'same_password' ? a.err_same : authError(error.code, a));
+  };
+  return (
+    <Sheet open onClose={onClose} title={a.change_password}>
+      <div className={styles.signIn}>
+        {status === 'done' ? (
+          <>
+            <span className={`ms ${styles.bigIcon}`} aria-hidden="true">check_circle</span>
+            <h3 className={styles.h}>{a.password_saved}</h3>
+            <button type="button" className={styles.primary} onClick={onClose}>{a.done_btn}</button>
+          </>
+        ) : (
+          <form className={styles.form} onSubmit={save}>
+            <label className={styles.label} htmlFor="pw-new">{a.new_password}</label>
+            <div className={styles.pwWrap}>
+              <input id="pw-new" className={styles.input} type={show ? 'text' : 'password'} autoComplete="new-password" required minLength={8} value={pw} onChange={e => setPw(e.target.value)} />
+              <button type="button" className={styles.eye} onClick={() => setShow(v => !v)} aria-label={a.show_password} aria-pressed={show}>
+                <span className="ms" aria-hidden="true">{show ? 'visibility_off' : 'visibility'}</span>
+              </button>
+            </div>
+            <label className={styles.label} htmlFor="pw-confirm">{a.confirm_password}</label>
+            <input id="pw-confirm" className={styles.input} type={show ? 'text' : 'password'} autoComplete="new-password" required minLength={8} value={pw2} onChange={e => setPw2(e.target.value)} />
+            <p className={styles.hint}>{a.password_rules}</p>
+            {err && <p className={styles.err} role="alert">{err}</p>}
+            <button type="submit" className={styles.primary} disabled={status === 'busy'}>{a.save}</button>
+          </form>
+        )}
       </div>
     </Sheet>
   );

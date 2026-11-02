@@ -55,6 +55,9 @@ export default function MePage() {
                 <span className={styles.meta}>{acct.profile?.display_name || a.not_set}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
               </button>
               <div className={styles.row}><span className="ms" aria-hidden="true">mail</span><span className={styles.grow}>{a.email}</span><span className={styles.meta}>{acct.user.email}</span></div>
+              <button type="button" className={styles.row} onClick={acct.openPassword}>
+                <span className="ms" aria-hidden="true">password</span><span className={styles.grow}>{a.password_row}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+              </button>
               <button type="button" className={styles.row} onClick={() => void acct.signOut()}><span className="ms" aria-hidden="true">logout</span><span className={styles.grow}>{a.sign_out}</span></button>
               <button type="button" className={`${styles.row} ${styles.dangerRow}`} onClick={() => setDelOpen(true)}><span className="ms" aria-hidden="true">delete</span><span className={styles.grow}>{a.delete}</span></button>
             </div>

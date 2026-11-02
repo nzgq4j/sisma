@@ -28,7 +28,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
-7. Me / account dashboard (skeleton done: app/app/me): email-link + Google sign-in (components/Account.tsx, lib/oauth.ts;
+7. Me / account dashboard (skeleton done: app/app/me): email-link, email + password (sign-up, reset, change) and Google sign-in (components/Account.tsx, lib/oauth.ts;
    Google button shows when the provider is on in Supabase; Android returns via App Links, /.well-known/assetlinks.json), profile + plan, alerts saved to
    alert_settings, language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
    saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
