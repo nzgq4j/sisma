@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 import type { Plan } from '@/lib/entitlements';
 
-export interface SavedLocation { name: string; lat: number; lon: number }
+export interface SavedLocation { name: string; lat: number; lon: number; /** true when it came from the device's geolocation */ fromDevice?: boolean }
 interface AppState {
   plan: Plan; setPlan: (p: Plan) => void;
   locations: SavedLocation[]; active: number; setActive: (i: number) => void; addLocation: (l: SavedLocation) => void;
@@ -17,7 +17,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [active, setActive] = useState(0);
   const [sheet, setSheet] = useState<AppState['sheet']>(null);
   useEffect(() => {
-    navigator.geolocation?.getCurrentPosition(p => setLocations(l => [{ name: 'My location', lat: p.coords.latitude, lon: p.coords.longitude }, ...l.slice(1)]), () => {});
+    navigator.geolocation?.getCurrentPosition(p => setLocations(l => [{ name: 'My location', lat: p.coords.latitude, lon: p.coords.longitude, fromDevice: true }, ...l.slice(1)]), () => {});
   }, []);
   return <Ctx.Provider value={{ plan, setPlan, locations, active, setActive, addLocation: l => setLocations(x => [...x, l]), sheet, setSheet }}>{children}</Ctx.Provider>;
 }

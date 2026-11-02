@@ -4,6 +4,7 @@ import { BottomNav } from '@/components/BottomNav';
 import { AppBar } from '@/components/AppBar';
 import { AppStateProvider } from '@/components/AppState';
 import { QuakeDataProvider } from '@/components/QuakeData';
+import { FeltReportProvider } from '@/components/FeltReport';
 import { SideNav } from '@/components/dash/SideNav';
 import styles from '@/components/dash/dash.module.css';
 
@@ -17,12 +18,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <AppStateProvider>
       <QuakeDataProvider>
+      <FeltReportProvider>
         <SideNav />
         <div className={[styles.shell, !FULL_WIDTH.includes(path) && styles.shellNarrow, BLEED.includes(path) && styles.shellBleed].filter(Boolean).join(' ')}>
           <div className={styles.mobileOnly}><AppBar /></div>
           {children}
         </div>
         <div className={styles.mobileOnly}><BottomNav /></div>
+      </FeltReportProvider>
       </QuakeDataProvider>
     </AppStateProvider>
   );
