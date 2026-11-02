@@ -81,6 +81,7 @@ div.row { cursor: default; }
 .source :global(.ms) { font-size: 15px; }
 .disclaimer { margin: 4px; font-size: 12px; line-height: 1.5; color: var(--ink2); text-wrap: pretty; }
 .desktopOnly { display: none; }
+.privacyLink { color: var(--violet-text); font-weight: 700; white-space: nowrap; }
 
 .sheetBody { display: flex; flex-direction: column; gap: 12px; padding: 4px 0 8px; }
 .sheetP { margin: 0 0 8px; font-size: 15px; line-height: 1.5; color: var(--ink2); }

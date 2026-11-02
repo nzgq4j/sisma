@@ -166,7 +166,11 @@
     "price_h": "Kullanımı ücretsiz. Daha fazlası için sisma+.",
     "price_p": "sisma+’ı 7 gün ücretsiz dene.",
     "lang_h": "Senin dilini konuşur",
-    "footer": "Veri: USGS, EMSC, GeoNet, JMA. sisma.io resmi bir uyarı hizmeti değildir — her zaman yerel yetkilileri takip edin."
+    "footer": "Veri: USGS, EMSC, GeoNet, JMA. sisma.io resmi bir uyarı hizmeti değildir — her zaman yerel yetkilileri takip edin.",
+    "privacy": "Gizlilik politikası",
+    "privacy_updated": "Son güncelleme: {date}",
+    "privacy_english": "Bu politika İngilizce olarak yayımlanmaktadır.",
+    "privacy_open_app": "Uygulamayı aç"
   },
   "dash": {
     "overview": "Genel bakış",

@@ -126,4 +126,5 @@
 .footerInner { max-width: 1180px; margin: 0 auto; padding: 28px 24px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
 .footerMark { font-size: 16px; font-weight: 800; }
 .footerMark span { color: var(--ink2); font-weight: 600; }
+.footerLink { font-size: 13px; font-weight: 700; min-height: 44px; display: inline-flex; align-items: center; }
 .footerText { margin: 0; font-size: 13px; line-height: 1.5; color: var(--ink2); max-width: 720px; }

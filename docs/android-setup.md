@@ -31,7 +31,8 @@ is clicking through Google's consoles. Where code is needed, the step says **"�
 ## 0. Prerequisites
 
 1. **A sisma.io email** — e.g. hello@sisma.io. Google asks for a support email in several places. See `docs/email-setup.md`.
-2. **A privacy policy page** at e.g. https://sisma.io/privacy. Google Play and Google sign-in both refuse apps without
+2. **A privacy policy page** — drafted at https://sisma.io/privacy (fill in the operator's legal form and address in
+   `app/src/lib/site.ts` → `legal`, and have it reviewed). Google Play and Google sign-in both refuse apps without
    one. It must say what data sisma collects (email for accounts, approximate location in felt reports, saved places,
    subscription status), why, who processes it (Supabase, Vercel, Resend, Stripe, Google), and how to delete it.
    **→ Claude:** I can draft the page and the account-deletion page from what the app actually does; have a lawyer review it.
@@ -198,7 +199,7 @@ key yourself, because it must stay on your machine.
      - *Purchase history* — collected (subscription status), app functionality.
      - Encrypted in transit: **Yes**. Users can request deletion: **Yes**.
    - **Account deletion:** Google requires a web link where people can delete their account without the app:
-     use https://sisma.io/app/me (Account → Delete account) — **→ Claude** can add a dedicated page that explains it.
+     use **https://sisma.io/privacy#delete** (explains the steps; deletion itself is in Me → Account → Delete account).
    - **Government apps / financial features / health:** No. **News app:** No.
 4. **Location permission:** sisma only asks while the app is in use (foreground), so no background-location
    declaration is needed.
