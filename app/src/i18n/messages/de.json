@@ -159,5 +159,29 @@
     "price_p": "Teste sisma+ 7 Tage kostenlos.",
     "lang_h": "Spricht deine Sprache",
     "footer": "Daten: USGS, EMSC, GeoNet, JMA. sisma.io ist kein offizieller Warndienst – folge immer den Anweisungen der örtlichen Behörden."
+  },
+  "dash": {
+    "overview": "Übersicht",
+    "quakes": "Erdbeben",
+    "strongest": "Stärkstes",
+    "tsunami_n": "Tsunami-Warnungen",
+    "activity": "Aktivität",
+    "per_day": "Erdbeben pro Tag",
+    "per_hour": "Erdbeben pro Stunde",
+    "mag_dist": "Nach Magnitude",
+    "top_regions": "Häufigste Regionen",
+    "details": "Details",
+    "select_hint": "Wähle ein Erdbeben auf der Karte oder in der Liste, um Details zu sehen.",
+    "none": "Keine Erdbeben entsprechen diesen Filtern.",
+    "open_source": "Bei der Quelle öffnen",
+    "zoom_in": "Vergrößern",
+    "zoom_out": "Verkleinern",
+    "reset_view": "Ansicht zurücksetzen",
+    "count_label": "{n} Erdbeben",
+    "website": "sisma.io-Website",
+    "table_view": "Als Tabelle anzeigen",
+    "chart_view": "Als Diagramm anzeigen",
+    "loading": "Erdbeben werden geladen…",
+    "distance": "Entfernung"
   }
 }

@@ -159,5 +159,29 @@
     "price_p": "sisma+’ı 7 gün ücretsiz dene.",
     "lang_h": "Senin dilini konuşur",
     "footer": "Veri: USGS, EMSC, GeoNet, JMA. sisma.io resmi bir uyarı hizmeti değildir — her zaman yerel yetkilileri takip edin."
+  },
+  "dash": {
+    "overview": "Genel bakış",
+    "quakes": "Depremler",
+    "strongest": "En güçlü",
+    "tsunami_n": "Tsunami uyarıları",
+    "activity": "Etkinlik",
+    "per_day": "Günlük deprem sayısı",
+    "per_hour": "Saatlik deprem sayısı",
+    "mag_dist": "Büyüklüğe göre",
+    "top_regions": "Öne çıkan bölgeler",
+    "details": "Ayrıntılar",
+    "select_hint": "Ayrıntıları görmek için haritadan veya listeden bir deprem seçin.",
+    "none": "Bu filtrelere uyan deprem yok.",
+    "open_source": "Kaynakta aç",
+    "zoom_in": "Yakınlaştır",
+    "zoom_out": "Uzaklaştır",
+    "reset_view": "Görünümü sıfırla",
+    "count_label": "{n} deprem",
+    "website": "sisma.io web sitesi",
+    "table_view": "Tablo olarak göster",
+    "chart_view": "Grafik olarak göster",
+    "loading": "Depremler yükleniyor…",
+    "distance": "Mesafe"
   }
 }

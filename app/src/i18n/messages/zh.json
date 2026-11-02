@@ -159,5 +159,29 @@
     "price_p": "免费试用 sisma+ 7 天。",
     "lang_h": "说你的语言",
     "footer": "数据：USGS、EMSC、GeoNet、JMA。sisma.io 并非官方预警服务——请始终遵从当地政府指示。"
+  },
+  "dash": {
+    "overview": "概览",
+    "quakes": "地震",
+    "strongest": "最强",
+    "tsunami_n": "海啸警报",
+    "activity": "活动情况",
+    "per_day": "每日地震次数",
+    "per_hour": "每小时地震次数",
+    "mag_dist": "按震级",
+    "top_regions": "主要地区",
+    "details": "详情",
+    "select_hint": "在地图或列表中选择一次地震以查看详情。",
+    "none": "没有符合这些筛选条件的地震。",
+    "open_source": "在来源处打开",
+    "zoom_in": "放大",
+    "zoom_out": "缩小",
+    "reset_view": "重置视图",
+    "count_label": "{n} 次地震",
+    "website": "sisma.io 网站",
+    "table_view": "以表格显示",
+    "chart_view": "以图表显示",
+    "loading": "正在加载地震数据…",
+    "distance": "距离"
   }
 }
