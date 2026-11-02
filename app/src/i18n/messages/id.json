@@ -335,5 +335,10 @@
     "loc_finding": "Mencari lokasi Anda…",
     "loc_set": "Lokasi disetel",
     "try_again": "Coba lagi"
-  }
+  },
+  "date": "Tanggal",
+  "country": "Negara",
+  "near_country": "Dekat {country}",
+  "share": "Bagikan",
+  "link_copied": "Tautan disalin"
 }

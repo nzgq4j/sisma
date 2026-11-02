@@ -335,5 +335,10 @@
     "loc_finding": "現在地を取得しています…",
     "loc_set": "現在地を設定しました",
     "try_again": "もう一度試す"
-  }
+  },
+  "date": "日付",
+  "country": "国",
+  "near_country": "{country}付近",
+  "share": "共有",
+  "link_copied": "リンクをコピーしました"
 }

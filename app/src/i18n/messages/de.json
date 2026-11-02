@@ -335,5 +335,10 @@
     "loc_finding": "Standort wird ermittelt …",
     "loc_set": "Standort festgelegt",
     "try_again": "Erneut versuchen"
-  }
+  },
+  "date": "Datum",
+  "country": "Land",
+  "near_country": "Nahe {country}",
+  "share": "Teilen",
+  "link_copied": "Link kopiert"
 }

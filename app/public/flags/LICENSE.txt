@@ -1,2 +1,2 @@
-Flag SVGs (1x1) from flag-icons 7.6.0 — https://github.com/lipis/flag-icons
+Flag SVGs (1x1) from flag-icons 7.6.0 — https://github.com/lipis/flag-icons — language flags plus every country in the world-atlas 110m map (earthquake details).
 The MIT License (MIT). Copyright (c) 2013 Panayiotis Lipiridis.

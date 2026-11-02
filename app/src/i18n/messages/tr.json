@@ -335,5 +335,10 @@
     "loc_finding": "Konumun bulunuyor…",
     "loc_set": "Konum ayarlandı",
     "try_again": "Tekrar dene"
-  }
+  },
+  "date": "Tarih",
+  "country": "Ülke",
+  "near_country": "{country} yakınında",
+  "share": "Paylaş",
+  "link_copied": "Bağlantı kopyalandı"
 }

@@ -335,5 +335,10 @@
     "loc_finding": "Ricerca della tua posizione…",
     "loc_set": "Posizione impostata",
     "try_again": "Riprova"
-  }
+  },
+  "date": "Data",
+  "country": "Paese",
+  "near_country": "Vicino a {country}",
+  "share": "Condividi",
+  "link_copied": "Link copiato"
 }
