@@ -30,6 +30,7 @@
   "report_error": "Laporan Anda gagal dikirim. Silakan coba lagi.",
   "report_window": "Laporan dibuka selama 6 jam setelah gempa.",
   "show_region": "Tampilkan wilayah",
+  "exit_region": "Kembali ke peta dunia",
   "felt_reports_n": "{n} laporan · lokasi perkiraan",
   "felt_reports_1": "1 laporan · lokasi perkiraan",
   "felt_reports_0": "Belum ada laporan berlokasi",

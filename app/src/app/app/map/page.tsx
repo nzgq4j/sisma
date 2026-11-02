@@ -2,7 +2,7 @@
 // Map tab. Spec: design/SismaApp.dc.html (isMap block + drawMap): Mercator rotated to the user's longitude,
 // zoom 1–40, range chips + Plates toggle, magnitude legend + hint, tap a circle for the selected-quake card.
 // /app/map?focus=<quake id> ("Show region") zooms to that quake and draws its felt reports as soft ~10 km areas.
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
@@ -10,6 +10,7 @@ import { useQuakeData } from '@/components/QuakeData';
 import { useFeltCells } from '@/components/FeltReport';
 import { regionHref } from '@/components/QuakeDetail';
 import { WorldMap } from '@/components/dash/WorldMap';
+import { FitLine } from '@/components/FitLine';
 import { Legend, RangeChips, Selection, ToggleChip } from '@/components/stage/StageParts';
 import { MMI_COLORS, ROMAN } from '@/lib/theme';
 import styles from '@/components/stage/stage.module.css';
@@ -35,6 +36,14 @@ function MapView() {
   const felt = useFeltCells(focusQuake ? focusQuake.id : null);
 
   const clear = () => { setPicked(null); if (focusId) router.replace('/app/map', { scroll: false }); };
+  const exitRegion = () => { setPicked(null); setSheet(false); router.replace('/app/map', { scroll: false }); };
+  // Escape leaves the region view (unless a sheet is open: Escape closes that first).
+  useEffect(() => {
+    if (!focusId) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape' && !document.querySelector('[role=dialog]')) router.replace('/app/map', { scroll: false }); };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [focusId, router]);
   const showRegion = (id: string) => { setPicked(null); setSheet(false); router.replace(regionHref(id), { scroll: false }); };
 
   return (
@@ -44,16 +53,25 @@ function MapView() {
         onSelect={q => { if (q) setPicked(q.id); else clear(); setSheet(false); }}
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
         focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, zoom: FOCUS_ZOOM } : null}
-        cells={focusQuake ? felt.cells : []} />
+        cells={focusQuake ? felt.cells : []} onReset={focusId ? exitRegion : undefined} />
       <div className={styles.chips}>
         <RangeChips />
         <ToggleChip on={plates} onClick={() => setPlates(v => !v)} icon="texture" label={t('plates')} />
       </div>
-      {focusQuake && !felt.loading && (
+      {focusId && (
         <div className={styles.feltCard} role="status">
-          <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} style={{ background: c }} />)}</span>
-          <span>{felt.total === 0 ? t('felt_reports_0') : felt.total === 1 ? t('felt_reports_1') : t('felt_reports_n', { n: nf.format(felt.total) })}</span>
-          {felt.cells.length > 0 && <span className={styles.feltRange}>MMI {ROMAN[Math.round(Math.min(...felt.cells.map(c => c.mmi))) - 1]}–{ROMAN[Math.round(Math.max(...felt.cells.map(c => c.mmi))) - 1]}</span>}
+          <button type="button" className={styles.exitBtn} onClick={exitRegion}>
+            <span className="ms" aria-hidden="true">arrow_back</span>{t('exit_region')}
+          </button>
+          {focusQuake && !felt.loading && (
+            <span className={styles.feltLine}>
+              <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} style={{ background: c }} />)}</span>
+              <FitLine min={9}>
+                {felt.total === 0 ? t('felt_reports_0') : felt.total === 1 ? t('felt_reports_1') : t('felt_reports_n', { n: nf.format(felt.total) })}
+                {felt.cells.length > 0 && ` · MMI ${ROMAN[Math.round(Math.min(...felt.cells.map(c => c.mmi))) - 1]}–${ROMAN[Math.round(Math.max(...felt.cells.map(c => c.mmi))) - 1]}`}
+              </FitLine>
+            </span>
+          )}
         </div>
       )}
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}

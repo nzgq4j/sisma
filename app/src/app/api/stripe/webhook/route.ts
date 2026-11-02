@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
+import { supabaseAdminConfig } from '@/lib/supabase-env';
 
 // Writes subscription state to profiles. Configure the endpoint in Stripe for customer.subscription.* events.
 export async function POST(req: NextRequest) {
@@ -11,7 +12,9 @@ export async function POST(req: NextRequest) {
   if (event.type.startsWith('customer.subscription.')) {
     const sub = event.data.object as Stripe.Subscription;
     const userId = sub.metadata.userId;
-    const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
+    const cfg = supabaseAdminConfig();
+    if (!cfg) throw new Error('Supabase is not configured');
+    const db = createClient(cfg.url, cfg.key, { auth: { persistSession: false } });
     await db.from('profiles').update({
       plan: 'plus',
       stripe_customer_id: String(sub.customer),

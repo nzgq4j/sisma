@@ -30,6 +30,7 @@
   "report_error": "Raporunuz gönderilemedi. Lütfen tekrar deneyin.",
   "report_window": "Raporlar depremden sonra 6 saat açıktır.",
   "show_region": "Bölgeyi göster",
+  "exit_region": "Dünya haritasına dön",
   "felt_reports_n": "{n} hissetme raporu · yaklaşık konumlar",
   "felt_reports_1": "1 hissetme raporu · yaklaşık konum",
   "felt_reports_0": "Henüz konumlu rapor yok",

@@ -1,0 +1,64 @@
+{{ $l := printf "%v" .Data.locale }}<!doctype html>
+<html lang="{{ if eq $l "es" }}es{{ else if eq $l "ja" }}ja{{ else if eq $l "id" }}id{{ else if eq $l "tr" }}tr{{ else if eq $l "it" }}it{{ else if eq $l "pt" }}pt{{ else if eq $l "zh" }}zh{{ else if eq $l "fr" }}fr{{ else if eq $l "de" }}de{{ else }}en{{ end }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{{ if eq $l "es" }}Entra en sisma{{ else if eq $l "ja" }}sisma にログイン{{ else if eq $l "id" }}Masuk ke sisma{{ else if eq $l "tr" }}sisma’ya giriş yapın{{ else if eq $l "it" }}Accedi a sisma{{ else if eq $l "pt" }}Entre no sisma{{ else if eq $l "zh" }}登录 sisma{{ else if eq $l "fr" }}Connectez-vous à sisma{{ else if eq $l "de" }}Bei sisma anmelden{{ else }}Sign in to sisma{{ end }}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F6F4FC;">
+<!-- Inbox preview text -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{ if eq $l "es" }}Tu enlace de un solo uso para entrar en sisma.{{ else if eq $l "ja" }}sisma にログインするための一回限りのリンクです。{{ else if eq $l "id" }}Tautan sekali pakai untuk masuk ke sisma.{{ else if eq $l "tr" }}sisma’ya giriş için tek kullanımlık bağlantınız.{{ else if eq $l "it" }}Il tuo link monouso per accedere a sisma.{{ else if eq $l "pt" }}Seu link de uso único para entrar no sisma.{{ else if eq $l "zh" }}用于登录 sisma 的一次性链接。{{ else if eq $l "fr" }}Votre lien à usage unique pour vous connecter à sisma.{{ else if eq $l "de" }}Dein einmaliger Link zur Anmeldung bei sisma.{{ else }}Your one-time link to sign in to sisma.{{ end }}&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F6F4FC" style="background-color:#F6F4FC;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
+        <!-- Logo -->
+        <tr>
+          <td style="padding:0 4px 24px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+              <td style="padding-right:10px;vertical-align:middle;"><img src="https://sisma.io/icons/icon-192.png" width="36" height="36" alt="" style="display:block;border:0;border-radius:11px;"></td>
+              <td style="vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.4px;color:#1B1530;">sisma<span style="color:#5E587A;font-weight:600;">.io</span></td>
+            </tr></table>
+          </td>
+        </tr>
+        <!-- Card -->
+        <tr>
+          <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;border:1px solid #E4E0F0;border-radius:20px;">
+            <!-- Magnitude colour strip -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="4" bgcolor="#86DCC4" style="height:4px;line-height:4px;font-size:0;border-top-left-radius:20px;">&nbsp;</td><td height="4" bgcolor="#F7CF4A" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FFA94D" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FF7A59" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#EE4266" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#B5179E" style="height:4px;line-height:4px;font-size:0;border-top-right-radius:20px;">&nbsp;</td></tr></table>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="padding:28px 32px 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#6C4BF4;">{{ if eq $l "es" }}INICIAR SESIÓN{{ else if eq $l "ja" }}ログイン{{ else if eq $l "id" }}MASUK{{ else if eq $l "tr" }}GİRİŞ{{ else if eq $l "it" }}ACCESSO{{ else if eq $l "pt" }}ENTRAR{{ else if eq $l "zh" }}登录{{ else if eq $l "fr" }}CONNEXION{{ else if eq $l "de" }}ANMELDEN{{ else }}SIGN IN{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:800;letter-spacing:-0.5px;color:#1B1530;">{{ if eq $l "es" }}Tu enlace de <span style="color:#6C4BF4;">acceso</span>{{ else if eq $l "ja" }}<span style="color:#6C4BF4;">ログイン</span>リンク{{ else if eq $l "id" }}Tautan <span style="color:#6C4BF4;">masuk</span> Anda{{ else if eq $l "tr" }}<span style="color:#6C4BF4;">Giriş</span> bağlantınız{{ else if eq $l "it" }}Il tuo link di <span style="color:#6C4BF4;">accesso</span>{{ else if eq $l "pt" }}Seu link de <span style="color:#6C4BF4;">acesso</span>{{ else if eq $l "zh" }}你的<span style="color:#6C4BF4;">登录</span>链接{{ else if eq $l "fr" }}Votre lien de <span style="color:#6C4BF4;">connexion</span>{{ else if eq $l "de" }}Dein <span style="color:#6C4BF4;">Anmeldelink</span>{{ else }}Your <span style="color:#6C4BF4;">sign-in</span> link{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 26px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:24px;color:#5E587A;">{{ if eq $l "es" }}Usa el botón de abajo para entrar en sisma como <strong style="color:#1B1530;">{{ .Email }}</strong>. El enlace funciona una vez y caduca pronto.{{ else if eq $l "ja" }}下のボタンから <strong style="color:#1B1530;">{{ .Email }}</strong> として sisma にログインできます。リンクは一度だけ有効で、まもなく期限切れになります。{{ else if eq $l "id" }}Gunakan tombol di bawah untuk masuk ke sisma sebagai <strong style="color:#1B1530;">{{ .Email }}</strong>. Tautan hanya berlaku sekali dan segera kedaluwarsa.{{ else if eq $l "tr" }}Aşağıdaki düğmeyle sisma’ya <strong style="color:#1B1530;">{{ .Email }}</strong> olarak giriş yapın. Bağlantı yalnızca bir kez çalışır ve kısa sürede geçerliliğini yitirir.{{ else if eq $l "it" }}Usa il pulsante qui sotto per accedere a sisma come <strong style="color:#1B1530;">{{ .Email }}</strong>. Il link funziona una sola volta e scade a breve.{{ else if eq $l "pt" }}Use o botão abaixo para entrar no sisma como <strong style="color:#1B1530;">{{ .Email }}</strong>. O link funciona uma vez e expira em breve.{{ else if eq $l "zh" }}点击下方按钮，以 <strong style="color:#1B1530;">{{ .Email }}</strong> 身份登录 sisma。链接仅可使用一次，并将很快失效。{{ else if eq $l "fr" }}Utilisez le bouton ci-dessous pour vous connecter à sisma en tant que <strong style="color:#1B1530;">{{ .Email }}</strong>. Le lien ne fonctionne qu’une fois et expire bientôt.{{ else if eq $l "de" }}Melde dich mit der Schaltfläche unten als <strong style="color:#1B1530;">{{ .Email }}</strong> bei sisma an. Der Link funktioniert einmal und läuft bald ab.{{ else }}Use the button below to sign in to sisma as <strong style="color:#1B1530;">{{ .Email }}</strong>. The link works once and expires soon.{{ end }}</td></tr>
+              <tr>
+                <td style="padding:0 32px 24px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                    <td align="center" bgcolor="#6C4BF4" style="background-color:#6C4BF4;border-radius:999px;">
+                      <a href="{{ .ConfirmationURL }}" target="_blank" style="display:inline-block;padding:15px 28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:999px;">{{ if eq $l "es" }}Entrar en sisma{{ else if eq $l "ja" }}sisma にログイン{{ else if eq $l "id" }}Masuk ke sisma{{ else if eq $l "tr" }}sisma’ya giriş yap{{ else if eq $l "it" }}Accedi a sisma{{ else if eq $l "pt" }}Entrar no sisma{{ else if eq $l "zh" }}登录 sisma{{ else if eq $l "fr" }}Se connecter à sisma{{ else if eq $l "de" }}Bei sisma anmelden{{ else }}Sign in to sisma{{ end }}</a>
+                    </td>
+                  </tr></table>
+                </td>
+              </tr>
+              <tr><td style="padding:0 32px 32px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#5E587A;">
+                {{ if eq $l "es" }}¿El botón no funciona? Copia este enlace en tu navegador:{{ else if eq $l "ja" }}ボタンが使えない場合は、このリンクをブラウザに貼り付けてください：{{ else if eq $l "id" }}Tombol tidak berfungsi? Salin tautan ini ke peramban Anda:{{ else if eq $l "tr" }}Düğme çalışmıyor mu? Bu bağlantıyı tarayıcınıza kopyalayın:{{ else if eq $l "it" }}Il pulsante non funziona? Copia questo link nel browser:{{ else if eq $l "pt" }}O botão não funciona? Copie este link no navegador:{{ else if eq $l "zh" }}按钮无法使用？请将此链接复制到浏览器：{{ else if eq $l "fr" }}Le bouton ne fonctionne pas ? Copiez ce lien dans votre navigateur :{{ else if eq $l "de" }}Schaltfläche funktioniert nicht? Kopiere diesen Link in deinen Browser:{{ else }}Button not working? Copy this link into your browser:{{ end }}<br>
+                <a href="{{ .ConfirmationURL }}" target="_blank" style="color:#6C4BF4;word-break:break-all;">{{ .ConfirmationURL }}</a>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td style="padding:24px 4px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#5E587A;">
+            {{ if eq $l "es" }}Si no intentaste iniciar sesión, ignora este correo. Nadie puede entrar sin este enlace.{{ else if eq $l "ja" }}ログインしようとしていない場合は、このメールを無視してください。このリンクがなければ誰もログインできません。{{ else if eq $l "id" }}Jika Anda tidak mencoba masuk, abaikan email ini. Tidak ada yang bisa masuk tanpa tautan ini.{{ else if eq $l "tr" }}Giriş yapmaya çalışmadıysanız bu e-postayı yok sayın. Bu bağlantı olmadan kimse giriş yapamaz.{{ else if eq $l "it" }}Se non hai provato ad accedere, ignora questa email. Nessuno può accedere senza questo link.{{ else if eq $l "pt" }}Se você não tentou entrar, ignore este e-mail. Ninguém consegue entrar sem este link.{{ else if eq $l "zh" }}如果你没有尝试登录，请忽略此邮件。没有此链接，任何人都无法登录。{{ else if eq $l "fr" }}Si vous n’avez pas essayé de vous connecter, ignorez cet e-mail. Personne ne peut se connecter sans ce lien.{{ else if eq $l "de" }}Wenn du dich nicht anmelden wolltest, ignoriere diese E-Mail. Ohne diesen Link kann sich niemand anmelden.{{ else }}If you didn’t try to sign in, ignore this email. Nobody can sign in without this link.{{ end }}<br><br>
+            <a href="https://sisma.io" target="_blank" style="color:#6C4BF4;text-decoration:none;font-weight:700;">sisma.io</a>
+            <span style="color:#B9B3CC;">&nbsp;·&nbsp;</span>{{ if eq $l "es" }}Terremotos en vivo y explicados{{ else if eq $l "ja" }}地震をリアルタイムで、わかりやすく{{ else if eq $l "id" }}Gempa bumi, langsung dan dijelaskan{{ else if eq $l "tr" }}Depremler, canlı ve açıklamalı{{ else if eq $l "it" }}Terremoti in diretta e spiegati{{ else if eq $l "pt" }}Terremotos ao vivo e explicados{{ else if eq $l "zh" }}实时地震，清晰解读{{ else if eq $l "fr" }}Les séismes, en direct et expliqués{{ else if eq $l "de" }}Erdbeben, live und erklärt{{ else }}Earthquakes, live and explained{{ end }}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

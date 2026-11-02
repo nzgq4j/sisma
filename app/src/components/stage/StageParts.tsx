@@ -7,6 +7,7 @@ import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/Q
 import { MagBadge } from '@/components/MagBadge';
 import { QuakeDetail } from '@/components/QuakeDetail';
 import { FeltButton } from '@/components/FeltReport';
+import { FitLine } from '@/components/FitLine';
 import { Sheet } from '@/components/Sheet';
 import { timeAgo } from '@/components/QuakeRow';
 import { useDesktop } from '@/components/dash/useDesktop';
@@ -58,8 +59,8 @@ export function Selection({ q, open, setOpen, onClear, onShowRegion }: { q: Row;
       <div className={styles.selCard}>
         <MagBadge mag={q.mag} size={52} />
         <div className={styles.selText}>
-          <strong>{q.region}</strong>
-          <span>{timeAgo(t as never, q.time)}{q.distanceKm != null ? ` · ${nf.format(Math.round(q.distanceKm))} km` : ''} · ↓ {nf.format(Math.round(q.depthKm))} km</span>
+          <FitLine as="strong" min={12}>{q.region}</FitLine>
+          <FitLine>{timeAgo(t as never, q.time)}{q.distanceKm != null ? ` · ${nf.format(Math.round(q.distanceKm))} km` : ''} · ↓ {nf.format(Math.round(q.depthKm))} km</FitLine>
         </div>
         <FeltButton q={q} />
         <button type="button" className={styles.selBtn} onClick={() => setOpen(true)} aria-label={m.dash.details}>

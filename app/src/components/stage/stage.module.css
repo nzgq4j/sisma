@@ -45,8 +45,11 @@
 @media (prefers-reduced-motion: reduce) { .selCard, .panel { animation: none; } }
 
 /* Felt reports summary shown under the chips after "Show region". */
-.feltCard { position: absolute; top: 52px; left: 12px; max-width: calc(100% - 80px); display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; padding: 8px 12px; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); font-size: 12px; font-weight: 700; color: var(--ink); z-index: 3; }
+.feltCard { position: absolute; top: 52px; left: 12px; width: min(380px, calc(100% - 80px)); display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 8px; border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); font-size: 12px; font-weight: 700; color: var(--ink); z-index: 3; }
 @media (min-width: 1024px) { .feltCard { top: 62px; left: 16px; } }
-.feltScale { display: flex; gap: 2px; }
+.exitBtn { display: flex; align-items: center; justify-content: center; gap: 6px; height: 40px; border: 0; border-radius: 12px; background: var(--violet); color: var(--on-violet); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
+.exitBtn:hover { filter: brightness(1.06); }
+.exitBtn :global(.ms) { font-size: 20px; }
+.feltLine { display: flex; align-items: center; gap: 8px; padding: 0 4px 2px; min-width: 0; }
+.feltScale { display: flex; gap: 2px; flex: none; }
 .feltScale i { width: 10px; height: 10px; border-radius: 5px; filter: blur(.5px); }
-.feltRange { color: var(--ink2); font-variant-numeric: tabular-nums; }

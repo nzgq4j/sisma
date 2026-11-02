@@ -30,6 +30,7 @@
   "report_error": "Não foi possível enviar seu relato. Tente novamente.",
   "report_window": "Os relatos ficam abertos por 6 horas após um terremoto.",
   "show_region": "Mostrar região",
+  "exit_region": "Voltar ao mapa-múndi",
   "felt_reports_n": "{n} relatos · locais aproximados",
   "felt_reports_1": "1 relato · local aproximado",
   "felt_reports_0": "Ainda não há relatos com local",

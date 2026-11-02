@@ -1,0 +1,64 @@
+{{ $l := printf "%v" .Data.locale }}<!doctype html>
+<html lang="{{ if eq $l "es" }}es{{ else if eq $l "ja" }}ja{{ else if eq $l "id" }}id{{ else if eq $l "tr" }}tr{{ else if eq $l "it" }}it{{ else if eq $l "pt" }}pt{{ else if eq $l "zh" }}zh{{ else if eq $l "fr" }}fr{{ else if eq $l "de" }}de{{ else }}en{{ end }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{{ if eq $l "es" }}Confirma tu correo{{ else if eq $l "ja" }}メールアドレスの確認{{ else if eq $l "id" }}Konfirmasi email Anda{{ else if eq $l "tr" }}E-postanızı onaylayın{{ else if eq $l "it" }}Conferma la tua email{{ else if eq $l "pt" }}Confirme seu e-mail{{ else if eq $l "zh" }}确认你的邮箱{{ else if eq $l "fr" }}Confirmez votre e-mail{{ else if eq $l "de" }}Bestätige deine E-Mail{{ else }}Confirm your email{{ end }}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F6F4FC;">
+<!-- Inbox preview text -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{ if eq $l "es" }}Un toque para terminar de configurar tu cuenta de sisma.{{ else if eq $l "ja" }}ワンタップで sisma アカウントの設定が完了します。{{ else if eq $l "id" }}Satu ketukan untuk menyelesaikan akun sisma Anda.{{ else if eq $l "tr" }}sisma hesabınızı tamamlamak için tek dokunuş.{{ else if eq $l "it" }}Un tocco per completare il tuo account sisma.{{ else if eq $l "pt" }}Um toque para concluir sua conta sisma.{{ else if eq $l "zh" }}轻点一下即可完成 sisma 账户设置。{{ else if eq $l "fr" }}Un geste pour finir de configurer votre compte sisma.{{ else if eq $l "de" }}Ein Tipp, um dein sisma-Konto fertig einzurichten.{{ else }}One tap to finish setting up your sisma account.{{ end }}&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F6F4FC" style="background-color:#F6F4FC;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
+        <!-- Logo -->
+        <tr>
+          <td style="padding:0 4px 24px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+              <td style="padding-right:10px;vertical-align:middle;"><img src="https://sisma.io/icons/icon-192.png" width="36" height="36" alt="" style="display:block;border:0;border-radius:11px;"></td>
+              <td style="vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.4px;color:#1B1530;">sisma<span style="color:#5E587A;font-weight:600;">.io</span></td>
+            </tr></table>
+          </td>
+        </tr>
+        <!-- Card -->
+        <tr>
+          <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;border:1px solid #E4E0F0;border-radius:20px;">
+            <!-- Magnitude colour strip -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="4" bgcolor="#86DCC4" style="height:4px;line-height:4px;font-size:0;border-top-left-radius:20px;">&nbsp;</td><td height="4" bgcolor="#F7CF4A" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FFA94D" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FF7A59" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#EE4266" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#B5179E" style="height:4px;line-height:4px;font-size:0;border-top-right-radius:20px;">&nbsp;</td></tr></table>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="padding:28px 32px 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#6C4BF4;">{{ if eq $l "es" }}BIENVENIDA{{ else if eq $l "ja" }}ようこそ{{ else if eq $l "id" }}SELAMAT DATANG{{ else if eq $l "tr" }}HOŞ GELDİNİZ{{ else if eq $l "it" }}BENVENUTO{{ else if eq $l "pt" }}BOAS-VINDAS{{ else if eq $l "zh" }}欢迎{{ else if eq $l "fr" }}BIENVENUE{{ else if eq $l "de" }}WILLKOMMEN{{ else }}WELCOME{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:800;letter-spacing:-0.5px;color:#1B1530;">{{ if eq $l "es" }}Confirma tu <span style="color:#6C4BF4;">correo</span>{{ else if eq $l "ja" }}<span style="color:#6C4BF4;">メールアドレス</span>を確認{{ else if eq $l "id" }}Konfirmasi <span style="color:#6C4BF4;">email</span> Anda{{ else if eq $l "tr" }}<span style="color:#6C4BF4;">E-postanızı</span> onaylayın{{ else if eq $l "it" }}Conferma la tua <span style="color:#6C4BF4;">email</span>{{ else if eq $l "pt" }}Confirme seu <span style="color:#6C4BF4;">e-mail</span>{{ else if eq $l "zh" }}确认你的<span style="color:#6C4BF4;">邮箱</span>{{ else if eq $l "fr" }}Confirmez votre <span style="color:#6C4BF4;">e-mail</span>{{ else if eq $l "de" }}E-Mail <span style="color:#6C4BF4;">bestätigen</span>{{ else }}Confirm your <span style="color:#6C4BF4;">email</span>{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 26px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:24px;color:#5E587A;">{{ if eq $l "es" }}Gracias por unirte a sisma. Confirma esta dirección para terminar de configurar tu cuenta y recibir sismos en vivo, reportes y alertas.{{ else if eq $l "ja" }}sisma にご登録いただきありがとうございます。このアドレスを確認すると設定が完了し、リアルタイムの地震情報、揺れの報告、アラートを利用できます。{{ else if eq $l "id" }}Terima kasih telah bergabung dengan sisma. Konfirmasi alamat ini untuk menyelesaikan akun Anda dan mendapatkan gempa langsung, laporan guncangan, dan peringatan.{{ else if eq $l "tr" }}sisma’ya katıldığınız için teşekkürler. Hesabınızı tamamlamak ve canlı depremler, hissetme raporları ve uyarılar almak için bu adresi onaylayın.{{ else if eq $l "it" }}Grazie per esserti iscritto a sisma. Conferma questo indirizzo per completare l’account e ricevere terremoti in diretta, segnalazioni e avvisi.{{ else if eq $l "pt" }}Obrigado por entrar no sisma. Confirme este endereço para concluir sua conta e receber terremotos ao vivo, relatos e alertas.{{ else if eq $l "zh" }}感谢加入 sisma。确认此邮箱即可完成账户设置，获取实时地震、有感报告和提醒。{{ else if eq $l "fr" }}Merci de rejoindre sisma. Confirmez cette adresse pour finir de configurer votre compte et recevoir les séismes en direct, les témoignages et les alertes.{{ else if eq $l "de" }}Danke, dass du sisma nutzt. Bestätige diese Adresse, um dein Konto fertig einzurichten und Erdbeben live, Meldungen und Alarme zu erhalten.{{ else }}Thanks for joining sisma. Confirm this address to finish setting up your account and get live earthquakes, felt reports and alerts.{{ end }}</td></tr>
+              <tr>
+                <td style="padding:0 32px 24px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                    <td align="center" bgcolor="#6C4BF4" style="background-color:#6C4BF4;border-radius:999px;">
+                      <a href="{{ .ConfirmationURL }}" target="_blank" style="display:inline-block;padding:15px 28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:999px;">{{ if eq $l "es" }}Confirmar correo{{ else if eq $l "ja" }}メールアドレスを確認{{ else if eq $l "id" }}Konfirmasi alamat email{{ else if eq $l "tr" }}E-posta adresini onayla{{ else if eq $l "it" }}Conferma indirizzo email{{ else if eq $l "pt" }}Confirmar e-mail{{ else if eq $l "zh" }}确认邮箱地址{{ else if eq $l "fr" }}Confirmer l’adresse e-mail{{ else if eq $l "de" }}E-Mail-Adresse bestätigen{{ else }}Confirm email address{{ end }}</a>
+                    </td>
+                  </tr></table>
+                </td>
+              </tr>
+              <tr><td style="padding:0 32px 32px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#5E587A;">
+                {{ if eq $l "es" }}¿El botón no funciona? Copia este enlace en tu navegador:{{ else if eq $l "ja" }}ボタンが使えない場合は、このリンクをブラウザに貼り付けてください：{{ else if eq $l "id" }}Tombol tidak berfungsi? Salin tautan ini ke peramban Anda:{{ else if eq $l "tr" }}Düğme çalışmıyor mu? Bu bağlantıyı tarayıcınıza kopyalayın:{{ else if eq $l "it" }}Il pulsante non funziona? Copia questo link nel browser:{{ else if eq $l "pt" }}O botão não funciona? Copie este link no navegador:{{ else if eq $l "zh" }}按钮无法使用？请将此链接复制到浏览器：{{ else if eq $l "fr" }}Le bouton ne fonctionne pas ? Copiez ce lien dans votre navigateur :{{ else if eq $l "de" }}Schaltfläche funktioniert nicht? Kopiere diesen Link in deinen Browser:{{ else }}Button not working? Copy this link into your browser:{{ end }}<br>
+                <a href="{{ .ConfirmationURL }}" target="_blank" style="color:#6C4BF4;word-break:break-all;">{{ .ConfirmationURL }}</a>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td style="padding:24px 4px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#5E587A;">
+            {{ if eq $l "es" }}Recibiste este correo porque alguien se registró en sisma con {{ .Email }}. Si no fuiste tú, ignóralo y no se creará ninguna cuenta.{{ else if eq $l "ja" }}{{ .Email }} で sisma に登録があったため、このメールをお送りしています。心当たりがない場合はこのメールを無視してください。アカウントは作成されません。{{ else if eq $l "id" }}Anda menerima email ini karena seseorang mendaftar di sisma dengan {{ .Email }}. Jika itu bukan Anda, abaikan email ini dan tidak ada akun yang dibuat.{{ else if eq $l "tr" }}Bu e-postayı, biri {{ .Email }} ile sisma’ya kaydolduğu için aldınız. Bu siz değilseniz e-postayı yok sayın; hesap oluşturulmaz.{{ else if eq $l "it" }}Hai ricevuto questa email perché qualcuno si è registrato a sisma con {{ .Email }}. Se non sei stato tu, ignorala e non verrà creato alcun account.{{ else if eq $l "pt" }}Você recebeu este e-mail porque alguém se cadastrou no sisma com {{ .Email }}. Se não foi você, ignore-o e nenhuma conta será criada.{{ else if eq $l "zh" }}有人使用 {{ .Email }} 注册了 sisma，因此你收到了这封邮件。如果不是你本人，请忽略此邮件，账户不会被创建。{{ else if eq $l "fr" }}Vous recevez cet e-mail car quelqu’un s’est inscrit à sisma avec {{ .Email }}. Si ce n’était pas vous, ignorez-le : aucun compte ne sera créé.{{ else if eq $l "de" }}Du erhältst diese E-Mail, weil sich jemand mit {{ .Email }} bei sisma registriert hat. Wenn du das nicht warst, ignoriere sie; es wird kein Konto angelegt.{{ else }}You received this because someone signed up for sisma with {{ .Email }}. If that wasn’t you, ignore this email and no account will be created.{{ end }}<br><br>
+            <a href="https://sisma.io" target="_blank" style="color:#6C4BF4;text-decoration:none;font-weight:700;">sisma.io</a>
+            <span style="color:#B9B3CC;">&nbsp;·&nbsp;</span>{{ if eq $l "es" }}Terremotos en vivo y explicados{{ else if eq $l "ja" }}地震をリアルタイムで、わかりやすく{{ else if eq $l "id" }}Gempa bumi, langsung dan dijelaskan{{ else if eq $l "tr" }}Depremler, canlı ve açıklamalı{{ else if eq $l "it" }}Terremoti in diretta e spiegati{{ else if eq $l "pt" }}Terremotos ao vivo e explicados{{ else if eq $l "zh" }}实时地震，清晰解读{{ else if eq $l "fr" }}Les séismes, en direct et expliqués{{ else if eq $l "de" }}Erdbeben, live und erklärt{{ else }}Earthquakes, live and explained{{ end }}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

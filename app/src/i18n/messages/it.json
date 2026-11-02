@@ -30,6 +30,7 @@
   "report_error": "Impossibile inviare la segnalazione. Riprova.",
   "report_window": "Le segnalazioni sono aperte per 6 ore dopo un terremoto.",
   "show_region": "Mostra zona",
+  "exit_region": "Torna alla mappa del mondo",
   "felt_reports_n": "{n} segnalazioni · posizioni approssimative",
   "felt_reports_1": "1 segnalazione · posizione approssimativa",
   "felt_reports_0": "Ancora nessuna segnalazione con posizione",

@@ -27,6 +27,7 @@ grant update (display_name, locale, theme) on public.profiles to authenticated;
 create or replace function public.handle_new_user() returns trigger language plpgsql security definer set search_path = '' as $$
 begin insert into public.profiles (id) values (new.id); return new; end; $$;
 create trigger on_auth_user_created after insert on auth.users for each row execute function public.handle_new_user();
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
 
 create or replace function public.effective_plan(p public.profiles) returns text language sql stable set search_path = '' as $$
   select case
@@ -58,6 +59,7 @@ begin
   return new;
 end; $$;
 create trigger saved_locations_limit before insert on public.saved_locations for each row execute function public.enforce_location_limit();
+revoke execute on function public.enforce_location_limit() from public, anon, authenticated;
 
 create table public.alert_settings (
   user_id uuid primary key references public.profiles on delete cascade,
@@ -77,6 +79,7 @@ begin
   return new;
 end; $$;
 create trigger alert_settings_plan before insert or update on public.alert_settings for each row execute function public.enforce_alerts_plan();
+revoke execute on function public.enforce_alerts_plan() from public, anon, authenticated;
 
 create table public.push_tokens (
   id uuid primary key default gen_random_uuid(),
@@ -112,6 +115,8 @@ alter table public.quakes enable row level security;
 create policy "quakes are public" on public.quakes for select using (true);
 
 -- Felt reports (anonymous allowed). Location stored coarsened to 0.1 degrees.
+-- Written only by POST /api/reports with the service role, which checks the quake exists and is < 6 h old;
+-- there are deliberately no insert/select policies, so the anon and authenticated keys cannot read or write it.
 create table public.felt_reports (
   id uuid primary key default gen_random_uuid(),
   quake_id text not null,
@@ -128,10 +133,10 @@ create table public.felt_reports (
 );
 create index felt_reports_quake_idx on public.felt_reports (quake_id);
 alter table public.felt_reports enable row level security;
-create policy "insert reports" on public.felt_reports for insert with check (user_id is null or user_id = (select auth.uid()));
 
-create view public.felt_summary with (security_invoker = false) as
+-- Server-side summary (service role only). Clients get coarse cells from GET /api/reports.
+create view public.felt_summary with (security_invoker = true) as
   select quake_id, count(*) as reports, round(avg(mmi), 1) as avg_mmi, max(mmi) as max_mmi,
          array_agg(distinct (lat, lon)::text) filter (where lat is not null) as cells
   from public.felt_reports group by quake_id;
-grant select on public.felt_summary to anon, authenticated;
+revoke all on public.felt_summary from anon, authenticated;
