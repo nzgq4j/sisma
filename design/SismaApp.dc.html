@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..600,0..1,0&amp;display=block" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="./sisma-i18n.js"></script>
+<script src="./sisma-science.js"></script>
+<style>
+body{margin:0;font-family:Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#5A38E0}a:hover{color:#6C4BF4}
+[data-sx]{--bg:#F6F4FC;--surface:#FFFFFF;--surface2:#EFECF8;--ink:#1B1530;--ink2:#5E587A;--line:#E4E0F0;--violet:#6C4BF4;--on-violet:#FFFFFF;--violet-soft:#ECE7FF;--violet-text:#5A38E0;--mint:#2CCB9A;--mint-soft:#D9F7EC;--mint-text:#0A7558;--warm-soft:#FFE9E1;--warm-text:#B3401F;--scrim:rgba(27,21,48,.42);--shadow:0 8px 28px rgba(27,21,48,.14)}
+[data-sx="dark"]{--bg:#100C1D;--surface:#1A1530;--surface2:#251F3F;--ink:#F2EFFB;--ink2:#A9A2C6;--line:#2E2748;--violet:#8F74FF;--on-violet:#120C26;--violet-soft:#2A2152;--violet-text:#BFAFFF;--mint:#3FE0AE;--mint-soft:#123A30;--mint-text:#6DF0C6;--warm-soft:#3A2019;--warm-text:#FFA088;--scrim:rgba(0,0,0,.55);--shadow:0 8px 28px rgba(0,0,0,.45)}
+[data-sx] ::-webkit-scrollbar{display:none}
+[data-sx] input[type=range]{accent-color:var(--violet);width:100%}
+@keyframes sxUp{from{transform:translateY(48px);opacity:.4}to{transform:none;opacity:1}}
+@keyframes sxFade{from{opacity:0}to{opacity:1}}
+@keyframes sxPulse{0%{box-shadow:0 0 0 0 rgba(44,203,154,.55)}100%{box-shadow:0 0 0 9px rgba(44,203,154,0)}}
+</style>
+</helmet>
+<div data-sx="{{ themeName }}" style="min-height:{{ shellMinH }};display:flex;justify-content:center;align-items:center;padding:{{ shellPad }};background:{{ shellBg }};box-sizing:border-box;font-family:Figtree,system-ui,sans-serif">
+<div data-screen-label="sisma app" style="width:390px;height:844px;position:relative;overflow:hidden;border-radius:44px;background:var(--bg);color:var(--ink);box-shadow:0 0 0 10px #0E0B18,0 30px 80px rgba(27,21,48,.35);flex:none">
+
+<div style="position:absolute;top:0;left:0;right:0;height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;font-size:14px;font-weight:700;z-index:5">
+<span>9:41</span>
+<div style="display:flex;gap:4px;align-items:center">
+<span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">signal_cellular_alt</span>
+<span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">wifi</span>
+<span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">battery_full</span>
+</div>
+</div>
+
+<div style="position:absolute;top:36px;left:0;right:0;height:56px;display:flex;align-items:center;gap:4px;padding:0 8px 0 12px;z-index:5;background:var(--bg)">
+<sc-if value="{{ showBack }}">
+<button onClick="{{ goBack }}" aria-label="Back" style="width:44px;height:44px;border:0;border-radius:22px;background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1">arrow_back</span></button>
+</sc-if>
+<sc-if value="{{ showLogo }}">
+<div style="display:flex;align-items:center;gap:8px;padding-left:4px">
+<div style="width:30px;height:30px;border-radius:10px;background:var(--violet);display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--on-violet)">earthquake</span></div>
+</div>
+</sc-if>
+<div style="flex:1;min-width:0;font-size:21px;font-weight:750;letter-spacing:-.01em;padding-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ title }}</div>
+<sc-if value="{{ showFilter }}">
+<button onClick="{{ openFilter }}" aria-label="Filters" style="position:relative;width:44px;height:44px;border:0;border-radius:22px;background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1">tune</span>
+<sc-if value="{{ filterActive }}"><span style="position:absolute;top:10px;right:10px;width:8px;height:8px;border-radius:4px;background:var(--violet)"></span></sc-if>
+</button>
+</sc-if>
+<button onClick="{{ openLang }}" aria-label="Language" style="height:36px;border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--ink);display:flex;align-items:center;gap:4px;padding:0 10px 0 8px;cursor:pointer;font:600 13px Figtree,sans-serif"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">translate</span>{{ langCode }}</button>
+</div>
+
+<div ref="{{ contentRef }}" style="position:absolute;top:92px;left:0;right:0;bottom:80px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none">
+
+<sc-if value="{{ isFeed }}">
+<div style="padding:4px 16px 20px;display:flex;flex-direction:column;gap:14px">
+<sc-if value="{{ hasNearest }}">
+<div style="background:var(--violet-soft);border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--violet-text)"><span style="width:8px;height:8px;border-radius:4px;background:var(--mint);animation:sxPulse 1.6s infinite"></span>{{ t.nearest }} · {{ locName }}</div>
+<button onClick="{{ near.open }}" style="display:flex;align-items:center;gap:14px;border:0;background:transparent;padding:0;text-align:left;cursor:pointer;color:var(--ink);font:inherit">
+<div style="width:64px;height:64px;border-radius:20px;background:{{ near.color }};color:{{ near.ink }};display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;flex:none">{{ near.mag }}</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+<div style="font-size:22px;font-weight:800;letter-spacing:-.02em">{{ near.dist }} <span style="font-size:15px;font-weight:600;color:var(--ink2)">{{ t.away }}</span></div>
+<div style="font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ near.title }}</div>
+<div style="font-size:13px;color:var(--ink2)">{{ near.ago }} · {{ t.depth }} {{ near.depth }}</div>
+</div>
+</button>
+<button onClick="{{ near.report }}" style="align-self:flex-start;height:40px;border:0;border-radius:20px;background:var(--violet);color:var(--on-violet);padding:0 16px;display:flex;align-items:center;gap:6px;font:700 14px Figtree,sans-serif;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:19px;line-height:1">vibration</span>{{ t.felt_q }}</button>
+</div>
+</sc-if>
+
+<div style="display:flex;background:var(--surface2);border-radius:16px;padding:4px;gap:4px">
+<sc-for list="{{ sortOpts }}" as="o" hint-placeholder-count="3">
+<button onClick="{{ o.pick }}" style="flex:1;height:40px;border:0;border-radius:12px;background:{{ o.bg }};color:{{ o.fg }};box-shadow:{{ o.shadow }};display:flex;align-items:center;justify-content:center;gap:6px;font:700 14px Figtree,sans-serif;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:18px;line-height:1">{{ o.icon }}</span>{{ o.label }}</button>
+</sc-for>
+</div>
+
+<div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px">
+<sc-for list="{{ rangeOpts }}" as="o" hint-placeholder-count="4">
+<button onClick="{{ o.pick }}" style="flex:none;height:34px;border-radius:17px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 12px;display:flex;align-items:center;gap:4px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}<sc-if value="{{ o.locked }}"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">lock</span></sc-if></button>
+</sc-for>
+<span style="flex:none;width:1px;background:var(--line);margin:4px 2px"></span>
+<sc-for list="{{ regionChips }}" as="o" hint-placeholder-count="5">
+<button onClick="{{ o.pick }}" style="flex:none;height:34px;border-radius:17px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 12px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}</button>
+</sc-for>
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink2);padding:0 4px">
+<span style="font-weight:600">{{ summary }}</span>
+<span style="display:flex;align-items:center;gap:6px;font-weight:600"><span style="width:7px;height:7px;border-radius:4px;background:{{ liveDot }}"></span>{{ sourceLabel }}</span>
+</div>
+
+<sc-if value="{{ loading }}">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="height:72px;border-radius:18px;background:var(--surface);opacity:.7"></div>
+<div style="height:72px;border-radius:18px;background:var(--surface);opacity:.5"></div>
+<div style="height:72px;border-radius:18px;background:var(--surface);opacity:.3"></div>
+</div>
+</sc-if>
+
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+<button onClick="{{ r.open }}" style="display:flex;align-items:center;gap:12px;padding:12px;border:0;background:var(--surface);border-radius:18px;text-align:left;width:100%;cursor:pointer;color:var(--ink);font:inherit">
+<div style="width:48px;height:48px;border-radius:15px;background:{{ r.color }};color:{{ r.ink }};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;font-variant-numeric:tabular-nums;flex:none">{{ r.mag }}</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+<div style="font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.region }}</div>
+<div style="font-size:13px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ r.title }}</div>
+<div style="font-size:12px;color:var(--ink2);display:flex;gap:10px;font-variant-numeric:tabular-nums"><span>{{ r.ago }}</span><span>{{ r.dist }}</span><span>↓ {{ r.depth }}</span></div>
+</div>
+<sc-if value="{{ r.tsunami }}"><span title="Tsunami" style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--violet-text)">tsunami</span></sc-if>
+<span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--ink2)">chevron_right</span>
+</button>
+</sc-for>
+</div>
+<sc-if value="{{ hasMore }}">
+<button onClick="{{ showMore }}" style="height:44px;border:1px solid var(--line);border-radius:22px;background:transparent;color:var(--violet-text);font:700 14px Figtree,sans-serif;cursor:pointer">{{ t.show_more }}</button>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ isMap }}">
+<div style="position:absolute;inset:0">
+<div ref="{{ mapRef }}" style="position:absolute;inset:0"></div>
+<div style="position:absolute;top:8px;left:0;right:0;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 12px">
+<sc-for list="{{ rangeOpts }}" as="o" hint-placeholder-count="4">
+<button onClick="{{ o.pick }}" style="flex:none;height:34px;border-radius:17px;border:1px solid {{ o.border }};background:{{ o.bgSolid }};color:{{ o.fg }};padding:0 12px;display:flex;align-items:center;gap:4px;font:600 13px Figtree,sans-serif;cursor:pointer;box-shadow:var(--shadow);white-space:nowrap">{{ o.label }}<sc-if value="{{ o.locked }}"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">lock</span></sc-if></button>
+</sc-for>
+<button onClick="{{ togglePlates }}" style="flex:none;height:34px;border-radius:17px;border:1px solid {{ platesChip.border }};background:{{ platesChip.bg }};color:{{ platesChip.fg }};padding:0 12px;display:flex;align-items:center;gap:4px;font:600 13px Figtree,sans-serif;cursor:pointer;box-shadow:var(--shadow);white-space:nowrap"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1">texture</span>{{ t.plates }}</button>
+</div>
+<sc-if value="{{ noMapSel }}">
+<div style="position:absolute;left:12px;bottom:12px;right:12px;display:flex;justify-content:space-between;align-items:flex-end;gap:8px;pointer-events:none">
+<div style="background:var(--surface);border-radius:14px;padding:8px 10px;display:flex;gap:8px;box-shadow:var(--shadow)">
+<sc-for list="{{ legend }}" as="l" hint-placeholder-count="6">
+<div style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--ink2)"><span style="width:10px;height:10px;border-radius:5px;background:{{ l.c }}"></span>{{ l.l }}</div>
+</sc-for>
+</div>
+<div style="background:var(--surface);border-radius:14px;padding:8px 10px;font-size:11px;font-weight:600;color:var(--ink2);box-shadow:var(--shadow)">{{ t.map_hint }}</div>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ isGlobe }}">
+<div style="position:absolute;inset:0">
+<div ref="{{ globeRef }}" style="position:absolute;inset:0"></div>
+<div style="position:absolute;top:8px;left:0;right:0;display:flex;gap:8px;padding:0 12px;flex-wrap:wrap">
+<sc-for list="{{ globeChips }}" as="o" hint-placeholder-count="3">
+<button onClick="{{ o.pick }}" style="flex:none;height:34px;border-radius:17px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 12px;display:flex;align-items:center;gap:5px;font:600 13px Figtree,sans-serif;cursor:pointer;box-shadow:var(--shadow);white-space:nowrap"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1">{{ o.icon }}</span>{{ o.label }}</button>
+</sc-for>
+</div>
+<div style="position:absolute;right:12px;top:56px;display:flex;flex-direction:column;background:var(--surface);border-radius:22px;box-shadow:var(--shadow);overflow:hidden">
+<button onClick="{{ globeIn }}" aria-label="Zoom in" style="width:44px;height:44px;border:0;background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">add</span></button>
+<div style="height:1px;background:var(--line);margin:0 8px"></div>
+<button onClick="{{ globeOut }}" aria-label="Zoom out" style="width:44px;height:44px;border:0;background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">remove</span></button>
+</div>
+<sc-if value="{{ noMapSel }}">
+<div style="position:absolute;left:12px;bottom:12px;background:var(--surface);border-radius:14px;padding:8px 10px;display:flex;gap:8px;box-shadow:var(--shadow);flex-wrap:wrap;max-width:calc(100% - 24px);box-sizing:border-box">
+<sc-for list="{{ legend }}" as="l" hint-placeholder-count="6">
+<div style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:700;color:var(--ink2)"><span style="width:10px;height:10px;border-radius:5px;background:{{ l.c }}"></span>{{ l.l }}</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ hasMapSel }}">
+<div style="position:absolute;left:12px;right:12px;bottom:12px;background:var(--surface);border-radius:22px;padding:14px;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);animation:sxUp .22s ease-out">
+<div style="width:52px;height:52px;border-radius:16px;background:{{ ms.color }};color:{{ ms.ink }};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;flex:none">{{ ms.mag }}</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+<div style="font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ ms.region }}</div>
+<div style="font-size:12px;color:var(--ink2)">{{ ms.ago }} · {{ ms.dist }} · ↓ {{ ms.depth }}</div>
+</div>
+<button onClick="{{ ms.open }}" style="height:40px;border:0;border-radius:20px;background:var(--violet);color:var(--on-violet);padding:0 14px;font:700 14px Figtree,sans-serif;cursor:pointer;flex:none">{{ t.magnitude }} ›</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isSciList }}">
+<div style="padding:4px 16px 24px;display:flex;flex-direction:column;gap:12px">
+<p style="margin:0 4px 4px;font-size:15px;color:var(--ink2);text-wrap:pretty">{{ t.sci_sub }}</p>
+<sc-for list="{{ topics }}" as="tp" hint-placeholder-count="7">
+<button onClick="{{ tp.open }}" style="display:flex;gap:14px;align-items:flex-start;padding:14px;border:0;border-radius:22px;background:var(--surface);text-align:left;cursor:pointer;color:var(--ink);font:inherit">
+<div style="width:56px;height:56px;border-radius:18px;background:{{ tp.bg }};color:{{ tp.fg }};display:flex;align-items:center;justify-content:center;flex:none"><span style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1">{{ tp.icon }}</span></div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px">
+<div style="font-size:12px;font-weight:700;color:var(--ink2);font-variant-numeric:tabular-nums">{{ tp.num }} · {{ tp.mins }}</div>
+<div style="font-size:17px;font-weight:750;letter-spacing:-.01em">{{ tp.title }}</div>
+<div style="font-size:13px;line-height:1.45;color:var(--ink2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">{{ tp.blurb }}</div>
+</div>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{ isArticle }}">
+<div style="padding:4px 16px 32px;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;align-items:center;gap:12px">
+<div style="width:48px;height:48px;border-radius:16px;background:{{ art.bg }};color:{{ art.fg }};display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:26px;line-height:1">{{ art.icon }}</span></div>
+<div style="font-size:13px;font-weight:700;color:var(--ink2)">{{ art.mins }}</div>
+</div>
+<h1 style="margin:0;font-size:30px;line-height:1.1;font-weight:800;letter-spacing:-.025em;text-wrap:balance">{{ art.title }}</h1>
+<p style="margin:0;font-size:17px;line-height:1.5;text-wrap:pretty">{{ art.intro }}</p>
+
+<sc-if value="{{ visCanvas }}">
+<div style="background:var(--surface);border-radius:24px;overflow:hidden;display:flex;flex-direction:column">
+<div ref="{{ sciRef }}" style="width:100%;height:240px"></div>
+<sc-if value="{{ hasModes }}">
+<div style="display:flex;gap:4px;margin:0 12px;background:var(--surface2);border-radius:14px;padding:4px">
+<sc-for list="{{ visModes }}" as="m" hint-placeholder-count="3">
+<button onClick="{{ m.pick }}" style="flex:1;height:36px;border:0;border-radius:10px;background:{{ m.bg }};color:{{ m.fg }};box-shadow:{{ m.shadow }};font:700 13px Figtree,sans-serif;cursor:pointer">{{ m.label }}</button>
+</sc-for>
+</div>
+</sc-if>
+<div style="padding:12px 16px 16px;font-size:13px;line-height:1.45;color:var(--ink2);text-wrap:pretty">{{ visCaption }}</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ visMag }}">
+<div style="background:var(--surface);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:baseline;justify-content:space-between">
+<div style="font-size:44px;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums">M{{ mag.str }}</div>
+<div style="font-size:13px;font-weight:700;color:var(--ink2)">MMI {{ mag.mmi }}</div>
+</div>
+<input type="range" min="2" max="9.5" step="0.1" value="{{ mag.val }}" onChange="{{ mag.set }}">
+<div style="height:150px;display:flex;align-items:flex-end;justify-content:center;gap:22px;padding-top:8px">
+<div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:{{ mag.d2 }};height:{{ mag.d2 }};border-radius:50%;background:var(--mint)"></div><span style="font-size:11px;font-weight:700;color:var(--ink2)">M{{ mag.p2 }}</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:{{ mag.d1 }};height:{{ mag.d1 }};border-radius:50%;background:#FFA94D"></div><span style="font-size:11px;font-weight:700;color:var(--ink2)">M{{ mag.p1 }}</span></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:6px"><div style="width:128px;height:128px;border-radius:50%;background:var(--violet)"></div><span style="font-size:11px;font-weight:700;color:var(--ink2)">M{{ mag.str }}</span></div>
+</div>
+<div style="font-size:12px;color:var(--ink2);text-align:center">Circle area = energy released. Each step ≈ 32× more.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="background:var(--surface2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;color:var(--ink2)">Energy ≈</span><span style="font-size:15px;font-weight:750">{{ mag.tnt }}</span></div>
+<div style="background:var(--surface2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;color:var(--ink2)">Worldwide</span><span style="font-size:15px;font-weight:750">{{ mag.freq }}</span></div>
+</div>
+<div style="font-size:13px;color:var(--ink2)">Comparable: <span style="color:var(--ink);font-weight:700">{{ mag.ex }}</span></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ visDepth }}">
+<div style="background:var(--surface);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:14px">
+<div style="font-size:13px;font-weight:700;color:var(--ink2)">Live: depth of the last 30 days of quakes</div>
+<sc-for list="{{ depthBars }}" as="b" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700"><span>{{ b.label }}</span><span style="color:var(--ink2);font-variant-numeric:tabular-nums">{{ b.n }}</span></div>
+<div style="height:12px;border-radius:6px;background:var(--surface2);overflow:hidden"><div style="height:100%;width:{{ b.w }};background:{{ b.c }};border-radius:6px"></div></div>
+</div>
+</sc-for>
+<div style="height:1px;background:var(--line)"></div>
+<div style="font-size:13px;font-weight:700;color:var(--ink2)">Aftershocks per day after a mainshock (Omori’s law)</div>
+<div style="height:110px;display:flex;align-items:flex-end;gap:6px">
+<sc-for list="{{ omori }}" as="o" hint-placeholder-count="10">
+<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end"><div style="width:100%;height:{{ o.h }};background:var(--violet);border-radius:6px 6px 2px 2px;opacity:{{ o.op }}"></div><span style="font-size:10px;font-weight:700;color:var(--ink2)">{{ o.d }}</span></div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ visPrep }}">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+<div style="background:var(--violet);color:var(--on-violet);border-radius:20px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center"><span style="font-family:'Material Symbols Rounded';font-size:30px;line-height:1">south</span><span style="font-weight:800;font-size:15px">Drop</span></div>
+<div style="background:var(--violet);color:var(--on-violet);border-radius:20px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center"><span style="font-family:'Material Symbols Rounded';font-size:30px;line-height:1">table_restaurant</span><span style="font-weight:800;font-size:15px">Cover</span></div>
+<div style="background:var(--violet);color:var(--on-violet);border-radius:20px;padding:14px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center"><span style="font-family:'Material Symbols Rounded';font-size:30px;line-height:1">pan_tool</span><span style="font-weight:800;font-size:15px">Hold on</span></div>
+</div>
+<div style="background:var(--surface);border-radius:24px;padding:16px;display:flex;flex-direction:column;gap:4px">
+<div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:6px"><span style="font-weight:750;font-size:15px">Your 3-day kit</span><span style="font-size:13px;font-weight:700;color:var(--mint-text)">{{ kitProgress }}</span></div>
+<sc-for list="{{ kit }}" as="k" hint-placeholder-count="8">
+<button onClick="{{ k.toggle }}" style="display:flex;align-items:center;gap:12px;min-height:44px;border:0;background:transparent;color:var(--ink);text-align:left;font:500 14px Figtree,sans-serif;cursor:pointer;padding:0">
+<span style="width:24px;height:24px;border-radius:8px;border:2px solid {{ k.border }};background:{{ k.bg }};display:flex;align-items:center;justify-content:center;flex:none;box-sizing:border-box"><span style="font-family:'Material Symbols Rounded';font-size:16px;line-height:1;color:{{ k.tick }}">check</span></span>{{ k.label }}</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-for list="{{ art.sections }}" as="sec" hint-placeholder-count="3">
+<div style="display:flex;flex-direction:column;gap:8px">
+<h2 style="margin:0;font-size:19px;font-weight:750;letter-spacing:-.01em">{{ sec.h }}</h2>
+<p style="margin:0;font-size:15px;line-height:1.6;color:var(--ink);opacity:.86;text-wrap:pretty">{{ sec.p }}</p>
+</div>
+</sc-for>
+<button onClick="{{ next.open }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;border:1px solid var(--line);border-radius:20px;background:transparent;color:var(--ink);text-align:left;cursor:pointer;font:inherit;margin-top:4px">
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-size:12px;font-weight:700;color:var(--ink2)">{{ next.num }}</span><span style="font-size:16px;font-weight:750">{{ next.title }}</span></span>
+<span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:var(--violet-text)">arrow_forward</span>
+</button>
+</div>
+</sc-if>
+
+<sc-if value="{{ isMe }}">
+<div style="padding:4px 16px 28px;display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:12px;padding:4px">
+<div style="width:48px;height:48px;border-radius:24px;background:var(--mint-soft);color:var(--mint-text);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px">G</div>
+<div style="flex:1;font-weight:750;font-size:17px">{{ t.guest }}</div>
+<button style="height:40px;border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);padding:0 16px;font:700 14px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ t.sign_in }}</button>
+</div>
+
+<sc-if value="{{ isFree }}">
+<div style="background:var(--violet);color:var(--on-violet);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:700;opacity:.85">{{ t.current }}</span><span style="font-size:12px;font-weight:800;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:10px">{{ t.plan_free }}</span></div>
+<div style="font-size:22px;font-weight:800;letter-spacing:-.02em;text-wrap:balance">{{ t.upgrade }}</div>
+<div style="font-size:13px;line-height:1.5;opacity:.9">{{ plusTeaser }}</div>
+<button onClick="{{ openPaywall }}" style="height:44px;border:0;border-radius:22px;background:var(--surface);color:var(--violet-text);font:800 14px Figtree,sans-serif;cursor:pointer">{{ t.trial }}</button>
+</div>
+</sc-if>
+<sc-if value="{{ isPlus }}">
+<div style="background:var(--mint-soft);border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:12px;font-weight:700;color:var(--mint-text)">{{ t.current }}</span><span style="font-size:12px;font-weight:800;color:var(--mint-text)">{{ trialLabel }}</span></div>
+<div style="font-size:24px;font-weight:800;letter-spacing:-.02em">sisma+</div>
+<div style="font-size:13px;color:var(--ink2)">{{ billingLabel }}</div>
+<button onClick="{{ downgrade }}" style="align-self:flex-start;height:36px;border:0;background:transparent;color:var(--mint-text);font:700 13px Figtree,sans-serif;cursor:pointer;padding:0">Switch to Free (demo)</button>
+</div>
+</sc-if>
+
+<div style="font-size:13px;font-weight:700;color:var(--ink2);padding:6px 4px 0">{{ t.alerts }}</div>
+<div style="background:var(--surface);border-radius:22px;padding:4px 16px;display:flex;flex-direction:column">
+<button onClick="{{ togglePush }}" style="display:flex;align-items:center;gap:12px;min-height:56px;border:0;background:transparent;color:var(--ink);text-align:left;cursor:pointer;font:600 15px Figtree,sans-serif;padding:0">
+<span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:var(--violet-text)">notifications_active</span>
+<span style="flex:1">{{ t.push }}</span>
+<sc-if value="{{ isFree }}"><span style="font-size:11px;font-weight:800;color:var(--violet-text);background:var(--violet-soft);padding:4px 8px;border-radius:8px;display:flex;align-items:center;gap:3px"><span style="font-family:'Material Symbols Rounded';font-size:13px;line-height:1">lock</span>sisma+</span></sc-if>
+<sc-if value="{{ isPlus }}"><span style="width:48px;height:28px;border-radius:14px;background:{{ pushTrack }};display:flex;align-items:center;justify-content:{{ pushJustify }};padding:3px;box-sizing:border-box"><span style="width:22px;height:22px;border-radius:11px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25)"></span></span></sc-if>
+</button>
+<sc-if value="{{ pushOn }}">
+<div style="border-top:1px solid var(--line);padding:14px 0;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>{{ t.alert_mag }}</span><span style="font-weight:800">M{{ alertMagStr }}+</span></div>
+<input type="range" min="3" max="7" step="0.5" value="{{ alertMag }}" onChange="{{ setAlertMag }}">
+<div style="font-size:14px;font-weight:600;padding-top:4px">{{ t.alert_radius }}</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<sc-for list="{{ radiusOpts }}" as="o" hint-placeholder-count="5">
+<button onClick="{{ o.pick }}" style="height:34px;border-radius:17px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 12px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}</button>
+</sc-for>
+</div>
+</div>
+</sc-if>
+</div>
+
+<div style="font-size:13px;font-weight:700;color:var(--ink2);padding:6px 4px 0">{{ t.locations }}</div>
+<div style="background:var(--surface);border-radius:22px;padding:4px 16px;display:flex;flex-direction:column">
+<sc-for list="{{ locRows }}" as="l" hint-placeholder-count="1">
+<button onClick="{{ l.pick }}" style="display:flex;align-items:center;gap:12px;min-height:52px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);text-align:left;cursor:pointer;font:600 15px Figtree,sans-serif;padding:0">
+<span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:{{ l.iconColor }}">{{ l.icon }}</span><span style="flex:1">{{ l.name }}</span>
+<sc-if value="{{ l.active }}"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--violet-text)">check</span></sc-if>
+</button>
+</sc-for>
+<button onClick="{{ addLocation }}" style="display:flex;align-items:center;gap:12px;min-height:52px;border:0;background:transparent;color:var(--violet-text);text-align:left;cursor:pointer;font:700 15px Figtree,sans-serif;padding:0">
+<span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">add_location_alt</span><span style="flex:1">{{ t.add_location }}</span>
+<sc-if value="{{ locLocked }}"><span style="font-size:11px;font-weight:800;color:var(--violet-text);background:var(--violet-soft);padding:4px 8px;border-radius:8px;display:flex;align-items:center;gap:3px"><span style="font-family:'Material Symbols Rounded';font-size:13px;line-height:1">lock</span>sisma+</span></sc-if>
+</button>
+</div>
+
+<div style="background:var(--surface);border-radius:22px;padding:4px 16px;display:flex;flex-direction:column">
+<button onClick="{{ openLang }}" style="display:flex;align-items:center;gap:12px;min-height:56px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);text-align:left;cursor:pointer;font:600 15px Figtree,sans-serif;padding:0">
+<span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:var(--violet-text)">language</span><span style="flex:1">{{ t.language }}</span><span style="color:var(--ink2);font-weight:500">{{ langName }}</span><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--ink2)">chevron_right</span>
+</button>
+<div style="display:flex;flex-direction:column;gap:10px;padding:14px 0">
+<div style="display:flex;align-items:center;gap:12px;font:600 15px Figtree,sans-serif"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:var(--violet-text)">contrast</span>{{ t.theme }}</div>
+<div style="display:flex;background:var(--surface2);border-radius:14px;padding:4px;gap:4px">
+<sc-for list="{{ themeOpts }}" as="o" hint-placeholder-count="3">
+<button onClick="{{ o.pick }}" style="flex:1;height:36px;border:0;border-radius:10px;background:{{ o.bg }};color:{{ o.fg }};box-shadow:{{ o.shadow }};font:700 13px Figtree,sans-serif;cursor:pointer">{{ o.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="border-top:1px solid var(--line);padding:14px 0;display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;align-items:center;gap:12px;font:600 15px Figtree,sans-serif"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:var(--violet-text)">database</span>{{ t.data_sources }}</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<span style="height:30px;border-radius:15px;background:var(--mint-soft);color:var(--mint-text);padding:0 10px;display:flex;align-items:center;gap:4px;font:700 12px Figtree,sans-serif"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">check</span>USGS</span>
+<span style="height:30px;border-radius:15px;background:var(--mint-soft);color:var(--mint-text);padding:0 10px;display:flex;align-items:center;gap:4px;font:700 12px Figtree,sans-serif"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">check</span>EMSC</span>
+<span style="height:30px;border-radius:15px;background:var(--mint-soft);color:var(--mint-text);padding:0 10px;display:flex;align-items:center;gap:4px;font:700 12px Figtree,sans-serif"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">check</span>GeoNet</span>
+<span style="height:30px;border-radius:15px;background:var(--mint-soft);color:var(--mint-text);padding:0 10px;display:flex;align-items:center;gap:4px;font:700 12px Figtree,sans-serif"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">check</span>JMA</span>
+</div>
+</div>
+</div>
+<p style="margin:4px;font-size:12px;line-height:1.5;color:var(--ink2);text-wrap:pretty">{{ t.web.footer }}</p>
+</div>
+</sc-if>
+</div>
+
+<nav style="position:absolute;left:0;right:0;bottom:0;height:80px;background:var(--surface);border-top:1px solid var(--line);display:flex;padding:0 4px 8px;box-sizing:border-box;z-index:6">
+<sc-for list="{{ tabs }}" as="it" hint-placeholder-count="5">
+<button onClick="{{ it.go }}" style="flex:1;border:0;background:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;color:{{ it.color }};font:{{ it.weight }} 12px Figtree,sans-serif">
+<span style="width:60px;height:32px;border-radius:16px;background:{{ it.pill }};display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:24px;line-height:1;font-variation-settings:'FILL' {{ it.fill }}">{{ it.icon }}</span></span>{{ it.label }}</button>
+</sc-for>
+</nav>
+
+<sc-if value="{{ hasToast }}">
+<div style="position:absolute;left:24px;right:24px;bottom:96px;z-index:60;background:var(--ink);color:var(--bg);border-radius:16px;padding:14px 16px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:10px;animation:sxUp .2s ease-out"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--mint)">check_circle</span>{{ toast }}</div>
+</sc-if>
+
+<sc-if value="{{ sheetOpen }}">
+<div style="position:absolute;inset:0;z-index:50;display:flex;flex-direction:column;justify-content:flex-end">
+<div onClick="{{ closeSheet }}" style="position:absolute;inset:0;background:var(--scrim);animation:sxFade .2s"></div>
+<div style="position:relative;background:var(--surface);border-radius:28px 28px 0 0;max-height:90%;overflow-y:auto;scrollbar-width:none;padding:10px 20px 28px;animation:sxUp .26s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;gap:16px">
+<div style="width:36px;height:4px;border-radius:2px;background:var(--line);align-self:center;flex:none"></div>
+
+<sc-if value="{{ sheetDetail }}">
+<div style="display:flex;gap:14px;align-items:center">
+<div style="width:68px;height:68px;border-radius:22px;background:{{ d.color }};color:{{ d.ink }};display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;flex:none">{{ d.mag }}</div>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+<div style="font-size:20px;font-weight:800;letter-spacing:-.01em;text-wrap:balance">{{ d.region }}</div>
+<div style="font-size:14px;color:var(--ink2)">{{ d.title }}</div>
+</div>
+</div>
+<sc-if value="{{ d.tsunami }}">
+<div style="background:var(--warm-soft);color:var(--warm-text);border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">tsunami</span>{{ t.tsunami }}</div>
+</sc-if>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<div style="background:var(--surface2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;color:var(--ink2)">{{ t.time }}</span><span style="font-size:14px;font-weight:700">{{ d.time }}</span></div>
+<div style="background:var(--surface2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;color:var(--ink2)">{{ t.depth }}</span><span style="font-size:14px;font-weight:700">{{ d.depth }}</span></div>
+<div style="background:var(--surface2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;color:var(--ink2)">{{ locName }}</span><span style="font-size:14px;font-weight:700">{{ d.dist }}</span></div>
+<div style="background:var(--surface2);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:4px"><span style="font-size:11px;font-weight:700;color:var(--ink2)">{{ t.coords }}</span><span style="font-size:13px;font-weight:500;font-family:'IBM Plex Mono',monospace">{{ d.coords }}</span></div>
+</div>
+<sc-if value="{{ d.hasFelt }}">
+<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:16px">
+<span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:var(--violet-text)">groups</span>
+<div style="flex:1;font-size:14px;font-weight:600">{{ d.felt }}</div>
+<span style="font-size:13px;font-weight:800;color:var(--violet-text)">{{ d.cdi }}</span>
+</div>
+</sc-if>
+<sc-if value="{{ d.hasMine }}">
+<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--mint-soft);border-radius:16px;color:var(--mint-text);font-weight:700;font-size:14px"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">check_circle</span>{{ t.your_report }}: {{ d.mine }}</div>
+</sc-if>
+<div style="display:flex;gap:8px">
+<button onClick="{{ d.report }}" style="flex:1;height:48px;border:0;border-radius:24px;background:var(--violet);color:var(--on-violet);font:800 15px Figtree,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1">vibration</span>{{ t.report }}</button>
+<button onClick="{{ d.toMap }}" aria-label="View on map" style="width:48px;height:48px;border:1px solid var(--line);border-radius:24px;background:transparent;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">map</span></button>
+</div>
+<div style="font-size:12px;color:var(--ink2)">{{ t.source }}: {{ d.net }} · <a href="{{ d.url }}" target="_blank" rel="noopener" style="color:var(--violet-text)">{{ d.id }}</a></div>
+</sc-if>
+
+<sc-if value="{{ sheetReport }}">
+<sc-if value="{{ stepQuick }}">
+<div style="display:flex;flex-direction:column;gap:4px">
+<div style="font-size:22px;font-weight:800;letter-spacing:-.02em">{{ t.report_title }}</div>
+<div style="font-size:14px;color:var(--ink2)">{{ rp.quake }}</div>
+</div>
+<div style="display:flex;align-items:center;gap:16px;padding:16px;border-radius:22px;background:{{ rp.soft }}">
+<div style="width:72px;height:72px;border-radius:24px;background:{{ rp.color }};color:{{ rp.ink }};display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;flex:none">{{ rp.roman }}</div>
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-size:22px;font-weight:800">{{ rp.label }}</span><span style="font-size:12px;font-weight:700;color:var(--ink2)">MMI {{ rp.roman }} / X</span></div>
+</div>
+<input type="range" min="1" max="10" step="1" value="{{ rp.mmi }}" onChange="{{ rp.setMmi }}">
+<textarea value="{{ rp.note }}" onChange="{{ rp.setNote }}" placeholder="{{ t.note_ph }}" rows="2" style="width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:16px;background:var(--bg);color:var(--ink);padding:12px 14px;font:500 15px Figtree,sans-serif;resize:none"></textarea>
+<button onClick="{{ rp.send }}" style="height:52px;border:0;border-radius:26px;background:var(--violet);color:var(--on-violet);font:800 16px Figtree,sans-serif;cursor:pointer">{{ t.send }}</button>
+<button onClick="{{ rp.toDetails }}" style="height:44px;border:0;background:transparent;color:var(--violet-text);font:700 14px Figtree,sans-serif;cursor:pointer">{{ t.more_detail }} ›</button>
+</sc-if>
+<sc-if value="{{ stepDetails }}">
+<div style="font-size:22px;font-weight:800;letter-spacing:-.02em">{{ t.more_detail }}</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">{{ t.where }}</div>
+<div style="display:flex;background:var(--surface2);border-radius:14px;padding:4px;gap:4px">
+<sc-for list="{{ rp.places }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="flex:1;height:36px;border:0;border-radius:10px;background:{{ o.bg }};color:{{ o.fg }};box-shadow:{{ o.shadow }};font:700 13px Figtree,sans-serif;cursor:pointer">{{ o.label }}</button></sc-for>
+</div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">{{ t.duration }}</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ rp.durs }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:36px;border-radius:18px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 14px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">{{ t.moved }}</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ rp.moved }}" as="o" hint-placeholder-count="5"><button onClick="{{ o.pick }}" style="height:36px;border-radius:18px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 14px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font-size:14px;font-weight:700">{{ t.damage }}</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap"><sc-for list="{{ rp.damage }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:36px;border-radius:18px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 14px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for></div></div>
+<button onClick="{{ rp.send }}" style="height:52px;border:0;border-radius:26px;background:var(--violet);color:var(--on-violet);font:800 16px Figtree,sans-serif;cursor:pointer">{{ t.send }}</button>
+</sc-if>
+<sc-if value="{{ stepDone }}">
+<div style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 0 4px;text-align:center">
+<div style="width:72px;height:72px;border-radius:36px;background:var(--mint-soft);color:var(--mint-text);display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:40px;line-height:1">check</span></div>
+<div style="font-size:24px;font-weight:800">{{ t.thanks }}</div>
+<div style="font-size:15px;color:var(--ink2);max-width:260px">{{ t.thanks_sub }}</div>
+</div>
+<button onClick="{{ closeSheet }}" style="height:52px;border:0;border-radius:26px;background:var(--violet);color:var(--on-violet);font:800 16px Figtree,sans-serif;cursor:pointer">{{ t.done }}</button>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{ sheetFilter }}">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:22px;font-weight:800;letter-spacing:-.02em">{{ t.filters }}</span><button onClick="{{ resetFilters }}" style="height:36px;border:0;background:transparent;color:var(--violet-text);font:700 14px Figtree,sans-serif;cursor:pointer">{{ t.reset }}</button></div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<sc-for list="{{ rangeOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.pick }}" style="height:36px;border-radius:18px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 14px;display:flex;align-items:center;gap:4px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}<sc-if value="{{ o.locked }}"><span style="font-family:'Material Symbols Rounded';font-size:15px;line-height:1">lock</span></sc-if></button></sc-for>
+</div>
+<div style="font-size:14px;font-weight:700">{{ t.regions }}</div>
+<div style="max-height:230px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;border:1px solid var(--line);border-radius:18px;padding:0 14px">
+<sc-for list="{{ regionList }}" as="o" hint-placeholder-count="6">
+<button onClick="{{ o.pick }}" style="width:100%;display:flex;align-items:center;gap:10px;min-height:46px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);text-align:left;font:600 14px Figtree,sans-serif;cursor:pointer;padding:0">
+<span style="flex:1">{{ o.label }}</span><span style="font-size:12px;color:var(--ink2);font-variant-numeric:tabular-nums">{{ o.n }}</span>
+<span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--violet-text);opacity:{{ o.op }}">check</span>
+</button>
+</sc-for>
+</div>
+<div style="display:flex;align-items:center;gap:8px"><span style="font-size:14px;font-weight:700;flex:1">{{ t.adv }}</span><span style="font-size:11px;font-weight:800;color:var(--violet-text);background:var(--violet-soft);padding:4px 8px;border-radius:8px">sisma+</span></div>
+<sc-if value="{{ isFree }}">
+<button onClick="{{ openPaywall }}" style="display:flex;align-items:center;gap:12px;padding:14px;border:1px dashed var(--violet);border-radius:18px;background:var(--violet-soft);color:var(--violet-text);text-align:left;cursor:pointer;font:700 14px Figtree,sans-serif">
+<span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">lock_open</span><span style="flex:1">{{ advTeaser }}</span><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1">chevron_right</span>
+</button>
+</sc-if>
+<sc-if value="{{ isPlus }}">
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>{{ t.min_mag }}</span><span style="font-weight:800">M{{ minMagStr }}+</span></div>
+<input type="range" min="2.5" max="8" step="0.5" value="{{ minMag }}" onChange="{{ setMinMag }}">
+<div style="display:flex;justify-content:space-between;font-size:14px;font-weight:600"><span>{{ t.max_depth }}</span><span style="font-weight:800">{{ maxDepthStr }}</span></div>
+<input type="range" min="10" max="700" step="10" value="{{ maxDepth }}" onChange="{{ setMaxDepth }}">
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<sc-for list="{{ advChips }}" as="o" hint-placeholder-count="2"><button onClick="{{ o.pick }}" style="height:36px;border-radius:18px;border:1px solid {{ o.border }};background:{{ o.bg }};color:{{ o.fg }};padding:0 14px;font:600 13px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ o.label }}</button></sc-for>
+</div>
+</div>
+</sc-if>
+<button onClick="{{ closeSheet }}" style="height:52px;border:0;border-radius:26px;background:var(--violet);color:var(--on-violet);font:800 16px Figtree,sans-serif;cursor:pointer">{{ t.apply }} · {{ resultCount }}</button>
+</sc-if>
+
+<sc-if value="{{ sheetPaywall }}">
+<div style="display:flex;flex-direction:column;gap:6px;align-items:flex-start">
+<div style="font-size:34px;font-weight:800;letter-spacing:-.03em;color:var(--violet-text)">sisma+</div>
+<div style="font-size:15px;color:var(--ink2)">{{ t.everything_free }}</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ entPlus }}" as="e" hint-placeholder-count="4">
+<div style="display:flex;gap:12px;align-items:flex-start;font-size:15px;font-weight:600;line-height:1.35"><span style="width:26px;height:26px;border-radius:13px;background:var(--mint-soft);color:var(--mint-text);display:flex;align-items:center;justify-content:center;flex:none"><span style="font-family:'Material Symbols Rounded';font-size:17px;line-height:1">{{ e.icon }}</span></span><span style="padding-top:3px">{{ e.label }}</span></div>
+</sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ priceOpts }}" as="p" hint-placeholder-count="2">
+<button onClick="{{ p.pick }}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border:2px solid {{ p.border }};border-radius:20px;background:{{ p.bg }};color:var(--ink);text-align:left;cursor:pointer;font:inherit">
+<span style="width:22px;height:22px;border-radius:11px;border:2px solid {{ p.border }};display:flex;align-items:center;justify-content:center;box-sizing:border-box;flex:none"><span style="width:10px;height:10px;border-radius:5px;background:{{ p.dot }}"></span></span>
+<span style="flex:1;display:flex;flex-direction:column;gap:2px"><span style="font-weight:800;font-size:16px">{{ p.label }}</span><span style="font-size:13px;color:var(--ink2)">{{ p.sub }}</span></span>
+<sc-if value="{{ p.hasBadge }}"><span style="font-size:11px;font-weight:800;background:var(--mint);color:#0B2A20;padding:4px 8px;border-radius:8px">{{ p.badge }}</span></sc-if>
+<span style="font-weight:800;font-size:16px;font-variant-numeric:tabular-nums">{{ p.price }}</span>
+</button>
+</sc-for>
+</div>
+<button onClick="{{ startTrial }}" style="height:54px;border:0;border-radius:27px;background:var(--violet);color:var(--on-violet);font:800 16px Figtree,sans-serif;cursor:pointer">{{ t.trial }}</button>
+<div style="font-size:12px;color:var(--ink2);text-align:center;line-height:1.5">{{ t.cancel_any }}</div>
+</sc-if>
+
+<sc-if value="{{ sheetLang }}">
+<div style="font-size:22px;font-weight:800;letter-spacing:-.02em">{{ t.language }}</div>
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ langRows }}" as="l" hint-placeholder-count="10">
+<button onClick="{{ l.pick }}" style="display:flex;align-items:center;gap:12px;min-height:50px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);text-align:left;font:600 15px Figtree,sans-serif;cursor:pointer;padding:0">
+<img src="{{ l.flagUrl }}" alt="" width="28" height="20" style="width:28px;height:20px;border-radius:4px;object-fit:cover;box-shadow:0 0 0 1px var(--line);flex:none"><span style="width:22px;font:600 11px 'IBM Plex Mono',monospace;color:var(--ink2);text-transform:uppercase">{{ l.code }}</span><span style="flex:1">{{ l.name }}</span>
+<span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:var(--violet-text);opacity:{{ l.op }}">check</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;940px&quot;},&quot;plan&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;free&quot;,&quot;plus&quot;],&quot;default&quot;:&quot;free&quot;,&quot;tsType&quot;:&quot;'free'|'plus'&quot;,&quot;section&quot;:&quot;State&quot;},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;system&quot;,&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;system&quot;,&quot;tsType&quot;:&quot;'system'|'light'|'dark'&quot;,&quot;section&quot;:&quot;State&quot;},&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;es&quot;,&quot;ja&quot;,&quot;id&quot;,&quot;tr&quot;,&quot;it&quot;,&quot;pt&quot;,&quot;zh&quot;,&quot;fr&quot;,&quot;de&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;State&quot;},&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;feed&quot;,&quot;map&quot;,&quot;globe&quot;,&quot;science&quot;,&quot;me&quot;],&quot;default&quot;:&quot;feed&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;State&quot;},&quot;bare&quot;:{&quot;editor&quot;:null,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+const MAGC=[[7,'#B5179E','#FFFFFF'],[6,'#EE4266','#FFFFFF'],[5,'#FF7A59','#1B1530'],[4,'#FFA94D','#1B1530'],[3,'#F7CF4A','#1B1530'],[-99,'#86DCC4','#1B1530']];
+const magC=m=>{for(const x of MAGC) if(m>=x[0]) return {c:x[1],i:x[2]}; return {c:MAGC[5][1],i:MAGC[5][2]};};
+const MMIC=['#86DCC4','#86DCC4','#F7CF4A','#F7CF4A','#FFA94D','#FF7A59','#EE4266','#EE4266','#B5179E','#B5179E'];
+const depthC=d=>d<70?'#2CCB9A':d<300?'#7B61FF':'#B5179E';
+const ROMAN=['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+const RANGE_MS={'24h':864e5,'7d':7*864e5,'30d':30*864e5,'1y':365*864e5};
+const TH={light:{sea:'#E3F4EE',land:'#FFFFFF',landLine:'#D3CCE8',grat:'rgba(108,75,244,.10)',plate:'#6C4BF4',ink:'#1B1530',violet:'#6C4BF4',glow:'rgba(108,75,244,.16)'},dark:{sea:'#10302C',land:'#2A2346',landLine:'#40376A',grat:'rgba(255,255,255,.06)',plate:'#BFAFFF',ink:'#F2EFFB',violet:'#8F74FF',glow:'rgba(143,116,255,.22)'}};
+const SCP={light:{ink:'#1B1530',ink2:'#5E587A',a:'#6C4BF4',b:'#2CCB9A',warm:'#FF7A59',sand:'#EFC48E',ocean:'#5A44D6',sea:'#BDEBDD',floor:'#D8D0EE',mantle:'#F4EFFF',bands:['#D9CFFB','#F6DA9A','#B5EBDA','#F7C2B4','#E6E0F6'],road:'#4A4560',lane:'#F6DA9A'},dark:{ink:'#F2EFFB',ink2:'#A9A2C6',a:'#8F74FF',b:'#3FE0AE',warm:'#FF8A6B',sand:'#A87F52',ocean:'#5B47D9',sea:'#1D4A42',floor:'#3A3260',mantle:'#221B3B',bands:['#4A3D8A','#7D6738','#2F6E5C','#7E4537','#3A3260'],road:'#CFC8E8',lane:'#7D6738'}};
+const US='Alabama,Alaska,Arizona,Arkansas,California,CA,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming,Puerto Rico'.split(',');
+const EXTRA=[{name:'Tokyo, Japan',lat:35.68,lon:139.69},{name:'Istanbul, Türkiye',lat:41.01,lon:28.98},{name:'Santiago, Chile',lat:-33.45,lon:-70.67},{name:'Wellington, New Zealand',lat:-41.29,lon:174.78},{name:'Jakarta, Indonesia',lat:-6.2,lon:106.85},{name:'Mexico City, Mexico',lat:19.43,lon:-99.13},{name:'Naples, Italy',lat:40.85,lon:14.27},{name:'Lima, Peru',lat:-12.05,lon:-77.04},{name:'Manila, Philippines',lat:14.6,lon:120.98}];
+const fmt=(s,v)=>String(s==null?'':s).replace(/\{(\w+)\}/g,(_,k)=>v[k]!=null?v[k]:'');
+const hav=(a,b,c,d)=>{const r=Math.PI/180,x=Math.sin((c-a)*r/2)**2+Math.cos(a*r)*Math.cos(c*r)*Math.sin((d-b)*r/2)**2;return 12742*Math.asin(Math.sqrt(x));};
+const waitFor=fn=>new Promise(r=>{const k=()=>fn()?r():setTimeout(k,60);k();});
+function splitPlace(p){const i=p.lastIndexOf(', ');if(i<0){const r=p.replace(/^.*?\bof\s+/i,'').replace(/^the\s+/i,'');return{title:p,region:r.charAt(0).toUpperCase()+r.slice(1)};}let reg=p.slice(i+2).trim();if(US.includes(reg))reg='United States';if(reg==='MX')reg='Mexico';return{title:p.slice(0,i),region:reg};}
+function norm(f){const p=f.properties,c=f.geometry.coordinates,sp=splitPlace(p.place||p.title||'Unknown');return{id:f.id,mag:p.mag==null?null:+p.mag,time:p.time,lon:c[0],lat:c[1],depth:Math.max(0,c[2]||0),felt:p.felt||0,cdi:p.cdi,tsunami:p.tsunami===1,url:p.url,net:(p.net||'us').toUpperCase(),title:sp.title,region:sp.region};}
+function sample(){const n=Date.now(),h=36e5;const S=[[6.4,'78 km E of Hualien City','Taiwan',23.9,122.4,22,3],[5.1,'12 km SW of Ridgecrest','United States',35.6,-117.7,8,5],[4.6,'Kermadec Islands region','Kermadec Islands',-29.8,-177.9,35,8],[3.2,'7 km NW of The Geysers','United States',38.8,-122.8,2,1],[5.8,'105 km S of Kokopo','Papua New Guinea',-5.3,152.3,48,20],[4.9,'Banda Sea','Banda Sea',-6.9,129.5,180,26],[6.1,'Tonga region','Tonga',-19.5,-174.6,410,30],[4.3,'15 km N of Nazilli','Türkiye',38.0,28.3,10,40],[5.4,'54 km SE of Iquique','Chile',-20.7,-69.8,95,52],[3.8,'6 km E of Norcia','Italy',42.8,13.2,9,60],[4.7,'Off the east coast of Honshu','Japan',37.6,142.1,30,70],[5.0,'25 km N of Gisborne','New Zealand',-38.4,178.0,24,90],[4.4,'Oaxaca','Mexico',16.3,-96.6,40,110],[7.1,'Kamchatka Peninsula','Russia',53.1,159.6,35,160]];return S.map((s,i)=>({id:'demo'+i,mag:s[0],title:s[1],region:s[2],lat:s[3],lon:s[4],depth:s[5],time:n-s[6]*h,felt:i%3===0?120*i+40:0,cdi:i%3===0?4+(i%4):null,tsunami:s[0]>=7,url:'https://earthquake.usgs.gov',net:'US'}));}
+function arrow(ctx,x,y,dx,dy,len,col){const x2=x+dx*len,y2=y+dy*len,a=Math.atan2(dy,dx);ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x2,y2);ctx.stroke();ctx.beginPath();ctx.moveTo(x2+Math.cos(a)*3,y2+Math.sin(a)*3);ctx.lineTo(x2-7*Math.cos(a-.55),y2-7*Math.sin(a-.55));ctx.lineTo(x2-7*Math.cos(a+.55),y2-7*Math.sin(a+.55));ctx.closePath();ctx.fill();}
+function label(ctx,txt,x,y,col){ctx.fillStyle=col;ctx.font='700 11px Figtree, sans-serif';ctx.fillText(txt,x,y);}
+function drawWaves(ctx,W,H,t,mode,P){const cols=22,rows=7,px=22,top=30,bot=H-48,gx=(W-2*px)/(cols-1),gy=(bot-top)/(rows-1),k=2*Math.PI/(W*0.55),w=2*Math.PI*0.5,A=6.5;
+if(mode==='R'){ctx.fillStyle=P.ink2;ctx.globalAlpha=.12;ctx.fillRect(0,0,W,top-12);ctx.globalAlpha=1;label(ctx,'Surface',px,top-16,P.ink2);}
+for(let j=0;j<rows;j++)for(let i=0;i<cols;i++){const x0=px+i*gx,y0=top+j*gy,ph=k*x0-w*t;let dx=0,dy=0;if(mode==='P')dx=A*Math.sin(ph);else if(mode==='S')dy=A*Math.sin(ph);else{const d=Math.exp(-j/2.2);dx=A*d*Math.sin(ph);dy=-A*d*Math.cos(ph);}
+const tr=i===8;ctx.fillStyle=tr?P.warm:P.a;ctx.globalAlpha=tr?1:(mode==='P'?.3+.7*(.5+.5*Math.cos(ph)):.85);ctx.beginPath();ctx.arc(x0+dx,y0+dy,tr?3.8:2.8,0,7);ctx.fill();}
+ctx.globalAlpha=1;label(ctx,'Direction of travel',px,H-18,P.ink2);arrow(ctx,px+118,H-22,1,0,W-2*px-128,P.ink2);}
+function drawFaults(ctx,W,H,t,mode,P){const s=(1-Math.cos(t*1.4))/2,d=s*22;
+if(mode==='strike'){const mid=W/2,top=14,bot=H-14,cy=(top+bot)/2;[[0,-1],[1,1]].forEach(([side,dir])=>{const x0=side?mid:0,off=dir*d/2;ctx.save();ctx.beginPath();ctx.rect(x0,top,mid,bot-top);ctx.clip();ctx.fillStyle=P.bands[2];ctx.fillRect(x0,top,mid,bot-top);ctx.strokeStyle=P.bands[side?0:4];ctx.lineWidth=7;for(let y=top-44;y<bot+44;y+=22){ctx.beginPath();ctx.moveTo(x0,y+off);ctx.lineTo(x0+mid,y+off);ctx.stroke();}
+ctx.fillStyle=P.road;ctx.fillRect(x0,cy-10+off,mid,20);ctx.strokeStyle=P.lane;ctx.lineWidth=2;ctx.setLineDash([8,8]);ctx.beginPath();ctx.moveTo(x0,cy+off);ctx.lineTo(x0+mid,cy+off);ctx.stroke();ctx.setLineDash([]);ctx.restore();arrow(ctx,x0+mid/2,cy+(dir<0?-36:36),0,dir,24,P.ink);});
+ctx.strokeStyle=P.warm;ctx.lineWidth=3;ctx.setLineDash([6,5]);ctx.beginPath();ctx.moveTo(mid,top);ctx.lineTo(mid,bot);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='rgba(255,255,255,.85)';ctx.fillRect(10,top+6,62,18);label(ctx,'Top view',16,top+19,'#1B1530');return;}
+const top=46,bot=H-12,fx1=W*.40,fx2=W*.60,L=Math.hypot(fx2-fx1,bot-top),ux=(fx2-fx1)/L,uy=(bot-top)/L,dir=mode==='normal'?1:-1,ox=ux*d*dir,oy=uy*d*dir,ex=60;
+const block=(poly,dx,dy)=>{ctx.save();ctx.beginPath();ctx.rect(0,0,W,bot);ctx.clip();ctx.translate(dx,dy);ctx.beginPath();poly.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.save();ctx.clip();const bh=(bot-top)/5;for(let i=-2;i<8;i++){ctx.fillStyle=P.bands[(i+10)%5];ctx.fillRect(-60,top+i*bh,W+120,bh+1);}ctx.restore();ctx.strokeStyle=P.ink;ctx.globalAlpha=.3;ctx.lineWidth=1;ctx.stroke();ctx.globalAlpha=1;ctx.restore();};
+const fb=[fx2+ux*ex/uy,bot+ex];block([[-ex,top],[fx1,top],fb,[-ex,bot+ex]],0,0);block([[fx1,top],[W+ex,top],[W+ex,bot+ex],fb],ox,oy);
+ctx.strokeStyle=P.ink;ctx.lineWidth=2;ctx.setLineDash([5,4]);ctx.beginPath();ctx.moveTo(fx1-ux*14,top-uy*14);ctx.lineTo(fx2,bot);ctx.stroke();ctx.setLineDash([]);
+const mx=(fx1+fx2)/2,my=(top+bot)/2;arrow(ctx,mx+22-ux*14*dir,my-uy*14*dir,ux*dir,uy*dir,26,P.ink);arrow(ctx,mx-22+ux*14*dir,my+uy*14*dir,-ux*dir,-uy*dir,26,P.ink);
+if(mode==='normal'){arrow(ctx,70,top-22,-1,0,40,P.warm);arrow(ctx,W-70,top-22,1,0,40,P.warm);}else{arrow(ctx,20,top-22,1,0,40,P.warm);arrow(ctx,W-20,top-22,-1,0,40,P.warm);}
+label(ctx,'Footwall',14,bot-10,'#1B1530');label(ctx,'Hanging wall',W-88,bot-10,'#1B1530');}
+function drawPlates(ctx,W,H,t,mode,P){
+if(mode==='convergent'){const sl=96;ctx.fillStyle=P.mantle;ctx.fillRect(0,sl,W,H-sl);ctx.fillStyle=P.sea;ctx.fillRect(0,sl-26,W*.56,26);const p0=[W*.42,sl+9],p1=[W*.70,sl+14],p2=[W*.95,H-4];const q=u=>[(1-u)**2*p0[0]+2*(1-u)*u*p1[0]+u*u*p2[0],(1-u)**2*p0[1]+2*(1-u)*u*p1[1]+u*u*p2[1]];
+ctx.strokeStyle=P.ocean;ctx.lineWidth=18;ctx.beginPath();ctx.moveTo(-10,sl+9);ctx.lineTo(p0[0],p0[1]);ctx.quadraticCurveTo(p1[0],p1[1],p2[0],p2[1]);ctx.stroke();ctx.strokeStyle='rgba(255,255,255,.75)';ctx.lineWidth=2.5;ctx.setLineDash([3,13]);ctx.lineDashOffset=-t*26;ctx.stroke();ctx.setLineDash([]);
+const m=q(.55);ctx.strokeStyle=P.warm;ctx.lineWidth=3;ctx.setLineDash([5,6]);ctx.lineDashOffset=t*18;ctx.beginPath();ctx.moveTo(m[0]-6,m[1]-8);ctx.quadraticCurveTo(W*.73,sl+20,W*.72,sl-40);ctx.stroke();ctx.setLineDash([]);
+ctx.fillStyle=P.sand;ctx.beginPath();ctx.moveTo(W*.46,sl-12);ctx.lineTo(W*.64,sl-18);ctx.lineTo(W*.72,sl-50);ctx.lineTo(W*.80,sl-20);ctx.lineTo(W,sl-22);ctx.lineTo(W,sl+46);ctx.lineTo(W*.66,sl+40);ctx.lineTo(W*.5,sl+2);ctx.closePath();ctx.fill();
+for(let i=0;i<10;i++){const u=.06+i*.095,pt=q(u),a=Math.pow(Math.max(0,Math.sin(t*1.8+i*2.1)),6);ctx.globalAlpha=a;ctx.fillStyle=P.warm;ctx.beginPath();ctx.arc(pt[0]-5,pt[1]-9,4+a*3,0,7);ctx.fill();}ctx.globalAlpha=1;
+label(ctx,'Oceanic plate',12,sl+36,P.ink);label(ctx,'Continental plate',W*.62,sl+62,P.ink);label(ctx,'Volcano',W*.66,sl-58,P.ink2);arrow(ctx,16,sl-38,1,0,46,P.ink2);return;}
+if(mode==='divergent'){const top=76,th=24,mid=W/2,g=8;ctx.fillStyle=P.mantle;ctx.fillRect(0,top,W,H-top);ctx.fillStyle=P.sea;ctx.fillRect(0,0,W,top);ctx.strokeStyle=P.warm;ctx.lineWidth=3;ctx.setLineDash([5,7]);for(let i=-1;i<=1;i++){ctx.lineDashOffset=t*20+i*4;ctx.beginPath();ctx.moveTo(mid+i*30,H);ctx.quadraticCurveTo(mid+i*10,top+60,mid,top+th);ctx.stroke();}ctx.setLineDash([]);
+const off=(t*14)%26,ph=Math.floor(t*14/26);for(const side of[-1,1]){ctx.fillStyle=P.ocean;const x0=side<0?0:mid+g/2;ctx.fillRect(x0,top,mid-g/2,th);for(let n=0;n<16;n++){const dx=off+n*26,x=side<0?mid-g/2-dx-8:mid+g/2+dx;ctx.fillStyle=(n+ph)%2?P.b:P.a;ctx.globalAlpha=.9;ctx.fillRect(x,top+3,8,th-6);}ctx.globalAlpha=1;arrow(ctx,mid+side*40,top-22,side,0,48,P.ink2);}
+for(let i=0;i<4;i++){const a=Math.pow(Math.max(0,Math.sin(t*2+i*1.9)),6);ctx.globalAlpha=a;ctx.fillStyle=P.warm;ctx.beginPath();ctx.arc(mid,top+6+i*4,4+a*2,0,7);ctx.fill();}ctx.globalAlpha=1;label(ctx,'Mid-ocean ridge',mid-44,18,P.ink);label(ctx,'Rising magma',mid+38,H-14,P.ink2);return;}
+const mid=H/2,off=(t*16)%24;ctx.fillStyle=P.bands[0];ctx.fillRect(0,0,W,mid);ctx.fillStyle=P.bands[2];ctx.fillRect(0,mid,W,H-mid);ctx.strokeStyle=P.a;ctx.globalAlpha=.35;ctx.lineWidth=3;for(let x=-24;x<W+24;x+=24){ctx.beginPath();ctx.moveTo(x+off,8);ctx.lineTo(x+off,mid-6);ctx.stroke();ctx.beginPath();ctx.moveTo(x-off,mid+6);ctx.lineTo(x-off,H-8);ctx.stroke();}ctx.globalAlpha=1;
+ctx.strokeStyle=P.warm;ctx.lineWidth=3;ctx.setLineDash([6,5]);ctx.beginPath();ctx.moveTo(0,mid);ctx.lineTo(W,mid);ctx.stroke();ctx.setLineDash([]);for(let i=0;i<6;i++){const a=Math.pow(Math.max(0,Math.sin(t*1.7+i*2.3)),6);ctx.globalAlpha=a;ctx.fillStyle=P.warm;ctx.beginPath();ctx.arc(30+i*(W-60)/5,mid,4+a*3,0,7);ctx.fill();}ctx.globalAlpha=1;arrow(ctx,W/2-30,mid/2,1,0,60,'#1B1530');arrow(ctx,W/2+30,mid*1.5,-1,0,60,'#1B1530');ctx.fillStyle='rgba(255,255,255,.85)';ctx.fillRect(8,8,62,18);label(ctx,'Top view',14,21,'#1B1530');}
+function drawTsunami(ctx,W,H,t,P){const sl=62,coast=W*.84,depthAt=x=>8+(H-sl-22)*(1-Math.pow(Math.min(1,x/coast),1.8));const floorY=x=>x<=coast?sl+depthAt(x):sl+8-(x-coast)*.9;
+const cyc=7,u=(t%cyc)/cyc,xc=coast*(1-Math.pow(1-u,1.7)),d0=depthAt(0),dc=depthAt(Math.min(xc,coast)),A=Math.min(44,3*Math.pow(d0/dc,.55)),sig=12+46*Math.sqrt(dc/d0);
+ctx.fillStyle=P.sea;ctx.beginPath();ctx.moveTo(0,H);for(let x=0;x<=W;x+=3)ctx.lineTo(x,sl-A*Math.exp(-(((x-xc)/sig)**2)));ctx.lineTo(W,H);ctx.closePath();ctx.fill();
+ctx.fillStyle=P.floor;ctx.beginPath();ctx.moveTo(0,H);for(let x=0;x<=W;x+=4)ctx.lineTo(x,floorY(x));ctx.lineTo(W,H);ctx.closePath();ctx.fill();
+if(u<.14){ctx.globalAlpha=1-u/.14;ctx.fillStyle=P.warm;ctx.beginPath();ctx.arc(W*.06,floorY(W*.06)-2,6+u*60,0,7);ctx.fill();ctx.globalAlpha=1;}
+const dm=4000*(dc/d0),v=Math.sqrt(9.81*dm)*3.6,g=Math.pow(d0/dc,.25);label(ctx,'Depth ≈ '+Math.round(dm).toLocaleString()+' m',12,20,P.ink);label(ctx,'Speed ≈ '+Math.round(v)+' km/h · height ×'+g.toFixed(1),12,36,P.ink2);label(ctx,'Coast',coast+6,sl-20,P.ink2);}
+
+class Component extends DCLogic {
+  state = {
+    tab: this.props.startTab ?? 'feed', quakes: [], loading: true, live: false,
+    sort: 'time', range: '7d', region: 'all', minMag: 2.5, maxDepth: 700, feltOnly: false, tsunamiOnly: false, limit: 60,
+    sheet: null, selId: null, mapSel: null, step: 'quick', mmi: 4, note: '', place: 0, dur: null, moved: [], damage: null, reports: {},
+    plan: this.props.plan ?? 'free', billing: 'yearly', trialStart: null,
+    lang: this.props.lang ?? 'en', theme: this.props.theme ?? 'system', sysDark: false,
+    locations: [{ name: 'San Francisco, CA', lat: 37.77, lon: -122.42 }], locIdx: 0,
+    pushOn: false, alertMag: 5, alertRadius: 500,
+    article: null, vmode: {}, magSel: 6, kit: {},
+    globeDepth: false, plates: false, spin: true, toast: null, world: null, plateData: null
+  };
+  mapRef = el => { this.mapEl = el; if (el) setTimeout(() => this.drawMap(), 0); };
+  globeRef = el => { if (this.gl) { cancelAnimationFrame(this.gl.raf); this.gl = null; } if (el) this.initGlobe(el); };
+  sciRef = el => { if (this.sc) { cancelAnimationFrame(this.sc.raf); this.sc = null; } if (el) this.initSci(el); };
+  contentRef = el => { this.contentEl = el; };
+
+  componentDidMount() {
+    try { const mq = matchMedia('(prefers-color-scheme: dark)'); this.setState({ sysDark: mq.matches }); mq.addEventListener('change', e => this.setState({ sysDark: e.matches })); } catch (e) {}
+    this.load('7d'); this.loadWorld();
+  }
+  componentWillUnmount() { if (this.gl) cancelAnimationFrame(this.gl.raf); if (this.sc) cancelAnimationFrame(this.sc.raf); }
+  componentDidUpdate(pp, ps) {
+    const p = this.props, s = this.state;
+    if (pp.plan !== p.plan && p.plan) this.setState({ plan: p.plan });
+    if (pp.theme !== p.theme && p.theme) this.setState({ theme: p.theme });
+    if (pp.lang !== p.lang && p.lang) this.setState({ lang: p.lang });
+    if (pp.startTab !== p.startTab && p.startTab) this.setState({ tab: p.startTab });
+    if (s.tab === 'map' && this.mapEl && this.mapSigNow() !== this.mapSig) this.drawMap();
+    if ((ps.article !== s.article || ps.tab !== s.tab) && this.contentEl) this.contentEl.scrollTop = 0;
+  }
+  resolved() { const th = this.state.theme; return th === 'system' ? (this.state.sysDark ? 'dark' : 'light') : th; }
+  plus() { return this.state.plan === 'plus'; }
+  async load(range) {
+    const want = range === '1y' ? '1y' : '30d';
+    if (this._loaded === want) return; this._loaded = want;
+    this.setState({ loading: true });
+    const url = want === '1y'
+      ? 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=5&orderby=time&starttime=' + new Date(Date.now() - 365 * 864e5).toISOString().slice(0, 10)
+      : 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson';
+    try { const r = await fetch(url); if (!r.ok) throw 0; const j = await r.json(); this.setState({ quakes: j.features.map(norm).filter(q => q.mag != null), loading: false, live: true }); }
+    catch (e) { this.setState({ quakes: sample(), loading: false, live: false }); }
+  }
+  async loadWorld() {
+    await waitFor(() => window.d3 && window.topojson);
+    try { const w = await (await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')).json(); this.setState({ world: { countries: topojson.feature(w, w.objects.countries), land: topojson.feature(w, w.objects.land) } }); } catch (e) {}
+  }
+  async loadPlates() {
+    if (this._pl) return; this._pl = 1;
+    try { const j = await (await fetch('https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json')).json(); this.setState({ plateData: j }); } catch (e) {}
+  }
+  getList() {
+    const s = this.state, plus = this.plus();
+    const key = [s.quakes.length, s.quakes[0] && s.quakes[0].id, s.range, s.region, s.sort, s.minMag, s.maxDepth, s.feltOnly, s.tsunamiOnly, plus, s.locIdx, s.locations.length].join('|');
+    if (this._lk === key) return this._l;
+    const loc = s.locations[s.locIdx], now = Date.now(), ms = RANGE_MS[s.range];
+    const all = s.quakes.map(q => Object.assign({}, q, { dist: hav(loc.lat, loc.lon, q.lat, q.lon) }));
+    const inRange = all.filter(q => now - q.time <= ms);
+    const counts = {}; inRange.forEach(q => { counts[q.region] = (counts[q.region] || 0) + 1; });
+    const regions = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+    let L = s.region === 'all' ? inRange : inRange.filter(q => q.region === s.region);
+    if (plus) { L = L.filter(q => q.mag >= s.minMag && q.depth <= s.maxDepth); if (s.feltOnly) L = L.filter(q => q.felt > 0); if (s.tsunamiOnly) L = L.filter(q => q.tsunami); }
+    const f = { time: (a, b) => b.time - a.time, distance: (a, b) => a.dist - b.dist, mag: (a, b) => b.mag - a.mag }[s.sort];
+    L = L.slice().sort(f);
+    this._lk = key; this._l = { list: L, inRange, regions, all }; return this._l;
+  }
+  mapSigNow() { const s = this.state; return [this._lk, !!s.world, !!s.plateData, s.plates, this.resolved(), s.mapSel].join('#'); }
+  drawMap() {
+    const el = this.mapEl, s = this.state; if (!el || !window.d3) return;
+    const d3 = window.d3, th = TH[this.resolved()], W = el.clientWidth, H = el.clientHeight; if (!W || !H) return;
+    const { list } = this.getList(); const loc = s.locations[s.locIdx];
+    el.innerHTML = '';
+    const sc = (H / 2) / 1.9;
+    const proj = d3.geoMercator().rotate([-loc.lon, 0]).scale(sc).translate([W / 2, H / 2]);
+    const path = d3.geoPath(proj);
+    const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).style('display', 'block').style('background', th.sea).style('touch-action', 'none').style('cursor', 'grab');
+    const g = svg.append('g');
+    if (s.world) g.append('g').selectAll('path').data(s.world.countries.features).join('path').attr('d', path).attr('fill', th.land).attr('stroke', th.landLine).attr('stroke-width', 0.6).attr('vector-effect', 'non-scaling-stroke');
+    if (s.plates && s.plateData) g.append('path').datum(s.plateData).attr('d', path).attr('fill', 'none').attr('stroke', th.plate).attr('stroke-width', 1.4).attr('stroke-opacity', .6).attr('stroke-dasharray', '4 3').attr('vector-effect', 'non-scaling-stroke');
+    const rad = q => Math.max(2.4, (q.mag - 1.6) * 2.1);
+    const data = list.slice().sort((a, b) => a.mag - b.mag);
+    const dots = g.append('g').selectAll('circle').data(data).join('circle')
+      .attr('cx', q => proj([q.lon, q.lat])[0]).attr('cy', q => proj([q.lon, q.lat])[1]).attr('r', rad)
+      .attr('fill', q => magC(q.mag).c).attr('fill-opacity', .88)
+      .attr('stroke', q => q.id === s.mapSel ? th.ink : '#fff').attr('stroke-width', q => q.id === s.mapSel ? 2.4 : .8).attr('vector-effect', 'non-scaling-stroke')
+      .style('cursor', 'pointer').on('click', (e, q) => { e.stopPropagation(); this.setState({ mapSel: q.id }); });
+    const up = proj([loc.lon, loc.lat]);
+    const pin = g.append('g').attr('transform', 'translate(' + up[0] + ',' + up[1] + ')');
+    pin.append('circle').attr('r', 14).attr('fill', th.violet).attr('fill-opacity', .2);
+    pin.append('circle').attr('r', 5.5).attr('fill', th.violet).attr('stroke', '#fff').attr('stroke-width', 2);
+    const zoom = d3.zoom().scaleExtent([1, 14]).extent([[0, 0], [W, H]]).translateExtent([[W / 2 - Math.PI * sc, 0], [W / 2 + Math.PI * sc, H]])
+      .on('zoom', e => { const k = e.transform.k; g.attr('transform', e.transform); this.mapT = e.transform; dots.attr('r', q => rad(q) / Math.sqrt(k)); pin.attr('transform', 'translate(' + up[0] + ',' + up[1] + ') scale(' + (1 / k) + ')'); });
+    svg.call(zoom).on('dblclick.zoom', null);
+    svg.on('click', () => { if (this.state.mapSel) this.setState({ mapSel: null }); });
+    if (this.mapFocus) { const q = s.quakes.find(x => x.id === this.mapFocus); this.mapFocus = null; if (q) { const p = proj([q.lon, q.lat]), k = 4; svg.call(zoom.transform, d3.zoomIdentity.translate(W / 2 - k * p[0], H / 2 - k * p[1]).scale(k)); } }
+    else if (this.mapT && this.mapTLoc === s.locIdx) svg.call(zoom.transform, this.mapT);
+    else { this.mapTLoc = s.locIdx; svg.call(zoom.transform, d3.zoomIdentity); }
+    this.mapSig = this.mapSigNow();
+  }
+  async initGlobe(el) {
+    await waitFor(() => window.d3); if (!el.isConnected) return;
+    const d3 = window.d3, W = el.clientWidth, H = el.clientHeight, dpr = window.devicePixelRatio || 1;
+    const cv = document.createElement('canvas'); cv.width = W * dpr; cv.height = H * dpr; cv.style.cssText = 'width:' + W + 'px;height:' + H + 'px;display:block;touch-action:none;cursor:grab';
+    el.innerHTML = ''; el.appendChild(cv);
+    const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+    const loc = this.state.locations[this.state.locIdx];
+    const cx = W / 2, cy = H / 2 - 6, R = Math.min(W * 0.45, (H - 190) / 2);
+    const proj = d3.geoOrthographic().scale(R).translate([cx, cy]).clipAngle(90).precision(.6).rotate(this.globeRot || [-loc.lon, -Math.max(-40, Math.min(40, loc.lat)) * .7, 0]);
+    const path = d3.geoPath(proj, ctx), grat = d3.geoGraticule10();
+    const gl = { raf: 0, drag: false, moved: false, pts: [] }; this.gl = gl;
+    const k0 = this.globeK || 1; gl.px = 0; gl.py = 0; gl.pk = k0; proj.scale(R * k0);
+    const zoom = d3.zoom().scaleExtent([0.8, 10])
+      .on('start', () => { gl.drag = true; gl.moved = false; })
+      .on('zoom', e => {
+        const tr = e.transform, dx = tr.x - gl.px, dy = tr.y - gl.py, scaled = Math.abs(tr.k / gl.pk - 1) > 1e-4;
+        gl.px = tr.x; gl.py = tr.y; gl.pk = tr.k;
+        if (scaled) { proj.scale(R * tr.k); this.globeK = tr.k; gl.moved = true; }
+        else if (dx || dy) { gl.moved = true; const r = proj.rotate(), k = 70 / proj.scale(); proj.rotate([r[0] + dx * k, Math.max(-85, Math.min(85, r[1] - dy * k)), 0]); }
+      })
+      .on('end', e => { gl.drag = false; if (!gl.moved && e.sourceEvent) { const p = d3.pointer(e.sourceEvent, cv); this.globePick(p[0], p[1]); } });
+    gl.zoom = zoom; gl.sel = d3.select(cv);
+    gl.sel.call(zoom).on('dblclick.zoom', null).call(zoom.transform, d3.zoomIdentity.scale(k0));
+    gl.px = 0; gl.py = 0; gl.pk = k0;
+    const frame = () => {
+      if (this.gl !== gl) return;
+      const s = this.state, th = TH[this.resolved()];
+      if (s.spin && !gl.drag) { const r = proj.rotate(); proj.rotate([r[0] + 0.12 / (this.globeK || 1), r[1], 0]); }
+      this.globeRot = proj.rotate();
+      ctx.clearRect(0, 0, W, H);
+      const Rs = proj.scale(), grd = ctx.createRadialGradient(cx, cy, Rs * .92, cx, cy, Rs * 1.3); grd.addColorStop(0, th.glow); grd.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
+      ctx.beginPath(); path({ type: 'Sphere' }); ctx.fillStyle = th.sea; ctx.fill();
+      ctx.beginPath(); path(grat); ctx.strokeStyle = th.grat; ctx.lineWidth = .7; ctx.stroke();
+      if (s.world) { ctx.beginPath(); path(s.world.land); ctx.fillStyle = th.land; ctx.fill(); ctx.strokeStyle = th.landLine; ctx.lineWidth = .6; ctx.stroke(); }
+      if (s.plates && s.plateData) { ctx.beginPath(); path(s.plateData); ctx.strokeStyle = th.plate; ctx.globalAlpha = .65; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; }
+      const { list } = this.getList(), r = proj.rotate(), center = [-r[0], -r[1]], pts = [];
+      for (let i = list.length - 1; i >= 0; i--) {
+        const q = list[i]; if (d3.geoDistance([q.lon, q.lat], center) > 1.55) continue;
+        const p = proj([q.lon, q.lat]); if (!p) continue; let x = p[0], y = p[1];
+        if (s.globeDepth) { const f = 1 - Math.min(q.depth, 700) / 700 * .4, xi = cx + (x - cx) * f, yi = cy + (y - cy) * f; ctx.strokeStyle = depthC(q.depth); ctx.globalAlpha = .55; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(xi, yi); ctx.stroke(); ctx.globalAlpha = 1; x = xi; y = yi; ctx.fillStyle = depthC(q.depth); }
+        else ctx.fillStyle = magC(q.mag).c;
+        const rr = Math.max(1.8, (q.mag - 1.8) * 1.6); ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
+        if (q.id === s.mapSel) { ctx.strokeStyle = th.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, rr + 4, 0, 7); ctx.stroke(); }
+        pts.push([x, y, q.id]);
+      }
+      const L = s.locations[s.locIdx];
+      if (d3.geoDistance([L.lon, L.lat], center) < 1.55) { const p = proj([L.lon, L.lat]); ctx.fillStyle = th.violet; ctx.globalAlpha = .22; ctx.beginPath(); ctx.arc(p[0], p[1], 12, 0, 7); ctx.fill(); ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(p[0], p[1], 5, 0, 7); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke(); }
+      gl.pts = pts; gl.raf = requestAnimationFrame(frame);
+    };
+    frame();
+  }
+  globeZoomBy(f) { const gl = this.gl; if (gl && gl.zoom) gl.sel.transition().duration(220).call(gl.zoom.scaleBy, f); }
+  globePick(x, y) { const pts = (this.gl && this.gl.pts) || []; let best = null, bd = 20 * 20; for (const p of pts) { const d = (p[0] - x) ** 2 + (p[1] - y) ** 2; if (d < bd) { bd = d; best = p[2]; } } this.setState({ mapSel: best }); }
+  initSci(el) {
+    const W = el.clientWidth, H = el.clientHeight, dpr = window.devicePixelRatio || 1;
+    const cv = document.createElement('canvas'); cv.width = W * dpr; cv.height = H * dpr; cv.style.cssText = 'width:' + W + 'px;height:' + H + 'px;display:block';
+    el.innerHTML = ''; el.appendChild(cv);
+    const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr);
+    const t0 = performance.now(), sc = { raf: 0 }; this.sc = sc;
+    const loop = () => { if (this.sc !== sc) return; const s = this.state, a = (window.SISMA_SCIENCE || []).find(x => x.id === s.article); ctx.clearRect(0, 0, W, H);
+      if (a) { const P = SCP[this.resolved()], mode = s.vmode[a.id] || (a.modes[0] && a.modes[0][0]), t = (performance.now() - t0) / 1000;
+        if (a.visual === 'waves') drawWaves(ctx, W, H, t, mode, P); else if (a.visual === 'faults') drawFaults(ctx, W, H, t, mode, P); else if (a.visual === 'plates') drawPlates(ctx, W, H, t, mode, P); else if (a.visual === 'tsunami') drawTsunami(ctx, W, H, t, P); }
+      sc.raf = requestAnimationFrame(loop); };
+    loop();
+  }
+  flash(msg) { clearTimeout(this._tt); this.setState({ toast: msg }); this._tt = setTimeout(() => this.setState({ toast: null }), 2400); }
+  gate(fn) { if (this.plus()) fn(); else this.setState({ sheet: 'paywall' }); }
+  openDetail(id) { this.setState({ sheet: 'detail', selId: id }); }
+  openReport(id) { this.setState({ sheet: 'report', selId: id, step: 'quick', mmi: 4, note: '', dur: null, moved: [], damage: null, place: 0 }); }
+  pickRange(id) { if (id === '1y' && !this.plus()) return this.setState({ sheet: 'paywall' }); this.setState({ range: id, limit: 60 }); this.load(id); }
+
+  renderVals() {
+    const s = this.state, I = window.SISMA_I18N || {}, en = I.en || { web: {} }, cur = I[s.lang] || {};
+    const t = Object.assign({}, en, cur, { web: Object.assign({}, en.web, cur.web) });
+    const SCI = window.SISMA_SCIENCE || [];
+    const plus = this.plus(), themeName = this.resolved();
+    const { list, inRange, regions, all } = this.getList();
+    const now = Date.now(), nf = new Intl.NumberFormat(s.lang), nf1 = new Intl.NumberFormat(s.lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    const km = d => nf.format(Math.round(d)) + ' km';
+    const ago = ms => { const m = Math.round((now - ms) / 6e4); if (m < 1) return t.just_now; if (m < 60) return fmt(t.ago_m, { n: m }); const h = Math.round(m / 60); if (h < 48) return fmt(t.ago_h, { n: h }); return fmt(t.ago_d, { n: Math.round(h / 24) }); };
+    const loc = s.locations[s.locIdx];
+    const row = q => { const c = magC(q.mag); return { id: q.id, mag: nf1.format(q.mag), color: c.c, ink: c.i, title: q.title, region: q.region, ago: ago(q.time), dist: km(q.dist), depth: km(q.depth), tsunami: q.tsunami, open: () => this.openDetail(q.id), report: () => this.openReport(q.id) }; };
+    const seg = (on) => ({ bg: on ? 'var(--surface)' : 'transparent', fg: on ? 'var(--ink)' : 'var(--ink2)', shadow: on ? '0 1px 4px rgba(27,21,48,.12)' : 'none' });
+    const chip = (on) => ({ bg: on ? 'var(--violet)' : 'var(--surface)', bgSolid: on ? 'var(--violet)' : 'var(--surface)', fg: on ? 'var(--on-violet)' : 'var(--ink)', border: on ? 'var(--violet)' : 'var(--line)' });
+    const recent = all.filter(q => now - q.time <= 7 * 864e5).sort((a, b) => a.dist - b.dist)[0];
+    const largest = inRange.reduce((m, q) => Math.max(m, q.mag), 0);
+    const sel = s.quakes.find(q => q.id === s.selId);
+    const selD = sel ? Object.assign({}, sel, { dist: hav(loc.lat, loc.lon, sel.lat, sel.lon) }) : null;
+    const ms = list.find(q => q.id === s.mapSel) || (s.mapSel && all.find(q => q.id === s.mapSel));
+    const mine = sel && s.reports[sel.id];
+    const art = SCI.find(a => a.id === s.article), ai = SCI.indexOf(art);
+    const tone = { violet: ['var(--violet-soft)', 'var(--violet-text)'], mint: ['var(--mint-soft)', 'var(--mint-text)'], warm: ['var(--warm-soft)', 'var(--warm-text)'] };
+    const sciT = i => (t.sci_t && t.sci_t[i]) || en.sci_t[i];
+    const amode = art ? (s.vmode[art.id] || (art.modes[0] && art.modes[0][0])) : null;
+    const CAP = { convergent: 'Oceanic plate sinks beneath a continent. Coral flashes are earthquakes tracing the slab down to ~700 km.', divergent: 'Plates pull apart; rising magma freezes into new crust and records alternating magnetic stripes.', transform: 'Plates slide horizontally. Stress builds where the boundary locks, then releases in earthquakes.', normal: 'Stretching: the hanging wall slides down the fault.', reverse: 'Compression: the hanging wall is pushed up and over.', strike: 'Shear: the blocks slide sideways and the road is offset.', P: 'P wave · ≈ 6 km/s · rock compresses along the direction of travel. Follow the coral particle.', S: 'S wave · ≈ 3.5 km/s · rock shears at right angles to travel. Follow the coral particle.', R: 'Rayleigh surface wave · ≈ 3 km/s · the ground rolls in ellipses that fade with depth.' };
+    const M = s.magSel, E = Math.pow(10, 1.5 * M + 4.8), tons = E / 4.184e9, freq = Math.pow(10, 8.2 - M);
+    const tnt = tons < 1e3 ? nf.format(Math.round(tons)) + ' t TNT' : tons < 1e6 ? nf.format(Math.round(tons / 1e3)) + ' kt TNT' : nf.format(Math.round(tons / 1e6)) + ' Mt TNT';
+    const EX = [[9.1, 'Tōhoku, Japan (2011)'], [8.8, 'Maule, Chile (2010)'], [7.8, 'Kahramanmaraş, Türkiye (2023)'], [7.0, 'Haiti (2010)'], [6.7, 'Northridge, USA (1994)'], [6.3, 'L’Aquila, Italy (2009)'], [5.8, 'Virginia, USA (2011)'], [4.5, 'Widely felt, rarely damaging'], [3.0, 'Felt by people nearby'], [2.0, 'Recorded, rarely felt']];
+    const ex = EX.reduce((b, e) => Math.abs(e[0] - M) < Math.abs(b[0] - M) ? e : b, EX[0]);
+    const dc = [0, 0, 0]; all.forEach(q => { dc[q.depth < 70 ? 0 : q.depth < 300 ? 1 : 2]++; }); const dmax = Math.max(1, ...dc);
+    const kitItems = (art && art.kit) || [], kitDone = kitItems.filter((_, i) => s.kit[i]).length;
+    const ROPT = [['24h', t.r24], ['7d', t.r7], ['30d', t.r30], ['1y', t.r1y]];
+    const trialLeft = s.trialStart ? Math.max(0, 7 - Math.floor((now - s.trialStart) / 864e5)) : 7;
+    const langs = I.langs || [{ code: 'en', name: 'English' }];
+    const titles = { feed: 'sisma', map: t.tab_map, globe: t.tab_globe, science: t.sci_title, me: t.tab_me };
+
+    return {
+      t, themeName,
+      shellMinH: this.props.bare ? 'auto' : '100vh', shellPad: this.props.bare ? '10px' : '40px 16px', shellBg: this.props.bare ? 'transparent' : (themeName === 'dark' ? '#07050E' : '#E9E5F5'),
+      title: s.tab === 'science' && art ? sciT(ai) : titles[s.tab],
+      showBack: s.tab === 'science' && !!art, showLogo: s.tab === 'feed', showFilter: s.tab === 'feed' || s.tab === 'map',
+      goBack: () => this.setState({ article: null }),
+      filterActive: s.region !== 'all' || (plus && (s.minMag > 2.5 || s.maxDepth < 700 || s.feltOnly || s.tsunamiOnly)),
+      openFilter: () => this.setState({ sheet: 'filter' }), openLang: () => this.setState({ sheet: 'lang' }), openPaywall: () => this.setState({ sheet: 'paywall' }),
+      langCode: s.lang.toUpperCase(), langName: (langs.find(l => l.code === s.lang) || langs[0]).name,
+      isFeed: s.tab === 'feed', isMap: s.tab === 'map', isGlobe: s.tab === 'globe', isSciList: s.tab === 'science' && !art, isArticle: s.tab === 'science' && !!art, isMe: s.tab === 'me',
+      locName: loc.name.split(',')[0],
+      hasNearest: !!recent, near: recent ? row(recent) : {},
+      sortOpts: [['time', t.sort_time, 'schedule'], ['distance', t.sort_distance, 'near_me'], ['mag', t.sort_mag, 'bolt']].map(([id, label, icon]) => Object.assign({ label, icon, pick: () => this.setState({ sort: id, limit: 60 }) }, seg(s.sort === id))),
+      rangeOpts: ROPT.map(([id, label]) => Object.assign({ label, locked: id === '1y' && !plus, pick: () => this.pickRange(id) }, chip(s.range === id))),
+      regionChips: [['all', t.all_regions]].concat(regions.slice(0, 8).map(r => [r[0], r[0]])).concat(s.region !== 'all' && !regions.slice(0, 8).some(r => r[0] === s.region) ? [[s.region, s.region]] : []).map(([id, label]) => Object.assign({ label, pick: () => this.setState({ region: id, limit: 60 }) }, chip(s.region === id))),
+      regionList: [['all', t.all_regions, inRange.length]].concat(regions.map(r => [r[0], r[0], r[1]])).map(([id, label, n]) => ({ label, n: nf.format(n), op: s.region === id ? 1 : 0, pick: () => this.setState({ region: id, limit: 60 }) })),
+      summary: fmt(t.count, { n: nf.format(list.length) }) + (list.length ? ' · ' + fmt(t.largest, { m: nf1.format(list.reduce((m, q) => Math.max(m, q.mag), 0)) }) : ''),
+      sourceLabel: s.live ? 'USGS · ' + t.live : 'Demo data', liveDot: s.live ? 'var(--mint)' : 'var(--ink2)',
+      loading: s.loading, rows: list.slice(0, s.limit).map(row), hasMore: list.length > s.limit, showMore: () => this.setState({ limit: s.limit + 60 }),
+      mapRef: this.mapRef, globeRef: this.globeRef, sciRef: this.sciRef, contentRef: this.contentRef,
+      platesChip: chip(s.plates), togglePlates: () => { this.loadPlates(); this.setState({ plates: !s.plates }); },
+      globeChips: [['depth', t.depth_view, 'layers', s.globeDepth, () => this.setState({ globeDepth: !s.globeDepth })], ['plates', t.plates, 'texture', s.plates, () => { this.loadPlates(); this.setState({ plates: !s.plates }); }], ['spin', t.spin, '3d_rotation', s.spin, () => this.setState({ spin: !s.spin })]].map(([id, label, icon, on, pick]) => Object.assign({ label, icon, pick }, chip(on))),
+      legend: s.tab === 'globe' && s.globeDepth ? [{ c: '#2CCB9A', l: '0–70 km' }, { c: '#7B61FF', l: '70–300' }, { c: '#B5179E', l: '300+' }] : [{ c: MAGC[5][1], l: '<3' }, { c: MAGC[4][1], l: '3' }, { c: MAGC[3][1], l: '4' }, { c: MAGC[2][1], l: '5' }, { c: MAGC[1][1], l: '6' }, { c: MAGC[0][1], l: '7+' }],
+      globeIn: () => this.globeZoomBy(1.6), globeOut: () => this.globeZoomBy(1 / 1.6),
+      hasMapSel: (s.tab === 'map' || s.tab === 'globe') && !!ms, noMapSel: !ms,
+      ms: ms ? row(ms) : {},
+      topics: SCI.map((a, i) => ({ num: String(i + 1).padStart(2, '0'), title: sciT(i), blurb: a.intro, icon: a.icon, bg: tone[a.tone][0], fg: tone[a.tone][1], mins: fmt(t.min_read, { n: a.mins }), open: () => this.setState({ article: a.id }) })),
+      art: art ? { title: sciT(ai), intro: art.intro, sections: art.sections, icon: art.icon, bg: tone[art.tone][0], fg: tone[art.tone][1], mins: fmt(t.min_read, { n: art.mins }) } : { sections: [] },
+      next: art ? { num: String((ai + 1) % SCI.length + 1).padStart(2, '0'), title: sciT((ai + 1) % SCI.length), open: () => this.setState({ article: SCI[(ai + 1) % SCI.length].id }) } : {},
+      visCanvas: !!art && ['plates', 'faults', 'waves', 'tsunami'].includes(art.visual), hasModes: !!art && art.modes.length > 0,
+      visModes: art ? art.modes.map(([id, label]) => Object.assign({ label, pick: () => this.setState({ vmode: Object.assign({}, s.vmode, { [art.id]: id }) }) }, seg(amode === id))) : [],
+      visCaption: art ? (art.visual === 'tsunami' ? 'Speed = √(g × depth). Watch the wave slow down and grow taller as the sea shallows.' : CAP[amode] || '') : '',
+      visMag: !!art && art.visual === 'mag', visDepth: !!art && art.visual === 'depth', visPrep: !!art && art.visual === 'prep',
+      mag: { val: M, str: M.toFixed(1), p1: (M - 1).toFixed(1), p2: (M - 2).toFixed(1), d1: (128 / Math.sqrt(31.6)).toFixed(1) + 'px', d2: Math.max(3, 128 / 31.6).toFixed(1) + 'px', tnt, freq: freq >= 1 ? '≈ ' + nf.format(Math.round(freq)) + ' / year' : '≈ 1 every ' + nf.format(Math.round(1 / freq)) + ' yrs', mmi: M < 3 ? 'I–II' : M < 4 ? 'II–IV' : M < 5 ? 'IV–VI' : M < 6 ? 'VI–VII' : M < 7 ? 'VII–IX' : 'IX+', ex: ex[1], set: e => this.setState({ magSel: +e.target.value }) },
+      depthBars: [['Shallow · 0–70 km', '#2CCB9A'], ['Intermediate · 70–300 km', '#7B61FF'], ['Deep · 300–700 km', '#B5179E']].map(([label, c], i) => ({ label, c, n: nf.format(dc[i]), w: Math.max(1.5, dc[i] / dmax * 100).toFixed(1) + '%' })),
+      omori: Array.from({ length: 10 }, (_, i) => { const v = 1 / Math.pow(i + 1, 1.1); return { d: String(i + 1), h: (v * 88 + 4).toFixed(1) + 'px', op: (0.4 + 0.6 * v).toFixed(2) }; }),
+      kit: kitItems.map((label, i) => ({ label, border: s.kit[i] ? 'var(--mint)' : 'var(--line)', bg: s.kit[i] ? 'var(--mint)' : 'transparent', tick: s.kit[i] ? '#0B2A20' : 'transparent', toggle: () => this.setState({ kit: Object.assign({}, s.kit, { [i]: !s.kit[i] }) }) })),
+      kitProgress: kitDone + ' / ' + kitItems.length,
+      isFree: !plus, isPlus: plus,
+      plusTeaser: (t.ent_plus || []).slice(0, 3).join(' · '),
+      advTeaser: (t.ent_plus || [])[3] || t.adv,
+      trialLabel: s.trialStart ? fmt(t.trial_active, { n: trialLeft }) : 'Active',
+      billingLabel: s.billing === 'yearly' ? '$36 ' + t.per_year : '$3.99 ' + t.per_month,
+      downgrade: () => this.setState({ plan: 'free', pushOn: false, range: s.range === '1y' ? '30d' : s.range, locations: s.locations.slice(0, 1), locIdx: 0 }),
+      pushOn: plus && s.pushOn, togglePush: () => this.gate(() => this.setState({ pushOn: !s.pushOn })),
+      pushTrack: s.pushOn ? 'var(--violet)' : 'var(--line)', pushJustify: s.pushOn ? 'flex-end' : 'flex-start',
+      alertMag: s.alertMag, alertMagStr: nf1.format(s.alertMag), setAlertMag: e => this.setState({ alertMag: +e.target.value }),
+      radiusOpts: [100, 250, 500, 1000, 0].map(r => Object.assign({ label: r ? nf.format(r) + ' km' : 'Global', pick: () => this.setState({ alertRadius: r }) }, chip(s.alertRadius === r))),
+      locRows: s.locations.map((l, i) => ({ name: l.name, active: i === s.locIdx, icon: i === 0 ? 'my_location' : 'location_on', iconColor: i === s.locIdx ? 'var(--violet-text)' : 'var(--ink2)', pick: () => this.setState({ locIdx: i }) })),
+      locLocked: !plus && s.locations.length >= 1,
+      addLocation: () => this.gate(() => { if (s.locations.length >= 10) return this.flash('10 / 10'); const nx = EXTRA.find(e => !s.locations.some(l => l.name === e.name)); if (nx) { this.setState({ locations: s.locations.concat([nx]), locIdx: s.locations.length }); this.flash(nx.name); } }),
+      themeOpts: [['system', t.th_system], ['light', t.th_light], ['dark', t.th_dark]].map(([id, label]) => Object.assign({ label, pick: () => this.setState({ theme: id }) }, seg(s.theme === id))),
+      tabs: [['feed', 'format_list_bulleted'], ['map', 'map'], ['globe', 'public'], ['science', 'science'], ['me', 'person']].map(([id, icon]) => { const a = s.tab === id; return { icon, label: t['tab_' + id], color: a ? 'var(--violet-text)' : 'var(--ink2)', fill: a ? 1 : 0, pill: a ? 'var(--violet-soft)' : 'transparent', weight: a ? 800 : 600, go: () => this.setState({ tab: id, mapSel: null, article: id === 'science' && s.tab === 'science' ? null : s.article }) }; }),
+      hasToast: !!s.toast, toast: s.toast,
+      sheetOpen: !!s.sheet, closeSheet: () => this.setState({ sheet: null }),
+      sheetDetail: s.sheet === 'detail' && !!selD, sheetReport: s.sheet === 'report', sheetFilter: s.sheet === 'filter', sheetPaywall: s.sheet === 'paywall', sheetLang: s.sheet === 'lang',
+      d: selD ? Object.assign(row(selD), {
+        time: new Intl.DateTimeFormat(s.lang, { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(selD.time)),
+        coords: selD.lat.toFixed(2) + '°, ' + selD.lon.toFixed(2) + '°',
+        hasFelt: selD.felt > 0, felt: fmt(t.felt_by, { n: nf.format(selD.felt) }), cdi: selD.cdi ? 'MMI ' + ROMAN[Math.max(0, Math.min(9, Math.round(selD.cdi) - 1))] : '',
+        hasMine: !!mine, mine: mine ? ROMAN[mine.mmi - 1] + ' · ' + t.mmi[mine.mmi - 1] : '', url: selD.url, net: selD.net,
+        toMap: () => { this.mapFocus = selD.id; this.setState({ tab: 'map', mapSel: selD.id, sheet: null }); }
+      }) : {},
+      stepQuick: s.step === 'quick', stepDetails: s.step === 'details', stepDone: s.step === 'done',
+      rp: {
+        quake: sel ? 'M' + nf1.format(sel.mag) + ' · ' + sel.region + ' · ' + ago(sel.time) : '',
+        mmi: s.mmi, roman: ROMAN[s.mmi - 1], label: t.mmi[s.mmi - 1], color: MMIC[s.mmi - 1], ink: s.mmi >= 7 ? '#FFFFFF' : '#1B1530', soft: 'var(--surface2)',
+        setMmi: e => this.setState({ mmi: +e.target.value }), note: s.note, setNote: e => this.setState({ note: e.target.value }),
+        toDetails: () => this.setState({ step: 'details' }),
+        send: () => { this.setState({ step: 'done', reports: Object.assign({}, s.reports, { [s.selId]: { mmi: s.mmi, note: s.note, place: s.place, dur: s.dur, moved: s.moved, damage: s.damage } }) }); },
+        places: [t.indoors, t.outdoors].map((label, i) => Object.assign({ label, pick: () => this.setState({ place: i }) }, seg(s.place === i))),
+        durs: ['< 10 s', '10–30 s', '30–60 s', '> 1 min'].map((label, i) => Object.assign({ label, pick: () => this.setState({ dur: i }) }, chip(s.dur === i))),
+        moved: (t.moved_opts || []).map((label, i) => Object.assign({ label, pick: () => this.setState({ moved: s.moved.includes(i) ? s.moved.filter(x => x !== i) : s.moved.concat([i]) }) }, chip(s.moved.includes(i)))),
+        damage: (t.damage_opts || []).map((label, i) => Object.assign({ label, pick: () => this.setState({ damage: i }) }, chip(s.damage === i)))
+      },
+      resetFilters: () => this.setState({ region: 'all', minMag: 2.5, maxDepth: 700, feltOnly: false, tsunamiOnly: false }),
+      minMag: s.minMag, minMagStr: nf1.format(s.minMag), setMinMag: e => this.setState({ minMag: +e.target.value }),
+      maxDepth: s.maxDepth, maxDepthStr: km(s.maxDepth), setMaxDepth: e => this.setState({ maxDepth: +e.target.value }),
+      advChips: [[t.felt_only, 'feltOnly'], [t.tsunami_only, 'tsunamiOnly']].map(([label, k]) => Object.assign({ label, pick: () => this.setState({ [k]: !s[k] }) }, chip(s[k]))),
+      resultCount: nf.format(list.length),
+      entPlus: (t.ent_plus || []).map((label, i) => ({ label, icon: ['notifications_active', 'location_on', 'history', 'tune'][i] || 'check' })),
+      priceOpts: [['yearly', t.yearly, '$36', '$3.00 ' + t.per_month, fmt(t.save, { n: 25 })], ['monthly', t.monthly, '$3.99', t.per_month.replace(/^\/\s*/, ''), '']].map(([id, label, price, sub, badge]) => { const on = s.billing === id; return { label, price, sub: id === 'yearly' ? sub + ' · ' + price + ' ' + t.per_year : '$3.99 ' + t.per_month, badge, hasBadge: !!badge, border: on ? 'var(--violet)' : 'var(--line)', bg: on ? 'var(--violet-soft)' : 'transparent', dot: on ? 'var(--violet)' : 'transparent', pick: () => this.setState({ billing: id }) }; }),
+      startTrial: () => { this.setState({ plan: 'plus', sheet: null, trialStart: Date.now() }); this.flash('sisma+ · ' + fmt(t.trial_active, { n: 7 })); },
+      langRows: langs.map(l => ({ code: l.code, name: l.name, flagUrl: 'https://flagcdn.com/w80/' + (l.flag || 'un') + '.png', op: l.code === s.lang ? 1 : 0, pick: () => this.setState({ lang: l.code, sheet: null }) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

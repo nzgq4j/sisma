@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..600,0..1,0&amp;display=block" rel="stylesheet">
+<script src="./sisma-i18n.js"></script>
+<script src="./sisma-science.js"></script>
+<style>
+body{margin:0;background:#F6F4FC;color:#1B1530;font-family:Figtree,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#5A38E0;text-decoration:none}a:hover{color:#6C4BF4}
+</style>
+</helmet>
+<div data-screen-label="Website" style="min-height:100vh;background:#F6F4FC;color:#1B1530">
+
+<header style="position:sticky;top:0;z-index:20;background:rgba(246,244,252,.88);backdrop-filter:blur(12px);border-bottom:1px solid #E4E0F0">
+<div style="max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+<a href="#top" style="display:flex;align-items:center;gap:10px;color:#1B1530">
+<span style="width:34px;height:34px;border-radius:11px;background:#6C4BF4;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1;color:#fff">earthquake</span></span>
+<span style="font-size:20px;font-weight:800;letter-spacing:-.02em">sisma<span style="color:#5E587A;font-weight:600">.io</span></span>
+</a>
+<nav style="display:flex;gap:22px;flex:1;font-size:15px;font-weight:600;flex-wrap:wrap">
+<a href="#features" style="color:#5E587A">{{ w.nav_features }}</a>
+<a href="#science" style="color:#5E587A">{{ w.nav_science }}</a>
+<a href="#pricing" style="color:#5E587A">{{ w.nav_pricing }}</a>
+</nav>
+<div style="display:flex;gap:10px;align-items:center">
+<select onChange="{{ setLang }}" value="{{ lang }}" aria-label="Language" style="height:40px;border:1px solid #E4E0F0;border-radius:20px;background:#fff;color:#1B1530;padding:0 12px;font:600 14px Figtree,sans-serif;cursor:pointer">
+<sc-for list="{{ langs }}" as="l" hint-placeholder-count="10"><option value="{{ l.code }}">{{ l.name }}</option></sc-for>
+</select>
+<a href="SismaApp.dc.html" style="height:40px;border-radius:20px;background:#6C4BF4;color:#fff;padding:0 18px;display:flex;align-items:center;font:700 14px Figtree,sans-serif;white-space:nowrap">{{ w.open_app }}</a>
+</div>
+</div>
+</header>
+
+<section id="top" style="max-width:1180px;margin:0 auto;padding:56px 24px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#0A7558;background:#D9F7EC;align-self:flex-start;padding:6px 12px;border-radius:16px"><span style="width:8px;height:8px;border-radius:4px;background:#2CCB9A"></span>{{ tag }}</div>
+<h1 style="margin:0;font-size:clamp(40px,6vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.035em;text-wrap:balance">{{ w.hero_h }}</h1>
+<p style="margin:0;font-size:19px;line-height:1.55;color:#5E587A;max-width:540px;text-wrap:pretty">{{ w.hero_p }}</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<a href="SismaApp.dc.html" style="height:54px;border-radius:27px;background:#6C4BF4;color:#fff;padding:0 26px;display:flex;align-items:center;gap:8px;font:800 16px Figtree,sans-serif;white-space:nowrap"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">open_in_new</span>{{ w.open_app }}</a>
+<a href="#pricing" style="height:54px;border-radius:27px;background:#fff;border:1px solid #E4E0F0;color:#1B1530;padding:0 22px;display:flex;align-items:center;gap:8px;font:700 16px Figtree,sans-serif;box-sizing:border-box;white-space:nowrap"><span style="font-family:'Material Symbols Rounded';font-size:22px;line-height:1">android</span>{{ w.play }}</a>
+</div>
+<div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;padding-top:8px">
+<span style="font-size:12px;font-weight:700;color:#5E587A;margin-right:6px">M</span>
+<span style="height:10px;width:44px;border-radius:5px;background:#86DCC4"></span>
+<span style="height:10px;width:44px;border-radius:5px;background:#F7CF4A"></span>
+<span style="height:10px;width:44px;border-radius:5px;background:#FFA94D"></span>
+<span style="height:10px;width:44px;border-radius:5px;background:#FF7A59"></span>
+<span style="height:10px;width:44px;border-radius:5px;background:#EE4266"></span>
+<span style="height:10px;width:44px;border-radius:5px;background:#B5179E"></span>
+<span style="font-size:12px;font-weight:700;color:#5E587A;margin-left:6px">7+</span>
+</div>
+</div>
+<div style="display:flex;justify-content:center">
+<div style="width:328px;height:690px;position:relative;flex:none">
+<div style="position:absolute;top:0;left:0;transform:scale(.8);transform-origin:top left">
+<dc-import name="SismaApp" bare="{{ true }}" lang="{{ lang }}" hint-size="410px,864px"></dc-import>
+</div>
+</div>
+</div>
+</section>
+
+<section id="features" style="max-width:1180px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px">
+<div style="background:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<span style="width:52px;height:52px;border-radius:17px;background:#ECE7FF;color:#5A38E0;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1">sort</span></span>
+<h3 style="margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em">{{ w.f1_h }}</h3>
+<p style="margin:0;font-size:15px;line-height:1.55;color:#5E587A">{{ w.f1_p }}</p>
+</div>
+<div style="background:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<span style="width:52px;height:52px;border-radius:17px;background:#D9F7EC;color:#0A7558;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1">public</span></span>
+<h3 style="margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em">{{ w.f2_h }}</h3>
+<p style="margin:0;font-size:15px;line-height:1.55;color:#5E587A">{{ w.f2_p }}</p>
+</div>
+<div style="background:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<span style="width:52px;height:52px;border-radius:17px;background:#FFE9E1;color:#B3401F;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1">vibration</span></span>
+<h3 style="margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em">{{ w.f3_h }}</h3>
+<p style="margin:0;font-size:15px;line-height:1.55;color:#5E587A">{{ w.f3_p }}</p>
+</div>
+<div style="background:#fff;border-radius:28px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<span style="width:52px;height:52px;border-radius:17px;background:#ECE7FF;color:#5A38E0;display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:28px;line-height:1">science</span></span>
+<h3 style="margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em">{{ w.f4_h }}</h3>
+<p style="margin:0;font-size:15px;line-height:1.55;color:#5E587A">{{ w.f4_p }}</p>
+</div>
+</section>
+
+<section id="science" style="max-width:1180px;margin:0 auto;padding:56px 24px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:10px;max-width:640px">
+<h2 style="margin:0;font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.03em">{{ sciTitle }}</h2>
+<p style="margin:0;font-size:18px;line-height:1.5;color:#5E587A">{{ sciSub }}</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:12px">
+<sc-for list="{{ topics }}" as="tp" hint-placeholder-count="7">
+<a href="SismaApp.dc.html" style="background:#fff;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:12px;color:#1B1530">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<span style="width:46px;height:46px;border-radius:15px;background:{{ tp.bg }};color:{{ tp.fg }};display:flex;align-items:center;justify-content:center"><span style="font-family:'Material Symbols Rounded';font-size:25px;line-height:1">{{ tp.icon }}</span></span>
+<span style="font:500 12px 'IBM Plex Mono',monospace;color:#5E587A">{{ tp.num }}</span>
+</div>
+<div style="font-size:18px;font-weight:800;letter-spacing:-.01em">{{ tp.title }}</div>
+<div style="font-size:14px;line-height:1.5;color:#5E587A;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">{{ tp.blurb }}</div>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section id="pricing" style="max-width:1180px;margin:0 auto;padding:56px 24px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:10px;max-width:620px">
+<h2 style="margin:0;font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.03em;text-wrap:balance">{{ w.price_h }}</h2>
+<p style="margin:0;font-size:18px;color:#5E587A">{{ w.price_p }}</p>
+</div>
+<div style="display:flex;background:#EFECF8;border-radius:16px;padding:4px;gap:4px">
+<sc-for list="{{ billOpts }}" as="b" hint-placeholder-count="2">
+<button onClick="{{ b.pick }}" style="height:40px;border:0;border-radius:12px;background:{{ b.bg }};color:{{ b.fg }};box-shadow:{{ b.shadow }};padding:0 18px;font:700 14px Figtree,sans-serif;cursor:pointer;white-space:nowrap">{{ b.label }}</button>
+</sc-for>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px">
+<div style="background:#fff;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:20px;border:1px solid #E4E0F0">
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font-size:15px;font-weight:700;color:#5E587A">{{ t.plan_free }}</span><span style="font-size:44px;font-weight:800;letter-spacing:-.03em">$0</span></div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ entFree }}" as="e" hint-placeholder-count="6">
+<div style="display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#0A7558">check</span>{{ e }}</div>
+</sc-for>
+</div>
+<a href="SismaApp.dc.html" style="margin-top:auto;height:50px;border-radius:25px;border:1px solid #E4E0F0;color:#1B1530;display:flex;align-items:center;justify-content:center;font:800 15px Figtree,sans-serif;white-space:nowrap">{{ w.open_app }}</a>
+</div>
+<div style="background:#6C4BF4;color:#fff;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:15px;font-weight:800">sisma+</span><sc-if value="{{ yearly }}"><span style="font-size:12px;font-weight:800;background:#2CCB9A;color:#0B2A20;padding:4px 10px;border-radius:10px">{{ saveLabel }}</span></sc-if></div>
+<div style="display:flex;align-items:baseline;gap:8px"><span style="font-size:44px;font-weight:800;letter-spacing:-.03em">{{ price }}</span><span style="font-size:16px;font-weight:600;opacity:.85">{{ per }}</span></div>
+<span style="font-size:14px;opacity:.85">{{ priceSub }}</span>
+</div>
+<div style="font-size:14px;font-weight:700;opacity:.85">{{ t.everything_free }}</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<sc-for list="{{ entPlus }}" as="e" hint-placeholder-count="4">
+<div style="display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.4;font-weight:600"><span style="font-family:'Material Symbols Rounded';font-size:20px;line-height:1;color:#B9F5E1">check_circle</span>{{ e }}</div>
+</sc-for>
+</div>
+<a href="SismaApp.dc.html" style="margin-top:auto;height:50px;border-radius:25px;background:#fff;color:#5A38E0;display:flex;align-items:center;justify-content:center;font:800 15px Figtree,sans-serif;white-space:nowrap">{{ t.trial }}</a>
+</div>
+</div>
+</section>
+
+<section style="max-width:1180px;margin:0 auto;padding:40px 24px 64px;display:flex;flex-direction:column;gap:18px">
+<h2 style="margin:0;font-size:28px;font-weight:800;letter-spacing:-.02em">{{ w.lang_h }}</h2>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ langChips }}" as="l" hint-placeholder-count="10">
+<button onClick="{{ l.pick }}" style="height:42px;border-radius:21px;border:1px solid {{ l.border }};background:{{ l.bg }};color:{{ l.fg }};padding:0 18px 0 8px;font:700 15px Figtree,sans-serif;cursor:pointer;display:flex;align-items:center;gap:10px;white-space:nowrap"><img src="{{ l.flagUrl }}" alt="" width="26" height="26" style="width:26px;height:26px;border-radius:13px;object-fit:cover;box-shadow:0 0 0 1px rgba(27,21,48,.1)">{{ l.name }}</button>
+</sc-for>
+</div>
+</section>
+
+<footer style="border-top:1px solid #E4E0F0;background:#fff">
+<div style="max-width:1180px;margin:0 auto;padding:28px 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+<span style="font-size:16px;font-weight:800">sisma<span style="color:#5E587A;font-weight:600">.io</span></span>
+<p style="margin:0;font-size:13px;line-height:1.5;color:#5E587A;max-width:720px">{{ w.footer }}</p>
+</div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;es&quot;,&quot;ja&quot;,&quot;id&quot;,&quot;tr&quot;,&quot;it&quot;,&quot;pt&quot;,&quot;zh&quot;,&quot;fr&quot;,&quot;de&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { lang: this.props.lang ?? 'en', billing: 'yearly' };
+  componentDidUpdate(pp) { if (pp.lang !== this.props.lang && this.props.lang) this.setState({ lang: this.props.lang }); }
+  renderVals() {
+    const s = this.state, I = window.SISMA_I18N || {}, en = I.en || { web: {} }, cur = I[s.lang] || {};
+    const t = Object.assign({}, en, cur), w = Object.assign({}, en.web, cur.web);
+    const SCI = window.SISMA_SCIENCE || [];
+    const tone = { violet: ['#ECE7FF', '#5A38E0'], mint: ['#D9F7EC', '#0A7558'], warm: ['#FFE9E1', '#B3401F'] };
+    const langs = I.langs || [];
+    const yearly = s.billing === 'yearly';
+    return {
+      t, w, lang: s.lang, langs, tag: t.app_tag,
+      setLang: e => this.setState({ lang: e.target.value }),
+      sciTitle: t.sci_title, sciSub: t.sci_sub,
+      topics: SCI.map((a, i) => ({ num: String(i + 1).padStart(2, '0'), title: (t.sci_t || en.sci_t)[i], blurb: a.intro, icon: a.icon, bg: tone[a.tone][0], fg: tone[a.tone][1] })),
+      billOpts: [['monthly', t.monthly], ['yearly', t.yearly]].map(([id, label]) => { const on = s.billing === id; return { label, bg: on ? '#fff' : 'transparent', fg: on ? '#1B1530' : '#5E587A', shadow: on ? '0 1px 4px rgba(27,21,48,.12)' : 'none', pick: () => this.setState({ billing: id }) }; }),
+      yearly, saveLabel: String(t.save || '').replace('{n}', '25'),
+      price: yearly ? '$36' : '$3.99', per: yearly ? t.per_year : t.per_month,
+      priceSub: yearly ? '$3.00 ' + t.per_month : '$47.88 ' + t.per_year,
+      entFree: t.ent_free || [], entPlus: t.ent_plus || [],
+      langChips: langs.map(l => { const on = l.code === s.lang; return { name: l.name, flagUrl: 'https://flagcdn.com/w80/' + (l.flag || 'un') + '.png', bg: on ? '#6C4BF4' : '#fff', fg: on ? '#fff' : '#1B1530', border: on ? '#6C4BF4' : '#E4E0F0', pick: () => this.setState({ lang: l.code }) }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

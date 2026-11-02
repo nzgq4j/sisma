@@ -1,0 +1,58 @@
+// sisma.io science library (English source; translate via CMS later). Shared by the prototype and the codebase.
+window.SISMA_SCIENCE = [
+{ id: "plates", icon: "public", tone: "violet", mins: 6, visual: "plates",
+  modes: [["convergent", "Convergent"], ["divergent", "Divergent"], ["transform", "Transform"]],
+  intro: "Earth’s outer shell is broken into about 15 major plates of rigid lithosphere, each up to ~100 km thick, gliding over the hotter, weaker asthenosphere at 2–10 cm a year — about as fast as fingernails grow. Almost every earthquake happens where plates meet.",
+  sections: [
+    { h: "Three kinds of boundary", p: "At convergent boundaries plates collide: dense oceanic plate sinks beneath another in a subduction zone, producing the planet’s largest earthquakes and chains of volcanoes. At divergent boundaries, like the Mid-Atlantic Ridge, plates pull apart and magma fills the gap. At transform boundaries, such as the San Andreas Fault, plates grind sideways past each other." },
+    { h: "Stick, then slip", p: "Plate edges don’t slide smoothly. Friction locks them while the plates keep moving, so rock bends and stores elastic strain — sometimes for centuries. When stress exceeds the strength of the fault it ruptures in seconds, and the stored energy radiates as seismic waves. This is elastic rebound theory, first described after the 1906 San Francisco earthquake." },
+    { h: "The Ring of Fire", p: "Around 80% of the world’s large earthquakes occur around the Pacific, where oceanic plates subduct beneath Japan, Indonesia, the Andes, Alaska and New Zealand. Turn on Depth in the Globe tab to see subducting slabs traced by quakes hundreds of kilometres down." }
+  ] },
+{ id: "faults", icon: "splitscreen_left", tone: "mint", mins: 5, visual: "faults",
+  modes: [["normal", "Normal"], ["reverse", "Reverse"], ["strike", "Strike-slip"]],
+  intro: "A fault is a fracture where blocks of rock have moved past each other. How they move depends on whether the crust is being stretched, squeezed or sheared.",
+  sections: [
+    { h: "Normal faults — stretching", p: "When crust is pulled apart, the block above an inclined fault — the hanging wall — slides down relative to the footwall. Normal faults shape rift valleys such as the East African Rift and the Basin and Range of the western United States." },
+    { h: "Reverse and thrust faults — squeezing", p: "When crust is compressed, the hanging wall is pushed up. Low-angle reverse faults are called thrusts; the giant megathrusts at subduction zones produced the M9.1 Tōhoku (2011) and M9.5 Chile (1960) earthquakes." },
+    { h: "Strike-slip faults — shearing", p: "Here blocks slide horizontally along a near-vertical fault. Stand on one side: if the far side moves to your right it’s right-lateral, like the San Andreas; to your left, it’s left-lateral. The 2023 Türkiye earthquakes ruptured strike-slip faults more than 300 km long." },
+    { h: "Why it matters", p: "Fault type controls how the ground shakes and whether the sea floor moves vertically — the key ingredient for a tsunami." }
+  ] },
+{ id: "waves", icon: "graphic_eq", tone: "warm", mins: 6, visual: "waves",
+  modes: [["P", "P wave"], ["S", "S wave"], ["R", "Surface"]],
+  intro: "When a fault ruptures, energy spreads out as seismic waves. Seismometers record them in a fixed order, and the gaps between arrivals tell us where and how big the earthquake was.",
+  sections: [
+    { h: "P waves — first to arrive", p: "Primary waves are compressional: rock is squeezed and stretched in the direction the wave travels, like a pulse along a spring. They are the fastest, around 6 km/s in the crust, and pass through solids, liquids and gas. You may feel them as a sharp jolt or hear a rumble." },
+    { h: "S waves — the strong shaking", p: "Secondary waves shear rock side to side, perpendicular to travel, at about 3.5 km/s. Liquids can’t be sheared, so S waves can’t cross Earth’s outer core — which is how we know it is liquid." },
+    { h: "Surface waves — the long roll", p: "Love and Rayleigh waves travel along the surface. They are the slowest but often the largest, and Rayleigh waves move the ground in a rolling ellipse like ocean swell. They cause much of the damage far from the epicentre." },
+    { h: "Locating an earthquake", p: "The delay between P and S arrivals grows by roughly 8 km for every second. Draw a circle of that distance around three or more stations and they intersect at the epicentre. Early-warning systems use the fast P wave to send alerts seconds before strong S-wave shaking arrives." }
+  ] },
+{ id: "mag", icon: "stacked_line_chart", tone: "violet", mins: 5, visual: "mag", modes: [],
+  intro: "Magnitude measures the size of an earthquake at its source — one number per event. Intensity measures the shaking at a particular place, and changes with distance, depth and ground type.",
+  sections: [
+    { h: "Moment magnitude", p: "Modern magnitude (Mw) is based on seismic moment: the fault’s area × how far it slipped × the stiffness of the rock. Each whole step means about 32 times more energy and 10 times more ground motion on a seismogram. An M8 releases roughly 1,000 times the energy of an M6." },
+    { h: "Intensity — what people feel", p: "The Modified Mercalli Intensity scale runs from I (not felt) to X+ (extreme), written in Roman numerals. It is built from observations — including reports like the ones you send from sisma — so one M6 can be intensity VIII nearby and III a few hundred kilometres away." },
+    { h: "Why soft ground shakes more", p: "Loose sediment and landfill amplify and prolong shaking compared with bedrock. Mexico City’s ancient lakebed made the 1985 M8.0 earthquake devastating 350 km from its epicentre." }
+  ] },
+{ id: "depth", icon: "vertical_align_bottom", tone: "mint", mins: 5, visual: "depth", modes: [],
+  intro: "Earthquakes happen from the surface down to about 700 km. Depth changes how strongly shaking reaches us, and tells us about the plates beneath.",
+  sections: [
+    { h: "Shallow, intermediate, deep", p: "Shallow earthquakes (0–70 km) are the most common and most damaging, because the energy has little distance to fade. Intermediate (70–300 km) and deep (300–700 km) quakes occur almost only inside cold slabs of subducting plate; they are felt over wide areas but rarely cause heavy damage." },
+    { h: "Aftershocks", p: "A large earthquake changes the stress on nearby faults, triggering aftershocks. Their rate falls roughly as 1 / time (Omori’s law): about half as many on day two as on day one, and a tenth by day ten. The largest aftershock is typically about 1.2 magnitudes smaller than the mainshock (Båth’s law) — still enough to damage weakened buildings." },
+    { h: "Foreshocks", p: "Sometimes an earthquake turns out to be the foreshock of a bigger one. That can only be known afterwards, which is why aftershock forecasts give probabilities, not predictions." }
+  ] },
+{ id: "tsunami", icon: "tsunami", tone: "warm", mins: 4, visual: "tsunami", modes: [],
+  intro: "A tsunami is a series of waves caused by the sudden displacement of a huge volume of water — most often when a megathrust earthquake lifts or drops the sea floor.",
+  sections: [
+    { h: "Fast and low in deep water", p: "In the open ocean a tsunami travels at √(g × depth): about 700 km/h in 4,000 m of water, as fast as a jet. Its height may be under a metre, and ships may not notice it pass." },
+    { h: "Slow and tall at the coast", p: "As the water shallows the wave slows, and its energy is squeezed into less depth, so its height grows dramatically. The sea may first pull back and expose the sea floor — a natural warning." },
+    { h: "What to do", p: "If you are on the coast and feel strong shaking lasting 20 seconds or more, or see the sea withdraw, move to high ground or inland immediately. Don’t wait for an official warning, and stay away until authorities give the all-clear — later waves can be larger." }
+  ] },
+{ id: "prep", icon: "health_and_safety", tone: "violet", mins: 4, visual: "prep", modes: [],
+  intro: "No one can predict earthquakes, but preparation saves lives. Most injuries come from falling objects and debris, not collapsing buildings.",
+  sections: [
+    { h: "During shaking", p: "Drop onto your hands and knees. Cover your head and neck under a sturdy table, or next to an interior wall. Hold on until the shaking stops. Don’t run outside while the ground is moving; if you’re in bed, stay there and protect your head with a pillow." },
+    { h: "After shaking", p: "Expect aftershocks. Check yourself and others for injuries. If you smell gas, leave and don’t use switches or flames. Send texts rather than calls to keep networks clear, and follow local authorities." },
+    { h: "Before it happens", p: "Secure heavy furniture and water heaters to walls, learn how to shut off gas and water, and agree a meeting place with your household. Build a kit for at least three days." }
+  ],
+  kit: ["Water — 4 L per person per day, 3 days", "Non-perishable food", "Torch and spare batteries", "First-aid kit", "Prescription medicines", "Whistle", "Phone power bank", "Copies of key documents"] }
+];

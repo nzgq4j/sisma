@@ -1,0 +1,41 @@
+{
+  "name": "sisma-app",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run check:i18n"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "d3-drag": "^3.0.0",
+    "d3-geo": "^3.1.1",
+    "d3-selection": "^3.0.0",
+    "d3-zoom": "^3.0.0",
+    "next": "16.3.8",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "stripe": "23.0.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/d3-drag": "^3.0.7",
+    "@types/d3-geo": "^3.1.0",
+    "@types/d3-zoom": "^3.0.8",
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/topojson-client": "^3.1.5",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.8",
+    "typescript": "^5.9.3",
+    "vitest": "4.0.18"
+  }
+}

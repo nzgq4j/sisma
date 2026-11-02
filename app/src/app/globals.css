@@ -1,0 +1,9 @@
+/* Tokens: see src/lib/theme.ts and design/SismaApp.dc.html */
+:root { --bg:#F6F4FC; --surface:#FFFFFF; --surface2:#EFECF8; --ink:#1B1530; --ink2:#5E587A; --line:#E4E0F0; --violet:#6C4BF4; --on-violet:#FFFFFF; --violet-soft:#ECE7FF; --violet-text:#5A38E0; --mint:#2CCB9A; --mint-soft:#D9F7EC; --mint-text:#0A7558; --warm-soft:#FFE9E1; --warm-text:#B3401F; --scrim:rgba(27,21,48,.42); --shadow:0 8px 28px rgba(27,21,48,.14); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#100C1D; --surface:#1A1530; --surface2:#251F3F; --ink:#F2EFFB; --ink2:#A9A2C6; --line:#2E2748; --violet:#8F74FF; --on-violet:#120C26; --violet-soft:#2A2152; --violet-text:#BFAFFF; --mint:#3FE0AE; --mint-soft:#123A30; --mint-text:#6DF0C6; --warm-soft:#3A2019; --warm-text:#FFA088; --scrim:rgba(0,0,0,.55); --shadow:0 8px 28px rgba(0,0,0,.45); } }
+:root[data-theme="dark"] { --bg:#100C1D; --surface:#1A1530; --surface2:#251F3F; --ink:#F2EFFB; --ink2:#A9A2C6; --line:#2E2748; --violet:#8F74FF; --on-violet:#120C26; --violet-soft:#2A2152; --violet-text:#BFAFFF; --mint:#3FE0AE; --mint-soft:#123A30; --mint-text:#6DF0C6; --warm-soft:#3A2019; --warm-text:#FFA088; --scrim:rgba(0,0,0,.55); --shadow:0 8px 28px rgba(0,0,0,.45); }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-figtree), system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--violet-text); } a:hover { color: var(--violet); }
+.ms { font-family: 'Material Symbols Rounded'; font-size: 24px; line-height: 1; font-variation-settings: 'FILL' 0; }
+.ms.fill { font-variation-settings: 'FILL' 1; }
