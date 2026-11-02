@@ -30,7 +30,7 @@ is clicking through Google's consoles. Where code is needed, the step says **"�
 
 ## 0. Prerequisites
 
-1. **A sisma.io email** — e.g. hello@sisma.io. Google asks for a support email in several places. See `docs/email-setup.md`.
+1. **A sisma.io email** — done: mail is hosted at InMotion (david@sisma.io), with privacy@ and support@ forwarding to it. Use **support@sisma.io** wherever Google asks for a support email.
 2. **A privacy policy page** — drafted at https://sisma.io/privacy (fill in the operator's legal form and address in
    `app/src/lib/site.ts` → `legal`, and have it reviewed). Google Play and Google sign-in both refuse apps without
    one. It must say what data sisma collects (email for accounts, approximate location in felt reports, saved places,
@@ -43,7 +43,7 @@ is clicking through Google's consoles. Where code is needed, the step says **"�
 ## 1. Google Play Console account
 
 1. Go to **play.google.com/console** and sign in with the Google account that will own the app (ideally the business
-   one, e.g. hello@sisma.io if you chose Google Workspace).
+   one, e.g. support@sisma.io if you chose Google Workspace).
 2. Choose **Personal** or **Organization** (see step 0.3), pay the one-time **US$25** registration fee.
 3. Complete **identity verification** (government ID; for organizations also the D-U-N-S number and a website — use
    https://sisma.io). This can take from a few hours to several days.
@@ -99,7 +99,7 @@ Today sisma signs people in with an **email link** (no password). Adding "Contin
 convenient. Skip this step if you don't want it.
 
 1. Cloud console (sisma project) ☰ **APIs & Services → OAuth consent screen** (may be called **Google Auth Platform**):
-   - **Branding:** App name *sisma*, support email *hello@sisma.io*, logo (`app/public/icons/icon-512.png`),
+   - **Branding:** App name *sisma*, support email *support@sisma.io*, logo (`app/public/icons/icon-512.png`),
      home page `https://sisma.io`, privacy policy `https://sisma.io/privacy`, terms (if you have one).
      Authorized domains: **sisma.io** and **supabase.co**. Developer contact: your email.
    - **Audience:** *External*. Scopes: only the defaults (`email`, `profile`, `openid`) — then Google review isn't needed.
@@ -185,7 +185,7 @@ key yourself, because it must stay on your machine.
    - Short description (max 80 characters), e.g. *Live earthquakes worldwide — map, 3D globe and clear science.*
    - Full description (what it shows, data sources USGS/EMSC/GeoNet/JMA, sisma+, and "not an official warning service").
    - App icon 512×512 PNG, **feature graphic** 1024×500, 2–8 phone screenshots. **→ Claude** can produce these from the app.
-   - Category: **Weather** (or Education), contact email hello@sisma.io, website https://sisma.io.
+   - Category: **Weather** (or Education), contact email support@sisma.io, website https://sisma.io.
 3. **App content** (Policy → App content) — each is a short form:
    - **Privacy policy:** https://sisma.io/privacy
    - **Ads:** No ads.
