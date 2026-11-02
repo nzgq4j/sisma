@@ -31,8 +31,8 @@ is clicking through Google's consoles. Where code is needed, the step says **"�
 ## 0. Prerequisites
 
 1. **A sisma.io email** — done: mail is hosted at InMotion (david@sisma.io), with privacy@ and support@ forwarding to it. Use **support@sisma.io** wherever Google asks for a support email.
-2. **A privacy policy page** — drafted at https://sisma.io/privacy (fill in the operator's legal form and address in
-   `app/src/lib/site.ts` → `legal`, and have it reviewed). Google Play and Google sign-in both refuse apps without
+2. **A privacy policy page** — drafted at https://sisma.io/privacy (operator: Crucible Insight LLC; details in
+   `app/src/lib/site.ts` → `legal`). Have it reviewed before launch. Google Play and Google sign-in both refuse apps without
    one. It must say what data sisma collects (email for accounts, approximate location in felt reports, saved places,
    subscription status), why, who processes it (Supabase, Vercel, Resend, Stripe, Google), and how to delete it.
    **→ Claude:** I can draft the page and the account-deletion page from what the app actually does; have a lawyer review it.
