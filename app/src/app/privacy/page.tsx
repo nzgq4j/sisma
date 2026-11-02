@@ -30,7 +30,7 @@ export default function PrivacyPage() {
 
       <h2 id="who">1. Who we are</h2>
       <p>
-        sisma — the website sisma.io, the web app at sisma.io/app and the sisma Android app — is operated by {L.operator}, {L.address} (“we”, “us”).
+        sisma — the website sisma.io, the web app at sisma.io/app and the sisma Android app — is operated by {L.operator}, {L.entity} (“we”, “us”).
         We are responsible for the personal data described here. Questions and requests: {mail}.
       </p>
 
@@ -142,7 +142,7 @@ export default function PrivacyPage() {
       <p>We’ll update the date at the top when this policy changes, and tell signed-in users in the app or by email before material changes take effect.</p>
 
       <h2 id="contact">13. Contact</h2>
-      <p>{L.operator}, {L.address} · {mail}</p>
+      <p>{L.operator}, {L.entity} · {mail}</p>
     </PrivacyChrome>
   );
 }

@@ -5,10 +5,10 @@ export const SITE = {
   appPath: '/app',
   // Google Play listing. Until the app is published the site's Play button points at the pricing section.
   playUrl: process.env.NEXT_PUBLIC_PLAY_URL || '#pricing',
-  // Shown in the privacy policy. TODO before publishing: the operator's legal name, legal form and registered address.
+  // Shown in the privacy policy (operator identity; contact is by email).
   legal: {
-    operator: 'Crucible Insight',
-    address: '[legal form and registered address]',
+    operator: 'Crucible Insight LLC',
+    entity: 'an Arizona limited liability company',
     privacyEmail: 'privacy@sisma.io',
     policyUpdated: '2026-11-02',
   },
