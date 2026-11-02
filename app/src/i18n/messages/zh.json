@@ -298,7 +298,12 @@
     "rate_limited": "搜索次数过多，请稍等一分钟。",
     "remove": "移除{name}",
     "limit_reached": "已达到 {n} 个已保存地点的上限。",
-    "no_places": "添加地点或使用当前位置，即可查看离你最近的地震。"
+    "no_places": "添加地点或使用当前位置，即可查看离你最近的地震。",
+    "display_name": "显示名称",
+    "display_name_ph": "你的名字",
+    "display_name_hint": "显示在你的账户中。留空则使用你的邮箱。",
+    "not_set": "未设置",
+    "save": "保存"
   },
   "onboard": {
     "skip": "跳过",

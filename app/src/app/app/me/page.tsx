@@ -27,6 +27,7 @@ export default function MePage() {
   const { setSheet } = useApp();
   const acct = useAccount();
   const [delOpen, setDelOpen] = useState(false);
+  const [nameOpen, setNameOpen] = useState(false);
   const name = acct.profile?.display_name || acct.user?.email || t('guest');
   const initial = (acct.profile?.display_name || acct.user?.email || t('guest')).trim().charAt(0).toUpperCase();
 
@@ -49,6 +50,10 @@ export default function MePage() {
           <>
             <div className={styles.sectionLabel}>{a.account}</div>
             <div className={styles.card}>
+              <button type="button" className={styles.row} onClick={() => setNameOpen(true)}>
+                <span className="ms" aria-hidden="true">badge</span><span className={styles.grow}>{a.display_name}</span>
+                <span className={styles.meta}>{acct.profile?.display_name || a.not_set}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+              </button>
               <div className={styles.row}><span className="ms" aria-hidden="true">mail</span><span className={styles.grow}>{a.email}</span><span className={styles.meta}>{acct.user.email}</span></div>
               <button type="button" className={styles.row} onClick={() => void acct.signOut()}><span className="ms" aria-hidden="true">logout</span><span className={styles.grow}>{a.sign_out}</span></button>
               <button type="button" className={`${styles.row} ${styles.dangerRow}`} onClick={() => setDelOpen(true)}><span className="ms" aria-hidden="true">delete</span><span className={styles.grow}>{a.delete}</span></button>
@@ -66,6 +71,7 @@ export default function MePage() {
       </div>
 
       <DeleteSheet open={delOpen} onClose={() => setDelOpen(false)} />
+      {nameOpen && <NameSheet onClose={() => setNameOpen(false)} />}
     </div>
   );
 }
@@ -300,6 +306,33 @@ function Preferences() {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Edit the display name (profiles.display_name: 1–50 characters, or empty to fall back to the email). */
+function NameSheet({ onClose }: { onClose: () => void }) {
+  const { m } = useT();
+  const a = m.acct;
+  const { profile, savePrefs } = useAccount();
+  const [name, setName] = useState(profile?.display_name ?? '');
+  const [state, setState] = useState<'idle' | 'busy' | 'error'>('idle');
+  const save = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const v = name.trim().replace(/\s+/g, ' ');
+    setState('busy');
+    if (await savePrefs({ display_name: v || null })) onClose(); else setState('error');
+  };
+  return (
+    <Sheet open onClose={onClose} title={a.display_name}>
+      <form className={styles.sheetBody} onSubmit={save}>
+        <label htmlFor="display-name" className="sr-only">{a.display_name}</label>
+        <input id="display-name" className={styles.textInput} value={name} onChange={e => setName(e.target.value)} maxLength={50}
+          autoComplete="name" placeholder={a.display_name_ph} autoFocus />
+        <p className={styles.hint}>{a.display_name_hint}</p>
+        {state === 'error' && <p className={styles.errLine} role="alert">{a.error}</p>}
+        <button type="submit" className={styles.primaryBtn} disabled={state === 'busy'}>{a.save}</button>
+      </form>
+    </Sheet>
   );
 }
 

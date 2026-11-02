@@ -28,11 +28,6 @@
 .planLabel { font-size: 12px; font-weight: 700; color: var(--ink2); }
 .planBtn { margin-top: 8px; height: 36px; border-radius: 18px; background: var(--violet); color: var(--on-violet); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; text-decoration: none; }
 .planBtn:hover { color: var(--on-violet); filter: brightness(1.06); }
-.langRow { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 1px solid var(--line); border-radius: 20px; color: var(--ink2); }
-.langRow :global(.ms) { font-size: 20px; }
-.langRow { width: 100%; background: transparent; font: inherit; cursor: pointer; text-align: left; }
-.langRow:hover { background: var(--surface2); color: var(--ink); }
-.langName { flex: 1; min-width: 0; color: var(--ink); font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ---------- Dashboard ---------- */
 .dash { padding: 22px 28px 28px; display: flex; flex-direction: column; gap: 18px; max-width: 1680px; }

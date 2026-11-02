@@ -20,7 +20,8 @@ Open them in a browser; they run on live USGS data.
       src/content/       science library (science.json)
     mobile/              Capacitor 8 Android shell
     supabase/migrations/ schema: profiles, billing, saved locations, alerts, quakes cache, felt reports
-    docs/                entitlements, data sources
+    docs/                entitlements, data sources, setup guides: supabase-setup.md, android-setup.md (Play, Firebase,
+                         Google Cloud, sign-in, payments), email-setup.md (a sisma.io mailbox)
     design/              Claude Design prototypes (reference only)
 
 ## Run

@@ -298,7 +298,12 @@
     "rate_limited": "Demasiadas búsquedas. Espera un minuto.",
     "remove": "Quitar {name}",
     "limit_reached": "Has alcanzado el límite de {n} ubicaciones guardadas.",
-    "no_places": "Añade un lugar o usa tu ubicación actual para ver los sismos más cercanos."
+    "no_places": "Añade un lugar o usa tu ubicación actual para ver los sismos más cercanos.",
+    "display_name": "Nombre visible",
+    "display_name_ph": "Tu nombre",
+    "display_name_hint": "Se muestra en tu cuenta. Déjalo vacío para usar tu correo.",
+    "not_set": "Sin definir",
+    "save": "Guardar"
   },
   "onboard": {
     "skip": "Omitir",

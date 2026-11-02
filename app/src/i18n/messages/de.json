@@ -298,7 +298,12 @@
     "rate_limited": "Zu viele Suchen. Bitte warte eine Minute.",
     "remove": "{name} entfernen",
     "limit_reached": "Du hast das Limit von {n} gespeicherten Orten erreicht.",
-    "no_places": "Füge einen Ort hinzu oder nutze deinen aktuellen Standort, um die nächsten Erdbeben zu sehen."
+    "no_places": "Füge einen Ort hinzu oder nutze deinen aktuellen Standort, um die nächsten Erdbeben zu sehen.",
+    "display_name": "Anzeigename",
+    "display_name_ph": "Dein Name",
+    "display_name_hint": "Wird in deinem Konto angezeigt. Leer lassen, um deine E-Mail zu verwenden.",
+    "not_set": "Nicht festgelegt",
+    "save": "Speichern"
   },
   "onboard": {
     "skip": "Überspringen",

@@ -17,7 +17,7 @@ export interface Profile {
 interface AccountCtx {
   configured: boolean; ready: boolean; user: User | null; profile: Profile | null; plan: Plan;
   /** Updates the user's own preference columns (display_name, locale, theme are the only ones RLS allows). */
-  savePrefs: (p: Partial<Pick<Profile, 'display_name' | 'locale' | 'theme'>>) => Promise<void>;
+  savePrefs: (p: Partial<Pick<Profile, 'display_name' | 'locale' | 'theme'>>) => Promise<boolean>;
   accessToken: () => Promise<string | null>;
   signOut: () => Promise<void>;
   openSignIn: () => void;
@@ -58,9 +58,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   }, [sb, user, profile, locale]);
 
   const savePrefs = useCallback<AccountCtx['savePrefs']>(async prefs => {
-    if (!sb || !user) return;
+    if (!sb || !user) return false;
     const { error } = await sb.from('profiles').update(prefs).eq('id', user.id);
     if (!error) setProfile(p => (p ? { ...p, ...prefs } : p));
+    return !error;
   }, [sb, user]);
 
   const value = useMemo<AccountCtx>(() => ({

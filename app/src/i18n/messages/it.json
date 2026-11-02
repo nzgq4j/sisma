@@ -298,7 +298,12 @@
     "rate_limited": "Troppe ricerche. Attendi un minuto.",
     "remove": "Rimuovi {name}",
     "limit_reached": "Hai raggiunto il limite di {n} luoghi salvati.",
-    "no_places": "Aggiungi un luogo o usa la tua posizione attuale per vedere i terremoti più vicini."
+    "no_places": "Aggiungi un luogo o usa la tua posizione attuale per vedere i terremoti più vicini.",
+    "display_name": "Nome visualizzato",
+    "display_name_ph": "Il tuo nome",
+    "display_name_hint": "Viene mostrato nel tuo account. Lascialo vuoto per usare la tua email.",
+    "not_set": "Non impostato",
+    "save": "Salva"
   },
   "onboard": {
     "skip": "Salta",

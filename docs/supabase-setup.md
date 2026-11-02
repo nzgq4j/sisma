@@ -10,6 +10,7 @@ Already done (by Claude, through the Supabase and Vercel connectors):
 | Schema `20261102000100_core.sql` (hardened: reports server-only, summary view not public, trigger functions not callable) | Applied |
 | `20261102000200_fk_indexes.sql` | Applied |
 | `20261102000300_saved_locations_places.sql` (detail column, length limits, one default place, authenticated-only policies, race-free plan limit) | Applied |
+| `20261102000400_profiles_display_name.sql` (display name 1–50 characters, trimmed) | Applied |
 | Security advisor | Clean apart from the intentional "RLS enabled, no policy" on `felt_reports` |
 | Vercel env `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable key) | Added for Production, Preview, Development |
 | Vercel ↔ Supabase integration (`STORAGE_` variables, incl. the secret key) | Connected by you |
