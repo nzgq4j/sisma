@@ -287,10 +287,18 @@
     "use_location": "Mevcut konumumu kullan",
     "loc_denied": "Konum erişimi kapalı. Tarayıcı veya cihaz ayarlarından açabilirsin.",
     "loc_unavailable": "Konumun bulunamadı. Lütfen daha sonra tekrar dene.",
-    "search_soon": "Yer arama yakında geliyor. Şimdilik mevcut konumunu kullan.",
     "intro": "Tanıtımı göster",
     "billing_soon": "Ödemeler henüz kullanılamıyor. Lütfen yakında tekrar bak.",
-    "loc_help": "İzin vermek için site ayarlarını aç (web adresinin yanındaki simge), Konum’u İzin ver olarak ayarla ve tekrar dene."
+    "loc_help": "İzin vermek için site ayarlarını aç (web adresinin yanındaki simge), Konum’u İzin ver olarak ayarla ve tekrar dene.",
+    "search_ph": "Şehir veya kasaba ara",
+    "search": "Ara",
+    "searching": "Aranıyor…",
+    "no_results": "Yer bulunamadı. Farklı bir yazım dene.",
+    "search_error": "Arama şu anda kullanılamıyor. Lütfen tekrar dene.",
+    "rate_limited": "Çok fazla arama yapıldı. Lütfen bir dakika bekle.",
+    "remove": "{name} öğesini kaldır",
+    "limit_reached": "{n} kayıtlı konum sınırına ulaştın.",
+    "no_places": "En yakın depremleri görmek için bir yer ekle veya mevcut konumunu kullan."
   },
   "onboard": {
     "skip": "Atla",

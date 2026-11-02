@@ -287,10 +287,18 @@
     "use_location": "Usa la mia posizione attuale",
     "loc_denied": "L’accesso alla posizione è disattivato. Puoi attivarlo nelle impostazioni del browser o del dispositivo.",
     "loc_unavailable": "Impossibile trovare la tua posizione. Riprova più tardi.",
-    "search_soon": "La ricerca di un luogo arriverà presto. Per ora usa la tua posizione attuale.",
     "intro": "Mostra l’introduzione",
     "billing_soon": "I pagamenti non sono ancora disponibili. Torna presto.",
-    "loc_help": "Per consentirlo, apri le impostazioni del sito (l’icona accanto all’indirizzo web), imposta Posizione su Consenti e riprova."
+    "loc_help": "Per consentirlo, apri le impostazioni del sito (l’icona accanto all’indirizzo web), imposta Posizione su Consenti e riprova.",
+    "search_ph": "Cerca una città o un paese",
+    "search": "Cerca",
+    "searching": "Ricerca in corso…",
+    "no_results": "Nessun luogo trovato. Prova un’altra grafia.",
+    "search_error": "La ricerca non è disponibile al momento. Riprova.",
+    "rate_limited": "Troppe ricerche. Attendi un minuto.",
+    "remove": "Rimuovi {name}",
+    "limit_reached": "Hai raggiunto il limite di {n} luoghi salvati.",
+    "no_places": "Aggiungi un luogo o usa la tua posizione attuale per vedere i terremoti più vicini."
   },
   "onboard": {
     "skip": "Salta",

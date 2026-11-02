@@ -287,10 +287,18 @@
     "use_location": "Usar mi ubicación actual",
     "loc_denied": "El acceso a la ubicación está desactivado. Puedes activarlo en la configuración del navegador o del dispositivo.",
     "loc_unavailable": "No se pudo encontrar tu ubicación. Inténtalo más tarde.",
-    "search_soon": "Pronto podrás buscar un lugar. Por ahora, usa tu ubicación actual.",
     "intro": "Ver la introducción",
     "billing_soon": "Los pagos aún no están disponibles. Vuelve pronto.",
-    "loc_help": "Para permitirlo, abre la configuración del sitio (el icono junto a la dirección web), cambia Ubicación a Permitir y vuelve a intentarlo."
+    "loc_help": "Para permitirlo, abre la configuración del sitio (el icono junto a la dirección web), cambia Ubicación a Permitir y vuelve a intentarlo.",
+    "search_ph": "Busca una ciudad o un pueblo",
+    "search": "Buscar",
+    "searching": "Buscando…",
+    "no_results": "No se encontraron lugares. Prueba con otra escritura.",
+    "search_error": "La búsqueda no está disponible ahora. Inténtalo de nuevo.",
+    "rate_limited": "Demasiadas búsquedas. Espera un minuto.",
+    "remove": "Quitar {name}",
+    "limit_reached": "Has alcanzado el límite de {n} ubicaciones guardadas.",
+    "no_places": "Añade un lugar o usa tu ubicación actual para ver los sismos más cercanos."
   },
   "onboard": {
     "skip": "Omitir",

@@ -287,10 +287,18 @@
     "use_location": "Aktuellen Standort verwenden",
     "loc_denied": "Der Standortzugriff ist ausgeschaltet. Du kannst ihn in den Browser- oder Geräteeinstellungen aktivieren.",
     "loc_unavailable": "Dein Standort konnte nicht ermittelt werden. Bitte versuche es später erneut.",
-    "search_soon": "Die Ortssuche kommt bald. Verwende bis dahin deinen aktuellen Standort.",
     "intro": "Einführung anzeigen",
     "billing_soon": "Zahlungen sind noch nicht verfügbar. Schau bald wieder vorbei.",
-    "loc_help": "Öffne dazu die Website-Einstellungen (das Symbol neben der Webadresse), stelle Standort auf Zulassen und versuche es erneut."
+    "loc_help": "Öffne dazu die Website-Einstellungen (das Symbol neben der Webadresse), stelle Standort auf Zulassen und versuche es erneut.",
+    "search_ph": "Stadt oder Ort suchen",
+    "search": "Suchen",
+    "searching": "Suche läuft …",
+    "no_results": "Keine Orte gefunden. Versuche eine andere Schreibweise.",
+    "search_error": "Die Suche ist gerade nicht verfügbar. Bitte versuche es erneut.",
+    "rate_limited": "Zu viele Suchen. Bitte warte eine Minute.",
+    "remove": "{name} entfernen",
+    "limit_reached": "Du hast das Limit von {n} gespeicherten Orten erreicht.",
+    "no_places": "Füge einen Ort hinzu oder nutze deinen aktuellen Standort, um die nächsten Erdbeben zu sehen."
   },
   "onboard": {
     "skip": "Überspringen",
