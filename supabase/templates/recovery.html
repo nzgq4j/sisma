@@ -1,0 +1,64 @@
+{{ $l := printf "%v" .Data.locale }}<!doctype html>
+<html lang="{{ if eq $l "es" }}es{{ else if eq $l "ja" }}ja{{ else if eq $l "id" }}id{{ else if eq $l "tr" }}tr{{ else if eq $l "it" }}it{{ else if eq $l "pt" }}pt{{ else if eq $l "zh" }}zh{{ else if eq $l "fr" }}fr{{ else if eq $l "de" }}de{{ else }}en{{ end }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{{ if eq $l "es" }}Restablece tu contraseña{{ else if eq $l "ja" }}パスワードの再設定{{ else if eq $l "id" }}Atur ulang kata sandi{{ else if eq $l "tr" }}Şifrenizi sıfırlayın{{ else if eq $l "it" }}Reimposta la password{{ else if eq $l "pt" }}Redefina sua senha{{ else if eq $l "zh" }}重置密码{{ else if eq $l "fr" }}Réinitialisez votre mot de passe{{ else if eq $l "de" }}Passwort zurücksetzen{{ else }}Reset your password{{ end }}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F6F4FC;">
+<!-- Inbox preview text -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{ if eq $l "es" }}Elige una contraseña nueva para tu cuenta de sisma.{{ else if eq $l "ja" }}sisma アカウントの新しいパスワードを設定してください。{{ else if eq $l "id" }}Pilih kata sandi baru untuk akun sisma Anda.{{ else if eq $l "tr" }}sisma hesabınız için yeni bir şifre seçin.{{ else if eq $l "it" }}Scegli una nuova password per il tuo account sisma.{{ else if eq $l "pt" }}Escolha uma nova senha para sua conta sisma.{{ else if eq $l "zh" }}为你的 sisma 账户设置新密码。{{ else if eq $l "fr" }}Choisissez un nouveau mot de passe pour votre compte sisma.{{ else if eq $l "de" }}Wähle ein neues Passwort für dein sisma-Konto.{{ else }}Choose a new password for your sisma account.{{ end }}&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F6F4FC" style="background-color:#F6F4FC;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
+        <!-- Logo -->
+        <tr>
+          <td style="padding:0 4px 24px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+              <td style="padding-right:10px;vertical-align:middle;"><img src="https://sisma.io/icons/icon-192.png" width="36" height="36" alt="" style="display:block;border:0;border-radius:11px;"></td>
+              <td style="vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.4px;color:#1B1530;">sisma<span style="color:#5E587A;font-weight:600;">.io</span></td>
+            </tr></table>
+          </td>
+        </tr>
+        <!-- Card -->
+        <tr>
+          <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;border:1px solid #E4E0F0;border-radius:20px;">
+            <!-- Magnitude colour strip -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="4" bgcolor="#86DCC4" style="height:4px;line-height:4px;font-size:0;border-top-left-radius:20px;">&nbsp;</td><td height="4" bgcolor="#F7CF4A" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FFA94D" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FF7A59" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#EE4266" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#B5179E" style="height:4px;line-height:4px;font-size:0;border-top-right-radius:20px;">&nbsp;</td></tr></table>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="padding:28px 32px 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#6C4BF4;">{{ if eq $l "es" }}RESTABLECER CONTRASEÑA{{ else if eq $l "ja" }}パスワード再設定{{ else if eq $l "id" }}ATUR ULANG KATA SANDI{{ else if eq $l "tr" }}ŞİFRE SIFIRLAMA{{ else if eq $l "it" }}REIMPOSTA PASSWORD{{ else if eq $l "pt" }}REDEFINIR SENHA{{ else if eq $l "zh" }}重置密码{{ else if eq $l "fr" }}RÉINITIALISATION{{ else if eq $l "de" }}PASSWORT ZURÜCKSETZEN{{ else }}PASSWORD RESET{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:800;letter-spacing:-0.5px;color:#1B1530;">{{ if eq $l "es" }}Restablece tu <span style="color:#6C4BF4;">contraseña</span>{{ else if eq $l "ja" }}<span style="color:#6C4BF4;">パスワード</span>を再設定{{ else if eq $l "id" }}Atur ulang <span style="color:#6C4BF4;">kata sandi</span>{{ else if eq $l "tr" }}<span style="color:#6C4BF4;">Şifrenizi</span> sıfırlayın{{ else if eq $l "it" }}Reimposta la <span style="color:#6C4BF4;">password</span>{{ else if eq $l "pt" }}Redefina sua <span style="color:#6C4BF4;">senha</span>{{ else if eq $l "zh" }}重置你的<span style="color:#6C4BF4;">密码</span>{{ else if eq $l "fr" }}Réinitialisez votre <span style="color:#6C4BF4;">mot de passe</span>{{ else if eq $l "de" }}<span style="color:#6C4BF4;">Passwort</span> zurücksetzen{{ else }}Reset your <span style="color:#6C4BF4;">password</span>{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 26px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:24px;color:#5E587A;">{{ if eq $l "es" }}Recibimos una solicitud para restablecer la contraseña de <strong style="color:#1B1530;">{{ .Email }}</strong>. Elige una nueva con el botón de abajo. El enlace funciona una vez y caduca pronto.{{ else if eq $l "ja" }}<strong style="color:#1B1530;">{{ .Email }}</strong> のパスワード再設定のリクエストを受け付けました。下のボタンから新しいパスワードを設定してください。リンクは一度だけ有効で、まもなく期限切れになります。{{ else if eq $l "id" }}Kami menerima permintaan untuk mengatur ulang kata sandi <strong style="color:#1B1530;">{{ .Email }}</strong>. Pilih kata sandi baru dengan tombol di bawah. Tautan hanya berlaku sekali dan segera kedaluwarsa.{{ else if eq $l "tr" }}<strong style="color:#1B1530;">{{ .Email }}</strong> için şifre sıfırlama isteği aldık. Aşağıdaki düğmeyle yeni bir şifre seçin. Bağlantı yalnızca bir kez çalışır ve kısa sürede geçerliliğini yitirir.{{ else if eq $l "it" }}Abbiamo ricevuto una richiesta di reimpostare la password di <strong style="color:#1B1530;">{{ .Email }}</strong>. Scegline una nuova con il pulsante qui sotto. Il link funziona una sola volta e scade a breve.{{ else if eq $l "pt" }}Recebemos um pedido para redefinir a senha de <strong style="color:#1B1530;">{{ .Email }}</strong>. Escolha uma nova com o botão abaixo. O link funciona uma vez e expira em breve.{{ else if eq $l "zh" }}我们收到了重置 <strong style="color:#1B1530;">{{ .Email }}</strong> 密码的请求。请点击下方按钮设置新密码。链接仅可使用一次，并将很快失效。{{ else if eq $l "fr" }}Nous avons reçu une demande de réinitialisation du mot de passe de <strong style="color:#1B1530;">{{ .Email }}</strong>. Choisissez-en un nouveau avec le bouton ci-dessous. Le lien ne fonctionne qu’une fois et expire bientôt.{{ else if eq $l "de" }}Wir haben eine Anfrage erhalten, das Passwort für <strong style="color:#1B1530;">{{ .Email }}</strong> zurückzusetzen. Wähle mit der Schaltfläche unten ein neues. Der Link funktioniert einmal und läuft bald ab.{{ else }}We received a request to reset the password for <strong style="color:#1B1530;">{{ .Email }}</strong>. Choose a new one with the button below. The link works once and expires soon.{{ end }}</td></tr>
+              <tr>
+                <td style="padding:0 32px 24px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                    <td align="center" bgcolor="#6C4BF4" style="background-color:#6C4BF4;border-radius:999px;">
+                      <a href="{{ .ConfirmationURL }}" target="_blank" style="display:inline-block;padding:15px 28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:999px;">{{ if eq $l "es" }}Elegir contraseña nueva{{ else if eq $l "ja" }}新しいパスワードを設定{{ else if eq $l "id" }}Pilih kata sandi baru{{ else if eq $l "tr" }}Yeni şifre seç{{ else if eq $l "it" }}Scegli una nuova password{{ else if eq $l "pt" }}Escolher nova senha{{ else if eq $l "zh" }}设置新密码{{ else if eq $l "fr" }}Choisir un nouveau mot de passe{{ else if eq $l "de" }}Neues Passwort wählen{{ else }}Choose a new password{{ end }}</a>
+                    </td>
+                  </tr></table>
+                </td>
+              </tr>
+              <tr><td style="padding:0 32px 32px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#5E587A;">
+                {{ if eq $l "es" }}¿El botón no funciona? Copia este enlace en tu navegador:{{ else if eq $l "ja" }}ボタンが使えない場合は、このリンクをブラウザに貼り付けてください：{{ else if eq $l "id" }}Tombol tidak berfungsi? Salin tautan ini ke peramban Anda:{{ else if eq $l "tr" }}Düğme çalışmıyor mu? Bu bağlantıyı tarayıcınıza kopyalayın:{{ else if eq $l "it" }}Il pulsante non funziona? Copia questo link nel browser:{{ else if eq $l "pt" }}O botão não funciona? Copie este link no navegador:{{ else if eq $l "zh" }}按钮无法使用？请将此链接复制到浏览器：{{ else if eq $l "fr" }}Le bouton ne fonctionne pas ? Copiez ce lien dans votre navigateur :{{ else if eq $l "de" }}Schaltfläche funktioniert nicht? Kopiere diesen Link in deinen Browser:{{ else }}Button not working? Copy this link into your browser:{{ end }}<br>
+                <a href="{{ .ConfirmationURL }}" target="_blank" style="color:#6C4BF4;word-break:break-all;">{{ .ConfirmationURL }}</a>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td style="padding:24px 4px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#5E587A;">
+            {{ if eq $l "es" }}Si no pediste restablecer tu contraseña, ignora este correo. Tu contraseña no cambia.{{ else if eq $l "ja" }}パスワードの再設定を依頼していない場合は、このメールを無視してください。パスワードは変更されません。{{ else if eq $l "id" }}Jika Anda tidak meminta pengaturan ulang kata sandi, abaikan email ini. Kata sandi Anda tetap sama.{{ else if eq $l "tr" }}Şifre sıfırlama istemediyseniz bu e-postayı yok sayın. Şifreniz değişmez.{{ else if eq $l "it" }}Se non hai chiesto di reimpostare la password, ignora questa email. La password resta invariata.{{ else if eq $l "pt" }}Se você não pediu para redefinir a senha, ignore este e-mail. Sua senha continua a mesma.{{ else if eq $l "zh" }}如果你没有申请重置密码，请忽略此邮件，你的密码不会改变。{{ else if eq $l "fr" }}Si vous n’avez pas demandé de réinitialisation, ignorez cet e-mail. Votre mot de passe ne change pas.{{ else if eq $l "de" }}Wenn du kein neues Passwort angefordert hast, ignoriere diese E-Mail. Dein Passwort bleibt unverändert.{{ else }}If you didn’t ask to reset your password, ignore this email. Your password stays the same.{{ end }}<br><br>
+            <a href="https://sisma.io" target="_blank" style="color:#6C4BF4;text-decoration:none;font-weight:700;">sisma.io</a>
+            <span style="color:#B9B3CC;">&nbsp;·&nbsp;</span>{{ if eq $l "es" }}Terremotos en vivo y explicados{{ else if eq $l "ja" }}地震をリアルタイムで、わかりやすく{{ else if eq $l "id" }}Gempa bumi, langsung dan dijelaskan{{ else if eq $l "tr" }}Depremler, canlı ve açıklamalı{{ else if eq $l "it" }}Terremoti in diretta e spiegati{{ else if eq $l "pt" }}Terremotos ao vivo e explicados{{ else if eq $l "zh" }}实时地震，清晰解读{{ else if eq $l "fr" }}Les séismes, en direct et expliqués{{ else if eq $l "de" }}Erdbeben, live und erklärt{{ else }}Earthquakes, live and explained{{ end }}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

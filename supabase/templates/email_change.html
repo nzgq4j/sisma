@@ -1,0 +1,64 @@
+{{ $l := printf "%v" .Data.locale }}<!doctype html>
+<html lang="{{ if eq $l "es" }}es{{ else if eq $l "ja" }}ja{{ else if eq $l "id" }}id{{ else if eq $l "tr" }}tr{{ else if eq $l "it" }}it{{ else if eq $l "pt" }}pt{{ else if eq $l "zh" }}zh{{ else if eq $l "fr" }}fr{{ else if eq $l "de" }}de{{ else }}en{{ end }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>{{ if eq $l "es" }}Confirma tu nuevo correo{{ else if eq $l "ja" }}新しいメールアドレスの確認{{ else if eq $l "id" }}Konfirmasi email baru{{ else if eq $l "tr" }}Yeni e-postanızı onaylayın{{ else if eq $l "it" }}Conferma la nuova email{{ else if eq $l "pt" }}Confirme seu novo e-mail{{ else if eq $l "zh" }}确认新邮箱{{ else if eq $l "fr" }}Confirmez votre nouvel e-mail{{ else if eq $l "de" }}Neue E-Mail bestätigen{{ else }}Confirm your new email{{ end }}</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F6F4FC;">
+<!-- Inbox preview text -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{{ if eq $l "es" }}Confirma la nueva dirección de correo de tu cuenta de sisma.{{ else if eq $l "ja" }}sisma アカウントの新しいメールアドレスを確認してください。{{ else if eq $l "id" }}Konfirmasi alamat email baru untuk akun sisma Anda.{{ else if eq $l "tr" }}sisma hesabınızın yeni e-posta adresini onaylayın.{{ else if eq $l "it" }}Conferma il nuovo indirizzo email del tuo account sisma.{{ else if eq $l "pt" }}Confirme o novo endereço de e-mail da sua conta sisma.{{ else if eq $l "zh" }}确认 sisma 账户的新邮箱地址。{{ else if eq $l "fr" }}Confirmez la nouvelle adresse e-mail de votre compte sisma.{{ else if eq $l "de" }}Bestätige die neue E-Mail-Adresse deines sisma-Kontos.{{ else }}Confirm the new email address for your sisma account.{{ end }}&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F6F4FC" style="background-color:#F6F4FC;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
+        <!-- Logo -->
+        <tr>
+          <td style="padding:0 4px 24px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+              <td style="padding-right:10px;vertical-align:middle;"><img src="https://sisma.io/icons/icon-192.png" width="36" height="36" alt="" style="display:block;border:0;border-radius:11px;"></td>
+              <td style="vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.4px;color:#1B1530;">sisma<span style="color:#5E587A;font-weight:600;">.io</span></td>
+            </tr></table>
+          </td>
+        </tr>
+        <!-- Card -->
+        <tr>
+          <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;border:1px solid #E4E0F0;border-radius:20px;">
+            <!-- Magnitude colour strip -->
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td height="4" bgcolor="#86DCC4" style="height:4px;line-height:4px;font-size:0;border-top-left-radius:20px;">&nbsp;</td><td height="4" bgcolor="#F7CF4A" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FFA94D" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#FF7A59" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#EE4266" style="height:4px;line-height:4px;font-size:0;">&nbsp;</td><td height="4" bgcolor="#B5179E" style="height:4px;line-height:4px;font-size:0;border-top-right-radius:20px;">&nbsp;</td></tr></table>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="padding:28px 32px 8px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;color:#6C4BF4;">{{ if eq $l "es" }}CAMBIO DE CORREO{{ else if eq $l "ja" }}メールアドレスの変更{{ else if eq $l "id" }}PERUBAHAN EMAIL{{ else if eq $l "tr" }}E-POSTA DEĞİŞİKLİĞİ{{ else if eq $l "it" }}CAMBIO EMAIL{{ else if eq $l "pt" }}MUDANÇA DE E-MAIL{{ else if eq $l "zh" }}更改邮箱{{ else if eq $l "fr" }}CHANGEMENT D’E-MAIL{{ else if eq $l "de" }}E-MAIL-ÄNDERUNG{{ else }}EMAIL CHANGE{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 14px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:28px;line-height:34px;font-weight:800;letter-spacing:-0.5px;color:#1B1530;">{{ if eq $l "es" }}Confirma tu <span style="color:#6C4BF4;">nuevo correo</span>{{ else if eq $l "ja" }}<span style="color:#6C4BF4;">新しいメールアドレス</span>を確認{{ else if eq $l "id" }}Konfirmasi <span style="color:#6C4BF4;">email baru</span> Anda{{ else if eq $l "tr" }}<span style="color:#6C4BF4;">Yeni e-postanızı</span> onaylayın{{ else if eq $l "it" }}Conferma la <span style="color:#6C4BF4;">nuova email</span>{{ else if eq $l "pt" }}Confirme seu <span style="color:#6C4BF4;">novo e-mail</span>{{ else if eq $l "zh" }}确认你的<span style="color:#6C4BF4;">新邮箱</span>{{ else if eq $l "fr" }}Confirmez votre <span style="color:#6C4BF4;">nouvel e-mail</span>{{ else if eq $l "de" }}<span style="color:#6C4BF4;">Neue E-Mail</span> bestätigen{{ else }}Confirm your <span style="color:#6C4BF4;">new email</span>{{ end }}</td></tr>
+              <tr><td style="padding:0 32px 26px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:24px;color:#5E587A;">{{ if eq $l "es" }}Pediste cambiar el correo de tu cuenta de sisma de <strong style="color:#1B1530;">{{ .Email }}</strong> a <strong style="color:#1B1530;">{{ .NewEmail }}</strong>. Confirma el cambio con el botón de abajo.{{ else if eq $l "ja" }}sisma アカウントのメールアドレスを <strong style="color:#1B1530;">{{ .Email }}</strong> から <strong style="color:#1B1530;">{{ .NewEmail }}</strong> に変更するリクエストを受け付けました。下のボタンで変更を確定してください。{{ else if eq $l "id" }}Anda meminta mengubah alamat email akun sisma dari <strong style="color:#1B1530;">{{ .Email }}</strong> menjadi <strong style="color:#1B1530;">{{ .NewEmail }}</strong>. Konfirmasi perubahan dengan tombol di bawah.{{ else if eq $l "tr" }}sisma hesabınızın e-posta adresini <strong style="color:#1B1530;">{{ .Email }}</strong> yerine <strong style="color:#1B1530;">{{ .NewEmail }}</strong> olarak değiştirmek istediniz. Değişikliği aşağıdaki düğmeyle onaylayın.{{ else if eq $l "it" }}Hai chiesto di cambiare l’indirizzo email del tuo account sisma da <strong style="color:#1B1530;">{{ .Email }}</strong> a <strong style="color:#1B1530;">{{ .NewEmail }}</strong>. Conferma la modifica con il pulsante qui sotto.{{ else if eq $l "pt" }}Você pediu para mudar o e-mail da sua conta sisma de <strong style="color:#1B1530;">{{ .Email }}</strong> para <strong style="color:#1B1530;">{{ .NewEmail }}</strong>. Confirme a mudança com o botão abaixo.{{ else if eq $l "zh" }}你申请将 sisma 账户的邮箱从 <strong style="color:#1B1530;">{{ .Email }}</strong> 更改为 <strong style="color:#1B1530;">{{ .NewEmail }}</strong>。请点击下方按钮确认更改。{{ else if eq $l "fr" }}Vous avez demandé à remplacer l’adresse e-mail de votre compte sisma <strong style="color:#1B1530;">{{ .Email }}</strong> par <strong style="color:#1B1530;">{{ .NewEmail }}</strong>. Confirmez le changement avec le bouton ci-dessous.{{ else if eq $l "de" }}Du möchtest die E-Mail-Adresse deines sisma-Kontos von <strong style="color:#1B1530;">{{ .Email }}</strong> auf <strong style="color:#1B1530;">{{ .NewEmail }}</strong> ändern. Bestätige die Änderung mit der Schaltfläche unten.{{ else }}You asked to change the email address on your sisma account from <strong style="color:#1B1530;">{{ .Email }}</strong> to <strong style="color:#1B1530;">{{ .NewEmail }}</strong>. Confirm the change with the button below.{{ end }}</td></tr>
+              <tr>
+                <td style="padding:0 32px 24px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                    <td align="center" bgcolor="#6C4BF4" style="background-color:#6C4BF4;border-radius:999px;">
+                      <a href="{{ .ConfirmationURL }}" target="_blank" style="display:inline-block;padding:15px 28px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:999px;">{{ if eq $l "es" }}Confirmar nueva dirección{{ else if eq $l "ja" }}新しいアドレスを確認{{ else if eq $l "id" }}Konfirmasi alamat baru{{ else if eq $l "tr" }}Yeni adresi onayla{{ else if eq $l "it" }}Conferma nuovo indirizzo{{ else if eq $l "pt" }}Confirmar novo endereço{{ else if eq $l "zh" }}确认新地址{{ else if eq $l "fr" }}Confirmer la nouvelle adresse{{ else if eq $l "de" }}Neue Adresse bestätigen{{ else }}Confirm new address{{ end }}</a>
+                    </td>
+                  </tr></table>
+                </td>
+              </tr>
+              <tr><td style="padding:0 32px 32px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:20px;color:#5E587A;">
+                {{ if eq $l "es" }}¿El botón no funciona? Copia este enlace en tu navegador:{{ else if eq $l "ja" }}ボタンが使えない場合は、このリンクをブラウザに貼り付けてください：{{ else if eq $l "id" }}Tombol tidak berfungsi? Salin tautan ini ke peramban Anda:{{ else if eq $l "tr" }}Düğme çalışmıyor mu? Bu bağlantıyı tarayıcınıza kopyalayın:{{ else if eq $l "it" }}Il pulsante non funziona? Copia questo link nel browser:{{ else if eq $l "pt" }}O botão não funciona? Copie este link no navegador:{{ else if eq $l "zh" }}按钮无法使用？请将此链接复制到浏览器：{{ else if eq $l "fr" }}Le bouton ne fonctionne pas ? Copiez ce lien dans votre navigateur :{{ else if eq $l "de" }}Schaltfläche funktioniert nicht? Kopiere diesen Link in deinen Browser:{{ else }}Button not working? Copy this link into your browser:{{ end }}<br>
+                <a href="{{ .ConfirmationURL }}" target="_blank" style="color:#6C4BF4;word-break:break-all;">{{ .ConfirmationURL }}</a>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <!-- Footer -->
+        <tr>
+          <td style="padding:24px 4px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#5E587A;">
+            {{ if eq $l "es" }}Si no pediste este cambio, ignora este correo y tu dirección no cambiará.{{ else if eq $l "ja" }}この変更を依頼していない場合は、このメールを無視してください。アドレスは変更されません。{{ else if eq $l "id" }}Jika Anda tidak meminta perubahan ini, abaikan email ini dan alamat Anda tetap sama.{{ else if eq $l "tr" }}Bu değişikliği istemediyseniz e-postayı yok sayın; adresiniz değişmez.{{ else if eq $l "it" }}Se non hai chiesto questa modifica, ignora questa email e l’indirizzo resta invariato.{{ else if eq $l "pt" }}Se você não pediu esta mudança, ignore este e-mail e seu endereço continua o mesmo.{{ else if eq $l "zh" }}如果你没有申请此更改，请忽略此邮件，你的邮箱地址不会改变。{{ else if eq $l "fr" }}Si vous n’avez pas demandé ce changement, ignorez cet e-mail : votre adresse reste la même.{{ else if eq $l "de" }}Wenn du diese Änderung nicht angefordert hast, ignoriere die E-Mail; deine Adresse bleibt unverändert.{{ else }}If you didn’t ask for this change, ignore this email and your address stays the same.{{ end }}<br><br>
+            <a href="https://sisma.io" target="_blank" style="color:#6C4BF4;text-decoration:none;font-weight:700;">sisma.io</a>
+            <span style="color:#B9B3CC;">&nbsp;·&nbsp;</span>{{ if eq $l "es" }}Terremotos en vivo y explicados{{ else if eq $l "ja" }}地震をリアルタイムで、わかりやすく{{ else if eq $l "id" }}Gempa bumi, langsung dan dijelaskan{{ else if eq $l "tr" }}Depremler, canlı ve açıklamalı{{ else if eq $l "it" }}Terremoti in diretta e spiegati{{ else if eq $l "pt" }}Terremotos ao vivo e explicados{{ else if eq $l "zh" }}实时地震，清晰解读{{ else if eq $l "fr" }}Les séismes, en direct et expliqués{{ else if eq $l "de" }}Erdbeben, live und erklärt{{ else }}Earthquakes, live and explained{{ end }}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -31,7 +31,7 @@ Open them in a browser; they run on live USGS data.
 
 Supabase: project `sisma` (ref `ukmvbfhfbohdlxoxlqhc`, us-east-1). Migrations in supabase/migrations are applied.
 Vercel has NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY; SUPABASE_SERVICE_ROLE_KEY (secret) must be set
-for felt reports to be stored.
+for felt reports to be stored. Full checklist (auth URLs, email templates, SMTP, …): docs/supabase-setup.md.
 
 Copy app/.env.example to app/.env.local. Without Supabase/Stripe keys the app runs in demo mode
 (local plan toggle, reports kept in memory).
