@@ -307,7 +307,10 @@
     "display_name_ph": "Tu nombre",
     "display_name_hint": "Se muestra en tu cuenta. Déjalo vacío para usar tu correo.",
     "not_set": "Sin definir",
-    "save": "Guardar"
+    "save": "Guardar",
+    "continue_google": "Continuar con Google",
+    "or_email": "o usa tu correo",
+    "oauth_error": "No se pudo iniciar sesión con Google. Inténtalo de nuevo."
   },
   "onboard": {
     "skip": "Omitir",

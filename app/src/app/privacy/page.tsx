@@ -39,7 +39,8 @@ export default function PrivacyPage() {
         <table>
           <thead><tr><th>Data</th><th>When</th><th>Why</th><th>How long</th></tr></thead>
           <tbody>
-            <tr><td><strong>Email address</strong></td><td>You create an account (sign-in is by an emailed link; there is no password)</td><td>To sign you in and contact you about your account</td><td>Until you delete your account</td></tr>
+            <tr><td><strong>Email address</strong></td><td>You create an account (by an emailed sign-in link — there is no password — or with Google)</td><td>To sign you in and contact you about your account</td><td>Until you delete your account</td></tr>
+            <tr><td><strong>Google profile</strong> (name, email address, profile picture link)</td><td>You choose “Continue with Google”</td><td>To sign you in; your Google name becomes your display name, which you can change</td><td>Until you delete your account. Google never shares your password with us</td></tr>
             <tr><td><strong>Display name</strong>, language, appearance setting</td><td>You set them in Me</td><td>To show your account and keep your settings on every device</td><td>Until you change them or delete your account</td></tr>
             <tr><td><strong>Saved places</strong> (name, region, country, coordinates of the place) and your default place</td><td>You save a place while signed in</td><td>To show the earthquakes nearest to the places you care about</td><td>Until you remove them or delete your account</td></tr>
             <tr><td><strong>Alert settings</strong> (on/off, minimum magnitude, distance)</td><td>You change them (sisma+)</td><td>To send the alerts you asked for</td><td>Until you delete your account</td></tr>
@@ -90,7 +91,7 @@ export default function PrivacyPage() {
         <li><strong>Supabase Inc.</strong> (database and sign-in; servers in the eastern United States).</li>
         <li><strong>Resend</strong> — sends sign-in and account emails.</li>
         <li><strong>Stripe</strong> — website payments (independent controller for payment data).</li>
-        <li><strong>Google</strong> — Google Play billing and Firebase Cloud Messaging in the Android app; Google Fonts delivers the icon font, so your browser contacts Google’s servers, which receive your IP address.</li>
+        <li><strong>Google</strong> — sign-in with Google (if you choose it), Google Play billing and Firebase Cloud Messaging in the Android app; Google Fonts delivers the icon font, so your browser contacts Google’s servers, which receive your IP address.</li>
         <li><strong>OpenStreetMap Foundation</strong> — place search (receives the search text from our server, not your IP address).</li>
       </ul>
       <p>

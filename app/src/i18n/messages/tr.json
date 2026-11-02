@@ -307,7 +307,10 @@
     "display_name_ph": "Adın",
     "display_name_hint": "Hesabında gösterilir. E-postanı kullanmak için boş bırak.",
     "not_set": "Ayarlanmadı",
-    "save": "Kaydet"
+    "save": "Kaydet",
+    "continue_google": "Google ile devam et",
+    "or_email": "veya e-postanı kullan",
+    "oauth_error": "Google ile giriş yapılamadı. Lütfen tekrar dene."
   },
   "onboard": {
     "skip": "Atla",
