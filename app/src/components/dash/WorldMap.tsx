@@ -20,13 +20,15 @@ export const dotRadius = (mag: number) => Math.max(2.4, (mag - 1.6) * 2.1);
 
 export interface MapFocus { key: string; lat: number; lon: number; zoom: number }
 
-export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, cells = [] }: {
+export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, cells = [], onReset }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   projection?: 'equalEarth' | 'mercator'; plates?: boolean; pin?: boolean; controls?: boolean; toolsClassName?: string;
   /** Zoom to this point (changing `key` re-applies it). */
   focus?: MapFocus | null;
   /** Felt reports as ~10 km cells, drawn as soft, blurred areas so no exact position is implied. */
   cells?: FeltCell[];
+  /** Called when the reset-view button is pressed (e.g. to leave a focused region). */
+  onReset?: () => void;
 }) {
   const gid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const { t, m, nf } = useT();
@@ -90,7 +92,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const rScale = 1 / Math.sqrt(k);
 
   const zoomBy = (f: number) => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.scaleBy, f); };
-  const reset = () => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); };
+  const reset = () => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); onReset?.(); };
 
   return (
     <div ref={wrapRef} className={styles.mapWrap} onMouseLeave={() => setHover(null)}>

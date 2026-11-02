@@ -30,6 +30,7 @@
   "report_error": "No se pudo enviar tu reporte. Inténtalo de nuevo.",
   "report_window": "Los reportes están abiertos 6 horas después de un sismo.",
   "show_region": "Mostrar región",
+  "exit_region": "Volver al mapa mundial",
   "felt_reports_n": "{n} reportes · ubicaciones aproximadas",
   "felt_reports_1": "1 reporte · ubicación aproximada",
   "felt_reports_0": "Aún no hay reportes con ubicación",
