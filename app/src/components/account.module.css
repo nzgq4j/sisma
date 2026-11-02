@@ -12,3 +12,9 @@
 .linkBtn { align-self: flex-start; min-height: 44px; border: 0; background: none; color: var(--violet-text); font: 700 15px var(--font-figtree), sans-serif; cursor: pointer; padding: 0; }
 .err { margin: 0; font-size: 14px; color: var(--warm-text); font-weight: 600; }
 .bigIcon { font-size: 44px; color: var(--violet-text); }
+.google { height: 52px; border: 1px solid var(--line); border-radius: 26px; background: #fff; color: #1F1F1F; font: 600 16px var(--font-figtree), sans-serif;
+  display: flex; align-items: center; justify-content: center; gap: 12px; cursor: pointer; }
+.google:hover { background: #F8F8F8; }
+.google:disabled { opacity: .7; cursor: progress; }
+.or { display: flex; align-items: center; gap: 12px; color: var(--ink2); font-size: 13px; font-weight: 600; margin: 4px 0; }
+.or::before, .or::after { content: ''; flex: 1; height: 1px; background: var(--line); }

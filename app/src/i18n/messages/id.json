@@ -307,7 +307,10 @@
     "display_name_ph": "Nama Anda",
     "display_name_hint": "Ditampilkan di akun Anda. Biarkan kosong untuk memakai email.",
     "not_set": "Belum diatur",
-    "save": "Simpan"
+    "save": "Simpan",
+    "continue_google": "Lanjutkan dengan Google",
+    "or_email": "atau gunakan email Anda",
+    "oauth_error": "Tidak dapat masuk dengan Google. Silakan coba lagi."
   },
   "onboard": {
     "skip": "Lewati",

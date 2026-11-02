@@ -1,10 +1,12 @@
 'use client';
-// Account state for /app: Supabase session (passwordless email link), the user's profile row and effective plan.
+// Account state for /app: Supabase session (passwordless email link, or Google when enabled in Supabase), the user's
+// profile row and effective plan.
 // Guest mode when Supabase isn't configured or nobody is signed in. Paid features are re-checked on the server
 // (/api routes and public.effective_plan()); the plan here only drives the UI.
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import type { User } from '@supabase/supabase-js';
-import { supabaseBrowser } from '@/lib/supabase-browser';
+import { enabledProviders, supabaseBrowser } from '@/lib/supabase-browser';
+import { listenForOAuthReturn, startOAuth } from '@/lib/oauth';
 import { effectivePlan, type Billing, type Plan } from '@/lib/entitlements';
 import { useT } from '@/i18n/I18nProvider';
 import { Sheet } from './Sheet';
@@ -41,12 +43,22 @@ export function AccountProvider({ children }: { children: ReactNode }) {
       setUser(u);
       if (!u) { setProfile(null); setReady(true); return; }
       const { data } = await sb.from('profiles').select(PROFILE_COLS).eq('id', u.id).maybeSingle();
-      if (alive) { setProfile((data as Profile | null) ?? null); setReady(true); }
+      let prof = (data as Profile | null) ?? null;
+      // First Google sign-in: start with the name from the Google profile (editable in Me → Account).
+      const given = String(u.user_metadata?.full_name || u.user_metadata?.name || '').trim().replace(/\s+/g, ' ').slice(0, 50).trim();
+      if (prof && !prof.display_name && given && u.app_metadata?.provider !== 'email') {
+        const { error } = await sb.from('profiles').update({ display_name: given }).eq('id', u.id);
+        if (!error) prof = { ...prof, display_name: given };
+      }
+      if (alive) { setProfile(prof); setReady(true); }
     };
     sb.auth.getSession().then(({ data }) => load(data.session?.user ?? null));
     const { data: sub } = sb.auth.onAuthStateChange((_e, session) => { void load(session?.user ?? null); });
     return () => { alive = false; sub.subscription.unsubscribe(); };
   }, [sb]);
+
+  // Android app: finish a Google sign-in that returned from the phone's browser.
+  useEffect(() => listenForOAuthReturn(), []);
 
   // Keep the language used for auth emails ({{ .Data.locale }}) and the profile in step with the app language.
   useEffect(() => {
@@ -88,8 +100,15 @@ function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
   const { t, m, locale } = useT();
   const sb = supabaseBrowser();
   const [email, setEmail] = useState('');
-  const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [state, setState] = useState<'idle' | 'sending' | 'sent' | 'error' | 'oauth' | 'oauth_error'>('idle');
+  const [providers, setProviders] = useState<string[]>([]);
+  useEffect(() => { if (open) void enabledProviders().then(setProviders); }, [open]);
   const close = () => { onClose(); if (state !== 'sending') setState('idle'); };
+  const google = async () => {
+    if (!sb) return;
+    setState('oauth');
+    try { await startOAuth(sb, 'google'); } catch { setState('oauth_error'); }
+  };
   const send = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!sb) return;
@@ -110,6 +129,15 @@ function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
             </>
           ) : (
             <form onSubmit={send} className={styles.form}>
+              {providers.includes('google') && (
+                <>
+                  <button type="button" className={styles.google} onClick={google} disabled={state === 'oauth'}>
+                    <GoogleMark />{m.acct.continue_google}
+                  </button>
+                  {state === 'oauth_error' && <p className={styles.err} role="alert">{m.acct.oauth_error}</p>}
+                  <div className={styles.or} aria-hidden="true"><span>{m.acct.or_email}</span></div>
+                </>
+              )}
               <p className={styles.p}>{m.acct.sign_in_p}</p>
               <label className={styles.label} htmlFor="sisma-email">{m.acct.email}</label>
               <input id="sisma-email" className={styles.input} type="email" inputMode="email" autoComplete="email" required
@@ -120,5 +148,17 @@ function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
           )}
       </div>
     </Sheet>
+  );
+}
+
+/** Google's "G" mark, in Google's brand colours (required as-is by Google's sign-in branding guidelines). */
+function GoogleMark() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true" style={{ flex: 'none' }}>
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z" />
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z" />
+    </svg>
   );
 }

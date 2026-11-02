@@ -51,8 +51,10 @@ These are where confirmation, password-reset, magic-link and OAuth links may ret
 - Anonymous sign-ins: **off**
 - Manual linking: **off**
 - Phone: **off**
-- Google / Apple: optional later; each needs OAuth credentials from Google Cloud / Apple Developer, and the
-  callback URL Supabase shows on the provider page.
+- **Google:** paste the Client ID and Client secret from Google Cloud (see docs/android-setup.md §4) and switch it on.
+  The app shows *Continue with Google* automatically once it's on. Callback URL to register at Google:
+  `https://ukmvbfhfbohdlxoxlqhc.supabase.co/auth/v1/callback`. Accounts with the same verified email are linked.
+- Apple: optional later; needs an Apple Developer account and Sign in with Apple credentials.
 
 ## 4. Authentication → Emails → Templates (`/auth/templates`)
 

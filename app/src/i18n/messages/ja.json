@@ -307,7 +307,10 @@
     "display_name_ph": "お名前",
     "display_name_hint": "アカウントに表示されます。空欄にするとメールアドレスが使われます。",
     "not_set": "未設定",
-    "save": "保存"
+    "save": "保存",
+    "continue_google": "Google で続行",
+    "or_email": "またはメールアドレスで",
+    "oauth_error": "Google でサインインできませんでした。もう一度お試しください。"
   },
   "onboard": {
     "skip": "スキップ",

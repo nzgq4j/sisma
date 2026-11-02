@@ -307,7 +307,10 @@
     "display_name_ph": "Votre nom",
     "display_name_hint": "Affiché sur votre compte. Laissez vide pour utiliser votre e-mail.",
     "not_set": "Non défini",
-    "save": "Enregistrer"
+    "save": "Enregistrer",
+    "continue_google": "Continuer avec Google",
+    "or_email": "ou utilisez votre e-mail",
+    "oauth_error": "Impossible de se connecter avec Google. Veuillez réessayer."
   },
   "onboard": {
     "skip": "Passer",

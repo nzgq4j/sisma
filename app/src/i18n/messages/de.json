@@ -307,7 +307,10 @@
     "display_name_ph": "Dein Name",
     "display_name_hint": "Wird in deinem Konto angezeigt. Leer lassen, um deine E-Mail zu verwenden.",
     "not_set": "Nicht festgelegt",
-    "save": "Speichern"
+    "save": "Speichern",
+    "continue_google": "Weiter mit Google",
+    "or_email": "oder mit deiner E-Mail",
+    "oauth_error": "Anmeldung mit Google fehlgeschlagen. Bitte versuche es erneut."
   },
   "onboard": {
     "skip": "Überspringen",

@@ -307,7 +307,10 @@
     "display_name_ph": "Seu nome",
     "display_name_hint": "Aparece na sua conta. Deixe em branco para usar seu e-mail.",
     "not_set": "Não definido",
-    "save": "Salvar"
+    "save": "Salvar",
+    "continue_google": "Continuar com o Google",
+    "or_email": "ou use seu e-mail",
+    "oauth_error": "Não foi possível entrar com o Google. Tente novamente."
   },
   "onboard": {
     "skip": "Pular",

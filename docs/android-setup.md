@@ -111,8 +111,10 @@ convenient. Skip this step if you don't want it.
    - Create → copy the **Client ID** and **Client secret** (secret!).
 3. **Supabase → Authentication → Sign In / Providers → Google** → Enable → paste the Client ID and Client secret → Save.
    The secret lives only there.
-4. **→ Claude:** add the "Continue with Google" button. In the Android app, Google blocks sign-in inside embedded web
-   pages, so the app opens sign-in in the phone's browser and comes back through an *app link* (step 6.6).
+4. That's all on the Google/Supabase side — the app already has the **Continue with Google** button; it appears
+   automatically as soon as the Google provider is switched on in Supabase. Test it on https://sisma.io/app/me.
+   In the Android app, Google blocks sign-in inside embedded web pages, so the app opens Google in the phone's browser
+   and comes back through an *app link* (step 6.6). Until the app link is verified, sign-in completes in the browser.
 
 ## 5. Payments — Google Play, Stripe and Google Pay
 
@@ -173,8 +175,21 @@ key yourself, because it must stay on your machine.
    With **Play App Signing** (default, keep it on) Google holds the real signing key; if you lose the upload key,
    Google can reset it.
 6. **App links** (so sign-in links and Google sign-in return to the app): after the first upload, in Play Console →
-   **Test and release → App integrity → App signing**, copy the **SHA-256 certificate fingerprint** (not secret) and
-   send it to me. **→ Claude:** I'll publish `https://sisma.io/.well-known/assetlinks.json` and add the link handling.
+   **Test and release → App integrity → App signing**, copy the **SHA-256 certificate fingerprint** (not secret).
+   Add it in **Vercel → Project sisma → Settings → Environment Variables** as `ANDROID_CERT_SHA256` (Production;
+   for local test builds add the upload key's fingerprint too, comma-separated) and redeploy — or send it to me.
+   sisma.io then serves https://sisma.io/.well-known/assetlinks.json. The app side is this intent filter in
+   `mobile/android/app/src/main/AndroidManifest.xml`, inside the main `<activity>` (**→ Claude** adds it when generating
+   the Android project):
+
+   ```xml
+   <intent-filter android:autoVerify="true">
+     <action android:name="android.intent.action.VIEW" />
+     <category android:name="android.intent.category.DEFAULT" />
+     <category android:name="android.intent.category.BROWSABLE" />
+     <data android:scheme="https" android:host="sisma.io" android:pathPrefix="/app" />
+   </intent-filter>
+   ```
 7. Each new version: raise *versionCode* by 1 (**→ Claude** can do it), build the bundle again, upload. Web changes to
    sisma.io/app reach the app instantly without a new upload; only native changes need one.
 
