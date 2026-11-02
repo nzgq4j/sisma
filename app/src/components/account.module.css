@@ -1,0 +1,14 @@
+.signIn { display: flex; flex-direction: column; gap: 12px; padding: 4px 0 8px; }
+.form { display: flex; flex-direction: column; gap: 10px; }
+.h { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+.p, .note { margin: 0; font-size: 15px; line-height: 1.5; color: var(--ink2); }
+.label { font-size: 13px; font-weight: 700; color: var(--ink2); }
+.input { height: 52px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); color: var(--ink); padding: 0 16px; font: 500 16px var(--font-figtree), sans-serif; }
+.input:focus-visible { outline: 2px solid var(--violet); outline-offset: 1px; }
+.primary { height: 52px; border: 0; border-radius: 26px; background: var(--violet); color: var(--on-violet); font: 800 16px var(--font-figtree), sans-serif; cursor: pointer; }
+.primary:disabled { opacity: .6; cursor: progress; }
+.danger { composes: primary; background: var(--warm-text); color: #fff; }
+.secondary { height: 48px; border: 1px solid var(--line); border-radius: 24px; background: var(--surface); color: var(--ink); font: 700 15px var(--font-figtree), sans-serif; cursor: pointer; }
+.linkBtn { align-self: flex-start; min-height: 44px; border: 0; background: none; color: var(--violet-text); font: 700 15px var(--font-figtree), sans-serif; cursor: pointer; padding: 0; }
+.err { margin: 0; font-size: 14px; color: var(--warm-text); font-weight: 600; }
+.bigIcon { font-size: 44px; color: var(--violet-text); }

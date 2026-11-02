@@ -7,16 +7,21 @@ import { QuakeDataProvider } from '@/components/QuakeData';
 import { FeltReportProvider } from '@/components/FeltReport';
 import { SideNav } from '@/components/dash/SideNav';
 import { Splash } from '@/components/splash/Splash';
+import { AccountProvider } from '@/components/Account';
+import { PaywallSheet } from '@/components/Paywall';
+import { Onboarding } from '@/components/onboarding/Onboarding';
 import styles from '@/components/dash/dash.module.css';
 
 // App shell for /app/*. Phone (< 1024px): top app bar + bottom nav, content column up to 520px, edge-to-edge on Android.
-// Desktop (>= 1024px): side navigation; the dashboard, Map and Globe use the full width, other tabs a centred column.
-const FULL_WIDTH = ['/app', '/app/map', '/app/globe'];
+// Desktop (>= 1024px): side navigation; the dashboard, Map, Globe and Me (account dashboard) use the full width,
+// Science a centred column. Onboarding (first run) sits under the splash; the paywall sheet is shared by every tab.
+const FULL_WIDTH = ['/app', '/app/map', '/app/globe', '/app/me'];
 const BLEED = ['/app/map', '/app/globe']; // edge to edge on phones and tablets too
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const path = usePathname();
   return (
+    <AccountProvider>
     <AppStateProvider>
       <QuakeDataProvider>
       <FeltReportProvider>
@@ -26,9 +31,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
         <div className={styles.mobileOnly}><BottomNav /></div>
+        <PaywallSheet />
+        <Onboarding />
         <Splash />
       </FeltReportProvider>
       </QuakeDataProvider>
     </AppStateProvider>
+    </AccountProvider>
   );
 }

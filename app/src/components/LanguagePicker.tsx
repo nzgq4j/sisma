@@ -9,15 +9,23 @@ import styles from './sheet.module.css';
 
 const FLAGS = LOCALES as { code: Locale; name: string; flag?: string }[];
 
+/** Every language in its own script with its flag; picking applies immediately. Used in the sheet and in onboarding. */
+export function LanguageOptions({ onPicked }: { onPicked?: () => void }) {
+  const { locale, setLocale } = useT();
+  return (
+    <SheetOptions value={locale} onPick={l => { setLocale(l); onPicked?.(); }}
+      options={FLAGS.map(l => ({
+        value: l.code, label: l.name, lang: l.code,
+        lead: l.flag ? <img src={`/flags/${l.flag}.svg`} alt="" width={26} height={26} className={styles.flag} /> : undefined,
+      }))} />
+  );
+}
+
 export function LanguageSheet({ open, onClose, className }: { open: boolean; onClose: () => void; className?: string }) {
-  const { t, locale, setLocale } = useT();
+  const { t } = useT();
   return (
     <Sheet open={open} onClose={onClose} title={t('language')} className={className}>
-      <SheetOptions value={locale} onPick={l => { setLocale(l); onClose(); }}
-        options={FLAGS.map(l => ({
-          value: l.code, label: l.name, lang: l.code,
-          lead: l.flag ? <img src={`/flags/${l.flag}.svg`} alt="" width={26} height={26} className={styles.flag} /> : undefined,
-        }))} />
+      <LanguageOptions onPicked={onClose} />
     </Sheet>
   );
 }

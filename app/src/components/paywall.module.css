@@ -1,0 +1,23 @@
+.wrap { display: flex; flex-direction: column; gap: 18px; padding: 4px 0 8px; }
+.brand { font-size: 34px; font-weight: 800; letter-spacing: -.03em; color: var(--violet-text); }
+.sub { font-size: 15px; color: var(--ink2); }
+.ents { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.ents li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; font-weight: 600; line-height: 1.35; }
+.ents li > span:last-child { padding-top: 3px; }
+.tick { width: 26px; height: 26px; border-radius: 13px; background: var(--mint-soft); color: var(--mint-text); display: flex; align-items: center; justify-content: center; flex: none; }
+.tick :global(.ms) { font-size: 17px; }
+.prices { display: flex; flex-direction: column; gap: 8px; }
+.price { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 2px solid var(--line); border-radius: 20px; background: var(--surface); color: var(--ink); text-align: left; cursor: pointer; font: inherit; min-height: 64px; }
+.price[aria-checked="true"] { border-color: var(--violet); background: var(--violet-soft); }
+.radio { width: 22px; height: 22px; border-radius: 11px; border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; flex: none; }
+.price[aria-checked="true"] .radio { border-color: var(--violet); }
+.price[aria-checked="true"] .radio span { width: 10px; height: 10px; border-radius: 5px; background: var(--violet); }
+.priceText { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.priceText strong { font-weight: 800; font-size: 16px; }
+.priceText span { font-size: 13px; color: var(--ink2); }
+.badge { font-size: 11px; font-weight: 800; background: var(--mint); color: #0B2A20; padding: 4px 8px; border-radius: 8px; white-space: nowrap; }
+.amount { font-weight: 800; font-size: 16px; font-variant-numeric: tabular-nums; }
+.cta { height: 54px; border: 0; border-radius: 27px; background: var(--violet); color: var(--on-violet); font: 800 16px var(--font-figtree), sans-serif; cursor: pointer; }
+.cta:disabled { opacity: .6; cursor: progress; }
+.msg { margin: 0; font-size: 14px; font-weight: 600; color: var(--violet-text); text-align: center; }
+.fine { margin: 0; font-size: 12px; color: var(--ink2); text-align: center; line-height: 1.5; }

@@ -28,9 +28,12 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
-7. Me: plan card, alerts (sisma+), saved locations (limit), language sheet, appearance
-8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet
+7. Me / account dashboard (skeleton done: app/app/me): email-link sign-in (components/Account.tsx), profile + plan, alerts saved to
+   alert_settings, language, appearance (components/Theme.tsx), delete account (DELETE /api/account). Todo: saved locations in
+   Supabase, place search, display name, subscription management
+8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet (done: components/Paywall.tsx)
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_settings
 10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
-12. Onboarding (backlog): first-run flow — welcome, language, location primer, alerts, disclaimer. Spec: docs/onboarding.md
+12. Onboarding (v1 done: components/onboarding/): welcome, language, location primer, disclaimer. Alerts step waits for 8 + 9.
+    Spec and status: docs/onboarding.md

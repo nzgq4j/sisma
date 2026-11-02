@@ -1,7 +1,16 @@
 # Onboarding workflow (backlog)
 
-Status: **backlog — not started.** Tracked in the GitHub issue "Onboarding workflow". Build after Me (step 7) and
-alongside Push (step 9) in CLAUDE.md's build order, because two of its steps depend on them.
+Status: **built (v1)** — `app/src/components/onboarding/`. Tracked in GitHub issue #11.
+
+| Part | State |
+| --- | --- |
+| Welcome, Language, Location, Important (steps 1, 2, 3, 5) | Done |
+| Once per device (`sisma.onboarded` = version), deep-link bypass, re-run from Me, Skip → Important, Escape, swipe, focus on headings, reduced motion | Done |
+| No location prompt on load (AppState only refreshes when access was already granted) | Done |
+| Step 3 "Choose a place" | Waiting for place search |
+| Step 4 Alerts | Hidden until Push (build step 9) and Billing (step 8) exist |
+| `onboarded_version` on `profiles` for signed-in users | Not started (needs a migration); device storage only |
+| Playwright test in the repo | Not started (verified manually with a Playwright script) |
 
 ## Why
 

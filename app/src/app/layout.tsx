@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Figtree, IBM_Plex_Mono } from 'next/font/google';
 import { I18nProvider } from '@/i18n/I18nProvider';
+import { THEME_SCRIPT } from '@/components/Theme';
 import './globals.css';
 
 const figtree = Figtree({ subsets: ['latin', 'latin-ext'], variable: '--font-figtree' });
@@ -11,8 +12,9 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, view
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${figtree.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${figtree.variable} ${plexMono.variable}`} suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400..600,0..1,0&display=block" />
       </head>
       <body><I18nProvider>{children}</I18nProvider></body>
