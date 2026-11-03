@@ -35,11 +35,11 @@ Keep the same key pair from then on: changing it means every browser has to turn
 
 ### Android app — Firebase Cloud Messaging
 
-1. Firebase project and `FCM_SERVICE_ACCOUNT` in Vercel: docs/android-setup.md, step 2.
-2. Put `google-services.json` in `mobile/android/app/`, raise the app's *versionCode*, build and release the app.
-3. Then set `NEXT_PUBLIC_FCM_MIN_BUILD` in Vercel to that versionCode and redeploy. Older app builds have no
-   Firebase configuration and would crash when asked to register, so they show "Update the sisma app to receive
-   alerts on this phone" instead.
+1. Firebase project and `FCM_SERVICE_ACCOUNT` in Vercel: docs/android-setup.md, step 2. (Done.)
+2. `google-services.json` is in `mobile/android/app/` and the app's *versionCode* is 2 (PR "Android project"). (Done.)
+3. `NEXT_PUBLIC_FCM_MIN_BUILD` = `2` in Vercel. App builds below 2 have no Firebase configuration and would crash when
+   asked to register, so they show "Update the sisma app to receive alerts on this phone" instead.
+4. Build and install the app (docs/android-setup.md, step 6).
 
 ### Check it
 
