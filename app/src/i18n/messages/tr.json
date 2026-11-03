@@ -388,7 +388,14 @@
   "st_preliminary": "Ön değerlendirme",
   "st_reviewed": "İncelendi",
   "map": {
-    "focus_event": "Bu olayı göster"
+    "focus_event": "Bu olayı göster",
+    "filters": "Filtreler",
+    "layers": "Katmanlar",
+    "time_range": "Zaman aralığı",
+    "expand": "Filtreleri göster",
+    "collapse": "Filtreleri gizle",
+    "clear_filters": "Filtreleri temizle",
+    "legend": "Büyüklük ölçeği"
   },
   "sharecard": {
     "title": "Bu depremi paylaş",

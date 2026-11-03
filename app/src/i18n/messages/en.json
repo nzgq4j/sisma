@@ -388,7 +388,14 @@
   "st_preliminary": "Preliminary",
   "st_reviewed": "Reviewed",
   "map": {
-    "focus_event": "Show this event"
+    "focus_event": "Show this event",
+    "filters": "Filters",
+    "layers": "Layers",
+    "time_range": "Time range",
+    "expand": "Show filters",
+    "collapse": "Hide filters",
+    "clear_filters": "Clear filters",
+    "legend": "Magnitude scale"
   },
   "sharecard": {
     "title": "Share this earthquake",

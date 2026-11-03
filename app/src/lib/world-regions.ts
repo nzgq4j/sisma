@@ -49,3 +49,22 @@ export function worldRegion(lat: number, lon: number): WorldRegion {
   }
   return oceanRegion(lat, lon);
 }
+
+/** Where the maps go when a region filter is chosen: centre and degrees of longitude across the shorter side of the
+ *  view (MapFocus.span). Polar has no useful Mercator view, so the map stays as it is for it. */
+export const REGION_VIEW: Record<WorldRegion, { lat: number; lon: number; span: number } | null> = {
+  north_america: { lat: 48, lon: -112, span: 75 },
+  central_america: { lat: 15, lon: -80, span: 32 },
+  south_america: { lat: -22, lon: -62, span: 55 },
+  europe: { lat: 50, lon: 15, span: 45 },
+  africa: { lat: 2, lon: 18, span: 70 },
+  middle_east: { lat: 30, lon: 45, span: 35 },
+  central_asia: { lat: 43, lon: 68, span: 35 },
+  south_asia: { lat: 25, lon: 78, span: 35 },
+  east_asia: { lat: 38, lon: 125, span: 50 },
+  southeast_asia: { lat: 5, lon: 115, span: 45 },
+  pacific: { lat: -10, lon: 175, span: 100 },
+  atlantic: { lat: 15, lon: -35, span: 80 },
+  indian_ocean: { lat: -15, lon: 75, span: 75 },
+  polar: null,
+};

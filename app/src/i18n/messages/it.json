@@ -388,7 +388,14 @@
   "st_preliminary": "Preliminare",
   "st_reviewed": "Rivisto",
   "map": {
-    "focus_event": "Mostra questo evento"
+    "focus_event": "Mostra questo evento",
+    "filters": "Filtri",
+    "layers": "Livelli",
+    "time_range": "Periodo",
+    "expand": "Mostra filtri",
+    "collapse": "Nascondi filtri",
+    "clear_filters": "Cancella filtri",
+    "legend": "Scala di magnitudo"
   },
   "sharecard": {
     "title": "Condividi questo terremoto",

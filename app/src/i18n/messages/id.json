@@ -388,7 +388,14 @@
   "st_preliminary": "Awal",
   "st_reviewed": "Ditinjau",
   "map": {
-    "focus_event": "Tampilkan kejadian ini"
+    "focus_event": "Tampilkan kejadian ini",
+    "filters": "Filter",
+    "layers": "Lapisan",
+    "time_range": "Rentang waktu",
+    "expand": "Tampilkan filter",
+    "collapse": "Sembunyikan filter",
+    "clear_filters": "Hapus filter",
+    "legend": "Skala magnitudo"
   },
   "sharecard": {
     "title": "Bagikan gempa ini",
