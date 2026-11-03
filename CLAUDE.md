@@ -30,8 +30,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Region view (/app/map?focus=<id>): ~7.5° across the shorter side, pulsing focus marker, callouts for nearby events,
    1:50m coastlines when zoomed in. Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx)
    Street level: OpenStreetMap tiles fade in from web zoom 6.5–7.5 up to 18 (lib/tiles.ts; NEXT_PUBLIC_STREET_TILES=off
-   disables; docs/maps-setup.md for the OSM tile policy); event markers are drawn in screen pixels (constant size; a tap
-   picks the nearest marker within ~22 px). Marker colours: --mag-0…5 (MAG_MARKER_LIGHT in light mode, MAG_SCALE in dark)
+   disables; docs/maps-setup.md for the OSM tile policy). Events are drop pins of one size in screen pixels, filled by
+   band (--mag-0…5: MAG_MARKER_LIGHT in light mode, MAG_SCALE in dark) with the magnitude in the head (--mag-ink-N);
+   a tap picks the nearest pin within ~22 px
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)

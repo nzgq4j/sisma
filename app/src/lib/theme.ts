@@ -21,6 +21,8 @@ export const MAG_MARKER_LIGHT = ['#8E0F8C', '#C8102E', '#E8411F', '#F27A00', '#E
 export const magIndex = (m: number) => { const i = MAG_SCALE.findIndex(r => m >= r[0]); return i < 0 ? MAG_SCALE.length - 1 : i; };
 /** Marker colour that follows light/dark mode (CSS variable; for SVG/HTML). */
 export const magVar = (m: number) => `var(--mag-${magIndex(m)})`;
+/** Text colour on a marker of that band (--mag-ink-N: the higher-contrast of white or ink on each fill). */
+export const magInkVar = (m: number) => `var(--mag-ink-${magIndex(m)})`;
 export const depthColor = (km: number) => (km < 70 ? '#2CCB9A' : km < 300 ? '#7B61FF' : '#B5179E');
 export const MMI_COLORS = ['#86DCC4', '#86DCC4', '#F7CF4A', '#F7CF4A', '#FFA94D', '#FF7A59', '#EE4266', '#EE4266', '#B5179E', '#B5179E'];
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];

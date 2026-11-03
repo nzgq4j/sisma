@@ -81,7 +81,7 @@
   "source": "情報源",
   "show_more": "もっと見る",
   "view_map": "地図で見る",
-  "map_hint": "円をタップすると詳細を表示",
+  "map_hint": "ピンをタップすると詳細を表示",
   "plates": "プレート",
   "spin": "回転",
   "depth_view": "深さ",
