@@ -22,7 +22,7 @@ export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | nul
       <MagBadge mag={q.mag} />
       <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
         <div style={{ fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{q.region}</div>
-        <div style={{ fontSize: 13, color: 'var(--ink2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{q.title}</div>
+        <div style={{ fontSize: 13, color: 'var(--ink2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{u.text(q.title)}</div>
         <div style={{ fontSize: 12, color: 'var(--ink2)', display: 'flex', gap: 10 }}>
           <span>{timeAgo(t as never, q.time)}</span>
           {q.distanceKm != null && <span>{u.dist(q.distanceKm)}</span>}

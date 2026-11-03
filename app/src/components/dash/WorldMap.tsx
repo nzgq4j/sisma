@@ -220,7 +220,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {hover && (
         <div className={styles.tooltip} style={{ left: Math.min(hover.x + 14, size.w - 230), top: Math.max(hover.y - 12, 8) }}>
           <strong>M{hover.q.mag.toFixed(1)} · {hover.q.region}</strong>
-          <span>{hover.q.title}</span>
+          <span>{u.text(hover.q.title)}</span>
           <span>{timeAgo(t as never, hover.q.time)} · ↓ {u.depth(hover.q.depthKm)}</span>
         </div>
       )}
