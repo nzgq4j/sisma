@@ -22,6 +22,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)
 2. Feed (scaffolded): nearest card, sort segmented control, range + region chips, rows, detail sheet
+   Region filter (sisma+): world regions (lib/world-regions.ts: country within 800 km, else ocean) — one setting in
+   QuakeData for Feed, Map, Globe and dashboard (RegionFilterChip). Magnitude badges use the pin colours (--mag-N)
 3. Felt report sheet (done): "I felt it" on quakes < 6 h old (lib/quakes/report-window.ts), quick → details → thanks
    (components/FeltReport.tsx), POST /api/reports re-checks the quake and the window. Todo: rate limiting, show felt_summary
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →

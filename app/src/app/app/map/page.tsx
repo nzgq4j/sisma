@@ -18,7 +18,7 @@ import { timeAgo } from '@/components/QuakeRow';
 import { useDistance } from '@/components/Units';
 import type { Quake } from '@/lib/quakes/types';
 import { FitLine } from '@/components/FitLine';
-import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip } from '@/components/stage/StageParts';
+import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip, RegionFilterChip } from '@/components/stage/StageParts';
 import { HEAT_COLORS, MMI_COLORS, ROMAN } from '@/lib/theme';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
@@ -90,6 +90,7 @@ function MapView() {
       <div className={styles.chips}>
         <RangeChips />
         <MagFilterChip />
+        <RegionFilterChip />
         <ToggleChip on={plates} onClick={() => setPlates(v => !v)} icon="texture" label={t('plates')} />
       </div>
       {focusId && (

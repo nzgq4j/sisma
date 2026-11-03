@@ -421,5 +421,22 @@
     "test": "Testalarm senden",
     "test_sent": "Testalarm gesendet",
     "test_failed": "Testalarm konnte nicht gesendet werden."
+  },
+  "region_chip": "Region",
+  "wr": {
+    "north_america": "Nordamerika",
+    "central_america": "Mittelamerika und Karibik",
+    "south_america": "Südamerika",
+    "europe": "Europa",
+    "africa": "Afrika",
+    "middle_east": "Naher Osten",
+    "central_asia": "Zentralasien",
+    "south_asia": "Südasien",
+    "east_asia": "Ostasien",
+    "southeast_asia": "Südostasien",
+    "pacific": "Pazifik und Ozeanien",
+    "atlantic": "Atlantik",
+    "indian_ocean": "Indischer Ozean",
+    "polar": "Arktis und Antarktis"
   }
 }

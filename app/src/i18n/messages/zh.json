@@ -421,5 +421,22 @@
     "test": "发送测试提醒",
     "test_sent": "测试提醒已发送",
     "test_failed": "无法发送测试提醒。"
+  },
+  "region_chip": "地区",
+  "wr": {
+    "north_america": "北美洲",
+    "central_america": "中美洲和加勒比",
+    "south_america": "南美洲",
+    "europe": "欧洲",
+    "africa": "非洲",
+    "middle_east": "中东",
+    "central_asia": "中亚",
+    "south_asia": "南亚",
+    "east_asia": "东亚",
+    "southeast_asia": "东南亚",
+    "pacific": "太平洋和大洋洲",
+    "atlantic": "大西洋",
+    "indian_ocean": "印度洋",
+    "polar": "北极和南极"
   }
 }

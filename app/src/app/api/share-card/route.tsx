@@ -7,7 +7,7 @@ import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 import { recentQuakes } from '@/lib/quakes/find';
 import { shareMapSvg } from '@/lib/share-map';
-import { THEME, magColor } from '@/lib/theme';
+import { MAG_INK_LIGHT, MAG_MARKER_LIGHT, THEME, magIndex } from '@/lib/theme';
 import { countryAt } from '@/lib/country';
 import { formatDms } from '@/lib/geo';
 import { convertKmInText, KM_PER_MI, type Units } from '@/lib/units';
@@ -81,7 +81,8 @@ export async function GET(req: NextRequest) {
   const status = q.status ? m[`st_${q.status}` as const] : '—';
   const source = [q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ');
   const title = convertKmInText(q.title, units, v => nf.format(v));
-  const mc = magColor(q.mag);
+  // Badge in the light pin colours, like the card's map and the app's light mode.
+  const mc = { fill: MAG_MARKER_LIGHT[magIndex(q.mag)], text: MAG_INK_LIGHT[magIndex(q.mag)] };
   const stats: [string, string][] = [[m.depth, depth], [m.coords, formatDms(q.lat, q.lon)], [m.review_status, status], [m.source, source]];
 
   // Every string on the card, so CJK fonts can be fetched as a small subset.
