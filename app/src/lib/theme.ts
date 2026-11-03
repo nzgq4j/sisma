@@ -13,6 +13,14 @@ export function magColor(m: number) {
   const row = MAG_SCALE.find(r => m >= r[0]) ?? MAG_SCALE[MAG_SCALE.length - 1];
   return { fill: row[1], text: row[2] };
 }
+/** Map and globe markers in light mode: the same bands as MAG_SCALE (same order), in stronger, more saturated colours so
+ *  they stand out on the light map and street tiles. Dark mode uses the MAG_SCALE fills. Mirrored in globals.css as
+ *  --mag-0 … --mag-5 (light values in :root, MAG_SCALE fills in the dark blocks). */
+export const MAG_MARKER_LIGHT = ['#8E0F8C', '#C8102E', '#E8411F', '#F27A00', '#E2A400', '#139E73'];
+/** Band index into MAG_SCALE / MAG_MARKER_LIGHT for a magnitude (0 = 7+, 5 = below 3). */
+export const magIndex = (m: number) => { const i = MAG_SCALE.findIndex(r => m >= r[0]); return i < 0 ? MAG_SCALE.length - 1 : i; };
+/** Marker colour that follows light/dark mode (CSS variable; for SVG/HTML). */
+export const magVar = (m: number) => `var(--mag-${magIndex(m)})`;
 export const depthColor = (km: number) => (km < 70 ? '#2CCB9A' : km < 300 ? '#7B61FF' : '#B5179E');
 export const MMI_COLORS = ['#86DCC4', '#86DCC4', '#F7CF4A', '#F7CF4A', '#FFA94D', '#FF7A59', '#EE4266', '#EE4266', '#B5179E', '#B5179E'];
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];

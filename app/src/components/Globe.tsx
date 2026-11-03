@@ -6,7 +6,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
-import { depthColor, magColor } from '@/lib/theme';
+import { depthColor, magIndex } from '@/lib/theme';
 import { LAND, SPHERE, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
 
@@ -22,7 +22,9 @@ const memo: { rot: [number, number, number] | null; k: number } = { rot: null, k
 
 function readTheme() {
   const cs = getComputedStyle(document.documentElement), v = (n: string) => cs.getPropertyValue(n).trim();
-  return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet') };
+  return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
+    // Marker colours by magnitude band, following light/dark mode (globals.css --mag-0 … --mag-5).
+    mags: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)) };
 }
 
 export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
@@ -132,7 +134,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
           ctx.strokeStyle = depthColor(q.depthKm); ctx.globalAlpha = 0.55; ctx.lineWidth = 1;
           ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(xi, yi); ctx.stroke(); ctx.globalAlpha = 1;
           x = xi; y = yi; ctx.fillStyle = depthColor(q.depthKm);
-        } else ctx.fillStyle = magColor(q.mag).fill;
+        } else ctx.fillStyle = theme.mags[magIndex(q.mag)];
         const rr = Math.max(1.8, (q.mag - 1.8) * 1.6);
         ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
         if (q.id === p.selectedId) { ctx.strokeStyle = theme.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, rr + 4, 0, 7); ctx.stroke(); }
