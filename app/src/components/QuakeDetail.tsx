@@ -11,6 +11,7 @@ import { MagBadge } from './MagBadge';
 import { FeltButton } from './FeltReport';
 import { FitLine } from './FitLine';
 import type { Row } from './QuakeData';
+import { useDistance } from './Units';
 import styles from './dash/dash.module.css';
 
 /** Map URL that zooms to a quake and shows its felt reports. */
@@ -39,7 +40,8 @@ function Place({ q, code }: { q: Row; code?: string }) {
 
 /** Default view of a selected event (map panels, dashboard): the key facts, "I felt it" and a Details button. */
 export function QuakeSummary({ q, onClose, onDetails }: { q: Row; onClose?: () => void; onDetails: () => void }) {
-  const { t, m, nf } = useT();
+  const { t, m } = useT();
+  const u = useDistance();
   const { country, date, time } = useQuakeFacts(q);
   return (
     <div className={styles.summary}>
@@ -48,7 +50,7 @@ export function QuakeSummary({ q, onClose, onDetails }: { q: Row; onClose?: () =
         <div className={styles.detailTitle}>
           <Place q={q} code={country?.code} />
           <FitLine min={10}>{date} · {time}</FitLine>
-          <FitLine min={10}>{q.distanceKm != null ? `${nf.format(Math.round(q.distanceKm))} km · ` : ''}{t('depth_deep', { n: nf.format(Math.round(q.depthKm)) })}</FitLine>
+          <FitLine min={10}>{q.distanceKm != null ? `${u.dist(q.distanceKm)} · ` : ''}{t('depth_deep', { d: u.depth(q.depthKm) })}</FitLine>
         </div>
         {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
       </div>
@@ -66,6 +68,7 @@ export function QuakeSummary({ q, onClose, onDetails }: { q: Row; onClose?: () =
 /** Detailed view of an event (opened from Details, and from Feed rows): every data point, Share and Show region. */
 export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: () => void; onShowRegion?: () => void }) {
   const { t, m, nf } = useT();
+  const u = useDistance();
   const router = useRouter();
   const { country, countryName, date, time } = useQuakeFacts(q);
   const [copied, setCopied] = useState(false);
@@ -92,10 +95,10 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
       {q.tsunami && <div className={styles.banner}><span className="ms" aria-hidden="true">tsunami</span>{t('tsunami')}</div>}
       <dl className={styles.stats}>
         <div><dt>{t('magnitude')}</dt><FitLine as="dd">{q.mag.toFixed(1)}{q.magType ? ` ${q.magType}` : ''}</FitLine></div>
-        <div><dt>{t('depth')}</dt><FitLine as="dd">{nf.format(Math.round(q.depthKm))} km</FitLine></div>
+        <div><dt>{t('depth')}</dt><FitLine as="dd">{u.depth(q.depthKm)}</FitLine></div>
         <div><dt>{t('date')}</dt><FitLine as="dd">{date}</FitLine></div>
         <div><dt>{t('time')}</dt><FitLine as="dd">{time}</FitLine></div>
-        <div><dt>{m.dash.distance}</dt><FitLine as="dd">{q.distanceKm != null ? `${nf.format(Math.round(q.distanceKm))} km` : '—'}</FitLine></div>
+        <div><dt>{m.dash.distance}</dt><FitLine as="dd">{q.distanceKm != null ? u.dist(q.distanceKm) : '—'}</FitLine></div>
         <div><dt>{t('country')}</dt><FitLine as="dd">{countryName ? (country!.near ? t('near_country', { country: countryName }) : countryName) : '—'}</FitLine></div>
         <div className={styles.statWide}><dt>{t('coords')}</dt><FitLine as="dd">{formatDms(q.lat, q.lon)}</FitLine></div>
         <div className={styles.statWide}><dt>{t('source')}</dt><FitLine as="dd">{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</FitLine></div>

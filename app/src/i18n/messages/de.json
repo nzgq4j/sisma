@@ -369,7 +369,7 @@
   "near_country": "Nahe {country}",
   "share": "Teilen",
   "link_copied": "Link kopiert",
-  "depth_deep": "{n} km tief",
+  "depth_deep": "{d} tief",
   "mag_chip": "Magnitude",
   "all_mags": "Alle Magnituden",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "Spürkarte: wahrscheinlich in {n} Gebieten gespürt",
     "line_areas_1": "Spürkarte: wahrscheinlich in 1 Gebiet gespürt",
     "line_none": "Spürkarte: zu wenig App-Aktivität in der Nähe"
-  }
+  },
+  "units": "Einheiten",
+  "units_km": "Kilometer",
+  "units_mi": "Meilen"
 }

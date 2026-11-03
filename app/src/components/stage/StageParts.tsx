@@ -11,6 +11,7 @@ import { Sheet, SheetOptions } from '@/components/Sheet';
 import { can } from '@/lib/entitlements';
 import { useDesktop } from '@/components/dash/useDesktop';
 import { MAG_SCALE } from '@/lib/theme';
+import { useUnits } from '@/components/Units';
 import styles from './stage.module.css';
 
 /** Time range chips (1 year is sisma+ only) and, when a region filter is active, a chip to clear it. */
@@ -65,13 +66,16 @@ export function ToggleChip({ on, onClick, icon, label }: { on: boolean; onClick:
 }
 
 const MAG_LEGEND = [...MAG_SCALE].reverse().map(([min, fill], i) => ({ c: fill, l: i === 0 ? '<3' : min === 7 ? '7+' : String(min) }));
-const DEPTH_LEGEND = [{ c: '#2CCB9A', l: '0–70 km' }, { c: '#7B61FF', l: '70–300' }, { c: '#B5179E', l: '300+' }];
+// Depth bands 0–70, 70–300 and 300+ km (shallow / intermediate / deep), labelled in the chosen units.
+const DEPTH_LEGEND = { km: ['0–70 km', '70–300', '300+'], mi: ['0–43 mi', '43–186', '186+'] };
+const DEPTH_COLORS = ['#2CCB9A', '#7B61FF', '#B5179E'];
 
 export function Legend({ depth = false }: { depth?: boolean }) {
+  const units = useUnits();
   const { t } = useT();
   return (
     <div className={styles.legend} aria-label={depth ? t('depth') : t('magnitude')}>
-      {(depth ? DEPTH_LEGEND : MAG_LEGEND).map(x => <span key={x.l}><i style={{ background: x.c }} />{x.l}</span>)}
+      {(depth ? DEPTH_LEGEND[units].map((l, i) => ({ c: DEPTH_COLORS[i], l })) : MAG_LEGEND).map(x => <span key={x.l}><i style={{ background: x.c }} />{x.l}</span>)}
     </div>
   );
 }

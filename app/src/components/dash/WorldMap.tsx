@@ -16,6 +16,7 @@ import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
 import { BORDERS, COUNTRIES, SPHERE, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
+import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
 
 const GRATICULE = geoGraticule10();
@@ -36,7 +37,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   onReset?: () => void;
 }) {
   const gid = useId().replace(/[^a-zA-Z0-9]/g, '');
-  const { t, m, nf } = useT();
+  const { t, m } = useT();
+  const u = useDistance();
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const gRef = useRef<SVGGElement>(null);
@@ -219,7 +221,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
         <div className={styles.tooltip} style={{ left: Math.min(hover.x + 14, size.w - 230), top: Math.max(hover.y - 12, 8) }}>
           <strong>M{hover.q.mag.toFixed(1)} · {hover.q.region}</strong>
           <span>{hover.q.title}</span>
-          <span>{timeAgo(t as never, hover.q.time)} · ↓ {nf.format(Math.round(hover.q.depthKm))} km</span>
+          <span>{timeAgo(t as never, hover.q.time)} · ↓ {u.depth(hover.q.depthKm)}</span>
         </div>
       )}
     </div>

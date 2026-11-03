@@ -369,7 +369,7 @@
   "near_country": "{country} yakınında",
   "share": "Paylaş",
   "link_copied": "Bağlantı kopyalandı",
-  "depth_deep": "{n} km derinlik",
+  "depth_deep": "{d} derinlik",
   "mag_chip": "Büyüklük",
   "all_mags": "Tüm büyüklükler",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "Hissedilme haritası: muhtemelen {n} bölgede hissedildi",
     "line_areas_1": "Hissedilme haritası: muhtemelen 1 bölgede hissedildi",
     "line_none": "Hissedilme haritası: yakında yeterli etkinlik yok"
-  }
+  },
+  "units": "Birimler",
+  "units_km": "Kilometre",
+  "units_mi": "Mil"
 }

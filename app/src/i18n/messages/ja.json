@@ -369,7 +369,7 @@
   "near_country": "{country}付近",
   "share": "共有",
   "link_copied": "リンクをコピーしました",
-  "depth_deep": "深さ {n} km",
+  "depth_deep": "深さ {d}",
   "mag_chip": "マグニチュード",
   "all_mags": "すべてのマグニチュード",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "揺れマップ：{n} 地域で揺れたと推定",
     "line_areas_1": "揺れマップ：1 地域で揺れたと推定",
     "line_none": "揺れマップ：付近の利用が不足しています"
-  }
+  },
+  "units": "単位",
+  "units_km": "キロメートル",
+  "units_mi": "マイル"
 }

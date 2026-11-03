@@ -81,7 +81,7 @@ export default function PrivacyPage() {
 
       <h2 id="device">3. Stored on your device</h2>
       <p>
-        sisma keeps a few items in your browser’s or phone’s local storage so it works without an account: your language, appearance and felt-map settings, whether
+        sisma keeps a few items in your browser’s or phone’s local storage so it works without an account: your language, appearance, units and felt-map settings, whether
         you’ve seen the introduction (and the launch screen this session), places you saved as a guest, the location you chose, the felt reports you sent from
         this device (so the app can show them), your preparedness checklist, and — when signed in — your sign-in session. These stay on your device; we use
         no advertising or analytics cookies. Clearing the site’s data in your browser, or uninstalling the app, removes them.

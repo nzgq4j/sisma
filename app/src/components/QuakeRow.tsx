@@ -2,6 +2,7 @@
 import type { Quake } from '@/lib/quakes/types';
 import { MagBadge } from './MagBadge';
 import { useT } from '@/i18n/I18nProvider';
+import { useDistance } from './Units';
 import { FeltButton } from './FeltReport';
 
 export function timeAgo(t: (k: never, v?: Record<string, number>) => string, ms: number) {
@@ -13,7 +14,8 @@ export function timeAgo(t: (k: never, v?: Record<string, number>) => string, ms:
 }
 
 export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | null }; onOpen: () => void }) {
-  const { t, nf } = useT();
+  const { t } = useT();
+  const u = useDistance();
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 8, paddingRight: 12, background: 'var(--surface)', borderRadius: 18 }}>
     <button onClick={onOpen} style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center', gap: 12, padding: 12, paddingRight: 0, border: 0, background: 'transparent', borderRadius: 18, textAlign: 'left', color: 'var(--ink)', font: 'inherit', cursor: 'pointer' }}>
@@ -23,8 +25,8 @@ export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | nul
         <div style={{ fontSize: 13, color: 'var(--ink2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{q.title}</div>
         <div style={{ fontSize: 12, color: 'var(--ink2)', display: 'flex', gap: 10 }}>
           <span>{timeAgo(t as never, q.time)}</span>
-          {q.distanceKm != null && <span>{nf.format(Math.round(q.distanceKm))} km</span>}
-          <span>↓ {nf.format(Math.round(q.depthKm))} km</span>
+          {q.distanceKm != null && <span>{u.dist(q.distanceKm)}</span>}
+          <span>↓ {u.depth(q.depthKm)}</span>
         </div>
       </div>
       {q.tsunami && <span className="ms" style={{ color: 'var(--violet-text)', fontSize: 20 }}>tsunami</span>}

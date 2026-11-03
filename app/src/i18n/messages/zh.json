@@ -369,7 +369,7 @@
   "near_country": "{country}附近",
   "share": "分享",
   "link_copied": "链接已复制",
-  "depth_deep": "深度 {n} 公里",
+  "depth_deep": "深度 {d}",
   "mag_chip": "震级",
   "all_mags": "全部震级",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "有感地图：可能在 {n} 个区域有感",
     "line_areas_1": "有感地图：可能在 1 个区域有感",
     "line_none": "有感地图：附近活跃数据不足"
-  }
+  },
+  "units": "单位",
+  "units_km": "公里",
+  "units_mi": "英里"
 }

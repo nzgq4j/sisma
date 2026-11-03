@@ -369,7 +369,7 @@
   "near_country": "Dekat {country}",
   "share": "Bagikan",
   "link_copied": "Tautan disalin",
-  "depth_deep": "kedalaman {n} km",
+  "depth_deep": "kedalaman {d}",
   "mag_chip": "Magnitudo",
   "all_mags": "Semua magnitudo",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "Peta guncangan: kemungkinan terasa di {n} area",
     "line_areas_1": "Peta guncangan: kemungkinan terasa di 1 area",
     "line_none": "Peta guncangan: aktivitas di sekitar belum cukup"
-  }
+  },
+  "units": "Satuan",
+  "units_km": "Kilometer",
+  "units_mi": "Mil"
 }

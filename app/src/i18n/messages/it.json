@@ -369,7 +369,7 @@
   "near_country": "Vicino a {country}",
   "share": "Condividi",
   "link_copied": "Link copiato",
-  "depth_deep": "{n} km di profondità",
+  "depth_deep": "{d} di profondità",
   "mag_chip": "Magnitudo",
   "all_mags": "Tutte le magnitudo",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "Mappa di risentimento: probabilmente avvertito in {n} aree",
     "line_areas_1": "Mappa di risentimento: probabilmente avvertito in 1 area",
     "line_none": "Mappa di risentimento: poca attività nelle vicinanze"
-  }
+  },
+  "units": "Unità",
+  "units_km": "Chilometri",
+  "units_mi": "Miglia"
 }
