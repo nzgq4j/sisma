@@ -61,6 +61,33 @@ export function MagFilterChip() {
   );
 }
 
+/** World-region filter (sisma+), shared by the Feed, Map, Globe and dashboard. Free users see a lock that opens the
+ *  paywall. `chipStyle` lets the Feed use its own chip look. */
+export function RegionFilterChip({ chipStyle }: { chipStyle?: (on: boolean) => React.CSSProperties }) {
+  const { t, m, nf } = useT();
+  const { plan, setSheet } = useApp();
+  const { worldReg, setWorldReg, worldCounts, all } = useQuakeData();
+  const [open, setOpen] = useState(false);
+  const locked = !can(plan, 'advancedFilters');
+  const label = worldReg ? m.wr[worldReg] : t('region_chip');
+  return (
+    <>
+      <button type="button" className={chipStyle ? undefined : styles.chip} style={chipStyle?.(!!worldReg)} aria-pressed={!!worldReg} aria-haspopup="dialog"
+        aria-label={`${t('region_chip')}: ${worldReg ? label : m.all_regions}`} onClick={() => (locked ? setSheet('paywall') : setOpen(true))}>
+        <span className="ms" aria-hidden="true" style={chipStyle ? { fontSize: 17 } : undefined}>public</span>{label}
+        {locked && <span className="ms" aria-hidden="true" style={chipStyle ? { fontSize: 15 } : undefined}>lock</span>}
+      </button>
+      <Sheet open={open} onClose={() => setOpen(false)} title={t('region_chip')}>
+        <SheetOptions value={worldReg ?? 'all'} onPick={v => { setWorldReg(v === 'all' ? null : (v as typeof worldCounts[number][0])); setOpen(false); }}
+          options={[
+            { value: 'all', label: m.all_regions, meta: nf.format(all.length) },
+            ...worldCounts.map(([r, n]) => ({ value: r, label: m.wr[r], meta: nf.format(n) })),
+          ]} />
+      </Sheet>
+    </>
+  );
+}
+
 export function ToggleChip({ on, onClick, icon, label }: { on: boolean; onClick: () => void; icon: string; label: string }) {
   return <button type="button" className={styles.chip} aria-pressed={on} onClick={onClick}><span className="ms" aria-hidden="true">{icon}</span>{label}</button>;
 }

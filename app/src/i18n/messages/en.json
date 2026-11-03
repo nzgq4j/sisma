@@ -421,5 +421,22 @@
     "test": "Send a test alert",
     "test_sent": "Test alert sent",
     "test_failed": "Couldn’t send a test alert."
+  },
+  "region_chip": "Region",
+  "wr": {
+    "north_america": "North America",
+    "central_america": "Central America & Caribbean",
+    "south_america": "South America",
+    "europe": "Europe",
+    "africa": "Africa",
+    "middle_east": "Middle East",
+    "central_asia": "Central Asia",
+    "south_asia": "South Asia",
+    "east_asia": "East Asia",
+    "southeast_asia": "Southeast Asia",
+    "pacific": "Pacific & Oceania",
+    "atlantic": "Atlantic Ocean",
+    "indian_ocean": "Indian Ocean",
+    "polar": "Arctic & Antarctic"
   }
 }

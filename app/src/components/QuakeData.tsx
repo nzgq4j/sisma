@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 import { useApp } from './AppState';
 import type { Quake } from '@/lib/quakes/types';
 import { can } from '@/lib/entitlements';
+import { worldRegion, WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
 
 export type ViewRange = '24h' | '7d' | '30d' | '1y';
 export const VIEW_RANGES: ViewRange[] = ['24h', '7d', '30d', '1y'];
@@ -30,6 +31,10 @@ interface QuakeData {
   minMag: number | null; setMinMag: (m: number | null) => void;
   /** `list` with the magnitude filter applied — what the Map tab, Globe and dashboard map draw. */
   mapList: Row[];
+  /** World-region filter (sisma+ advanced filter, lib/world-regions.ts): Feed, Map, Globe and dashboard; null = all. */
+  worldReg: WorldRegion | null; setWorldReg: (r: WorldRegion | null) => void;
+  /** Events in range per world region (before the region filter), in WORLD_REGIONS order. */
+  worldCounts: [WorldRegion, number][];
 }
 const Ctx = createContext<QuakeData | null>(null);
 
@@ -37,6 +42,7 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
   const { locations, active, plan } = useApp();
   const loc = locations[active];
   const [minMag, setMinMag] = useState<number | null>(null);
+  const [worldRegState, setWorldReg] = useState<WorldRegion | null>(null);
   const [range, setRange] = useState<ViewRange>('7d');
   const [region, setRegion] = useState('all');
   const [rows, setRows] = useState<Row[] | null>(null);
@@ -56,6 +62,9 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
     return () => { alive = false; clearInterval(id); };
   }, [range, loc.lat, loc.lon]);
 
+  // World region of each event, worked out once per load (country outlines + ocean boxes).
+  const regionOf = useMemo(() => new Map((rows ?? []).map(q => [q.id, worldRegion(q.lat, q.lon)])), [rows]);
+
   const value = useMemo<QuakeData>(() => {
     // Defensive: one row per id and only plottable coordinates, so map keys stay unique.
     const seen = new Set<string>();
@@ -63,12 +72,19 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
     const counts = new Map<string, number>();
     all.forEach(q => counts.set(q.region, (counts.get(q.region) ?? 0) + 1));
     const regions = [...counts.entries()].sort((a, b) => b[1] - a[1]);
-    const list = region === 'all' ? all : all.filter(q => q.region === region);
-    // Advanced filters are sisma+ (lib/entitlements.ts); the setting is kept but not applied on Free.
-    const mag = can(plan, 'advancedFilters') ? minMag : null;
+    // Advanced filters are sisma+ (lib/entitlements.ts); the settings are kept but not applied on Free.
+    const plus = can(plan, 'advancedFilters');
+    const wr = plus ? worldRegState : null;
+    const wcount = new Map<WorldRegion, number>();
+    all.forEach(q => { const r = regionOf.get(q.id); if (r) wcount.set(r, (wcount.get(r) ?? 0) + 1); });
+    const worldCounts = WORLD_REGIONS.map(r => [r, wcount.get(r) ?? 0] as [WorldRegion, number]);
+    const inWorld = wr ? all.filter(q => regionOf.get(q.id) === wr) : all;
+    const list = region === 'all' ? inWorld : inWorld.filter(q => q.region === region);
+    const mag = plus ? minMag : null;
     const mapList = mag == null ? list : list.filter(q => q.mag >= mag);
-    return { range, setRange, region, setRegion, loaded: rows !== null, all, list, regions, loadedAt, minMag: mag, setMinMag, mapList };
-  }, [rows, range, region, loadedAt, minMag, plan]);
+    return { range, setRange, region, setRegion, loaded: rows !== null, all, list, regions, loadedAt, minMag: mag, setMinMag, mapList,
+      worldReg: wr, setWorldReg, worldCounts };
+  }, [rows, range, region, loadedAt, minMag, plan, worldRegState, regionOf]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

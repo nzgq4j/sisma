@@ -421,5 +421,22 @@
     "test": "Test uyarısı gönder",
     "test_sent": "Test uyarısı gönderildi",
     "test_failed": "Test uyarısı gönderilemedi."
+  },
+  "region_chip": "Bölge",
+  "wr": {
+    "north_america": "Kuzey Amerika",
+    "central_america": "Orta Amerika ve Karayipler",
+    "south_america": "Güney Amerika",
+    "europe": "Avrupa",
+    "africa": "Afrika",
+    "middle_east": "Orta Doğu",
+    "central_asia": "Orta Asya",
+    "south_asia": "Güney Asya",
+    "east_asia": "Doğu Asya",
+    "southeast_asia": "Güneydoğu Asya",
+    "pacific": "Pasifik ve Okyanusya",
+    "atlantic": "Atlas Okyanusu",
+    "indian_ocean": "Hint Okyanusu",
+    "polar": "Arktik ve Antarktika"
   }
 }

@@ -421,5 +421,22 @@
     "test": "Kirim peringatan uji",
     "test_sent": "Peringatan uji terkirim",
     "test_failed": "Tidak dapat mengirim peringatan uji."
+  },
+  "region_chip": "Wilayah",
+  "wr": {
+    "north_america": "Amerika Utara",
+    "central_america": "Amerika Tengah & Karibia",
+    "south_america": "Amerika Selatan",
+    "europe": "Eropa",
+    "africa": "Afrika",
+    "middle_east": "Timur Tengah",
+    "central_asia": "Asia Tengah",
+    "south_asia": "Asia Selatan",
+    "east_asia": "Asia Timur",
+    "southeast_asia": "Asia Tenggara",
+    "pacific": "Pasifik & Oseania",
+    "atlantic": "Samudra Atlantik",
+    "indian_ocean": "Samudra Hindia",
+    "polar": "Arktik & Antartika"
   }
 }

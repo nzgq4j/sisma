@@ -17,6 +17,8 @@ export function magColor(m: number) {
  *  they stand out on the light map and street tiles. Dark mode uses the MAG_SCALE fills. Mirrored in globals.css as
  *  --mag-0 … --mag-5 (light values in :root, MAG_SCALE fills in the dark blocks). */
 export const MAG_MARKER_LIGHT = ['#8E0F8C', '#C8102E', '#E8411F', '#F27A00', '#E2A400', '#139E73'];
+/** Text on MAG_MARKER_LIGHT fills (globals.css --mag-ink-N, light mode): the higher-contrast of white or ink. */
+export const MAG_INK_LIGHT = ['#FFFFFF', '#FFFFFF', '#1B1530', '#1B1530', '#1B1530', '#1B1530'];
 /** Band index into MAG_SCALE / MAG_MARKER_LIGHT for a magnitude (0 = 7+, 5 = below 3). */
 export const magIndex = (m: number) => { const i = MAG_SCALE.findIndex(r => m >= r[0]); return i < 0 ? MAG_SCALE.length - 1 : i; };
 /** Marker colour that follows light/dark mode (CSS variable; for SVG/HTML). */

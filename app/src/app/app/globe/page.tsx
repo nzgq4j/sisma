@@ -6,7 +6,7 @@ import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData } from '@/components/QuakeData';
 import { Globe, type GlobeHandle } from '@/components/Globe';
-import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip } from '@/components/stage/StageParts';
+import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip, RegionFilterChip } from '@/components/stage/StageParts';
 import styles from '@/components/stage/stage.module.css';
 
 const RM = '(prefers-reduced-motion: reduce)';
@@ -36,6 +36,7 @@ export default function GlobePage() {
         <ToggleChip on={spin} onClick={() => setSpin(!spin)} icon="3d_rotation" label={t('spin')} />
         <RangeChips />
         <MagFilterChip />
+        <RegionFilterChip />
       </div>
       <div className={styles.zoomPill}>
         <button type="button" onClick={() => globe.current?.zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>

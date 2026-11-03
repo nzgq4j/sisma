@@ -421,5 +421,22 @@
     "test": "テスト通知を送信",
     "test_sent": "テスト通知を送信しました",
     "test_failed": "テスト通知を送信できませんでした。"
+  },
+  "region_chip": "地域",
+  "wr": {
+    "north_america": "北米",
+    "central_america": "中米・カリブ",
+    "south_america": "南米",
+    "europe": "ヨーロッパ",
+    "africa": "アフリカ",
+    "middle_east": "中東",
+    "central_asia": "中央アジア",
+    "south_asia": "南アジア",
+    "east_asia": "東アジア",
+    "southeast_asia": "東南アジア",
+    "pacific": "太平洋・オセアニア",
+    "atlantic": "大西洋",
+    "indian_ocean": "インド洋",
+    "polar": "北極・南極"
   }
 }

@@ -421,5 +421,22 @@
     "test": "Invia un avviso di prova",
     "test_sent": "Avviso di prova inviato",
     "test_failed": "Impossibile inviare l’avviso di prova."
+  },
+  "region_chip": "Regione",
+  "wr": {
+    "north_america": "Nord America",
+    "central_america": "America Centrale e Caraibi",
+    "south_america": "Sud America",
+    "europe": "Europa",
+    "africa": "Africa",
+    "middle_east": "Medio Oriente",
+    "central_asia": "Asia Centrale",
+    "south_asia": "Asia Meridionale",
+    "east_asia": "Asia Orientale",
+    "southeast_asia": "Sud-est asiatico",
+    "pacific": "Pacifico e Oceania",
+    "atlantic": "Oceano Atlantico",
+    "indian_ocean": "Oceano Indiano",
+    "polar": "Artico e Antartide"
   }
 }

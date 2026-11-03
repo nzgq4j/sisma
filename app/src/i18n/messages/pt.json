@@ -421,5 +421,22 @@
     "test": "Enviar alerta de teste",
     "test_sent": "Alerta de teste enviado",
     "test_failed": "Não foi possível enviar o alerta de teste."
+  },
+  "region_chip": "Região",
+  "wr": {
+    "north_america": "América do Norte",
+    "central_america": "América Central e Caraíbas",
+    "south_america": "América do Sul",
+    "europe": "Europa",
+    "africa": "África",
+    "middle_east": "Médio Oriente",
+    "central_asia": "Ásia Central",
+    "south_asia": "Ásia do Sul",
+    "east_asia": "Ásia Oriental",
+    "southeast_asia": "Sudeste Asiático",
+    "pacific": "Pacífico e Oceânia",
+    "atlantic": "Oceano Atlântico",
+    "indian_ocean": "Oceano Índico",
+    "polar": "Ártico e Antártida"
   }
 }

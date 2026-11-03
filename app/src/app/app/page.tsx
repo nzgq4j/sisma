@@ -1,6 +1,7 @@
 'use client';
 // Feed tab. Spec: design/SismaApp.dc.html (isFeed block + detail sheet). Remaining TODOs are marked.
 // At >= 1024px this route shows the desktop dashboard (components/dash) instead.
+import { RegionFilterChip } from '@/components/stage/StageParts';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
@@ -50,6 +51,7 @@ function MobileFeed() {
         {VIEW_RANGES.map(r => (r === '1y' && plan === 'free'
           ? <Link key={r} href="/app/me" style={chip(false)}>{t(RANGE_LABEL[r])}<span className="ms" aria-hidden="true" style={{ fontSize: 15 }}>lock</span></Link>
           : <button key={r} onClick={() => setRange(r)} aria-pressed={range === r} style={chip(range === r)}>{t(RANGE_LABEL[r])}</button>))}
+        <RegionFilterChip chipStyle={chip} />
         {[['all', t('all_regions')] as const, ...regions.slice(0, 8).map(([r]) => [r, r] as const)].map(([id, label]) => (
           <button key={id} onClick={() => setRegion(id)} aria-pressed={region === id} style={chip(region === id)}>{label}</button>
         ))}

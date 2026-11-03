@@ -7,14 +7,14 @@ import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { MagBadge } from '@/components/MagBadge';
 import { timeAgo } from '@/components/QuakeRow';
-import { MAG_SCALE, magColor } from '@/lib/theme';
+import { MAG_SCALE, magVar } from '@/lib/theme';
 import type { SortKey } from '@/lib/quakes/types';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/QuakeData';
 import { QuakeDetail, QuakeSummary } from '@/components/QuakeDetail';
 import { FeltButton } from '@/components/FeltReport';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import { WorldMap } from './WorldMap';
-import { MagFilterChip } from '@/components/stage/StageParts';
+import { MagFilterChip, RegionFilterChip } from '@/components/stage/StageParts';
 import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
 import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
@@ -64,7 +64,7 @@ export function Dashboard() {
   const magBars: Bar[] = useMemo(() => MAG_BINS.map(b => ({
     key: String(b.min), label: b.min < 0 ? `<${b.max}` : b.max >= 99 ? `${b.min}+` : `${b.min}–${b.max}`,
     tip: `M ${b.min < 0 ? `< ${b.max}` : b.max >= 99 ? `${b.min}+` : `${b.min}–${b.max}`}`,
-    value: list.filter(q => q.mag >= b.min && q.mag < b.max).length, color: magColor(b.min < 0 ? 0 : b.min).fill,
+    value: list.filter(q => q.mag >= b.min && q.mag < b.max).length, color: magVar(b.min < 0 ? 0 : b.min), // same colours as the pins
   })), [list]);
 
   const regionBars: Bar[] = regions.slice(0, 7).map(([r, n]) => ({ key: r, label: r, value: n }));
@@ -124,7 +124,7 @@ export function Dashboard() {
         <div className={styles.leftCol}>
           <section className={`${styles.card} ${styles.mapCard}`}>
             <WorldMap projection="mercator" quakes={mapList} center={loc} selectedId={selId} onSelect={q => setSelId(q?.id ?? null)} />
-            <div className={styles.mapFilter}><MagFilterChip /></div>
+            <div className={styles.mapFilter}><MagFilterChip /><RegionFilterChip /></div>
             <div className={styles.mapLegend} aria-hidden="true">
               <span>M</span>
               {[...MAG_SCALE].reverse().map(([min], i) => <i key={min} style={{ background: `var(--mag-${MAG_SCALE.length - 1 - i})` }} />)}

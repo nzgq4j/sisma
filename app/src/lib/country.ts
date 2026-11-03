@@ -27,7 +27,8 @@ function build(): Entry[] {
 export interface CountryHit { code: string; near: boolean }
 
 /** ISO alpha-2 code (lowercase) of the country containing the point, else the nearest one within 300 km. */
-export function countryAt(lat: number, lon: number): CountryHit | null {
+/** `nearKm`: how far out at sea an event still counts as near a country (flags use 300 km; regions search further). */
+export function countryAt(lat: number, lon: number, nearKm = NEAR_KM): CountryHit | null {
   index ??= build();
   const p: [number, number] = [lon, lat];
   for (const e of index) if (geoContains(e.feature, p)) return { code: e.code, near: false };
@@ -36,5 +37,5 @@ export function countryAt(lat: number, lon: number): CountryHit | null {
     const km = geoDistance(p, q as [number, number]) * R_KM;
     if (km < bestKm) { bestKm = km; best = e; }
   }
-  return best && bestKm <= NEAR_KM ? { code: best.code, near: true } : null;
+  return best && bestKm <= nearKm ? { code: best.code, near: true } : null;
 }
