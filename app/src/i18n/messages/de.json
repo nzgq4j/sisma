@@ -388,7 +388,14 @@
   "st_preliminary": "Vorläufig",
   "st_reviewed": "Geprüft",
   "map": {
-    "focus_event": "Dieses Ereignis anzeigen"
+    "focus_event": "Dieses Ereignis anzeigen",
+    "filters": "Filter",
+    "layers": "Ebenen",
+    "time_range": "Zeitraum",
+    "expand": "Filter anzeigen",
+    "collapse": "Filter ausblenden",
+    "clear_filters": "Filter zurücksetzen",
+    "legend": "Magnitudenskala"
   },
   "sharecard": {
     "title": "Dieses Erdbeben teilen",

@@ -388,7 +388,14 @@
   "st_preliminary": "Preliminar",
   "st_reviewed": "Revisado",
   "map": {
-    "focus_event": "Ver este evento"
+    "focus_event": "Ver este evento",
+    "filters": "Filtros",
+    "layers": "Capas",
+    "time_range": "Periodo",
+    "expand": "Mostrar filtros",
+    "collapse": "Ocultar filtros",
+    "clear_filters": "Borrar filtros",
+    "legend": "Escala de magnitud"
   },
   "sharecard": {
     "title": "Compartir este sismo",

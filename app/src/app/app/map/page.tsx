@@ -1,6 +1,7 @@
 'use client';
 // Map tab. Spec: design/SismaApp.dc.html (isMap block + drawMap): Mercator rotated to the user's longitude,
-// zoom 1–40, range chips + Plates toggle, magnitude legend + hint, tap a circle for the selected-quake card.
+// zoom 1–40, tap a pin for the selected-quake card. Filters, layers and the legend live in the pull-up filter panel;
+// choosing a world region there zooms the map to that region.
 // /app/map?focus=<quake id> ("Show region") zooms to ~7.5° across the shorter side of the view around that quake,
 // marks it as the event in focus (pulsing marker, summary card below) and draws its felt reports. Tapping a nearby
 // event there opens a callout on the map; tapping the callout makes that event the focus.
@@ -18,7 +19,9 @@ import { timeAgo } from '@/components/QuakeRow';
 import { useDistance } from '@/components/Units';
 import type { Quake } from '@/lib/quakes/types';
 import { FitLine } from '@/components/FitLine';
-import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip, RegionFilterChip } from '@/components/stage/StageParts';
+import { Legend, Selection } from '@/components/stage/StageParts';
+import { FilterPanel, LayerToggle } from '@/components/stage/FilterPanel';
+import { REGION_VIEW } from '@/lib/world-regions';
 import { HEAT_COLORS, MMI_COLORS, ROMAN } from '@/lib/theme';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
@@ -35,11 +38,13 @@ function MapView() {
   const router = useRouter();
   const focusId = useSearchParams().get('focus');
   const { locations, active } = useApp();
-  const { mapList: list, all, loaded } = useQuakeData();
+  const { mapList: list, all, loaded, worldReg } = useQuakeData();
   const [plates, setPlates] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
   const focusQuake = focusId ? all.find(q => q.id === focusId) ?? null : null;
+  // A chosen world region frames the map on it (the event in focus of "Show region" comes first).
+  const regionView = worldReg ? REGION_VIEW[worldReg] : null;
   // In the region view the card below always shows the event in focus; other events open a callout instead.
   const selId = focusQuake ? focusQuake.id : picked;
   const sel = list.find(q => q.id === selId) ?? all.find(q => q.id === selId) ?? null;
@@ -49,12 +54,12 @@ function MapView() {
   const auto = useFeltMap(focusQuake ? focusQuake.id : null);
   const [howOpen, setHowOpen] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
-  // Map area covered by the chips + region card (top) and the event card (bottom), measured when a callout opens.
+  // Map area covered by the region card (top) and the event card or filter panel (bottom), measured when a callout opens.
   const safeArea = () => {
     const st = stageRef.current?.getBoundingClientRect();
     if (!st) return { top: 0, bottom: 0 };
-    const tops = [...stageRef.current!.querySelectorAll(`.${styles.chips}, .${styles.feltCard}`)].map(e => e.getBoundingClientRect().bottom - st.top);
-    const card = stageRef.current!.querySelector('aside')?.getBoundingClientRect();
+    const tops = [...stageRef.current!.querySelectorAll(`.${styles.feltCard}`)].map(e => e.getBoundingClientRect().bottom - st.top);
+    const card = stageRef.current!.querySelector('aside, [data-filter-panel]')?.getBoundingClientRect();
     return { top: Math.max(0, ...tops), bottom: card ? Math.max(0, st.bottom - card.top) : 0 };
   };
 
@@ -85,14 +90,9 @@ function MapView() {
         onSelect={onSelect} safeArea={safeArea} focusedId={focusQuake?.id ?? null}
         popup={calloutQuake ? { id: calloutQuake.id, content: <NearbyCallout q={calloutQuake} onOpen={() => showRegion(calloutQuake.id)} /> } : null}
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
-        focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, span: REGION_SPAN, y: 0.42 } : null}
+        focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, span: REGION_SPAN, y: 0.42 }
+          : regionView ? { key: `wr:${worldReg}`, ...regionView, y: 0.42 } : null}
         cells={focusQuake ? felt.cells : []} heat={focusQuake && auto.map ? auto.map.cells : []} onReset={focusId ? exitRegion : undefined} />
-      <div className={styles.chips}>
-        <RangeChips />
-        <MagFilterChip />
-        <RegionFilterChip />
-        <ToggleChip on={plates} onClick={() => setPlates(v => !v)} icon="texture" label={t('plates')} />
-      </div>
       {focusId && (
         <div className={styles.feltCard} role="status">
           <button type="button" className={styles.exitBtn} onClick={exitRegion}>
@@ -124,13 +124,9 @@ function MapView() {
       <FeltMapInfoSheet open={howOpen} onClose={() => setHowOpen(false)} />
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}
       {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={clear} onShowRegion={() => showRegion(sel.id)} /> : (
-        <div className={styles.bottom}>
-          <Legend />
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6 }}>
-            {plates && <span className={styles.credit}>Plates: PB2002, Bird (2003)</span>}
-            <div className={styles.hint}>{t('map_hint')}</div>
-          </div>
-        </div>
+        <FilterPanel legend={<Legend plain />}
+          layers={<LayerToggle on={plates} onChange={setPlates} icon="texture" label={t('plates')} />}
+          hint={<>{t('map_hint')}{plates && <><br />Plates: PB2002, Bird (2003)</>}</>} />
       )}
     </div>
   );

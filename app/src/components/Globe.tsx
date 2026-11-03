@@ -17,7 +17,11 @@ export interface GlobeHandle { zoomBy: (f: number) => void }
 interface Props {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   depthMode: boolean; plates: boolean; spin: boolean; label: string;
+  /** Turns the globe to face this point (e.g. a chosen world region) whenever `key` changes. */
+  focus?: { key: string; lat: number; lon: number } | null;
 }
+/** How long (ms) the turn to a new focus takes. */
+const TURN_MS = 700;
 
 const GRATICULE = geoGraticule10();
 // Remember the view between visits to the tab, like the design (globeRot / globeK).
@@ -85,7 +89,8 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     const proj = geoOrthographic().clipAngle(90).precision(0.6)
       .rotate(memo.rot ?? [-center.lon, -Math.max(-40, Math.min(40, center.lat)) * 0.7, 0]);
     const path = geoPath(proj, ctx);
-    const st = { drag: false, moved: false, px: 0, py: 0, pk: memo.k, pts: [] as [number, number, Quake][] };
+    const st = { drag: false, moved: false, px: 0, py: 0, pk: memo.k, pts: [] as [number, number, Quake][],
+      focusKey: null as string | null, turn: null as { from: [number, number]; to: [number, number]; t0: number } | null };
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -108,7 +113,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     };
 
     const z = zoom<HTMLCanvasElement, unknown>().scaleExtent([0.8, 10])
-      .on('start', () => { st.drag = true; st.moved = false; })
+      .on('start', () => { st.drag = true; st.moved = false; st.turn = null; })
       .on('zoom', e => {
         const tr = e.transform, dx = tr.x - st.px, dy = tr.y - st.py, scaled = Math.abs(tr.k / st.pk - 1) > 1e-4;
         st.px = tr.x; st.py = tr.y; st.pk = tr.k;
@@ -142,7 +147,20 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     const frame = () => {
       const p = live.current;
       if (++frameNo % 30 === 0) theme = readTheme();
-      if (p.spin && !st.drag) { const r = proj.rotate(); proj.rotate([r[0] + 0.12 / memo.k, r[1], 0]); }
+      const fk = p.focus?.key ?? null;
+      if (fk !== st.focusKey) {
+        st.focusKey = fk;
+        if (p.focus) {
+          const r = proj.rotate(), to: [number, number] = [-p.focus.lon, -Math.max(-60, Math.min(60, p.focus.lat))];
+          to[0] = r[0] + ((((to[0] - r[0]) % 360) + 540) % 360) - 180; // the short way round
+          st.turn = { from: [r[0], r[1]], to, t0: performance.now() };
+        }
+      }
+      if (st.turn) {
+        const { from, to, t0 } = st.turn, u = Math.min(1, (performance.now() - t0) / TURN_MS), e = u < 0.5 ? 2 * u * u : 1 - (-2 * u + 2) ** 2 / 2;
+        proj.rotate([from[0] + (to[0] - from[0]) * e, from[1] + (to[1] - from[1]) * e, 0]);
+        if (u >= 1) st.turn = null;
+      } else if (p.spin && !st.drag) { const r = proj.rotate(); proj.rotate([r[0] + 0.12 / memo.k, r[1], 0]); }
       memo.rot = proj.rotate();
       ctx.clearRect(0, 0, W, H);
       const Rs = proj.scale(), grd = ctx.createRadialGradient(cx, cy, Rs * 0.92, cx, cy, Rs * 1.3);

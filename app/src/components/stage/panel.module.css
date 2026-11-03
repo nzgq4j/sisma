@@ -1,0 +1,43 @@
+/* Pull-up filter panel on the Map and Globe tabs (behaviour from the polar lights app's map sheet). */
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; flex-direction: column; overflow: hidden;
+  border-radius: 24px 24px 0 0; background: var(--surface); color: var(--ink); box-shadow: var(--shadow);
+  transition: height .25s ease; padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+@media (min-width: 1024px) { .sheet { left: 16px; right: auto; bottom: 16px; width: 380px; border-radius: 24px; } }
+.dragging { transition: none; }
+@media (prefers-reduced-motion: reduce) { .sheet { transition: none; } }
+
+.grip { flex: none; display: flex; flex-direction: column; gap: 2px; padding: 0 16px 12px; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+.handle { align-self: center; display: grid; place-items: center; width: 64px; height: 22px; padding: 0; border: 0; background: transparent; cursor: inherit; }
+.handle i { width: 36px; height: 4px; border-radius: 2px; background: var(--line); }
+.head { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-width: 0; }
+.title { display: flex; align-items: center; gap: 6px; font-size: 17px; font-weight: 800; }
+.title :global(.ms) { font-size: 20px; color: var(--violet-text); }
+.count { flex: none; font-size: 13px; font-weight: 700; color: var(--ink2); font-variant-numeric: tabular-nums; }
+.line { font-size: 13px; font-weight: 600; color: var(--ink2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; gap: 18px; padding: 4px 16px 20px; }
+.body[hidden] { display: none; }
+.section { display: flex; flex-direction: column; gap: 8px; }
+.label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); }
+.rows { border-radius: 18px; background: var(--surface2); overflow: hidden; }
+.row { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 0 14px; border: 0; border-bottom: 1px solid var(--line);
+  background: transparent; color: var(--ink); font: inherit; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; }
+.row:last-child { border-bottom: 0; }
+button.row:hover { background: color-mix(in srgb, var(--surface2) 70%, var(--line)); }
+button.row:active { background: var(--line); }
+.row > :global(.ms) { font-size: 20px; color: var(--ink2); }
+.row[data-active] > :global(.ms):first-child { color: var(--violet-text); }
+.rowLabel { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rowValue { flex: none; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; color: var(--ink2); }
+.row[data-active] .rowValue { color: var(--violet-text); font-weight: 700; }
+.clearOne { flex: none; width: 44px; height: 44px; margin-right: -10px; border: 0; border-radius: 22px; background: transparent; color: var(--ink2); display: grid; place-items: center; cursor: pointer; }
+.clearOne:hover { color: var(--violet-text); }
+.clearAll { align-self: flex-start; min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: var(--violet-text); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+
+.switch { flex: none; position: relative; width: 44px; height: 26px; border-radius: 13px; background: var(--line); transition: background .15s; }
+.switch i { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 10px; background: var(--surface); box-shadow: 0 1px 3px rgba(0, 0, 0, .25); transition: transform .15s; }
+.row[aria-checked='true'] .switch { background: var(--violet); }
+.row[aria-checked='true'] .switch i { transform: translateX(18px); }
+.row[aria-checked='true'] > :global(.ms):first-child { color: var(--violet-text); }
+
+.hint { font-size: 12px; font-weight: 600; color: var(--ink2); }
