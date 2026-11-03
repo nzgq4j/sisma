@@ -15,16 +15,15 @@ import { Sheet, SheetOptions } from '@/components/Sheet';
 import COUNTRY_CODES from '@/lib/country-codes.json';
 import { WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
 import { setTheme, useTheme, type ThemePref } from '@/components/Theme';
-import { KM_PER_MI, setUnits, useDistance, useUnits, type Units } from '@/components/Units';
+import { setUnits, useDistance, useUnits, type Units } from '@/components/Units';
 import { openOnboarding } from '@/components/onboarding/store';
 import { FeltMapInfoSheet, setFeltMapSharing, useFeltMapSharing } from '@/components/FeltMap';
 import { supabaseBrowser } from '@/lib/supabase-browser';
 import { PRICES, limits } from '@/lib/entitlements';
 import type { PlaceHit } from '@/lib/places';
+import { ALERT_RADII, snapRadius } from '@/lib/alert-radius';
 import styles from './me.module.css';
 
-// Alert radius options (stored in km). In miles, round numbers of miles: 50, 150, 300, 600.
-const RADII = { km: [100, 250, 500, 1000, 0], mi: [50, 150, 300, 600, 0].map(r => Math.round(r * KM_PER_MI)) };
 const SOURCES = ['USGS', 'EMSC', 'GeoNet', 'JMA'];
 /** Alert minimum magnitude choices (was a 3–7 slider in steps of 0.5). */
 const ALERT_MAGS = [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7];
@@ -202,6 +201,7 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
   const push = usePushDevice();
   const [s, setS] = useState({ enabled: false, min_magnitude: 5, radius_km: 500, countries: [] as string[], regions: [] as string[] });
   const [open, setOpen] = useState<null | 'mag' | 'radius' | 'areas'>(null);
+  const [hasRow, setHasRow] = useState(false);
   const [saveError, setSaveError] = useState(false);
 
   // Load the saved settings (RLS: own row only).
@@ -209,17 +209,31 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
     const sb = supabaseBrowser(); if (!sb || !user) return;
     let alive = true;
     sb.from('alert_settings').select('enabled, min_magnitude, radius_km, countries, regions').eq('user_id', user.id).maybeSingle()
-      .then(({ data }) => { if (alive && data) setS({ enabled: data.enabled, min_magnitude: Number(data.min_magnitude), radius_km: data.radius_km, countries: data.countries ?? [], regions: data.regions ?? [] }); });
+      .then(({ data }) => {
+        if (!alive || !data) return;
+        setS({ enabled: data.enabled, min_magnitude: Number(data.min_magnitude), radius_km: data.radius_km, countries: data.countries ?? [], regions: data.regions ?? [] });
+        setHasRow(true);
+      });
     return () => { alive = false; };
   }, [user]);
 
+  // The radius is one of the choices in the current units (a radius saved in km becomes the nearest mile choice and
+  // back), and the saved value is updated to match, so what is shown is what alerts use.
+  const radius = snapRadius(s.radius_km, u.units);
   const areaNames = [...s.regions.map(r => m.wr[r as WorldRegion] ?? r), ...s.countries.map(c => countryName(locale, c))];
   const update = (patch: Partial<typeof s>) => {
-    const nextS = { ...s, ...patch }; setS(nextS); setSaveError(false);
+    const nextS = { ...s, radius_km: radius, ...patch }; setS(nextS); setSaveError(false);
     const sb = supabaseBrowser(); if (!sb || !user) return;
     // The DB trigger refuses enabled = true without sisma+, so the server is the gate, not this toggle.
     void sb.from('alert_settings').upsert({ user_id: user.id, ...nextS, updated_at: new Date().toISOString() }).then(({ error }) => { if (error) setSaveError(true); });
   };
+  // Store the snapped radius when it differs from the saved one (e.g. after switching units).
+  useEffect(() => {
+    const sb = supabaseBrowser();
+    if (!hasRow || !sb || !user || radius === s.radius_km) return;
+    void sb.from('alert_settings').update({ radius_km: radius, updated_at: new Date().toISOString() }).eq('user_id', user.id)
+      .then(({ error }) => { if (error) setSaveError(true); else setS(prev => ({ ...prev, radius_km: radius })); });
+  }, [hasRow, radius, s.radius_km, user]);
 
   return (
     <>
@@ -244,7 +258,7 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
             </button>
             <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('radius')}>
               <span className="ms" aria-hidden="true">radar</span><span className={styles.grow}>{t('alert_radius')}</span>
-              <span className={styles.meta}>{s.radius_km ? u.dist(s.radius_km) : m.acct.anywhere}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+              <span className={styles.meta}>{radius ? u.dist(radius) : m.acct.anywhere}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
             </button>
             <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('areas')}>
               <span className="ms" aria-hidden="true">public</span><span className={styles.grow}>{m.notif.areas_label}</span>
@@ -257,8 +271,8 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
                 options={ALERT_MAGS.map(v => ({ value: String(v), label: `M${nf.format(v)}+` }))} />
             </Sheet>
             <Sheet open={open === 'radius'} onClose={() => setOpen(null)} title={t('alert_radius')}>
-              <SheetOptions value={String(s.radius_km)} onPick={v => { update({ radius_km: Number(v) }); setOpen(null); }}
-                options={RADII[u.units].map(r => ({ value: String(r), label: r ? u.dist(r) : m.acct.anywhere }))} />
+              <SheetOptions value={String(radius)} onPick={v => { update({ radius_km: Number(v) }); setOpen(null); }}
+                options={ALERT_RADII[u.units].map(r => ({ value: String(r), label: r ? u.dist(r) : m.acct.anywhere }))} />
             </Sheet>
             <AreaPicker open={open === 'areas'} onClose={() => setOpen(null)} countries={s.countries} regions={s.regions}
               onChange={(countries, regions) => update({ countries, regions })} />
