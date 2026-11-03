@@ -72,9 +72,8 @@ button.kpi:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--violet-soft)
 .mapCard { padding: 0; overflow: hidden; position: relative; aspect-ratio: 1.9 / 1; min-height: 340px; max-height: 72vh; }
 .mapWrap { position: absolute; inset: 0; }
 
-.mapSvg { display: block; cursor: grab; touch-action: none; }
-.mapSvg:active { cursor: grabbing; }
-.dot { cursor: pointer; }
+.mapSvg { display: block; cursor: default; touch-action: none; } /* pointer / grabbing set from WorldMap */
+.dot { cursor: inherit; }
 .dot:hover path { stroke: var(--ink); }
 .mapTools { position: absolute; right: 14px; top: 14px; display: flex; flex-direction: column; gap: 6px; }
 .mapTools button { width: 40px; height: 40px; border: 0; border-radius: 12px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow); display: flex; align-items: center; justify-content: center; cursor: pointer; }
