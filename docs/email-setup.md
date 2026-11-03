@@ -7,7 +7,7 @@ What's already there (Vercel → Domains → sisma.io → DNS Records):
 
 | Name | Type | What it's for |
 | --- | --- | --- |
-| `resend._domainkey` | TXT | Resend's signature key, so app emails (sign-in links) from no-reply@sisma.io are trusted |
+| `resend._domainkey` | TXT | Resend's signature key, so app emails (account confirmation and password reset) from no-reply@sisma.io are trusted |
 | `send`, `rsend` | CNAME | Resend's bounce handling, on its own sub-address — doesn't interfere with a mailbox |
 | ALIAS / CAA records | — | Added by Vercel automatically for the website and its certificate. **Don't touch them** |
 
@@ -113,7 +113,7 @@ Keep sisma.io's DNS at Vercel (the website stays on Vercel); only mail goes to I
 | `_dmarc` | TXT | `v=DMARC1; p=none; rua=mailto:hello@sisma.io` | |
 
 After 15–60 minutes, **Email Deliverability** should show sisma.io as valid. Read and send mail in InMotion's webmail
-or any mail app. App emails (sign-in links) keep going through Resend and need nothing in this SPF record.
+or any mail app. App emails (account confirmation and password reset) keep going through Resend and need nothing in this SPF record.
 
 ---
 
