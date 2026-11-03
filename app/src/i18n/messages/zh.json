@@ -284,7 +284,6 @@
     "cancel": "取消",
     "active": "已生效",
     "anywhere": "全球",
-    "alerts_soon": "提醒通知即将推出。你的设置已保存。",
     "my_location": "我的位置",
     "use_location": "使用我当前的位置",
     "loc_denied": "位置权限已关闭。你可以在浏览器或设备设置中开启。",
@@ -403,5 +402,24 @@
     "nearby": "其他地震（过去 7 天）",
     "disclaimer": "非官方预警服务。请遵循当地政府的指示。"
   },
-  "felt_by_1": "1 人报告有震感"
+  "felt_by_1": "1 人报告有震感",
+  "notif": {
+    "title_near": "M{mag} 地震 · 距 {place} {dist}",
+    "title_any": "M{mag} 地震",
+    "body": "{region} · 深度 {depth}",
+    "test_title": "sisma 测试提醒",
+    "test_body": "此设备可以接收提醒。",
+    "coverage": "提醒覆盖你任一已保存地点附近的地震。",
+    "need_location": "请在下方添加已保存地点：提醒针对你保存地点附近的地震。",
+    "device_on": "此设备将接收提醒。",
+    "device_enable": "在此设备上开启通知",
+    "device_blocked": "此浏览器的设置已阻止 sisma 的通知。",
+    "device_unsupported": "此浏览器无法接收通知。",
+    "device_ios": "在 iPhone 和 iPad 上，请先将 sisma 添加到主屏幕（分享 → 添加到主屏幕），再从主屏幕打开。",
+    "device_app_update": "请更新 sisma 应用以在此手机上接收提醒。",
+    "device_error": "无法在此设备上开启通知，请重试。",
+    "test": "发送测试提醒",
+    "test_sent": "测试提醒已发送",
+    "test_failed": "无法发送测试提醒。"
+  }
 }

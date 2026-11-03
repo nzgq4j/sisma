@@ -10,6 +10,7 @@ import { Splash } from '@/components/splash/Splash';
 import { AccountProvider } from '@/components/Account';
 import { PaywallSheet } from '@/components/Paywall';
 import { Onboarding } from '@/components/onboarding/Onboarding';
+import { PushSync } from '@/components/PushDevice';
 import styles from '@/components/dash/dash.module.css';
 
 // App shell for /app/*. Phone (< 1024px): top app bar + bottom nav, content column up to 520px, edge-to-edge on Android.
@@ -32,6 +33,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         </div>
         <div className={styles.mobileOnly}><BottomNav /></div>
         <PaywallSheet />
+        <PushSync />
         <Onboarding />
         <Splash />
       </FeltReportProvider>

@@ -12,20 +12,10 @@ import { countryAt } from '@/lib/country';
 import { formatDms } from '@/lib/geo';
 import { convertKmInText, KM_PER_MI, type Units } from '@/lib/units';
 import { EARTHQUAKE_PATH } from '@/components/logo-path';
-import en from '@/i18n/messages/en.json';
-import type { Locale } from '@/i18n/I18nProvider';
-
-type Messages = typeof en;
-const LOCALES: Locale[] = ['en', 'es', 'ja', 'id', 'tr', 'it', 'pt', 'zh', 'fr', 'de'];
+import { asLocale, serverMessages as messages } from '@/i18n/server';
 const W = 1080, H = 1350, PAD = 56, MAP_W = W - PAD * 2, MAP_H = 600;
 const SPAN = 7.5;
 const C = THEME.light;
-
-async function messages(locale: Locale): Promise<Messages> {
-  if (locale === 'en') return en;
-  const mod = (await import(`@/i18n/messages/${locale}.json`)) as { default: Messages };
-  return { ...en, ...mod.default };
-}
 
 // Google Fonts serves TrueType (which Satori needs) when no browser user agent is sent.
 const fontCache = new Map<string, Promise<ArrayBuffer | null>>();
@@ -63,7 +53,7 @@ export async function GET(req: NextRequest) {
   const sp = req.nextUrl.searchParams;
   const id = sp.get('id');
   if (!id) return Response.json({ error: 'missing_id' }, { status: 400 });
-  const locale = (LOCALES.includes(sp.get('locale') as Locale) ? sp.get('locale') : 'en') as Locale;
+  const locale = asLocale(sp.get('locale'));
   const units: Units = sp.get('units') === 'mi' ? 'mi' : 'km';
   const tz = validTz(sp.get('tz'));
   const origin = req.nextUrl.origin;

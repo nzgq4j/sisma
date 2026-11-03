@@ -284,7 +284,6 @@
     "cancel": "Batal",
     "active": "Aktif",
     "anywhere": "Global",
-    "alerts_soon": "Notifikasi peringatan segera hadir. Pengaturan Anda sudah disimpan.",
     "my_location": "Lokasi saya",
     "use_location": "Gunakan lokasi saya saat ini",
     "loc_denied": "Akses lokasi nonaktif. Anda bisa mengaktifkannya di pengaturan browser atau perangkat.",
@@ -403,5 +402,24 @@
     "nearby": "Kejadian lain, 7 hari terakhir",
     "disclaimer": "Bukan layanan peringatan resmi. Ikuti otoritas setempat."
   },
-  "felt_by_1": "1 orang melaporkan merasakannya"
+  "felt_by_1": "1 orang melaporkan merasakannya",
+  "notif": {
+    "title_near": "Gempa M{mag} · {dist} dari {place}",
+    "title_any": "Gempa M{mag}",
+    "body": "{region} · kedalaman {depth}",
+    "test_title": "Peringatan uji sisma",
+    "test_body": "Peringatan berfungsi di perangkat ini.",
+    "coverage": "Peringatan mencakup gempa di dekat lokasi tersimpan mana pun.",
+    "need_location": "Tambahkan lokasi tersimpan di bawah: peringatan untuk gempa di dekat tempat tersimpan Anda.",
+    "device_on": "Perangkat ini akan menerima peringatan.",
+    "device_enable": "Aktifkan notifikasi di perangkat ini",
+    "device_blocked": "Notifikasi sisma diblokir di pengaturan browser ini.",
+    "device_unsupported": "Browser ini tidak dapat menerima notifikasi.",
+    "device_ios": "Di iPhone dan iPad, tambahkan sisma ke Layar Utama terlebih dahulu (Bagikan → Tambah ke Layar Utama), lalu buka dari sana.",
+    "device_app_update": "Perbarui aplikasi sisma untuk menerima peringatan di ponsel ini.",
+    "device_error": "Tidak dapat mengaktifkan notifikasi di perangkat ini. Silakan coba lagi.",
+    "test": "Kirim peringatan uji",
+    "test_sent": "Peringatan uji terkirim",
+    "test_failed": "Tidak dapat mengirim peringatan uji."
+  }
 }

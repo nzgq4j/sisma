@@ -284,7 +284,6 @@
     "cancel": "Annulla",
     "active": "Attivo",
     "anywhere": "Globale",
-    "alerts_soon": "Le notifiche degli avvisi arriveranno presto. Le tue impostazioni sono salvate.",
     "my_location": "La mia posizione",
     "use_location": "Usa la mia posizione attuale",
     "loc_denied": "L’accesso alla posizione è disattivato. Puoi attivarlo nelle impostazioni del browser o del dispositivo.",
@@ -403,5 +402,24 @@
     "nearby": "Altri eventi, ultimi 7 giorni",
     "disclaimer": "Non è un servizio di allerta ufficiale. Segui le autorità locali."
   },
-  "felt_by_1": "1 persona l’ha avvertito"
+  "felt_by_1": "1 persona l’ha avvertito",
+  "notif": {
+    "title_near": "Terremoto M{mag} · a {dist} da {place}",
+    "title_any": "Terremoto M{mag}",
+    "body": "{region} · profondità {depth}",
+    "test_title": "Avviso di prova sisma",
+    "test_body": "Gli avvisi funzionano su questo dispositivo.",
+    "coverage": "Gli avvisi riguardano i terremoti vicini a uno qualsiasi dei tuoi luoghi salvati.",
+    "need_location": "Aggiungi un luogo salvato qui sotto: gli avvisi riguardano i terremoti vicini ai tuoi luoghi.",
+    "device_on": "Questo dispositivo riceverà gli avvisi.",
+    "device_enable": "Attiva le notifiche su questo dispositivo",
+    "device_blocked": "Le notifiche di sisma sono bloccate nelle impostazioni di questo browser.",
+    "device_unsupported": "Questo browser non può ricevere notifiche.",
+    "device_ios": "Su iPhone e iPad, aggiungi prima sisma alla schermata Home (Condividi → Aggiungi alla schermata Home), poi aprilo da lì.",
+    "device_app_update": "Aggiorna l’app sisma per ricevere gli avvisi su questo telefono.",
+    "device_error": "Impossibile attivare le notifiche su questo dispositivo. Riprova.",
+    "test": "Invia un avviso di prova",
+    "test_sent": "Avviso di prova inviato",
+    "test_failed": "Impossibile inviare l’avviso di prova."
+  }
 }

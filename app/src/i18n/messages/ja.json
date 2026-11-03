@@ -284,7 +284,6 @@
     "cancel": "キャンセル",
     "active": "有効",
     "anywhere": "全世界",
-    "alerts_soon": "アラート通知はまもなく対応予定です。設定は保存されています。",
     "my_location": "現在地",
     "use_location": "現在地を使う",
     "loc_denied": "位置情報へのアクセスがオフです。ブラウザまたは端末の設定でオンにできます。",
@@ -403,5 +402,24 @@
     "nearby": "その他の地震（過去7日間）",
     "disclaimer": "公式の警報サービスではありません。地元当局の指示に従ってください。"
   },
-  "felt_by_1": "1人が揺れを報告"
+  "felt_by_1": "1人が揺れを報告",
+  "notif": {
+    "title_near": "M{mag}の地震 · {place}から{dist}",
+    "title_any": "M{mag}の地震",
+    "body": "{region} · 深さ{depth}",
+    "test_title": "sismaテスト通知",
+    "test_body": "この端末で通知を受け取れます。",
+    "coverage": "保存した地点のいずれかの近くで起きた地震を通知します。",
+    "need_location": "下で地点を保存してください。通知は保存した地点の近くの地震が対象です。",
+    "device_on": "この端末に通知が届きます。",
+    "device_enable": "この端末で通知をオンにする",
+    "device_blocked": "このブラウザの設定でsismaの通知がブロックされています。",
+    "device_unsupported": "このブラウザは通知を受け取れません。",
+    "device_ios": "iPhoneとiPadでは、まずsismaをホーム画面に追加し（共有 → ホーム画面に追加）、そこから開いてください。",
+    "device_app_update": "このスマートフォンで通知を受け取るには、sismaアプリを更新してください。",
+    "device_error": "この端末で通知をオンにできませんでした。もう一度お試しください。",
+    "test": "テスト通知を送信",
+    "test_sent": "テスト通知を送信しました",
+    "test_failed": "テスト通知を送信できませんでした。"
+  }
 }
