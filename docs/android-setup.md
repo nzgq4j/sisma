@@ -96,7 +96,7 @@ purchase real?" before unlocking sisma+. That needs a *service account* (a robot
 
 ## 4. Google sign-in (optional)
 
-Today sisma signs people in with an **email link** (no password). Adding "Continue with Google" is optional but
+Today sisma signs people in with **email and password** (create an account, or sign in to an existing one). Adding "Continue with Google" is optional but
 convenient. Skip this step if you don't want it.
 
 1. Cloud console (sisma project) ☰ **APIs & Services → OAuth consent screen** (may be called **Google Auth Platform**):
@@ -178,7 +178,7 @@ key yourself, because it must stay on your machine.
    **and** a backup. Never commit it. Finish → you get `app-release.aab` (this is what you upload).
    With **Play App Signing** (default, keep it on) Google holds the real signing key; if you lose the upload key,
    Google can reset it.
-6. **App links** (so sign-in links and Google sign-in return to the app): after the first upload, in Play Console →
+6. **App links** (so confirmation and password-reset links and Google sign-in return to the app): after the first upload, in Play Console →
    **Test and release → App integrity → App signing**, copy the **SHA-256 certificate fingerprint** (not secret).
    Add it in **Vercel → Project sisma → Settings → Environment Variables** as `ANDROID_CERT_SHA256` (Production;
    for local test builds add the upload key's fingerprint too, comma-separated) and redeploy — or send it to me.

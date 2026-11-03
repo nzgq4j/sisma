@@ -110,8 +110,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
 export const useAccount = () => { const v = useContext(Ctx); if (!v) throw new Error('useAccount outside AccountProvider'); return v; };
 
-type Mode = 'link' | 'password' | 'signup';
-type Status = 'idle' | 'busy' | 'link_sent' | 'signup_sent' | 'reset_sent' | 'oauth';
+type Mode = 'password' | 'signup';
+type Status = 'idle' | 'busy' | 'signup_sent' | 'reset_sent' | 'oauth';
 
 const authError = (code: string | undefined, a: Record<string, string>) =>
   code === 'invalid_credentials' ? a.err_credentials
@@ -121,12 +121,12 @@ const authError = (code: string | undefined, a: Record<string, string>) =>
           : code === 'over_email_send_rate_limit' || code === 'over_request_rate_limit' ? a.rate_limited
             : a.error;
 
-/** Sign in: Google (when enabled), an emailed link (no password), or email + password, with sign-up and reset. */
+/** Sign in: Google (when enabled) or email + password; new users create an account (email + password); password reset. */
 function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { t, m, locale } = useT();
   const a = m.acct as unknown as Record<string, string>;
   const sb = supabaseBrowser();
-  const [mode, setMode] = useState<Mode>('link');
+  const [mode, setMode] = useState<Mode>('password');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [show, setShow] = useState(false);
@@ -149,8 +149,7 @@ function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
     e.preventDefault();
     if (!sb) return;
     const mail = email.trim();
-    if (mode === 'link') void run(() => sb.auth.signInWithOtp({ email: mail, options: { emailRedirectTo: redirect(), data: { locale } } }), 'link_sent');
-    else if (mode === 'password') void run(() => sb.auth.signInWithPassword({ email: mail, password }), 'close');
+    if (mode === 'password') void run(() => sb.auth.signInWithPassword({ email: mail, password }), 'close');
     else void run(async () => {
       const r = await sb.auth.signUp({ email: mail, password, options: { emailRedirectTo: redirect(), data: { locale } } });
       if (!r.error && r.data.session) { setPassword(''); onClose(); return { error: null }; } // email confirmation is off
@@ -168,17 +167,17 @@ function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
     try { await startOAuth(sb, 'google'); } catch { setStatus('idle'); setErr(a.oauth_error); }
   };
 
-  const sentBody = status === 'link_sent' ? a.sent_p : status === 'signup_sent' ? a.signup_sent_p : a.reset_sent_p;
+  const sentBody = status === 'signup_sent' ? a.signup_sent_p : a.reset_sent_p;
   return (
     <Sheet open={open} onClose={close} title={mode === 'signup' ? a.create_account : t('sign_in')}>
       <div className={styles.signIn}>
         {!sb ? <p className={styles.note}>{a.unavailable}</p>
-          : status === 'link_sent' || status === 'signup_sent' || status === 'reset_sent' ? (
+          : status === 'signup_sent' || status === 'reset_sent' ? (
             <>
               <span className={`ms ${styles.bigIcon}`} aria-hidden="true">mark_email_read</span>
               <h3 className={styles.h}>{a.sent_h}</h3>
               <p className={styles.p}>{sentBody.replace('{email}', email.trim())}</p>
-              <button type="button" className={styles.linkBtn} onClick={() => reset(status === 'link_sent' ? 'link' : 'password')}>{a.back_to_sign_in}</button>
+              <button type="button" className={styles.linkBtn} onClick={() => reset('password')}>{a.back_to_sign_in}</button>
             </>
           ) : (
             <form onSubmit={submit} className={styles.form}>
@@ -190,33 +189,22 @@ function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
                   <div className={styles.or} aria-hidden="true"><span>{a.or_email}</span></div>
                 </>
               )}
-              {mode !== 'signup' && (
-                <div className={styles.seg} role="tablist" aria-label={t('sign_in')}>
-                  {(['link', 'password'] as const).map(k => (
-                    <button key={k} type="button" role="tab" aria-selected={mode === k} onClick={() => reset(k)}>{k === 'link' ? a.tab_link : a.tab_password}</button>
-                  ))}
-                </div>
-              )}
-              <p className={styles.p}>{mode === 'link' ? a.sign_in_p : mode === 'password' ? a.password_p : a.signup_p}</p>
+              <p className={styles.p}>{mode === 'password' ? a.password_p : a.signup_p}</p>
               <label className={styles.label} htmlFor="sisma-email">{a.email}</label>
               <input id="sisma-email" className={styles.input} type="email" inputMode="email" autoComplete="email" required
                 placeholder={a.email_ph} value={email} onChange={e => setEmail(e.target.value)} />
-              {mode !== 'link' && (
-                <>
-                  <label className={styles.label} htmlFor="sisma-password">{a.password}</label>
-                  <div className={styles.pwWrap}>
-                    <input id="sisma-password" className={styles.input} type={show ? 'text' : 'password'} required minLength={mode === 'signup' ? 8 : undefined}
-                      autoComplete={mode === 'signup' ? 'new-password' : 'current-password'} value={password} onChange={e => setPassword(e.target.value)} />
-                    <button type="button" className={styles.eye} onClick={() => setShow(v => !v)} aria-label={a.show_password} aria-pressed={show}>
-                      <span className="ms" aria-hidden="true">{show ? 'visibility_off' : 'visibility'}</span>
-                    </button>
-                  </div>
-                  {mode === 'signup' && <p className={styles.hint}>{a.password_rules}</p>}
-                </>
-              )}
+              <label className={styles.label} htmlFor="sisma-password">{a.password}</label>
+              <div className={styles.pwWrap}>
+                <input id="sisma-password" className={styles.input} type={show ? 'text' : 'password'} required minLength={mode === 'signup' ? 8 : undefined}
+                  autoComplete={mode === 'signup' ? 'new-password' : 'current-password'} value={password} onChange={e => setPassword(e.target.value)} />
+                <button type="button" className={styles.eye} onClick={() => setShow(v => !v)} aria-label={a.show_password} aria-pressed={show}>
+                  <span className="ms" aria-hidden="true">{show ? 'visibility_off' : 'visibility'}</span>
+                </button>
+              </div>
+              {mode === 'signup' && <p className={styles.hint}>{a.password_rules}</p>}
               {err && <p className={styles.err} role="alert">{err}</p>}
               <button type="submit" className={styles.primary} disabled={status === 'busy'}>
-                {mode === 'link' ? a.send_link : mode === 'password' ? t('sign_in') : a.create_account}
+                {mode === 'password' ? t('sign_in') : a.create_account}
               </button>
               {mode === 'password' && (
                 <div className={styles.links}>
