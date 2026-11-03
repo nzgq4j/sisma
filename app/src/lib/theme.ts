@@ -1,7 +1,7 @@
 // Tokens lifted from design/SismaApp.dc.html. globals.css mirrors these as CSS variables.
 export const THEME = {
   light: { bg: '#F6F4FC', surface: '#FFFFFF', surface2: '#EFECF8', ink: '#1B1530', ink2: '#5E587A', line: '#E4E0F0', violet: '#6C4BF4', onViolet: '#FFFFFF', violetSoft: '#ECE7FF', violetText: '#5A38E0', mint: '#2CCB9A', mintSoft: '#D9F7EC', mintText: '#0A7558', warmSoft: '#FFE9E1', warmText: '#B3401F', mapSea: '#E3F4EE', mapLand: '#FFFFFF', mapLine: '#D3CCE8', mapGrat: 'rgba(108,75,244,.10)', mapPlate: '#6C4BF4', mapGlow: 'rgba(108,75,244,.16)' },
-  dark: { bg: '#100C1D', surface: '#1A1530', surface2: '#251F3F', ink: '#F2EFFB', ink2: '#A9A2C6', line: '#2E2748', violet: '#8F74FF', onViolet: '#120C26', violetSoft: '#2A2152', violetText: '#BFAFFF', mint: '#3FE0AE', mintSoft: '#123A30', mintText: '#6DF0C6', warmSoft: '#3A2019', warmText: '#FFA088', mapSea: '#10302C', mapLand: '#2A2346', mapLine: '#7468AD', mapGrat: 'rgba(255,255,255,.06)', mapPlate: '#BFAFFF', mapGlow: 'rgba(143,116,255,.22)' },
+  dark: { bg: '#100C1D', surface: '#1A1530', surface2: '#251F3F', ink: '#F2EFFB', ink2: '#A9A2C6', line: '#2E2748', violet: '#8F74FF', onViolet: '#120C26', violetSoft: '#2A2152', violetText: '#BFAFFF', mint: '#3FE0AE', mintSoft: '#123A30', mintText: '#6DF0C6', warmSoft: '#3A2019', warmText: '#FFA088', mapSea: '#0C1E36', mapLand: '#173A2A', mapLine: '#4F7D68', mapGrat: 'rgba(255,255,255,.06)', mapPlate: '#BFAFFF', mapGlow: 'rgba(143,116,255,.22)' },
 } as const;
 
 // Magnitude scale: [min magnitude, fill, text]
@@ -33,10 +33,6 @@ export const SCIENCE_PALETTE = {
   dark: { ink: '#F2EFFB', ink2: '#A9A2C6', a: '#8F74FF', b: '#3FE0AE', warm: '#FF8A6B', sand: '#A87F52', ocean: '#5B47D9', sea: '#1D4A42', floor: '#3A3260', mantle: '#221B3B', bands: ['#4A3D8A', '#7D6738', '#2F6E5C', '#7E4537', '#3A3260'], road: '#CFC8E8', lane: '#7D6738' },
 };
 export type SciencePalette = (typeof SCIENCE_PALETTE)['light'];
-
-/** 2D maps (Map tab, dashboard) in dark mode: dark blue water, dark green land, muted green borders. Mirrored in
- *  components/dash/dash.module.css (.mapWrap); the globe keeps THEME.dark.mapSea / mapLand. */
-export const FLAT_MAP_DARK = { sea: '#0C1E36', land: '#173A2A', line: '#4F7D68' } as const;
 
 /** Automatic felt-map heat ramp (weak → strong surge of app activity after a quake). */
 export const HEAT_COLORS = ['#FFD166', '#FFA94D', '#FF7A59', '#EE4266'] as const;
