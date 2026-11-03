@@ -34,6 +34,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    band (--mag-0…5: MAG_MARKER_LIGHT in light mode, MAG_SCALE in dark) with the magnitude in the head (--mag-ink-N);
    a tap picks the nearest pin within ~22 px
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
+   Events are the same numbered pins as the maps (lib/pin.ts; Depth mode fills them by depth), drawn from cached sprites
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
 7. Me / account dashboard (skeleton done: app/app/me): email-link, email + password (sign-up, reset, change) and Google sign-in (components/Account.tsx, lib/oauth.ts;

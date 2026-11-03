@@ -24,6 +24,8 @@ export const magVar = (m: number) => `var(--mag-${magIndex(m)})`;
 /** Text colour on a marker of that band (--mag-ink-N: the higher-contrast of white or ink on each fill). */
 export const magInkVar = (m: number) => `var(--mag-ink-${magIndex(m)})`;
 export const depthColor = (km: number) => (km < 70 ? '#2CCB9A' : km < 300 ? '#7B61FF' : '#B5179E');
+/** Text colour on a depth-coloured pin (globe Depth mode): ink on the light green, white on violet and magenta. */
+export const depthInk = (km: number) => (km < 70 ? '#1B1530' : '#FFFFFF');
 export const MMI_COLORS = ['#86DCC4', '#86DCC4', '#F7CF4A', '#F7CF4A', '#FFA94D', '#FF7A59', '#EE4266', '#EE4266', '#B5179E', '#B5179E'];
 export const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 

@@ -14,6 +14,7 @@ import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { TILE_MAX_ZOOM, kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
 import { useTheme } from '@/components/Theme';
+import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, pinLabel, pinReach } from '@/lib/pin';
 import { HEAT_COLORS, MMI_COLORS, magInkVar, magVar } from '@/lib/theme';
 import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
@@ -26,17 +27,15 @@ import styles from './dash.module.css';
 
 const GRATICULE = geoGraticule10();
 
-// Event pins: one size for every event; the fill shows the magnitude band and the number the magnitude. The tip is
-// on the epicentre; the head (radius PIN_R) is centred PIN_HEAD px above it.
-const PIN_R = 11, PIN_HEAD = 18;
-const PIN_PATH = `M0 0C-2.5-5-${PIN_R}-9.5-${PIN_R}-${PIN_HEAD}A${PIN_R} ${PIN_R} 0 1 1 ${PIN_R}-${PIN_HEAD}C${PIN_R}-9.5 2.5-5 0 0Z`;
+// Event pins (lib/pin.ts, shared with the globe): one size for every event; the fill shows the magnitude band and
+// the number the magnitude. The tip is on the epicentre.
 
 function Pin({ q, x, y, faded = false, scale = 1 }: { q: Quake; x: number; y: number; faded?: boolean; scale?: number }) {
   return (
     <g transform={`translate(${x},${y})${scale !== 1 ? ` scale(${scale})` : ''}`} opacity={faded ? 0.3 : 1}>
       <path d={PIN_PATH} fill={magVar(q.mag)} stroke="var(--surface)" strokeWidth={1.5} strokeLinejoin="round" />
-      <text y={-PIN_HEAD + 3.6} textAnchor="middle" fontSize={10} fontWeight={800} fill={magInkVar(q.mag)} style={{ fontVariantNumeric: 'tabular-nums' }}>
-        {q.mag.toFixed(1)}
+      <text y={-PIN_HEAD + PIN_TEXT_DY} textAnchor="middle" fontSize={PIN_FONT_PX} fontWeight={800} fill={magInkVar(q.mag)} style={{ fontVariantNumeric: 'tabular-nums' }}>
+        {pinLabel(q.mag)}
       </text>
     </g>
   );
@@ -238,7 +237,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     let best: Quake | null = null, bestD = Infinity;
     for (const mk of marks) {
       // Distance to the pin's head (where the number is); the reach covers the whole pin.
-      const d = Math.hypot(mk.x - px, mk.y - PIN_HEAD - py), reach = PIN_R + (touch ? 11 : 3);
+      const d = Math.hypot(mk.x - px, mk.y - PIN_HEAD - py), reach = pinReach(touch);
       if (d <= reach && d < bestD) { best = mk.q; bestD = d; }
     }
     if (best) onSelect(best); else if (selectedId) onSelect(null);
