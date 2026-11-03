@@ -28,7 +28,6 @@
   "felt_q": "Gespürt?",
   "felt_it": "Ich habe es gespürt",
   "report_error": "Deine Meldung konnte nicht gesendet werden. Bitte versuche es erneut.",
-  "report_window": "Meldungen sind bis 6 Stunden nach einem Beben möglich.",
   "show_region": "Region zeigen",
   "exit_region": "Zurück zur Weltkarte",
   "felt_reports_n": "{n} Meldungen · ungefähre Orte",
@@ -403,5 +402,6 @@
     "label": "Erdbeben",
     "nearby": "Weitere Ereignisse, letzte 7 Tage",
     "disclaimer": "Kein offizieller Warndienst. Folge den Anweisungen der Behörden vor Ort."
-  }
+  },
+  "felt_by_1": "1 Person hat es gespürt"
 }

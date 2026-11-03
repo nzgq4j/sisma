@@ -28,7 +28,6 @@
   "felt_q": "L’hai sentito?",
   "felt_it": "L’ho sentito",
   "report_error": "Impossibile inviare la segnalazione. Riprova.",
-  "report_window": "Le segnalazioni sono aperte per 6 ore dopo un terremoto.",
   "show_region": "Mostra zona",
   "exit_region": "Torna alla mappa del mondo",
   "felt_reports_n": "{n} segnalazioni · posizioni approssimative",
@@ -403,5 +402,6 @@
     "label": "Terremoto",
     "nearby": "Altri eventi, ultimi 7 giorni",
     "disclaimer": "Non è un servizio di allerta ufficiale. Segui le autorità locali."
-  }
+  },
+  "felt_by_1": "1 persona l’ha avvertito"
 }

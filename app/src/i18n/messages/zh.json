@@ -28,7 +28,6 @@
   "felt_q": "有震感？",
   "felt_it": "我感觉到了",
   "report_error": "无法发送你的报告，请重试。",
-  "report_window": "地震发生后 6 小时内可提交报告。",
   "show_region": "显示区域",
   "exit_region": "返回世界地图",
   "felt_reports_n": "{n} 份有感报告 · 大致位置",
@@ -403,5 +402,6 @@
     "label": "地震",
     "nearby": "其他地震（过去 7 天）",
     "disclaimer": "非官方预警服务。请遵循当地政府的指示。"
-  }
+  },
+  "felt_by_1": "1 人报告有震感"
 }

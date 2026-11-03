@@ -8,7 +8,7 @@ import { countryAt } from '@/lib/country';
 import { formatDms } from '@/lib/geo';
 import { useT } from '@/i18n/I18nProvider';
 import { MagBadge } from './MagBadge';
-import { FeltButton } from './FeltReport';
+import { FeltButton, useFeltCells } from './FeltReport';
 import { FitLine } from './FitLine';
 import type { Row } from './QuakeData';
 import { useDistance } from './Units';
@@ -73,6 +73,10 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
   const router = useRouter();
   const { country, countryName, date, time } = useQuakeFacts(q);
   const [shareOpen, setShareOpen] = useState(false);
+  // One number: felt reports sent in sisma plus those the agencies publish (USGS "Did You Feel It?").
+  // Shown only when there is at least one.
+  const reports = useFeltCells(q.id);
+  const feltTotal = reports.total + (q.felt ?? 0);
   const shareText = `M${q.mag.toFixed(1)} · ${q.region} · ${date} ${time}`;
 
   return (
@@ -110,9 +114,13 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
           <span className="ms" aria-hidden="true">ios_share</span>{t('share')}
         </button>
       </div>
-      <FeltButton q={q} variant="block" fallback={<FitLine as="p" className={styles.windowNote}>{t('report_window')}</FitLine>} />
+      <FeltButton q={q} variant="block" />
+      {feltTotal > 0 && (
+        <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span>
+          <FitLine>{feltTotal === 1 ? t('felt_by_1') : t('felt_by', { n: nf.format(feltTotal) })}</FitLine>
+        </p>
+      )}
       <ShareCardSheet q={q} open={shareOpen} onClose={() => setShareOpen(false)} path={regionHref(q.id)} text={shareText} />
-      {!!q.felt && <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span><FitLine>{t('felt_by', { n: nf.format(q.felt) })}</FitLine></p>}
     </>
   );
 }
