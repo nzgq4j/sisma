@@ -458,5 +458,31 @@
     "atlantic": "大西洋",
     "indian_ocean": "インド洋",
     "polar": "北極・南極"
+  },
+  "sub": {
+    "title": "サブスクリプション",
+    "manage": "サブスクリプションを管理",
+    "back": "戻る",
+    "status": "状態",
+    "plan": "プラン",
+    "renews": "次回更新日",
+    "trial_ends": "無料体験の終了日",
+    "ends": "終了日",
+    "st_trial": "無料体験・残り{n}日",
+    "st_active": "有効",
+    "st_canceling": "解約済み・{date}まで利用可能",
+    "st_past_due": "支払いの問題",
+    "billing": "お支払いを管理",
+    "billing_hint": "月額と年額の切り替え、カードの更新、請求書の確認、解約は Stripe の安全なページで行えます。",
+    "play": "Google Play で管理",
+    "play_hint": "このサブスクリプションは Android アプリで購入されたため、Google Play で管理します。",
+    "choose": "プランを選ぶ",
+    "trial_hint": "無料体験は{date}に終了します。sisma+ を続けるにはプランを選んでください。",
+    "free_h": "無料プランを利用中です",
+    "see_plans": "sisma+ のプランを見る",
+    "past_due_hint": "前回のお支払いが完了しませんでした。sisma+ を続けるにはカードを更新してください。",
+    "err": "お支払いページを開けませんでした。もう一度お試しください。",
+    "soon": "お支払い機能はまだ利用できません。",
+    "st_cancelled": "解約済み"
   }
 }

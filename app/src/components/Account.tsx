@@ -16,6 +16,7 @@ import styles from './account.module.css';
 export interface Profile {
   display_name: string | null; locale: string; theme: 'system' | 'light' | 'dark'; plan: Plan;
   billing_interval: Billing | null; subscription_status: string | null; trial_ends_at: string | null; current_period_end: string | null;
+  cancel_at_period_end: boolean; stripe_customer_id: string | null;
 }
 interface AccountCtx {
   configured: boolean; ready: boolean; user: User | null; profile: Profile | null; plan: Plan;
@@ -28,7 +29,7 @@ interface AccountCtx {
   openPassword: () => void;
 }
 const Ctx = createContext<AccountCtx | null>(null);
-const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end';
+const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end, cancel_at_period_end, stripe_customer_id';
 
 export function AccountProvider({ children }: { children: ReactNode }) {
   const sb = supabaseBrowser();

@@ -4,6 +4,7 @@
 // Appearance, data sources and the disclaimer. Desktop (>= 1024px): two columns — account on the left, settings right.
 // Skeleton status: sign-in, profile, plan, alert settings, language and appearance are live; saved locations are
 // device-only, push delivery (build step 9) and billing (step 8) are not wired yet.
+import Link from 'next/link';
 import { usePushDevice } from '@/components/PushDevice';
 import { useEffect, useMemo, useState } from 'react';
 import { useT, LOCALES } from '@/i18n/I18nProvider';
@@ -108,6 +109,7 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
       <div className={styles.planTop}><span>{t('current')}</span><span>{profile?.subscription_status === 'trialing' ? t('trial_active', { n: trialLeft }) : m.acct.active}</span></div>
       <div className={styles.planH}>sisma+</div>
       <div className={styles.planSub}>{new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(PRICES[interval].usd)} {t(interval === 'yearly' ? 'per_year' : 'per_month')}</div>
+      <Link href="/app/me/subscription" className={styles.planManage}>{m.sub.manage}<span className="ms" aria-hidden="true">chevron_right</span></Link>
     </div>
   );
 }

@@ -1,0 +1,11 @@
+/* Me → Subscription (uses the Me card / row / plan styles from ../me.module.css). */
+.back { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 4px; color: var(--violet-text); font-size: 15px; font-weight: 700; text-decoration: none; }
+.back :global(.ms) { font-size: 20px; }
+.h1 { margin: 0 4px; font-size: 26px; font-weight: 800; letter-spacing: -.02em; }
+.action { display: flex; flex-direction: column; gap: 8px; }
+.primary { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; border: 0; border-radius: 24px; background: var(--violet); color: var(--on-violet); font: 800 15px var(--font-figtree), sans-serif; text-decoration: none; cursor: pointer; }
+.primary:hover { color: var(--on-violet); filter: brightness(1.06); }
+.primary:disabled { opacity: .6; cursor: progress; }
+.primary :global(.ms) { font-size: 20px; }
+.primary :global(.ms):last-child:not(:first-child) { font-size: 16px; opacity: .8; }
+.warn { margin: 0; padding: 12px 14px; border-radius: 16px; background: var(--warm-soft); color: var(--warm-text); font-size: 13px; font-weight: 600; line-height: 1.45; }

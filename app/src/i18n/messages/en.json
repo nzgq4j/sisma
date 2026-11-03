@@ -458,5 +458,31 @@
     "atlantic": "Atlantic Ocean",
     "indian_ocean": "Indian Ocean",
     "polar": "Arctic & Antarctic"
+  },
+  "sub": {
+    "title": "Subscription",
+    "manage": "Manage subscription",
+    "back": "Back",
+    "status": "Status",
+    "plan": "Plan",
+    "renews": "Renews on",
+    "trial_ends": "Trial ends on",
+    "ends": "Ends on",
+    "st_trial": "Free trial · {n} days left",
+    "st_active": "Active",
+    "st_canceling": "Cancelled · active until {date}",
+    "st_past_due": "Payment problem",
+    "billing": "Manage billing",
+    "billing_hint": "Switch between monthly and yearly, update your card, see invoices or cancel, on Stripe’s secure page.",
+    "play": "Manage in Google Play",
+    "play_hint": "This subscription was bought in the Android app, so it is managed in Google Play.",
+    "choose": "Choose a plan",
+    "trial_hint": "Your free trial ends on {date}. Choose a plan to keep sisma+.",
+    "free_h": "You’re on the free plan",
+    "see_plans": "See sisma+ plans",
+    "past_due_hint": "Your last payment didn’t go through. Update your card to keep sisma+.",
+    "err": "Couldn’t open billing. Please try again.",
+    "soon": "Billing isn’t available yet.",
+    "st_cancelled": "Cancelled"
   }
 }

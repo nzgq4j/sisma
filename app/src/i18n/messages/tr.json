@@ -458,5 +458,31 @@
     "atlantic": "Atlas Okyanusu",
     "indian_ocean": "Hint Okyanusu",
     "polar": "Arktik ve Antarktika"
+  },
+  "sub": {
+    "title": "Abonelik",
+    "manage": "Aboneliği yönet",
+    "back": "Geri",
+    "status": "Durum",
+    "plan": "Plan",
+    "renews": "Yenileme tarihi",
+    "trial_ends": "Deneme bitiş tarihi",
+    "ends": "Bitiş tarihi",
+    "st_trial": "Ücretsiz deneme · {n} gün kaldı",
+    "st_active": "Etkin",
+    "st_canceling": "İptal edildi · {date} tarihine kadar etkin",
+    "st_past_due": "Ödeme sorunu",
+    "billing": "Faturalandırmayı yönet",
+    "billing_hint": "Aylık ile yıllık arasında geçiş yapın, kartınızı güncelleyin, faturaları görün veya Stripe’ın güvenli sayfasında iptal edin.",
+    "play": "Google Play’de yönet",
+    "play_hint": "Bu abonelik Android uygulamasında satın alındı; Google Play’den yönetilir.",
+    "choose": "Bir plan seçin",
+    "trial_hint": "Ücretsiz denemeniz {date} tarihinde bitiyor. sisma+ ile devam etmek için bir plan seçin.",
+    "free_h": "Ücretsiz plandasınız",
+    "see_plans": "sisma+ planlarını gör",
+    "past_due_hint": "Son ödemeniz gerçekleşmedi. sisma+ ile devam etmek için kartınızı güncelleyin.",
+    "err": "Faturalandırma açılamadı. Lütfen tekrar deneyin.",
+    "soon": "Faturalandırma henüz kullanılamıyor.",
+    "st_cancelled": "İptal edildi"
   }
 }

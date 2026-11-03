@@ -458,5 +458,31 @@
     "atlantic": "大西洋",
     "indian_ocean": "印度洋",
     "polar": "北极和南极"
+  },
+  "sub": {
+    "title": "订阅",
+    "manage": "管理订阅",
+    "back": "返回",
+    "status": "状态",
+    "plan": "方案",
+    "renews": "续订日期",
+    "trial_ends": "试用结束日期",
+    "ends": "结束日期",
+    "st_trial": "免费试用 · 剩余 {n} 天",
+    "st_active": "有效",
+    "st_canceling": "已取消 · 有效期至 {date}",
+    "st_past_due": "付款问题",
+    "billing": "管理账单",
+    "billing_hint": "在 Stripe 的安全页面切换月付与年付、更新银行卡、查看发票或取消订阅。",
+    "play": "在 Google Play 中管理",
+    "play_hint": "此订阅是在 Android 应用中购买的，因此需在 Google Play 中管理。",
+    "choose": "选择方案",
+    "trial_hint": "你的免费试用将于 {date} 结束。选择一个方案以继续使用 sisma+。",
+    "free_h": "你正在使用免费方案",
+    "see_plans": "查看 sisma+ 方案",
+    "past_due_hint": "你的上一次付款未成功。请更新银行卡以继续使用 sisma+。",
+    "err": "无法打开账单页面，请重试。",
+    "soon": "账单功能暂未开放。",
+    "st_cancelled": "已取消"
   }
 }

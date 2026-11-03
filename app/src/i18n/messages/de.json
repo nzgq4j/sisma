@@ -458,5 +458,31 @@
     "atlantic": "Atlantik",
     "indian_ocean": "Indischer Ozean",
     "polar": "Arktis und Antarktis"
+  },
+  "sub": {
+    "title": "Abo",
+    "manage": "Abo verwalten",
+    "back": "Zurück",
+    "status": "Status",
+    "plan": "Tarif",
+    "renews": "Verlängert sich am",
+    "trial_ends": "Testphase endet am",
+    "ends": "Endet am",
+    "st_trial": "Kostenloser Test · noch {n} Tage",
+    "st_active": "Aktiv",
+    "st_canceling": "Gekündigt · aktiv bis {date}",
+    "st_past_due": "Zahlungsproblem",
+    "billing": "Zahlung verwalten",
+    "billing_hint": "Wechsle zwischen monatlich und jährlich, aktualisiere deine Karte, sieh Rechnungen ein oder kündige auf der sicheren Seite von Stripe.",
+    "play": "In Google Play verwalten",
+    "play_hint": "Dieses Abo wurde in der Android-App gekauft und wird deshalb in Google Play verwaltet.",
+    "choose": "Tarif wählen",
+    "trial_hint": "Dein kostenloser Test endet am {date}. Wähle einen Tarif, um sisma+ zu behalten.",
+    "free_h": "Du nutzt den kostenlosen Tarif",
+    "see_plans": "sisma+-Tarife ansehen",
+    "past_due_hint": "Deine letzte Zahlung ist nicht durchgegangen. Aktualisiere deine Karte, um sisma+ zu behalten.",
+    "err": "Zahlungsseite konnte nicht geöffnet werden. Bitte versuche es erneut.",
+    "soon": "Die Zahlung ist noch nicht verfügbar.",
+    "st_cancelled": "Gekündigt"
   }
 }

@@ -458,5 +458,31 @@
     "atlantic": "Samudra Atlantik",
     "indian_ocean": "Samudra Hindia",
     "polar": "Arktik & Antartika"
+  },
+  "sub": {
+    "title": "Langganan",
+    "manage": "Kelola langganan",
+    "back": "Kembali",
+    "status": "Status",
+    "plan": "Paket",
+    "renews": "Diperpanjang pada",
+    "trial_ends": "Uji coba berakhir pada",
+    "ends": "Berakhir pada",
+    "st_trial": "Uji coba gratis · sisa {n} hari",
+    "st_active": "Aktif",
+    "st_canceling": "Dibatalkan · aktif hingga {date}",
+    "st_past_due": "Masalah pembayaran",
+    "billing": "Kelola tagihan",
+    "billing_hint": "Beralih antara bulanan dan tahunan, perbarui kartu, lihat faktur, atau batalkan di halaman aman Stripe.",
+    "play": "Kelola di Google Play",
+    "play_hint": "Langganan ini dibeli di aplikasi Android, jadi dikelola di Google Play.",
+    "choose": "Pilih paket",
+    "trial_hint": "Uji coba gratis Anda berakhir pada {date}. Pilih paket untuk tetap memakai sisma+.",
+    "free_h": "Anda memakai paket gratis",
+    "see_plans": "Lihat paket sisma+",
+    "past_due_hint": "Pembayaran terakhir Anda gagal. Perbarui kartu untuk tetap memakai sisma+.",
+    "err": "Tidak dapat membuka tagihan. Coba lagi.",
+    "soon": "Tagihan belum tersedia.",
+    "st_cancelled": "Dibatalkan"
   }
 }
