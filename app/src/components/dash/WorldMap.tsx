@@ -5,13 +5,13 @@
 // optional plate boundaries, tap empty map to deselect. The dashboard uses the same wrapping Mercator.
 // Equal Earth (zoom 1–12, fixed frame) remains available as a projection option.
 // Dots are sized (mag − 1.6) × 2.1 px at every zoom and coloured by MAG_SCALE in both.
-// Mercator with NEXT_PUBLIC_MAPTILER_KEY: zooms on to street level; from web zoom 6.5–7.5 (about 300 km across a
-// phone) MapTiler street tiles fade in over the app's outlines (lib/tiles.ts), with the required credit.
+// Mercator zooms on to street level: from web zoom 6.5–7.5 (about 300 km across a phone) OpenStreetMap tiles fade in
+// over the app's outlines (lib/tiles.ts), with the required credit; darkened by a filter in dark mode.
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
-import { TILE_MAX_ZOOM, kForWebZoom, mapTilerUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
+import { TILE_MAX_ZOOM, kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
 import { useTheme } from '@/components/Theme';
 import { HEAT_COLORS, MMI_COLORS, magColor } from '@/lib/theme';
 import type { HeatCell } from '@/lib/feltmap';
@@ -26,10 +26,12 @@ import styles from './dash.module.css';
 const GRATICULE = geoGraticule10();
 export const dotRadius = (mag: number) => Math.max(2.4, (mag - 1.6) * 2.1);
 
-// Street-level detail (MapTiler raster tiles) below the app's own outlines once zoomed in far enough. Without a key
-// the map keeps its previous maximum zoom. The key is public (restricted to sisma.io in MapTiler).
-const TILE_KEY = process.env.NEXT_PUBLIC_MAPTILER_KEY ?? '';
-const TILE_STYLE = { light: process.env.NEXT_PUBLIC_MAPTILER_STYLE ?? 'streets-v2', dark: process.env.NEXT_PUBLIC_MAPTILER_STYLE_DARK ?? 'streets-v2-dark' };
+// Street-level detail (OpenStreetMap standard tiles) over the app's own outlines once zoomed in far enough.
+// NEXT_PUBLIC_STREET_TILES=off turns it off (e.g. if the tile servers ask us to reduce use); the map then keeps
+// its previous maximum zoom. OSM tile policy: https://operations.osmfoundation.org/policies/tiles/
+const STREET_TILES = process.env.NEXT_PUBLIC_STREET_TILES !== 'off';
+/** From this web zoom the outlines under the tiles are no longer drawn (they only show through while tiles load). */
+const HIDE_OUTLINES_FROM = 10;
 const MAX_K_OUTLINES = 40;
 
 /** Resolved light/dark (Appearance setting, or the system when set to System). */
@@ -56,7 +58,6 @@ const CALLOUT_W = 268;
 function TileCredit() {
   return (
     <span className={styles.tileCredit}>
-      <a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">© MapTiler</a>{' '}
       <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>
     </span>
   );
@@ -100,7 +101,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   // Finer 1:50m coastlines once zoomed in far enough for the 1:110m outlines to look coarse (e.g. the region view).
   const detail = useDetailedWorld(mercator && k >= 4);
   const dark = useDark();
-  const tiles = mercator && !!TILE_KEY;
+  const tiles = mercator && STREET_TILES;
 
   useEffect(() => {
     const el = wrapRef.current; if (!el) return;
@@ -196,18 +197,13 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   // Event markers keep the same size on screen at every zoom.
   const rScale = 1 / k;
 
-  // Street-level tiles: fade in over the outlines between web zoom 6.5 and 7.5; the level below is drawn underneath
-  // so zooming never shows empty squares while the sharper tiles load.
+  // Street-level tiles: fade in over the outlines between web zoom 6.5 and 7.5. Only the tiles in view at the
+  // current level are requested (OSM tile policy: no prefetching); the outlines show through while they load.
   const zw = tiles && sc ? webZoom(sc, k) : 0;
   const tileAlpha = tiles ? tileOpacity(zw) : 0;
-  const tileLayers = useMemo(() => {
-    if (!tileAlpha || !size.w) return [];
-    const v = { w: size.w, h: size.h, sc, lon0: center.lon, tf };
-    const z = Math.min(TILE_MAX_ZOOM, Math.max(0, Math.round(zw)));
-    return [Math.max(0, z - 1), z].map(lz => visibleTiles(v, lz));
-  }, [tileAlpha, size.w, size.h, sc, center.lon, tf, zw]);
-  const retina = typeof window !== 'undefined' && window.devicePixelRatio > 1;
-  const tileStyle = dark ? TILE_STYLE.dark : TILE_STYLE.light;
+  const streetTiles = useMemo(() => (
+    tileAlpha && size.w ? visibleTiles({ w: size.w, h: size.h, sc, lon0: center.lon, tf }) : []
+  ), [tileAlpha, size.w, size.h, sc, center.lon, tf]);
 
   // When a callout opens, keep it clear of the overlays: pan its marker into the free band if needed (animated).
   const [safe, setSafe] = useState({ top: 0, bottom: 0 });
@@ -337,17 +333,17 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
             </defs>
           )}
           {/* The app's outlines; hidden once the street tiles fully cover them. */}
-          <g ref={baseRef} style={tileAlpha >= 1 ? { display: 'none' } : undefined}>
+          <g ref={baseRef} style={zw >= HIDE_OUTLINES_FROM ? { display: 'none' } : undefined}>
             {offsets.map(off => (
               <g key={off} transform={off ? `translate(${off},0)` : undefined}>{base}</g>
             ))}
           </g>
-          {tileLayers.length > 0 && (
-            <g aria-hidden="true" pointerEvents="none" opacity={tileAlpha}>
-              {tileLayers.map(layer => layer.map(tl => (
-                <image key={tl.key} href={mapTilerUrl(tileStyle, TILE_KEY, tl, retina)} x={tl.left} y={tl.top}
+          {streetTiles.length > 0 && (
+            <g aria-hidden="true" pointerEvents="none" opacity={tileAlpha} className={dark ? styles.tilesDark : undefined}>
+              {streetTiles.map(tl => (
+                <image key={tl.key} href={osmTileUrl(tl)} x={tl.left} y={tl.top}
                   width={tl.size + 0.5} height={tl.size + 0.5} preserveAspectRatio="none" />
-              )))}
+              ))}
             </g>
           )}
           <g ref={overRef}>

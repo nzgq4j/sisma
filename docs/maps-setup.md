@@ -1,26 +1,29 @@
-# Street-level map (MapTiler)
+# Street-level map (OpenStreetMap)
 
 The Map tab and the desktop dashboard map draw sisma's own world outlines down to about 300 km across a phone screen
-(the region view). Zooming in further fades in MapTiler street tiles (web zoom 6.5 → 7.5) and allows zooming on to
-street level (web zoom 18). Event markers stay the same size on screen at every zoom. Code: `lib/tiles.ts`,
-`components/dash/WorldMap.tsx`.
+(the region view). Zooming in further fades in OpenStreetMap's standard map tiles (web zoom 6.5 → 7.5) and allows
+zooming on to street level (web zoom 18). Event markers stay the same size on screen at every zoom. In dark mode the
+tiles are darkened with a colour filter (OSM has no dark style). Code: `lib/tiles.ts`, `components/dash/WorldMap.tsx`.
 
-Without a key, the map works as before (no street tiles, maximum zoom unchanged).
+No account or key is needed.
 
-## Setup (once)
+## OpenStreetMap tile usage policy
 
-1. Sign up at **cloud.maptiler.com** and choose a plan that allows **commercial use** (sisma has paid plans).
-2. **Account → API keys → Create key** (or use the default key). Under the key's **Allowed HTTP origins**, add
-   `https://sisma.io` and `https://*.vercel.app` (previews), so the key only works on sisma's pages. The key is public
-   by design: it is visible in the browser.
-3. Check the map style IDs under **Maps**: the app uses `streets-v2` (light) and `streets-v2-dark` (dark) by default.
-4. **Vercel → sisma → Settings → Environment Variables** (Production and Preview):
-   - `NEXT_PUBLIC_MAPTILER_KEY` = the key
-   - optional: `NEXT_PUBLIC_MAPTILER_STYLE` / `NEXT_PUBLIC_MAPTILER_STYLE_DARK` to use other styles
-5. Redeploy.
+The tiles come from servers run by the OpenStreetMap Foundation with volunteer support
+(https://operations.osmfoundation.org/policies/tiles/). sisma follows its requirements:
 
-Credit: "© MapTiler © OpenStreetMap contributors" shows under the zoom buttons whenever tiles are visible (required by
-MapTiler and the OpenStreetMap licence). MapTiler is listed in the privacy policy as a provider.
+- The credit "© OpenStreetMap contributors" (linked to openstreetmap.org/copyright) shows under the zoom buttons
+  whenever tiles are visible.
+- Only the tiles in view at the current zoom are requested: no prefetching or bulk downloading.
+- Browsers send a Referer and use their normal cache.
 
-Usage: each zoomed-in view loads roughly 10–40 tiles (with 2× tiles on high-density screens). Watch **Analytics** in
-MapTiler Cloud after launch.
+The policy gives no service guarantee and allows the Foundation to block heavy use without notice, which can apply to
+a distributed app as it grows. If that happens, or ahead of it:
+
+- Turn street tiles off at once: Vercel env `NEXT_PUBLIC_STREET_TILES=off`, then redeploy (the map keeps working
+  with its own outlines and the previous maximum zoom).
+- Move to a provider meant for apps: OpenFreeMap (free, OSM data, vector tiles) or a paid host such as MapTiler or
+  Stadia Maps. Only `osmTileUrl()` in `lib/tiles.ts` and the credit in `WorldMap.tsx` change.
+
+The OpenStreetMap Foundation is listed in the privacy policy (the browser loads tiles directly, so OSM receives the
+viewer's IP address and the map area).

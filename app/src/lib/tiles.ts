@@ -46,6 +46,5 @@ export function visibleTiles(v: View, level?: number): Tile[] {
   return out;
 }
 
-/** MapTiler raster tile URL (retina tiles at 256 px). */
-export const mapTilerUrl = (style: string, key: string, t: Pick<Tile, 'z' | 'x' | 'y'>, retina: boolean) =>
-  `https://api.maptiler.com/maps/${encodeURIComponent(style)}/256/${t.z}/${t.x}/${t.y}${retina ? '@2x' : ''}.png?key=${encodeURIComponent(key)}`;
+/** OpenStreetMap standard tile (https://operations.osmfoundation.org/policies/tiles/: credit shown, no prefetching). */
+export const osmTileUrl = (t: Pick<Tile, 'z' | 'x' | 'y'>) => `https://tile.openstreetmap.org/${t.z}/${t.x}/${t.y}.png`;

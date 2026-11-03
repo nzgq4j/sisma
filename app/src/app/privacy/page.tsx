@@ -96,8 +96,7 @@ export default function PrivacyPage() {
         <li><strong>Stripe</strong> — website payments (independent controller for payment data).</li>
         <li><strong>Google</strong> — sign-in with Google (if you choose it), Google Play billing and Firebase Cloud Messaging in the Android app; Google Fonts delivers the icon font, so your browser contacts Google’s servers, which receive your IP address.</li>
         <li><strong>Your browser’s push service</strong> (for example Google for Chrome, Mozilla for Firefox, Apple for Safari) — delivers alerts to browsers where you turned notifications on; it receives the encrypted alert and the device’s push address.</li>
-        <li><strong>MapTiler AG</strong> (Switzerland) — detailed street maps when you zoom in on the map. Your browser loads them directly from MapTiler, which receives your IP address and the map area being viewed.</li>
-        <li><strong>OpenStreetMap Foundation</strong> — place search (receives the search text from our server, not your IP address).</li>
+        <li><strong>OpenStreetMap Foundation</strong> — place search (receives the search text from our server, not your IP address), and the detailed street map when you zoom in on the map: your browser loads it directly from OpenStreetMap’s tile servers, which receive your IP address and the map area being viewed.</li>
       </ul>
       <p>
         Earthquake data comes from public feeds of USGS, EMSC, GeoNet and the Japan Meteorological Agency. Our server fetches them; no personal data is sent to them.
