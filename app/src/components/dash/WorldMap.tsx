@@ -110,6 +110,10 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   // Extra world copies needed to fill the view while scrolling endlessly (bit 1 = left, bit 2 = right).
   const [sides, setSides] = useState(0);
   const [hover, setHover] = useState<{ q: Quake; x: number; y: number } | null>(null);
+  const mouseRef = useRef<{ x: number; y: number } | null>(null);
+  const dragRef = useRef(false);
+  const cursorRef = useRef<{ set: (c: string) => void; hover: () => void } | null>(null);
+  const marksRef = useRef<{ q: Quake; x: number; y: number }[]>([]);
   const plateData = usePlates(plates);
   const lakes = useLakes();
   const mercator = projection === 'mercator';
@@ -152,6 +156,11 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       .extent([[0, 0], [size.w, size.h]])
       // Mercator: free horizontally (wrapped below), clamped vertically. Equal Earth: stays inside the frame.
       .translateExtent(mercator ? [[-Infinity, 0], [Infinity, size.h]] : [[0, 0], [size.w, size.h]])
+      .on('start', e => {
+        dragRef.current = true;
+        if ((e.sourceEvent as Event | null)?.type === 'mousedown') cursorRef.current?.set('grabbing');
+      })
+      .on('end', () => { dragRef.current = false; cursorRef.current?.hover(); })
       .on('zoom', e => {
         const { k: tk, y } = e.transform; let x = e.transform.x;
         if (W) {
@@ -220,6 +229,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     }
     return out;
   }, [dots, tf, worldW, size.w, size.h]);
+  // Pins move under a still mouse when the map zooms or pans, so the cursor is re-checked whenever they move.
+  useEffect(() => { marksRef.current = marks; cursorRef.current?.hover(); }, [marks]);
   const toScreen = (xy: [number, number]) => {
     for (const off of worldW ? [0, -worldW, worldW] : [0]) {
       const x = tf.x + tf.k * (xy[0] + off), y = tf.y + tf.k * xy[1];
@@ -231,17 +242,33 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
 
   // Tap or click: the nearest pin within reach of a fingertip (about 44 px across on touch) is selected; empty map
   // clears the selection.
-  const pick = (e: React.MouseEvent<SVGSVGElement>) => {
-    const b = svgRef.current!.getBoundingClientRect(), px = e.clientX - b.left, py = e.clientY - b.top;
-    const touch = (e.nativeEvent as PointerEvent).pointerType !== 'mouse';
+  const nearest = (px: number, py: number, touch: boolean) => {
     let best: Quake | null = null, bestD = Infinity;
-    for (const mk of marks) {
+    for (const mk of marksRef.current) {
       // Distance to the pin's head (where the number is); the reach covers the whole pin.
       const d = Math.hypot(mk.x - px, mk.y - PIN_HEAD - py), reach = pinReach(touch);
       if (d <= reach && d < bestD) { best = mk.q; bestD = d; }
     }
+    return best;
+  };
+  const pick = (e: React.MouseEvent<SVGSVGElement>) => {
+    const b = svgRef.current!.getBoundingClientRect();
+    const best = nearest(e.clientX - b.left, e.clientY - b.top, (e.nativeEvent as PointerEvent).pointerType !== 'mouse');
     if (best) onSelect(best); else if (selectedId) onSelect(null);
   };
+  // Mouse cursor (as on the Globe): an arrow over the map, a pointer within reach of a pin, a closed hand while dragging.
+  const setCursor = (c: string) => { const el = svgRef.current; if (el && el.style.cursor !== c) el.style.cursor = c; };
+  const hoverCursor = () => {
+    const m = mouseRef.current;
+    if (!dragRef.current) setCursor(m && nearest(m.x, m.y, false) ? 'pointer' : 'default');
+  };
+  const onMouseMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    if (e.pointerType !== 'mouse') return;
+    const b = svgRef.current!.getBoundingClientRect();
+    mouseRef.current = { x: e.clientX - b.left, y: e.clientY - b.top };
+    hoverCursor();
+  };
+  useEffect(() => { cursorRef.current = { set: setCursor, hover: hoverCursor }; });
 
   // Street-level tiles: fade in over the outlines between web zoom 6.5 and 7.5. Only the tiles in view at the
   // current level are requested (OSM tile policy: no prefetching); the outlines show through while they load.
@@ -326,7 +353,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     <div ref={wrapRef} className={styles.mapWrap} onMouseLeave={() => setHover(null)}>
       {size.w > 0 && (
         <svg ref={svgRef} width={size.w} height={size.h} role="img" aria-label={t('count', { n: quakes.length })} className={styles.mapSvg}
-          style={{ background: 'var(--map-sea)' }} onClick={pick}>
+          style={{ background: 'var(--map-sea)' }} onClick={pick} onPointerMove={onMouseMove} onPointerLeave={() => { mouseRef.current = null; }}>
           {overlay && (
             <defs>
               {HEAT_COLORS.map((c, i) => (
