@@ -458,5 +458,31 @@
     "atlantic": "Océano Atlántico",
     "indian_ocean": "Océano Índico",
     "polar": "Ártico y Antártida"
+  },
+  "sub": {
+    "title": "Suscripción",
+    "manage": "Gestionar suscripción",
+    "back": "Atrás",
+    "status": "Estado",
+    "plan": "Plan",
+    "renews": "Se renueva el",
+    "trial_ends": "La prueba termina el",
+    "ends": "Termina el",
+    "st_trial": "Prueba gratuita · quedan {n} días",
+    "st_active": "Activa",
+    "st_canceling": "Cancelada · activa hasta el {date}",
+    "st_past_due": "Problema con el pago",
+    "billing": "Gestionar facturación",
+    "billing_hint": "Cambia entre mensual y anual, actualiza tu tarjeta, consulta facturas o cancela en la página segura de Stripe.",
+    "play": "Gestionar en Google Play",
+    "play_hint": "Esta suscripción se compró en la app de Android, así que se gestiona en Google Play.",
+    "choose": "Elegir un plan",
+    "trial_hint": "Tu prueba gratuita termina el {date}. Elige un plan para seguir con sisma+.",
+    "free_h": "Tienes el plan gratuito",
+    "see_plans": "Ver planes de sisma+",
+    "past_due_hint": "Tu último pago no se completó. Actualiza tu tarjeta para seguir con sisma+.",
+    "err": "No se pudo abrir la facturación. Inténtalo de nuevo.",
+    "soon": "La facturación aún no está disponible.",
+    "st_cancelled": "Cancelada"
   }
 }

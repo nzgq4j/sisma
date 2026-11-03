@@ -458,5 +458,31 @@
     "atlantic": "Océan Atlantique",
     "indian_ocean": "Océan Indien",
     "polar": "Arctique et Antarctique"
+  },
+  "sub": {
+    "title": "Abonnement",
+    "manage": "Gérer l’abonnement",
+    "back": "Retour",
+    "status": "Statut",
+    "plan": "Formule",
+    "renews": "Renouvellement le",
+    "trial_ends": "Fin de l’essai le",
+    "ends": "Fin le",
+    "st_trial": "Essai gratuit · {n} jours restants",
+    "st_active": "Actif",
+    "st_canceling": "Annulé · actif jusqu’au {date}",
+    "st_past_due": "Problème de paiement",
+    "billing": "Gérer la facturation",
+    "billing_hint": "Passez du mensuel à l’annuel, mettez à jour votre carte, consultez vos factures ou résiliez sur la page sécurisée de Stripe.",
+    "play": "Gérer dans Google Play",
+    "play_hint": "Cet abonnement a été acheté dans l’app Android : il se gère dans Google Play.",
+    "choose": "Choisir une formule",
+    "trial_hint": "Votre essai gratuit se termine le {date}. Choisissez une formule pour garder sisma+.",
+    "free_h": "Vous êtes sur la formule gratuite",
+    "see_plans": "Voir les formules sisma+",
+    "past_due_hint": "Votre dernier paiement n’a pas abouti. Mettez à jour votre carte pour garder sisma+.",
+    "err": "Impossible d’ouvrir la facturation. Réessayez.",
+    "soon": "La facturation n’est pas encore disponible.",
+    "st_cancelled": "Annulé"
   }
 }

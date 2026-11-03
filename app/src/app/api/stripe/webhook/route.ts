@@ -15,14 +15,18 @@ export async function POST(req: NextRequest) {
     const cfg = supabaseAdminConfig();
     if (!cfg) throw new Error('Supabase is not configured');
     const db = createClient(cfg.url, cfg.key, { auth: { persistSession: false } });
+    // effective_plan() decides access from the status; plan follows it so a cancelled subscription reads as free.
+    const live = ['trialing', 'active', 'past_due'].includes(sub.status);
+    const periodEnd = sub.items.data[0]?.current_period_end;
     await db.from('profiles').update({
-      plan: 'plus',
+      plan: live ? 'plus' : 'free',
       stripe_customer_id: String(sub.customer),
       stripe_subscription_id: sub.id,
       subscription_status: sub.status,
       billing_interval: sub.items.data[0]?.price.recurring?.interval === 'year' ? 'yearly' : 'monthly',
       trial_ends_at: sub.trial_end ? new Date(sub.trial_end * 1000).toISOString() : null,
       cancel_at_period_end: sub.cancel_at_period_end,
+      current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
     }).eq('id', userId);
   }
   return NextResponse.json({ received: true });

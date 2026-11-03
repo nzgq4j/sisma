@@ -45,7 +45,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Google button shows when the provider is on in Supabase; Android returns via App Links, /.well-known/assetlinks.json), profile + plan, alerts saved to
    alert_settings (rows that open choice sheets: magnitude, radius, countries/regions), language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
    saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
-   Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Todo: subscription management
+   Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Subscription page (done): app/me/subscription — status,
+   price, next date; Stripe customer portal via POST /api/stripe/portal, Google Play link for app purchases
 8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet (done: components/Paywall.tsx)
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_settings
 10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets
