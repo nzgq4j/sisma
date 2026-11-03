@@ -38,7 +38,7 @@ Copy app/.env.example to app/.env.local. Without Supabase/Stripe keys the app ru
 
 ## Plans
 
-| | Free | sisma+ ($3.99 / month or $36 / year, 7-day trial) |
+| | Free | sisma+ ($2.99 / month or $20 / year, 7-day trial) |
 |---|---|---|
 | Live feed, map, 3D globe, region filter, sorting | ✓ | ✓ |
 | Felt reports, science library | ✓ | ✓ |

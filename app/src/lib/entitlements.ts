@@ -4,8 +4,8 @@ export type Billing = 'monthly' | 'yearly';
 export const TRIAL_DAYS = 7;
 
 export const PRICES: Record<Billing, { usd: number; stripePriceEnv: string; playProductId: string }> = {
-  monthly: { usd: 3.99, stripePriceEnv: 'STRIPE_PRICE_MONTHLY', playProductId: 'sisma_plus_monthly' },
-  yearly: { usd: 36, stripePriceEnv: 'STRIPE_PRICE_YEARLY', playProductId: 'sisma_plus_yearly' },
+  monthly: { usd: 2.99, stripePriceEnv: 'STRIPE_PRICE_MONTHLY', playProductId: 'sisma_plus_monthly' },
+  yearly: { usd: 20, stripePriceEnv: 'STRIPE_PRICE_YEARLY', playProductId: 'sisma_plus_yearly' },
 };
 
 export const ENTITLEMENTS = {
