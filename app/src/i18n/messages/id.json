@@ -33,7 +33,6 @@
   "exit_region": "Kembali ke peta dunia",
   "felt_reports_n": "{n} laporan · lokasi perkiraan",
   "felt_reports_1": "1 laporan · lokasi perkiraan",
-  "felt_reports_0": "Belum ada laporan berlokasi",
   "report": "Laporkan yang Anda rasakan",
   "report_title": "Apa yang Anda rasakan?",
   "report_sub": "Laporan Anda membantu memetakan guncangan setempat.",
@@ -380,10 +379,8 @@
     "how_4": "Anda bisa mematikannya kapan saja di Saya. Peta guncangan adalah perkiraan, bukan peta intensitas resmi.",
     "toggle": "Bantu memetakan di mana gempa terasa",
     "toggle_hint": "Saat aplikasi terbuka, bagikan posisi perkiraan yang anonim (digeser hingga 500 m). Hanya jika lokasi diizinkan.",
-    "line_collecting": "Peta guncangan: mengumpulkan aktivitas (3 menit pertama)…",
     "line_areas": "Peta guncangan: kemungkinan terasa di {n} area",
-    "line_areas_1": "Peta guncangan: kemungkinan terasa di 1 area",
-    "line_none": "Peta guncangan: aktivitas di sekitar belum cukup"
+    "line_areas_1": "Peta guncangan: kemungkinan terasa di 1 area"
   },
   "units": "Satuan",
   "units_km": "Kilometer",

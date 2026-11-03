@@ -33,7 +33,6 @@
   "exit_region": "Volver al mapa mundial",
   "felt_reports_n": "{n} reportes · ubicaciones aproximadas",
   "felt_reports_1": "1 reporte · ubicación aproximada",
-  "felt_reports_0": "Aún no hay reportes con ubicación",
   "report": "Reporta lo que sentiste",
   "report_title": "¿Qué sentiste?",
   "report_sub": "Tu reporte ayuda a mapear el movimiento local.",
@@ -380,10 +379,8 @@
     "how_4": "Puedes desactivarlo cuando quieras en Yo. Los mapas de percepción son una estimación, no un mapa oficial de intensidad.",
     "toggle": "Ayudar a mapear dónde se sienten los sismos",
     "toggle_hint": "Mientras la app está abierta, comparte una posición aproximada y anónima (desplazada hasta 500 m). Solo con la ubicación permitida.",
-    "line_collecting": "Mapa de percepción: reuniendo actividad (primeros 3 minutos)…",
     "line_areas": "Mapa de percepción: probablemente sentido en {n} zonas",
-    "line_areas_1": "Mapa de percepción: probablemente sentido en 1 zona",
-    "line_none": "Mapa de percepción: poca actividad cercana"
+    "line_areas_1": "Mapa de percepción: probablemente sentido en 1 zona"
   },
   "units": "Unidades",
   "units_km": "Kilómetros",
