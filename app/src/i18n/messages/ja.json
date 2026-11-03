@@ -388,7 +388,14 @@
   "st_preliminary": "速報",
   "st_reviewed": "確定",
   "map": {
-    "focus_event": "この地震を表示"
+    "focus_event": "この地震を表示",
+    "filters": "フィルター",
+    "layers": "レイヤー",
+    "time_range": "期間",
+    "expand": "フィルターを表示",
+    "collapse": "フィルターを隠す",
+    "clear_filters": "フィルターをクリア",
+    "legend": "マグニチュードの目安"
   },
   "sharecard": {
     "title": "この地震を共有",

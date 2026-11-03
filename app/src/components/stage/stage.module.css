@@ -13,20 +13,21 @@
 .chip :global(.ms) { font-size: 16px; }
 @media (pointer: coarse) { .chip { position: relative; } .chip::after { content: ''; position: absolute; inset: -5px 0; } }
 
-.zoomPill { position: absolute; right: 12px; top: 56px; display: flex; flex-direction: column; background: var(--surface); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; z-index: 3; }
+.zoomPill { position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; background: var(--surface); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; z-index: 3; }
 @media (min-width: 1024px) { .zoomPill { top: 16px; right: 16px; } }
 .zoomPill button { width: 44px; height: 44px; border: 0; background: transparent; color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; }
 .zoomPill button:hover { color: var(--violet-text); }
 .zoomPill :global(.ms) { font-size: 22px; }
 .zoomPill hr { height: 1px; border: 0; background: var(--line); margin: 0 8px; }
 
-/* The 2D map's own zoom buttons sit below the chip row on phones. */
-.mapTools { top: 56px !important; right: 12px !important; }
+/* The 2D map's own zoom buttons: top right (the filters are in the pull-up panel). */
+.mapTools { top: 12px !important; right: 12px !important; }
 @media (min-width: 1024px) { .mapTools { top: 16px !important; right: 16px !important; } }
 
 .bottom { position: absolute; left: 12px; right: 12px; bottom: 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 8px; pointer-events: none; z-index: 3; }
 @media (min-width: 1024px) { .bottom { left: 16px; right: 16px; bottom: 16px; } }
 .legend { background: var(--surface); border-radius: 14px; padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 8px; box-shadow: var(--shadow); }
+.legendPlain { background: transparent; box-shadow: none; padding: 0; gap: 12px; }
 .legend span { display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; color: var(--ink2); }
 .legend i { width: 10px; height: 10px; border-radius: 5px; }
 .hint { background: var(--surface); border-radius: 14px; padding: 8px 10px; font-size: 11px; font-weight: 600; color: var(--ink2); box-shadow: var(--shadow); }
@@ -40,9 +41,9 @@
 @keyframes up { from { transform: translateY(12px); opacity: 0; } to { transform: none; opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .selCard, .panel { animation: none; } }
 
-/* Felt reports summary shown under the chips after "Show region". */
-.feltCard { position: absolute; top: 52px; left: 12px; width: min(380px, calc(100% - 80px)); display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 8px; border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); font-size: 12px; font-weight: 700; color: var(--ink); z-index: 3; }
-@media (min-width: 1024px) { .feltCard { top: 62px; left: 16px; } }
+/* Felt reports summary shown at the top after "Show region". */
+.feltCard { position: absolute; top: 12px; left: 12px; width: min(380px, calc(100% - 80px)); display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 8px; border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); font-size: 12px; font-weight: 700; color: var(--ink); z-index: 3; }
+@media (min-width: 1024px) { .feltCard { top: 16px; left: 16px; } }
 .exitBtn { display: flex; align-items: center; justify-content: center; gap: 6px; height: 40px; border: 0; border-radius: 12px; background: var(--violet); color: var(--on-violet); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
 .exitBtn:hover { filter: brightness(1.06); }
 .exitBtn :global(.ms) { font-size: 20px; }
