@@ -28,7 +28,7 @@ Back is allowed; swipe left/right on phones; Escape skips on desktop.
 
 | # | Step | Content | Action |
 | - | ---- | ------- | ------ |
-| 1 | Welcome | Logo, "Earthquakes, live and explained", three short points: live data from USGS · EMSC · GeoNet · JMA; Map and Globe; Science explainers | Continue |
+| 1 | Welcome | Logo, "The Pulse of a Living Planet", three short points: live data from USGS · EMSC · GeoNet · JMA; Map and Globe; Science explainers | Continue |
 | 2 | Language | Detected language preselected; the LanguageSheet list inline (same rows, flags and check mark) | Continue (saves `sisma.locale`) |
 | 3 | Your location | Why: nearest quakes, distances, "Did you feel it?" reports. Privacy: used on the device; reports are rounded to ~10 km | **Use my location** (system prompt only now) · **Choose a place** (search sheet, saved as the primary location) · Not now |
 | 4 | Alerts | What sisma+ alerts do (magnitude + radius). Free users see the plan comparison and "Try sisma+"; on Android, notification permission is requested only after they opt in | Turn on alerts · Maybe later |

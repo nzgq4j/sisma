@@ -1,5 +1,5 @@
 {
-  "app_tag": "Gempa bumi, langsung dan dijelaskan",
+  "app_tag": "Denyut Planet yang Hidup",
   "tab_feed": "Daftar",
   "tab_map": "Peta",
   "tab_globe": "Globe",
@@ -346,7 +346,7 @@
     "back": "Kembali",
     "step": "Langkah {n} dari {total}",
     "welcome_h": "Selamat datang di sisma",
-    "welcome_p": "Gempa bumi di seluruh dunia, langsung dan dijelaskan.",
+    "welcome_p": "Denyut Planet yang Hidup",
     "w1": "Data langsung dari USGS, EMSC, GeoNet, dan JMA",
     "w2": "Daftar, peta 2D, dan globe 3D",
     "w3": "Penjelasan ilmiah yang jelas tentang mengapa tanah bergerak",
@@ -387,5 +387,24 @@
   },
   "units": "Satuan",
   "units_km": "Kilometer",
-  "units_mi": "Mil"
+  "units_mi": "Mil",
+  "review_status": "Status tinjauan",
+  "st_automatic": "Otomatis",
+  "st_preliminary": "Awal",
+  "st_reviewed": "Ditinjau",
+  "map": {
+    "focus_event": "Tampilkan kejadian ini"
+  },
+  "sharecard": {
+    "title": "Bagikan gempa ini",
+    "preparing": "Menyiapkan gambar…",
+    "failed": "Gambar tidak dapat dibuat. Anda masih dapat membagikan tautan.",
+    "share_image": "Bagikan gambar",
+    "save_image": "Simpan gambar",
+    "copy_link": "Salin tautan",
+    "alt": "Kartu berbagi: peta dan detail gempa ini",
+    "label": "Gempa bumi",
+    "nearby": "Kejadian lain, 7 hari terakhir",
+    "disclaimer": "Bukan layanan peringatan resmi. Ikuti otoritas setempat."
+  }
 }

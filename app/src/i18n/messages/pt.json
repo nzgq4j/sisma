@@ -1,5 +1,5 @@
 {
-  "app_tag": "Terremotos ao vivo e explicados",
+  "app_tag": "O pulso de um planeta vivo",
   "tab_feed": "Lista",
   "tab_map": "Mapa",
   "tab_globe": "Globo",
@@ -346,7 +346,7 @@
     "back": "Voltar",
     "step": "Etapa {n} de {total}",
     "welcome_h": "Boas-vindas ao sisma",
-    "welcome_p": "Terremotos do mundo todo, ao vivo e explicados.",
+    "welcome_p": "O pulso de um planeta vivo",
     "w1": "Dados ao vivo do USGS, EMSC, GeoNet e JMA",
     "w2": "Uma lista, um mapa 2D e um globo 3D",
     "w3": "Ciência clara sobre por que o chão se move",
@@ -387,5 +387,24 @@
   },
   "units": "Unidades",
   "units_km": "Quilômetros",
-  "units_mi": "Milhas"
+  "units_mi": "Milhas",
+  "review_status": "Estado da revisão",
+  "st_automatic": "Automático",
+  "st_preliminary": "Preliminar",
+  "st_reviewed": "Revisado",
+  "map": {
+    "focus_event": "Mostrar este evento"
+  },
+  "sharecard": {
+    "title": "Partilhar este sismo",
+    "preparing": "A preparar a imagem…",
+    "failed": "Não foi possível criar a imagem. Ainda pode partilhar o link.",
+    "share_image": "Partilhar imagem",
+    "save_image": "Guardar imagem",
+    "copy_link": "Copiar link",
+    "alt": "Cartão de partilha: mapa e detalhes deste sismo",
+    "label": "Sismo",
+    "nearby": "Outros eventos, últimos 7 dias",
+    "disclaimer": "Não é um serviço oficial de alertas. Siga as autoridades locais."
+  }
 }

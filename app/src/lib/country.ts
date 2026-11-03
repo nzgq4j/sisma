@@ -1,10 +1,9 @@
-'use client';
 // Country of an earthquake from its coordinates (world-atlas 110m outlines → ISO 3166 alpha-2 for the bundled flags in
 // public/flags). Events at sea get the nearest country within NEAR_KM, flagged as "near". Region text from the feeds
 // isn't reliable enough for this ("FLORES REGION, INDONESIA", "Off the coast of …").
 import { geoContains, geoDistance } from 'd3-geo';
 import type { Feature, Geometry, Position } from 'geojson';
-import { COUNTRIES } from './world';
+import { COUNTRIES } from './world-data';
 import CODES from './country-codes.json';
 
 const NEAR_KM = 300;

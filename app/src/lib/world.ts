@@ -6,15 +6,7 @@ import { useEffect, useState } from 'react';
 import { feature, mesh } from 'topojson-client';
 import type { Topology, GeometryCollection } from 'topojson-specification';
 import type { MultiLineString, MultiPolygon } from 'geojson';
-import world from 'world-atlas/countries-110m.json';
-
-const topo = world as unknown as Topology<{ countries: GeometryCollection; land: GeometryCollection }>;
-export const COUNTRIES = feature(topo, topo.objects.countries);
-export const LAND = feature(topo, topo.objects.land);
-/** Coastlines and borders as lines (each shared edge once). Stroking these instead of the country polygons
- *  leaves no line along the projection's cut, so wrapped map copies join without a seam. */
-export const BORDERS = mesh(topo, topo.objects.countries);
-export const SPHERE = { type: 'Sphere' } as const;
+export { BORDERS, COUNTRIES, LAND, SPHERE } from './world-data';
 
 let platesPromise: Promise<MultiLineString | null> | null = null;
 let platesCache: MultiLineString | null = null;
@@ -54,5 +46,27 @@ export function useLakes() {
     lakesPromise.then(d => { if (alive) setData(d); });
     return () => { alive = false; };
   }, [data]);
+  return data;
+}
+
+type Detail = { countries: ReturnType<typeof feature>; borders: ReturnType<typeof mesh> };
+let detailPromise: Promise<Detail | null> | null = null;
+let detailCache: Detail | null = null;
+
+/** world-atlas 1:50m countries (smaller islands, finer coasts) for zoomed-in views; loaded the first time `wanted`. */
+export function useDetailedWorld(wanted: boolean) {
+  const [data, setData] = useState<Detail | null>(detailCache);
+  useEffect(() => {
+    if (!wanted || data) return;
+    let alive = true;
+    detailPromise ??= import('world-atlas/countries-50m.json')
+      .then(mod => {
+        const t = (mod.default ?? mod) as unknown as Topology<{ countries: GeometryCollection }>;
+        return (detailCache = { countries: feature(t, t.objects.countries), borders: mesh(t, t.objects.countries) });
+      })
+      .catch(() => null);
+    detailPromise.then(d => { if (alive) setData(d); });
+    return () => { alive = false; };
+  }, [wanted, data]);
   return data;
 }

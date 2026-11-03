@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 // Install metadata for the PWA. Icons are generated from the design's logo mark (see src/components/Logo.tsx).
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'sisma — earthquakes, live and explained',
+    name: 'sisma — The Pulse of a Living Planet',
     short_name: 'sisma',
     start_url: '/app',
     scope: '/',

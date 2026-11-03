@@ -1,5 +1,5 @@
 {
-  "app_tag": "Erdbeben, live und erklärt",
+  "app_tag": "Der Puls eines lebendigen Planeten",
   "tab_feed": "Liste",
   "tab_map": "Karte",
   "tab_globe": "Globus",
@@ -346,7 +346,7 @@
     "back": "Zurück",
     "step": "Schritt {n} von {total}",
     "welcome_h": "Willkommen bei sisma",
-    "welcome_p": "Erdbeben weltweit, live und verständlich erklärt.",
+    "welcome_p": "Der Puls eines lebendigen Planeten",
     "w1": "Live-Daten von USGS, EMSC, GeoNet und JMA",
     "w2": "Eine Liste, eine 2D-Karte und ein 3D-Globus",
     "w3": "Verständliche Wissenschaft darüber, warum die Erde bebt",
@@ -387,5 +387,24 @@
   },
   "units": "Einheiten",
   "units_km": "Kilometer",
-  "units_mi": "Meilen"
+  "units_mi": "Meilen",
+  "review_status": "Prüfstatus",
+  "st_automatic": "Automatisch",
+  "st_preliminary": "Vorläufig",
+  "st_reviewed": "Geprüft",
+  "map": {
+    "focus_event": "Dieses Ereignis anzeigen"
+  },
+  "sharecard": {
+    "title": "Dieses Erdbeben teilen",
+    "preparing": "Bild wird erstellt…",
+    "failed": "Das Bild konnte nicht erstellt werden. Du kannst den Link trotzdem teilen.",
+    "share_image": "Bild teilen",
+    "save_image": "Bild speichern",
+    "copy_link": "Link kopieren",
+    "alt": "Teilen-Karte: Karte und Details dieses Erdbebens",
+    "label": "Erdbeben",
+    "nearby": "Weitere Ereignisse, letzte 7 Tage",
+    "disclaimer": "Kein offizieller Warndienst. Folge den Anweisungen der Behörden vor Ort."
+  }
 }

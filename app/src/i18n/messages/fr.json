@@ -1,5 +1,5 @@
 {
-  "app_tag": "Les séismes, en direct et expliqués",
+  "app_tag": "Le pouls d'une planète vivante",
   "tab_feed": "Fil",
   "tab_map": "Carte",
   "tab_globe": "Globe",
@@ -346,7 +346,7 @@
     "back": "Retour",
     "step": "Étape {n} sur {total}",
     "welcome_h": "Bienvenue sur sisma",
-    "welcome_p": "Les séismes du monde entier, en direct et expliqués.",
+    "welcome_p": "Le pouls d'une planète vivante",
     "w1": "Données en direct de l’USGS, de l’EMSC, de GeoNet et de la JMA",
     "w2": "Une liste, une carte 2D et un globe 3D",
     "w3": "Une science claire sur ce qui fait trembler la terre",
@@ -387,5 +387,24 @@
   },
   "units": "Unités",
   "units_km": "Kilomètres",
-  "units_mi": "Miles"
+  "units_mi": "Miles",
+  "review_status": "Statut de révision",
+  "st_automatic": "Automatique",
+  "st_preliminary": "Préliminaire",
+  "st_reviewed": "Révisé",
+  "map": {
+    "focus_event": "Afficher cet événement"
+  },
+  "sharecard": {
+    "title": "Partager ce séisme",
+    "preparing": "Préparation de l'image…",
+    "failed": "Impossible de créer l'image. Vous pouvez toujours partager le lien.",
+    "share_image": "Partager l'image",
+    "save_image": "Enregistrer l'image",
+    "copy_link": "Copier le lien",
+    "alt": "Carte de partage : carte et détails de ce séisme",
+    "label": "Séisme",
+    "nearby": "Autres événements, 7 derniers jours",
+    "disclaimer": "Pas un service d'alerte officiel. Suivez les autorités locales."
+  }
 }

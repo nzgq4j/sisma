@@ -12,6 +12,7 @@ import { FeltButton } from './FeltReport';
 import { FitLine } from './FitLine';
 import type { Row } from './QuakeData';
 import { useDistance } from './Units';
+import { ShareCardSheet } from './ShareCard';
 import styles from './dash/dash.module.css';
 
 /** Map URL that zooms to a quake and shows its felt reports. */
@@ -71,16 +72,8 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
   const u = useDistance();
   const router = useRouter();
   const { country, countryName, date, time } = useQuakeFacts(q);
-  const [copied, setCopied] = useState(false);
-
-  const share = async () => {
-    const url = `${location.origin}${regionHref(q.id)}`;
-    const text = `M${q.mag.toFixed(1)} · ${q.region} · ${date} ${time}`;
-    try {
-      if (navigator.share) { await navigator.share({ title: 'sisma', text, url }); return; }
-    } catch (e) { if ((e as Error).name === 'AbortError') return; }
-    try { await navigator.clipboard.writeText(`${text}\n${url}`); setCopied(true); setTimeout(() => setCopied(false), 2500); } catch { /* clipboard unavailable */ }
-  };
+  const [shareOpen, setShareOpen] = useState(false);
+  const shareText = `M${q.mag.toFixed(1)} · ${q.region} · ${date} ${time}`;
 
   return (
     <>
@@ -101,17 +94,24 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
         <div><dt>{m.dash.distance}</dt><FitLine as="dd">{q.distanceKm != null ? u.dist(q.distanceKm) : '—'}</FitLine></div>
         <div><dt>{t('country')}</dt><FitLine as="dd">{countryName ? (country!.near ? t('near_country', { country: countryName }) : countryName) : '—'}</FitLine></div>
         <div className={styles.statWide}><dt>{t('coords')}</dt><FitLine as="dd">{formatDms(q.lat, q.lon)}</FitLine></div>
-        <div className={styles.statWide}><dt>{t('source')}</dt><FitLine as="dd">{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</FitLine></div>
+        <div><dt>{t('review_status')}</dt>
+          <dd className={`${styles.statusVal} ${q.status === 'reviewed' ? styles.statusOk : ''}`}>
+            {q.status && <span className="ms" aria-hidden="true">{q.status === 'reviewed' ? 'verified' : 'schedule'}</span>}
+            {q.status ? t(`st_${q.status}`) : '—'}
+          </dd>
+        </div>
+        <div><dt>{t('source')}</dt><FitLine as="dd">{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</FitLine></div>
       </dl>
       <div className={styles.detailActions}>
         <button type="button" className={styles.regionBtn} onClick={onShowRegion ?? (() => router.push(regionHref(q.id)))}>
           <span className="ms" aria-hidden="true">travel_explore</span>{t('show_region')}
         </button>
-        <button type="button" className={styles.regionBtn} onClick={share} aria-live="polite">
-          <span className="ms" aria-hidden="true">{copied ? 'check' : 'ios_share'}</span>{copied ? t('link_copied') : t('share')}
+        <button type="button" className={styles.regionBtn} onClick={() => setShareOpen(true)} aria-haspopup="dialog">
+          <span className="ms" aria-hidden="true">ios_share</span>{t('share')}
         </button>
       </div>
       <FeltButton q={q} variant="block" fallback={<FitLine as="p" className={styles.windowNote}>{t('report_window')}</FitLine>} />
+      <ShareCardSheet q={q} open={shareOpen} onClose={() => setShareOpen(false)} path={regionHref(q.id)} text={shareText} />
       {!!q.felt && <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span><FitLine>{t('felt_by', { n: nf.format(q.felt) })}</FitLine></p>}
     </>
   );
