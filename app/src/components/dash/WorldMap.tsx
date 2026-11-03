@@ -4,11 +4,15 @@
 // scrolling (the world is drawn up to three times side by side and the pan is wrapped by one world-width), user pin,
 // optional plate boundaries, tap empty map to deselect. The dashboard uses the same wrapping Mercator.
 // Equal Earth (zoom 1–12, fixed frame) remains available as a projection option.
-// Dots are sized (mag − 1.6) × 2.1 and coloured by MAG_SCALE in both.
+// Dots are sized (mag − 1.6) × 2.1 px at every zoom and coloured by MAG_SCALE in both.
+// Mercator with NEXT_PUBLIC_MAPTILER_KEY: zooms on to street level; from web zoom 6.5–7.5 (about 300 km across a
+// phone) MapTiler street tiles fade in over the app's outlines (lib/tiles.ts), with the required credit.
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
+import { TILE_MAX_ZOOM, kForWebZoom, mapTilerUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
+import { useTheme } from '@/components/Theme';
 import { HEAT_COLORS, MMI_COLORS, magColor } from '@/lib/theme';
 import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
@@ -22,12 +26,41 @@ import styles from './dash.module.css';
 const GRATICULE = geoGraticule10();
 export const dotRadius = (mag: number) => Math.max(2.4, (mag - 1.6) * 2.1);
 
+// Street-level detail (MapTiler raster tiles) below the app's own outlines once zoomed in far enough. Without a key
+// the map keeps its previous maximum zoom. The key is public (restricted to sisma.io in MapTiler).
+const TILE_KEY = process.env.NEXT_PUBLIC_MAPTILER_KEY ?? '';
+const TILE_STYLE = { light: process.env.NEXT_PUBLIC_MAPTILER_STYLE ?? 'streets-v2', dark: process.env.NEXT_PUBLIC_MAPTILER_STYLE_DARK ?? 'streets-v2-dark' };
+const MAX_K_OUTLINES = 40;
+
+/** Resolved light/dark (Appearance setting, or the system when set to System). */
+function useDark() {
+  const pref = useTheme();
+  const [sys, setSys] = useState(false);
+  useEffect(() => {
+    const mq = matchMedia('(prefers-color-scheme: dark)');
+    const on = () => setSys(mq.matches);
+    on(); mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  }, []);
+  return pref === 'dark' || (pref === 'system' && sys);
+}
+
 /** Zoom target. `span` (degrees of longitude across the shorter side of the view) sets the zoom; `zoom` is a fixed
  *  factor used when no span is given. `y` places the point at that fraction of the height (0.5 = centre). */
 export interface MapFocus { key: string; lat: number; lon: number; zoom?: number; span?: number; y?: number }
 
 /** Width of a map callout in px (kept fixed so it can be clamped inside the view before it is measured). */
 const CALLOUT_W = 268;
+
+/** Required credit for the street-level tiles. */
+function TileCredit() {
+  return (
+    <span className={styles.tileCredit}>
+      <a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">© MapTiler</a>{' '}
+      <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>
+    </span>
+  );
+}
 
 export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], onReset }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
@@ -52,7 +85,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const u = useDistance();
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
-  const gRef = useRef<SVGGElement>(null);
+  const baseRef = useRef<SVGGElement>(null);
+  const overRef = useRef<SVGGElement>(null);
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [tf, setTf] = useState({ x: 0, y: 0, k: 1 });
@@ -65,6 +99,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const mercator = projection === 'mercator';
   // Finer 1:50m coastlines once zoomed in far enough for the 1:110m outlines to look coarse (e.g. the region view).
   const detail = useDetailedWorld(mercator && k >= 4);
+  const dark = useDark();
+  const tiles = mercator && !!TILE_KEY;
 
   useEffect(() => {
     const el = wrapRef.current; if (!el) return;
@@ -96,7 +132,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const svg = svgRef.current; if (!svg || !size.w || !size.h) return;
     const W = worldW, cx = size.w / 2;
     const z = zoom<SVGSVGElement, unknown>()
-      .scaleExtent([1, mercator ? 40 : 12])
+      .scaleExtent([1, !mercator ? 12 : tiles && sc ? kForWebZoom(sc, TILE_MAX_ZOOM) : MAX_K_OUTLINES])
       .extent([[0, 0], [size.w, size.h]])
       // Mercator: free horizontally (wrapped below), clamped vertically. Equal Earth: stays inside the frame.
       .translateExtent(mercator ? [[-Infinity, 0], [Infinity, size.h]] : [[0, 0], [size.w, size.h]])
@@ -111,7 +147,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           const left = -x / tk < cx - W / 2 ? 1 : 0, right = (size.w - x) / tk > cx + W / 2 ? 2 : 0;
           setSides(left | right);
         }
-        gRef.current?.setAttribute('transform', `translate(${x},${y}) scale(${tk})`);
+        const t = `translate(${x},${y}) scale(${tk})`;
+        baseRef.current?.setAttribute('transform', t); overRef.current?.setAttribute('transform', t);
         setTf({ x, y, k: tk }); setHover(null);
       });
     zoomRef.current = z;
@@ -120,13 +157,13 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     if (focus && fp) {
       // Mercator draws `sc·π/180` map units per degree of longitude at every latitude.
       const fz = focus.span && sc ? (Math.min(size.w, size.h) * 180) / (Math.PI * sc * focus.span) : focus.zoom ?? 8;
-      const fk = Math.min(mercator ? 40 : 12, Math.max(1, fz));
+      const fk = Math.min(mercator ? MAX_K_OUTLINES : 12, Math.max(1, fz));
       start = zoomIdentity.translate(size.w / 2 - fk * fp[0], size.h * (focus.y ?? 0.5) - fk * fp[1]).scale(fk);
     }
     const sel = select(svg).call(z).on('dblclick.zoom', null).call(z.transform, start);
     return () => { sel.on('.zoom', null); };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- re-apply only when the focus target (key) changes
-  }, [size.w, size.h, mercator, sc, worldW, project, focus?.key]);
+  }, [size.w, size.h, mercator, sc, worldW, project, focus?.key, tiles]);
 
   // Smallest on top would hide big events, so draw ascending by magnitude.
   const dots = useMemo(() => quakes
@@ -141,7 +178,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const offs = worldW ? [0, -worldW, worldW] : [0];
     for (const off of offs) {
       const sx = tf.x + tf.k * (popDot.xy[0] + off), sy = tf.y + tf.k * popDot.xy[1];
-      if (sx >= 0 && sx <= size.w && sy >= 0 && sy <= size.h) return { x: sx, y: sy, r: dotRadius(popDot.q.mag) * tf.k ** 0.2 };
+      if (sx >= 0 && sx <= size.w && sy >= 0 && sy <= size.h) return { x: sx, y: sy, r: dotRadius(popDot.q.mag) };
     }
     return null;
   })();
@@ -156,8 +193,21 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
   }), [heat, project]);
   const overlay = blobs.length > 0 || heatSpots.length > 0;
-  // Dots grow a little when zooming in (k^0.2 on screen), so a dense region stays readable.
-  const rScale = k ** -0.8;
+  // Event markers keep the same size on screen at every zoom.
+  const rScale = 1 / k;
+
+  // Street-level tiles: fade in over the outlines between web zoom 6.5 and 7.5; the level below is drawn underneath
+  // so zooming never shows empty squares while the sharper tiles load.
+  const zw = tiles && sc ? webZoom(sc, k) : 0;
+  const tileAlpha = tiles ? tileOpacity(zw) : 0;
+  const tileLayers = useMemo(() => {
+    if (!tileAlpha || !size.w) return [];
+    const v = { w: size.w, h: size.h, sc, lon0: center.lon, tf };
+    const z = Math.min(TILE_MAX_ZOOM, Math.max(0, Math.round(zw)));
+    return [Math.max(0, z - 1), z].map(lz => visibleTiles(v, lz));
+  }, [tileAlpha, size.w, size.h, sc, center.lon, tf, zw]);
+  const retina = typeof window !== 'undefined' && window.devicePixelRatio > 1;
+  const tileStyle = dark ? TILE_STYLE.dark : TILE_STYLE.light;
 
   // When a callout opens, keep it clear of the overlays: pan its marker into the free band if needed (animated).
   const [safe, setSafe] = useState({ top: 0, bottom: 0 });
@@ -195,13 +245,18 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const reset = () => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); onReset?.(); };
 
   // The world layer; on the Mercator map it is repeated one world-width to the left and/or right while scrolling.
-  const world = (
+  const base = (
     <>
       {!mercator && <path d={path(SPHERE) ?? ''} fill="var(--map-sea)" />}
       {!mercator && <path d={path(GRATICULE) ?? ''} fill="none" stroke="var(--map-grat)" vectorEffect="non-scaling-stroke" />}
       <path d={land} fill="var(--map-land)" />
       {lakesD && <path d={lakesD} fill="var(--map-sea)" stroke="var(--map-line)" strokeWidth={0.5} vectorEffect="non-scaling-stroke" />}
       <path d={borders} fill="none" stroke="var(--map-line)" strokeWidth={0.6} vectorEffect="non-scaling-stroke" />
+    </>
+  );
+  // Everything drawn over the map (and over the street tiles): plates, felt layers, events, markers.
+  const over = (
+    <>
       {plates && plateData && (
         <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />
       )}
@@ -281,9 +336,23 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
               ))}
             </defs>
           )}
-          <g ref={gRef}>
+          {/* The app's outlines; hidden once the street tiles fully cover them. */}
+          <g ref={baseRef} style={tileAlpha >= 1 ? { display: 'none' } : undefined}>
             {offsets.map(off => (
-              <g key={off} transform={off ? `translate(${off},0)` : undefined}>{world}</g>
+              <g key={off} transform={off ? `translate(${off},0)` : undefined}>{base}</g>
+            ))}
+          </g>
+          {tileLayers.length > 0 && (
+            <g aria-hidden="true" pointerEvents="none" opacity={tileAlpha}>
+              {tileLayers.map(layer => layer.map(tl => (
+                <image key={tl.key} href={mapTilerUrl(tileStyle, TILE_KEY, tl, retina)} x={tl.left} y={tl.top}
+                  width={tl.size + 0.5} height={tl.size + 0.5} preserveAspectRatio="none" />
+              )))}
+            </g>
+          )}
+          <g ref={overRef}>
+            {offsets.map(off => (
+              <g key={off} transform={off ? `translate(${off},0)` : undefined}>{over}</g>
             ))}
           </g>
         </svg>
@@ -293,8 +362,10 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           <button type="button" onClick={() => zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>
           <button type="button" onClick={() => zoomBy(1 / 1.6)} aria-label={m.dash.zoom_out} title={m.dash.zoom_out}><span className="ms">remove</span></button>
           <button type="button" onClick={reset} aria-label={m.dash.reset_view} title={m.dash.reset_view}><span className="ms">fit_screen</span></button>
+          {tileAlpha > 0 && <TileCredit />}
         </div>
       )}
+      {!controls && tileAlpha > 0 && <div className={styles.tileCreditCorner}><TileCredit /></div>}
       {popup && popAt && (() => {
         const left = Math.min(Math.max(popAt.x - CALLOUT_W / 2, 8), Math.max(8, size.w - CALLOUT_W - 8));
         const below = popAt.y - popAt.r - 100 < safe.top;

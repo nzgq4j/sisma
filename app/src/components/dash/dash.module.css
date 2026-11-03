@@ -201,3 +201,10 @@ button.kpi:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--violet-soft)
 .statusVal { display: inline-flex; align-items: center; gap: 4px; }
 .statusVal :global(.ms) { font-size: 16px; }
 .statusOk { color: var(--mint-text); }
+
+/* Street-level tiles: required credit, under the zoom buttons (or in the corner when there are none). */
+.mapTools { align-items: flex-end; }
+.tileCredit { display: block; margin-top: 2px; padding: 2px 6px; border-radius: 6px; background: color-mix(in srgb, var(--surface) 85%, transparent); color: var(--ink2); font-size: 10px; line-height: 1.4; white-space: nowrap; }
+.tileCredit a { color: inherit; text-decoration: none; }
+.tileCredit a:hover { text-decoration: underline; }
+.tileCreditCorner { position: absolute; right: 8px; top: 8px; z-index: 2; }
