@@ -105,15 +105,30 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     const ro = new ResizeObserver(resize); ro.observe(wrap);
 
     // Nearest pin head (PIN_HEAD px above the tip) within reach of a fingertip.
-    const pick = (x: number, y: number, touch: boolean) => {
+    const hit = (x: number, y: number, touch: boolean) => {
       const reach = pinReach(touch);
       let best: Quake | null = null, bd = reach * reach;
       for (const [px, py, q] of st.pts) { const d = (px - x) ** 2 + (py - PIN_HEAD - y) ** 2; if (d < bd) { bd = d; best = q; } }
-      live.current.onSelect(best);
+      return best;
     };
+    const pick = (x: number, y: number, touch: boolean) => live.current.onSelect(hit(x, y, touch));
+
+    // Mouse cursor: an arrow over the globe, a pointer over a marker, a closed hand while dragging. Re-checked every
+    // frame (the spin moves markers under a still mouse).
+    let mouse: { x: number; y: number } | null = null, cursor = '';
+    const setCursor = (c: string) => { if (c !== cursor) { cursor = c; cv.style.cursor = c; } };
+    const hover = () => { if (!st.drag) setCursor(mouse && hit(mouse.x, mouse.y, false) ? 'pointer' : 'default'); };
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType !== 'mouse') return;
+      const b = cv.getBoundingClientRect(); mouse = { x: e.clientX - b.left, y: e.clientY - b.top };
+    };
+    const onLeave = () => { mouse = null; };
 
     const z = zoom<HTMLCanvasElement, unknown>().scaleExtent([0.8, 10])
-      .on('start', () => { st.drag = true; st.moved = false; st.turn = null; })
+      .on('start', e => {
+        st.drag = true; st.moved = false; st.turn = null;
+        if ((e.sourceEvent as Event | null)?.type === 'mousedown') setCursor('grabbing');
+      })
       .on('zoom', e => {
         const tr = e.transform, dx = tr.x - st.px, dy = tr.y - st.py, scaled = Math.abs(tr.k / st.pk - 1) > 1e-4;
         st.px = tr.x; st.py = tr.y; st.pk = tr.k;
@@ -124,7 +139,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
           proj.rotate([r[0] + dx * f, Math.max(-85, Math.min(85, r[1] - dy * f)), 0]);
         }
       })
-      .on('end', () => { st.drag = false; });
+      .on('end', () => { st.drag = false; hover(); });
 
     // Taps and clicks select the nearest marker. Detected with pointer events rather than the zoom gesture's end:
     // a touchend carries no coordinates, and the slightest mouse jitter registers as a drag.
@@ -140,6 +155,8 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     cv.addEventListener('pointerdown', onDown);
     cv.addEventListener('pointerup', onUp);
     cv.addEventListener('pointercancel', onCancel);
+    cv.addEventListener('pointermove', onMove);
+    cv.addEventListener('pointerleave', onLeave);
     const sel = select(cv).call(z).on('dblclick.zoom', null).call(z.transform, zoomIdentity.scale(memo.k));
     st.px = 0; st.py = 0; st.pk = memo.k;
     zoomRef.current = { z, el: cv };
@@ -206,18 +223,20 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
         }
       }
       st.pts = pts;
+      hover();
       raf = requestAnimationFrame(frame);
     };
     raf = requestAnimationFrame(frame);
     return () => {
       cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null;
       cv.removeEventListener('pointerdown', onDown); cv.removeEventListener('pointerup', onUp); cv.removeEventListener('pointercancel', onCancel);
+      cv.removeEventListener('pointermove', onMove); cv.removeEventListener('pointerleave', onLeave);
     };
   }, []);
 
   return (
     <div ref={wrapRef} style={{ position: 'absolute', inset: 0 }}>
-      <canvas ref={canvasRef} role="img" aria-label={props.label} style={{ display: 'block', touchAction: 'none', cursor: 'grab' }} />
+      <canvas ref={canvasRef} role="img" aria-label={props.label} style={{ display: 'block', touchAction: 'none', cursor: 'default' }} />
     </div>
   );
 });
