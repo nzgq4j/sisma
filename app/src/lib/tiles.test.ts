@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { geoMercator } from 'd3-geo';
-import { kForWebZoom, tileOpacity, visibleTiles, webZoom, mapTilerUrl } from './tiles';
+import { kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from './tiles';
 
 // Phone-sized map as WorldMap builds it: scale (H/2)/1.9, rotated to the user's longitude.
 const w = 390, h = 708, sc = Math.max(h / 2 / 1.9, w / (2 * Math.PI)), lon0 = -110;
@@ -43,7 +43,7 @@ describe('tiles', () => {
     expect(new Set(tiles.map(t => t.x)).has(0)).toBe(true); // tiles from both sides of 180°
   });
 
-  it('builds MapTiler URLs', () => {
-    expect(mapTilerUrl('streets-v2', 'abc', { z: 3, x: 1, y: 2 }, true)).toBe('https://api.maptiler.com/maps/streets-v2/256/3/1/2@2x.png?key=abc');
+  it('builds OpenStreetMap tile URLs', () => {
+    expect(osmTileUrl({ z: 3, x: 1, y: 2 })).toBe('https://tile.openstreetmap.org/3/1/2.png');
   });
 });

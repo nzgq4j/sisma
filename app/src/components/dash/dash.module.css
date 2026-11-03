@@ -202,6 +202,9 @@ button.kpi:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--violet-soft)
 .statusVal :global(.ms) { font-size: 16px; }
 .statusOk { color: var(--mint-text); }
 
+/* OpenStreetMap has no dark style: darken the tiles in dark mode (light streets on a dark ground). */
+.tilesDark { filter: invert(1) hue-rotate(180deg) brightness(.9) contrast(.85) saturate(.7); }
+
 /* Street-level tiles: required credit, under the zoom buttons (or in the corner when there are none). */
 .mapTools { align-items: flex-end; }
 .tileCredit { display: block; margin-top: 2px; padding: 2px 6px; border-radius: 6px; background: color-mix(in srgb, var(--surface) 85%, transparent); color: var(--ink2); font-size: 10px; line-height: 1.4; white-space: nowrap; }
