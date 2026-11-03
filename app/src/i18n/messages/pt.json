@@ -395,7 +395,9 @@
     "expand": "Mostrar filtros",
     "collapse": "Ocultar filtros",
     "clear_filters": "Limpar filtros",
-    "legend": "Escala de magnitude"
+    "legend": "Escala de magnitude",
+    "place": "Local",
+    "all_places": "Todos os locais"
   },
   "sharecard": {
     "title": "Partilhar este sismo",
@@ -436,7 +438,9 @@
     "area_regions": "Regiões",
     "area_countries": "Países",
     "remove_area": "Remover {name}",
-    "area_limit": "Pode escolher até 20."
+    "area_limit": "Pode escolher até 20.",
+    "areas_none": "Nenhum",
+    "area_selected": "Selecionados"
   },
   "region_chip": "Região",
   "wr": {

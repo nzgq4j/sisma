@@ -395,7 +395,9 @@
     "expand": "Mostra filtri",
     "collapse": "Nascondi filtri",
     "clear_filters": "Cancella filtri",
-    "legend": "Scala di magnitudo"
+    "legend": "Scala di magnitudo",
+    "place": "Luogo",
+    "all_places": "Tutti i luoghi"
   },
   "sharecard": {
     "title": "Condividi questo terremoto",
@@ -436,7 +438,9 @@
     "area_regions": "Regioni",
     "area_countries": "Paesi",
     "remove_area": "Rimuovi {name}",
-    "area_limit": "Puoi sceglierne fino a 20."
+    "area_limit": "Puoi sceglierne fino a 20.",
+    "areas_none": "Nessuno",
+    "area_selected": "Selezionati"
   },
   "region_chip": "Regione",
   "wr": {

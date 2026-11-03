@@ -395,7 +395,9 @@
     "expand": "显示筛选",
     "collapse": "隐藏筛选",
     "clear_filters": "清除筛选",
-    "legend": "震级色标"
+    "legend": "震级色标",
+    "place": "地点",
+    "all_places": "所有地点"
   },
   "sharecard": {
     "title": "分享此地震",
@@ -436,7 +438,9 @@
     "area_regions": "地区",
     "area_countries": "国家",
     "remove_area": "移除{name}",
-    "area_limit": "最多可选择 20 个。"
+    "area_limit": "最多可选择 20 个。",
+    "areas_none": "无",
+    "area_selected": "已选"
   },
   "region_chip": "地区",
   "wr": {

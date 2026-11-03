@@ -395,7 +395,9 @@
     "expand": "Filtreleri göster",
     "collapse": "Filtreleri gizle",
     "clear_filters": "Filtreleri temizle",
-    "legend": "Büyüklük ölçeği"
+    "legend": "Büyüklük ölçeği",
+    "place": "Yer",
+    "all_places": "Tüm yerler"
   },
   "sharecard": {
     "title": "Bu depremi paylaş",
@@ -436,7 +438,9 @@
     "area_regions": "Bölgeler",
     "area_countries": "Ülkeler",
     "remove_area": "{name} kaldır",
-    "area_limit": "En fazla 20 seçebilirsiniz."
+    "area_limit": "En fazla 20 seçebilirsiniz.",
+    "areas_none": "Yok",
+    "area_selected": "Seçilenler"
   },
   "region_chip": "Bölge",
   "wr": {
