@@ -369,7 +369,7 @@
   "near_country": "Near {country}",
   "share": "Share",
   "link_copied": "Link copied",
-  "depth_deep": "{n} km deep",
+  "depth_deep": "{d} deep",
   "mag_chip": "Magnitude",
   "all_mags": "All magnitudes",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "Felt map: probably felt in {n} areas",
     "line_areas_1": "Felt map: probably felt in 1 area",
     "line_none": "Felt map: not enough app activity nearby"
-  }
+  },
+  "units": "Units",
+  "units_km": "Kilometres",
+  "units_mi": "Miles"
 }

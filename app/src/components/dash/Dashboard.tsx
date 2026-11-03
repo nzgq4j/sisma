@@ -16,6 +16,7 @@ import { Sheet, SheetOptions } from '@/components/Sheet';
 import { WorldMap } from './WorldMap';
 import { MagFilterChip } from '@/components/stage/StageParts';
 import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
+import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
 
 const SORT_LABEL = { time: 'sort_time', distance: 'sort_distance', mag: 'sort_mag' } as const;
@@ -23,6 +24,7 @@ const MAG_BINS = [...MAG_SCALE].reverse().map(([min], i, a) => ({ min: i === 0 ?
 
 export function Dashboard() {
   const { t, m, nf, locale } = useT();
+  const u = useDistance();
   const { locations, active, plan } = useApp();
   const loc = locations[active];
   const { range, setRange, region, setRegion, loaded, list, mapList, regions, loadedAt: now } = useQuakeData();
@@ -108,7 +110,7 @@ export function Dashboard() {
         </button>
         <button type="button" className={styles.kpi} disabled={!nearest} onClick={() => nearest && setSelId(nearest.id)}>
           <span className={styles.kpiLabel}>{t('nearest')}</span>
-          <span className={styles.kpiValue}>{nearest ? `${nf.format(Math.round(nearest.distanceKm!))} km` : '—'}</span>
+          <span className={styles.kpiValue}>{nearest ? u.dist(nearest.distanceKm!) : '—'}</span>
           <span className={styles.kpiSub}>{nearest ? `M${nearest.mag.toFixed(1)} · ${nearest.region}` : loc.name}</span>
         </button>
         <div className={styles.kpi}>
@@ -172,7 +174,7 @@ export function Dashboard() {
                     </span>
                     <span className={styles.rowMeta}>
                       <span>{timeAgo(t as never, q.time)}</span>
-                      {q.distanceKm != null && <span>{nf.format(Math.round(q.distanceKm))} km</span>}
+                      {q.distanceKm != null && <span>{u.dist(q.distanceKm)}</span>}
                     </span>
                   </button>
                   <FeltButton q={q} />

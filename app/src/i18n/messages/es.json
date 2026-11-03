@@ -369,7 +369,7 @@
   "near_country": "Cerca de {country}",
   "share": "Compartir",
   "link_copied": "Enlace copiado",
-  "depth_deep": "{n} km de profundidad",
+  "depth_deep": "{d} de profundidad",
   "mag_chip": "Magnitud",
   "all_mags": "Todas las magnitudes",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "Mapa de percepción: probablemente sentido en {n} zonas",
     "line_areas_1": "Mapa de percepción: probablemente sentido en 1 zona",
     "line_none": "Mapa de percepción: poca actividad cercana"
-  }
+  },
+  "units": "Unidades",
+  "units_km": "Kilómetros",
+  "units_mi": "Millas"
 }

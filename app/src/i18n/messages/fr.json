@@ -369,7 +369,7 @@
   "near_country": "Près de : {country}",
   "share": "Partager",
   "link_copied": "Lien copié",
-  "depth_deep": "{n} km de profondeur",
+  "depth_deep": "{d} de profondeur",
   "mag_chip": "Magnitude",
   "all_mags": "Toutes les magnitudes",
   "feltmap": {
@@ -384,5 +384,8 @@
     "line_areas": "Carte de ressenti : probablement ressenti dans {n} zones",
     "line_areas_1": "Carte de ressenti : probablement ressenti dans 1 zone",
     "line_none": "Carte de ressenti : pas assez d’activité à proximité"
-  }
+  },
+  "units": "Unités",
+  "units_km": "Kilomètres",
+  "units_mi": "Miles"
 }

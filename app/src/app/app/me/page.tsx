@@ -12,6 +12,7 @@ import { useNow } from '@/components/FeltReport';
 import { LanguagePicker } from '@/components/LanguagePicker';
 import { Sheet } from '@/components/Sheet';
 import { setTheme, useTheme, type ThemePref } from '@/components/Theme';
+import { KM_PER_MI, setUnits, useDistance, useUnits, type Units } from '@/components/Units';
 import { openOnboarding } from '@/components/onboarding/store';
 import { FeltMapInfoSheet, setFeltMapSharing, useFeltMapSharing } from '@/components/FeltMap';
 import { supabaseBrowser } from '@/lib/supabase-browser';
@@ -19,7 +20,8 @@ import { PRICES, limits } from '@/lib/entitlements';
 import type { PlaceHit } from '@/lib/places';
 import styles from './me.module.css';
 
-const RADII = [100, 250, 500, 1000, 0];
+// Alert radius options (stored in km). In miles, round numbers of miles: 50, 150, 300, 600.
+const RADII = { km: [100, 250, 500, 1000, 0], mi: [50, 150, 300, 600, 0].map(r => Math.round(r * KM_PER_MI)) };
 const SOURCES = ['USGS', 'EMSC', 'GeoNet', 'JMA'];
 
 export default function MePage() {
@@ -108,6 +110,7 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
 
 function Alerts({ onLocked }: { onLocked: () => void }) {
   const { t, m, nf } = useT();
+  const u = useDistance();
   const { plan } = useApp();
   const { user } = useAccount();
   const [s, setS] = useState({ enabled: false, min_magnitude: 5, radius_km: 500 });
@@ -146,9 +149,9 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
               onChange={e => update({ min_magnitude: Number(e.target.value) })} />
             <div className={styles.rangeHead}><span>{t('alert_radius')}</span></div>
             <div className={styles.chips}>
-              {RADII.map(r => (
+              {RADII[u.units].map(r => (
                 <button key={r} type="button" className={styles.chip} aria-pressed={s.radius_km === r} onClick={() => update({ radius_km: r })}>
-                  {r ? `${nf.format(r)} km` : m.acct.anywhere}
+                  {r ? u.dist(r) : m.acct.anywhere}
                 </button>
               ))}
             </div>
@@ -281,6 +284,7 @@ function Preferences() {
   const { t, m, locale } = useT();
   const { user, savePrefs } = useAccount();
   const theme = useTheme();
+  const units = useUnits();
   const pickTheme = (th: ThemePref) => { setTheme(th); if (user) void savePrefs({ theme: th }); };
   return (
     <div className={styles.card}>
@@ -297,6 +301,14 @@ function Preferences() {
         <div className={styles.seg} role="radiogroup" aria-label={t('theme')}>
           {(['system', 'light', 'dark'] as ThemePref[]).map(th => (
             <button key={th} type="button" role="radio" aria-checked={theme === th} onClick={() => pickTheme(th)}>{t(`th_${th}`)}</button>
+          ))}
+        </div>
+      </div>
+      <div className={styles.block}>
+        <div className={styles.blockHead}><span className="ms" aria-hidden="true">straighten</span>{t('units')}</div>
+        <div className={styles.seg} role="radiogroup" aria-label={t('units')}>
+          {(['km', 'mi'] as Units[]).map(x => (
+            <button key={x} type="button" role="radio" aria-checked={units === x} onClick={() => setUnits(x)}>{t(x === 'km' ? 'units_km' : 'units_mi')}</button>
           ))}
         </div>
       </div>
