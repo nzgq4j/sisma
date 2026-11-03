@@ -163,10 +163,14 @@ key yourself, because it must stay on your machine.
 
 1. Install **Node.js** (LTS, nodejs.org) and **Android Studio** (developer.android.com/studio), open Android Studio once
    and let it install the SDK.
-2. **→ Claude:** generate the Android project (`npx cap add android`), the icons and launch screen
-   (`npx @capacitor/assets generate --android`), and the permissions: approximate + precise location (only while the
-   app is open), notifications (Android 13+), internet. I'll commit `mobile/android/`.
-3. Copy `google-services.json` from step 2 into `mobile/android/app/`.
+2. **Done:** `mobile/android/` is in the repo: Capacitor project, icons and launch screens from `mobile/assets/`,
+   permissions (approximate + precise location while the app is open, notifications on Android 13+, internet), the
+   App Links intent filter below, and the alert notification icon, colour and channel.
+3. **Done:** `google-services.json` (Firebase project `io-sisma-app`) is in `mobile/android/app/`. The repository is
+   public, so restrict its API key: Google Cloud console → project **io-sisma-app** → **APIs & Services → Credentials**
+   → the key named "Android key (auto created by Firebase)" → **Application restrictions: Android apps** → add package
+   `io.sisma.app` with the SHA-1 fingerprints of the upload key and of Play's app-signing key (Play Console → App
+   integrity) → **Save**.
 4. Terminal in the repo: `cd mobile && npm install && npx cap sync android && npx cap open android` → Android Studio
    opens. Plug in an Android phone (with USB debugging on) and press ▶ to try it.
 5. **Upload key** (proves future updates come from you): Android Studio → **Build → Generate Signed App Bundle** →

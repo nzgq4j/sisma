@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">sisma</string>
+    <string name="title_activity_main">sisma</string>
+    <string name="package_name">io.sisma.app</string>
+    <string name="custom_url_scheme">io.sisma.app</string>
+</resources>
