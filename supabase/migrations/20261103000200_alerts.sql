@@ -7,7 +7,6 @@ alter table public.push_tokens
   add column locale text not null default 'en' check (locale in ('en','es','ja','id','tr','it','pt','zh','fr','de')),
   add column units text not null default 'km' check (units in ('km','mi')),
   add column updated_at timestamptz not null default now();
-create index push_tokens_user_idx on public.push_tokens (user_id);
 
 -- One row per alert sent (per user, not per device), so an event is never pushed twice, even if its id changes when a
 -- different agency's solution wins the merge (lat/lon/time let the server spot the same event under a new id).
