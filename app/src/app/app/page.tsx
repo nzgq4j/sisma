@@ -20,7 +20,8 @@ export default function FeedPage() {
 
 function MobileFeed() {
   const { t } = useT();
-  const { list } = useQuakeData();
+  // mapList = the filtered list including the minimum magnitude (the same events as the Map and Globe).
+  const { mapList: list } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
   const [selId, setSelId] = useState<string | null>(null);
   const sel = list.find(q => q.id === selId) ?? null;
