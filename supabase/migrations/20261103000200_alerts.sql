@@ -62,7 +62,7 @@ end; $$;
 revoke execute on function public.consume_cron_ticket(uuid) from public, anon, authenticated;
 grant execute on function public.consume_cron_ticket(uuid) to service_role;
 
-create extension if not exists pg_net;
+create extension if not exists pg_net with schema extensions;
 select cron.schedule('quake-alerts', '* * * * *', $$
   select net.http_post(
     url := 'https://sisma.io/api/cron/alerts',
