@@ -170,7 +170,7 @@ export function Dashboard() {
                     <MagBadge mag={q.mag} size={38} />
                     <span className={styles.rowText}>
                       <strong>{q.region}</strong>
-                      <span>{q.title}</span>
+                      <span>{u.text(q.title)}</span>
                     </span>
                     <span className={styles.rowMeta}>
                       <span>{timeAgo(t as never, q.time)}</span>

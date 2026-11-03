@@ -4,8 +4,9 @@
 import { useSyncExternalStore } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 
-export type Units = 'km' | 'mi';
-export const KM_PER_MI = 1.609344;
+import { KM_PER_MI, convertKmInText, type Units } from '@/lib/units';
+
+export { KM_PER_MI, convertKmInText, type Units };
 const KEY = 'sisma.units';
 const subs = new Set<() => void>();
 
@@ -33,6 +34,8 @@ export function useDistance() {
     units,
     unit: units === 'mi' ? 'mi' : 'km',
     dist: (km: number) => `${nf.format(Math.round(conv(km)))} ${units === 'mi' ? 'mi' : 'km'}`,
+    /** Source place text with any "N km" converted, e.g. "50 mi SSE of Palekastro". */
+    text: (s: string) => convertKmInText(s, units, v => one.format(v)),
     depth: (km: number) => { const v = conv(km); return `${v < 10 ? one.format(Math.round(v * 10) / 10) : nf.format(Math.round(v))} ${units === 'mi' ? 'mi' : 'km'}`; },
   };
 }

@@ -88,7 +88,7 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
         <MagBadge mag={q.mag} size={56} />
         <div className={styles.detailTitle}>
           <Place q={q} code={country?.code} />
-          <FitLine min={10}>{q.title}</FitLine>
+          <FitLine min={10}>{u.text(q.title)}</FitLine>
         </div>
         {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
       </div>
