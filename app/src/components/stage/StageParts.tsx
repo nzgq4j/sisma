@@ -2,6 +2,7 @@
 // Overlay pieces shared by the Map and Globe tabs.
 import Link from 'next/link';
 import { useState } from 'react';
+import { useCardGestures } from './useCardGestures';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/QuakeData';
@@ -78,9 +79,12 @@ export function Legend({ depth = false }: { depth?: boolean }) {
 /** The selected quake: bottom card + detail sheet on phones, floating detail panel on desktop. */
 export function Selection({ q, open, setOpen, onClear, onShowRegion }: { q: Row; open: boolean; setOpen: (v: boolean) => void; onClear: () => void; onShowRegion?: () => void }) {
   const desktop = useDesktop();
+  // Swipe up opens Details; swipe down or double tap (away from buttons) closes the card.
+  const g = useCardGestures({ onUp: () => setOpen(true), onDown: onClear });
   return (
     <>
-      <aside className={desktop ? styles.panel : styles.selCard} aria-live="polite">
+      <aside className={desktop ? styles.panel : styles.selCard} aria-live="polite" style={g.style} {...g.handlers}>
+        {!desktop && <span className={styles.grab} aria-hidden="true" />}
         <QuakeSummary q={q} onClose={desktop ? onClear : undefined} onDetails={() => setOpen(true)} />
       </aside>
       <Sheet open={open} onClose={() => setOpen(false)} label={q.region}>
