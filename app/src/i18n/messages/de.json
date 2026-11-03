@@ -395,7 +395,9 @@
     "expand": "Filter anzeigen",
     "collapse": "Filter ausblenden",
     "clear_filters": "Filter zurücksetzen",
-    "legend": "Magnitudenskala"
+    "legend": "Magnitudenskala",
+    "place": "Ort",
+    "all_places": "Alle Orte"
   },
   "sharecard": {
     "title": "Dieses Erdbeben teilen",
@@ -436,7 +438,9 @@
     "area_regions": "Regionen",
     "area_countries": "Länder",
     "remove_area": "{name} entfernen",
-    "area_limit": "Du kannst bis zu 20 auswählen."
+    "area_limit": "Du kannst bis zu 20 auswählen.",
+    "areas_none": "Keine",
+    "area_selected": "Ausgewählt"
   },
   "region_chip": "Region",
   "wr": {

@@ -395,7 +395,9 @@
     "expand": "フィルターを表示",
     "collapse": "フィルターを隠す",
     "clear_filters": "フィルターをクリア",
-    "legend": "マグニチュードの目安"
+    "legend": "マグニチュードの目安",
+    "place": "場所",
+    "all_places": "すべての場所"
   },
   "sharecard": {
     "title": "この地震を共有",
@@ -436,7 +438,9 @@
     "area_regions": "地域",
     "area_countries": "国",
     "remove_area": "{name}を削除",
-    "area_limit": "最大20件まで選べます。"
+    "area_limit": "最大20件まで選べます。",
+    "areas_none": "なし",
+    "area_selected": "選択中"
   },
   "region_chip": "地域",
   "wr": {

@@ -21,7 +21,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)
-2. Feed (scaffolded): nearest card, sort segmented control, range + region chips, rows, detail sheet
+2. Feed (scaffolded): nearest card, sort segmented control, rows, detail sheet; filters in the pull-up FilterPanel (fixed mode)
    Region filter (sisma+): world regions (lib/world-regions.ts: country within 800 km, else ocean) — one setting in
    QuakeData for Feed, Map, Globe and dashboard (RegionFilterChip). Magnitude badges use the pin colours (--mag-N)
 3. Felt report sheet (done): "I felt it" on quakes < 6 h old (lib/quakes/report-window.ts), quick → details → thanks
@@ -43,7 +43,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
 7. Me / account dashboard (skeleton done: app/app/me): email-link, email + password (sign-up, reset, change) and Google sign-in (components/Account.tsx, lib/oauth.ts;
    Google button shows when the provider is on in Supabase; Android returns via App Links, /.well-known/assetlinks.json), profile + plan, alerts saved to
-   alert_settings, language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
+   alert_settings (rows that open choice sheets: magnitude, radius, countries/regions), language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
    saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
    Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Todo: subscription management
 8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet (done: components/Paywall.tsx)

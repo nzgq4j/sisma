@@ -26,6 +26,8 @@ import styles from './me.module.css';
 // Alert radius options (stored in km). In miles, round numbers of miles: 50, 150, 300, 600.
 const RADII = { km: [100, 250, 500, 1000, 0], mi: [50, 150, 300, 600, 0].map(r => Math.round(r * KM_PER_MI)) };
 const SOURCES = ['USGS', 'EMSC', 'GeoNet', 'JMA'];
+/** Alert minimum magnitude choices (was a 3–7 slider in steps of 0.5). */
+const ALERT_MAGS = [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7];
 
 export default function MePage() {
   const { t, m } = useT();
@@ -145,38 +147,6 @@ const countryName = (locale: string, code: string) => {
   try { return new Intl.DisplayNames([locale], { type: 'region' }).of(code.toUpperCase()) ?? code.toUpperCase(); } catch { return code.toUpperCase(); }
 };
 
-/** Countries and world regions the user is alerted for wherever they are (sisma+), shown as removable chips. */
-function AlertAreas({ countries, regions, onOpen, onRemove }: {
-  countries: string[]; regions: string[]; onOpen: () => void; onRemove: (kind: 'country' | 'region', code: string) => void;
-}) {
-  const { m, locale } = useT();
-  const n = m.notif;
-  const items = [
-    ...regions.map(r => ({ kind: 'region' as const, code: r, name: m.wr[r as WorldRegion] ?? r })),
-    ...countries.map(c => ({ kind: 'country' as const, code: c, name: countryName(locale, c) })),
-  ];
-  return (
-    <div className={styles.areas}>
-      <div className={styles.rangeHead}><span>{n.areas_label}</span></div>
-      <p className={styles.hint}>{n.areas_hint}</p>
-      <div className={styles.chips}>
-        {items.map(it => (
-          <button key={it.kind + it.code} type="button" className={styles.areaChip} onClick={() => onRemove(it.kind, it.code)}
-            aria-label={n.remove_area.replace('{name}', it.name)}>
-            {it.kind === 'country'
-              ? <img src={`/flags/${it.code}.svg`} alt="" width={16} height={16} className={styles.areaFlag} /> // eslint-disable-line @next/next/no-img-element
-              : <span className="ms" aria-hidden="true">public</span>}
-            {it.name}<span className="ms" aria-hidden="true">close</span>
-          </button>
-        ))}
-        <button type="button" className={styles.chip} onClick={onOpen} aria-haspopup="dialog">
-          <span className="ms" aria-hidden="true" style={{ fontSize: 18, verticalAlign: '-4px', marginRight: 2 }}>add</span>{n.add_area}
-        </button>
-      </div>
-    </div>
-  );
-}
-
 /** Pick countries and world regions (several; up to 20 of each). Countries can be searched by name. */
 function AreaPicker({ open, onClose, countries, regions, onChange }: {
   open: boolean; onClose: () => void; countries: string[]; regions: string[]; onChange: (countries: string[], regions: string[]) => void;
@@ -190,11 +160,24 @@ function AreaPicker({ open, onClose, countries, regions, onChange }: {
   const shown = needle ? sorted.filter(c => c.name.toLocaleLowerCase(locale).includes(needle)) : sorted;
   const toggle = <T extends string>(list: T[], v: T) => (list.includes(v) ? list.filter(x => x !== v) : list.length < MAX_AREAS ? [...list, v] : list);
   return (
-    <Sheet open={open} onClose={() => { setQ(''); onClose(); }} title={n.add_area}>
+    <Sheet open={open} onClose={() => { setQ(''); onClose(); }} title={n.areas_label}>
+      <p className={styles.hint}>{n.areas_hint}</p>
       <div className={styles.searchForm} role="search">
         <span className={`ms ${styles.searchIcon}`} aria-hidden="true">search</span>
         <input type="search" className={styles.searchInput} value={q} onChange={e => setQ(e.target.value)} placeholder={n.area_search} aria-label={n.area_search} />
       </div>
+      {!needle && regions.length + countries.length > 0 && (
+        <>
+          <div className={styles.pickerLabel}>{n.area_selected}</div>
+          <SheetOptions values={[...regions, ...countries]}
+            onPick={v => (regions.includes(v) ? onChange(countries, regions.filter(r => r !== v)) : onChange(countries.filter(c => c !== v), regions))}
+            options={[
+              ...regions.map(r => ({ value: r, label: m.wr[r as WorldRegion] ?? r, lead: <span className="ms" aria-hidden="true">public</span> })),
+              // eslint-disable-next-line @next/next/no-img-element -- small bundled flag SVGs
+              ...countries.map(c => ({ value: c, label: countryName(locale, c), lead: <img src={`/flags/${c}.svg`} alt="" width={20} height={20} className={styles.areaFlag} /> })),
+            ]} />
+        </>
+      )}
       {!needle && (
         <>
           <div className={styles.pickerLabel}>{n.area_regions}</div>
@@ -212,13 +195,13 @@ function AreaPicker({ open, onClose, countries, regions, onChange }: {
 }
 
 function Alerts({ onLocked }: { onLocked: () => void }) {
-  const { t, m, nf } = useT();
+  const { t, m, nf, locale } = useT();
   const u = useDistance();
   const { plan, places } = useApp();
   const { user } = useAccount();
   const push = usePushDevice();
   const [s, setS] = useState({ enabled: false, min_magnitude: 5, radius_km: 500, countries: [] as string[], regions: [] as string[] });
-  const [areaOpen, setAreaOpen] = useState(false);
+  const [open, setOpen] = useState<null | 'mag' | 'radius' | 'areas'>(null);
   const [saveError, setSaveError] = useState(false);
 
   // Load the saved settings (RLS: own row only).
@@ -230,6 +213,7 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
     return () => { alive = false; };
   }, [user]);
 
+  const areaNames = [...s.regions.map(r => m.wr[r as WorldRegion] ?? r), ...s.countries.map(c => countryName(locale, c))];
   const update = (patch: Partial<typeof s>) => {
     const nextS = { ...s, ...patch }; setS(nextS); setSaveError(false);
     const sb = supabaseBrowser(); if (!sb || !user) return;
@@ -254,21 +238,29 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
         </button>
         {plan === 'plus' && s.enabled && (
           <div className={styles.alertBody}>
-            <label className={styles.rangeHead} htmlFor="alert-mag"><span>{t('alert_mag')}</span><strong>M{nf.format(s.min_magnitude)}+</strong></label>
-            <input id="alert-mag" type="range" min={3} max={7} step={0.5} value={s.min_magnitude} className={styles.range}
-              onChange={e => update({ min_magnitude: Number(e.target.value) })} />
-            <div className={styles.rangeHead}><span>{t('alert_radius')}</span></div>
-            <div className={styles.chips}>
-              {RADII[u.units].map(r => (
-                <button key={r} type="button" className={styles.chip} aria-pressed={s.radius_km === r} onClick={() => update({ radius_km: r })}>
-                  {r ? u.dist(r) : m.acct.anywhere}
-                </button>
-              ))}
-            </div>
+            <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('mag')}>
+              <span className="ms" aria-hidden="true">filter_alt</span><span className={styles.grow}>{t('alert_mag')}</span>
+              <span className={styles.meta}>M{nf.format(s.min_magnitude)}+</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+            </button>
+            <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('radius')}>
+              <span className="ms" aria-hidden="true">radar</span><span className={styles.grow}>{t('alert_radius')}</span>
+              <span className={styles.meta}>{s.radius_km ? u.dist(s.radius_km) : m.acct.anywhere}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+            </button>
+            <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('areas')}>
+              <span className="ms" aria-hidden="true">public</span><span className={styles.grow}>{m.notif.areas_label}</span>
+              <span className={`${styles.meta} ${styles.metaClip}`}>{areaNames.length ? areaNames.join(', ') : m.notif.areas_none}</span>
+              <span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+            </button>
             <p className={styles.hint}>{places.length ? m.notif.coverage : s.countries.length + s.regions.length ? null : m.notif.need_location}</p>
-            <AlertAreas countries={s.countries} regions={s.regions} onOpen={() => setAreaOpen(true)}
-              onRemove={(kind, code) => update(kind === 'country' ? { countries: s.countries.filter(c => c !== code) } : { regions: s.regions.filter(r => r !== code) })} />
-            <AreaPicker open={areaOpen} onClose={() => setAreaOpen(false)} countries={s.countries} regions={s.regions}
+            <Sheet open={open === 'mag'} onClose={() => setOpen(null)} title={t('alert_mag')}>
+              <SheetOptions value={String(s.min_magnitude)} onPick={v => { update({ min_magnitude: Number(v) }); setOpen(null); }}
+                options={ALERT_MAGS.map(v => ({ value: String(v), label: `M${nf.format(v)}+` }))} />
+            </Sheet>
+            <Sheet open={open === 'radius'} onClose={() => setOpen(null)} title={t('alert_radius')}>
+              <SheetOptions value={String(s.radius_km)} onPick={v => { update({ radius_km: Number(v) }); setOpen(null); }}
+                options={RADII[u.units].map(r => ({ value: String(r), label: r ? u.dist(r) : m.acct.anywhere }))} />
+            </Sheet>
+            <AreaPicker open={open === 'areas'} onClose={() => setOpen(null)} countries={s.countries} regions={s.regions}
               onChange={(countries, regions) => update({ countries, regions })} />
             <AlertDevice />
           </div>

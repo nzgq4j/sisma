@@ -395,7 +395,9 @@
     "expand": "Show filters",
     "collapse": "Hide filters",
     "clear_filters": "Clear filters",
-    "legend": "Magnitude scale"
+    "legend": "Magnitude scale",
+    "place": "Place",
+    "all_places": "All places"
   },
   "sharecard": {
     "title": "Share this earthquake",
@@ -436,7 +438,9 @@
     "area_regions": "Regions",
     "area_countries": "Countries",
     "remove_area": "Remove {name}",
-    "area_limit": "You can choose up to 20."
+    "area_limit": "You can choose up to 20.",
+    "areas_none": "None",
+    "area_selected": "Selected"
   },
   "region_chip": "Region",
   "wr": {
