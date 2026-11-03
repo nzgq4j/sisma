@@ -387,5 +387,24 @@
   },
   "units": "Einheiten",
   "units_km": "Kilometer",
-  "units_mi": "Meilen"
+  "units_mi": "Meilen",
+  "review_status": "Prüfstatus",
+  "st_automatic": "Automatisch",
+  "st_preliminary": "Vorläufig",
+  "st_reviewed": "Geprüft",
+  "map": {
+    "focus_event": "Dieses Ereignis anzeigen"
+  },
+  "sharecard": {
+    "title": "Dieses Erdbeben teilen",
+    "preparing": "Bild wird erstellt…",
+    "failed": "Das Bild konnte nicht erstellt werden. Du kannst den Link trotzdem teilen.",
+    "share_image": "Bild teilen",
+    "save_image": "Bild speichern",
+    "copy_link": "Link kopieren",
+    "alt": "Teilen-Karte: Karte und Details dieses Erdbebens",
+    "label": "Erdbeben",
+    "nearby": "Weitere Ereignisse, letzte 7 Tage",
+    "disclaimer": "Kein offizieller Warndienst. Folge den Anweisungen der Behörden vor Ort."
+  }
 }

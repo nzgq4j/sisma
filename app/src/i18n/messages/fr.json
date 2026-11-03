@@ -387,5 +387,24 @@
   },
   "units": "Unités",
   "units_km": "Kilomètres",
-  "units_mi": "Miles"
+  "units_mi": "Miles",
+  "review_status": "Statut de révision",
+  "st_automatic": "Automatique",
+  "st_preliminary": "Préliminaire",
+  "st_reviewed": "Révisé",
+  "map": {
+    "focus_event": "Afficher cet événement"
+  },
+  "sharecard": {
+    "title": "Partager ce séisme",
+    "preparing": "Préparation de l'image…",
+    "failed": "Impossible de créer l'image. Vous pouvez toujours partager le lien.",
+    "share_image": "Partager l'image",
+    "save_image": "Enregistrer l'image",
+    "copy_link": "Copier le lien",
+    "alt": "Carte de partage : carte et détails de ce séisme",
+    "label": "Séisme",
+    "nearby": "Autres événements, 7 derniers jours",
+    "disclaimer": "Pas un service d'alerte officiel. Suivez les autorités locales."
+  }
 }

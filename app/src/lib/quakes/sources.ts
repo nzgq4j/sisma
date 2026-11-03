@@ -1,5 +1,6 @@
 import type { Quake } from './types';
 import { splitPlace } from './region';
+import { reviewStatus } from './status';
 
 type Fetcher = (opts: { days: number; minMag: number }) => Promise<Quake[]>;
 
@@ -10,10 +11,11 @@ export const usgs: Fetcher = async ({ days, minMag }) => {
       '&starttime=' + new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
   const res = await fetch(url, { next: { revalidate: 60 } });
   const j = await res.json();
-  return j.features.filter((f: any) => f.properties.mag != null).map((f: any): Quake => {
+  return j.features.filter((f: any) => f.properties.mag != null && reviewStatus('usgs', (f as { properties: { status?: string } }).properties.status) !== null).map((f: any): Quake => {
     const p = f.properties, c = f.geometry.coordinates, sp = splitPlace(p.place ?? p.title ?? 'Unknown');
     return { id: 'usgs:' + f.id, source: 'usgs', mag: +p.mag, magType: p.magType, title: sp.title, region: sp.region, time: p.time,
-      lon: c[0], lat: c[1], depthKm: Math.max(0, c[2] ?? 0), felt: p.felt ?? undefined, cdi: p.cdi ?? undefined, tsunami: p.tsunami === 1, url: p.url };
+      lon: c[0], lat: c[1], depthKm: Math.max(0, c[2] ?? 0), felt: p.felt ?? undefined, cdi: p.cdi ?? undefined, tsunami: p.tsunami === 1, url: p.url,
+      status: reviewStatus('usgs', p.status) ?? undefined };
   });
 };
 
@@ -33,10 +35,11 @@ export const emsc: Fetcher = async ({ days, minMag }) => {
 export const geonet: Fetcher = async () => {
   const res = await fetch('https://api.geonet.org.nz/quake?MMI=3', { headers: { Accept: 'application/vnd.geo+json;version=2' }, next: { revalidate: 60 } });
   const j = await res.json();
-  return j.features.map((f: any): Quake => {
+  return j.features.filter((f: { properties: { quality?: string } }) => reviewStatus('geonet', f.properties.quality) !== null).map((f: any): Quake => {
     const p = f.properties, c = f.geometry.coordinates;
     return { id: 'geonet:' + p.publicID, source: 'geonet', mag: +p.magnitude, title: p.locality, region: 'New Zealand', time: Date.parse(p.time),
-      lon: c[0], lat: c[1], depthKm: Math.max(0, +p.depth || 0), mmi: p.mmi, tsunami: false, url: 'https://www.geonet.org.nz/earthquake/' + p.publicID };
+      lon: c[0], lat: c[1], depthKm: Math.max(0, +p.depth || 0), mmi: p.mmi, tsunami: false, url: 'https://www.geonet.org.nz/earthquake/' + p.publicID,
+      status: reviewStatus('geonet', p.quality) ?? undefined };
   });
 };
 

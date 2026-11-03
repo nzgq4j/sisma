@@ -1,5 +1,8 @@
 export type SourceId = 'usgs' | 'emsc' | 'geonet' | 'jma';
 
+/** Agency review state: automatic solution, preliminary (human-checked, may change) or reviewed (final). */
+export type ReviewStatus = 'automatic' | 'preliminary' | 'reviewed';
+
 export interface Quake {
   id: string;            // source:sourceId of the winning record
   source: SourceId;
@@ -16,6 +19,7 @@ export interface Quake {
   mmi?: number;          // max instrumental/JMA intensity mapped to MMI
   tsunami: boolean;
   url?: string;
+  status?: ReviewStatus; // agency review state, when the source publishes one
   alsoIn?: SourceId[];   // other sources reporting the same event
 }
 

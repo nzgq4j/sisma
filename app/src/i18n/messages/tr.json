@@ -387,5 +387,24 @@
   },
   "units": "Birimler",
   "units_km": "Kilometre",
-  "units_mi": "Mil"
+  "units_mi": "Mil",
+  "review_status": "İnceleme durumu",
+  "st_automatic": "Otomatik",
+  "st_preliminary": "Ön değerlendirme",
+  "st_reviewed": "İncelendi",
+  "map": {
+    "focus_event": "Bu olayı göster"
+  },
+  "sharecard": {
+    "title": "Bu depremi paylaş",
+    "preparing": "Görsel hazırlanıyor…",
+    "failed": "Görsel oluşturulamadı. Bağlantıyı yine de paylaşabilirsiniz.",
+    "share_image": "Görseli paylaş",
+    "save_image": "Görseli kaydet",
+    "copy_link": "Bağlantıyı kopyala",
+    "alt": "Paylaşım kartı: bu depremin haritası ve ayrıntıları",
+    "label": "Deprem",
+    "nearby": "Diğer olaylar, son 7 gün",
+    "disclaimer": "Resmî bir uyarı servisi değildir. Yerel yetkilileri takip edin."
+  }
 }

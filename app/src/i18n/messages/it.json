@@ -387,5 +387,24 @@
   },
   "units": "Unità",
   "units_km": "Chilometri",
-  "units_mi": "Miglia"
+  "units_mi": "Miglia",
+  "review_status": "Stato di revisione",
+  "st_automatic": "Automatico",
+  "st_preliminary": "Preliminare",
+  "st_reviewed": "Rivisto",
+  "map": {
+    "focus_event": "Mostra questo evento"
+  },
+  "sharecard": {
+    "title": "Condividi questo terremoto",
+    "preparing": "Preparazione immagine…",
+    "failed": "Impossibile creare l'immagine. Puoi comunque condividere il link.",
+    "share_image": "Condividi immagine",
+    "save_image": "Salva immagine",
+    "copy_link": "Copia link",
+    "alt": "Scheda di condivisione: mappa e dettagli di questo terremoto",
+    "label": "Terremoto",
+    "nearby": "Altri eventi, ultimi 7 giorni",
+    "disclaimer": "Non è un servizio di allerta ufficiale. Segui le autorità locali."
+  }
 }

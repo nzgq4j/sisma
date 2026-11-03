@@ -5,16 +5,16 @@
 // optional plate boundaries, tap empty map to deselect. The dashboard uses the same wrapping Mercator.
 // Equal Earth (zoom 1–12, fixed frame) remains available as a projection option.
 // Dots are sized (mag − 1.6) × 2.1 and coloured by MAG_SCALE in both.
-import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
 import { select } from 'd3-selection';
-import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
+import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { HEAT_COLORS, MMI_COLORS, magColor } from '@/lib/theme';
 import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
-import { BORDERS, COUNTRIES, SPHERE, useLakes, usePlates } from '@/lib/world';
+import { BORDERS, COUNTRIES, SPHERE, useDetailedWorld, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
 import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
@@ -22,13 +22,24 @@ import styles from './dash.module.css';
 const GRATICULE = geoGraticule10();
 export const dotRadius = (mag: number) => Math.max(2.4, (mag - 1.6) * 2.1);
 
-export interface MapFocus { key: string; lat: number; lon: number; zoom: number }
+/** Zoom target. `span` (degrees of longitude across the shorter side of the view) sets the zoom; `zoom` is a fixed
+ *  factor used when no span is given. `y` places the point at that fraction of the height (0.5 = centre). */
+export interface MapFocus { key: string; lat: number; lon: number; zoom?: number; span?: number; y?: number }
 
-export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, cells = [], heat = [], onReset }: {
+/** Width of a map callout in px (kept fixed so it can be clamped inside the view before it is measured). */
+const CALLOUT_W = 268;
+
+export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], onReset }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   projection?: 'equalEarth' | 'mercator'; plates?: boolean; pin?: boolean; controls?: boolean; toolsClassName?: string;
   /** Zoom to this point (changing `key` re-applies it). */
   focus?: MapFocus | null;
+  /** The event in focus (region view): drawn with a distinct, pulsing marker above the others. */
+  focusedId?: string | null;
+  /** A callout anchored to the marker of event `id` (e.g. a nearby event in the region view). */
+  popup?: { id: string; content: ReactNode } | null;
+  /** Px from the top and bottom of the map covered by overlays (chips, cards); a callout is kept clear of them. */
+  safeArea?: () => { top: number; bottom: number };
   /** Felt reports as ~10 km cells, drawn as soft, blurred areas so no exact position is implied. */
   cells?: FeltCell[];
   /** Automatic felt map (lib/feltmap.ts): ~10 km cells weighted 0–1 by the surge of app activity after the quake. */
@@ -44,13 +55,16 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const gRef = useRef<SVGGElement>(null);
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
-  const [k, setK] = useState(1);
+  const [tf, setTf] = useState({ x: 0, y: 0, k: 1 });
+  const k = tf.k;
   // Extra world copies needed to fill the view while scrolling endlessly (bit 1 = left, bit 2 = right).
   const [sides, setSides] = useState(0);
   const [hover, setHover] = useState<{ q: Quake; x: number; y: number } | null>(null);
   const plateData = usePlates(plates);
   const lakes = useLakes();
   const mercator = projection === 'mercator';
+  // Finer 1:50m coastlines once zoomed in far enough for the 1:110m outlines to look coarse (e.g. the region view).
+  const detail = useDetailedWorld(mercator && k >= 4);
 
   useEffect(() => {
     const el = wrapRef.current; if (!el) return;
@@ -71,6 +85,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     return { path: geoPath(p), project: (lon: number, lat: number) => p([lon, lat]), sc };
   }, [size.w, size.h, center.lon, mercator]);
   const lakesD = useMemo(() => (lakes ? path(lakes) ?? '' : ''), [lakes, path]);
+  const fine = detail && k >= 4 ? detail : null;
+  const land = useMemo(() => path(fine ? fine.countries : COUNTRIES) ?? '', [fine, path]);
+  const borders = useMemo(() => path(fine ? fine.borders : BORDERS) ?? '', [fine, path]);
 
   // One world-width in map units (Mercator spans 2π·scale horizontally); never narrower than the view.
   const worldW = mercator ? 2 * Math.PI * sc : 0;
@@ -95,12 +112,17 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           setSides(left | right);
         }
         gRef.current?.setAttribute('transform', `translate(${x},${y}) scale(${tk})`);
-        setK(tk); setHover(null);
+        setTf({ x, y, k: tk }); setHover(null);
       });
     zoomRef.current = z;
     let start = zoomIdentity;
     const fp = focus ? project(focus.lon, focus.lat) : null;
-    if (focus && fp) start = zoomIdentity.translate(size.w / 2 - focus.zoom * fp[0], size.h / 2 - focus.zoom * fp[1]).scale(focus.zoom);
+    if (focus && fp) {
+      // Mercator draws `sc·π/180` map units per degree of longitude at every latitude.
+      const fz = focus.span && sc ? (Math.min(size.w, size.h) * 180) / (Math.PI * sc * focus.span) : focus.zoom ?? 8;
+      const fk = Math.min(mercator ? 40 : 12, Math.max(1, fz));
+      start = zoomIdentity.translate(size.w / 2 - fk * fp[0], size.h * (focus.y ?? 0.5) - fk * fp[1]).scale(fk);
+    }
     const sel = select(svg).call(z).on('dblclick.zoom', null).call(z.transform, start);
     return () => { sel.on('.zoom', null); };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- re-apply only when the focus target (key) changes
@@ -112,6 +134,17 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     .filter((d): d is { q: Quake; xy: [number, number] } => !!d.xy && Number.isFinite(d.xy[0]))
     .sort((a, b) => a.q.mag - b.q.mag), [quakes, project]);
   const selected = dots.find(d => d.q.id === selectedId);
+  const focused = focusedId ? dots.find(d => d.q.id === focusedId) : undefined;
+  // Screen position of the callout's event: the copy of the world (left, centre or right) that is on screen.
+  const popDot = popup ? dots.find(d => d.q.id === popup.id) : undefined;
+  const popAt = popDot && (() => {
+    const offs = worldW ? [0, -worldW, worldW] : [0];
+    for (const off of offs) {
+      const sx = tf.x + tf.k * (popDot.xy[0] + off), sy = tf.y + tf.k * popDot.xy[1];
+      if (sx >= 0 && sx <= size.w && sy >= 0 && sy <= size.h) return { x: sx, y: sy, r: dotRadius(popDot.q.mag) * tf.k ** 0.2 };
+    }
+    return null;
+  })();
   const me = pin ? project(center.lon, center.lat) : null;
   // ~10 km radius (0.09° of latitude) in map units, never smaller than ~10 screen px so a cell stays visible.
   const blobs = useMemo(() => cells.flatMap(c => {
@@ -123,7 +156,40 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
   }), [heat, project]);
   const overlay = blobs.length > 0 || heatSpots.length > 0;
-  const rScale = 1 / Math.sqrt(k);
+  // Dots grow a little when zooming in (k^0.2 on screen), so a dense region stays readable.
+  const rScale = k ** -0.8;
+
+  // When a callout opens, keep it clear of the overlays: pan its marker into the free band if needed (animated).
+  const [safe, setSafe] = useState({ top: 0, bottom: 0 });
+  const popKey = popup?.id ?? null;
+  useEffect(() => {
+    if (!popKey) return;
+    const sa = safeArea?.() ?? { top: 0, bottom: 0 };
+    setSafe(sa); // eslint-disable-line react-hooks/set-state-in-effect -- measured from the DOM when a callout opens
+    const svg = svgRef.current, z = zoomRef.current;
+    if (!svg || !z) return;
+    const s = svg.getBoundingClientRect();
+    // The marker exists once per drawn world copy; use the one on screen.
+    const b = [...svg.querySelectorAll(`[data-qid="${CSS.escape(popKey)}"]`)].map(n => n.getBoundingClientRect())
+      .find(r => r.right > s.left && r.left < s.right);
+    if (!b) return;
+    const y = b.top + b.height / 2 - s.top, x = b.left + b.width / 2 - s.left;
+    const minY = sa.top + 120, maxY = s.height - sa.bottom - 24;
+    const dy = y < minY ? minY + 20 - y : y > maxY ? maxY - 20 - y : 0;
+    const dx = x < 24 ? 40 - x : x > s.width - 24 ? s.width - 40 - x : 0;
+    if (!dx && !dy) return;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let done = 0, raf = 0; const t0 = performance.now(), D = reduce ? 1 : 260;
+    const step = (now: number) => {
+      const p = Math.min(1, (now - t0) / D), e = 1 - (1 - p) ** 3, f = e - done; done = e;
+      const zk = zoomTransform(svg).k;
+      select(svg).call(z.translateBy, (dx * f) / zk, (dy * f) / zk);
+      if (p < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once per opened callout
+  }, [popKey]);
 
   const zoomBy = (f: number) => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.scaleBy, f); };
   const reset = () => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); onReset?.(); };
@@ -133,9 +199,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     <>
       {!mercator && <path d={path(SPHERE) ?? ''} fill="var(--map-sea)" />}
       {!mercator && <path d={path(GRATICULE) ?? ''} fill="none" stroke="var(--map-grat)" vectorEffect="non-scaling-stroke" />}
-      <path d={path(COUNTRIES) ?? ''} fill="var(--map-land)" />
+      <path d={land} fill="var(--map-land)" />
       {lakesD && <path d={lakesD} fill="var(--map-sea)" stroke="var(--map-line)" strokeWidth={0.5} vectorEffect="non-scaling-stroke" />}
-      <path d={path(BORDERS) ?? ''} fill="none" stroke="var(--map-line)" strokeWidth={0.6} vectorEffect="non-scaling-stroke" />
+      <path d={borders} fill="none" stroke="var(--map-line)" strokeWidth={0.6} vectorEffect="non-scaling-stroke" />
       {plates && plateData && (
         <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />
       )}
@@ -153,7 +219,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
             fill={magColor(q.mag).fill} fillOpacity={overlay && q.id !== selectedId ? 0.25 : 0.88} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke"
             className={styles.dot}
             onPointerEnter={e => { if (e.pointerType !== 'mouse') return; const b = wrapRef.current!.getBoundingClientRect(); setHover({ q, x: e.clientX - b.left, y: e.clientY - b.top }); }}
-            onClick={e => { e.stopPropagation(); onSelect(q); }} />
+            data-qid={q.id} onClick={e => { e.stopPropagation(); onSelect(q); }} />
         ))}
       </g>
       {blobs.length > 0 && (
@@ -165,9 +231,17 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
         </g>
       )}
       <g aria-hidden="true">
-        {selected && (
+        {selected && selected !== focused && (
           <circle cx={selected.xy[0]} cy={selected.xy[1]} r={(dotRadius(selected.q.mag) + 4) * rScale}
             fill="none" stroke="var(--ink)" strokeWidth={2.4} vectorEffect="non-scaling-stroke" pointerEvents="none" />
+        )}
+        {focused && (
+          <g transform={`translate(${focused.xy[0]},${focused.xy[1]}) scale(${1 / k})`} pointerEvents="none" data-focus-marker="">
+            <circle r={16} fill="none" stroke={magColor(focused.q.mag).fill} strokeWidth={3} className={styles.focusPulse} />
+            <circle r={13} fill="var(--surface)" fillOpacity={0.9} stroke="var(--ink)" strokeWidth={2.5} />
+            <circle r={8.5} fill={magColor(focused.q.mag).fill} />
+            <path d="M0 -21V-15M0 15V21M-21 0H-15M15 0H21" stroke="var(--ink)" strokeWidth={2.5} strokeLinecap="round" />
+          </g>
         )}
         {me && (
           <g transform={`translate(${me[0]},${me[1]}) scale(${1 / k})`} pointerEvents="none">
@@ -217,7 +291,17 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           <button type="button" onClick={reset} aria-label={m.dash.reset_view} title={m.dash.reset_view}><span className="ms">fit_screen</span></button>
         </div>
       )}
-      {hover && (
+      {popup && popAt && (() => {
+        const left = Math.min(Math.max(popAt.x - CALLOUT_W / 2, 8), Math.max(8, size.w - CALLOUT_W - 8));
+        const below = popAt.y - popAt.r - 100 < safe.top;
+        return (
+          <div className={`${styles.callout} ${below ? styles.calloutBelow : ''}`} data-callout=""
+            style={{ left, width: Math.min(CALLOUT_W, size.w - 16), top: below ? popAt.y + popAt.r + 12 : popAt.y - popAt.r - 12, '--arrow': `${popAt.x - left}px` } as React.CSSProperties}>
+            {popup.content}
+          </div>
+        );
+      })()}
+      {hover && hover.q.id !== popup?.id && (
         <div className={styles.tooltip} style={{ left: Math.min(hover.x + 14, size.w - 230), top: Math.max(hover.y - 12, 8) }}>
           <strong>M{hover.q.mag.toFixed(1)} · {hover.q.region}</strong>
           <span>{u.text(hover.q.title)}</span>

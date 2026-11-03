@@ -387,5 +387,24 @@
   },
   "units": "Satuan",
   "units_km": "Kilometer",
-  "units_mi": "Mil"
+  "units_mi": "Mil",
+  "review_status": "Status tinjauan",
+  "st_automatic": "Otomatis",
+  "st_preliminary": "Awal",
+  "st_reviewed": "Ditinjau",
+  "map": {
+    "focus_event": "Tampilkan kejadian ini"
+  },
+  "sharecard": {
+    "title": "Bagikan gempa ini",
+    "preparing": "Menyiapkan gambar…",
+    "failed": "Gambar tidak dapat dibuat. Anda masih dapat membagikan tautan.",
+    "share_image": "Bagikan gambar",
+    "save_image": "Simpan gambar",
+    "copy_link": "Salin tautan",
+    "alt": "Kartu berbagi: peta dan detail gempa ini",
+    "label": "Gempa bumi",
+    "nearby": "Kejadian lain, 7 hari terakhir",
+    "disclaimer": "Bukan layanan peringatan resmi. Ikuti otoritas setempat."
+  }
 }

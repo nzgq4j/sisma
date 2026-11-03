@@ -387,5 +387,24 @@
   },
   "units": "Units",
   "units_km": "Kilometres",
-  "units_mi": "Miles"
+  "units_mi": "Miles",
+  "review_status": "Review status",
+  "st_automatic": "Automatic",
+  "st_preliminary": "Preliminary",
+  "st_reviewed": "Reviewed",
+  "map": {
+    "focus_event": "Show this event"
+  },
+  "sharecard": {
+    "title": "Share this earthquake",
+    "preparing": "Preparing image…",
+    "failed": "Couldn't create the image. You can still share the link.",
+    "share_image": "Share image",
+    "save_image": "Save image",
+    "copy_link": "Copy link",
+    "alt": "Share card: map and details of this earthquake",
+    "label": "Earthquake",
+    "nearby": "Other events, last 7 days",
+    "disclaimer": "Not an official warning service. Follow your local authorities."
+  }
 }

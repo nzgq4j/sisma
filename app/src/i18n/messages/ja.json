@@ -387,5 +387,24 @@
   },
   "units": "単位",
   "units_km": "キロメートル",
-  "units_mi": "マイル"
+  "units_mi": "マイル",
+  "review_status": "レビュー状況",
+  "st_automatic": "自動",
+  "st_preliminary": "速報",
+  "st_reviewed": "確定",
+  "map": {
+    "focus_event": "この地震を表示"
+  },
+  "sharecard": {
+    "title": "この地震を共有",
+    "preparing": "画像を作成中…",
+    "failed": "画像を作成できませんでした。リンクは共有できます。",
+    "share_image": "画像を共有",
+    "save_image": "画像を保存",
+    "copy_link": "リンクをコピー",
+    "alt": "共有カード：この地震の地図と詳細",
+    "label": "地震",
+    "nearby": "その他の地震（過去7日間）",
+    "disclaimer": "公式の警報サービスではありません。地元当局の指示に従ってください。"
+  }
 }

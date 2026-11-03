@@ -387,5 +387,24 @@
   },
   "units": "单位",
   "units_km": "公里",
-  "units_mi": "英里"
+  "units_mi": "英里",
+  "review_status": "审核状态",
+  "st_automatic": "自动",
+  "st_preliminary": "初步",
+  "st_reviewed": "已审核",
+  "map": {
+    "focus_event": "查看此地震"
+  },
+  "sharecard": {
+    "title": "分享此地震",
+    "preparing": "正在生成图片…",
+    "failed": "无法生成图片。你仍然可以分享链接。",
+    "share_image": "分享图片",
+    "save_image": "保存图片",
+    "copy_link": "复制链接",
+    "alt": "分享卡片：此地震的地图和详情",
+    "label": "地震",
+    "nearby": "其他地震（过去 7 天）",
+    "disclaimer": "非官方预警服务。请遵循当地政府的指示。"
+  }
 }
