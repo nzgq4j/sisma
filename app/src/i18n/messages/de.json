@@ -417,7 +417,7 @@
     "test_title": "sisma-Testalarm",
     "test_body": "Alarme funktionieren auf diesem Gerät.",
     "coverage": "Alarme gelten für Erdbeben in der Nähe eines deiner gespeicherten Orte.",
-    "need_location": "Füge unten einen Ort hinzu: Alarme gelten für Erdbeben in der Nähe deiner gespeicherten Orte.",
+    "need_location": "Füge unten einen Ort hinzu oder wähle Länder oder Regionen: Alarme gelten für Erdbeben in der Nähe deiner Orte oder in den gewählten Gebieten.",
     "device_on": "Dieses Gerät erhält Alarme.",
     "device_enable": "Mitteilungen auf diesem Gerät einschalten",
     "device_blocked": "Mitteilungen von sisma sind in den Einstellungen dieses Browsers blockiert.",
@@ -427,7 +427,16 @@
     "device_error": "Mitteilungen konnten auf diesem Gerät nicht eingeschaltet werden. Bitte versuche es erneut.",
     "test": "Testalarm senden",
     "test_sent": "Testalarm gesendet",
-    "test_failed": "Testalarm konnte nicht gesendet werden."
+    "test_failed": "Testalarm konnte nicht gesendet werden.",
+    "title_area": "Erdbeben M{mag} · {area}",
+    "areas_label": "Auch Alarme für",
+    "areas_hint": "Erdbeben überall in diesen Ländern oder Regionen, ab deiner Mindeststärke.",
+    "add_area": "Land oder Region hinzufügen",
+    "area_search": "Länder suchen",
+    "area_regions": "Regionen",
+    "area_countries": "Länder",
+    "remove_area": "{name} entfernen",
+    "area_limit": "Du kannst bis zu 20 auswählen."
   },
   "region_chip": "Region",
   "wr": {

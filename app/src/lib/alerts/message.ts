@@ -2,7 +2,7 @@
 import { KM_PER_MI, type Units } from '../units';
 import type { Quake } from '../quakes/types';
 
-export interface PushStrings { title_near: string; title_any: string; body: string }
+export interface PushStrings { title_near: string; title_any: string; title_area: string; body: string }
 export interface PushMessage { title: string; body: string; url: string; tag: string }
 
 const fill = (s: string, v: Record<string, string>) => s.replace(/\{(\w+)\}/g, (_, k) => v[k] ?? '');
@@ -13,11 +13,12 @@ export function formatDistance(km: number, units: Units, locale: string): string
   return `${n} ${units}`;
 }
 
-export function alertMessage(q: Quake, place: { name: string; distanceKm: number } | null, strings: PushStrings, locale: string, units: Units): PushMessage {
+/** `areaName`: the chosen country or region the event is in (already localised), when that is why it was sent. */
+export function alertMessage(q: Quake, place: { name: string; distanceKm: number } | null, strings: PushStrings, locale: string, units: Units, areaName?: string | null): PushMessage {
   const mag = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(q.mag);
   const title = place
     ? fill(strings.title_near, { mag, dist: formatDistance(place.distanceKm, units, locale), place: place.name })
-    : fill(strings.title_any, { mag });
+    : areaName ? fill(strings.title_area, { mag, area: areaName }) : fill(strings.title_any, { mag });
   const body = fill(strings.body, { region: q.region, depth: formatDistance(q.depthKm, units, locale) });
   return { title, body, url: `/app/map?focus=${encodeURIComponent(q.id)}`, tag: `quake-${q.id}` };
 }

@@ -1,7 +1,9 @@
 # Earthquake alerts — how they work and what to set up
 
 sisma+ members get a notification when a quake at or above their minimum magnitude happens within their chosen
-distance of **any of their saved locations** (or anywhere, with "Global"). Each event is sent once per person, to every
+distance of **any of their saved locations** (or anywhere, with "Global"), or anywhere in a **country or world region
+they chose** (Me → Alerts → "Also alert for"; up to 20 of each, stored in `alert_settings.countries` / `regions`).
+An alert for a chosen area reads "M5.4 earthquake · Japan". Each event is sent once per person, to every
 device they turned notifications on for (Me → Alerts → "Turn on notifications on this device").
 
 ## How it runs

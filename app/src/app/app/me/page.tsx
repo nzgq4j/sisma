@@ -5,13 +5,15 @@
 // Skeleton status: sign-in, profile, plan, alert settings, language and appearance are live; saved locations are
 // device-only, push delivery (build step 9) and billing (step 8) are not wired yet.
 import { usePushDevice } from '@/components/PushDevice';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useT, LOCALES } from '@/i18n/I18nProvider';
 import { useApp, type LocateResult } from '@/components/AppState';
 import { useAccount } from '@/components/Account';
 import { useNow } from '@/components/FeltReport';
 import { LanguagePicker } from '@/components/LanguagePicker';
-import { Sheet } from '@/components/Sheet';
+import { Sheet, SheetOptions } from '@/components/Sheet';
+import COUNTRY_CODES from '@/lib/country-codes.json';
+import { WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
 import { setTheme, useTheme, type ThemePref } from '@/components/Theme';
 import { KM_PER_MI, setUnits, useDistance, useUnits, type Units } from '@/components/Units';
 import { openOnboarding } from '@/components/onboarding/store';
@@ -137,21 +139,94 @@ function AlertDevice() {
   );
 }
 
+const MAX_AREAS = 20;
+const ALL_COUNTRIES = [...new Set(Object.values(COUNTRY_CODES as Record<string, string>))];
+const countryName = (locale: string, code: string) => {
+  try { return new Intl.DisplayNames([locale], { type: 'region' }).of(code.toUpperCase()) ?? code.toUpperCase(); } catch { return code.toUpperCase(); }
+};
+
+/** Countries and world regions the user is alerted for wherever they are (sisma+), shown as removable chips. */
+function AlertAreas({ countries, regions, onOpen, onRemove }: {
+  countries: string[]; regions: string[]; onOpen: () => void; onRemove: (kind: 'country' | 'region', code: string) => void;
+}) {
+  const { m, locale } = useT();
+  const n = m.notif;
+  const items = [
+    ...regions.map(r => ({ kind: 'region' as const, code: r, name: m.wr[r as WorldRegion] ?? r })),
+    ...countries.map(c => ({ kind: 'country' as const, code: c, name: countryName(locale, c) })),
+  ];
+  return (
+    <div className={styles.areas}>
+      <div className={styles.rangeHead}><span>{n.areas_label}</span></div>
+      <p className={styles.hint}>{n.areas_hint}</p>
+      <div className={styles.chips}>
+        {items.map(it => (
+          <button key={it.kind + it.code} type="button" className={styles.areaChip} onClick={() => onRemove(it.kind, it.code)}
+            aria-label={n.remove_area.replace('{name}', it.name)}>
+            {it.kind === 'country'
+              ? <img src={`/flags/${it.code}.svg`} alt="" width={16} height={16} className={styles.areaFlag} /> // eslint-disable-line @next/next/no-img-element
+              : <span className="ms" aria-hidden="true">public</span>}
+            {it.name}<span className="ms" aria-hidden="true">close</span>
+          </button>
+        ))}
+        <button type="button" className={styles.chip} onClick={onOpen} aria-haspopup="dialog">
+          <span className="ms" aria-hidden="true" style={{ fontSize: 18, verticalAlign: '-4px', marginRight: 2 }}>add</span>{n.add_area}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/** Pick countries and world regions (several; up to 20 of each). Countries can be searched by name. */
+function AreaPicker({ open, onClose, countries, regions, onChange }: {
+  open: boolean; onClose: () => void; countries: string[]; regions: string[]; onChange: (countries: string[], regions: string[]) => void;
+}) {
+  const { m, locale } = useT();
+  const n = m.notif;
+  const [q, setQ] = useState('');
+  const sorted = useMemo(() => ALL_COUNTRIES.map(c => ({ code: c, name: countryName(locale, c) }))
+    .sort((a, b) => a.name.localeCompare(b.name, locale)), [locale]);
+  const needle = q.trim().toLocaleLowerCase(locale);
+  const shown = needle ? sorted.filter(c => c.name.toLocaleLowerCase(locale).includes(needle)) : sorted;
+  const toggle = <T extends string>(list: T[], v: T) => (list.includes(v) ? list.filter(x => x !== v) : list.length < MAX_AREAS ? [...list, v] : list);
+  return (
+    <Sheet open={open} onClose={() => { setQ(''); onClose(); }} title={n.add_area}>
+      <div className={styles.searchForm} role="search">
+        <span className={`ms ${styles.searchIcon}`} aria-hidden="true">search</span>
+        <input type="search" className={styles.searchInput} value={q} onChange={e => setQ(e.target.value)} placeholder={n.area_search} aria-label={n.area_search} />
+      </div>
+      {!needle && (
+        <>
+          <div className={styles.pickerLabel}>{n.area_regions}</div>
+          <SheetOptions values={regions as WorldRegion[]} onPick={r => onChange(countries, toggle(regions, r))}
+            options={WORLD_REGIONS.map(r => ({ value: r, label: m.wr[r], lead: <span className="ms" aria-hidden="true">public</span> }))} />
+        </>
+      )}
+      <div className={styles.pickerLabel}>{n.area_countries}</div>
+      <SheetOptions values={countries} onPick={c => onChange(toggle(countries, c), regions)}
+        // eslint-disable-next-line @next/next/no-img-element -- small bundled flag SVGs
+        options={shown.map(c => ({ value: c.code, label: c.name, lead: <img src={`/flags/${c.code}.svg`} alt="" width={20} height={20} className={styles.areaFlag} /> }))} />
+      <p className={styles.hint}>{n.area_limit}</p>
+    </Sheet>
+  );
+}
+
 function Alerts({ onLocked }: { onLocked: () => void }) {
   const { t, m, nf } = useT();
   const u = useDistance();
   const { plan, places } = useApp();
   const { user } = useAccount();
   const push = usePushDevice();
-  const [s, setS] = useState({ enabled: false, min_magnitude: 5, radius_km: 500 });
+  const [s, setS] = useState({ enabled: false, min_magnitude: 5, radius_km: 500, countries: [] as string[], regions: [] as string[] });
+  const [areaOpen, setAreaOpen] = useState(false);
   const [saveError, setSaveError] = useState(false);
 
   // Load the saved settings (RLS: own row only).
   useEffect(() => {
     const sb = supabaseBrowser(); if (!sb || !user) return;
     let alive = true;
-    sb.from('alert_settings').select('enabled, min_magnitude, radius_km').eq('user_id', user.id).maybeSingle()
-      .then(({ data }) => { if (alive && data) setS({ enabled: data.enabled, min_magnitude: Number(data.min_magnitude), radius_km: data.radius_km }); });
+    sb.from('alert_settings').select('enabled, min_magnitude, radius_km, countries, regions').eq('user_id', user.id).maybeSingle()
+      .then(({ data }) => { if (alive && data) setS({ enabled: data.enabled, min_magnitude: Number(data.min_magnitude), radius_km: data.radius_km, countries: data.countries ?? [], regions: data.regions ?? [] }); });
     return () => { alive = false; };
   }, [user]);
 
@@ -190,7 +265,11 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
                 </button>
               ))}
             </div>
-            <p className={styles.hint}>{places.length ? m.notif.coverage : m.notif.need_location}</p>
+            <p className={styles.hint}>{places.length ? m.notif.coverage : s.countries.length + s.regions.length ? null : m.notif.need_location}</p>
+            <AlertAreas countries={s.countries} regions={s.regions} onOpen={() => setAreaOpen(true)}
+              onRemove={(kind, code) => update(kind === 'country' ? { countries: s.countries.filter(c => c !== code) } : { regions: s.regions.filter(r => r !== code) })} />
+            <AreaPicker open={areaOpen} onClose={() => setAreaOpen(false)} countries={s.countries} regions={s.regions}
+              onChange={(countries, regions) => update({ countries, regions })} />
             <AlertDevice />
           </div>
         )}

@@ -134,17 +134,19 @@ function SheetPanel({ onClose, children, title, label, className }: Omit<SheetPr
 }
 
 /** A list of choices in a sheet, like the polar lights language list: label, optional leading/trailing, check on the current one. */
-export function SheetOptions<T extends string>({ options, value, onPick }: {
-  options: { value: T; label: ReactNode; lead?: ReactNode; meta?: ReactNode; lang?: string }[]; value: T; onPick: (v: T) => void;
+/** A list of choices. Single choice: `value`. Several: `values` (each row toggles; the sheet stays open). */
+export function SheetOptions<T extends string>({ options, value, values, onPick }: {
+  options: { value: T; label: ReactNode; lead?: ReactNode; meta?: ReactNode; lang?: string }[]; value?: T; values?: T[]; onPick: (v: T) => void;
 }) {
+  const on = (v: T) => (values ? values.includes(v) : v === value);
   return (
     <div className={styles.rows}>
       {options.map(o => (
-        <button key={o.value} type="button" className={styles.row} lang={o.lang} aria-pressed={o.value === value} onClick={() => onPick(o.value)}>
+        <button key={o.value} type="button" className={styles.row} lang={o.lang} aria-pressed={on(o.value)} onClick={() => onPick(o.value)}>
           {o.lead}
           <span className={styles.rowLabel}>{o.label}</span>
           {o.meta != null && <span className={styles.rowMeta}>{o.meta}</span>}
-          {o.value === value && <span className={`ms ${styles.check}`} aria-hidden="true">check</span>}
+          {on(o.value) && <span className={`ms ${styles.check}`} aria-hidden="true">check</span>}
         </button>
       ))}
     </div>
