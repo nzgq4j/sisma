@@ -410,7 +410,7 @@
     "test_title": "sisma test uyarısı",
     "test_body": "Uyarılar bu cihazda çalışıyor.",
     "coverage": "Uyarılar kayıtlı konumlarınızdan herhangi birine yakın depremleri kapsar.",
-    "need_location": "Aşağıdan bir konum kaydedin: uyarılar kayıtlı yerlerinize yakın depremler içindir.",
+    "need_location": "Aşağıdan bir konum kaydedin veya ülke ya da bölge seçin: uyarılar kayıtlı yerlerinize yakın veya seçtiğiniz bölgelerdeki depremler içindir.",
     "device_on": "Bu cihaz uyarı alacak.",
     "device_enable": "Bu cihazda bildirimleri aç",
     "device_blocked": "sisma bildirimleri bu tarayıcının ayarlarında engellenmiş.",
@@ -420,7 +420,16 @@
     "device_error": "Bu cihazda bildirimler açılamadı. Lütfen tekrar deneyin.",
     "test": "Test uyarısı gönder",
     "test_sent": "Test uyarısı gönderildi",
-    "test_failed": "Test uyarısı gönderilemedi."
+    "test_failed": "Test uyarısı gönderilemedi.",
+    "title_area": "M{mag} deprem · {area}",
+    "areas_label": "Şunlar için de uyar",
+    "areas_hint": "Bu ülke veya bölgelerin herhangi bir yerinde, en düşük büyüklüğünüz ve üzerindeki depremler.",
+    "add_area": "Ülke veya bölge ekle",
+    "area_search": "Ülke ara",
+    "area_regions": "Bölgeler",
+    "area_countries": "Ülkeler",
+    "remove_area": "{name} kaldır",
+    "area_limit": "En fazla 20 seçebilirsiniz."
   },
   "region_chip": "Bölge",
   "wr": {

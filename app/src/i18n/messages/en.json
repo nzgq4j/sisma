@@ -410,7 +410,7 @@
     "test_title": "sisma test alert",
     "test_body": "Alerts are working on this device.",
     "coverage": "Alerts cover quakes near any of your saved locations.",
-    "need_location": "Add a saved location below: alerts are for quakes near your saved places.",
+    "need_location": "Add a saved location below, or choose countries or regions: alerts are for quakes near your saved places or in the areas you pick.",
     "device_on": "This device will receive alerts.",
     "device_enable": "Turn on notifications on this device",
     "device_blocked": "Notifications for sisma are blocked in this browser’s settings.",
@@ -420,7 +420,16 @@
     "device_error": "Couldn’t turn on notifications on this device. Please try again.",
     "test": "Send a test alert",
     "test_sent": "Test alert sent",
-    "test_failed": "Couldn’t send a test alert."
+    "test_failed": "Couldn’t send a test alert.",
+    "title_area": "M{mag} earthquake · {area}",
+    "areas_label": "Also alert for",
+    "areas_hint": "Quakes anywhere in these countries or regions, at or above your minimum magnitude.",
+    "add_area": "Add a country or region",
+    "area_search": "Search countries",
+    "area_regions": "Regions",
+    "area_countries": "Countries",
+    "remove_area": "Remove {name}",
+    "area_limit": "You can choose up to 20."
   },
   "region_chip": "Region",
   "wr": {

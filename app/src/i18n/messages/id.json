@@ -410,7 +410,7 @@
     "test_title": "Peringatan uji sisma",
     "test_body": "Peringatan berfungsi di perangkat ini.",
     "coverage": "Peringatan mencakup gempa di dekat lokasi tersimpan mana pun.",
-    "need_location": "Tambahkan lokasi tersimpan di bawah: peringatan untuk gempa di dekat tempat tersimpan Anda.",
+    "need_location": "Tambahkan lokasi tersimpan di bawah, atau pilih negara atau wilayah: peringatan untuk gempa di dekat tempat tersimpan atau di area yang Anda pilih.",
     "device_on": "Perangkat ini akan menerima peringatan.",
     "device_enable": "Aktifkan notifikasi di perangkat ini",
     "device_blocked": "Notifikasi sisma diblokir di pengaturan browser ini.",
@@ -420,7 +420,16 @@
     "device_error": "Tidak dapat mengaktifkan notifikasi di perangkat ini. Silakan coba lagi.",
     "test": "Kirim peringatan uji",
     "test_sent": "Peringatan uji terkirim",
-    "test_failed": "Tidak dapat mengirim peringatan uji."
+    "test_failed": "Tidak dapat mengirim peringatan uji.",
+    "title_area": "Gempa M{mag} · {area}",
+    "areas_label": "Juga beri peringatan untuk",
+    "areas_hint": "Gempa di mana pun di negara atau wilayah ini, pada atau di atas magnitudo minimum Anda.",
+    "add_area": "Tambahkan negara atau wilayah",
+    "area_search": "Cari negara",
+    "area_regions": "Wilayah",
+    "area_countries": "Negara",
+    "remove_area": "Hapus {name}",
+    "area_limit": "Anda dapat memilih hingga 20."
   },
   "region_chip": "Wilayah",
   "wr": {

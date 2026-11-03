@@ -410,7 +410,7 @@
     "test_title": "Alerte de test sisma",
     "test_body": "Les alertes fonctionnent sur cet appareil.",
     "coverage": "Les alertes concernent les séismes proches de l’un de vos lieux enregistrés.",
-    "need_location": "Ajoutez un lieu enregistré ci-dessous : les alertes concernent les séismes proches de vos lieux.",
+    "need_location": "Ajoutez un lieu enregistré ci-dessous, ou choisissez des pays ou des régions : les alertes concernent les séismes proches de vos lieux ou dans les zones choisies.",
     "device_on": "Cet appareil recevra les alertes.",
     "device_enable": "Activer les notifications sur cet appareil",
     "device_blocked": "Les notifications de sisma sont bloquées dans les réglages de ce navigateur.",
@@ -420,7 +420,16 @@
     "device_error": "Impossible d’activer les notifications sur cet appareil. Réessayez.",
     "test": "Envoyer une alerte de test",
     "test_sent": "Alerte de test envoyée",
-    "test_failed": "Impossible d’envoyer l’alerte de test."
+    "test_failed": "Impossible d’envoyer l’alerte de test.",
+    "title_area": "Séisme M{mag} · {area}",
+    "areas_label": "Alerter aussi pour",
+    "areas_hint": "Séismes n’importe où dans ces pays ou régions, à partir de votre magnitude minimale.",
+    "add_area": "Ajouter un pays ou une région",
+    "area_search": "Rechercher un pays",
+    "area_regions": "Régions",
+    "area_countries": "Pays",
+    "remove_area": "Retirer {name}",
+    "area_limit": "Vous pouvez en choisir jusqu’à 20."
   },
   "region_chip": "Région",
   "wr": {

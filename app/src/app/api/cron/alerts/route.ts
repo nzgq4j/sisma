@@ -8,11 +8,13 @@ import { matchAlerts, type AlertRecipient, type Delivered } from '@/lib/alerts/m
 import { alertMessage } from '@/lib/alerts/message';
 import { sendPush } from '@/lib/alerts/send';
 import { asLocale, serverMessages } from '@/i18n/server';
+import { countryAt } from '@/lib/country';
+import { worldRegion, type WorldRegion } from '@/lib/world-regions';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
 
-interface RecipientRow { user_id: string; min_magnitude: number; radius_km: number; locations: AlertRecipient['locations'] | null; devices: AlertRecipient['devices'] | null }
+interface RecipientRow { user_id: string; min_magnitude: number; radius_km: number; locations: AlertRecipient['locations'] | null; devices: AlertRecipient['devices'] | null; countries: string[] | null; regions: string[] | null }
 
 export async function POST(req: NextRequest) {
   const db = adminClient();
@@ -26,6 +28,7 @@ export async function POST(req: NextRequest) {
   if (error) return NextResponse.json({ error: 'recipients' }, { status: 500 });
   const recipients: AlertRecipient[] = ((rows ?? []) as RecipientRow[]).map(r => ({
     userId: r.user_id, minMagnitude: Number(r.min_magnitude), radiusKm: r.radius_km, locations: r.locations ?? [], devices: r.devices ?? [],
+    countries: r.countries ?? [], regions: r.regions ?? [],
   }));
   if (!recipients.length) return NextResponse.json({ recipients: 0, sent: 0 });
 
@@ -36,7 +39,8 @@ export async function POST(req: NextRequest) {
       .in('user_id', recipients.map(r => r.userId)).gte('sent_at', new Date(now - 2 * 3600_000).toISOString()),
   ]);
   const delivered: Delivered[] = (past.data ?? []).map(d => ({ userId: d.user_id, quakeId: d.quake_id, time: Date.parse(d.quake_time), lat: d.lat, lon: d.lon }));
-  const alerts = matchAlerts(quakes, recipients, delivered, now);
+  // Country (in or within 300 km, as for flags) and world region, only worked out for events someone could match.
+  const alerts = matchAlerts(quakes, recipients, delivered, now, q => ({ country: countryAt(q.lat, q.lon)?.code ?? null, region: worldRegion(q.lat, q.lon) }));
 
   let sent = 0;
   const gone = new Set<string>();
@@ -49,7 +53,9 @@ export async function POST(req: NextRequest) {
     await Promise.all(a.devices.map(async d => {
       const locale = asLocale(d.locale);
       const m = await serverMessages(locale);
-      const result = await sendPush(d, alertMessage(a.quake, a.place, m.notif, locale, d.units));
+      const areaName = !a.area ? null : a.area.kind === 'region' ? m.wr[a.area.code as WorldRegion]
+        : (() => { try { return new Intl.DisplayNames([locale], { type: 'region' }).of(a.area.code.toUpperCase()) ?? a.area.code.toUpperCase(); } catch { return a.area.code.toUpperCase(); } })();
+      const result = await sendPush(d, alertMessage(a.quake, a.place, m.notif, locale, d.units, areaName));
       if (result === 'ok') sent++;
       if (result === 'gone') gone.add(d.id);
     }));

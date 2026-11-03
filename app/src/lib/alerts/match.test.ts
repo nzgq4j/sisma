@@ -35,4 +35,20 @@ describe('matchAlerts', () => {
     expect(matchAlerts([q({})], [r({ devices: [] })], [], NOW)).toHaveLength(0);
     expect(matchAlerts([q({})], [r({ locations: [] })], [], NOW)).toHaveLength(0);
   });
+  it('alerts for chosen countries and regions far from saved places', () => {
+    const far = q({ id: 'usgs:cl', lat: -33.4, lon: -70.6 });               // Chile, far from Tokyo
+    const areaOf = (x: Quake) => (x.id === 'usgs:cl' ? { country: 'cl', region: 'south_america' } : { country: 'jp', region: 'east_asia' });
+    const byCountry = matchAlerts([far], [r({ countries: ['cl'] })], [], NOW, areaOf);
+    expect(byCountry).toHaveLength(1);
+    expect(byCountry[0].place).toBeNull();
+    expect(byCountry[0].area).toEqual({ kind: 'country', code: 'cl' });
+    expect(matchAlerts([far], [r({ regions: ['south_america'] })], [], NOW, areaOf)[0].area).toEqual({ kind: 'region', code: 'south_america' });
+    expect(matchAlerts([far], [r({ countries: ['pe'], regions: ['europe'] })], [], NOW, areaOf)).toHaveLength(0);
+    // Areas still respect the minimum magnitude, and work without any saved place.
+    expect(matchAlerts([q({ ...far, mag: 4 })], [r({ countries: ['cl'] })], [], NOW, areaOf)).toHaveLength(0);
+    expect(matchAlerts([far], [r({ locations: [], countries: ['cl'] })], [], NOW, areaOf)).toHaveLength(1);
+    // Near a saved place wins: the message names the place.
+    const near = matchAlerts([q({})], [r({ countries: ['jp'] })], [], NOW, areaOf)[0];
+    expect(near.place?.name).toBe('Tokyo'); expect(near.area).toBeNull();
+  });
 });

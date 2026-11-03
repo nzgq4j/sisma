@@ -410,7 +410,7 @@
     "test_title": "Alerta de teste do sisma",
     "test_body": "Os alertas funcionam neste dispositivo.",
     "coverage": "Os alertas cobrem sismos perto de qualquer um dos seus locais guardados.",
-    "need_location": "Adicione um local guardado abaixo: os alertas são para sismos perto dos seus locais.",
+    "need_location": "Adicione um local guardado abaixo ou escolha países ou regiões: os alertas são para sismos perto dos seus locais ou nas zonas que escolher.",
     "device_on": "Este dispositivo vai receber alertas.",
     "device_enable": "Ativar notificações neste dispositivo",
     "device_blocked": "As notificações do sisma estão bloqueadas nas definições deste navegador.",
@@ -420,7 +420,16 @@
     "device_error": "Não foi possível ativar as notificações neste dispositivo. Tente novamente.",
     "test": "Enviar alerta de teste",
     "test_sent": "Alerta de teste enviado",
-    "test_failed": "Não foi possível enviar o alerta de teste."
+    "test_failed": "Não foi possível enviar o alerta de teste.",
+    "title_area": "Sismo M{mag} · {area}",
+    "areas_label": "Alertar também para",
+    "areas_hint": "Sismos em qualquer ponto destes países ou regiões, a partir da sua magnitude mínima.",
+    "add_area": "Adicionar um país ou região",
+    "area_search": "Procurar países",
+    "area_regions": "Regiões",
+    "area_countries": "Países",
+    "remove_area": "Remover {name}",
+    "area_limit": "Pode escolher até 20."
   },
   "region_chip": "Região",
   "wr": {

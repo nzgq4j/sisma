@@ -410,7 +410,7 @@
     "test_title": "Avviso di prova sisma",
     "test_body": "Gli avvisi funzionano su questo dispositivo.",
     "coverage": "Gli avvisi riguardano i terremoti vicini a uno qualsiasi dei tuoi luoghi salvati.",
-    "need_location": "Aggiungi un luogo salvato qui sotto: gli avvisi riguardano i terremoti vicini ai tuoi luoghi.",
+    "need_location": "Aggiungi un luogo salvato qui sotto, oppure scegli paesi o regioni: gli avvisi riguardano i terremoti vicini ai tuoi luoghi o nelle zone che scegli.",
     "device_on": "Questo dispositivo riceverà gli avvisi.",
     "device_enable": "Attiva le notifiche su questo dispositivo",
     "device_blocked": "Le notifiche di sisma sono bloccate nelle impostazioni di questo browser.",
@@ -420,7 +420,16 @@
     "device_error": "Impossibile attivare le notifiche su questo dispositivo. Riprova.",
     "test": "Invia un avviso di prova",
     "test_sent": "Avviso di prova inviato",
-    "test_failed": "Impossibile inviare l’avviso di prova."
+    "test_failed": "Impossibile inviare l’avviso di prova.",
+    "title_area": "Terremoto M{mag} · {area}",
+    "areas_label": "Avvisa anche per",
+    "areas_hint": "Terremoti ovunque in questi paesi o regioni, pari o superiori alla magnitudo minima.",
+    "add_area": "Aggiungi un paese o una regione",
+    "area_search": "Cerca paesi",
+    "area_regions": "Regioni",
+    "area_countries": "Paesi",
+    "remove_area": "Rimuovi {name}",
+    "area_limit": "Puoi sceglierne fino a 20."
   },
   "region_chip": "Regione",
   "wr": {
