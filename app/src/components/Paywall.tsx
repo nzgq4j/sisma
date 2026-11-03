@@ -1,10 +1,12 @@
 'use client';
 // sisma+ paywall sheet (design: sheetPaywall). Opened through useApp().setSheet('paywall') from anywhere in /app.
-// Starting the trial needs an account: guests are sent to sign-in first. Checkout is created server-side
+// Starting the trial needs an account: guests are sent to sign-in first, and the chosen plan carries on to checkout
+// once they have signed in or created an account (lib/pending-upgrade.ts). Checkout is created server-side
 // (/api/stripe/checkout re-checks the session); until Stripe is configured the route answers 501 and we say so.
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { PRICES, type Billing } from '@/lib/entitlements';
+import { clearPendingUpgrade, setPendingUpgrade, takePendingUpgrade } from '@/lib/pending-upgrade';
 import { useApp } from './AppState';
 import { useAccount } from './Account';
 import { Sheet } from './Sheet';
@@ -16,23 +18,38 @@ const SAVE = Math.round((1 - PRICES.yearly.usd / (PRICES.monthly.usd * 12)) * 10
 export function PaywallSheet() {
   const { t, m } = useT();
   const { sheet, setSheet } = useApp();
-  const { user, openSignIn, accessToken } = useAccount();
+  const { user, profile, plan, openSignIn, accessToken } = useAccount();
   const [billing, setBilling] = useState<Billing>('yearly');
   const [state, setState] = useState<'idle' | 'busy' | 'soon' | 'error'>('idle');
   const close = () => { setSheet(null); setState('idle'); };
   const usd = (n: number) => new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(n);
 
-  const start = async () => {
-    if (!user) { close(); openSignIn(); return; }
+  const checkout = async (b: Billing) => {
     setState('busy');
     try {
       const token = await accessToken();
-      const r = await fetch('/api/stripe/checkout', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` }, body: JSON.stringify({ billing }) });
+      const r = await fetch('/api/stripe/checkout', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` }, body: JSON.stringify({ billing: b }) });
       if (r.status === 501) return setState('soon');
       const j = (await r.json()) as { url?: string };
       if (j.url) location.href = j.url; else setState('error');
     } catch { setState('error'); }
   };
+  const start = () => {
+    if (user) { void checkout(billing); return; }
+    setPendingUpgrade(billing);
+    close();
+    openSignIn({ onCancel: clearPendingUpgrade });
+  };
+
+  // Signed in (and the profile loaded) with an upgrade waiting: reopen the sheet on that plan and go on to checkout,
+  // unless the account already has sisma+.
+  useEffect(() => {
+    if (!user || !profile) return;
+    const pending = takePendingUpgrade();
+    if (!pending || plan === 'plus') return;
+    void Promise.resolve().then(() => { setBilling(pending); setSheet('paywall'); return checkout(pending); });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run when the signed-in profile arrives
+  }, [user, profile, plan]);
 
   return (
     <Sheet open={sheet === 'paywall'} onClose={close} label="sisma+">

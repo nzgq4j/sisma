@@ -24,7 +24,8 @@ interface AccountCtx {
   savePrefs: (p: Partial<Pick<Profile, 'display_name' | 'locale' | 'theme'>>) => Promise<boolean>;
   accessToken: () => Promise<string | null>;
   signOut: () => Promise<void>;
-  openSignIn: () => void;
+  /** Opens sign-in; `onCancel` runs if the user closes it without signing in. */
+  openSignIn: (opts?: { onCancel?: () => void }) => void;
   /** Set or change the account password (also opened by the password-reset email link). */
   openPassword: () => void;
 }
@@ -39,6 +40,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [ready, setReady] = useState(!sb);
   const [signIn, setSignIn] = useState(false);
   const [pwOpen, setPwOpen] = useState(false);
+  /** Called when the sign-in sheet is closed without signing in (e.g. drop a pending upgrade). */
+  const cancelRef = useRef<(() => void) | null>(null);
   const localeSynced = useRef('');
 
   useEffect(() => {
@@ -95,14 +98,14 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     accessToken: async () => (sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null),
     // Remove this device from the account's alert devices first (needs the session), then sign out.
     signOut: async () => { await disablePush(sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null); await sb?.auth.signOut(); },
-    openSignIn: () => setSignIn(true),
+    openSignIn: opts => { cancelRef.current = opts?.onCancel ?? null; setSignIn(true); },
     openPassword: () => setPwOpen(true),
   }), [sb, ready, user, profile, savePrefs]);
 
   return (
     <Ctx.Provider value={value}>
       {children}
-      <SignInSheet open={signIn} onClose={() => setSignIn(false)} />
+      <SignInSheet open={signIn} onClose={() => setSignIn(false)} onCancel={() => { cancelRef.current?.(); cancelRef.current = null; }} />
       {pwOpen && <PasswordSheet onClose={() => setPwOpen(false)} />}
     </Ctx.Provider>
   );
@@ -122,7 +125,7 @@ const authError = (code: string | undefined, a: Record<string, string>) =>
             : a.error;
 
 /** Sign in: Google (when enabled) or email + password; new users create an account (email + password); password reset. */
-function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
+function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () => void; onCancel: () => void }) {
   const { t, m, locale } = useT();
   const a = m.acct as unknown as Record<string, string>;
   const sb = supabaseBrowser();
@@ -136,7 +139,11 @@ function SignInSheet({ open, onClose }: { open: boolean; onClose: () => void }) 
   useEffect(() => { if (open) void enabledProviders().then(setProviders); }, [open]);
   const redirect = () => `${location.origin}/app/me`; // read on click: `location` doesn't exist while prerendering
   const reset = (to: Mode = mode) => { setMode(to); setStatus('idle'); setErr(null); };
-  const close = () => { onClose(); if (status !== 'busy') { setStatus('idle'); setErr(null); setPassword(''); } };
+  // Closed by the user. Waiting on an email (account confirmation, password reset) or Google still counts as signing in.
+  const close = () => {
+    if (status === 'idle') onCancel();
+    onClose(); if (status !== 'busy') { setStatus('idle'); setErr(null); setPassword(''); }
+  };
 
   const run = async (fn: () => Promise<{ error: { code?: string } | null }>, ok: Status | 'close') => {
     if (!sb) return;

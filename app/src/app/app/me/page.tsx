@@ -49,7 +49,7 @@ export default function MePage() {
             <div className={styles.name}>{name}</div>
             {acct.user && acct.profile?.display_name && <div className={styles.email}>{acct.user.email}</div>}
           </div>
-          {!acct.user && acct.ready && <button type="button" className={styles.pillBtn} onClick={acct.openSignIn}>{t('sign_in')}</button>}
+          {!acct.user && acct.ready && <button type="button" className={styles.pillBtn} onClick={() => acct.openSignIn()}>{t('sign_in')}</button>}
         </div>
 
         <PlanCard onUpgrade={() => setSheet('paywall')} />
