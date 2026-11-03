@@ -235,14 +235,18 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           <circle cx={selected.xy[0]} cy={selected.xy[1]} r={(dotRadius(selected.q.mag) + 4) * rScale}
             fill="none" stroke="var(--ink)" strokeWidth={2.4} vectorEffect="non-scaling-stroke" pointerEvents="none" />
         )}
-        {focused && (
-          <g transform={`translate(${focused.xy[0]},${focused.xy[1]}) scale(${1 / k})`} pointerEvents="none" data-focus-marker="">
-            <circle r={16} fill="none" stroke={magColor(focused.q.mag).fill} strokeWidth={3} className={styles.focusPulse} />
-            <circle r={13} fill="var(--surface)" fillOpacity={0.9} stroke="var(--ink)" strokeWidth={2.5} />
-            <circle r={8.5} fill={magColor(focused.q.mag).fill} />
-            <path d="M0 -21V-15M0 15V21M-21 0H-15M15 0H21" stroke="var(--ink)" strokeWidth={2.5} strokeLinecap="round" />
-          </g>
-        )}
+        {focused && (() => {
+          // The event in focus: its dot redrawn on top, a ring just outside it (scales with the event, like the
+          // selection ring) and a pulse of the same size spreading out from it.
+          const r = dotRadius(focused.q.mag) * rScale, ring = (dotRadius(focused.q.mag) + 4) * rScale, c = magColor(focused.q.mag).fill;
+          return (
+            <g pointerEvents="none" data-focus-marker="">
+              <circle cx={focused.xy[0]} cy={focused.xy[1]} r={ring} fill="none" stroke={c} strokeWidth={3} vectorEffect="non-scaling-stroke" className={styles.focusPulse} />
+              <circle cx={focused.xy[0]} cy={focused.xy[1]} r={r} fill={c} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke" />
+              <circle cx={focused.xy[0]} cy={focused.xy[1]} r={ring} fill="none" stroke="var(--ink)" strokeWidth={2.4} vectorEffect="non-scaling-stroke" />
+            </g>
+          );
+        })()}
         {me && (
           <g transform={`translate(${me[0]},${me[1]}) scale(${1 / k})`} pointerEvents="none">
             <circle r={14} fill="var(--violet)" fillOpacity={0.2} />

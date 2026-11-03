@@ -1,5 +1,5 @@
 {
-  "app_tag": "Terremoti in diretta e spiegati",
+  "app_tag": "Il battito di un pianeta vivo",
   "tab_feed": "Elenco",
   "tab_map": "Mappa",
   "tab_globe": "Globo",
@@ -346,7 +346,7 @@
     "back": "Indietro",
     "step": "Passo {n} di {total}",
     "welcome_h": "Benvenuto in sisma",
-    "welcome_p": "I terremoti di tutto il mondo, in diretta e spiegati.",
+    "welcome_p": "Il battito di un pianeta vivo",
     "w1": "Dati in diretta da USGS, EMSC, GeoNet e JMA",
     "w2": "Un elenco, una mappa 2D e un globo 3D",
     "w3": "Scienza chiara sul perché la terra trema",

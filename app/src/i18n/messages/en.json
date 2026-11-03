@@ -1,5 +1,5 @@
 {
-  "app_tag": "Earthquakes, live and explained",
+  "app_tag": "The Pulse of a Living Planet",
   "tab_feed": "Feed",
   "tab_map": "Map",
   "tab_globe": "Globe",
@@ -346,7 +346,7 @@
     "back": "Back",
     "step": "Step {n} of {total}",
     "welcome_h": "Welcome to sisma",
-    "welcome_p": "Earthquakes around the world, live and explained.",
+    "welcome_p": "The Pulse of a Living Planet",
     "w1": "Live data from USGS, EMSC, GeoNet and JMA",
     "w2": "A list, a 2D map and a 3D globe",
     "w3": "Clear science on why the ground moves",

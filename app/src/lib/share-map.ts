@@ -44,10 +44,12 @@ export function shareMapSvg(opts: {
 
   const [fx, fy] = proj([q.lon, q.lat]) ?? [w / 2, h / 2];
   const mc = magColor(q.mag).fill;
+  // Same style as the app: the event's dot with a ring just outside it, scaled with the magnitude, plus a soft halo.
+  const fr = Math.max(7, (q.mag - 1.6) * 5), ring = fr + 10;
   const marker = `<g transform="translate(${fx.toFixed(1)},${fy.toFixed(1)})">
-<circle r="84" fill="${mc}" fill-opacity="0.10"/><circle r="62" fill="none" stroke="${mc}" stroke-opacity="0.45" stroke-width="5"/>
-<circle r="38" fill="${c.surface}" stroke="${c.ink}" stroke-width="6"/><circle r="25" fill="${mc}"/>
-<path d="M0 -58V-44M0 44V58M-58 0H-44M44 0H58" stroke="${c.ink}" stroke-width="6" stroke-linecap="round"/></g>`;
+<circle r="${ring + 14}" fill="none" stroke="${mc}" stroke-opacity="0.35" stroke-width="6"/>
+<circle r="${fr}" fill="${mc}" stroke="${c.surface}" stroke-width="2"/>
+<circle r="${ring}" fill="none" stroke="${c.ink}" stroke-width="6"/></g>`;
 
   // Scale bar: Mercator px per km at this latitude.
   const pxPerKm = (s * Math.PI / 180) / (111.32 * Math.cos((q.lat * Math.PI) / 180));

@@ -1,5 +1,5 @@
 {
-  "app_tag": "Gempa bumi, langsung dan dijelaskan",
+  "app_tag": "Denyut Planet yang Hidup",
   "tab_feed": "Daftar",
   "tab_map": "Peta",
   "tab_globe": "Globe",
@@ -346,7 +346,7 @@
     "back": "Kembali",
     "step": "Langkah {n} dari {total}",
     "welcome_h": "Selamat datang di sisma",
-    "welcome_p": "Gempa bumi di seluruh dunia, langsung dan dijelaskan.",
+    "welcome_p": "Denyut Planet yang Hidup",
     "w1": "Data langsung dari USGS, EMSC, GeoNet, dan JMA",
     "w2": "Daftar, peta 2D, dan globe 3D",
     "w3": "Penjelasan ilmiah yang jelas tentang mengapa tanah bergerak",

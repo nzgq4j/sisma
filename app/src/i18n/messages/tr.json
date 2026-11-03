@@ -1,5 +1,5 @@
 {
-  "app_tag": "Depremler, canlı ve açıklamalı",
+  "app_tag": "Yaşayan Bir Gezegenin Nabzı",
   "tab_feed": "Akış",
   "tab_map": "Harita",
   "tab_globe": "Küre",
@@ -346,7 +346,7 @@
     "back": "Geri",
     "step": "Adım {n} / {total}",
     "welcome_h": "sisma’ya hoş geldin",
-    "welcome_p": "Dünyadaki depremler, canlı ve anlaşılır.",
+    "welcome_p": "Yaşayan Bir Gezegenin Nabzı",
     "w1": "USGS, EMSC, GeoNet ve JMA’dan canlı veriler",
     "w2": "Liste, 2D harita ve 3D küre",
     "w3": "Yerin neden sarsıldığına dair anlaşılır bilim",

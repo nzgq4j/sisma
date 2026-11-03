@@ -1,5 +1,5 @@
 {
-  "app_tag": "实时地震，清晰解读",
+  "app_tag": "鲜活星球的脉搏",
   "tab_feed": "列表",
   "tab_map": "地图",
   "tab_globe": "地球",
@@ -346,7 +346,7 @@
     "back": "返回",
     "step": "第 {n} 步，共 {total} 步",
     "welcome_h": "欢迎使用 sisma",
-    "welcome_p": "全球地震，实时呈现，清晰解读。",
+    "welcome_p": "鲜活星球的脉搏",
     "w1": "来自 USGS、EMSC、GeoNet 和 JMA 的实时数据",
     "w2": "列表、2D 地图和 3D 地球",
     "w3": "通俗易懂地讲解地面为何会震动",

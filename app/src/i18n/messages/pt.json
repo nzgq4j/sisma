@@ -1,5 +1,5 @@
 {
-  "app_tag": "Terremotos ao vivo e explicados",
+  "app_tag": "O pulso de um planeta vivo",
   "tab_feed": "Lista",
   "tab_map": "Mapa",
   "tab_globe": "Globo",
@@ -346,7 +346,7 @@
     "back": "Voltar",
     "step": "Etapa {n} de {total}",
     "welcome_h": "Boas-vindas ao sisma",
-    "welcome_p": "Terremotos do mundo todo, ao vivo e explicados.",
+    "welcome_p": "O pulso de um planeta vivo",
     "w1": "Dados ao vivo do USGS, EMSC, GeoNet e JMA",
     "w2": "Uma lista, um mapa 2D e um globo 3D",
     "w3": "Ciência clara sobre por que o chão se move",
