@@ -6,7 +6,7 @@ import { feature, mesh } from 'topojson-client';
 import type { Topology, GeometryCollection } from 'topojson-specification';
 import type { GeoPermissibleObjects } from 'd3-geo';
 import world from 'world-atlas/countries-50m.json';
-import { magColor } from './theme';
+import { MAG_MARKER_LIGHT, magIndex } from './theme';
 import type { Quake } from './quakes/types';
 import { KM_PER_MI, type Units } from './units';
 
@@ -39,11 +39,11 @@ export function shareMapSvg(opts: {
     .map(n => ({ n, xy: proj([n.lon, n.lat]) }))
     .filter((x): x is { n: Quake; xy: [number, number] } => !!x.xy && x.xy[0] > -10 && x.xy[0] < w + 10 && x.xy[1] > -10 && x.xy[1] < h + 10)
     .sort((a, b) => a.n.mag - b.n.mag)
-    .map(({ n, xy }) => `<circle cx="${xy[0].toFixed(1)}" cy="${xy[1].toFixed(1)}" r="${Math.max(7, (n.mag - 1.6) * 5).toFixed(1)}" fill="${magColor(n.mag).fill}" fill-opacity="0.9" stroke="${c.surface}" stroke-width="2"/>`)
+    .map(({ n, xy }) => `<circle cx="${xy[0].toFixed(1)}" cy="${xy[1].toFixed(1)}" r="${Math.max(7, (n.mag - 1.6) * 5).toFixed(1)}" fill="${MAG_MARKER_LIGHT[magIndex(n.mag)]}" fill-opacity="0.9" stroke="${c.surface}" stroke-width="2"/>`)
     .join('');
 
   const [fx, fy] = proj([q.lon, q.lat]) ?? [w / 2, h / 2];
-  const mc = magColor(q.mag).fill;
+  const mc = MAG_MARKER_LIGHT[magIndex(q.mag)]; // the card is light, like the light-mode map
   // Same style as the app: the event's dot with a ring just outside it, scaled with the magnitude, plus a soft halo.
   const fr = Math.max(7, (q.mag - 1.6) * 5), ring = fr + 10;
   const marker = `<g transform="translate(${fx.toFixed(1)},${fy.toFixed(1)})">

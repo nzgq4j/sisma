@@ -65,7 +65,8 @@ export function ToggleChip({ on, onClick, icon, label }: { on: boolean; onClick:
   return <button type="button" className={styles.chip} aria-pressed={on} onClick={onClick}><span className="ms" aria-hidden="true">{icon}</span>{label}</button>;
 }
 
-const MAG_LEGEND = [...MAG_SCALE].reverse().map(([min, fill], i) => ({ c: fill, l: i === 0 ? '<3' : min === 7 ? '7+' : String(min) }));
+// Marker colours follow light/dark mode (--mag-N, index into MAG_SCALE), so the legend matches the map.
+const MAG_LEGEND = [...MAG_SCALE].reverse().map(([min], i) => ({ c: `var(--mag-${MAG_SCALE.length - 1 - i})`, l: i === 0 ? '<3' : min === 7 ? '7+' : String(min) }));
 // Depth bands 0–70, 70–300 and 300+ km (shallow / intermediate / deep), labelled in the chosen units.
 const DEPTH_LEGEND = { km: ['0–70 km', '70–300', '300+'], mi: ['0–43 mi', '43–186', '186+'] };
 const DEPTH_COLORS = ['#2CCB9A', '#7B61FF', '#B5179E'];

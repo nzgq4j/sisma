@@ -4,7 +4,8 @@
 // scrolling (the world is drawn up to three times side by side and the pan is wrapped by one world-width), user pin,
 // optional plate boundaries, tap empty map to deselect. The dashboard uses the same wrapping Mercator.
 // Equal Earth (zoom 1–12, fixed frame) remains available as a projection option.
-// Dots are sized (mag − 1.6) × 2.1 px at every zoom and coloured by MAG_SCALE in both.
+// Dots are sized (mag − 1.6) × 2.1 px at every zoom (drawn in screen pixels) and coloured by magnitude band
+// (--mag-N: MAG_SCALE in dark mode, the stronger MAG_MARKER_LIGHT in light mode); a tap picks the nearest one.
 // Mercator zooms on to street level: from web zoom 6.5–7.5 (about 300 km across a phone) OpenStreetMap tiles fade in
 // over the app's outlines (lib/tiles.ts), with the required credit; darkened by a filter in dark mode.
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
@@ -13,7 +14,7 @@ import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { TILE_MAX_ZOOM, kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
 import { useTheme } from '@/components/Theme';
-import { HEAT_COLORS, MMI_COLORS, magColor } from '@/lib/theme';
+import { HEAT_COLORS, MMI_COLORS, magVar } from '@/lib/theme';
 import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
 import { useT } from '@/i18n/I18nProvider';
@@ -194,8 +195,38 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
   }), [heat, project]);
   const overlay = blobs.length > 0 || heatSpots.length > 0;
-  // Event markers keep the same size on screen at every zoom.
-  const rScale = 1 / k;
+  // Event markers are drawn in screen pixels (not inside the zoomed group), so they keep the same size at every
+  // zoom and stay precise and tappable at street level, where the zoom factor reaches tens of thousands.
+  // Each world copy on screen (endless scrolling) gets its own marker.
+  const marks = useMemo(() => {
+    const offs = worldW ? [0, -worldW, worldW] : [0], out: { q: Quake; x: number; y: number; r: number; key: string }[] = [];
+    for (const { q, xy } of dots) for (const off of offs) {
+      const x = tf.x + tf.k * (xy[0] + off), y = tf.y + tf.k * xy[1];
+      if (x > -30 && x < size.w + 30 && y > -30 && y < size.h + 30) out.push({ q, x, y, r: dotRadius(q.mag), key: `${q.id}@${off}` });
+    }
+    return out;
+  }, [dots, tf, worldW, size.w, size.h]);
+  const toScreen = (xy: [number, number]) => {
+    for (const off of worldW ? [0, -worldW, worldW] : [0]) {
+      const x = tf.x + tf.k * (xy[0] + off), y = tf.y + tf.k * xy[1];
+      if (x > -30 && x < size.w + 30) return { x, y };
+    }
+    return null;
+  };
+  const selAt = selected ? toScreen(selected.xy) : null, focAt = focused ? toScreen(focused.xy) : null, meAt = me ? toScreen(me) : null;
+
+  // Tap or click: the nearest marker within reach of a fingertip (about 44 px across on touch) is selected; empty map
+  // clears the selection. Small events are only a few pixels wide, so hitting the circle itself isn't required.
+  const pick = (e: React.MouseEvent<SVGSVGElement>) => {
+    const b = svgRef.current!.getBoundingClientRect(), px = e.clientX - b.left, py = e.clientY - b.top;
+    const touch = (e.nativeEvent as PointerEvent).pointerType !== 'mouse';
+    let best: Quake | null = null, bestD = Infinity;
+    for (const mk of marks) {
+      const d = Math.hypot(mk.x - px, mk.y - py), reach = Math.max(mk.r + (touch ? 10 : 4), touch ? 22 : 10);
+      if (d <= reach && d < bestD) { best = mk.q; bestD = d; }
+    }
+    if (best) onSelect(best); else if (selectedId) onSelect(null);
+  };
 
   // Street-level tiles: fade in over the outlines between web zoom 6.5 and 7.5. Only the tiles in view at the
   // current level are requested (OSM tile policy: no prefetching); the outlines show through while they load.
@@ -264,15 +295,6 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           ))}
         </g>
       )}
-      <g aria-hidden="true">
-        {dots.map(({ q, xy }) => (
-          <circle key={q.id} cx={xy[0]} cy={xy[1]} r={dotRadius(q.mag) * rScale}
-            fill={magColor(q.mag).fill} fillOpacity={overlay && q.id !== selectedId ? 0.25 : 0.88} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke"
-            className={styles.dot}
-            onPointerEnter={e => { if (e.pointerType !== 'mouse') return; const b = wrapRef.current!.getBoundingClientRect(); setHover({ q, x: e.clientX - b.left, y: e.clientY - b.top }); }}
-            data-qid={q.id} onClick={e => { e.stopPropagation(); onSelect(q); }} />
-        ))}
-      </g>
       {blobs.length > 0 && (
         <g aria-hidden="true" pointerEvents="none">
           {blobs.map(b => (
@@ -281,30 +303,6 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           ))}
         </g>
       )}
-      <g aria-hidden="true">
-        {selected && selected !== focused && (
-          <circle cx={selected.xy[0]} cy={selected.xy[1]} r={(dotRadius(selected.q.mag) + 4) * rScale}
-            fill="none" stroke="var(--ink)" strokeWidth={2.4} vectorEffect="non-scaling-stroke" pointerEvents="none" />
-        )}
-        {focused && (() => {
-          // The event in focus: its dot redrawn on top, a ring just outside it (scales with the event, like the
-          // selection ring) and a pulse of the same size spreading out from it.
-          const r = dotRadius(focused.q.mag) * rScale, ring = (dotRadius(focused.q.mag) + 4) * rScale, c = magColor(focused.q.mag).fill;
-          return (
-            <g pointerEvents="none" data-focus-marker="">
-              <circle cx={focused.xy[0]} cy={focused.xy[1]} r={ring} fill="none" stroke={c} strokeWidth={3} vectorEffect="non-scaling-stroke" className={styles.focusPulse} />
-              <circle cx={focused.xy[0]} cy={focused.xy[1]} r={r} fill={c} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke" />
-              <circle cx={focused.xy[0]} cy={focused.xy[1]} r={ring} fill="none" stroke="var(--ink)" strokeWidth={2.4} vectorEffect="non-scaling-stroke" />
-            </g>
-          );
-        })()}
-        {me && (
-          <g transform={`translate(${me[0]},${me[1]}) scale(${1 / k})`} pointerEvents="none">
-            <circle r={14} fill="var(--violet)" fillOpacity={0.2} />
-            <circle r={5.5} fill="var(--violet)" stroke="#fff" strokeWidth={2} />
-          </g>
-        )}
-      </g>
     </>
   );
   const offsets = worldW ? [0, ...(sides & 1 ? [-worldW] : []), ...(sides & 2 ? [worldW] : [])] : [0];
@@ -313,7 +311,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     <div ref={wrapRef} className={styles.mapWrap} onMouseLeave={() => setHover(null)}>
       {size.w > 0 && (
         <svg ref={svgRef} width={size.w} height={size.h} role="img" aria-label={t('count', { n: quakes.length })} className={styles.mapSvg}
-          style={{ background: 'var(--map-sea)' }} onClick={() => selectedId && onSelect(null)}>
+          style={{ background: 'var(--map-sea)' }} onClick={pick}>
           {overlay && (
             <defs>
               {HEAT_COLORS.map((c, i) => (
@@ -350,6 +348,37 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
             {offsets.map(off => (
               <g key={off} transform={off ? `translate(${off},0)` : undefined}>{over}</g>
             ))}
+          </g>
+          {/* Event markers in screen pixels; colours follow light/dark mode (--mag-0 … --mag-5). */}
+          <g aria-hidden="true">
+            {marks.map(({ q, x, y, r, key }) => (
+              <circle key={key} cx={x} cy={y} r={r} fill={magVar(q.mag)} fillOpacity={overlay && q.id !== selectedId ? 0.25 : 0.92}
+                stroke="var(--surface)" strokeWidth={1} className={styles.dot} data-qid={q.id}
+                onPointerEnter={e => { if (e.pointerType !== 'mouse') return; const b = wrapRef.current!.getBoundingClientRect(); setHover({ q, x: e.clientX - b.left, y: e.clientY - b.top }); }} />
+            ))}
+          </g>
+          <g aria-hidden="true" pointerEvents="none">
+            {selected && selAt && selected !== focused && (
+              <circle cx={selAt.x} cy={selAt.y} r={dotRadius(selected.q.mag) + 4} fill="none" stroke="var(--ink)" strokeWidth={2.4} />
+            )}
+            {focused && focAt && (() => {
+              // The event in focus: its dot redrawn on top, a ring just outside it (scales with the event, like the
+              // selection ring) and a pulse of the same size spreading out from it.
+              const r = dotRadius(focused.q.mag), c = magVar(focused.q.mag);
+              return (
+                <g data-focus-marker="">
+                  <circle cx={focAt.x} cy={focAt.y} r={r + 4} fill="none" stroke={c} strokeWidth={3} className={styles.focusPulse} />
+                  <circle cx={focAt.x} cy={focAt.y} r={r} fill={c} stroke="var(--surface)" strokeWidth={1} />
+                  <circle cx={focAt.x} cy={focAt.y} r={r + 4} fill="none" stroke="var(--ink)" strokeWidth={2.4} />
+                </g>
+              );
+            })()}
+            {meAt && (
+              <g transform={`translate(${meAt.x},${meAt.y})`}>
+                <circle r={14} fill="var(--violet)" fillOpacity={0.2} />
+                <circle r={5.5} fill="var(--violet)" stroke="#fff" strokeWidth={2} />
+              </g>
+            )}
           </g>
         </svg>
       )}

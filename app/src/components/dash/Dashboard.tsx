@@ -127,7 +127,7 @@ export function Dashboard() {
             <div className={styles.mapFilter}><MagFilterChip /></div>
             <div className={styles.mapLegend} aria-hidden="true">
               <span>M</span>
-              {[...MAG_SCALE].reverse().map(([min, fill]) => <i key={min} style={{ background: fill }} />)}
+              {[...MAG_SCALE].reverse().map(([min], i) => <i key={min} style={{ background: `var(--mag-${MAG_SCALE.length - 1 - i})` }} />)}
               <span>7+</span>
             </div>
             {!loaded && <div className={styles.mapLoading}>{m.dash.loading}</div>}
