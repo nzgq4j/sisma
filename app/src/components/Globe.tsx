@@ -1,12 +1,15 @@
 'use client';
 // 3D globe (design: initGlobe). Canvas d3.geoOrthographic; d3-zoom drives drag-rotate and pinch/wheel zoom
 // (0.8–10×: scale changes only zoom, pans only rotate); auto-spin 0.12°/frame ÷ zoom; Depth mode draws radial
-// lines scaled 1 − depth/700 × 0.4 coloured by depthColor; plate boundaries; tap within 20 px to select.
+// lines scaled 1 − depth/700 × 0.4 coloured by depthColor; plate boundaries. Events are the same numbered drop pins
+// as the 2D maps (lib/pin.ts): magnitude colour (Depth mode: depth colour) with the magnitude in the head; a tap picks
+// the nearest pin head.
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
-import { depthColor, magIndex } from '@/lib/theme';
+import { depthColor, depthInk, magIndex } from '@/lib/theme';
+import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, pinLabel, pinReach } from '@/lib/pin';
 import { LAND, SPHERE, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
 
@@ -24,7 +27,33 @@ function readTheme() {
   const cs = getComputedStyle(document.documentElement), v = (n: string) => cs.getPropertyValue(n).trim();
   return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
     // Marker colours by magnitude band, following light/dark mode (globals.css --mag-0 … --mag-5).
-    mags: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)) };
+    mags: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)), magInks: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-ink-${i}`)),
+    surface: v('--surface'), font: getComputedStyle(document.body).fontFamily };
+}
+
+// Pins are drawn once per look (colours, number, size) into small offscreen canvases and then stamped every frame,
+// so a spinning globe with a thousand pins stays smooth.
+const PIN_SHAPE = typeof Path2D !== 'undefined' ? new Path2D(PIN_PATH) : null;
+const pinCache = new Map<string, { cv: HTMLCanvasElement; ax: number; ay: number }>();
+function pinSprite(fill: string, ink: string, label: string, outline: string | null, scale: number, edge: string, font: string) {
+  // The font status is part of the key, so pins drawn before the web font loaded are redrawn once it has.
+  const dpr = window.devicePixelRatio || 1, key = [fill, ink, label, outline, scale, edge, font, dpr, document.fonts?.status].join('|');
+  let sp = pinCache.get(key);
+  if (sp) return sp;
+  if (pinCache.size > 600) pinCache.clear();
+  const pad = 3, w = (PIN_R + pad) * 2 * scale, h = (PIN_HEAD + PIN_R + pad * 2) * scale;
+  const cv = document.createElement('canvas');
+  cv.width = Math.ceil(w * dpr); cv.height = Math.ceil(h * dpr);
+  const c = cv.getContext('2d')!;
+  c.scale(dpr * scale, dpr * scale); c.translate(PIN_R + pad, PIN_HEAD + PIN_R + pad);
+  c.lineJoin = 'round';
+  c.fillStyle = fill; c.fill(PIN_SHAPE!); c.strokeStyle = edge; c.lineWidth = 1.5; c.stroke(PIN_SHAPE!);
+  if (outline) { c.strokeStyle = outline; c.lineWidth = 2 / scale; c.stroke(PIN_SHAPE!); }
+  c.fillStyle = ink; c.font = `800 ${PIN_FONT_PX}px ${font}`; c.textAlign = 'center';
+  c.fillText(label, 0, -PIN_HEAD + PIN_TEXT_DY);
+  sp = { cv, ax: (PIN_R + pad) * scale, ay: (PIN_HEAD + PIN_R + pad) * scale };
+  pinCache.set(key, sp);
+  return sp;
 }
 
 export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
@@ -70,9 +99,11 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     resize();
     const ro = new ResizeObserver(resize); ro.observe(wrap);
 
-    const pick = (x: number, y: number, radius = 20) => {
-      let best: Quake | null = null, bd = radius * radius;
-      for (const [px, py, q] of st.pts) { const d = (px - x) ** 2 + (py - y) ** 2; if (d < bd) { bd = d; best = q; } }
+    // Nearest pin head (PIN_HEAD px above the tip) within reach of a fingertip.
+    const pick = (x: number, y: number, touch: boolean) => {
+      const reach = pinReach(touch);
+      let best: Quake | null = null, bd = reach * reach;
+      for (const [px, py, q] of st.pts) { const d = (px - x) ** 2 + (py - PIN_HEAD - y) ** 2; if (d < bd) { bd = d; best = q; } }
       live.current.onSelect(best);
     };
 
@@ -98,7 +129,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       const d = down; down = null;
       if (!d || d.id !== e.pointerId || Math.hypot(e.clientX - d.x, e.clientY - d.y) > 6 || e.timeStamp - d.t > 500) return;
       const b = cv.getBoundingClientRect();
-      pick(e.clientX - b.left, e.clientY - b.top, e.pointerType === 'touch' ? 28 : 20);
+      pick(e.clientX - b.left, e.clientY - b.top, e.pointerType !== 'mouse');
     };
     const onCancel = () => { down = null; };
     cv.addEventListener('pointerdown', onDown);
@@ -125,6 +156,14 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       if (p.plates && plates) { ctx.beginPath(); path(plates); ctx.strokeStyle = theme.plate; ctx.globalAlpha = 0.65; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; }
 
       const r = proj.rotate(), c: [number, number] = [-r[0], -r[1]], pts: [number, number, Quake][] = [];
+      let selPt: [number, number, Quake] | null = null;
+      const look = (q: Quake) => p.depthMode
+        ? { fill: depthColor(q.depthKm), ink: depthInk(q.depthKm) }
+        : { fill: theme.mags[magIndex(q.mag)], ink: theme.magInks[magIndex(q.mag)] };
+      const stamp = (x: number, y: number, q: Quake, selected: boolean) => {
+        const { fill, ink } = look(q), sp = pinSprite(fill, ink, pinLabel(q.mag), selected ? theme.ink : null, selected ? 1.15 : 1, theme.surface, theme.font);
+        ctx.drawImage(sp.cv, x - sp.ax, y - sp.ay, sp.cv.width / (window.devicePixelRatio || 1), sp.cv.height / (window.devicePixelRatio || 1));
+      };
       for (const q of sorted.current.list) {
         if (geoDistance([q.lon, q.lat], c) > 1.55) continue;
         const xy = proj([q.lon, q.lat]); if (!xy) continue;
@@ -133,13 +172,13 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
           const f = 1 - (Math.min(q.depthKm, 700) / 700) * 0.4, xi = cx + (x - cx) * f, yi = cy + (y - cy) * f;
           ctx.strokeStyle = depthColor(q.depthKm); ctx.globalAlpha = 0.55; ctx.lineWidth = 1;
           ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(xi, yi); ctx.stroke(); ctx.globalAlpha = 1;
-          x = xi; y = yi; ctx.fillStyle = depthColor(q.depthKm);
-        } else ctx.fillStyle = theme.mags[magIndex(q.mag)];
-        const rr = Math.max(1.8, (q.mag - 1.8) * 1.6);
-        ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.fill();
-        if (q.id === p.selectedId) { ctx.strokeStyle = theme.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, rr + 4, 0, 7); ctx.stroke(); }
+          x = xi; y = yi;
+        }
+        if (q.id === p.selectedId) selPt = [x, y, q]; else if (PIN_SHAPE) stamp(x, y, q, false);
         pts.push([x, y, q]);
       }
+      // The selected event on top, larger, with an ink outline (as on the 2D maps).
+      if (selPt && PIN_SHAPE) stamp(selPt[0], selPt[1], selPt[2], true);
       const L = p.center;
       if (geoDistance([L.lon, L.lat], c) < 1.55) {
         const xy = proj([L.lon, L.lat]);
