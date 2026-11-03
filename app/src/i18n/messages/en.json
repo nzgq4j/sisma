@@ -33,7 +33,6 @@
   "exit_region": "Back to world map",
   "felt_reports_n": "{n} felt reports · approximate locations",
   "felt_reports_1": "1 felt report · approximate location",
-  "felt_reports_0": "No felt reports with a location yet",
   "report": "Report what you felt",
   "report_title": "What did you feel?",
   "report_sub": "Your report helps map local shaking.",
@@ -380,10 +379,8 @@
     "how_4": "You can turn this off at any time in Me. Felt maps are an estimate, not an official intensity map.",
     "toggle": "Help map where quakes are felt",
     "toggle_hint": "While the app is open, share an approximate, anonymous position (blurred by up to 500 m). Only with location allowed.",
-    "line_collecting": "Felt map: collecting app activity (first 3 minutes)…",
     "line_areas": "Felt map: probably felt in {n} areas",
-    "line_areas_1": "Felt map: probably felt in 1 area",
-    "line_none": "Felt map: not enough app activity nearby"
+    "line_areas_1": "Felt map: probably felt in 1 area"
   },
   "units": "Units",
   "units_km": "Kilometres",

@@ -33,7 +33,6 @@
   "exit_region": "Retour à la carte du monde",
   "felt_reports_n": "{n} témoignages · positions approximatives",
   "felt_reports_1": "1 témoignage · position approximative",
-  "felt_reports_0": "Aucun témoignage localisé pour l’instant",
   "report": "Signaler ce que vous avez ressenti",
   "report_title": "Qu’avez-vous ressenti ?",
   "report_sub": "Votre signalement aide à cartographier les secousses locales.",
@@ -380,10 +379,8 @@
     "how_4": "Vous pouvez désactiver cette option à tout moment dans Moi. Les cartes de ressenti sont une estimation, pas une carte officielle d’intensité.",
     "toggle": "Aider à cartographier où les séismes sont ressentis",
     "toggle_hint": "Quand l’app est ouverte, partager une position approximative et anonyme (décalée jusqu’à 500 m). Seulement si la position est autorisée.",
-    "line_collecting": "Carte de ressenti : collecte de l’activité (3 premières minutes)…",
     "line_areas": "Carte de ressenti : probablement ressenti dans {n} zones",
-    "line_areas_1": "Carte de ressenti : probablement ressenti dans 1 zone",
-    "line_none": "Carte de ressenti : pas assez d’activité à proximité"
+    "line_areas_1": "Carte de ressenti : probablement ressenti dans 1 zone"
   },
   "units": "Unités",
   "units_km": "Kilomètres",

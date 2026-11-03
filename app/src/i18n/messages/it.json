@@ -33,7 +33,6 @@
   "exit_region": "Torna alla mappa del mondo",
   "felt_reports_n": "{n} segnalazioni · posizioni approssimative",
   "felt_reports_1": "1 segnalazione · posizione approssimativa",
-  "felt_reports_0": "Ancora nessuna segnalazione con posizione",
   "report": "Segnala cosa hai sentito",
   "report_title": "Cosa hai sentito?",
   "report_sub": "La tua segnalazione aiuta a mappare lo scuotimento locale.",
@@ -380,10 +379,8 @@
     "how_4": "Puoi disattivarlo in qualsiasi momento in Io. Le mappe di risentimento sono una stima, non una mappa ufficiale dell’intensità.",
     "toggle": "Aiuta a mappare dove si avvertono i terremoti",
     "toggle_hint": "Mentre l’app è aperta, condividi una posizione approssimativa e anonima (spostata fino a 500 m). Solo con la posizione consentita.",
-    "line_collecting": "Mappa di risentimento: raccolta dell’attività (primi 3 minuti)…",
     "line_areas": "Mappa di risentimento: probabilmente avvertito in {n} aree",
-    "line_areas_1": "Mappa di risentimento: probabilmente avvertito in 1 area",
-    "line_none": "Mappa di risentimento: poca attività nelle vicinanze"
+    "line_areas_1": "Mappa di risentimento: probabilmente avvertito in 1 area"
   },
   "units": "Unità",
   "units_km": "Chilometri",

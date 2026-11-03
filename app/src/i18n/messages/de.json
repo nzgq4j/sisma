@@ -33,7 +33,6 @@
   "exit_region": "Zurück zur Weltkarte",
   "felt_reports_n": "{n} Meldungen · ungefähre Orte",
   "felt_reports_1": "1 Meldung · ungefährer Ort",
-  "felt_reports_0": "Noch keine Meldungen mit Ort",
   "report": "Melden, was du gespürt hast",
   "report_title": "Was hast du gespürt?",
   "report_sub": "Deine Meldung hilft, die Erschütterung vor Ort zu kartieren.",
@@ -380,10 +379,8 @@
     "how_4": "Du kannst das jederzeit unter Ich ausschalten. Spürkarten sind eine Schätzung, keine offizielle Intensitätskarte.",
     "toggle": "Helfen, Spürkarten zu erstellen",
     "toggle_hint": "Teilt bei geöffneter App eine ungefähre, anonyme Position (um bis zu 500 m verschoben). Nur mit erlaubtem Standort.",
-    "line_collecting": "Spürkarte: App-Aktivität wird gesammelt (erste 3 Minuten) …",
     "line_areas": "Spürkarte: wahrscheinlich in {n} Gebieten gespürt",
-    "line_areas_1": "Spürkarte: wahrscheinlich in 1 Gebiet gespürt",
-    "line_none": "Spürkarte: zu wenig App-Aktivität in der Nähe"
+    "line_areas_1": "Spürkarte: wahrscheinlich in 1 Gebiet gespürt"
   },
   "units": "Einheiten",
   "units_km": "Kilometer",

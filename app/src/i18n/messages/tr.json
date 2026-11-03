@@ -33,7 +33,6 @@
   "exit_region": "Dünya haritasına dön",
   "felt_reports_n": "{n} hissetme raporu · yaklaşık konumlar",
   "felt_reports_1": "1 hissetme raporu · yaklaşık konum",
-  "felt_reports_0": "Henüz konumlu rapor yok",
   "report": "Hissettiğini bildir",
   "report_title": "Ne hissettin?",
   "report_sub": "Bildirimin yerel sarsıntı haritasına katkı sağlar.",
@@ -380,10 +379,8 @@
     "how_4": "Bunu istediğin zaman Ben bölümünden kapatabilirsin. Hissedilme haritaları bir tahmindir, resmi şiddet haritası değildir.",
     "toggle": "Depremin nerede hissedildiğini haritalamaya yardım et",
     "toggle_hint": "Uygulama açıkken yaklaşık ve anonim bir konum paylaş (500 m'ye kadar kaydırılır). Yalnızca konum izni varsa.",
-    "line_collecting": "Hissedilme haritası: etkinlik toplanıyor (ilk 3 dakika)…",
     "line_areas": "Hissedilme haritası: muhtemelen {n} bölgede hissedildi",
-    "line_areas_1": "Hissedilme haritası: muhtemelen 1 bölgede hissedildi",
-    "line_none": "Hissedilme haritası: yakında yeterli etkinlik yok"
+    "line_areas_1": "Hissedilme haritası: muhtemelen 1 bölgede hissedildi"
   },
   "units": "Birimler",
   "units_km": "Kilometre",

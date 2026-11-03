@@ -97,23 +97,21 @@ function MapView() {
           <button type="button" className={styles.exitBtn} onClick={exitRegion}>
             <span className="ms" aria-hidden="true">arrow_back</span>{t('exit_region')}
           </button>
-          {focusQuake && !felt.loading && (
+          {/* Each line (with its colour scale) only appears once there is something to show. */}
+          {focusQuake && !felt.loading && felt.total > 0 && (
             <span className={styles.feltLine}>
               <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} style={{ background: c }} />)}</span>
               <FitLine min={9}>
-                {felt.total === 0 ? t('felt_reports_0') : felt.total === 1 ? t('felt_reports_1') : t('felt_reports_n', { n: nf.format(felt.total) })}
+                {felt.total === 1 ? t('felt_reports_1') : t('felt_reports_n', { n: nf.format(felt.total) })}
                 {felt.cells.length > 0 && ` · MMI ${ROMAN[Math.round(Math.min(...felt.cells.map(c => c.mmi))) - 1]}–${ROMAN[Math.round(Math.max(...felt.cells.map(c => c.mmi))) - 1]}`}
               </FitLine>
             </span>
           )}
-          {focusQuake && !auto.loading && (
+          {focusQuake && !auto.loading && auto.map && auto.map.cells.length > 0 && (
             <span className={styles.feltLine}>
               <span className={styles.feltScale} aria-hidden="true">{HEAT_COLORS.map(c => <i key={c} style={{ background: c }} />)}</span>
               <FitLine min={9}>
-                {!auto.map ? m.feltmap.line_none
-                  : auto.map.status === 'collecting' && auto.map.cells.length === 0 ? m.feltmap.line_collecting
-                    : auto.map.cells.length === 0 ? m.feltmap.line_none
-                      : (auto.map.cells.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(auto.map.cells.length)))}
+                {auto.map.cells.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(auto.map.cells.length))}
               </FitLine>
               <button type="button" className={styles.infoBtn} onClick={() => setHowOpen(true)} aria-label={m.feltmap.title}>
                 <span className="ms" aria-hidden="true">info</span>
