@@ -8,11 +8,12 @@ import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData } from '@/components/QuakeData';
 import { useFeltCells } from '@/components/FeltReport';
+import { FeltMapInfoSheet, useFeltMap } from '@/components/FeltMap';
 import { regionHref } from '@/components/QuakeDetail';
 import { WorldMap } from '@/components/dash/WorldMap';
 import { FitLine } from '@/components/FitLine';
 import { Legend, RangeChips, Selection, ToggleChip, MagFilterChip } from '@/components/stage/StageParts';
-import { MMI_COLORS, ROMAN } from '@/lib/theme';
+import { HEAT_COLORS, MMI_COLORS, ROMAN } from '@/lib/theme';
 import styles from '@/components/stage/stage.module.css';
 
 const FOCUS_ZOOM = 24;
@@ -34,6 +35,8 @@ function MapView() {
   const sel = list.find(q => q.id === selId) ?? all.find(q => q.id === selId) ?? null;
   const focusQuake = focusId ? all.find(q => q.id === focusId) ?? null : null;
   const felt = useFeltCells(focusQuake ? focusQuake.id : null);
+  const auto = useFeltMap(focusQuake ? focusQuake.id : null);
+  const [howOpen, setHowOpen] = useState(false);
 
   const clear = () => { setPicked(null); if (focusId) router.replace('/app/map', { scroll: false }); };
   const exitRegion = () => { setPicked(null); setSheet(false); router.replace('/app/map', { scroll: false }); };
@@ -53,7 +56,7 @@ function MapView() {
         onSelect={q => { if (q) setPicked(q.id); else clear(); setSheet(false); }}
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
         focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, zoom: FOCUS_ZOOM } : null}
-        cells={focusQuake ? felt.cells : []} onReset={focusId ? exitRegion : undefined} />
+        cells={focusQuake ? felt.cells : []} heat={focusQuake && auto.map ? auto.map.cells : []} onReset={focusId ? exitRegion : undefined} />
       <div className={styles.chips}>
         <RangeChips />
         <MagFilterChip />
@@ -73,8 +76,23 @@ function MapView() {
               </FitLine>
             </span>
           )}
+          {focusQuake && !auto.loading && (
+            <span className={styles.feltLine}>
+              <span className={styles.feltScale} aria-hidden="true">{HEAT_COLORS.map(c => <i key={c} style={{ background: c }} />)}</span>
+              <FitLine min={9}>
+                {!auto.map ? m.feltmap.line_none
+                  : auto.map.status === 'collecting' && auto.map.cells.length === 0 ? m.feltmap.line_collecting
+                    : auto.map.cells.length === 0 ? m.feltmap.line_none
+                      : (auto.map.cells.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(auto.map.cells.length)))}
+              </FitLine>
+              <button type="button" className={styles.infoBtn} onClick={() => setHowOpen(true)} aria-label={m.feltmap.title}>
+                <span className="ms" aria-hidden="true">info</span>
+              </button>
+            </span>
+          )}
         </div>
       )}
+      <FeltMapInfoSheet open={howOpen} onClose={() => setHowOpen(false)} />
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}
       {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={clear} onShowRegion={() => showRegion(sel.id)} /> : (
         <div className={styles.bottom}>

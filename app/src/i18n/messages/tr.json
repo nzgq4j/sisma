@@ -354,7 +354,7 @@
     "lang_p": "İstediğin zaman Ben bölümünden değiştirebilirsin.",
     "loc_h": "Yakınındakileri gör",
     "loc_p": "Konumun en yakın depremleri ve uzaklıklarını gösterir, hissettiğin bir depremi bildirmeni sağlar.",
-    "loc_privacy": "Konumun bu cihazda kalır. Bildirimler yaklaşık 10 km’ye yuvarlanır.",
+    "loc_privacy": "sisma tam konumunu asla saklamaz. Uygulama açıkken depremlerin nerede hissedildiğini haritalamak için yaklaşık ve anonim bir konum (500 m'ye kadar kaydırılmış) paylaşabilir; bunu Ben bölümünden kapatabilirsin.",
     "loc_use": "Konumumu kullan",
     "loc_later": "Şimdi değil",
     "imp_h": "Önemli",
@@ -371,5 +371,18 @@
   "link_copied": "Bağlantı kopyalandı",
   "depth_deep": "{n} km derinlik",
   "mag_chip": "Büyüklük",
-  "all_mags": "Tüm büyüklükler"
+  "all_mags": "Tüm büyüklükler",
+  "feltmap": {
+    "title": "Hissedilme haritaları nasıl çalışır",
+    "how_1": "Hissedilme haritaları, depremden sonraki 3 dakikada sisma'nın nasıl kullanıldığına göre otomatik oluşturulur. Deprem hissedildiğinde yakındaki insanlar uygulamayı aynı anda açar ve bu ani yoğunluk depremin muhtemelen nerede hissedildiğini gösterir.",
+    "how_2": "sisma açıkken ve konum izni verdiysen, uygulama yaklaşık konumunu dakikada bir kez sunucularımıza gönderebilir. Konum cihazından çıkmadan önce rastgele 500 m'ye kadar kaydırılır ve hesap, cihaz ya da IP tanımlayıcısı içermez.",
+    "how_3": "Yalnızca en az 3 kişinin uygulamayı her zamankinden fazla açtığı yaklaşık 10 km'lik alanları gösteririz; haritadaki hiçbir şey bir kişiyle ilişkilendirilemez. Konumlar 7 gün sonra silinir, asla paylaşılmaz ve başka bir amaçla kullanılmaz.",
+    "how_4": "Bunu istediğin zaman Ben bölümünden kapatabilirsin. Hissedilme haritaları bir tahmindir, resmi şiddet haritası değildir.",
+    "toggle": "Depremin nerede hissedildiğini haritalamaya yardım et",
+    "toggle_hint": "Uygulama açıkken yaklaşık ve anonim bir konum paylaş (500 m'ye kadar kaydırılır). Yalnızca konum izni varsa.",
+    "line_collecting": "Hissedilme haritası: etkinlik toplanıyor (ilk 3 dakika)…",
+    "line_areas": "Hissedilme haritası: muhtemelen {n} bölgede hissedildi",
+    "line_areas_1": "Hissedilme haritası: muhtemelen 1 bölgede hissedildi",
+    "line_none": "Hissedilme haritası: yakında yeterli etkinlik yok"
+  }
 }

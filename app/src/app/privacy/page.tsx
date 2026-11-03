@@ -22,7 +22,8 @@ export default function PrivacyPage() {
         <h2>The short version</h2>
         <ul>
           <li>You can use sisma without an account.</li>
-          <li>Your precise location stays on your device and is never stored by us. Felt reports keep only an area of about 10 km and are not linked to you.</li>
+          <li>We never store your exact location. With location allowed, the open app may share an approximate position — blurred by up to 500 m, with no account, device or IP identifier — to build anonymous felt maps. You can turn this off in Me.</li>
+          <li>Felt reports keep only an area of about 10 km and are not linked to you.</li>
           <li>If you create an account, we store your email address and the settings you choose, until you delete the account.</li>
           <li>No ads, no advertising or analytics trackers, and we don’t sell or share personal data for advertising.</li>
         </ul>
@@ -46,6 +47,7 @@ export default function PrivacyPage() {
             <tr><td><strong>Alert settings</strong> (on/off, minimum magnitude, distance)</td><td>You change them (sisma+)</td><td>To send the alerts you asked for</td><td>Until you delete your account</td></tr>
             <tr><td><strong>Plan and subscription status</strong>, and the customer/subscription IDs from Stripe or Google Play</td><td>You start a trial or subscription</td><td>To provide sisma+</td><td>Until you delete your account (Stripe and Google Play keep their own payment records as tax law requires)</td></tr>
             <tr><td><strong>Felt reports</strong>: the earthquake, how strong it felt, your optional answers and note (up to 500 characters), app language, and — only if you allowed location — your position rounded to about 10 km</td><td>You tap “I felt it” and send a report</td><td>To show, in aggregate, where and how strongly an earthquake was felt</td><td>Kept as an anonymous record. Reports are <em>not</em> linked to your account, name or email, so please don’t write personal details in the note</td></tr>
+            <tr><td><strong>Approximate position for felt maps</strong>: a point up to 500 m from where you are (blurred on your device before it is sent) and the time — nothing else</td><td>While the app is open and you have allowed location, about once a minute, unless you turn it off in Me</td><td>To map, from the rush of app use after an earthquake, where it was probably felt. Only areas of about 10 km with at least 3 people are ever shown</td><td>Deleted after 7 days. Not linked to your account, device or IP address; never shared or used for anything else</td></tr>
             <tr><td><strong>Push notification token</strong> (Android app)</td><td>When push alerts are available and you turn them on</td><td>To deliver your alerts to your phone</td><td>Until you turn alerts off, uninstall, or delete your account</td></tr>
             <tr><td><strong>Technical logs</strong>: IP address, browser/device type, the page or address requested, time</td><td>Whenever you use sisma</td><td>To run the service securely and fix problems</td><td>Kept by our hosting and database providers for a limited period (typically days to a few weeks)</td></tr>
           </tbody>
@@ -54,8 +56,9 @@ export default function PrivacyPage() {
 
       <h3>Your location</h3>
       <p>
-        With your permission, sisma reads your device’s location to centre the map and find the nearest earthquakes. It is not stored in our database.
-        To calculate distances, the app sends your coordinates to our server together with each earthquake-data request; the server uses them for that
+        With your permission, sisma reads your device’s location to centre the map and find the nearest earthquakes. Your exact location is not stored in
+        our database. For automatic felt maps, the open app may send an approximate position (see the table above); you can switch this off in Me →
+        “Help map where quakes are felt”. To calculate distances, the app sends your coordinates to our server together with each earthquake-data request; the server uses them for that
         calculation only, but our hosting provider’s request logs may briefly contain them (see “Technical logs”). You can use sisma without location by
         saving a place instead, and you can withdraw permission at any time in your browser or phone settings.
       </p>
@@ -71,14 +74,14 @@ export default function PrivacyPage() {
       </p>
       <h3>Legal bases (EEA and UK)</h3>
       <p>
-        We process account, saved-place, alert and subscription data to provide the service you asked for (contract); felt reports, location use and push
+        We process account, saved-place, alert and subscription data to provide the service you asked for (contract); felt reports, location use, felt-map positions and push
         notifications on the basis of your consent, which you can withdraw at any time; and technical logs for our legitimate interest in running a secure,
         reliable service.
       </p>
 
       <h2 id="device">3. Stored on your device</h2>
       <p>
-        sisma keeps a few items in your browser’s or phone’s local storage so it works without an account: your language and appearance settings, whether
+        sisma keeps a few items in your browser’s or phone’s local storage so it works without an account: your language, appearance and felt-map settings, whether
         you’ve seen the introduction (and the launch screen this session), places you saved as a guest, the location you chose, the felt reports you sent from
         this device (so the app can show them), your preparedness checklist, and — when signed in — your sign-in session. These stay on your device; we use
         no advertising or analytics cookies. Clearing the site’s data in your browser, or uninstalling the app, removes them.

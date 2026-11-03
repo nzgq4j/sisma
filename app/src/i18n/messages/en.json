@@ -354,7 +354,7 @@
     "lang_p": "You can change it any time in Me.",
     "loc_h": "See what’s near you",
     "loc_p": "Your location shows the nearest earthquakes and their distance, and lets you report one you felt.",
-    "loc_privacy": "Your location stays on this device. Felt reports are rounded to about 10 km.",
+    "loc_privacy": "sisma never stores your exact location. While the app is open it may share an approximate, anonymous position (blurred by up to 500 m) to map where quakes are felt — you can turn this off in Me.",
     "loc_use": "Use my location",
     "loc_later": "Not now",
     "imp_h": "Important",
@@ -371,5 +371,18 @@
   "link_copied": "Link copied",
   "depth_deep": "{n} km deep",
   "mag_chip": "Magnitude",
-  "all_mags": "All magnitudes"
+  "all_mags": "All magnitudes",
+  "feltmap": {
+    "title": "How felt maps work",
+    "how_1": "Felt maps are made automatically from how people use sisma in the 3 minutes after an earthquake. When a quake is felt, people nearby open the app at the same moment, and that rush of activity shows where it was probably felt.",
+    "how_2": "While sisma is open and you have allowed location, it can send an approximate position to our servers about once a minute. Before it leaves your device it is moved randomly by up to 500 m, and it carries no account, device or IP identifier.",
+    "how_3": "We only show areas of about 10 km where at least 3 people opened the app more than usual, so nothing on the map can be tied to a person. Positions are deleted after 7 days, never shared, and never used for anything else.",
+    "how_4": "You can turn this off at any time in Me. Felt maps are an estimate, not an official intensity map.",
+    "toggle": "Help map where quakes are felt",
+    "toggle_hint": "While the app is open, share an approximate, anonymous position (blurred by up to 500 m). Only with location allowed.",
+    "line_collecting": "Felt map: collecting app activity (first 3 minutes)…",
+    "line_areas": "Felt map: probably felt in {n} areas",
+    "line_areas_1": "Felt map: probably felt in 1 area",
+    "line_none": "Felt map: not enough app activity nearby"
+  }
 }

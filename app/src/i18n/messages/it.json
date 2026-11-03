@@ -354,7 +354,7 @@
     "lang_p": "Puoi cambiarla quando vuoi in Io.",
     "loc_h": "Scopri cosa succede vicino a te",
     "loc_p": "La tua posizione mostra i terremoti più vicini e la loro distanza, e ti permette di segnalare una scossa avvertita.",
-    "loc_privacy": "La tua posizione resta su questo dispositivo. Le segnalazioni sono arrotondate a circa 10 km.",
+    "loc_privacy": "sisma non salva mai la tua posizione esatta. Con l’app aperta può condividere una posizione approssimativa e anonima (spostata fino a 500 m) per mappare dove si avvertono i terremoti; puoi disattivarlo in Io.",
     "loc_use": "Usa la mia posizione",
     "loc_later": "Non ora",
     "imp_h": "Importante",
@@ -371,5 +371,18 @@
   "link_copied": "Link copiato",
   "depth_deep": "{n} km di profondità",
   "mag_chip": "Magnitudo",
-  "all_mags": "Tutte le magnitudo"
+  "all_mags": "Tutte le magnitudo",
+  "feltmap": {
+    "title": "Come funzionano le mappe di risentimento",
+    "how_1": "Le mappe di risentimento si creano automaticamente da come le persone usano sisma nei 3 minuti dopo un terremoto. Quando una scossa viene avvertita, chi è vicino apre l’app nello stesso momento, e questo picco di attività mostra dove è stata probabilmente avvertita.",
+    "how_2": "Mentre sisma è aperta e hai consentito la posizione, può inviare ai nostri server una posizione approssimativa circa una volta al minuto. Prima di lasciare il dispositivo viene spostata a caso fino a 500 m e non contiene identificativi di account, dispositivo o IP.",
+    "how_3": "Mostriamo solo aree di circa 10 km in cui almeno 3 persone hanno aperto l’app più del solito, quindi nulla sulla mappa può essere ricondotto a una persona. Le posizioni vengono cancellate dopo 7 giorni, mai condivise né usate per altro.",
+    "how_4": "Puoi disattivarlo in qualsiasi momento in Io. Le mappe di risentimento sono una stima, non una mappa ufficiale dell’intensità.",
+    "toggle": "Aiuta a mappare dove si avvertono i terremoti",
+    "toggle_hint": "Mentre l’app è aperta, condividi una posizione approssimativa e anonima (spostata fino a 500 m). Solo con la posizione consentita.",
+    "line_collecting": "Mappa di risentimento: raccolta dell’attività (primi 3 minuti)…",
+    "line_areas": "Mappa di risentimento: probabilmente avvertito in {n} aree",
+    "line_areas_1": "Mappa di risentimento: probabilmente avvertito in 1 area",
+    "line_none": "Mappa di risentimento: poca attività nelle vicinanze"
+  }
 }

@@ -354,7 +354,7 @@
     "lang_p": "Vous pouvez la modifier à tout moment dans Moi.",
     "loc_h": "Voyez ce qui se passe près de vous",
     "loc_p": "Votre position affiche les séismes les plus proches et leur distance, et vous permet de signaler une secousse ressentie.",
-    "loc_privacy": "Votre position reste sur cet appareil. Les signalements sont arrondis à environ 10 km.",
+    "loc_privacy": "sisma n’enregistre jamais votre position exacte. Quand l’app est ouverte, elle peut partager une position approximative et anonyme (décalée jusqu’à 500 m) pour cartographier où les séismes sont ressentis ; vous pouvez le désactiver dans Moi.",
     "loc_use": "Utiliser ma position",
     "loc_later": "Plus tard",
     "imp_h": "Important",
@@ -371,5 +371,18 @@
   "link_copied": "Lien copié",
   "depth_deep": "{n} km de profondeur",
   "mag_chip": "Magnitude",
-  "all_mags": "Toutes les magnitudes"
+  "all_mags": "Toutes les magnitudes",
+  "feltmap": {
+    "title": "Comment fonctionnent les cartes de ressenti",
+    "how_1": "Les cartes de ressenti sont créées automatiquement à partir de l’utilisation de sisma dans les 3 minutes qui suivent un séisme. Quand une secousse est ressentie, les personnes à proximité ouvrent l’app au même moment, et ce pic d’activité montre où elle a probablement été ressentie.",
+    "how_2": "Quand sisma est ouverte et que vous avez autorisé la position, l’app peut envoyer une position approximative à nos serveurs environ une fois par minute. Avant de quitter votre appareil, elle est décalée au hasard jusqu’à 500 m et ne contient aucun identifiant de compte, d’appareil ni d’IP.",
+    "how_3": "Nous n’affichons que des zones d’environ 10 km où au moins 3 personnes ont ouvert l’app plus que d’habitude : rien sur la carte ne peut être relié à une personne. Les positions sont supprimées après 7 jours, jamais partagées ni utilisées à d’autres fins.",
+    "how_4": "Vous pouvez désactiver cette option à tout moment dans Moi. Les cartes de ressenti sont une estimation, pas une carte officielle d’intensité.",
+    "toggle": "Aider à cartographier où les séismes sont ressentis",
+    "toggle_hint": "Quand l’app est ouverte, partager une position approximative et anonyme (décalée jusqu’à 500 m). Seulement si la position est autorisée.",
+    "line_collecting": "Carte de ressenti : collecte de l’activité (3 premières minutes)…",
+    "line_areas": "Carte de ressenti : probablement ressenti dans {n} zones",
+    "line_areas_1": "Carte de ressenti : probablement ressenti dans 1 zone",
+    "line_none": "Carte de ressenti : pas assez d’activité à proximité"
+  }
 }

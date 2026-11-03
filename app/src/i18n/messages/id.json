@@ -354,7 +354,7 @@
     "lang_p": "Anda bisa mengubahnya kapan saja di Saya.",
     "loc_h": "Lihat yang ada di dekat Anda",
     "loc_p": "Lokasi Anda menampilkan gempa terdekat dan jaraknya, serta memungkinkan Anda melaporkan guncangan yang dirasakan.",
-    "loc_privacy": "Lokasi Anda tetap di perangkat ini. Laporan dibulatkan ke sekitar 10 km.",
+    "loc_privacy": "sisma tidak pernah menyimpan lokasi persis Anda. Saat aplikasi terbuka, sisma dapat membagikan posisi perkiraan yang anonim (digeser hingga 500 m) untuk memetakan di mana gempa terasa — Anda bisa mematikannya di Saya.",
     "loc_use": "Gunakan lokasi saya",
     "loc_later": "Nanti saja",
     "imp_h": "Penting",
@@ -371,5 +371,18 @@
   "link_copied": "Tautan disalin",
   "depth_deep": "kedalaman {n} km",
   "mag_chip": "Magnitudo",
-  "all_mags": "Semua magnitudo"
+  "all_mags": "Semua magnitudo",
+  "feltmap": {
+    "title": "Cara kerja peta guncangan",
+    "how_1": "Peta guncangan dibuat otomatis dari penggunaan sisma dalam 3 menit setelah gempa. Saat gempa terasa, orang di sekitar membuka aplikasi pada saat yang sama, dan lonjakan aktivitas itu menunjukkan di mana gempa kemungkinan terasa.",
+    "how_2": "Saat sisma terbuka dan Anda mengizinkan lokasi, aplikasi dapat mengirim posisi perkiraan ke server kami sekitar sekali per menit. Sebelum meninggalkan perangkat, posisi digeser acak hingga 500 m dan tidak membawa pengenal akun, perangkat, atau IP.",
+    "how_3": "Kami hanya menampilkan area sekitar 10 km tempat setidaknya 3 orang membuka aplikasi lebih dari biasanya, sehingga tidak ada yang bisa dikaitkan dengan seseorang. Posisi dihapus setelah 7 hari, tidak pernah dibagikan, dan tidak dipakai untuk hal lain.",
+    "how_4": "Anda bisa mematikannya kapan saja di Saya. Peta guncangan adalah perkiraan, bukan peta intensitas resmi.",
+    "toggle": "Bantu memetakan di mana gempa terasa",
+    "toggle_hint": "Saat aplikasi terbuka, bagikan posisi perkiraan yang anonim (digeser hingga 500 m). Hanya jika lokasi diizinkan.",
+    "line_collecting": "Peta guncangan: mengumpulkan aktivitas (3 menit pertama)…",
+    "line_areas": "Peta guncangan: kemungkinan terasa di {n} area",
+    "line_areas_1": "Peta guncangan: kemungkinan terasa di 1 area",
+    "line_none": "Peta guncangan: aktivitas di sekitar belum cukup"
+  }
 }

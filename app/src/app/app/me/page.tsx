@@ -13,6 +13,7 @@ import { LanguagePicker } from '@/components/LanguagePicker';
 import { Sheet } from '@/components/Sheet';
 import { setTheme, useTheme, type ThemePref } from '@/components/Theme';
 import { openOnboarding } from '@/components/onboarding/store';
+import { FeltMapInfoSheet, setFeltMapSharing, useFeltMapSharing } from '@/components/FeltMap';
 import { supabaseBrowser } from '@/lib/supabase-browser';
 import { PRICES, limits } from '@/lib/entitlements';
 import type { PlaceHit } from '@/lib/places';
@@ -299,6 +300,7 @@ function Preferences() {
           ))}
         </div>
       </div>
+      <FeltMapRow />
       <button type="button" className={styles.row} onClick={openOnboarding}>
         <span className="ms" aria-hidden="true">waving_hand</span><span className={styles.grow}>{m.acct.intro}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
       </button>
@@ -336,6 +338,29 @@ function NameSheet({ onClose }: { onClose: () => void }) {
         <button type="submit" className={styles.primaryBtn} disabled={state === 'busy'}>{a.save}</button>
       </form>
     </Sheet>
+  );
+}
+
+/** Automatic felt maps: share an approximate, anonymous position while the app is open (only with location allowed). */
+function FeltMapRow() {
+  const { m } = useT();
+  const on = useFeltMapSharing();
+  const [how, setHow] = useState(false);
+  return (
+    <>
+      <button type="button" className={styles.row} role="switch" aria-checked={on} onClick={() => setFeltMapSharing(!on)}>
+        <span className="ms" aria-hidden="true">sensors</span>
+        <span className={styles.grow}>
+          <span className={styles.placeName}>{m.feltmap.toggle}</span>
+          <span className={styles.rowHint}>{m.feltmap.toggle_hint}</span>
+        </span>
+        <span className={styles.switch} aria-hidden="true"><span /></span>
+      </button>
+      <button type="button" className={`${styles.row} ${styles.accent}`} onClick={() => setHow(true)}>
+        <span className="ms" aria-hidden="true">info</span><span className={styles.grow}>{m.feltmap.title}</span>
+      </button>
+      <FeltMapInfoSheet open={how} onClose={() => setHow(false)} />
+    </>
   );
 }
 

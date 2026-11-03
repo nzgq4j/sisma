@@ -11,6 +11,7 @@ Already done (by Claude, through the Supabase and Vercel connectors):
 | `20261102000200_fk_indexes.sql` | Applied |
 | `20261102000300_saved_locations_places.sql` (detail column, length limits, one default place, authenticated-only policies, race-free plan limit) | Applied |
 | `20261102000400_profiles_display_name.sql` (display name 1–50 characters, trimmed) | Applied |
+| `20261103000100_felt_map.sql` (app_pings + felt_maps for automatic felt maps, server-only; pg_cron job `app-pings-retention` deletes pings after 7 days) | Applied |
 | Security advisor | Clean apart from the intentional "RLS enabled, no policy" on `felt_reports` |
 | Vercel env `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY` (publishable key) | Added for Production, Preview, Development |
 | Vercel ↔ Supabase integration (`STORAGE_` variables, incl. the secret key) | Connected by you |
