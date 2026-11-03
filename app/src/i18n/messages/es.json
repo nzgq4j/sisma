@@ -28,7 +28,6 @@
   "felt_q": "¿Lo sentiste?",
   "felt_it": "Lo sentí",
   "report_error": "No se pudo enviar tu reporte. Inténtalo de nuevo.",
-  "report_window": "Los reportes están abiertos 6 horas después de un sismo.",
   "show_region": "Mostrar región",
   "exit_region": "Volver al mapa mundial",
   "felt_reports_n": "{n} reportes · ubicaciones aproximadas",
@@ -403,5 +402,7 @@
     "label": "Sismo",
     "nearby": "Otros eventos, últimos 7 días",
     "disclaimer": "No es un servicio oficial de alertas. Sigue a tus autoridades locales."
-  }
+  },
+  "sisma_reports_1": "1 persona informó en sisma que lo sintió",
+  "sisma_reports_n": "{n} personas informaron en sisma que lo sintieron"
 }

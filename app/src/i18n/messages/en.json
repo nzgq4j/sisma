@@ -28,7 +28,6 @@
   "felt_q": "Felt it?",
   "felt_it": "I felt it",
   "report_error": "Couldn’t send your report. Please try again.",
-  "report_window": "Reports are open for 6 hours after a quake.",
   "show_region": "Show region",
   "exit_region": "Back to world map",
   "felt_reports_n": "{n} felt reports · approximate locations",
@@ -403,5 +402,7 @@
     "label": "Earthquake",
     "nearby": "Other events, last 7 days",
     "disclaimer": "Not an official warning service. Follow your local authorities."
-  }
+  },
+  "sisma_reports_1": "1 person reported feeling this in sisma",
+  "sisma_reports_n": "{n} people reported feeling this in sisma"
 }

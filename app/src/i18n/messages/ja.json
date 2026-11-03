@@ -28,7 +28,6 @@
   "felt_q": "揺れた？",
   "felt_it": "揺れを感じた",
   "report_error": "報告を送信できませんでした。もう一度お試しください。",
-  "report_window": "報告は地震発生から6時間受け付けています。",
   "show_region": "周辺を表示",
   "exit_region": "世界地図に戻る",
   "felt_reports_n": "揺れの報告 {n} 件 · おおよその位置",
@@ -403,5 +402,7 @@
     "label": "地震",
     "nearby": "その他の地震（過去7日間）",
     "disclaimer": "公式の警報サービスではありません。地元当局の指示に従ってください。"
-  }
+  },
+  "sisma_reports_1": "sismaで1人が揺れを報告しました",
+  "sisma_reports_n": "sismaで{n}人が揺れを報告しました"
 }

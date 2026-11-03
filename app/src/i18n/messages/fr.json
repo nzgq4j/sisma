@@ -28,7 +28,6 @@
   "felt_q": "Ressenti ?",
   "felt_it": "Je l’ai ressenti",
   "report_error": "Impossible d’envoyer votre témoignage. Réessayez.",
-  "report_window": "Les témoignages sont ouverts pendant 6 heures après un séisme.",
   "show_region": "Afficher la région",
   "exit_region": "Retour à la carte du monde",
   "felt_reports_n": "{n} témoignages · positions approximatives",
@@ -403,5 +402,7 @@
     "label": "Séisme",
     "nearby": "Autres événements, 7 derniers jours",
     "disclaimer": "Pas un service d'alerte officiel. Suivez les autorités locales."
-  }
+  },
+  "sisma_reports_1": "1 personne a signalé sur sisma l’avoir ressenti",
+  "sisma_reports_n": "{n} personnes ont signalé sur sisma l’avoir ressenti"
 }

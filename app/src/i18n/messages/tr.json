@@ -28,7 +28,6 @@
   "felt_q": "Hissettin mi?",
   "felt_it": "Hissettim",
   "report_error": "Raporunuz gönderilemedi. Lütfen tekrar deneyin.",
-  "report_window": "Raporlar depremden sonra 6 saat açıktır.",
   "show_region": "Bölgeyi göster",
   "exit_region": "Dünya haritasına dön",
   "felt_reports_n": "{n} hissetme raporu · yaklaşık konumlar",
@@ -403,5 +402,7 @@
     "label": "Deprem",
     "nearby": "Diğer olaylar, son 7 gün",
     "disclaimer": "Resmî bir uyarı servisi değildir. Yerel yetkilileri takip edin."
-  }
+  },
+  "sisma_reports_1": "sisma'da 1 kişi hissettiğini bildirdi",
+  "sisma_reports_n": "sisma'da {n} kişi hissettiğini bildirdi"
 }

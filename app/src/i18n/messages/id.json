@@ -28,7 +28,6 @@
   "felt_q": "Terasa?",
   "felt_it": "Saya merasakannya",
   "report_error": "Laporan Anda gagal dikirim. Silakan coba lagi.",
-  "report_window": "Laporan dibuka selama 6 jam setelah gempa.",
   "show_region": "Tampilkan wilayah",
   "exit_region": "Kembali ke peta dunia",
   "felt_reports_n": "{n} laporan · lokasi perkiraan",
@@ -403,5 +402,7 @@
     "label": "Gempa bumi",
     "nearby": "Kejadian lain, 7 hari terakhir",
     "disclaimer": "Bukan layanan peringatan resmi. Ikuti otoritas setempat."
-  }
+  },
+  "sisma_reports_1": "1 orang melaporkan merasakannya di sisma",
+  "sisma_reports_n": "{n} orang melaporkan merasakannya di sisma"
 }
