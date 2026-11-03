@@ -34,5 +34,9 @@ export const SCIENCE_PALETTE = {
 };
 export type SciencePalette = (typeof SCIENCE_PALETTE)['light'];
 
+/** 2D maps (Map tab, dashboard) in dark mode: dark blue water, dark green land, muted green borders. Mirrored in
+ *  components/dash/dash.module.css (.mapWrap); the globe keeps THEME.dark.mapSea / mapLand. */
+export const FLAT_MAP_DARK = { sea: '#0C1E36', land: '#173A2A', line: '#4F7D68' } as const;
+
 /** Automatic felt-map heat ramp (weak → strong surge of app activity after a quake). */
 export const HEAT_COLORS = ['#FFD166', '#FFA94D', '#FF7A59', '#EE4266'] as const;

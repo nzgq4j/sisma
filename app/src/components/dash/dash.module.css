@@ -71,6 +71,9 @@ button.kpi:hover:not(:disabled) { box-shadow: inset 0 0 0 2px var(--violet-soft)
 /* Map */
 .mapCard { padding: 0; overflow: hidden; position: relative; aspect-ratio: 1.9 / 1; min-height: 340px; max-height: 72vh; }
 .mapWrap { position: absolute; inset: 0; }
+/* Dark mode, 2D maps only: dark blue water, dark green land (theme.ts FLAT_MAP_DARK). The globe keeps the shared colours. */
+:global(:root[data-theme="dark"]) .mapWrap { --map-sea: #0C1E36; --map-land: #173A2A; --map-line: #4F7D68; }
+@media (prefers-color-scheme: dark) { :global(:root:not([data-theme="light"])) .mapWrap { --map-sea: #0C1E36; --map-land: #173A2A; --map-line: #4F7D68; } }
 .mapSvg { display: block; cursor: grab; touch-action: none; }
 .mapSvg:active { cursor: grabbing; }
 .dot { cursor: pointer; }
