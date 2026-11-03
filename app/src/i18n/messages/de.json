@@ -284,7 +284,6 @@
     "cancel": "Abbrechen",
     "active": "Aktiv",
     "anywhere": "Weltweit",
-    "alerts_soon": "Benachrichtigungen für Warnungen kommen bald. Deine Einstellungen sind gespeichert.",
     "my_location": "Mein Standort",
     "use_location": "Aktuellen Standort verwenden",
     "loc_denied": "Der Standortzugriff ist ausgeschaltet. Du kannst ihn in den Browser- oder Geräteeinstellungen aktivieren.",
@@ -403,5 +402,24 @@
     "nearby": "Weitere Ereignisse, letzte 7 Tage",
     "disclaimer": "Kein offizieller Warndienst. Folge den Anweisungen der Behörden vor Ort."
   },
-  "felt_by_1": "1 Person hat es gespürt"
+  "felt_by_1": "1 Person hat es gespürt",
+  "notif": {
+    "title_near": "Erdbeben M{mag} · {dist} von {place}",
+    "title_any": "Erdbeben M{mag}",
+    "body": "{region} · {depth} tief",
+    "test_title": "sisma-Testalarm",
+    "test_body": "Alarme funktionieren auf diesem Gerät.",
+    "coverage": "Alarme gelten für Erdbeben in der Nähe eines deiner gespeicherten Orte.",
+    "need_location": "Füge unten einen Ort hinzu: Alarme gelten für Erdbeben in der Nähe deiner gespeicherten Orte.",
+    "device_on": "Dieses Gerät erhält Alarme.",
+    "device_enable": "Mitteilungen auf diesem Gerät einschalten",
+    "device_blocked": "Mitteilungen von sisma sind in den Einstellungen dieses Browsers blockiert.",
+    "device_unsupported": "Dieser Browser kann keine Mitteilungen empfangen.",
+    "device_ios": "Auf iPhone und iPad füge sisma zuerst zum Home-Bildschirm hinzu (Teilen → Zum Home-Bildschirm) und öffne es von dort.",
+    "device_app_update": "Aktualisiere die sisma-App, um auf diesem Handy Alarme zu erhalten.",
+    "device_error": "Mitteilungen konnten auf diesem Gerät nicht eingeschaltet werden. Bitte versuche es erneut.",
+    "test": "Testalarm senden",
+    "test_sent": "Testalarm gesendet",
+    "test_failed": "Testalarm konnte nicht gesendet werden."
+  }
 }

@@ -3,6 +3,7 @@
 // profile row and effective plan.
 // Guest mode when Supabase isn't configured or nobody is signed in. Paid features are re-checked on the server
 // (/api routes and public.effective_plan()); the plan here only drives the UI.
+import { disablePush } from '@/lib/push-client';
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { enabledProviders, supabaseBrowser } from '@/lib/supabase-browser';
@@ -91,7 +92,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     plan: effectivePlan(profile ? { plan: profile.plan, subscription_status: profile.subscription_status, trial_ends_at: profile.trial_ends_at } : null),
     savePrefs,
     accessToken: async () => (sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null),
-    signOut: async () => { await sb?.auth.signOut(); },
+    // Remove this device from the account's alert devices first (needs the session), then sign out.
+    signOut: async () => { await disablePush(sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null); await sb?.auth.signOut(); },
     openSignIn: () => setSignIn(true),
     openPassword: () => setPwOpen(true),
   }), [sb, ready, user, profile, savePrefs]);

@@ -66,9 +66,9 @@ A Firebase project is also a Google Cloud project, so you'll reuse it in steps 3
    - Skip the remaining "add the SDK" screens (Capacitor already includes it).
 3. ⚙ **Project settings** → **Cloud Messaging** tab → check that **Firebase Cloud Messaging API (V1)** says *Enabled*.
 4. ⚙ **Project settings** → **Service accounts** → **Generate new private key** → a `.json` file downloads.
-   **This is a secret.** It lets a server send notifications. Store it in your password manager. When we build alerts
-   (build step 9), you'll paste its contents into **Supabase → Edge Functions → Secrets** as `FCM_SERVICE_ACCOUNT`.
-   Don't send it to me; I'll give you the exact field.
+   **This is a secret.** It lets a server send notifications. Store it in your password manager, then paste the whole
+   file's contents into **Vercel → sisma → Settings → Environment Variables** as `FCM_SERVICE_ACCOUNT`
+   (Production, **Sensitive**) and redeploy. Don't send it to me. Full alert setup: docs/alerts-setup.md.
 
 ## 3. Google Cloud — let sisma's server check Play subscriptions
 
@@ -236,7 +236,7 @@ key yourself, because it must stay on your machine.
 | Item | Secret? | Where it goes |
 | --- | --- | --- |
 | `google-services.json` | No (keep private) | `mobile/android/app/` |
-| Firebase service account JSON | **Yes** | Supabase → Edge Functions → Secrets (`FCM_SERVICE_ACCOUNT`) |
+| Firebase service account JSON | **Yes** | Vercel env `FCM_SERVICE_ACCOUNT` (Production, Sensitive) |
 | Play service account JSON | **Yes** | Vercel env `PLAY_SERVICE_ACCOUNT_JSON` (Production, Sensitive) |
 | Google OAuth client secret | **Yes** | Supabase → Auth → Providers → Google only |
 | Upload keystore `.jks` + passwords | **Yes** | Your password manager + backup only |

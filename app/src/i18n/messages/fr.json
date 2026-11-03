@@ -284,7 +284,6 @@
     "cancel": "Annuler",
     "active": "Actif",
     "anywhere": "Monde entier",
-    "alerts_soon": "Les notifications d’alerte arrivent bientôt. Vos réglages sont enregistrés.",
     "my_location": "Ma position",
     "use_location": "Utiliser ma position actuelle",
     "loc_denied": "L’accès à la position est désactivé. Vous pouvez l’activer dans les réglages du navigateur ou de l’appareil.",
@@ -403,5 +402,24 @@
     "nearby": "Autres événements, 7 derniers jours",
     "disclaimer": "Pas un service d'alerte officiel. Suivez les autorités locales."
   },
-  "felt_by_1": "1 personne l’a ressenti"
+  "felt_by_1": "1 personne l’a ressenti",
+  "notif": {
+    "title_near": "Séisme M{mag} · à {dist} de {place}",
+    "title_any": "Séisme M{mag}",
+    "body": "{region} · {depth} de profondeur",
+    "test_title": "Alerte de test sisma",
+    "test_body": "Les alertes fonctionnent sur cet appareil.",
+    "coverage": "Les alertes concernent les séismes proches de l’un de vos lieux enregistrés.",
+    "need_location": "Ajoutez un lieu enregistré ci-dessous : les alertes concernent les séismes proches de vos lieux.",
+    "device_on": "Cet appareil recevra les alertes.",
+    "device_enable": "Activer les notifications sur cet appareil",
+    "device_blocked": "Les notifications de sisma sont bloquées dans les réglages de ce navigateur.",
+    "device_unsupported": "Ce navigateur ne peut pas recevoir de notifications.",
+    "device_ios": "Sur iPhone et iPad, ajoutez d’abord sisma à l’écran d’accueil (Partager → Sur l’écran d’accueil), puis ouvrez-le depuis là.",
+    "device_app_update": "Mettez à jour l’app sisma pour recevoir les alertes sur ce téléphone.",
+    "device_error": "Impossible d’activer les notifications sur cet appareil. Réessayez.",
+    "test": "Envoyer une alerte de test",
+    "test_sent": "Alerte de test envoyée",
+    "test_failed": "Impossible d’envoyer l’alerte de test."
+  }
 }

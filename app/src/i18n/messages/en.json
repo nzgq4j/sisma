@@ -284,7 +284,6 @@
     "cancel": "Cancel",
     "active": "Active",
     "anywhere": "Global",
-    "alerts_soon": "Alert notifications are coming soon. Your settings are saved.",
     "my_location": "My location",
     "use_location": "Use my current location",
     "loc_denied": "Location access is off. You can turn it on in your browser or device settings.",
@@ -403,5 +402,24 @@
     "nearby": "Other events, last 7 days",
     "disclaimer": "Not an official warning service. Follow your local authorities."
   },
-  "felt_by_1": "1 person reported feeling this"
+  "felt_by_1": "1 person reported feeling this",
+  "notif": {
+    "title_near": "M{mag} earthquake · {dist} from {place}",
+    "title_any": "M{mag} earthquake",
+    "body": "{region} · {depth} deep",
+    "test_title": "sisma test alert",
+    "test_body": "Alerts are working on this device.",
+    "coverage": "Alerts cover quakes near any of your saved locations.",
+    "need_location": "Add a saved location below: alerts are for quakes near your saved places.",
+    "device_on": "This device will receive alerts.",
+    "device_enable": "Turn on notifications on this device",
+    "device_blocked": "Notifications for sisma are blocked in this browser’s settings.",
+    "device_unsupported": "This browser can’t receive notifications.",
+    "device_ios": "On iPhone and iPad, add sisma to the Home Screen first (Share → Add to Home Screen), then open it from there.",
+    "device_app_update": "Update the sisma app to receive alerts on this phone.",
+    "device_error": "Couldn’t turn on notifications on this device. Please try again.",
+    "test": "Send a test alert",
+    "test_sent": "Test alert sent",
+    "test_failed": "Couldn’t send a test alert."
+  }
 }

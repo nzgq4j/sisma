@@ -284,7 +284,6 @@
     "cancel": "İptal",
     "active": "Etkin",
     "anywhere": "Tüm dünya",
-    "alerts_soon": "Uyarı bildirimleri yakında geliyor. Ayarların kaydedildi.",
     "my_location": "Konumum",
     "use_location": "Mevcut konumumu kullan",
     "loc_denied": "Konum erişimi kapalı. Tarayıcı veya cihaz ayarlarından açabilirsin.",
@@ -403,5 +402,24 @@
     "nearby": "Diğer olaylar, son 7 gün",
     "disclaimer": "Resmî bir uyarı servisi değildir. Yerel yetkilileri takip edin."
   },
-  "felt_by_1": "1 kişi hissettiğini bildirdi"
+  "felt_by_1": "1 kişi hissettiğini bildirdi",
+  "notif": {
+    "title_near": "M{mag} deprem · {place} konumuna {dist}",
+    "title_any": "M{mag} deprem",
+    "body": "{region} · {depth} derinlik",
+    "test_title": "sisma test uyarısı",
+    "test_body": "Uyarılar bu cihazda çalışıyor.",
+    "coverage": "Uyarılar kayıtlı konumlarınızdan herhangi birine yakın depremleri kapsar.",
+    "need_location": "Aşağıdan bir konum kaydedin: uyarılar kayıtlı yerlerinize yakın depremler içindir.",
+    "device_on": "Bu cihaz uyarı alacak.",
+    "device_enable": "Bu cihazda bildirimleri aç",
+    "device_blocked": "sisma bildirimleri bu tarayıcının ayarlarında engellenmiş.",
+    "device_unsupported": "Bu tarayıcı bildirim alamıyor.",
+    "device_ios": "iPhone ve iPad’de önce sisma’yı Ana Ekran’a ekleyin (Paylaş → Ana Ekrana Ekle), sonra oradan açın.",
+    "device_app_update": "Bu telefonda uyarı almak için sisma uygulamasını güncelleyin.",
+    "device_error": "Bu cihazda bildirimler açılamadı. Lütfen tekrar deneyin.",
+    "test": "Test uyarısı gönder",
+    "test_sent": "Test uyarısı gönderildi",
+    "test_failed": "Test uyarısı gönderilemedi."
+  }
 }

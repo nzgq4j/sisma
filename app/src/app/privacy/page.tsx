@@ -48,7 +48,7 @@ export default function PrivacyPage() {
             <tr><td><strong>Plan and subscription status</strong>, and the customer/subscription IDs from Stripe or Google Play</td><td>You start a trial or subscription</td><td>To provide sisma+</td><td>Until you delete your account (Stripe and Google Play keep their own payment records as tax law requires)</td></tr>
             <tr><td><strong>Felt reports</strong>: the earthquake, how strong it felt, your optional answers and note (up to 500 characters), app language, and — only if you allowed location — your position rounded to about 10 km</td><td>You tap “I felt it” and send a report</td><td>To show, in aggregate, where and how strongly an earthquake was felt</td><td>Kept as an anonymous record. Reports are <em>not</em> linked to your account, name or email, so please don’t write personal details in the note</td></tr>
             <tr><td><strong>Approximate position for felt maps</strong>: a point up to 500 m from where you are (blurred on your device before it is sent) and the time — nothing else</td><td>While the app is open and you have allowed location, about once a minute, unless you turn it off in Me</td><td>To map, from the rush of app use after an earthquake, where it was probably felt. Only areas of about 10 km with at least 3 people are ever shown</td><td>Deleted after 7 days. Not linked to your account, device or IP address; never shared or used for anything else</td></tr>
-            <tr><td><strong>Push notification token</strong> (Android app)</td><td>When push alerts are available and you turn them on</td><td>To deliver your alerts to your phone</td><td>Until you turn alerts off, uninstall, or delete your account</td></tr>
+            <tr><td><strong>Push notification token</strong> (Android app or browser), with the device’s language and distance units</td><td>You turn on notifications for a device in Me → Alerts</td><td>To deliver your alerts to that device, in its language</td><td>Until you sign out on that device, the token stops working, or you delete your account</td></tr>
             <tr><td><strong>Technical logs</strong>: IP address, browser/device type, the page or address requested, time</td><td>Whenever you use sisma</td><td>To run the service securely and fix problems</td><td>Kept by our hosting and database providers for a limited period (typically days to a few weeks)</td></tr>
           </tbody>
         </table>
@@ -95,6 +95,7 @@ export default function PrivacyPage() {
         <li><strong>Resend</strong> — sends sign-in and account emails.</li>
         <li><strong>Stripe</strong> — website payments (independent controller for payment data).</li>
         <li><strong>Google</strong> — sign-in with Google (if you choose it), Google Play billing and Firebase Cloud Messaging in the Android app; Google Fonts delivers the icon font, so your browser contacts Google’s servers, which receive your IP address.</li>
+        <li><strong>Your browser’s push service</strong> (for example Google for Chrome, Mozilla for Firefox, Apple for Safari) — delivers alerts to browsers where you turned notifications on; it receives the encrypted alert and the device’s push address.</li>
         <li><strong>OpenStreetMap Foundation</strong> — place search (receives the search text from our server, not your IP address).</li>
       </ul>
       <p>

@@ -4,6 +4,7 @@
 // Appearance, data sources and the disclaimer. Desktop (>= 1024px): two columns — account on the left, settings right.
 // Skeleton status: sign-in, profile, plan, alert settings, language and appearance are live; saved locations are
 // device-only, push delivery (build step 9) and billing (step 8) are not wired yet.
+import { usePushDevice } from '@/components/PushDevice';
 import { useEffect, useState } from 'react';
 import { useT, LOCALES } from '@/i18n/I18nProvider';
 import { useApp, type LocateResult } from '@/components/AppState';
@@ -108,11 +109,40 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
   );
 }
 
+/** This device's alert notifications: status, a button to turn them on, and a test alert. */
+function AlertDevice() {
+  const { m } = useT();
+  const n = m.notif;
+  const push = usePushDevice();
+  const msg: Record<string, string | null> = {
+    checking: null, on: n.device_on, off: null, blocked: n.device_blocked, unsupported: n.device_unsupported,
+    ios: n.device_ios, app_update: n.device_app_update, error: n.device_error,
+  };
+  return (
+    <div className={styles.deviceRow} aria-live="polite">
+      {msg[push.state] && <p className={push.state === 'on' ? styles.okLine : styles.hint}>{push.state === 'on' && <span className="ms" aria-hidden="true">check_circle</span>}{msg[push.state]}</p>}
+      {(push.state === 'off' || push.state === 'error') && (
+        <button type="button" className={styles.smallBtn} onClick={() => void push.enable()} disabled={push.busy}>
+          <span className="ms" aria-hidden="true">notifications</span>{n.device_enable}
+        </button>
+      )}
+      {push.state === 'on' && (
+        <button type="button" className={styles.smallBtn} onClick={() => void push.test()} disabled={push.busy || push.tested === 'sent'}>
+          <span className="ms" aria-hidden="true">{push.tested === 'sent' ? 'check' : 'send'}</span>
+          {push.tested === 'sent' ? n.test_sent : n.test}
+        </button>
+      )}
+      {push.tested === 'failed' && <p className={styles.errLine} role="alert">{n.test_failed}</p>}
+    </div>
+  );
+}
+
 function Alerts({ onLocked }: { onLocked: () => void }) {
   const { t, m, nf } = useT();
   const u = useDistance();
-  const { plan } = useApp();
+  const { plan, places } = useApp();
   const { user } = useAccount();
+  const push = usePushDevice();
   const [s, setS] = useState({ enabled: false, min_magnitude: 5, radius_km: 500 });
   const [saveError, setSaveError] = useState(false);
 
@@ -137,7 +167,12 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
       <div className={styles.sectionLabel}>{t('alerts')}</div>
       <div className={styles.card}>
         <button type="button" className={styles.row} role={plan === 'plus' ? 'switch' : undefined} aria-checked={plan === 'plus' ? s.enabled : undefined}
-          onClick={() => (plan === 'plus' ? update({ enabled: !s.enabled }) : onLocked())}>
+          onClick={() => {
+            if (plan !== 'plus') { onLocked(); return; }
+            // Turning alerts on also asks this device for notification permission (it has to come from a tap).
+            if (!s.enabled && push.state === 'off') void push.enable();
+            update({ enabled: !s.enabled });
+          }}>
           <span className="ms" aria-hidden="true">notifications_active</span>
           <span className={styles.grow}>{t('push')}</span>
           {plan === 'plus' ? <span className={styles.switch} aria-hidden="true"><span /></span> : <Lock />}
@@ -155,7 +190,8 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
                 </button>
               ))}
             </div>
-            <p className={styles.hint}>{m.acct.alerts_soon}</p>
+            <p className={styles.hint}>{places.length ? m.notif.coverage : m.notif.need_location}</p>
+            <AlertDevice />
           </div>
         )}
         {saveError && <p className={styles.errLine} role="alert">{m.acct.error}</p>}
