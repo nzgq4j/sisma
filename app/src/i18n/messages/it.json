@@ -403,6 +403,5 @@
     "nearby": "Altri eventi, ultimi 7 giorni",
     "disclaimer": "Non è un servizio di allerta ufficiale. Segui le autorità locali."
   },
-  "sisma_reports_1": "1 persona ha segnalato su sisma di averlo avvertito",
-  "sisma_reports_n": "{n} persone hanno segnalato su sisma di averlo avvertito"
+  "felt_by_1": "1 persona l’ha avvertito"
 }

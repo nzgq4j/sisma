@@ -403,6 +403,5 @@
     "nearby": "Outros eventos, últimos 7 dias",
     "disclaimer": "Não é um serviço oficial de alertas. Siga as autoridades locais."
   },
-  "sisma_reports_1": "1 pessoa relatou no sisma que o sentiu",
-  "sisma_reports_n": "{n} pessoas relataram no sisma que o sentiram"
+  "felt_by_1": "1 pessoa relatou ter sentido"
 }

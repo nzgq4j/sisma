@@ -73,8 +73,10 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
   const router = useRouter();
   const { country, countryName, date, time } = useQuakeFacts(q);
   const [shareOpen, setShareOpen] = useState(false);
-  // People who reported feeling it in sisma (shown only when there are any).
+  // One number: felt reports sent in sisma plus those the agencies publish (USGS "Did You Feel It?").
+  // Shown only when there is at least one.
   const reports = useFeltCells(q.id);
+  const feltTotal = reports.total + (q.felt ?? 0);
   const shareText = `M${q.mag.toFixed(1)} · ${q.region} · ${date} ${time}`;
 
   return (
@@ -113,13 +115,12 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
         </button>
       </div>
       <FeltButton q={q} variant="block" />
-      {reports.total > 0 && (
-        <p className={styles.felt}><span className="ms" aria-hidden="true">pin_drop</span>
-          <FitLine>{reports.total === 1 ? t('sisma_reports_1') : t('sisma_reports_n', { n: nf.format(reports.total) })}</FitLine>
+      {feltTotal > 0 && (
+        <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span>
+          <FitLine>{feltTotal === 1 ? t('felt_by_1') : t('felt_by', { n: nf.format(feltTotal) })}</FitLine>
         </p>
       )}
       <ShareCardSheet q={q} open={shareOpen} onClose={() => setShareOpen(false)} path={regionHref(q.id)} text={shareText} />
-      {!!q.felt && <p className={styles.felt}><span className="ms" aria-hidden="true">vibration</span><FitLine>{t('felt_by', { n: nf.format(q.felt) })} · USGS</FitLine></p>}
     </>
   );
 }

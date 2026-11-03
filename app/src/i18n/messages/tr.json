@@ -403,6 +403,5 @@
     "nearby": "Diğer olaylar, son 7 gün",
     "disclaimer": "Resmî bir uyarı servisi değildir. Yerel yetkilileri takip edin."
   },
-  "sisma_reports_1": "sisma'da 1 kişi hissettiğini bildirdi",
-  "sisma_reports_n": "sisma'da {n} kişi hissettiğini bildirdi"
+  "felt_by_1": "1 kişi hissettiğini bildirdi"
 }

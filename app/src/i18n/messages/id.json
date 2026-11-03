@@ -403,6 +403,5 @@
     "nearby": "Kejadian lain, 7 hari terakhir",
     "disclaimer": "Bukan layanan peringatan resmi. Ikuti otoritas setempat."
   },
-  "sisma_reports_1": "1 orang melaporkan merasakannya di sisma",
-  "sisma_reports_n": "{n} orang melaporkan merasakannya di sisma"
+  "felt_by_1": "1 orang melaporkan merasakannya"
 }

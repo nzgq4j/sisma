@@ -403,6 +403,5 @@
     "nearby": "Other events, last 7 days",
     "disclaimer": "Not an official warning service. Follow your local authorities."
   },
-  "sisma_reports_1": "1 person reported feeling this in sisma",
-  "sisma_reports_n": "{n} people reported feeling this in sisma"
+  "felt_by_1": "1 person reported feeling this"
 }

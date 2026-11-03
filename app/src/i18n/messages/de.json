@@ -403,6 +403,5 @@
     "nearby": "Weitere Ereignisse, letzte 7 Tage",
     "disclaimer": "Kein offizieller Warndienst. Folge den Anweisungen der Behörden vor Ort."
   },
-  "sisma_reports_1": "1 Person hat in sisma gemeldet, es gespürt zu haben",
-  "sisma_reports_n": "{n} Personen haben in sisma gemeldet, es gespürt zu haben"
+  "felt_by_1": "1 Person hat es gespürt"
 }

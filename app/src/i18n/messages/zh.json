@@ -403,6 +403,5 @@
     "nearby": "其他地震（过去 7 天）",
     "disclaimer": "非官方预警服务。请遵循当地政府的指示。"
   },
-  "sisma_reports_1": "1 人在 sisma 上报告有感",
-  "sisma_reports_n": "{n} 人在 sisma 上报告有感"
+  "felt_by_1": "1 人报告有震感"
 }
