@@ -40,3 +40,6 @@
 .done p { margin: 0; font-size: 15px; color: var(--ink2); max-width: 260px; }
 .doneIcon { width: 72px; height: 72px; border-radius: 36px; background: var(--mint-soft); color: var(--mint-text); display: flex; align-items: center; justify-content: center; }
 .doneIcon :global(.ms) { font-size: 40px; }
+.info { display: flex; flex-direction: column; gap: 10px; padding: 0 0 8px; }
+.info p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink); text-wrap: pretty; }
+.infoNote { color: var(--ink2) !important; font-size: 14px !important; }

@@ -9,7 +9,8 @@ import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
-import { MMI_COLORS, magColor } from '@/lib/theme';
+import { HEAT_COLORS, MMI_COLORS, magColor } from '@/lib/theme';
+import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
@@ -22,13 +23,15 @@ export const dotRadius = (mag: number) => Math.max(2.4, (mag - 1.6) * 2.1);
 
 export interface MapFocus { key: string; lat: number; lon: number; zoom: number }
 
-export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, cells = [], onReset }: {
+export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, cells = [], heat = [], onReset }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   projection?: 'equalEarth' | 'mercator'; plates?: boolean; pin?: boolean; controls?: boolean; toolsClassName?: string;
   /** Zoom to this point (changing `key` re-applies it). */
   focus?: MapFocus | null;
   /** Felt reports as ~10 km cells, drawn as soft, blurred areas so no exact position is implied. */
   cells?: FeltCell[];
+  /** Automatic felt map (lib/feltmap.ts): ~10 km cells weighted 0–1 by the surge of app activity after the quake. */
+  heat?: HeatCell[];
   /** Called when the reset-view button is pressed (e.g. to leave a focused region). */
   onReset?: () => void;
 }) {
@@ -113,6 +116,11 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const a = project(c.lon, c.lat), b = project(c.lon, Math.min(89, c.lat + 0.09));
     return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
   }), [cells, project]);
+  const heatSpots = useMemo(() => heat.flatMap(c => {
+    const a = project(c.lon, c.lat), b = project(c.lon, Math.min(89, c.lat + 0.09));
+    return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
+  }), [heat, project]);
+  const overlay = blobs.length > 0 || heatSpots.length > 0;
   const rScale = 1 / Math.sqrt(k);
 
   const zoomBy = (f: number) => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.scaleBy, f); };
@@ -129,10 +137,18 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {plates && plateData && (
         <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />
       )}
+      {heatSpots.length > 0 && (
+        <g aria-hidden="true" pointerEvents="none">
+          {heatSpots.map(h => (
+            <circle key={`h${h.lat},${h.lon}`} cx={h.x} cy={h.y} r={Math.max(h.geoR * 1.8, 24 / k) * (0.8 + 0.6 * h.w)}
+              fill={`url(#${gid}heat${Math.min(HEAT_COLORS.length - 1, Math.floor(h.w * HEAT_COLORS.length))})`} />
+          ))}
+        </g>
+      )}
       <g aria-hidden="true">
         {dots.map(({ q, xy }) => (
           <circle key={q.id} cx={xy[0]} cy={xy[1]} r={dotRadius(q.mag) * rScale}
-            fill={magColor(q.mag).fill} fillOpacity={blobs.length && q.id !== selectedId ? 0.25 : 0.88} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke"
+            fill={magColor(q.mag).fill} fillOpacity={overlay && q.id !== selectedId ? 0.25 : 0.88} stroke="var(--surface)" strokeWidth={0.8} vectorEffect="non-scaling-stroke"
             className={styles.dot}
             onPointerEnter={e => { if (e.pointerType !== 'mouse') return; const b = wrapRef.current!.getBoundingClientRect(); setHover({ q, x: e.clientX - b.left, y: e.clientY - b.top }); }}
             onClick={e => { e.stopPropagation(); onSelect(q); }} />
@@ -167,8 +183,15 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {size.w > 0 && (
         <svg ref={svgRef} width={size.w} height={size.h} role="img" aria-label={t('count', { n: quakes.length })} className={styles.mapSvg}
           style={{ background: 'var(--map-sea)' }} onClick={() => selectedId && onSelect(null)}>
-          {blobs.length > 0 && (
+          {overlay && (
             <defs>
+              {HEAT_COLORS.map((c, i) => (
+                <radialGradient key={`h${i}`} id={`${gid}heat${i}`}>
+                  <stop offset="0%" stopColor={c} stopOpacity={0.8} />
+                  <stop offset="55%" stopColor={c} stopOpacity={0.5} />
+                  <stop offset="100%" stopColor={c} stopOpacity={0} />
+                </radialGradient>
+              ))}
               {MMI_COLORS.map((c, i) => (
                 <radialGradient key={i} id={`${gid}felt${i + 1}`}>
                   <stop offset="0%" stopColor={c} stopOpacity={0.75} />

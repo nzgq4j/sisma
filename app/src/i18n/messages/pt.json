@@ -354,7 +354,7 @@
     "lang_p": "Você pode mudar quando quiser em Eu.",
     "loc_h": "Veja o que está perto de você",
     "loc_p": "Sua localização mostra os terremotos mais próximos e a distância deles, e permite relatar um tremor que você sentiu.",
-    "loc_privacy": "Sua localização fica neste dispositivo. Os relatos são arredondados para cerca de 10 km.",
+    "loc_privacy": "O sisma nunca guarda sua localização exata. Com o app aberto, ele pode compartilhar uma posição aproximada e anônima (deslocada em até 500 m) para mapear onde os tremores são sentidos — você pode desativar em Eu.",
     "loc_use": "Usar minha localização",
     "loc_later": "Agora não",
     "imp_h": "Importante",
@@ -371,5 +371,18 @@
   "link_copied": "Link copiado",
   "depth_deep": "{n} km de profundidade",
   "mag_chip": "Magnitude",
-  "all_mags": "Todas as magnitudes"
+  "all_mags": "Todas as magnitudes",
+  "feltmap": {
+    "title": "Como funcionam os mapas de percepção",
+    "how_1": "Os mapas de percepção são criados automaticamente a partir do uso do sisma nos 3 minutos após um terremoto. Quando um tremor é sentido, as pessoas próximas abrem o app ao mesmo tempo, e esse pico de atividade mostra onde provavelmente foi sentido.",
+    "how_2": "Enquanto o sisma está aberto e você permitiu a localização, ele pode enviar uma posição aproximada aos nossos servidores cerca de uma vez por minuto. Antes de sair do seu dispositivo, ela é deslocada aleatoriamente em até 500 m e não leva identificador de conta, dispositivo ou IP.",
+    "how_3": "Só mostramos áreas de cerca de 10 km onde pelo menos 3 pessoas abriram o app mais do que o normal, então nada no mapa pode ser ligado a uma pessoa. As posições são apagadas após 7 dias, nunca compartilhadas e não usadas para mais nada.",
+    "how_4": "Você pode desativar isso quando quiser em Eu. Os mapas de percepção são uma estimativa, não um mapa oficial de intensidade.",
+    "toggle": "Ajudar a mapear onde os tremores são sentidos",
+    "toggle_hint": "Com o app aberto, compartilhe uma posição aproximada e anônima (deslocada em até 500 m). Só com a localização permitida.",
+    "line_collecting": "Mapa de percepção: coletando atividade (primeiros 3 minutos)…",
+    "line_areas": "Mapa de percepção: provavelmente sentido em {n} áreas",
+    "line_areas_1": "Mapa de percepção: provavelmente sentido em 1 área",
+    "line_none": "Mapa de percepção: pouca atividade por perto"
+  }
 }

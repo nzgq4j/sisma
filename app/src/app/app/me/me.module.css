@@ -99,3 +99,5 @@ div.row { cursor: default; }
   .desktopOnly { display: block; }
   .phoneOnly { display: none; }
 }
+.rowHint { display: block; font-size: 13px; font-weight: 500; color: var(--ink2); line-height: 1.4; margin: 2px 0 10px; }
+.row:has(.rowHint) { padding-top: 10px; }

@@ -9,6 +9,7 @@ import { limits, type Plan } from '@/lib/entitlements';
 import type { PlaceHit } from '@/lib/places';
 import { supabaseBrowser } from '@/lib/supabase-browser';
 import { useAccount } from './Account';
+import { usePresencePings } from './FeltMap';
 
 export interface SavedLocation {
   /** 'device', a saved place id, or 'default' for the example location shown before any is set. */
@@ -118,6 +119,9 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       { maximumAge: 300_000, timeout: 20_000 },
     ));
   }, []);
+
+  // Automatic felt maps: approximate position while the app is open (only with location allowed; Me can turn it off).
+  usePresencePings(device);
 
   // Never prompt on load (onboarding and Me ask with an explanation); only refresh when access was already granted.
   useEffect(() => {

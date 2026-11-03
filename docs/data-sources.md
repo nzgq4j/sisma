@@ -16,3 +16,5 @@ Plate boundaries: PB2002 (Bird, 2003) via github.com/fraxen/tectonicplates — b
 Lakes: Natural Earth 1:50m lakes (public domain) — bundled as app/public/data/lakes.json, built by app/scripts/build-lakes.mjs.
 
 Place search: Nominatim (OpenStreetMap data, ODbL) via app/src/app/api/places — search on submit only (no search-as-you-type), ≤ 1 request/s per server instance, results cached for a week, "© OpenStreetMap contributors" shown under the results. The public Nominatim service is for low volume; if usage grows, switch to a hosted geocoder by adding an adapter in app/src/lib/places.ts.
+
+Automatic felt maps (app/src/lib/feltmap.ts, /api/presence, /api/felt-map): built from sisma's own app activity — approximate positions (blurred ≤ 500 m on the device, no identifiers) sent while the app is open with location allowed. Per event: positions within the felt radius in the 180 s after the origin time vs the hour before, ~10 km cells, ≥ 3 people, surge ≥ 2. Raw positions deleted after 7 days. An estimate, not an intensity product.

@@ -48,3 +48,6 @@
 .feltLine { display: flex; align-items: center; gap: 8px; padding: 0 4px 2px; min-width: 0; }
 .feltScale { display: flex; gap: 2px; flex: none; }
 .feltScale i { width: 10px; height: 10px; border-radius: 5px; filter: blur(.5px); }
+.infoBtn { flex: none; width: 44px; height: 44px; margin: -12px -10px -12px auto; border: 0; background: transparent; color: var(--ink2); display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 22px; }
+.infoBtn :global(.ms) { font-size: 18px; }
+.infoBtn:hover { color: var(--violet-text); }

@@ -23,3 +23,6 @@ export const SCIENCE_PALETTE = {
   dark: { ink: '#F2EFFB', ink2: '#A9A2C6', a: '#8F74FF', b: '#3FE0AE', warm: '#FF8A6B', sand: '#A87F52', ocean: '#5B47D9', sea: '#1D4A42', floor: '#3A3260', mantle: '#221B3B', bands: ['#4A3D8A', '#7D6738', '#2F6E5C', '#7E4537', '#3A3260'], road: '#CFC8E8', lane: '#7D6738' },
 };
 export type SciencePalette = (typeof SCIENCE_PALETTE)['light'];
+
+/** Automatic felt-map heat ramp (weak → strong surge of app activity after a quake). */
+export const HEAT_COLORS = ['#FFD166', '#FFA94D', '#FF7A59', '#EE4266'] as const;

@@ -354,7 +354,7 @@
     "lang_p": "Du kannst sie jederzeit unter Ich ändern.",
     "loc_h": "Sieh, was in deiner Nähe passiert",
     "loc_p": "Mit deinem Standort siehst du die nächsten Erdbeben und ihre Entfernung und kannst ein gespürtes Beben melden.",
-    "loc_privacy": "Dein Standort bleibt auf diesem Gerät. Meldungen werden auf etwa 10 km gerundet.",
+    "loc_privacy": "sisma speichert nie deinen genauen Standort. Bei geöffneter App kann eine ungefähre, anonyme Position (um bis zu 500 m verschoben) geteilt werden, um Spürkarten zu erstellen – das kannst du unter Ich ausschalten.",
     "loc_use": "Meinen Standort verwenden",
     "loc_later": "Später",
     "imp_h": "Wichtig",
@@ -371,5 +371,18 @@
   "link_copied": "Link kopiert",
   "depth_deep": "{n} km tief",
   "mag_chip": "Magnitude",
-  "all_mags": "Alle Magnituden"
+  "all_mags": "Alle Magnituden",
+  "feltmap": {
+    "title": "So funktionieren Spürkarten",
+    "how_1": "Spürkarten entstehen automatisch daraus, wie sisma in den 3 Minuten nach einem Erdbeben genutzt wird. Wenn ein Beben gespürt wird, öffnen Menschen in der Nähe gleichzeitig die App – dieser Ansturm zeigt, wo es wahrscheinlich gespürt wurde.",
+    "how_2": "Solange sisma geöffnet ist und du den Standort erlaubt hast, kann die App etwa einmal pro Minute eine ungefähre Position an unsere Server senden. Bevor sie dein Gerät verlässt, wird sie zufällig um bis zu 500 m verschoben und enthält keine Konto-, Geräte- oder IP-Kennung.",
+    "how_3": "Wir zeigen nur Gebiete von etwa 10 km, in denen mindestens 3 Personen die App häufiger als sonst geöffnet haben – nichts auf der Karte lässt sich einer Person zuordnen. Positionen werden nach 7 Tagen gelöscht, nie weitergegeben und für nichts anderes verwendet.",
+    "how_4": "Du kannst das jederzeit unter Ich ausschalten. Spürkarten sind eine Schätzung, keine offizielle Intensitätskarte.",
+    "toggle": "Helfen, Spürkarten zu erstellen",
+    "toggle_hint": "Teilt bei geöffneter App eine ungefähre, anonyme Position (um bis zu 500 m verschoben). Nur mit erlaubtem Standort.",
+    "line_collecting": "Spürkarte: App-Aktivität wird gesammelt (erste 3 Minuten) …",
+    "line_areas": "Spürkarte: wahrscheinlich in {n} Gebieten gespürt",
+    "line_areas_1": "Spürkarte: wahrscheinlich in 1 Gebiet gespürt",
+    "line_none": "Spürkarte: zu wenig App-Aktivität in der Nähe"
+  }
 }
