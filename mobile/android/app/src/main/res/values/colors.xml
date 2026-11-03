@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- sisma brand violet (app/src/lib/theme.ts THEME.light.violet), used to tint alert notifications. -->
+    <color name="sisma_violet">#6C4BF4</color>
+</resources>

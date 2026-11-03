@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "512767380789",
+    "project_id": "io-sisma-app",
+    "storage_bucket": "io-sisma-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:512767380789:android:9e7e2273c732951fa0107c",
+        "android_client_info": {
+          "package_name": "io.sisma.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB62ax_4uHDBvUcwXh4w041r0jjA_MgR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
