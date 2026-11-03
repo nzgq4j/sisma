@@ -29,7 +29,7 @@ const APP_BAR = 56;
 export function FilterPanel({ layers, legend, hint, fixed = false }: { layers?: ReactNode; legend?: ReactNode; hint?: ReactNode; fixed?: boolean }) {
   const { t, m, nf } = useT();
   const { plan, setSheet } = useApp();
-  const { range, setRange, region, setRegion, minMag, setMinMag, worldReg, setWorldReg, mapList, list, regions, all } = useQuakeData();
+  const { range, setRange, region, setRegion, minMag, setMinMag, worldReg, setWorldReg, mapList, regions, all } = useQuakeData();
   const locked = !can(plan, 'advancedFilters');
   const [open, setOpen] = useState<null | 'range' | 'mag' | 'region' | 'place'>(null);
 
@@ -138,7 +138,7 @@ export function FilterPanel({ layers, legend, hint, fixed = false }: { layers?: 
   const regLabel = worldReg ? m.wr[worldReg] : m.all_regions;
   const placeLabel = region === 'all' ? m.map.all_places : region;
   const summary = [rangeLabel, minMag != null && magLabel, worldReg && regLabel, region !== 'all' && region].filter(Boolean).join(' · ');
-  const shown = fixed ? list.length : mapList.length;
+  const shown = mapList.length;
   const filtered = minMag != null || !!worldReg || region !== 'all';
   const pick = (k: 'mag' | 'region') => (locked ? setSheet('paywall') : setOpen(k));
 
