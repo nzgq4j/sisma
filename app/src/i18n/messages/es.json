@@ -479,5 +479,12 @@
     "err": "No se pudo abrir la facturación. Inténtalo de nuevo.",
     "soon": "La facturación aún no está disponible.",
     "st_cancelled": "Cancelada"
+  },
+  "ptr": {
+    "pull": "Desliza para actualizar",
+    "release": "Suelta para actualizar",
+    "refreshing": "Actualizando…",
+    "updated": "Actualizado",
+    "failed": "No se pudo actualizar. Revisa tu conexión."
   }
 }

@@ -479,5 +479,12 @@
     "err": "Não foi possível abrir a cobrança. Tente novamente.",
     "soon": "A cobrança ainda não está disponível.",
     "st_cancelled": "Cancelada"
+  },
+  "ptr": {
+    "pull": "Puxe para atualizar",
+    "release": "Solte para atualizar",
+    "refreshing": "Atualizando…",
+    "updated": "Atualizado",
+    "failed": "Não foi possível atualizar. Verifique sua conexão."
   }
 }

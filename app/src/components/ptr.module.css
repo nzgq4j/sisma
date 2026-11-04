@@ -1,0 +1,12 @@
+/* Pull-to-refresh indicator (components/PullToRefresh.tsx): opens a gap above the list as the finger pulls. */
+.wrap { position: relative; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; transition: height .2s ease; }
+.wrap[data-dragging] { transition: none; }
+.inner { display: flex; align-items: center; gap: 10px; padding-bottom: 12px; color: var(--ink2); font-size: 13px; font-weight: 700; }
+.badge { width: 40px; height: 40px; border-radius: 20px; background: var(--surface); box-shadow: var(--shadow); display: grid; place-items: center; }
+.icon { font-size: 22px; color: var(--violet-text); transition: transform .08s linear; }
+.inner[data-phase='refreshing'] .icon { animation: spin .8s linear infinite; }
+.inner[data-phase='done'] .icon { color: var(--mint-text); }
+.inner[data-phase='failed'] .icon { color: var(--warm-text); }
+.label { min-width: 0; white-space: nowrap; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .wrap { transition: none; } .inner[data-phase='refreshing'] .icon { animation-duration: 2.4s; } }

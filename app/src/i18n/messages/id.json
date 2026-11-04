@@ -479,5 +479,12 @@
     "err": "Tidak dapat membuka tagihan. Coba lagi.",
     "soon": "Tagihan belum tersedia.",
     "st_cancelled": "Dibatalkan"
+  },
+  "ptr": {
+    "pull": "Tarik untuk memuat ulang",
+    "release": "Lepas untuk memuat ulang",
+    "refreshing": "Memuat ulang…",
+    "updated": "Diperbarui",
+    "failed": "Gagal memuat ulang. Periksa koneksi Anda."
   }
 }

@@ -479,5 +479,12 @@
     "err": "Couldn’t open billing. Please try again.",
     "soon": "Billing isn’t available yet.",
     "st_cancelled": "Cancelled"
+  },
+  "ptr": {
+    "pull": "Pull to refresh",
+    "release": "Release to refresh",
+    "refreshing": "Refreshing…",
+    "updated": "Updated",
+    "failed": "Couldn’t refresh. Check your connection."
   }
 }
