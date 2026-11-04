@@ -5,6 +5,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { adminClient } from '@/lib/auth';
 import { recentQuakes } from '@/lib/quakes/find';
+import { autoPost } from '@/lib/bluesky';
 import { matchRules, type AlertRecipient, type AlertRule, type Delivered, type RuleRecipient } from '@/lib/alerts/match';
 import { alertMessage } from '@/lib/alerts/message';
 import { sendPush } from '@/lib/alerts/send';
@@ -28,13 +29,16 @@ export async function POST(req: NextRequest) {
   const { data: ok } = await db.rpc('consume_cron_ticket', { ticket });
   if (ok !== true) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
 
-  const recipients = await loadRecipients(db);
-  if (!recipients) return NextResponse.json({ error: 'recipients' }, { status: 500 });
-  if (!recipients.length) return NextResponse.json({ recipients: 0, sent: 0 });
-
   const now = Date.now();
-  const [quakes, past] = await Promise.all([
-    recentQuakes(1),
+  const quakes = await recentQuakes(1);
+  // Automatic Bluesky posts (Me → Admin): run alongside the alerts below so they never delay or stop them.
+  const blueskyRun = autoPost(db, quakes, now);
+
+  const recipients = await loadRecipients(db);
+  if (!recipients) return NextResponse.json({ error: 'recipients', bluesky: await blueskyRun }, { status: 500 });
+  if (!recipients.length) return NextResponse.json({ recipients: 0, sent: 0, bluesky: await blueskyRun });
+
+  const [past] = await Promise.all([
     db.from('alert_deliveries').select('user_id, quake_id, quake_time, lat, lon')
       .in('user_id', recipients.map(r => r.userId)).gte('sent_at', new Date(now - 2 * 3600_000).toISOString()),
   ]);
@@ -62,7 +66,7 @@ export async function POST(req: NextRequest) {
     }));
   }
   if (gone.size) await db.from('push_tokens').delete().in('id', [...gone]);
-  return NextResponse.json({ recipients: recipients.length, alerts: alerts.length, sent, removed: gone.size });
+  return NextResponse.json({ recipients: recipients.length, alerts: alerts.length, sent, removed: gone.size, bluesky: await blueskyRun });
 }
 
 /** Users with alerts on and their rules (public.alert_rule_recipients). Until that migration is applied, falls back to
