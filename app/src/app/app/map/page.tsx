@@ -63,6 +63,30 @@ function MapView() {
     return { top: Math.max(0, ...tops), bottom: card ? Math.max(0, st.bottom - card.top) : 0 };
   };
 
+  // Keeps the map's OpenStreetMap credit (bottom right) just above the filter panel or event card when one covers
+  // that corner: --map-bottom-inset follows the card's height as it is dragged, snaps or is replaced.
+  useEffect(() => {
+    const st = stageRef.current;
+    if (!st) return;
+    let card: Element | null = null;
+    const update = () => {
+      const next = st.querySelector('aside, [data-filter-panel]');
+      if (next !== card) { if (card) ro.unobserve(card); card = next; if (card) ro.observe(card); }
+      const s = st.getBoundingClientRect(), c = card?.getBoundingClientRect();
+      const covers = c && c.height > 0 && c.right > s.right - 200 && c.left < s.right - 8 && c.bottom > s.bottom - 48;
+      st.style.setProperty('--map-bottom-inset', covers ? `${Math.max(0, Math.round(s.bottom - c.top))}px` : '0px');
+    };
+    const ro = new ResizeObserver(update);
+    const mo = new MutationObserver(update);
+    ro.observe(st);
+    mo.observe(st, { childList: true });
+    // The event card slides in (CSS animation) and the panel snaps (transition): measure again when they finish.
+    st.addEventListener('animationend', update);
+    st.addEventListener('transitionend', update);
+    update();
+    return () => { ro.disconnect(); mo.disconnect(); st.removeEventListener('animationend', update); st.removeEventListener('transitionend', update); };
+  }, []);
+
   const clear = () => { setPicked(null); setCallout(null); if (focusId) router.replace('/app/map', { scroll: false }); };
   const exitRegion = () => { setPicked(null); setCallout(null); setSheet(false); router.replace('/app/map', { scroll: false }); };
   // Escape leaves the region view (unless a sheet is open: Escape closes that first).
