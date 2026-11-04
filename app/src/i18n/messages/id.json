@@ -559,6 +559,24 @@
     "cancel": "Batal",
     "not_found": "Peringatan ini sudah tidak ada."
   },
+  "billing": {
+    "subscribe": "Berlangganan",
+    "cancel_any_paid": "Batalkan kapan saja.",
+    "already": "Akun ini sudah memiliki sisma+.",
+    "app_update": "Untuk berlangganan di aplikasi, perbarui sisma dari Google Play.",
+    "play_unavailable": "Penagihan Google Play tidak tersedia di perangkat ini.",
+    "play_fine": "Ditagih melalui Google Play. Batalkan kapan saja di Google Play.",
+    "restore": "Pulihkan pembelian",
+    "restore_none": "Tidak ditemukan langganan Google Play untuk akun ini di perangkat ini.",
+    "other_account": "Langganan Google Play ini milik akun sisma lain.",
+    "activating_h": "Mengaktifkan sisma+…",
+    "activating_p": "Pembayaran Anda berhasil. Biasanya hanya perlu beberapa detik.",
+    "done_h": "Selamat datang di sisma+",
+    "done_p": "Semua fitur sisma+ kini terbuka.",
+    "slow_h": "Hampir selesai",
+    "slow_p": "Pembayaran Anda berhasil, tetapi paket Anda belum diperbarui. Seharusnya muncul dalam beberapa menit. Buka kembali sisma untuk memeriksa.",
+    "ok": "Lanjutkan"
+  },
   "admin": {
     "title": "Administrasi",
     "forbidden": "Halaman ini hanya untuk administrator.",

@@ -559,6 +559,24 @@
     "cancel": "取消",
     "not_found": "此提醒已不存在。"
   },
+  "billing": {
+    "subscribe": "订阅",
+    "cancel_any_paid": "可随时取消。",
+    "already": "此账户已拥有 sisma+。",
+    "app_update": "如需在应用内订阅，请通过 Google Play 更新 sisma。",
+    "play_unavailable": "此设备不支持 Google Play 结算。",
+    "play_fine": "通过 Google Play 扣费。可随时在 Google Play 中取消。",
+    "restore": "恢复购买",
+    "restore_none": "未在此设备上找到此账户的 Google Play 订阅。",
+    "other_account": "此 Google Play 订阅属于另一个 sisma 账户。",
+    "activating_h": "正在启用 sisma+…",
+    "activating_p": "付款已完成。通常只需几秒钟。",
+    "done_h": "欢迎使用 sisma+",
+    "done_p": "sisma+ 的全部功能现已解锁。",
+    "slow_h": "即将完成",
+    "slow_p": "付款已完成，但你的方案尚未更新，应会在几分钟内显示。请重新打开 sisma 查看。",
+    "ok": "继续"
+  },
   "admin": {
     "title": "管理",
     "forbidden": "此页面仅限管理员。",

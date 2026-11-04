@@ -14,14 +14,40 @@ export function clearPendingUpgrade() {
   try { localStorage.removeItem(KEY); } catch { /* storage unavailable */ }
 }
 
+/** The pending choice if there is a fresh one, left in place. */
+export function peekPendingUpgrade(now = Date.now()): Billing | null {
+  let raw: string | null = null;
+  try { raw = localStorage.getItem(KEY); } catch { return null; }
+  return parse(raw, now);
+}
+
 /** The pending choice if there is a fresh one; it is removed either way. */
 export function takePendingUpgrade(now = Date.now()): Billing | null {
   let raw: string | null = null;
   try { raw = localStorage.getItem(KEY); localStorage.removeItem(KEY); } catch { return null; }
+  return parse(raw, now);
+}
+
+function parse(raw: string | null, now: number): Billing | null {
   if (!raw) return null;
   try {
     const v = JSON.parse(raw) as { billing?: unknown; at?: unknown };
     const fresh = typeof v.at === 'number' && now - v.at >= 0 && now - v.at < TTL_MS;
     return fresh && (v.billing === 'monthly' || v.billing === 'yearly') ? v.billing : null;
   } catch { return null; }
+}
+
+// The 1-year range chosen before upgrading: applied once the account has sisma+ (same one-hour window).
+const RANGE_KEY = 'sisma.pendingRange';
+export function setPendingYearRange() {
+  try { localStorage.setItem(RANGE_KEY, JSON.stringify({ at: Date.now() })); } catch { /* storage unavailable */ }
+}
+/** True if a fresh 1-year choice was waiting; it is removed either way. */
+export function takePendingYearRange(now = Date.now()): boolean {
+  try {
+    const raw = localStorage.getItem(RANGE_KEY);
+    localStorage.removeItem(RANGE_KEY);
+    const at = raw ? (JSON.parse(raw) as { at?: unknown }).at : null;
+    return typeof at === 'number' && now - at >= 0 && now - at < TTL_MS;
+  } catch { return false; }
 }

@@ -559,6 +559,24 @@
     "cancel": "Cancelar",
     "not_found": "Esta alerta ya no existe."
   },
+  "billing": {
+    "subscribe": "Suscribirse",
+    "cancel_any_paid": "Cancela cuando quieras.",
+    "already": "Esta cuenta ya tiene sisma+.",
+    "app_update": "Para suscribirte en la app, actualiza sisma desde Google Play.",
+    "play_unavailable": "La facturación de Google Play no está disponible en este dispositivo.",
+    "play_fine": "Facturado a través de Google Play. Cancela cuando quieras en Google Play.",
+    "restore": "Restaurar compra",
+    "restore_none": "No se encontró ninguna suscripción de Google Play para esta cuenta en este dispositivo.",
+    "other_account": "Esta suscripción de Google Play pertenece a otra cuenta de sisma.",
+    "activating_h": "Activando sisma+…",
+    "activating_p": "Tu pago se ha completado. Suele tardar unos segundos.",
+    "done_h": "Te damos la bienvenida a sisma+",
+    "done_p": "Todo sisma+ ya está desbloqueado.",
+    "slow_h": "Casi listo",
+    "slow_p": "Tu pago se ha completado, pero tu plan aún no se ha actualizado. Debería aparecer en unos minutos. Vuelve a abrir sisma para comprobarlo.",
+    "ok": "Continuar"
+  },
   "admin": {
     "title": "Administración",
     "forbidden": "Esta página es solo para administradores.",
