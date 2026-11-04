@@ -20,4 +20,15 @@ button.item:hover { background: color-mix(in srgb, var(--surface) 85%, var(--lin
 .field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--ink2); }
 .field em { font-style: normal; font-weight: 600; letter-spacing: 0; text-transform: none; }
 .text { margin: 0; padding: 12px; border-radius: 12px; background: var(--bg); color: var(--ink); font: 500 14px/1.45 var(--font-figtree), sans-serif; letter-spacing: 0; text-transform: none; white-space: pre-wrap; overflow-wrap: anywhere; }
-.done { margin: 0; font-size: 14px; font-weight: 700; color: var(--mint-text); text-align: center; }
+.done { margin: 0; padding-bottom: 12px; font-size: 14px; font-weight: 700; color: var(--mint-text); text-align: center; }
+/* Bluesky sign-in */
+.login { gap: 12px; padding: 16px; }
+.loginH { font-size: 16px; font-weight: 800; }
+.lbl { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: var(--ink2); }
+.lbl em { font-style: normal; font-weight: 500; font-size: 12px; }
+.input { min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--ink); font: 500 16px var(--font-figtree), sans-serif; }
+.input:focus { outline: 2px solid var(--violet); outline-offset: 1px; }
+.actions { display: flex; gap: 10px; padding: 4px 0 12px; }
+.secondary { flex: 1; min-height: 44px; padding: 0 14px; border: 1px solid var(--line); border-radius: 22px; background: transparent; color: var(--violet-text); font: 700 14px var(--font-figtree), sans-serif; cursor: pointer; }
+.secondary:disabled { opacity: .6; cursor: progress; }
+.linkBtn { align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--violet-text); font: 700 14px var(--font-figtree), sans-serif; cursor: pointer; }

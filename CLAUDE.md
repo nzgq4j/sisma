@@ -58,4 +58,5 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     Spec and status: docs/onboarding.md
 13. Administration (done: app/me/admin, profiles.is_admin checked by lib/admin.ts on every /api/admin request): automatic
     Bluesky posts of significant earthquakes with the share card, alt text and link (lib/bluesky.ts, run by the alert job;
-    on/off, minimum magnitude, preview, Post now, log). docs/bluesky-setup.md
+    sign in to Bluesky on the page (session in Supabase Vault, password never stored; env is the fallback), on/off,
+    minimum magnitude, preview, Post now, log). docs/bluesky-setup.md

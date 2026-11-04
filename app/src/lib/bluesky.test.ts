@@ -59,3 +59,12 @@ describe('automatic selection', () => {
     expect(alreadyPosted(q(), [row({ quake_id: 'usgs:us7000abcd', status: 'failed' })])).toBe(true); // same id: retried by hand only
   });
 });
+
+describe('jwtExpiry', () => {
+  it('reads exp from the payload, 0 when unreadable', async () => {
+    const { jwtExpiry } = await import('./bluesky');
+    const t = `h.${Buffer.from(JSON.stringify({ exp: 1_800_000_000 })).toString('base64url')}.s`;
+    expect(jwtExpiry(t)).toBe(1_800_000_000_000);
+    expect(jwtExpiry('not-a-jwt')).toBe(0);
+  });
+});

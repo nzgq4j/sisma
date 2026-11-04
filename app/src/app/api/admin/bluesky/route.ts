@@ -3,7 +3,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { recentQuakes } from '@/lib/quakes/find';
-import { alreadyPosted, autoCandidates, blueskyConfigured, type PostRow } from '@/lib/bluesky';
+import { alreadyPosted, autoCandidates, blueskySource, type PostRow } from '@/lib/bluesky';
 
 export const dynamic = 'force-dynamic';
 const MAGS = [4.5, 5, 5.5, 6, 6.5, 7, 7.5];
@@ -12,10 +12,11 @@ export async function GET(req: NextRequest) {
   const a = await requireAdmin(req);
   if (!a) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   const now = Date.now();
-  const [settings, posts, quakes] = await Promise.all([
-    a.db.from('bluesky_settings').select('enabled, min_magnitude, updated_at').eq('id', 1).maybeSingle(),
+  const [settings, posts, quakes, source] = await Promise.all([
+    a.db.from('bluesky_settings').select('enabled, min_magnitude, updated_at, account_handle, connected_at, last_error').eq('id', 1).maybeSingle(),
     a.db.from('bluesky_posts').select('quake_id, quake_time, lat, lon, mag, place, status, error, post_url, manual, created_at').order('created_at', { ascending: false }).limit(50),
     recentQuakes(1),
+    blueskySource(a.db),
   ]);
   const rows = (posts.data ?? []) as (PostRow & { place: string | null })[];
   const min = Number(settings.data?.min_magnitude ?? 6);
@@ -23,7 +24,15 @@ export async function GET(req: NextRequest) {
   const recent = quakes.filter(q => now - q.time <= 864e5 && q.mag >= 4.5).sort((x, y) => y.time - x.time).slice(0, 40)
     .map(q => ({ id: q.id, time: q.time, mag: q.mag, place: q.region || q.title, posted: alreadyPosted(q, rows.filter(r => r.status !== 'failed')), next: next.has(q.id) }));
   return NextResponse.json({
-    configured: blueskyConfigured(),
+    configured: !!source,
+    // Where posting credentials come from: the account signed in on this page, or the server env (fallback).
+    connection: {
+      source,
+      handle: source === 'account' ? settings.data?.account_handle ?? null : null,
+      connectedAt: source === 'account' ? settings.data?.connected_at ?? null : null,
+      lastError: settings.data?.last_error ?? null,
+      envAvailable: !!(process.env.BLUESKY_IDENTIFIER && process.env.BLUESKY_APP_PASSWORD),
+    },
     settings: { enabled: !!settings.data?.enabled, minMagnitude: min, updatedAt: settings.data?.updated_at ?? null },
     mags: MAGS, recent, posts: rows,
   });
