@@ -26,7 +26,7 @@
 
 .sectionLabel { font-size: 13px; font-weight: 700; color: var(--ink2); padding: 6px 4px 0; }
 .card { background: var(--surface); border-radius: 22px; padding: 4px 16px; display: flex; flex-direction: column; }
-.row { display: flex; align-items: center; gap: 12px; min-height: 56px; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: 600 15px var(--font-figtree), sans-serif; padding: 0; width: 100%; }
+.row { display: flex; align-items: center; gap: 12px; min-height: 56px; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: 600 15px var(--font-figtree), sans-serif; padding: 0; width: 100%; text-decoration: none; }
 .row + .row, .row + .block, .block + .row, .block + .block, .errLine + .row, .alertBody + .row { border-top: 1px solid var(--line); }
 div.row { cursor: default; }
 .row > :global(.ms):first-child, .blockHead > :global(.ms) { font-size: 22px; color: var(--violet-text); }
