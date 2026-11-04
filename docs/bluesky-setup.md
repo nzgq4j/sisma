@@ -58,6 +58,12 @@ Do not send the password to Claude.
 5. On **Me → Administration**: check the connection, choose the minimum magnitude, preview an event, then turn on
    **Post automatically**.
 
+## Handle: @sisma.io
+
+`https://sisma.io/.well-known/atproto-did` answers the account's DID (`did:plc:ydcmwzpjnvqo4aybljucdz7s`) as plain
+text (`app/src/app/.well-known/atproto-did/route.ts`). In Bluesky → Settings → Account → Handle → *I have my own
+domain* → *No DNS panel*, enter `sisma.io` and verify. If the account ever changes, update the DID in that file.
+
 ## Database
 
 Migrations `20261106000100_bluesky.sql`: `profiles.is_admin` (with the `protect_is_admin` trigger),
