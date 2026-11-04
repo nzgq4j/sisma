@@ -4,7 +4,7 @@
 -- Google Play: purchases carry an obfuscated account id (sha-256 of the user id, never the id itself), so a Real-time
 -- Developer Notification for a purchase the app has not reported yet can still be matched to its account.
 alter table public.profiles
-  add column play_account_id text generated always as (encode(sha256(convert_to(id::text, 'UTF8')), 'hex')) stored;
+  add column play_account_id text generated always as (encode(sha256(id::text::bytea), 'hex')) stored;  -- the uuid's text is ASCII: same bytes as UTF-8
 create index profiles_play_account_idx on public.profiles (play_account_id);
 create index profiles_play_token_idx on public.profiles (play_purchase_token) where play_purchase_token is not null;
 create index profiles_stripe_customer_idx on public.profiles (stripe_customer_id) where stripe_customer_id is not null;
