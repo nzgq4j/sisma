@@ -6,30 +6,25 @@
 // device-only, push delivery (build step 9) and billing (step 8) are not wired yet.
 import Link from 'next/link';
 import { usePushDevice } from '@/components/PushDevice';
-import { useEffect, useMemo, useState } from 'react';
+import { useAlertRules } from '@/components/alerts/useAlerts';
+import { useState } from 'react';
 import { useT, LOCALES } from '@/i18n/I18nProvider';
 import { useApp, type LocateResult } from '@/components/AppState';
 import { useAccount } from '@/components/Account';
 import { useNow } from '@/components/FeltReport';
 import { LanguagePicker } from '@/components/LanguagePicker';
 import { Sheet, SheetOptions } from '@/components/Sheet';
-import COUNTRY_CODES from '@/lib/country-codes.json';
-import { WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
 import { setTheme, useTheme, type ThemePref } from '@/components/Theme';
 import { setMarkerStyle, useMarkerStyle, type MarkerStyle } from '@/components/MarkerStyle';
 import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_TEXT_DY, dotRadius } from '@/lib/pin';
-import { setUnits, useDistance, useUnits, type Units } from '@/components/Units';
+import { setUnits, useUnits, type Units } from '@/components/Units';
 import { openOnboarding } from '@/components/onboarding/store';
 import { FeltMapInfoSheet, setFeltMapSharing, useFeltMapSharing } from '@/components/FeltMap';
-import { supabaseBrowser } from '@/lib/supabase-browser';
 import { PRICES, limits } from '@/lib/entitlements';
 import type { PlaceHit } from '@/lib/places';
-import { ALERT_RADII, snapRadius } from '@/lib/alert-radius';
 import styles from './me.module.css';
 
 const SOURCES = ['USGS', 'EMSC', 'GeoNet', 'JMA'];
-/** Alert minimum magnitude choices (was a 3–7 slider in steps of 0.5). */
-const ALERT_MAGS = [3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7];
 
 export default function MePage() {
   const { t, m } = useT();
@@ -117,173 +112,39 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
 }
 
 /** This device's alert notifications: status, a button to turn them on, and a test alert. */
-function AlertDevice() {
-  const { m } = useT();
-  const n = m.notif;
-  const push = usePushDevice();
-  const msg: Record<string, string | null> = {
-    checking: null, on: n.device_on, off: null, blocked: n.device_blocked, unsupported: n.device_unsupported,
-    ios: n.device_ios, app_update: n.device_app_update, error: n.device_error,
-  };
-  return (
-    <div className={styles.deviceRow} aria-live="polite">
-      {msg[push.state] && <p className={push.state === 'on' ? styles.okLine : styles.hint}>{push.state === 'on' && <span className="ms" aria-hidden="true">check_circle</span>}{msg[push.state]}</p>}
-      {(push.state === 'off' || push.state === 'error') && (
-        <button type="button" className={styles.smallBtn} onClick={() => void push.enable()} disabled={push.busy}>
-          <span className="ms" aria-hidden="true">notifications</span>{n.device_enable}
-        </button>
-      )}
-      {push.state === 'on' && (
-        <button type="button" className={styles.smallBtn} onClick={() => void push.test()} disabled={push.busy || push.tested === 'sent'}>
-          <span className="ms" aria-hidden="true">{push.tested === 'sent' ? 'check' : 'send'}</span>
-          {push.tested === 'sent' ? n.test_sent : n.test}
-        </button>
-      )}
-      {push.tested === 'failed' && <p className={styles.errLine} role="alert">{n.test_failed}</p>}
-    </div>
-  );
-}
-
-const MAX_AREAS = 20;
-const ALL_COUNTRIES = [...new Set(Object.values(COUNTRY_CODES as Record<string, string>))];
-const countryName = (locale: string, code: string) => {
-  try { return new Intl.DisplayNames([locale], { type: 'region' }).of(code.toUpperCase()) ?? code.toUpperCase(); } catch { return code.toUpperCase(); }
-};
-
-/** Pick countries and world regions (several; up to 20 of each). Countries can be searched by name. */
-function AreaPicker({ open, onClose, countries, regions, onChange }: {
-  open: boolean; onClose: () => void; countries: string[]; regions: string[]; onChange: (countries: string[], regions: string[]) => void;
-}) {
-  const { m, locale } = useT();
-  const n = m.notif;
-  const [q, setQ] = useState('');
-  const sorted = useMemo(() => ALL_COUNTRIES.map(c => ({ code: c, name: countryName(locale, c) }))
-    .sort((a, b) => a.name.localeCompare(b.name, locale)), [locale]);
-  const needle = q.trim().toLocaleLowerCase(locale);
-  const shown = needle ? sorted.filter(c => c.name.toLocaleLowerCase(locale).includes(needle)) : sorted;
-  const toggle = <T extends string>(list: T[], v: T) => (list.includes(v) ? list.filter(x => x !== v) : list.length < MAX_AREAS ? [...list, v] : list);
-  return (
-    <Sheet open={open} onClose={() => { setQ(''); onClose(); }} title={n.areas_label}>
-      <p className={styles.hint}>{n.areas_hint}</p>
-      <div className={styles.searchForm} role="search">
-        <span className={`ms ${styles.searchIcon}`} aria-hidden="true">search</span>
-        <input type="search" className={styles.searchInput} value={q} onChange={e => setQ(e.target.value)} placeholder={n.area_search} aria-label={n.area_search} />
-      </div>
-      {!needle && regions.length + countries.length > 0 && (
-        <>
-          <div className={styles.pickerLabel}>{n.area_selected}</div>
-          <SheetOptions values={[...regions, ...countries]}
-            onPick={v => (regions.includes(v) ? onChange(countries, regions.filter(r => r !== v)) : onChange(countries.filter(c => c !== v), regions))}
-            options={[
-              ...regions.map(r => ({ value: r, label: m.wr[r as WorldRegion] ?? r, lead: <span className="ms" aria-hidden="true">public</span> })),
-              // eslint-disable-next-line @next/next/no-img-element -- small bundled flag SVGs
-              ...countries.map(c => ({ value: c, label: countryName(locale, c), lead: <img src={`/flags/${c}.svg`} alt="" width={20} height={20} className={styles.areaFlag} /> })),
-            ]} />
-        </>
-      )}
-      {!needle && (
-        <>
-          <div className={styles.pickerLabel}>{n.area_regions}</div>
-          <SheetOptions values={regions as WorldRegion[]} onPick={r => onChange(countries, toggle(regions, r))}
-            options={WORLD_REGIONS.map(r => ({ value: r, label: m.wr[r], lead: <span className="ms" aria-hidden="true">public</span> }))} />
-        </>
-      )}
-      <div className={styles.pickerLabel}>{n.area_countries}</div>
-      <SheetOptions values={countries} onPick={c => onChange(toggle(countries, c), regions)}
-        // eslint-disable-next-line @next/next/no-img-element -- small bundled flag SVGs
-        options={shown.map(c => ({ value: c.code, label: c.name, lead: <img src={`/flags/${c.code}.svg`} alt="" width={20} height={20} className={styles.areaFlag} /> }))} />
-      <p className={styles.hint}>{n.area_limit}</p>
-    </Sheet>
-  );
-}
-
+/** Alerts on Me: the master switch and a way into Me → Alerts (rules and history). sisma+ only; free accounts see a lock. */
 function Alerts({ onLocked }: { onLocked: () => void }) {
-  const { t, m, nf, locale } = useT();
-  const u = useDistance();
-  const { plan, places } = useApp();
+  const { t, m } = useT();
+  const k = m.rules;
+  const { plan } = useApp();
   const { user } = useAccount();
   const push = usePushDevice();
-  const [s, setS] = useState({ enabled: false, min_magnitude: 5, radius_km: 500, countries: [] as string[], regions: [] as string[] });
-  const [open, setOpen] = useState<null | 'mag' | 'radius' | 'areas'>(null);
-  const [hasRow, setHasRow] = useState(false);
-  const [saveError, setSaveError] = useState(false);
-
-  // Load the saved settings (RLS: own row only).
-  useEffect(() => {
-    const sb = supabaseBrowser(); if (!sb || !user) return;
-    let alive = true;
-    sb.from('alert_settings').select('enabled, min_magnitude, radius_km, countries, regions').eq('user_id', user.id).maybeSingle()
-      .then(({ data }) => {
-        if (!alive || !data) return;
-        setS({ enabled: data.enabled, min_magnitude: Number(data.min_magnitude), radius_km: data.radius_km, countries: data.countries ?? [], regions: data.regions ?? [] });
-        setHasRow(true);
-      });
-    return () => { alive = false; };
-  }, [user]);
-
-  // The radius is one of the choices in the current units (a radius saved in km becomes the nearest mile choice and
-  // back), and the saved value is updated to match, so what is shown is what alerts use.
-  const radius = snapRadius(s.radius_km, u.units);
-  const areaNames = [...s.regions.map(r => m.wr[r as WorldRegion] ?? r), ...s.countries.map(c => countryName(locale, c))];
-  const update = (patch: Partial<typeof s>) => {
-    const nextS = { ...s, radius_km: radius, ...patch }; setS(nextS); setSaveError(false);
-    const sb = supabaseBrowser(); if (!sb || !user) return;
-    // The DB trigger refuses enabled = true without sisma+, so the server is the gate, not this toggle.
-    void sb.from('alert_settings').upsert({ user_id: user.id, ...nextS, updated_at: new Date().toISOString() }).then(({ error }) => { if (error) setSaveError(true); });
-  };
-  // Store the snapped radius when it differs from the saved one (e.g. after switching units).
-  useEffect(() => {
-    const sb = supabaseBrowser();
-    if (!hasRow || !sb || !user || radius === s.radius_km) return;
-    void sb.from('alert_settings').update({ radius_km: radius, updated_at: new Date().toISOString() }).eq('user_id', user.id)
-      .then(({ error }) => { if (error) setSaveError(true); else setS(prev => ({ ...prev, radius_km: radius })); });
-  }, [hasRow, radius, s.radius_km, user]);
-
+  const a = useAlertRules();
+  const plus = plan === 'plus' && !!user;
+  const on = a.rules.filter(r => r.enabled).length;
   return (
     <>
       <div className={styles.sectionLabel}>{t('alerts')}</div>
       <div className={styles.card}>
-        <button type="button" className={styles.row} role={plan === 'plus' ? 'switch' : undefined} aria-checked={plan === 'plus' ? s.enabled : undefined}
+        <button type="button" className={styles.row} role={plus ? 'switch' : undefined} aria-checked={plus ? a.enabled : undefined}
           onClick={() => {
-            if (plan !== 'plus') { onLocked(); return; }
+            if (!plus) { onLocked(); return; }
             // Turning alerts on also asks this device for notification permission (it has to come from a tap).
-            if (!s.enabled && push.state === 'off') void push.enable();
-            update({ enabled: !s.enabled });
+            if (!a.enabled && push.state === 'off') void push.enable();
+            void a.setEnabled(!a.enabled);
           }}>
           <span className="ms" aria-hidden="true">notifications_active</span>
           <span className={styles.grow}>{t('push')}</span>
-          {plan === 'plus' ? <span className={styles.switch} aria-hidden="true"><span /></span> : <Lock />}
+          {plus ? <span className={styles.switch} aria-hidden="true"><span /></span> : <Lock />}
         </button>
-        {plan === 'plus' && s.enabled && (
-          <div className={styles.alertBody}>
-            <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('mag')}>
-              <span className="ms" aria-hidden="true">filter_alt</span><span className={styles.grow}>{t('alert_mag')}</span>
-              <span className={styles.meta}>M{nf.format(s.min_magnitude)}+</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
-            </button>
-            <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('radius')}>
-              <span className="ms" aria-hidden="true">radar</span><span className={styles.grow}>{t('alert_radius')}</span>
-              <span className={styles.meta}>{radius ? u.dist(radius) : m.acct.anywhere}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
-            </button>
-            <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen('areas')}>
-              <span className="ms" aria-hidden="true">public</span><span className={styles.grow}>{m.notif.areas_label}</span>
-              <span className={`${styles.meta} ${styles.metaClip}`}>{areaNames.length ? areaNames.join(', ') : m.notif.areas_none}</span>
-              <span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
-            </button>
-            <p className={styles.hint}>{places.length ? m.notif.coverage : s.countries.length + s.regions.length ? null : m.notif.need_location}</p>
-            <Sheet open={open === 'mag'} onClose={() => setOpen(null)} title={t('alert_mag')}>
-              <SheetOptions value={String(s.min_magnitude)} onPick={v => { update({ min_magnitude: Number(v) }); setOpen(null); }}
-                options={ALERT_MAGS.map(v => ({ value: String(v), label: `M${nf.format(v)}+` }))} />
-            </Sheet>
-            <Sheet open={open === 'radius'} onClose={() => setOpen(null)} title={t('alert_radius')}>
-              <SheetOptions value={String(radius)} onPick={v => { update({ radius_km: Number(v) }); setOpen(null); }}
-                options={ALERT_RADII[u.units].map(r => ({ value: String(r), label: r ? u.dist(r) : m.acct.anywhere }))} />
-            </Sheet>
-            <AreaPicker open={open === 'areas'} onClose={() => setOpen(null)} countries={s.countries} regions={s.regions}
-              onChange={(countries, regions) => update({ countries, regions })} />
-            <AlertDevice />
-          </div>
+        {plus && (
+          <Link href="/app/me/alerts" className={styles.row}>
+            <span className="ms" aria-hidden="true">tune</span><span className={styles.grow}>{k.manage}</span>
+            <span className={styles.meta}>{a.loading ? '' : a.rules.length ? k.summary.replace('{on}', String(on)).replace('{total}', String(a.rules.length)) : k.none}</span>
+            <span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+          </Link>
         )}
-        {saveError && <p className={styles.errLine} role="alert">{m.acct.error}</p>}
+        {a.error && <p className={styles.errLine} role="alert">{m.acct.error}</p>}
       </div>
     </>
   );

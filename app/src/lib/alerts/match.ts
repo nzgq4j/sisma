@@ -60,3 +60,76 @@ export function matchAlerts(quakes: Quake[], recipients: AlertRecipient[], deliv
   }
   return out;
 }
+
+/** One of a user's alert rules (public.alert_rules). */
+export interface AlertRule {
+  id: string; name: string; minMagnitude: number;
+  /** Watch the user's saved places, within radiusKm (0 = anywhere). */
+  nearPlaces: boolean; radiusKm: number;
+  countries: string[]; regions: string[];
+  /** Quiet hours in timeZone, minutes after midnight; from > to spans midnight. Strong quakes can still come through. */
+  quiet: boolean; quietFrom: number; quietTo: number; quietTz: string; quietMajor: boolean;
+}
+export interface RuleRecipient { userId: string; rules: AlertRule[]; locations: AlertRecipient['locations']; devices: AlertDevice[] }
+export interface RuleAlert extends Alert { ruleId: string; ruleName: string }
+
+/** Quakes of at least this magnitude still come through during quiet hours when the rule allows it. */
+export const QUIET_MAJOR_MAG = 6;
+
+/** Minutes after midnight at `ms` in an IANA time zone (UTC if the zone is unknown). */
+export function localMinutes(ms: number, timeZone: string): number {
+  let parts: Intl.DateTimeFormatPart[];
+  try { parts = new Intl.DateTimeFormat('en-GB', { timeZone, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(ms); }
+  catch { parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(ms); }
+  const h = Number(parts.find(p => p.type === 'hour')?.value ?? 0), m = Number(parts.find(p => p.type === 'minute')?.value ?? 0);
+  return (h % 24) * 60 + m;
+}
+
+/** Whether `minutes` falls in [from, to), wrapping past midnight when from > to; from === to means no quiet time. */
+export function inQuietHours(minutes: number, from: number, to: number): boolean {
+  if (from === to) return false;
+  return from < to ? minutes >= from && minutes < to : minutes >= from || minutes < to;
+}
+
+/** Why a rule matches an event (nearest saved place, or the chosen country / region), or null. Pure. */
+export function ruleMatch(rule: AlertRule, q: Quake, locations: AlertRecipient['locations'], area: () => QuakeArea, now: number):
+  { place: Alert['place']; area: AlertArea | null } | null {
+  if (q.mag < rule.minMagnitude) return null;
+  if (rule.quiet && !(rule.quietMajor && q.mag >= QUIET_MAJOR_MAG) && inQuietHours(localMinutes(now, rule.quietTz), rule.quietFrom, rule.quietTo)) return null;
+  if (rule.nearPlaces && locations.length) {
+    const nearest = locations.map(l => ({ name: l.name, distanceKm: distanceKm(l.lat, l.lon, q.lat, q.lon) }))
+      .sort((a, b) => a.distanceKm - b.distanceKm)[0];
+    if (rule.radiusKm === 0 || nearest.distanceKm <= rule.radiusKm) return { place: nearest, area: null };
+  }
+  if (rule.countries.length || rule.regions.length) {
+    const a = area();
+    if (a.country && rule.countries.includes(a.country)) return { place: null, area: { kind: 'country', code: a.country } };
+    if (rule.regions.includes(a.region)) return { place: null, area: { kind: 'region', code: a.region } };
+  }
+  return null;
+}
+
+/** Matches recent events to each user's rules (in order; the first matching rule wins) — one alert per user and
+ *  event, never repeating one already delivered (same id, or the same event under another id). */
+export function matchRules(quakes: Quake[], recipients: RuleRecipient[], delivered: Delivered[], now: number,
+  areaOf: (q: Quake) => QuakeArea = () => ({ country: null, region: '' })): RuleAlert[] {
+  const recent = quakes.filter(q => q.time <= now + 60_000 && now - q.time <= ALERT_MAX_AGE_MS);
+  const out: RuleAlert[] = [];
+  const areas = new Map<string, QuakeArea>();
+  const area = (q: Quake) => () => { let a = areas.get(q.id); if (!a) { a = areaOf(q); areas.set(q.id, a); } return a; };
+  for (const r of recipients) {
+    if (!r.devices.length || !r.rules.length) continue;
+    const seen = delivered.filter(d => d.userId === r.userId);
+    for (const q of recent) {
+      if (seen.some(d => d.quakeId === q.id || (Math.abs(d.time - q.time) < SAME_EVENT_MS && distanceKm(d.lat, d.lon, q.lat, q.lon) < SAME_EVENT_KM))) continue;
+      for (const rule of r.rules) {
+        const hit = ruleMatch(rule, q, r.locations, area(q), now);
+        if (!hit) continue;
+        out.push({ userId: r.userId, quake: q, place: hit.place, area: hit.area, devices: r.devices, ruleId: rule.id, ruleName: rule.name });
+        seen.push({ userId: r.userId, quakeId: q.id, time: q.time, lat: q.lat, lon: q.lon });
+        break;
+      }
+    }
+  }
+  return out;
+}

@@ -1,0 +1,70 @@
+/* Me → Alerts and the rule editor (layout after the polar lights alert rules). */
+.master { display: flex; align-items: center; gap: 14px; width: 100%; padding: 18px; border: 0; border-radius: 24px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
+.master:disabled { opacity: .6; cursor: progress; }
+.masterText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.masterText strong { font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+.masterText span { font-size: 14px; line-height: 1.45; color: var(--ink2); }
+
+/* Switch (on: violet, knob right) for buttons with role=switch. */
+.sw { flex: none; width: 48px; height: 28px; border-radius: 14px; background: var(--line); display: flex; align-items: center; padding: 3px; box-sizing: border-box; transition: background .15s; }
+.sw span { width: 22px; height: 22px; border-radius: 11px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .25); transition: transform .15s; }
+[aria-checked='true'] > .sw { background: var(--violet); }
+[aria-checked='true'] > .sw span { transform: translateX(20px); }
+@media (prefers-reduced-motion: reduce) { .sw, .sw span { transition: none; } }
+
+.sectionHead { display: flex; align-items: baseline; justify-content: space-between; margin: 10px 4px 0; font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--violet-text); }
+.count { font-size: 13px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--ink2); }
+
+.rule { border-radius: 22px; background: var(--surface); overflow: hidden; }
+.rule[data-off] .ruleBody, .rule[data-off] .ruleName { opacity: .55; }
+.ruleHead { display: flex; align-items: center; gap: 8px; padding: 6px 8px 0 18px; }
+.ruleName { flex: 1; min-width: 0; display: flex; align-items: center; gap: 2px; min-height: 48px; color: var(--ink); font-size: 17px; font-weight: 800; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ruleName :global(.ms) { font-size: 20px; color: var(--ink2); }
+.ruleName:hover { color: var(--ink); }
+.ruleSwitch { flex: none; display: grid; place-items: center; width: 64px; height: 48px; border: 0; background: transparent; cursor: pointer; padding: 0; }
+.ruleBody { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 4px 18px 16px; color: var(--ink); text-decoration: none; }
+.ruleBody:hover { color: var(--ink); }
+.label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); padding-top: 3px; }
+.value { font-size: 14px; font-weight: 600; line-height: 1.4; min-width: 0; }
+
+.add { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 52px; border: 1.5px dashed var(--line); border-radius: 22px; background: transparent; color: var(--violet-text); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }
+.add:hover { background: var(--surface); }
+.add :global(.ms) { font-size: 22px; }
+
+.history { display: flex; flex-direction: column; border-radius: 22px; background: var(--surface); overflow: hidden; }
+.historyRow { display: flex; align-items: center; gap: 12px; padding: 12px 14px; color: var(--ink); text-decoration: none; }
+.historyRow + .historyRow { border-top: 1px solid var(--line); }
+.historyRow:hover { color: var(--ink); background: color-mix(in srgb, var(--surface) 85%, var(--line)); }
+.historyRow > :global(.ms) { font-size: 20px; color: var(--ink2); }
+.historyText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; font-size: 13px; color: var(--ink2); }
+.historyText strong { font-size: 15px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.historyRule { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--violet-text); }
+.historyRule :global(.ms) { font-size: 15px; }
+
+/* Rule editor */
+.field { display: flex; flex-direction: column; gap: 6px; padding: 14px 0; }
+.input { height: 48px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface2); color: var(--ink); padding: 0 14px; font: inherit; font-size: 16px; }
+.input:focus { outline: 2px solid var(--violet); outline-offset: 1px; }
+.levels { display: flex; flex-direction: column; gap: 8px; }
+.level { display: flex; align-items: center; gap: 14px; min-height: 60px; padding: 10px 14px; border: 1.5px solid var(--line); border-radius: 18px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
+.level[aria-checked='true'] { border-color: var(--violet); background: var(--violet-soft); }
+.radio { flex: none; width: 22px; height: 22px; border-radius: 11px; border: 2px solid var(--ink2); display: grid; place-items: center; }
+.level[aria-checked='true'] .radio { border-color: var(--violet); }
+.level[aria-checked='true'] .radio::after { content: ''; width: 10px; height: 10px; border-radius: 5px; background: var(--violet); }
+.levelText { display: flex; flex-direction: column; gap: 2px; }
+.levelText strong { font-size: 16px; font-weight: 800; }
+.levelText span { font-size: 13px; color: var(--ink2); }
+.chart { border-radius: 22px; background: var(--surface); padding: 16px 16px 12px; display: flex; flex-direction: column; gap: 6px; }
+.chartSub { font-size: 13px; font-weight: 600; color: var(--ink2); }
+.chartBig { font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.chartBig b { color: var(--violet-text); }
+.bars { display: flex; align-items: flex-end; gap: 2px; height: 96px; margin-top: 6px; border-bottom: 1px solid var(--line); }
+.bars i { flex: 1; min-height: 2px; border-radius: 3px 3px 0 0; background: var(--violet); }
+.bars i[data-zero] { background: var(--line); }
+.axis { display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; color: var(--ink2); }
+.times { display: flex; gap: 12px; padding: 0 0 14px; }
+.times label { flex: 1; display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; color: var(--ink2); }
+.danger { min-height: 48px; border: 0; border-radius: 16px; background: var(--warm-soft); color: var(--warm-text); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }
+.sheetActions { display: flex; gap: 10px; }
+.sheetActions button { flex: 1; min-height: 48px; border: 0; border-radius: 16px; font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }
+.cancel { background: var(--surface2); color: var(--ink); }

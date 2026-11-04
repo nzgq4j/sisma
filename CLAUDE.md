@@ -43,12 +43,12 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
 7. Me / account dashboard (skeleton done: app/app/me): email + password (sign-in, sign-up, reset, change; no email-link sign-in) and Google sign-in (components/Account.tsx, lib/oauth.ts;
    Google button shows when the provider is on in Supabase; Android returns via App Links, /.well-known/assetlinks.json), profile + plan, alerts saved to
-   alert_settings (rows that open choice sheets: magnitude, radius, countries/regions), language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
+   alerts (sisma+: master switch on alert_settings, up to 5 alert_rules at app/me/alerts — name, minimum magnitude, saved places + radius, countries/regions, quiet hours, 30-day match chart in alerts/rule; alert history from alert_deliveries), language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
    saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
    Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Subscription page (done): app/me/subscription — status,
    price, next date; Stripe customer portal via POST /api/stripe/portal, Google Play link for app purchases
 8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet (done: components/Paywall.tsx)
-9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_settings
+9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_rules (done as POST /api/cron/alerts, lib/alerts/match.ts matchRules)
 10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
 12. Onboarding (v1 done: components/onboarding/): welcome, language, location primer, disclaimer. Alerts step waits for 8 + 9.
