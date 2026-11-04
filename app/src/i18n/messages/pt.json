@@ -486,5 +486,16 @@
     "refreshing": "Atualizando…",
     "updated": "Atualizado",
     "failed": "Não foi possível atualizar. Verifique sua conexão."
+  },
+  "markers": {
+    "title": "Marcadores do mapa",
+    "pins": "Alfinetes",
+    "pins_d": "Mesmo tamanho, com a magnitude escrita dentro",
+    "circles": "Círculos",
+    "circles_d": "O tamanho e a cor mostram a magnitude",
+    "legend": "Legenda",
+    "band": "Magnitude {a} a {b}",
+    "band_top": "Magnitude {a} ou maior",
+    "band_low": "Magnitude abaixo de {a}"
   }
 }

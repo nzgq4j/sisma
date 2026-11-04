@@ -16,6 +16,8 @@ import { Sheet, SheetOptions } from '@/components/Sheet';
 import COUNTRY_CODES from '@/lib/country-codes.json';
 import { WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
 import { setTheme, useTheme, type ThemePref } from '@/components/Theme';
+import { setMarkerStyle, useMarkerStyle, type MarkerStyle } from '@/components/MarkerStyle';
+import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_TEXT_DY, dotRadius } from '@/lib/pin';
 import { setUnits, useDistance, useUnits, type Units } from '@/components/Units';
 import { openOnboarding } from '@/components/onboarding/store';
 import { FeltMapInfoSheet, setFeltMapSharing, useFeltMapSharing } from '@/components/FeltMap';
@@ -435,6 +437,7 @@ function Preferences() {
           ))}
         </div>
       </div>
+      <MarkerRow />
       <FeltMapRow />
       <button type="button" className={styles.row} onClick={openOnboarding}>
         <span className="ms" aria-hidden="true">waving_hand</span><span className={styles.grow}>{m.acct.intro}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
@@ -446,6 +449,54 @@ function Preferences() {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Map markers (pins or circles) for the Map, Globe and dashboard, with a legend for the chosen style. */
+function MarkerRow() {
+  const { m, locale } = useT();
+  const k = m.markers;
+  const style = useMarkerStyle();
+  const [open, setOpen] = useState(false);
+  const f1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }), one = (v: number) => f1.format(v);
+  const bands = [
+    { mag: 7.2, i: 0, label: k.band_top.replace('{a}', one(7)) },
+    ...[6, 5, 4, 3].map((a, j) => ({ mag: a + 0.5, i: j + 1, label: k.band.replace('{a}', one(a)).replace('{b}', one(a + 0.9)) })),
+    { mag: 2.5, i: 5, label: k.band_low.replace('{a}', one(3)) },
+  ].reverse();
+  return (
+    <>
+      <button type="button" className={styles.row} aria-haspopup="dialog" onClick={() => setOpen(true)}>
+        <span className="ms" aria-hidden="true">location_on</span><span className={styles.grow}>{k.title}</span>
+        <span className={styles.meta}>{style === 'pins' ? k.pins : k.circles}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+      </button>
+      <Sheet open={open} onClose={() => setOpen(false)} title={k.title}>
+        <SheetOptions value={style} onPick={v => setMarkerStyle(v)}
+          options={(['pins', 'circles'] as const).map(v => ({
+            value: v,
+            lead: <MarkerSwatch style={v} mag={4.5} band={2} />,
+            label: <span className={styles.optText}><strong>{v === 'pins' ? k.pins : k.circles}</strong><small>{v === 'pins' ? k.pins_d : k.circles_d}</small></span>,
+          }))} />
+        <div className={styles.pickerLabel}>{k.legend}</div>
+        <ul className={styles.markerLegend}>
+          {bands.map(b => <li key={b.i}><span className={styles.swatchBox}><MarkerSwatch style={style} mag={b.mag} band={b.i} /></span>{b.label}</li>)}
+        </ul>
+      </Sheet>
+    </>
+  );
+}
+
+/** A marker as drawn on the map: a numbered pin, or a circle sized by magnitude. */
+function MarkerSwatch({ style, mag, band }: { style: MarkerStyle; mag: number; band: number }) {
+  if (style === 'circles') {
+    const r = dotRadius(mag), size = Math.ceil(r * 2 + 2);
+    return <svg width={size} height={size} viewBox={`${-size / 2} ${-size / 2} ${size} ${size}`} aria-hidden="true"><circle r={r} fill={`var(--mag-${band})`} fillOpacity={0.92} stroke="var(--surface)" strokeWidth={1} /></svg>;
+  }
+  return (
+    <svg width={26} height={34} viewBox="-13 -31 26 34" aria-hidden="true">
+      <path d={PIN_PATH} fill={`var(--mag-${band})`} stroke="var(--surface)" strokeWidth={1.5} strokeLinejoin="round" />
+      <text y={-PIN_HEAD + PIN_TEXT_DY} textAnchor="middle" fontSize={PIN_FONT_PX} fontWeight={800} fill={`var(--mag-ink-${band})`}>{mag.toFixed(1)}</text>
+    </svg>
   );
 }
 

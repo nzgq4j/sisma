@@ -486,5 +486,16 @@
     "refreshing": "Memuat ulang…",
     "updated": "Diperbarui",
     "failed": "Gagal memuat ulang. Periksa koneksi Anda."
+  },
+  "markers": {
+    "title": "Penanda peta",
+    "pins": "Pin",
+    "pins_d": "Ukuran sama, magnitudo tertulis di dalamnya",
+    "circles": "Lingkaran",
+    "circles_d": "Ukuran dan warna menunjukkan magnitudo",
+    "legend": "Legenda",
+    "band": "Magnitudo {a} sampai {b}",
+    "band_top": "Magnitudo {a} atau lebih",
+    "band_low": "Di bawah magnitudo {a}"
   }
 }

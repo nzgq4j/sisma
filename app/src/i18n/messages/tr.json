@@ -486,5 +486,16 @@
     "refreshing": "Yenileniyor…",
     "updated": "Güncellendi",
     "failed": "Yenilenemedi. Bağlantınızı kontrol edin."
+  },
+  "markers": {
+    "title": "Harita işaretleri",
+    "pins": "İğneler",
+    "pins_d": "Aynı boyutta, büyüklük içinde yazılı",
+    "circles": "Daireler",
+    "circles_d": "Boyut ve renk büyüklüğü gösterir",
+    "legend": "Açıklama",
+    "band": "Büyüklük {a} – {b}",
+    "band_top": "Büyüklük {a} ve üzeri",
+    "band_low": "Büyüklük {a} altı"
   }
 }
