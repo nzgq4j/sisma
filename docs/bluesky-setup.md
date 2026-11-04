@@ -60,9 +60,7 @@ Do not send the password to Claude.
 
 ## Handle: @sisma.io
 
-`https://sisma.io/.well-known/atproto-did` answers the account's DID (`did:plc:ydcmwzpjnvqo4aybljucdz7s`) as plain
-text (`app/src/app/.well-known/atproto-did/route.ts`). In Bluesky → Settings → Account → Handle → *I have my own
-domain* → *No DNS panel*, enter `sisma.io` and verify. If the account ever changes, update the DID in that file.
+Verified with a DNS TXT record (`_atproto.sisma.io`) in Vercel DNS.
 
 ## Database
 
