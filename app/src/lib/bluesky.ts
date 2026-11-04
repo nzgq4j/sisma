@@ -82,7 +82,7 @@ export function draftPost(q: Quake): PostDraft {
   // 7 days as coloured dots, plate boundaries as dashed lines, then the details and the disclaimer.
   const source = [q.source, ...(q.alsoIn ?? [])].map(x => x.toUpperCase()).join(', ');
   const alt = `sisma.io earthquake card. Map of the area around a magnitude ${q.mag.toFixed(1)} earthquake, ${place}: `
-    + `the epicentre is a ringed red dot, other earthquakes from the last 7 days are coloured dots, and dashed lines, where present, `
+    + `the epicentre is a ringed dot in the magnitude colour, other earthquakes from the last 7 days are coloured dots, and dashed lines, where present, `
     + `mark tectonic plate boundaries. ${time(q.time)} UTC, depth ${Math.round(q.depthKm)} km, coordinates ${formatDms(q.lat, q.lon)}, `
     + `source ${source}. Not an official warning service.`;
   return { text, facets, alt, url, place };

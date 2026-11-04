@@ -25,7 +25,7 @@ describe('draftPost', () => {
     expect(slice(d.text, t1)).toBe('#earthquake');
     expect(slice(d.text, t2)).toBe('#Japan');
     expect(t2.features[0]).toEqual({ $type: 'app.bsky.richtext.facet#tag', tag: 'Japan' });
-    expect(d.alt).toMatch(/^sisma\.io earthquake card\. Map of the area around a magnitude 6\.4 earthquake, Japan: the epicentre is a ringed red dot/);
+    expect(d.alt).toMatch(/^sisma\.io earthquake card\. Map of the area around a magnitude 6\.4 earthquake, Japan: the epicentre is a ringed dot in the magnitude colour, other earthquakes/);
     expect(d.alt).toMatch(/6 Nov, 03:01 UTC, depth 35 km, coordinates .+, source USGS\. Not an official warning service\.$/);
   });
   it('mentions tsunami information and uses multi-word country tags', () => {

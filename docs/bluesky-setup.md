@@ -6,7 +6,7 @@ sisma can post significant earthquakes to its Bluesky account on its own. Admini
 ## What a post contains
 
 - **Image:** the event's share card (`GET /api/share-card`, 1080×1350 PNG, English, km, UTC).
-- **Alt text:** a description of the card: the map around the epicentre (ringed red dot), other earthquakes of the
+- **Alt text:** a description of the card: the map around the epicentre (ringed dot in the magnitude colour), other earthquakes of the
   last 7 days (coloured dots), plate boundaries (dashed lines, where present), then time, depth, coordinates, source
   and "Not an official warning service".
 - **Text** (at most 300 characters, English):
