@@ -7,6 +7,7 @@ Source of truth: app/src/lib/entitlements.ts (UI) and public.effective_plan(prof
 | historyDays | 30 | unlimited | /api/quakes (range), UI range chips (lock icon) |
 | maxLocations | 1 | 10 | saved_locations trigger, Me → Add location |
 | pushAlerts | false | true | alert_settings trigger, Me → Push alerts |
+| maxAlertRules | 0 | 5 | alert_rules trigger (enforce_alert_rules), Me → Alerts |
 | advancedFilters | false | true | /api/quakes ignores minMag/maxDepth/felt/tsunami for free |
 
 Pricing: monthly $2.99 (Stripe price STRIPE_PRICE_MONTHLY, Play product sisma_plus_monthly),

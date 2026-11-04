@@ -9,8 +9,8 @@ export const PRICES: Record<Billing, { usd: number; stripePriceEnv: string; play
 };
 
 export const ENTITLEMENTS = {
-  free: { historyDays: 30, maxLocations: 1, pushAlerts: false, advancedFilters: false },
-  plus: { historyDays: Infinity, maxLocations: 10, pushAlerts: true, advancedFilters: true },
+  free: { historyDays: 30, maxLocations: 1, pushAlerts: false, advancedFilters: false, maxAlertRules: 0 },
+  plus: { historyDays: Infinity, maxLocations: 10, pushAlerts: true, advancedFilters: true, maxAlertRules: 5 },
 } as const;
 
 export type Entitlement = keyof (typeof ENTITLEMENTS)['free'];
