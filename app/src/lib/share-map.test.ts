@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { niceScale, shareMapSvg } from './share-map';
+import { niceScale, shareMapScale, shareMapSvg } from './share-map';
 import type { Quake } from './quakes/types';
 
 const q: Quake = { id: 'usgs:a', source: 'usgs', mag: 5.2, title: '10 km N of X', region: 'Japan', time: 0, lat: 36, lon: 140, depthKm: 10, tsunami: false };
@@ -24,5 +24,10 @@ describe('shareMapSvg', () => {
   });
   it('labels the scale bar in miles when asked', () => {
     expect(shareMapSvg({ q, nearby: [], w: 1000, h: 600, span: 7.5, units: 'mi', colors: C })).toContain(' mi</text>');
+  });
+  it('can leave the scale text to the caller (the share card draws it with its own font)', () => {
+    const svg = shareMapSvg({ q, nearby: [], w: 1000, h: 600, span: 7.5, units: 'km', colors: C, scaleText: false });
+    expect(svg).not.toContain('<text');
+    expect(shareMapScale({ q, w: 1000, h: 600, span: 7.5, units: 'km' }).label).toMatch(/^\d+ km$/);
   });
 });

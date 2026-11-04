@@ -6,7 +6,7 @@
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 import { recentQuakes } from '@/lib/quakes/find';
-import { shareMapSvg } from '@/lib/share-map';
+import { shareMapScale, shareMapSvg } from '@/lib/share-map';
 import { MAG_INK_LIGHT, MAG_MARKER_LIGHT, THEME, magIndex } from '@/lib/theme';
 import { countryAt } from '@/lib/country';
 import { formatDms } from '@/lib/geo';
@@ -68,9 +68,12 @@ export async function GET(req: NextRequest) {
   const since = Date.now() - 7 * 864e5;
   const nearby = all.filter(x => x.time >= since && Math.abs(x.lat - q.lat) < SPAN && Math.abs(((x.lon - q.lon + 540) % 360) - 180) < SPAN);
   const map = shareMapSvg({
-    q, nearby, w: MAP_W, h: MAP_H, span: SPAN, units, plates, lakes: lakes as never, font: 'Figtree',
+    q, nearby, w: MAP_W, h: MAP_H, span: SPAN, units, plates, lakes: lakes as never, font: 'Figtree', scaleText: false,
     colors: { sea: C.mapSea, land: C.mapLand, line: C.mapLine, plate: C.mapPlate, ink: C.ink, surface: C.surface },
   });
+  // The scale label is drawn by the card (below), not inside the map image: text inside an embedded SVG is rendered
+  // without the card's fonts and came out as empty boxes on the server.
+  const scale = shareMapScale({ q, w: MAP_W, h: MAP_H, span: SPAN, units });
 
   const country = countryAt(q.lat, q.lon);
   const flag = country ? await asDataUri(`${origin}/flags/${country.code}.svg`, 'image/svg+xml') : null;
@@ -81,12 +84,15 @@ export async function GET(req: NextRequest) {
   const status = q.status ? m[`st_${q.status}` as const] : '—';
   const source = [q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ');
   const title = convertKmInText(q.title, units, v => nf.format(v));
+  // Some sources give the same text for the place and the region (e.g. "Fiji region" twice): show it once.
+  const same = (a: string, b: string) => a.trim().toLocaleLowerCase('en') === b.trim().toLocaleLowerCase('en');
+  const subtitle = title && !same(title, q.region) ? title : null;
   // Badge in the light pin colours, like the card's map and the app's light mode.
   const mc = { fill: MAG_MARKER_LIGHT[magIndex(q.mag)], text: MAG_INK_LIGHT[magIndex(q.mag)] };
   const stats: [string, string][] = [[m.depth, depth], [m.coords, formatDms(q.lat, q.lon)], [m.review_status, status], [m.source, source]];
 
   // Every string on the card, so CJK fonts can be fetched as a small subset.
-  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat()].join('');
+  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
   const cjk = locale === 'ja' ? 'Noto Sans JP' : locale === 'zh' ? 'Noto Sans SC' : null;
   const [f500, f700, f800, c500, c700] = await Promise.all([
     googleFont('Figtree', 500), googleFont('Figtree', 700), googleFont('Figtree', 800),
@@ -114,6 +120,7 @@ export async function GET(req: NextRequest) {
 
         <div style={{ display: 'flex', position: 'relative', marginTop: 28, width: MAP_W, height: MAP_H, borderRadius: 40, overflow: 'hidden', border: `2px solid ${C.line}` }}>
           <img src={`data:image/svg+xml;base64,${Buffer.from(map).toString('base64')}`} width={MAP_W} height={MAP_H} alt="" />
+          <div style={{ position: 'absolute', left: scale.bx, top: scale.by - 38, display: 'flex', fontSize: 22, fontWeight: 700, lineHeight: 1, color: C.ink }}>{nf.format(scale.len)} {units}</div>
           {nearby.length > 1 && (
             <div style={{ position: 'absolute', top: 22, right: 22, display: 'flex', padding: '10px 20px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 22, fontWeight: 700 }}>{m.sharecard.nearby}</div>
           )}
@@ -129,7 +136,7 @@ export async function GET(req: NextRequest) {
               {flag && <img src={flag} width={48} height={48} style={{ borderRadius: 24 }} alt="" />}
               <div style={{ display: 'flex', fontSize: 50, fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.01em' }}>{q.region}</div>
             </div>
-            <div style={{ display: 'flex', fontSize: 30, fontWeight: 500, color: C.ink2 }}>{title}</div>
+            {subtitle && <div style={{ display: 'flex', fontSize: 30, fontWeight: 500, color: C.ink2 }}>{subtitle}</div>}
             <div style={{ display: 'flex', fontSize: 30, fontWeight: 700 }}>{date} · {time}</div>
           </div>
         </div>

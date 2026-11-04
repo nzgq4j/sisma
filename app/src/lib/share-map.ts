@@ -24,9 +24,23 @@ export function niceScale(pxPerUnit: number, target = 200): number {
 
 const esc = (s: string) => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 
+/**
+ * The scale bar (Mercator px per km at the event's latitude): its length in units, its width in px, and where it is
+ * drawn (bar from (bx, by) to the right; the label sits above it, baseline at by − 16, 22 px bold).
+ */
+export function shareMapScale({ q, w, h, span, units }: { q: Pick<Quake, 'lat'>; w: number; h: number; span: number; units: Units }) {
+  const s = (w * 180) / (Math.PI * span);
+  const pxPerKm = (s * Math.PI / 180) / (111.32 * Math.cos((q.lat * Math.PI) / 180));
+  const pxPerUnit = units === 'mi' ? pxPerKm * KM_PER_MI : pxPerKm;
+  const len = niceScale(pxPerUnit, 180);
+  return { len, barW: len * pxPerUnit, bx: 32, by: h - 34, label: `${len} ${units}` };
+}
+
 export function shareMapSvg(opts: {
   q: Quake; nearby: Quake[]; w: number; h: number; span: number; units: Units; colors: ShareMapColors;
   plates?: GeoPermissibleObjects | null; lakes?: GeoPermissibleObjects | null; font?: string;
+  /** false: leave the scale bar's text out (the share card draws it itself with its own font, see shareMapScale). */
+  scaleText?: boolean;
 }): string {
   const { q, nearby, w, h, span, units, colors: c } = opts;
   const s = (w * 180) / (Math.PI * span);
@@ -51,15 +65,11 @@ export function shareMapSvg(opts: {
 <circle r="${fr}" fill="${mc}" stroke="${c.surface}" stroke-width="2"/>
 <circle r="${ring}" fill="none" stroke="${c.ink}" stroke-width="6"/></g>`;
 
-  // Scale bar: Mercator px per km at this latitude.
-  const pxPerKm = (s * Math.PI / 180) / (111.32 * Math.cos((q.lat * Math.PI) / 180));
-  const pxPerUnit = units === 'mi' ? pxPerKm * KM_PER_MI : pxPerKm;
-  const len = niceScale(pxPerUnit, 180), barW = len * pxPerUnit;
-  const bx = 32, by = h - 34;
+  const { len, barW, bx, by } = shareMapScale({ q, w, h, span, units });
   const font = opts.font ?? 'sans-serif';
   const scale = `<g><rect x="${bx - 14}" y="${by - 42}" width="${barW + 28}" height="62" rx="16" fill="${c.surface}" fill-opacity="0.85"/>
 <path d="M${bx} ${by - 8}V${by}H${(bx + barW).toFixed(1)}V${by - 8}" fill="none" stroke="${c.ink}" stroke-width="4" stroke-linejoin="round"/>
-<text x="${bx}" y="${by - 16}" font-family="${esc(font)}" font-size="22" font-weight="700" fill="${c.ink}">${len} ${units}</text></g>`;
+${opts.scaleText === false ? '' : `<text x="${bx}" y="${by - 16}" font-family="${esc(font)}" font-size="22" font-weight="700" fill="${c.ink}">${len} ${units}</text>`}</g>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
 <rect width="${w}" height="${h}" fill="${c.sea}"/>
