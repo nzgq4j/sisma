@@ -42,7 +42,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
    magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
 7. Me / account dashboard (skeleton done: app/app/me): email + password (sign-in, sign-up, reset, change; no email-link sign-in) and Google sign-in (components/Account.tsx, lib/oauth.ts;
-   Google button shows when the provider is on in Supabase; Android returns via App Links, /.well-known/assetlinks.json), profile + plan, alerts saved to
+   Google button shows when the provider is on in Supabase; Android: in-app account picker via @capgo/capacitor-social-login →
+   signInWithIdToken with a nonce; Android OAuth clients per signing key, docs/android-setup.md §4), profile + plan, alerts saved to
    alerts (sisma+: master switch on alert_settings, up to 5 alert_rules at app/me/alerts — name, minimum magnitude, saved places + radius, countries/regions, quiet hours, 30-day match chart in alerts/rule; alert history from alert_deliveries), language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
    saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
    Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Subscription page (done): app/me/subscription — status,

@@ -186,7 +186,11 @@ function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () =
   const google = async () => {
     if (!sb) return;
     setStatus('oauth'); setErr(null);
-    try { await startOAuth(sb, 'google'); } catch { setStatus('idle'); setErr(a.oauth_error); }
+    try {
+      const r = await startOAuth(sb, 'google');
+      if (r === 'cancelled') setStatus('idle');
+      else if (r === 'signed_in') { setStatus('idle'); onClose(); }
+    } catch { setStatus('idle'); setErr(a.oauth_error); }
   };
 
   const sentBody = status === 'signup_sent' ? a.signup_sent_p : a.reset_sent_p;

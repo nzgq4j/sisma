@@ -16,6 +16,8 @@ const config: CapacitorConfig = {
     SplashScreen: { launchShowDuration: 10000, launchAutoHide: true, launchFadeOutDuration: 0, backgroundColor: '#6C4BF4', showSpinner: false },
     SystemBars: { insetsHandling: 'native', initialViewportFitValueHint: 'cover' },
     PushNotifications: { presentationOptions: ['badge', 'sound', 'alert'] },
+    // Google sign-in inside the app (Credential Manager); the other providers are not bundled.
+    SocialLogin: { providers: { google: true, facebook: false, apple: false, twitter: false }, logLevel: 1 },
   },
 };
 
