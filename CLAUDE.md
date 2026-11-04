@@ -47,7 +47,10 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
    Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Subscription page (done): app/me/subscription — status,
    price, next date; Stripe customer portal via POST /api/stripe/portal, Google Play link for app purchases
-8. Billing: Stripe Checkout + webhook; Play Billing via a Capacitor plugin; paywall sheet (done: components/Paywall.tsx)
+8. Billing (done): Stripe Checkout + webhook (web); Google Play Billing in the Android app (@capgo/native-purchases,
+   lib/play-client.ts → POST /api/play/verify, Pub/Sub notifications → POST /api/play/rtdn, lib/play.ts;
+   docs/play-billing-setup.md); paywall sheet with trial-or-subscribe, restore and the post-payment activation step
+   (components/Paywall.tsx); lib/billing.ts for trial eligibility and running subscriptions
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_rules (done as POST /api/cron/alerts, lib/alerts/match.ts matchRules)
 10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)

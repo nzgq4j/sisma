@@ -3,6 +3,7 @@
 // time range, region filter and the loaded list (as in design/SismaApp.dc.html, where all tabs read getList()).
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useApp } from './AppState';
+import { takePendingYearRange } from '@/lib/pending-upgrade';
 import type { Quake } from '@/lib/quakes/types';
 import { can } from '@/lib/entitlements';
 import { worldRegion, WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
@@ -50,6 +51,11 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [loadedAt, setLoadedAt] = useState(0);
   const loadRef = useRef<(fresh?: boolean) => Promise<boolean>>(async () => false);
+  // A 1-year range chosen before upgrading takes effect once the account has sisma+.
+  useEffect(() => {
+    if (plan !== 'plus' || !takePendingYearRange()) return;
+    void Promise.resolve().then(() => setRange('1y'));
+  }, [plan]);
 
   useEffect(() => {
     let alive = true;

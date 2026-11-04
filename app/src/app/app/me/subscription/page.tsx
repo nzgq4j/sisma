@@ -10,16 +10,16 @@ import { useApp } from '@/components/AppState';
 import { useAccount } from '@/components/Account';
 import { useNow } from '@/components/FeltReport';
 import { PRICES } from '@/lib/entitlements';
+import { PLAY_MANAGE_URL } from '@/lib/play-config';
 import styles from '../me.module.css';
 import sub from './subscription.module.css';
 
-const PLAY_SUBSCRIPTIONS = 'https://play.google.com/store/account/subscriptions?package=io.sisma.app';
 
 export default function SubscriptionPage() {
   const { t, m, locale } = useT();
   const s = m.sub;
   const { plan, setSheet } = useApp();
-  const { user, profile, accessToken, openSignIn } = useAccount();
+  const { profile, accessToken } = useAccount();
   const now = useNow();
   const [state, setState] = useState<'idle' | 'busy' | 'error' | 'soon'>('idle');
 
@@ -50,7 +50,7 @@ export default function SubscriptionPage() {
           <div className={styles.planTop}><span>{t('current')}</span><span className={styles.planBadge}>{t('plan_free')}</span></div>
           <div className={styles.planH}>{s.free_h}</div>
           <div className={styles.planP}>{m.ent_plus.join(' · ')}</div>
-          <button type="button" className={styles.planBtn} onClick={() => (user ? setSheet('paywall') : openSignIn())}>{s.see_plans}</button>
+          <button type="button" className={styles.planBtn} onClick={() => setSheet('paywall')}>{s.see_plans}</button>
         </div>
       </div>
     );
@@ -61,9 +61,9 @@ export default function SubscriptionPage() {
   const daysLeft = Math.max(0, Math.ceil((trialEnd - now) / 86_400_000));
   const onTrial = status === 'trialing' || (!status && trialEnd > now);
   const interval = profile.billing_interval ?? 'monthly';
-  const stripe = !!profile.stripe_customer_id;
-  // A subscription that is live but not from Stripe was bought through Google Play (the Android app).
-  const play = !stripe && !!status && status !== 'trialing';
+  // Which store the subscription is managed in (billing_source; older rows: a Stripe customer means Stripe).
+  const stripe = profile.billing_source === 'stripe' || (!profile.billing_source && !!profile.stripe_customer_id);
+  const play = profile.billing_source === 'play';
 
   const statusText = onTrial ? s.st_trial.replace('{n}', String(daysLeft))
     : status === 'past_due' ? s.st_past_due
@@ -104,7 +104,7 @@ export default function SubscriptionPage() {
         </div>
       ) : play ? (
         <div className={sub.action}>
-          <a className={sub.primary} href={PLAY_SUBSCRIPTIONS} target="_blank" rel="noopener noreferrer">
+          <a className={sub.primary} href={PLAY_MANAGE_URL} target="_blank" rel="noopener noreferrer">
             <span className="ms" aria-hidden="true">shop</span>{s.play}<span className="ms" aria-hidden="true">open_in_new</span>
           </a>
           <p className={styles.hint}>{s.play_hint}</p>

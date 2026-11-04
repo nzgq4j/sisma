@@ -1,7 +1,7 @@
 'use client';
 // Desktop /app: overview dashboard. Filters sit in one row above everything they affect;
 // map, charts, list and detail panel all read the same filtered set and share one selection.
-import Link from 'next/link';
+import { setPendingYearRange } from '@/lib/pending-upgrade';
 import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
@@ -25,7 +25,7 @@ const MAG_BINS = [...MAG_SCALE].reverse().map(([min], i, a) => ({ min: i === 0 ?
 export function Dashboard() {
   const { t, m, nf, locale } = useT();
   const u = useDistance();
-  const { locations, active, plan } = useApp();
+  const { locations, active, plan, setSheet } = useApp();
   const loc = locations[active];
   const { range, setRange, region, setRegion, loaded, list, mapList, regions, loadedAt: now } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
@@ -81,7 +81,7 @@ export function Dashboard() {
             {VIEW_RANGES.map(r => {
               const locked = r === '1y' && plan === 'free';
               return locked
-                ? <Link key={r} href="/app/me" className={styles.segBtn}>{t(RANGE_LABEL[r])} <span className="ms" aria-hidden="true">lock</span></Link>
+                ? <button key={r} type="button" className={styles.segBtn} aria-pressed={false} onClick={() => { setPendingYearRange(); setSheet('paywall'); }}>{t(RANGE_LABEL[r])} <span className="ms" aria-hidden="true">lock</span></button>
                 : <button key={r} type="button" className={styles.segBtn} aria-pressed={range === r} onClick={() => setRange(r)}>{t(RANGE_LABEL[r])}</button>;
             })}
           </div>

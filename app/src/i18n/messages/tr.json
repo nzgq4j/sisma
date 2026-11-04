@@ -558,5 +558,23 @@
     "delete_p": "Bu uyarı için artık bildirim almayacaksınız. Daha önce gönderilen uyarılar geçmişinizde kalır.",
     "cancel": "İptal",
     "not_found": "Bu uyarı artık yok."
+  },
+  "billing": {
+    "subscribe": "Abone ol",
+    "cancel_any_paid": "İstediğiniz zaman iptal edin.",
+    "already": "Bu hesapta zaten sisma+ var.",
+    "app_update": "Uygulamada abone olmak için sisma’yı Google Play’den güncelleyin.",
+    "play_unavailable": "Bu cihazda Google Play faturalandırması kullanılamıyor.",
+    "play_fine": "Google Play üzerinden faturalandırılır. İstediğiniz zaman Google Play’den iptal edin.",
+    "restore": "Satın alımı geri yükle",
+    "restore_none": "Bu cihazda bu hesap için Google Play aboneliği bulunamadı.",
+    "other_account": "Bu Google Play aboneliği başka bir sisma hesabına ait.",
+    "activating_h": "sisma+ etkinleştiriliyor…",
+    "activating_p": "Ödemeniz alındı. Bu genellikle birkaç saniye sürer.",
+    "done_h": "sisma+’a hoş geldiniz",
+    "done_p": "sisma+’ın tüm özellikleri artık açık.",
+    "slow_h": "Neredeyse bitti",
+    "slow_p": "Ödemeniz alındı ancak planınız henüz güncellenmedi. Birkaç dakika içinde görünmelidir. Kontrol etmek için sisma’yı yeniden açın.",
+    "ok": "Devam"
   }
 }

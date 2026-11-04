@@ -129,7 +129,8 @@ Three different things with similar names:
 **Why both:** Google Play's rules require digital subscriptions bought *inside* a Play app to go through Play Billing.
 (Some countries, e.g. the US, now allow alternatives under conditions that keep changing — Play Billing is the safe
 default.) A subscription bought on either side unlocks sisma+ everywhere, because both end up on the same account.
-**→ Claude:** when Play Billing is built, the Android app shows the Play checkout and hides the Stripe one.
+In the Android app (version 1.1, versionCode 3, and later) the upgrade sheet uses Play Billing; the Stripe checkout is
+only on the website. How it works and the server setup: docs/play-billing-setup.md.
 
 **Set up Play subscriptions** (after step 7 creates the app and after the first build is uploaded to a testing track —
 Play only enables subscriptions once an app bundle exists):
@@ -143,7 +144,7 @@ Play only enables subscriptions once an app bundle exists):
    | `sisma_plus_monthly` | sisma+ monthly | auto-renewing, every **1 month** | US$2.99 | free trial **7 days**, new customers only |
    | `sisma_plus_yearly` | sisma+ yearly | auto-renewing, every **1 year** | US$19.99 | free trial **7 days**, new customers only |
 
-   For each: add the *base plan* → set the US price → **Update prices for other countries** (Google converts) →
+   For each: add the *base plan* (base plan ID `monthly` or `yearly`) → set the US price → **Update prices for other countries** (Google converts) →
    *Activate*. Then **Add offer** → free trial 7 days → eligibility "New customer acquisition" → *Activate*.
    Benefits text (shown by Google): "Push alerts", "Up to 10 saved locations", "Full history", "Advanced filters".
 3. Under **Settings → License testing**, add your own Gmail so your test purchases are free.

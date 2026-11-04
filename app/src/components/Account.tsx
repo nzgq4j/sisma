@@ -8,6 +8,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { User } from '@supabase/supabase-js';
 import { enabledProviders, supabaseBrowser } from '@/lib/supabase-browser';
 import { listenForOAuthReturn, startOAuth } from '@/lib/oauth';
+import { peekPendingUpgrade } from '@/lib/pending-upgrade';
 import { effectivePlan, type Billing, type Plan } from '@/lib/entitlements';
 import { useT } from '@/i18n/I18nProvider';
 import { Sheet } from './Sheet';
@@ -16,13 +17,16 @@ import styles from './account.module.css';
 export interface Profile {
   display_name: string | null; locale: string; theme: 'system' | 'light' | 'dark'; plan: Plan;
   billing_interval: Billing | null; subscription_status: string | null; trial_ends_at: string | null; current_period_end: string | null;
-  cancel_at_period_end: boolean; stripe_customer_id: string | null;
+  cancel_at_period_end: boolean; stripe_customer_id: string | null; stripe_subscription_id: string | null;
+  play_purchase_token: string | null; billing_source: 'stripe' | 'play' | null;
 }
 interface AccountCtx {
   configured: boolean; ready: boolean; user: User | null; profile: Profile | null; plan: Plan;
   /** Updates the user's own preference columns (display_name, locale, theme are the only ones RLS allows). */
   savePrefs: (p: Partial<Pick<Profile, 'display_name' | 'locale' | 'theme'>>) => Promise<boolean>;
   accessToken: () => Promise<string | null>;
+  /** Reads the profile again (after a purchase: the plan is written by the server). */
+  refreshProfile: () => Promise<Profile | null>;
   signOut: () => Promise<void>;
   /** Opens sign-in; `onCancel` runs if the user closes it without signing in. */
   openSignIn: (opts?: { onCancel?: () => void }) => void;
@@ -30,7 +34,7 @@ interface AccountCtx {
   openPassword: () => void;
 }
 const Ctx = createContext<AccountCtx | null>(null);
-const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end, cancel_at_period_end, stripe_customer_id';
+const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end, cancel_at_period_end, stripe_customer_id, stripe_subscription_id, play_purchase_token, billing_source';
 
 export function AccountProvider({ children }: { children: ReactNode }) {
   const sb = supabaseBrowser();
@@ -91,16 +95,24 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     return !error;
   }, [sb, user]);
 
+  const refreshProfile = useCallback(async () => {
+    if (!sb || !user) return null;
+    const { data } = await sb.from('profiles').select(PROFILE_COLS).eq('id', user.id).maybeSingle();
+    const prof = (data as Profile | null) ?? null;
+    if (prof) setProfile(prof);
+    return prof;
+  }, [sb, user]);
+
   const value = useMemo<AccountCtx>(() => ({
     configured: !!sb, ready, user, profile,
     plan: effectivePlan(profile ? { plan: profile.plan, subscription_status: profile.subscription_status, trial_ends_at: profile.trial_ends_at } : null),
-    savePrefs,
+    savePrefs, refreshProfile,
     accessToken: async () => (sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null),
     // Remove this device from the account's alert devices first (needs the session), then sign out.
     signOut: async () => { await disablePush(sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null); await sb?.auth.signOut(); },
     openSignIn: opts => { cancelRef.current = opts?.onCancel ?? null; setSignIn(true); },
     openPassword: () => setPwOpen(true),
-  }), [sb, ready, user, profile, savePrefs]);
+  }), [sb, ready, user, profile, savePrefs, refreshProfile]);
 
   return (
     <Ctx.Provider value={value}>
@@ -137,7 +149,9 @@ function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () =
   const [err, setErr] = useState<string | null>(null);
   const [providers, setProviders] = useState<string[]>([]);
   useEffect(() => { if (open) void enabledProviders().then(setProviders); }, [open]);
-  const redirect = () => `${location.origin}/app/me`; // read on click: `location` doesn't exist while prerendering
+  // Read on click (`location` doesn't exist while prerendering). A plan chosen before signing up travels in the
+  // link, so checkout continues even when the confirmation email is opened in another browser.
+  const redirect = () => { const up = peekPendingUpgrade(); return `${location.origin}/app/me${up ? `?upgrade=${up}` : ''}`; };
   const reset = (to: Mode = mode) => { setMode(to); setStatus('idle'); setErr(null); };
   // Closed by the user. Waiting on an email (account confirmation, password reset) or Google still counts as signing in.
   const close = () => {

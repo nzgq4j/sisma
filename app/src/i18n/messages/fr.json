@@ -558,5 +558,23 @@
     "delete_p": "Vous ne recevrez plus de notifications pour elle. Les alertes déjà envoyées restent dans votre historique.",
     "cancel": "Annuler",
     "not_found": "Cette alerte n’existe plus."
+  },
+  "billing": {
+    "subscribe": "S’abonner",
+    "cancel_any_paid": "Résiliable à tout moment.",
+    "already": "Ce compte a déjà sisma+.",
+    "app_update": "Pour vous abonner dans l’app, mettez à jour sisma depuis Google Play.",
+    "play_unavailable": "La facturation Google Play n’est pas disponible sur cet appareil.",
+    "play_fine": "Facturé via Google Play. Résiliez à tout moment dans Google Play.",
+    "restore": "Restaurer l’achat",
+    "restore_none": "Aucun abonnement Google Play n’a été trouvé pour ce compte sur cet appareil.",
+    "other_account": "Cet abonnement Google Play appartient à un autre compte sisma.",
+    "activating_h": "Activation de sisma+…",
+    "activating_p": "Votre paiement a été accepté. Cela prend généralement quelques secondes.",
+    "done_h": "Bienvenue dans sisma+",
+    "done_p": "Tout sisma+ est maintenant débloqué.",
+    "slow_h": "Presque terminé",
+    "slow_p": "Votre paiement a été accepté, mais votre formule n’est pas encore à jour. Elle devrait apparaître d’ici quelques minutes. Rouvrez sisma pour vérifier.",
+    "ok": "Continuer"
   }
 }

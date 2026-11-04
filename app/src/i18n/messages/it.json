@@ -558,5 +558,23 @@
     "delete_p": "Non riceverai più notifiche per questo avviso. Gli avvisi già inviati restano nella cronologia.",
     "cancel": "Annulla",
     "not_found": "Questo avviso non esiste più."
+  },
+  "billing": {
+    "subscribe": "Abbonati",
+    "cancel_any_paid": "Annulla quando vuoi.",
+    "already": "Questo account ha già sisma+.",
+    "app_update": "Per abbonarti nell’app, aggiorna sisma da Google Play.",
+    "play_unavailable": "La fatturazione di Google Play non è disponibile su questo dispositivo.",
+    "play_fine": "Addebito tramite Google Play. Annulla quando vuoi in Google Play.",
+    "restore": "Ripristina acquisto",
+    "restore_none": "Nessun abbonamento Google Play trovato per questo account su questo dispositivo.",
+    "other_account": "Questo abbonamento Google Play appartiene a un altro account sisma.",
+    "activating_h": "Attivazione di sisma+…",
+    "activating_p": "Il pagamento è andato a buon fine. Di solito servono pochi secondi.",
+    "done_h": "Benvenuto in sisma+",
+    "done_p": "Tutto sisma+ è ora sbloccato.",
+    "slow_h": "Quasi fatto",
+    "slow_p": "Il pagamento è andato a buon fine, ma il piano non è ancora aggiornato. Dovrebbe comparire entro pochi minuti. Riapri sisma per controllare.",
+    "ok": "Continua"
   }
 }
