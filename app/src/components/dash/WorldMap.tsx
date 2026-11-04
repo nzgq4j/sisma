@@ -125,7 +125,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const u = useDistance();
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
-  const baseRef = useRef<SVGGElement>(null);
+  const baseCanvasRef = useRef<HTMLCanvasElement>(null);
+  /** Redraws the outline canvas for a zoom transform (set below; called straight from the zoom handler). */
+  const drawBaseRef = useRef<(t: { x: number; y: number; k: number }) => void>(() => {});
   const overRef = useRef<SVGGElement>(null);
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
@@ -200,7 +202,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           setSides(left | right);
         }
         const t = `translate(${x},${y}) scale(${tk})`;
-        baseRef.current?.setAttribute('transform', t); overRef.current?.setAttribute('transform', t);
+        drawBaseRef.current({ x, y, k: tk }); overRef.current?.setAttribute('transform', t);
         setTf({ x, y, k: tk }); setHover(null);
       });
     zoomRef.current = z;
@@ -370,16 +372,44 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const zoomBy = (f: number) => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.scaleBy, f); };
   const reset = () => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); onReset?.(); };
 
-  // The world layer; on the Mercator map it is repeated one world-width to the left and/or right while scrolling.
-  const base = (
-    <>
-      {!mercator && <path d={path(SPHERE) ?? ''} fill="var(--map-sea)" />}
-      {!mercator && <path d={path(GRATICULE) ?? ''} fill="none" stroke="var(--map-grat)" vectorEffect="non-scaling-stroke" />}
-      <path d={land} fill="var(--map-land)" />
-      {lakesD && <path d={lakesD} fill="var(--map-sea)" stroke="var(--map-line)" strokeWidth={0.5} vectorEffect="non-scaling-stroke" />}
-      <path d={borders} fill="none" stroke="var(--map-line)" strokeWidth={0.6} vectorEffect="non-scaling-stroke" />
-    </>
-  );
+  // The world layer (sea, land, lakes, borders; Equal Earth adds the sphere and graticule) on a canvas: Path2D shapes
+  // in map units, redrawn with the zoom transform. On the Mercator map it is repeated one world-width to the left and
+  // right while scrolling. Lines keep their screen width at every zoom (as the SVG's non-scaling strokes did).
+  const shapes = useMemo(() => {
+    if (typeof Path2D === 'undefined') return null;
+    return {
+      land: new Path2D(land), borders: new Path2D(borders), lakes: lakesD ? new Path2D(lakesD) : null,
+      sphere: mercator ? null : new Path2D(path(SPHERE) ?? ''), grat: mercator ? null : new Path2D(path(GRATICULE) ?? ''),
+    };
+  }, [land, borders, lakesD, mercator, path]);
+  const hideOutlines = zw >= HIDE_OUTLINES_FROM;
+  useEffect(() => {
+    const cv = baseCanvasRef.current, wrap = wrapRef.current;
+    if (!cv || !wrap || !size.w || !shapes) return;
+    const cs = getComputedStyle(wrap), v = (n: string) => cs.getPropertyValue(n).trim();
+    const col = { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat') };
+    const dpr = window.devicePixelRatio || 1, W = worldW, cx = size.w / 2;
+    if (cv.width !== Math.round(size.w * dpr) || cv.height !== Math.round(size.h * dpr)) { cv.width = Math.round(size.w * dpr); cv.height = Math.round(size.h * dpr); }
+    const ctx = cv.getContext('2d'); if (!ctx) return;
+    const draw = ({ x, y, k: tk }: { x: number; y: number; k: number }) => {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.fillStyle = col.sea; ctx.fillRect(0, 0, size.w, size.h);
+      if (hideOutlines) return; // street tiles cover the map from here
+      const offs = W ? [0, ...(-x / tk < cx - W / 2 ? [-W] : []), ...((size.w - x) / tk > cx + W / 2 ? [W] : [])] : [0];
+      for (const off of offs) {
+        ctx.setTransform(dpr * tk, 0, 0, dpr * tk, dpr * (x + tk * off), dpr * y);
+        if (shapes.sphere) { ctx.fillStyle = col.sea; ctx.fill(shapes.sphere); }
+        if (shapes.grat) { ctx.strokeStyle = col.grat; ctx.lineWidth = 1 / tk; ctx.stroke(shapes.grat); }
+        ctx.fillStyle = col.land; ctx.fill(shapes.land);
+        if (shapes.lakes) { ctx.fillStyle = col.sea; ctx.fill(shapes.lakes); ctx.strokeStyle = col.line; ctx.lineWidth = 0.5 / tk; ctx.stroke(shapes.lakes); }
+        ctx.strokeStyle = col.line; ctx.lineWidth = 0.6 / tk; ctx.lineJoin = 'round'; ctx.stroke(shapes.borders);
+      }
+    };
+    drawBaseRef.current = draw;
+    draw(tf);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- tf changes are drawn by the zoom handler directly
+  }, [shapes, size.w, size.h, worldW, dark, hideOutlines]);
+
   // Everything drawn over the map (and over the street tiles): plates, felt layers, events, markers.
   const over = (
     <>
@@ -408,9 +438,11 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
 
   return (
     <div ref={wrapRef} className={styles.mapWrap} onMouseLeave={() => setHover(null)}>
+      {/* The app's outlines (sea, land, lakes, borders) on a canvas under everything else. */}
+      {size.w > 0 && <canvas ref={baseCanvasRef} className={styles.baseCanvas} style={{ width: size.w, height: size.h }} aria-hidden="true" />}
       {size.w > 0 && (
         <svg ref={svgRef} width={size.w} height={size.h} role="img" aria-label={t('count', { n: quakes.length })} className={styles.mapSvg}
-          style={{ background: 'var(--map-sea)' }} onClick={pick} onPointerMove={onMouseMove} onPointerLeave={() => { mouseRef.current = null; }}>
+          onClick={pick} onPointerMove={onMouseMove} onPointerLeave={() => { mouseRef.current = null; }}>
           {overlay && (
             <defs>
               {HEAT_COLORS.map((c, i) => (
@@ -429,12 +461,6 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
               ))}
             </defs>
           )}
-          {/* The app's outlines; hidden once the street tiles fully cover them. */}
-          <g ref={baseRef} style={zw >= HIDE_OUTLINES_FROM ? { display: 'none' } : undefined}>
-            {offsets.map(off => (
-              <g key={off} transform={off ? `translate(${off},0)` : undefined}>{base}</g>
-            ))}
-          </g>
           {streetTiles.length > 0 && (
             <g aria-hidden="true" pointerEvents="none" opacity={tileAlpha} className={dark ? styles.tilesDark : undefined}>
               {streetTiles.map(tl => (
