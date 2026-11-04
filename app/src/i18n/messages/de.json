@@ -558,5 +558,23 @@
     "delete_p": "Du bekommst dafür keine Benachrichtigungen mehr. Bereits gesendete Warnungen bleiben im Verlauf.",
     "cancel": "Abbrechen",
     "not_found": "Diese Warnung gibt es nicht mehr."
+  },
+  "billing": {
+    "subscribe": "Abonnieren",
+    "cancel_any_paid": "Jederzeit kündbar.",
+    "already": "Dieses Konto hat bereits sisma+.",
+    "app_update": "Um in der App zu abonnieren, aktualisiere sisma über Google Play.",
+    "play_unavailable": "Google Play-Abrechnung ist auf diesem Gerät nicht verfügbar.",
+    "play_fine": "Abrechnung über Google Play. Jederzeit in Google Play kündbar.",
+    "restore": "Kauf wiederherstellen",
+    "restore_none": "Für dieses Konto wurde auf diesem Gerät kein Google Play-Abo gefunden.",
+    "other_account": "Dieses Google Play-Abo gehört zu einem anderen sisma-Konto.",
+    "activating_h": "sisma+ wird aktiviert…",
+    "activating_p": "Deine Zahlung ist eingegangen. Das dauert meist nur ein paar Sekunden.",
+    "done_h": "Willkommen bei sisma+",
+    "done_p": "Alles in sisma+ ist jetzt freigeschaltet.",
+    "slow_h": "Fast geschafft",
+    "slow_p": "Deine Zahlung ist eingegangen, aber dein Tarif ist noch nicht aktualisiert. Er sollte in wenigen Minuten erscheinen. Öffne sisma erneut, um nachzusehen.",
+    "ok": "Weiter"
   }
 }

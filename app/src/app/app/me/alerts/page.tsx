@@ -29,7 +29,7 @@ export default function AlertsPage() {
   const k = m.rules;
   const router = useRouter();
   const { plan, setSheet } = useApp();
-  const { user, openSignIn } = useAccount();
+  const { user } = useAccount();
   const push = usePushDevice();
   const a = useAlertRules();
   const back = <Link href="/app/me" className={sub.back}><span className="ms" aria-hidden="true">arrow_back</span>{m.sub.back}</Link>;
@@ -42,7 +42,7 @@ export default function AlertsPage() {
         <div className={me.planFree}>
           <div className={me.planH}>{k.locked_h}</div>
           <div className={me.planP}>{user ? k.locked_p : k.signin_p}</div>
-          <button type="button" className={me.planBtn} onClick={() => (user ? setSheet('paywall') : openSignIn())}>{user ? t('trial') : t('sign_in')}</button>
+          <button type="button" className={me.planBtn} onClick={() => setSheet('paywall')}>{t('trial')}</button>
         </div>
       </div>
     );

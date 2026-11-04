@@ -21,3 +21,6 @@
 .cta:disabled { opacity: .6; cursor: progress; }
 .msg { margin: 0; font-size: 14px; font-weight: 600; color: var(--violet-text); text-align: center; }
 .fine { margin: 0; font-size: 12px; color: var(--ink2); text-align: center; line-height: 1.5; }
+/* Android app: restore an existing Google Play subscription. */
+.link { align-self: center; min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: var(--violet-text); font: 700 14px var(--font-figtree), sans-serif; cursor: pointer; }
+.link:disabled { opacity: .6; cursor: progress; }

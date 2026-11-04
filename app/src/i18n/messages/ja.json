@@ -558,5 +558,23 @@
     "delete_p": "このアラートの通知は届かなくなります。送信済みのアラートは履歴に残ります。",
     "cancel": "キャンセル",
     "not_found": "このアラートは存在しません。"
+  },
+  "billing": {
+    "subscribe": "登録する",
+    "cancel_any_paid": "いつでも解約できます。",
+    "already": "このアカウントはすでに sisma+ です。",
+    "app_update": "アプリで登録するには、Google Play で sisma を更新してください。",
+    "play_unavailable": "この端末では Google Play の課金を利用できません。",
+    "play_fine": "Google Play で請求されます。Google Play でいつでも解約できます。",
+    "restore": "購入を復元",
+    "restore_none": "この端末で、このアカウントの Google Play 定期購入は見つかりませんでした。",
+    "other_account": "この Google Play 定期購入は別の sisma アカウントのものです。",
+    "activating_h": "sisma+ を有効にしています…",
+    "activating_p": "お支払いが完了しました。通常は数秒で完了します。",
+    "done_h": "sisma+ へようこそ",
+    "done_p": "sisma+ のすべての機能が使えるようになりました。",
+    "slow_h": "もう少しです",
+    "slow_p": "お支払いは完了しましたが、プランがまだ更新されていません。数分以内に反映されます。sisma を開き直して確認してください。",
+    "ok": "続ける"
   }
 }

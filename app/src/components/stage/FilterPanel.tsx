@@ -9,6 +9,7 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent, type ReactNode } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
+import { setPendingYearRange } from '@/lib/pending-upgrade';
 import { useQuakeData, VIEW_RANGES, RANGE_LABEL } from '@/components/QuakeData';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import { can } from '@/lib/entitlements';
@@ -188,7 +189,7 @@ export function FilterPanel({ layers, legend, hint, fixed = false }: { layers?: 
       </div>
 
       <Sheet open={open === 'range'} onClose={() => setOpen(null)} title={m.map.time_range}>
-        <SheetOptions value={range} onPick={r => { setOpen(null); if (r === '1y' && plan === 'free') setSheet('paywall'); else setRange(r); }}
+        <SheetOptions value={range} onPick={r => { setOpen(null); if (r === '1y' && plan === 'free') { setPendingYearRange(); setSheet('paywall'); } else setRange(r); }}
           options={VIEW_RANGES.map(r => ({ value: r, label: t(RANGE_LABEL[r]), meta: r === '1y' && plan === 'free' ? <span className="ms" aria-hidden="true">lock</span> : undefined }))} />
       </Sheet>
       <Sheet open={open === 'place'} onClose={() => setOpen(null)} title={m.map.place}>

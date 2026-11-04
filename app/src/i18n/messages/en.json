@@ -558,5 +558,23 @@
     "delete_p": "You will no longer get notifications for it. Alerts it already sent stay in your history.",
     "cancel": "Cancel",
     "not_found": "This alert no longer exists."
+  },
+  "billing": {
+    "subscribe": "Subscribe",
+    "cancel_any_paid": "Cancel anytime.",
+    "already": "This account already has sisma+.",
+    "app_update": "To subscribe in the app, update sisma from Google Play.",
+    "play_unavailable": "Google Play billing isn’t available on this device.",
+    "play_fine": "Billed through Google Play. Cancel anytime in Google Play.",
+    "restore": "Restore purchase",
+    "restore_none": "No Google Play subscription was found for this account on this device.",
+    "other_account": "This Google Play subscription belongs to another sisma account.",
+    "activating_h": "Activating sisma+…",
+    "activating_p": "Your payment went through. This usually takes a few seconds.",
+    "done_h": "Welcome to sisma+",
+    "done_p": "Everything in sisma+ is now unlocked.",
+    "slow_h": "Almost there",
+    "slow_p": "Your payment went through, but your plan hasn’t updated yet. It should appear within a few minutes. Reopen sisma to check.",
+    "ok": "Continue"
   }
 }
