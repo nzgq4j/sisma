@@ -168,7 +168,9 @@
     "privacy": "Política de privacidade",
     "privacy_updated": "Última atualização: {date}",
     "privacy_english": "Esta política é publicada em inglês.",
-    "privacy_open_app": "Abrir o app"
+    "privacy_open_app": "Abrir o app",
+    "terms": "Termos de serviço",
+    "terms_english": "Estes termos são publicados em inglês."
   },
   "dash": {
     "overview": "Visão geral",

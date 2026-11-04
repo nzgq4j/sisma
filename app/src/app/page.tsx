@@ -173,6 +173,7 @@ export default function Home() {
           <span className={styles.footerMark}>sisma<span>.io</span></span>
           <p className={styles.footerText}>{w.footer}</p>
           <Link href="/privacy" className={styles.footerLink}>{w.privacy}</Link>
+          <Link href="/terms" className={styles.footerLink}>{w.terms}</Link>
         </div>
       </footer>
     </div>

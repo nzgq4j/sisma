@@ -168,7 +168,9 @@
     "privacy": "Gizlilik politikası",
     "privacy_updated": "Son güncelleme: {date}",
     "privacy_english": "Bu politika İngilizce olarak yayımlanmaktadır.",
-    "privacy_open_app": "Uygulamayı aç"
+    "privacy_open_app": "Uygulamayı aç",
+    "terms": "Hizmet şartları",
+    "terms_english": "Bu şartlar İngilizce olarak yayımlanmıştır."
   },
   "dash": {
     "overview": "Genel bakış",

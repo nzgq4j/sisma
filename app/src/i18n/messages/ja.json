@@ -168,7 +168,9 @@
     "privacy": "プライバシーポリシー",
     "privacy_updated": "最終更新日：{date}",
     "privacy_english": "このポリシーは英語で公開しています。",
-    "privacy_open_app": "アプリを開く"
+    "privacy_open_app": "アプリを開く",
+    "terms": "利用規約",
+    "terms_english": "この規約は英語で公開されています。"
   },
   "dash": {
     "overview": "概要",

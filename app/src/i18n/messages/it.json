@@ -168,7 +168,9 @@
     "privacy": "Informativa sulla privacy",
     "privacy_updated": "Ultimo aggiornamento: {date}",
     "privacy_english": "Questa informativa è pubblicata in inglese.",
-    "privacy_open_app": "Apri l’app"
+    "privacy_open_app": "Apri l’app",
+    "terms": "Termini di servizio",
+    "terms_english": "Questi termini sono pubblicati in inglese."
   },
   "dash": {
     "overview": "Panoramica",
