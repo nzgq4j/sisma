@@ -111,10 +111,18 @@ convenient. Skip this step if you don't want it.
    - Create → copy the **Client ID** and **Client secret** (secret!).
 3. **Supabase → Authentication → Sign In / Providers → Google** → Enable → paste the Client ID and Client secret → Save.
    The secret lives only there.
-4. That's all on the Google/Supabase side — the app already has the **Continue with Google** button; it appears
-   automatically as soon as the Google provider is switched on in Supabase. Test it on https://sisma.io/app/me.
-   In the Android app, Google blocks sign-in inside embedded web pages, so the app opens Google in the phone's browser
-   and comes back through an *app link* (step 6.6). Until the app link is verified, sign-in completes in the browser.
+4. **Android clients** (for the in-app account picker): **Clients → Create client** → type **Android**, package
+   `io.sisma.app`, and the **SHA-1** of the key that signed the installed app. One client per key:
+   - debug key (▶ in Android Studio): `.\gradlew signingReport` in `mobile/android` → *Variant: debug* → SHA1 (done);
+   - Play app-signing key (installs from Google Play): Play Console → App integrity → App signing → SHA-1, after the
+     first upload;
+   - optionally the upload key, for release builds you install yourself.
+   Client IDs are not secret; the Web client ID is in `app/src/lib/oauth.ts` (`GOOGLE_WEB_CLIENT_ID`).
+5. The **Continue with Google** button appears as soon as the Google provider is switched on in Supabase.
+   - Website: Google opens and returns to https://sisma.io/app/me.
+   - Android app (1.1+): Google's own account picker inside the app (plugin `@capgo/capacitor-social-login`, Credential
+     Manager); the ID token goes to Supabase (`signInWithIdToken`, with a nonce), so no browser and no app link are
+     needed. Keep **Skip nonce checks** off in Supabase. Older app builds without the plugin still use the browser.
 
 ## 5. Payments — Google Play, Stripe and Google Pay
 
