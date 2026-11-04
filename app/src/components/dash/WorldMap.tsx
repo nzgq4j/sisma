@@ -14,8 +14,10 @@ import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { TILE_MAX_ZOOM, kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
 import { useTheme } from '@/components/Theme';
-import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, pinLabel, pinReach } from '@/lib/pin';
-import { HEAT_COLORS, MMI_COLORS, magInkVar, magVar } from '@/lib/theme';
+import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, dotRadius, markerHit, pinLabel } from '@/lib/pin';
+import { markerSprite, stampSprite } from '@/lib/marker-sprite';
+import { useMarkerStyle } from '@/components/MarkerStyle';
+import { HEAT_COLORS, MMI_COLORS, magIndex, magInkVar, magVar } from '@/lib/theme';
 import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
 import { useT } from '@/i18n/I18nProvider';
@@ -27,8 +29,30 @@ import styles from './dash.module.css';
 
 const GRATICULE = geoGraticule10();
 
-// Event pins (lib/pin.ts, shared with the globe): one size for every event; the fill shows the magnitude band and
-// the number the magnitude. The tip is on the epicentre.
+// Event markers (lib/pin.ts, shared with the globe), in the style chosen in Me → Map markers: numbered pins of one
+// size (fill = magnitude band, number = magnitude, tip on the epicentre) or circles sized and filled by magnitude.
+// All events are stamped onto one canvas (lib/marker-sprite.ts); only the selected / focused marker is SVG on top.
+
+/** The selected or focused marker, drawn above the canvas with an ink outline. */
+function Marker({ q, x, y, style, scale, focus = false }: { q: Quake; x: number; y: number; style: 'pins' | 'circles'; scale: number; focus?: boolean }) {
+  if (style === 'circles') {
+    const r = dotRadius(q.mag), c = magVar(q.mag);
+    return (
+      <g>
+        {focus && <circle cx={x} cy={y} r={r + 4} fill="none" stroke={c} strokeWidth={3} className={styles.focusPulse} />}
+        <circle cx={x} cy={y} r={r} fill={c} fillOpacity={0.92} stroke="var(--surface)" strokeWidth={1} />
+        <circle cx={x} cy={y} r={r + 4} fill="none" stroke="var(--ink)" strokeWidth={2.4} />
+      </g>
+    );
+  }
+  return (
+    <g>
+      {focus && <circle cx={x} cy={y} r={8} fill="none" stroke={magVar(q.mag)} strokeWidth={3} className={styles.focusPulse} />}
+      <Pin q={q} x={x} y={y} scale={scale} />
+      <path d={PIN_PATH} transform={`translate(${x},${y}) scale(${scale})`} fill="none" stroke="var(--ink)" strokeWidth={focus ? 1.8 : 2} strokeLinejoin="round" />
+    </g>
+  );
+}
 
 function Pin({ q, x, y, faded = false, scale = 1 }: { q: Quake; x: number; y: number; faded?: boolean; scale?: number }) {
   return (
@@ -114,6 +138,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const dragRef = useRef(false);
   const cursorRef = useRef<{ set: (c: string) => void; hover: () => void } | null>(null);
   const marksRef = useRef<{ q: Quake; x: number; y: number }[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const markerStyle = useMarkerStyle();
+  const styleRef = useRef(markerStyle);
   const plateData = usePlates(plates);
   const lakes = useLakes();
   const mercator = projection === 'mercator';
@@ -203,7 +230,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const offs = worldW ? [0, -worldW, worldW] : [0];
     for (const off of offs) {
       const sx = tf.x + tf.k * (popDot.xy[0] + off), sy = tf.y + tf.k * popDot.xy[1];
-      if (sx >= 0 && sx <= size.w && sy >= 0 && sy <= size.h) return { x: sx, y: sy - PIN_HEAD, r: PIN_R + 2 };
+      if (sx >= 0 && sx <= size.w && sy >= 0 && sy <= size.h) {
+        return markerStyle === 'pins' ? { x: sx, y: sy - PIN_HEAD, r: PIN_R + 2 } : { x: sx, y: sy, r: dotRadius(popDot.q.mag) + 2 };
+      }
     }
     return null;
   })();
@@ -245,8 +274,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const nearest = (px: number, py: number, touch: boolean) => {
     let best: Quake | null = null, bestD = Infinity;
     for (const mk of marksRef.current) {
-      // Distance to the pin's head (where the number is); the reach covers the whole pin.
-      const d = Math.hypot(mk.x - px, mk.y - PIN_HEAD - py), reach = pinReach(touch);
+      // Distance to the pin's head (where the number is) or the circle's centre; the reach covers the whole marker.
+      const { dy, reach } = markerHit(styleRef.current, mk.q.mag, touch);
+      const d = Math.hypot(mk.x - px, mk.y + dy - py);
       if (d <= reach && d < bestD) { best = mk.q; bestD = d; }
     }
     return best;
@@ -267,8 +297,36 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const b = svgRef.current!.getBoundingClientRect();
     mouseRef.current = { x: e.clientX - b.left, y: e.clientY - b.top };
     hoverCursor();
+    // Desktop tooltip for the marker under the mouse (updated only when that marker changes).
+    const q = dragRef.current ? null : nearest(mouseRef.current.x, mouseRef.current.y, false);
+    if ((q?.id ?? null) !== (hover?.q.id ?? null)) {
+      const w = wrapRef.current!.getBoundingClientRect();
+      setHover(q ? { q, x: e.clientX - w.left, y: e.clientY - w.top } : null);
+    }
   };
-  useEffect(() => { cursorRef.current = { set: setCursor, hover: hoverCursor }; });
+  useEffect(() => { cursorRef.current = { set: setCursor, hover: hoverCursor }; styleRef.current = markerStyle; });
+
+  // All event markers on one canvas, redrawn whenever they move (pan, zoom), the data, the style or the theme change.
+  // Strongest last so they sit on top; faded under a felt-report or felt-map overlay, except the event in view.
+  useEffect(() => {
+    const cv = canvasRef.current, wrap = wrapRef.current;
+    if (!cv || !wrap || !size.w) return;
+    const dpr = window.devicePixelRatio || 1;
+    if (cv.width !== Math.round(size.w * dpr) || cv.height !== Math.round(size.h * dpr)) { cv.width = Math.round(size.w * dpr); cv.height = Math.round(size.h * dpr); }
+    const ctx = cv.getContext('2d'); if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, size.w, size.h);
+    const cs = getComputedStyle(wrap), v = (n: string) => cs.getPropertyValue(n).trim();
+    const fills = [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)), inks = [0, 1, 2, 3, 4, 5].map(i => v(`--mag-ink-${i}`));
+    const edge = v('--surface'), font = getComputedStyle(document.body).fontFamily;
+    for (const { q, x, y } of marks) {
+      if (q.id === selectedId || q.id === focusedId) continue; // drawn above, in SVG
+      const i = magIndex(q.mag);
+      ctx.globalAlpha = overlay ? 0.3 : 1;
+      stampSprite(ctx, markerSprite({ style: markerStyle, mag: q.mag, fill: fills[i], ink: inks[i], edge, font }), x, y);
+    }
+    ctx.globalAlpha = 1;
+  }, [marks, markerStyle, dark, overlay, selectedId, focusedId, size.w, size.h]);
 
   // Street-level tiles: fade in over the outlines between web zoom 6.5 and 7.5. Only the tiles in view at the
   // current level are requested (OSM tile policy: no prefetching); the outlines show through while they load.
@@ -288,11 +346,10 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const svg = svgRef.current, z = zoomRef.current;
     if (!svg || !z) return;
     const s = svg.getBoundingClientRect();
-    // The marker exists once per drawn world copy; use the one on screen.
-    const b = [...svg.querySelectorAll(`[data-qid="${CSS.escape(popKey)}"]`)].map(n => n.getBoundingClientRect())
-      .find(r => r.right > s.left && r.left < s.right);
-    if (!b) return;
-    const y = b.top + b.height / 2 - s.top, x = b.left + b.width / 2 - s.left;
+    // The marker exists once per drawn world copy; use the one on screen (aim at the pin head / circle centre).
+    const mk = marksRef.current.find(mm => mm.q.id === popKey && mm.x >= 0 && mm.x <= s.width);
+    if (!mk) return;
+    const x = mk.x, y = mk.y + markerHit(styleRef.current, mk.q.mag, false).dy;
     const minY = sa.top + 120, maxY = s.height - sa.bottom - 24;
     const dy = y < minY ? minY + 20 - y : y > maxY ? maxY - 20 - y : 0;
     const dx = x < 24 ? 40 - x : x > s.width - 24 ? s.width - 40 - x : 0;
@@ -391,39 +448,24 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
               <g key={off} transform={off ? `translate(${off},0)` : undefined}>{over}</g>
             ))}
           </g>
-          {/* Event pins in screen pixels (same size at every zoom); colours follow light/dark mode (--mag-N). */}
-          <g aria-hidden="true">
-            {marks.map(({ q, x, y, key }) => (
-              <g key={key} className={styles.dot} data-qid={q.id}
-                onPointerEnter={e => { if (e.pointerType !== 'mouse') return; const b = wrapRef.current!.getBoundingClientRect(); setHover({ q, x: e.clientX - b.left, y: e.clientY - b.top }); }}>
-                <Pin q={q} x={x} y={y} faded={overlay && q.id !== selectedId && q.id !== focusedId} />
-              </g>
-            ))}
-          </g>
-          <g aria-hidden="true" pointerEvents="none">
-            {selected && selAt && selected !== focused && (
-              // Selected: the pin drawn again on top, with an ink outline.
-              <g>
-                <Pin q={selected.q} x={selAt.x} y={selAt.y} scale={1.15} />
-                <path d={PIN_PATH} transform={`translate(${selAt.x},${selAt.y}) scale(1.15)`} fill="none" stroke="var(--ink)" strokeWidth={2} strokeLinejoin="round" />
-              </g>
-            )}
-            {focused && focAt && (
-              // The event in focus: a larger pin on top, with an ink outline and a pulse spreading from its tip.
-              <g data-focus-marker="">
-                <circle cx={focAt.x} cy={focAt.y} r={8} fill="none" stroke={magVar(focused.q.mag)} strokeWidth={3} className={styles.focusPulse} />
-                <Pin q={focused.q} x={focAt.x} y={focAt.y} scale={1.3} />
-                <path d={PIN_PATH} transform={`translate(${focAt.x},${focAt.y}) scale(1.3)`} fill="none" stroke="var(--ink)" strokeWidth={1.8} strokeLinejoin="round" />
-              </g>
-            )}
+        </svg>
+      )}
+      {size.w > 0 && (
+        <>
+          {/* Event markers in screen pixels (same size at every zoom); colours follow light/dark mode (--mag-N). */}
+          <canvas ref={canvasRef} className={styles.markCanvas} style={{ width: size.w, height: size.h }} aria-hidden="true" />
+          <svg width={size.w} height={size.h} className={styles.markOverlay} aria-hidden="true">
+            {selected && selAt && selected !== focused && <Marker q={selected.q} x={selAt.x} y={selAt.y} style={markerStyle} scale={1.15} />}
+            {/* The event in focus: larger, with an ink outline and a pulse spreading from it. */}
+            {focused && focAt && <g data-focus-marker=""><Marker q={focused.q} x={focAt.x} y={focAt.y} style={markerStyle} scale={1.3} focus /></g>}
             {meAt && (
               <g transform={`translate(${meAt.x},${meAt.y})`}>
                 <circle r={14} fill="var(--violet)" fillOpacity={0.2} />
                 <circle r={5.5} fill="var(--violet)" stroke="#fff" strokeWidth={2} />
               </g>
             )}
-          </g>
-        </svg>
+          </svg>
+        </>
       )}
       {controls && (
         <div className={`${styles.mapTools} ${toolsClassName}`}>

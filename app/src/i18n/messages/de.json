@@ -486,5 +486,16 @@
     "refreshing": "Wird aktualisiert…",
     "updated": "Aktualisiert",
     "failed": "Aktualisierung fehlgeschlagen. Prüfe deine Verbindung."
+  },
+  "markers": {
+    "title": "Kartenmarkierungen",
+    "pins": "Pins",
+    "pins_d": "Gleiche Größe, Magnitude steht darin",
+    "circles": "Kreise",
+    "circles_d": "Größe und Farbe zeigen die Magnitude",
+    "legend": "Legende",
+    "band": "Magnitude {a} bis {b}",
+    "band_top": "Magnitude {a} oder mehr",
+    "band_low": "Unter Magnitude {a}"
   }
 }

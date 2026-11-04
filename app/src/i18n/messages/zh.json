@@ -486,5 +486,16 @@
     "refreshing": "正在刷新…",
     "updated": "已更新",
     "failed": "刷新失败，请检查网络连接。"
+  },
+  "markers": {
+    "title": "地图标记",
+    "pins": "图钉",
+    "pins_d": "大小相同，内部显示震级",
+    "circles": "圆点",
+    "circles_d": "大小和颜色表示震级",
+    "legend": "图例",
+    "band": "震级 {a} 至 {b}",
+    "band_top": "震级 {a} 及以上",
+    "band_low": "震级低于 {a}"
   }
 }

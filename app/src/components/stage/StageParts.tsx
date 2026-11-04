@@ -11,6 +11,8 @@ import { can } from '@/lib/entitlements';
 import { useDesktop } from '@/components/dash/useDesktop';
 import { MAG_SCALE } from '@/lib/theme';
 import { useUnits } from '@/components/Units';
+import { useMarkerStyle } from '@/components/MarkerStyle';
+import { dotRadius } from '@/lib/pin';
 import styles from './stage.module.css';
 
 export const MAG_STEPS = [2.5, 3, 4, 5, 6, 7];
@@ -86,18 +88,26 @@ export function RegionFilterSheet({ open, onClose }: { open: boolean; onClose: (
   );
 }
 
-// Marker colours follow light/dark mode (--mag-N, index into MAG_SCALE), so the legend matches the map.
-const MAG_LEGEND = [...MAG_SCALE].reverse().map(([min], i) => ({ c: `var(--mag-${MAG_SCALE.length - 1 - i})`, l: i === 0 ? '<3' : min === 7 ? '7+' : String(min) }));
+// Marker colours follow light/dark mode (--mag-N, index into MAG_SCALE), so the legend matches the map. With circle
+// markers (Me → Map markers) each swatch is drawn at the size that band's circles have on the map.
+const MAG_LEGEND = [...MAG_SCALE].reverse().map(([min], i) => ({ c: `var(--mag-${MAG_SCALE.length - 1 - i})`, l: i === 0 ? '<3' : min === 7 ? '7+' : String(min), mag: i === 0 ? 2.5 : min }));
 // Depth bands 0–70, 70–300 and 300+ km (shallow / intermediate / deep), labelled in the chosen units.
 const DEPTH_LEGEND = { km: ['0–70 km', '70–300', '300+'], mi: ['0–43 mi', '43–186', '186+'] };
 const DEPTH_COLORS = ['#2CCB9A', '#7B61FF', '#B5179E'];
 
 export function Legend({ depth = false, plain = false }: { depth?: boolean; plain?: boolean }) {
   const units = useUnits();
+  const style = useMarkerStyle();
   const { t } = useT();
+  const sized = style === 'circles' && !depth;
   return (
     <div className={plain ? `${styles.legend} ${styles.legendPlain}` : styles.legend} aria-label={depth ? t('depth') : t('magnitude')}>
-      {(depth ? DEPTH_LEGEND[units].map((l, i) => ({ c: DEPTH_COLORS[i], l })) : MAG_LEGEND).map(x => <span key={x.l}><i style={{ background: x.c }} />{x.l}</span>)}
+      {depth
+        ? DEPTH_LEGEND[units].map((l, i) => <span key={l}><i style={{ background: DEPTH_COLORS[i] }} />{l}</span>)
+        : MAG_LEGEND.map(x => {
+          const d = sized ? Math.round(dotRadius(x.mag) * 2) : 10;
+          return <span key={x.l}><i style={{ background: x.c, width: d, height: d, borderRadius: d / 2 }} />{x.l}</span>;
+        })}
     </div>
   );
 }

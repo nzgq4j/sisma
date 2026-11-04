@@ -486,5 +486,16 @@
     "refreshing": "Refreshing…",
     "updated": "Updated",
     "failed": "Couldn’t refresh. Check your connection."
+  },
+  "markers": {
+    "title": "Map markers",
+    "pins": "Pins",
+    "pins_d": "Same size, with the magnitude written inside",
+    "circles": "Circles",
+    "circles_d": "Size and colour show the magnitude",
+    "legend": "Legend",
+    "band": "Magnitude {a} to {b}",
+    "band_top": "Magnitude {a} or greater",
+    "band_low": "Below magnitude {a}"
   }
 }

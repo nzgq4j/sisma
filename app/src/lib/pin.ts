@@ -7,3 +7,15 @@ export const PIN_FONT_PX = 10, PIN_TEXT_DY = 3.6; // baseline offset from the he
 export const pinLabel = (mag: number) => mag.toFixed(1);
 /** Tap reach around the pin head, px (touch ≈ 44 px across). */
 export const pinReach = (touch: boolean) => PIN_R + (touch ? 11 : 3);
+
+/** Marker style for events on the maps and globe (Me → Map markers): numbered pins of one size, or circles whose
+ *  size and colour show the magnitude. */
+export type MarkerStyle = 'pins' | 'circles';
+/** Circle radius (px) for a magnitude: grows with magnitude, never smaller than 2.4 px. */
+export const dotRadius = (mag: number) => Math.max(2.4, (mag - 1.6) * 2.1);
+/** Where a marker is aimed and how far a tap or click may land from that point (touch ≈ 44 px across). */
+export function markerHit(style: MarkerStyle, mag: number, touch: boolean): { dy: number; reach: number } {
+  if (style === 'pins') return { dy: -PIN_HEAD, reach: pinReach(touch) };
+  const r = dotRadius(mag);
+  return { dy: 0, reach: touch ? Math.max(22, r + 6) : r + 3 };
+}

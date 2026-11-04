@@ -486,5 +486,16 @@
     "refreshing": "Aggiornamento…",
     "updated": "Aggiornato",
     "failed": "Impossibile aggiornare. Controlla la connessione."
+  },
+  "markers": {
+    "title": "Indicatori della mappa",
+    "pins": "Segnaposto",
+    "pins_d": "Stessa dimensione, con la magnitudo scritta all’interno",
+    "circles": "Cerchi",
+    "circles_d": "Dimensione e colore indicano la magnitudo",
+    "legend": "Legenda",
+    "band": "Magnitudo da {a} a {b}",
+    "band_top": "Magnitudo {a} o superiore",
+    "band_low": "Magnitudo inferiore a {a}"
   }
 }
