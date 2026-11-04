@@ -12,8 +12,9 @@ No account or key is needed.
 The tiles come from servers run by the OpenStreetMap Foundation with volunteer support
 (https://operations.osmfoundation.org/policies/tiles/). sisma follows its requirements:
 
-- The credit "© OpenStreetMap contributors" (linked to openstreetmap.org/copyright) shows under the zoom buttons
-  whenever tiles are visible.
+- The credit "© OpenStreetMap contributors" (linked to openstreetmap.org/copyright) shows in the bottom-right
+  corner of the map whenever tiles are visible, kept just above the filter panel or event card (`--map-bottom-inset`,
+  set by the Map page).
 - Only the tiles in view at the current zoom are requested: no prefetching or bulk downloading.
 - Browsers send a Referer and use their normal cache.
 

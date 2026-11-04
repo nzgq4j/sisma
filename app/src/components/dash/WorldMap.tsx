@@ -498,10 +498,10 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           <button type="button" onClick={() => zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>
           <button type="button" onClick={() => zoomBy(1 / 1.6)} aria-label={m.dash.zoom_out} title={m.dash.zoom_out}><span className="ms">remove</span></button>
           <button type="button" onClick={reset} aria-label={m.dash.reset_view} title={m.dash.reset_view}><span className="ms">fit_screen</span></button>
-          {tileAlpha > 0 && <TileCredit />}
         </div>
       )}
-      {!controls && tileAlpha > 0 && <div className={styles.tileCreditCorner}><TileCredit /></div>}
+      {/* Bottom right, kept above whatever covers the bottom of the map (the page sets --map-bottom-inset). */}
+      {tileAlpha > 0 && <div className={styles.tileCreditBottom}><TileCredit /></div>}
       {popup && popAt && (() => {
         const left = Math.min(Math.max(popAt.x - CALLOUT_W / 2, 8), Math.max(8, size.w - CALLOUT_W - 8));
         const below = popAt.y - popAt.r - 100 < safe.top;
