@@ -3,6 +3,7 @@
 // Filters (time range, magnitude, world region, place) live in the same pull-up panel as on the Map and Globe.
 // At >= 1024px this route shows the desktop dashboard (components/dash) instead.
 import { FilterPanel, PANEL_PEEK } from '@/components/stage/FilterPanel';
+import { PullToRefresh } from '@/components/PullToRefresh';
 import { useMemo, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useQuakeData } from '@/components/QuakeData';
@@ -21,7 +22,7 @@ export default function FeedPage() {
 function MobileFeed() {
   const { t } = useT();
   // mapList = the filtered list including the minimum magnitude (the same events as the Map and Globe).
-  const { mapList: list } = useQuakeData();
+  const { mapList: list, refresh } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
   const [selId, setSelId] = useState<string | null>(null);
   const sel = list.find(q => q.id === selId) ?? null;
@@ -35,7 +36,9 @@ function MobileFeed() {
   }, [list, sort]);
 
   return (
-    // Bottom padding keeps the last rows clear of the collapsed filter panel.
+    // Bottom padding keeps the last rows clear of the collapsed filter panel. Pull down at the top to refresh.
+    <>
+    <PullToRefresh onRefresh={refresh} />
     <div style={{ padding: `4px 16px ${PANEL_PEEK + 20}px`, display: 'flex', flexDirection: 'column', gap: 14 }}>
       {/* TODO: filter button (sisma+ advanced filters) and the "Nearest recent" card */}
       <div style={{ display: 'flex', background: 'var(--surface2)', borderRadius: 16, padding: 4, gap: 4 }}>
@@ -54,5 +57,6 @@ function MobileFeed() {
         {sel && <QuakeDetail q={sel} onClose={() => setSelId(null)} />}
       </Sheet>
     </div>
+    </>
   );
 }

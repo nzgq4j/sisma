@@ -479,5 +479,12 @@
     "err": "Zahlungsseite konnte nicht geöffnet werden. Bitte versuche es erneut.",
     "soon": "Die Zahlung ist noch nicht verfügbar.",
     "st_cancelled": "Gekündigt"
+  },
+  "ptr": {
+    "pull": "Zum Aktualisieren ziehen",
+    "release": "Zum Aktualisieren loslassen",
+    "refreshing": "Wird aktualisiert…",
+    "updated": "Aktualisiert",
+    "failed": "Aktualisierung fehlgeschlagen. Prüfe deine Verbindung."
   }
 }

@@ -1,7 +1,7 @@
 'use client';
 // One quake data set for the whole app shell: Feed, Map, Globe and the desktop dashboard share the
 // time range, region filter and the loaded list (as in design/SismaApp.dc.html, where all tabs read getList()).
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useApp } from './AppState';
 import type { Quake } from '@/lib/quakes/types';
 import { can } from '@/lib/entitlements';
@@ -35,6 +35,8 @@ interface QuakeData {
   worldReg: WorldRegion | null; setWorldReg: (r: WorldRegion | null) => void;
   /** Events in range per world region (before the region filter), in WORLD_REGIONS order. */
   worldCounts: [WorldRegion, number][];
+  /** Load the latest events now (pull to refresh); resolves true once new data is in, false if the request failed. */
+  refresh: () => Promise<boolean>;
 }
 const Ctx = createContext<QuakeData | null>(null);
 
@@ -47,20 +49,23 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
   const [region, setRegion] = useState('all');
   const [rows, setRows] = useState<Row[] | null>(null);
   const [loadedAt, setLoadedAt] = useState(0);
+  const loadRef = useRef<(fresh?: boolean) => Promise<boolean>>(async () => false);
 
   useEffect(() => {
     let alive = true;
-    const load = () => {
+    const load = (fresh = false) => {
       const qs = new URLSearchParams({ range, sort: 'time', lat: String(loc.lat), lon: String(loc.lon) });
-      fetch('/api/quakes?' + qs)
+      return fetch('/api/quakes?' + qs, fresh ? { cache: 'no-store' } : undefined)
         .then(r => (r.ok ? r.json() : null))
-        .then(j => { if (alive && j) { setLoadedAt(Date.now()); setRows(j.quakes); } })
-        .catch(() => {});
+        .then(j => { if (alive && j) { setLoadedAt(Date.now()); setRows(j.quakes); return true; } return false; })
+        .catch(() => false);
     };
-    load();
+    loadRef.current = load;
+    void load();
     const id = setInterval(load, REFRESH_MS);
     return () => { alive = false; clearInterval(id); };
   }, [range, loc.lat, loc.lon]);
+  const refresh = useCallback(() => loadRef.current(true), []);
 
   // World region of each event, worked out once per load (country outlines + ocean boxes).
   const regionOf = useMemo(() => new Map((rows ?? []).map(q => [q.id, worldRegion(q.lat, q.lon)])), [rows]);
@@ -83,8 +88,8 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
     const mag = plus ? minMag : null;
     const mapList = mag == null ? list : list.filter(q => q.mag >= mag);
     return { range, setRange, region, setRegion, loaded: rows !== null, all, list, regions, loadedAt, minMag: mag, setMinMag, mapList,
-      worldReg: wr, setWorldReg, worldCounts };
-  }, [rows, range, region, loadedAt, minMag, plan, worldRegState, regionOf]);
+      worldReg: wr, setWorldReg, worldCounts, refresh };
+  }, [rows, range, region, loadedAt, minMag, plan, worldRegState, regionOf, refresh]);
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

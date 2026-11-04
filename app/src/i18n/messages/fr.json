@@ -479,5 +479,12 @@
     "err": "Impossible d’ouvrir la facturation. Réessayez.",
     "soon": "La facturation n’est pas encore disponible.",
     "st_cancelled": "Annulé"
+  },
+  "ptr": {
+    "pull": "Tirez pour actualiser",
+    "release": "Relâchez pour actualiser",
+    "refreshing": "Actualisation…",
+    "updated": "Mis à jour",
+    "failed": "Actualisation impossible. Vérifiez votre connexion."
   }
 }

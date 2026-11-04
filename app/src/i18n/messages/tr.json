@@ -479,5 +479,12 @@
     "err": "Faturalandırma açılamadı. Lütfen tekrar deneyin.",
     "soon": "Faturalandırma henüz kullanılamıyor.",
     "st_cancelled": "İptal edildi"
+  },
+  "ptr": {
+    "pull": "Yenilemek için çekin",
+    "release": "Yenilemek için bırakın",
+    "refreshing": "Yenileniyor…",
+    "updated": "Güncellendi",
+    "failed": "Yenilenemedi. Bağlantınızı kontrol edin."
   }
 }
