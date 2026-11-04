@@ -168,7 +168,9 @@
     "privacy": "隐私政策",
     "privacy_updated": "最后更新：{date}",
     "privacy_english": "本政策以英文发布。",
-    "privacy_open_app": "打开应用"
+    "privacy_open_app": "打开应用",
+    "terms": "服务条款",
+    "terms_english": "本条款以英文发布。"
   },
   "dash": {
     "overview": "概览",

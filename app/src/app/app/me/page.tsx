@@ -69,7 +69,7 @@ export default function MePage() {
             </div>
           </>
         )}
-        <p className={`${styles.disclaimer} ${styles.desktopOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a></p>
+        <p className={`${styles.disclaimer} ${styles.desktopOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a> · <a href="/terms" className={styles.privacyLink}>{m.web.terms}</a></p>
       </div>
 
       <div className={styles.col}>
@@ -77,7 +77,7 @@ export default function MePage() {
         <Locations onLocked={() => setSheet('paywall')} />
         <Preferences />
         <AdminLink />
-        <p className={`${styles.disclaimer} ${styles.phoneOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a></p>
+        <p className={`${styles.disclaimer} ${styles.phoneOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a> · <a href="/terms" className={styles.privacyLink}>{m.web.terms}</a></p>
       </div>
 
       <DeleteSheet open={delOpen} onClose={() => setDelOpen(false)} />

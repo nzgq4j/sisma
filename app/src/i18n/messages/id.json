@@ -168,7 +168,9 @@
     "privacy": "Kebijakan privasi",
     "privacy_updated": "Terakhir diperbarui {date}",
     "privacy_english": "Kebijakan ini diterbitkan dalam bahasa Inggris.",
-    "privacy_open_app": "Buka aplikasi"
+    "privacy_open_app": "Buka aplikasi",
+    "terms": "Ketentuan layanan",
+    "terms_english": "Ketentuan ini diterbitkan dalam bahasa Inggris."
   },
   "dash": {
     "overview": "Ringkasan",
