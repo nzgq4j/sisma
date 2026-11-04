@@ -575,7 +575,8 @@
     "done_p": "Semua fitur sisma+ kini terbuka.",
     "slow_h": "Hampir selesai",
     "slow_p": "Pembayaran Anda berhasil, tetapi paket Anda belum diperbarui. Seharusnya muncul dalam beberapa menit. Buka kembali sisma untuk memeriksa.",
-    "ok": "Lanjutkan"
+    "ok": "Lanjutkan",
+    "play_not_ready": "Langganan di aplikasi belum tersedia. Coba lagi nanti."
   },
   "admin": {
     "title": "Administrasi",

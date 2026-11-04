@@ -575,7 +575,8 @@
     "done_p": "Tudo do sisma+ já está liberado.",
     "slow_h": "Quase lá",
     "slow_p": "Seu pagamento foi aprovado, mas seu plano ainda não foi atualizado. Ele deve aparecer em alguns minutos. Abra o sisma de novo para conferir.",
-    "ok": "Continuar"
+    "ok": "Continuar",
+    "play_not_ready": "As assinaturas no app ainda não estão disponíveis. Tente de novo mais tarde."
   },
   "admin": {
     "title": "Administração",

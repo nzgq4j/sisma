@@ -20,7 +20,7 @@ import styles from './paywall.module.css';
 
 const ICONS = ['notifications_active', 'bookmark_added', 'history', 'tune'];
 const SAVE = Math.round((1 - PRICES.yearly.usd / (PRICES.monthly.usd * 12)) * 100);
-type State = 'idle' | 'busy' | 'soon' | 'error' | 'already' | 'restore_none' | 'other_account';
+type State = 'idle' | 'busy' | 'soon' | 'error' | 'already' | 'restore_none' | 'other_account' | 'unavailable';
 
 export function PaywallSheet() {
   const { t, m } = useT();
@@ -45,7 +45,7 @@ export function PaywallSheet() {
 
   const afterPlay = async (r: PlayResult) => {
     if (r === 'ok') { await refreshProfile(); setState('idle'); setSheet(null); setDone(true); return; }
-    setState(r === 'cancelled' ? 'idle' : r === 'none' ? 'restore_none' : r === 'mismatch' ? 'other_account' : 'error');
+    setState(r === 'cancelled' ? 'idle' : r === 'none' ? 'restore_none' : r === 'mismatch' ? 'other_account' : r === 'unavailable' ? 'unavailable' : 'error');
   };
 
   const checkout = async (choice: Billing) => {
@@ -65,7 +65,7 @@ export function PaywallSheet() {
     if (user) { void checkout(billing); return; }
     setPendingUpgrade(billing);
     close();
-    openSignIn({ onCancel: clearPendingUpgrade });
+    openSignIn({ upgrade: true, onCancel: clearPendingUpgrade });
   };
   const restore = async () => {
     setState('busy');
@@ -96,7 +96,7 @@ export function PaywallSheet() {
   const blocked = app && play === false;
   const label = !user ? `${t('sign_in')} · ${t('trial')}` : trial ? t('trial') : b.subscribe;
   const msg: Partial<Record<State, string>> = {
-    soon: m.acct.billing_soon, error: m.acct.error, already: b.already, restore_none: b.restore_none, other_account: b.other_account,
+    soon: m.acct.billing_soon, error: m.acct.error, unavailable: b.play_not_ready, already: b.already, restore_none: b.restore_none, other_account: b.other_account,
   };
 
   return (

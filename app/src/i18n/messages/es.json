@@ -575,7 +575,8 @@
     "done_p": "Todo sisma+ ya está desbloqueado.",
     "slow_h": "Casi listo",
     "slow_p": "Tu pago se ha completado, pero tu plan aún no se ha actualizado. Debería aparecer en unos minutos. Vuelve a abrir sisma para comprobarlo.",
-    "ok": "Continuar"
+    "ok": "Continuar",
+    "play_not_ready": "Las suscripciones en la app aún no están disponibles. Inténtalo más tarde."
   },
   "admin": {
     "title": "Administración",

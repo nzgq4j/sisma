@@ -575,7 +575,8 @@
     "done_p": "Tout sisma+ est maintenant débloqué.",
     "slow_h": "Presque terminé",
     "slow_p": "Votre paiement a été accepté, mais votre formule n’est pas encore à jour. Elle devrait apparaître d’ici quelques minutes. Rouvrez sisma pour vérifier.",
-    "ok": "Continuer"
+    "ok": "Continuer",
+    "play_not_ready": "Les abonnements dans l’app ne sont pas encore disponibles. Réessayez plus tard."
   },
   "admin": {
     "title": "Administration",

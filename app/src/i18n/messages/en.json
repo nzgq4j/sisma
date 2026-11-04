@@ -575,7 +575,8 @@
     "done_p": "Everything in sisma+ is now unlocked.",
     "slow_h": "Almost there",
     "slow_p": "Your payment went through, but your plan hasn’t updated yet. It should appear within a few minutes. Reopen sisma to check.",
-    "ok": "Continue"
+    "ok": "Continue",
+    "play_not_ready": "Subscriptions in the app aren’t available yet. Please try again later."
   },
   "admin": {
     "title": "Administration",

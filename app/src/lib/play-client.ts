@@ -52,7 +52,7 @@ export async function playPrices(): Promise<Partial<Record<Billing, string>>> {
   } catch { return {}; }
 }
 
-export type PlayResult = 'ok' | 'cancelled' | 'none' | 'error' | 'mismatch';
+export type PlayResult = 'ok' | 'cancelled' | 'none' | 'error' | 'mismatch' | 'unavailable';
 
 async function report(token: string, accessToken: string): Promise<PlayResult> {
   const r = await fetch('/api/play/verify', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${accessToken}` }, body: JSON.stringify({ purchaseToken: token }) }).catch(() => null);
@@ -75,6 +75,10 @@ export async function buyWithPlay(billing: Billing, userId: string, accessToken:
     const code = (e as { code?: string })?.code;
     if (code === 'USER_CANCELED') return 'cancelled';
     if (code === 'ITEM_ALREADY_OWNED') return restorePlay(userId, accessToken);
+    // The subscription can't be bought in this build: products not set up in Play Console yet, or the app was not
+    // installed from Google Play (the plugin rejects with "Product not found" before Google's sheet opens).
+    const msg = String((e as Error)?.message ?? e);
+    if (code === 'ITEM_UNAVAILABLE' || code === 'BILLING_UNAVAILABLE' || code === 'DEVELOPER_ERROR' || /product not found/i.test(msg)) return 'unavailable';
     return 'error';
   }
   return t.purchaseToken ? report(t.purchaseToken, accessToken) : 'error';
