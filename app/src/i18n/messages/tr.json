@@ -575,7 +575,8 @@
     "done_p": "sisma+’ın tüm özellikleri artık açık.",
     "slow_h": "Neredeyse bitti",
     "slow_p": "Ödemeniz alındı ancak planınız henüz güncellenmedi. Birkaç dakika içinde görünmelidir. Kontrol etmek için sisma’yı yeniden açın.",
-    "ok": "Devam"
+    "ok": "Devam",
+    "play_not_ready": "Uygulama içi abonelikler henüz kullanılamıyor. Lütfen daha sonra tekrar deneyin."
   },
   "admin": {
     "title": "Yönetim",

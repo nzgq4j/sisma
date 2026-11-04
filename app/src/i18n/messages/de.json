@@ -575,7 +575,8 @@
     "done_p": "Alles in sisma+ ist jetzt freigeschaltet.",
     "slow_h": "Fast geschafft",
     "slow_p": "Deine Zahlung ist eingegangen, aber dein Tarif ist noch nicht aktualisiert. Er sollte in wenigen Minuten erscheinen. Öffne sisma erneut, um nachzusehen.",
-    "ok": "Weiter"
+    "ok": "Weiter",
+    "play_not_ready": "Abos in der App sind noch nicht verfügbar. Versuche es später erneut."
   },
   "admin": {
     "title": "Verwaltung",

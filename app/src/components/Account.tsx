@@ -8,7 +8,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { User } from '@supabase/supabase-js';
 import { enabledProviders, supabaseBrowser } from '@/lib/supabase-browser';
 import { listenForOAuthReturn, startOAuth } from '@/lib/oauth';
-import { peekPendingUpgrade } from '@/lib/pending-upgrade';
+import { clearPendingUpgrade, peekPendingUpgrade } from '@/lib/pending-upgrade';
 import { effectivePlan, type Billing, type Plan } from '@/lib/entitlements';
 import { useT } from '@/i18n/I18nProvider';
 import { Sheet } from './Sheet';
@@ -28,8 +28,9 @@ interface AccountCtx {
   /** Reads the profile again (after a purchase: the plan is written by the server). */
   refreshProfile: () => Promise<Profile | null>;
   signOut: () => Promise<void>;
-  /** Opens sign-in; `onCancel` runs if the user closes it without signing in. */
-  openSignIn: (opts?: { onCancel?: () => void }) => void;
+  /** Opens sign-in; `onCancel` runs if the user closes it without signing in. Only a sign-in started from the upgrade
+   *  sheet (`upgrade: true`) carries on to checkout: any other sign-in drops a plan left from an earlier attempt. */
+  openSignIn: (opts?: { onCancel?: () => void; upgrade?: boolean }) => void;
   /** Set or change the account password (also opened by the password-reset email link). */
   openPassword: () => void;
 }
@@ -110,7 +111,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     accessToken: async () => (sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null),
     // Remove this device from the account's alert devices first (needs the session), then sign out.
     signOut: async () => { await disablePush(sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null); await sb?.auth.signOut(); },
-    openSignIn: opts => { cancelRef.current = opts?.onCancel ?? null; setSignIn(true); },
+    openSignIn: opts => { if (!opts?.upgrade) clearPendingUpgrade(); cancelRef.current = opts?.onCancel ?? null; setSignIn(true); },
     openPassword: () => setPwOpen(true),
   }), [sb, ready, user, profile, savePrefs, refreshProfile]);
 

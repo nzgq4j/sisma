@@ -575,7 +575,8 @@
     "done_p": "Tutto sisma+ è ora sbloccato.",
     "slow_h": "Quasi fatto",
     "slow_p": "Il pagamento è andato a buon fine, ma il piano non è ancora aggiornato. Dovrebbe comparire entro pochi minuti. Riapri sisma per controllare.",
-    "ok": "Continua"
+    "ok": "Continua",
+    "play_not_ready": "Gli abbonamenti nell’app non sono ancora disponibili. Riprova più tardi."
   },
   "admin": {
     "title": "Amministrazione",
