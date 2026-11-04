@@ -2,8 +2,9 @@
 // Me → Admin). Each post has the event's share card (GET /api/share-card) with alt text, a short text with a link to
 // the event's region view and hashtags, and a line saying it is automated and not an official warning.
 // Posting uses the AT Protocol XRPC endpoints directly (createSession, uploadBlob, createRecord; formats checked against
-// the app.bsky / com.atproto lexicons). Server env: BLUESKY_IDENTIFIER (handle or email), BLUESKY_APP_PASSWORD (an app
-// password from Bluesky settings), optional BLUESKY_SERVICE (default https://bsky.social). docs/bluesky-setup.md
+// the app.bsky / com.atproto lexicons). The account is signed in from Me → Administration (session kept in Supabase
+// Vault, never the password); BLUESKY_IDENTIFIER / BLUESKY_APP_PASSWORD (+ optional BLUESKY_SERVICE) in the server env
+// are the fallback. docs/bluesky-setup.md
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Quake } from './quakes/types';
 import { countryAt } from './country';
@@ -21,8 +22,6 @@ export const AUTO_MAX_AGE_MS = 30 * 60_000;
 export const AUTO_MAX_PER_RUN = 2;
 const SAME_EVENT_MS = 90_000, SAME_EVENT_KM = 100;
 
-export const blueskyConfigured = () => !!(process.env.BLUESKY_IDENTIFIER && process.env.BLUESKY_APP_PASSWORD);
-const service = () => (process.env.BLUESKY_SERVICE || 'https://bsky.social').replace(/\/$/, '');
 
 export const eventUrl = (q: Pick<Quake, 'id'>) => `${SITE.url}/app/map?focus=${encodeURIComponent(q.id)}`;
 
@@ -90,20 +89,106 @@ export function draftPost(q: Quake): PostDraft {
 }
 
 // --- AT Protocol client ---
-interface Session { accessJwt: string; did: string; handle: string }
-async function xrpc<T>(method: string, init: RequestInit): Promise<T> {
-  const r = await fetch(`${service()}/xrpc/${method}`, init);
+// Credentials, in this order: the account signed in from Me → Administration (its session, never the password, kept
+// encrypted in Supabase Vault: public.bluesky_session_get/set), then the BLUESKY_IDENTIFIER / BLUESKY_APP_PASSWORD env.
+export const DEFAULT_SERVICE = 'https://bsky.social';
+export interface StoredSession { service: string; did: string; handle: string; accessJwt: string; refreshJwt: string }
+interface Auth { service: string; did: string; handle: string; accessJwt: string; source: 'account' | 'env' }
+
+/** An error answered by the Bluesky server; `code` is its error name (e.g. AuthFactorTokenRequired) or HTTP_<status>. */
+export class BlueskyError extends Error {
+  constructor(public code: string, message: string) { super(message); }
+}
+
+async function xrpc<T>(base: string, method: string, init: RequestInit): Promise<T> {
+  let r: Response;
+  try { r = await fetch(`${base.replace(/\/$/, '')}/xrpc/${method}`, init); } catch (e) { throw new BlueskyError('unreachable', `${method}: ${String((e as Error)?.message ?? e)}`); }
   if (!r.ok) {
     const j = (await r.json().catch(() => ({}))) as { error?: string; message?: string };
-    throw new Error(`${method} ${r.status}${j.error ? ` ${j.error}` : ''}${j.message ? `: ${j.message}` : ''}`);
+    throw new BlueskyError(j.error || `HTTP_${r.status}`, `${method} ${r.status}${j.error ? ` ${j.error}` : ''}${j.message ? `: ${j.message}` : ''}`);
   }
   return (await r.json()) as T;
 }
-async function session(): Promise<Session> {
-  return xrpc<Session>('com.atproto.server.createSession', {
+
+/** Expiry (ms) of a JWT, from its payload; 0 when unreadable. */
+export function jwtExpiry(jwt: string): number {
+  try { const exp = (JSON.parse(Buffer.from(jwt.split('.')[1] ?? '', 'base64url').toString()) as { exp?: number }).exp; return typeof exp === 'number' ? exp * 1000 : 0; } catch { return 0; }
+}
+
+const envConfigured = () => !!(process.env.BLUESKY_IDENTIFIER && process.env.BLUESKY_APP_PASSWORD);
+const envService = () => process.env.BLUESKY_SERVICE || DEFAULT_SERVICE;
+
+async function storedSession(db: SupabaseClient): Promise<StoredSession | null> {
+  const { data, error } = await db.rpc('bluesky_session_get');
+  if (error || !data) return null;
+  const s = data as StoredSession;
+  return s.refreshJwt && s.did ? s : null;
+}
+const saveSession = async (db: SupabaseClient, s: StoredSession | null) => {
+  const { error } = await db.rpc('bluesky_session_set', { p_session: s });
+  if (error) throw new Error('could not save the Bluesky session');
+};
+
+/** Where posting credentials come from now: the signed-in account, the env, or nowhere. */
+export async function blueskySource(db: SupabaseClient): Promise<'account' | 'env' | null> {
+  if (await storedSession(db)) return 'account';
+  return envConfigured() ? 'env' : null;
+}
+
+/** Signs in (the password is used for this request only) and stores the session. */
+export async function connectAccount(db: SupabaseClient, identifier: string, password: string, service: string, by: string) {
+  const s = await xrpc<StoredSession>(service, 'com.atproto.server.createSession', {
+    method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ identifier, password }),
+  });
+  await saveSession(db, { service, did: s.did, handle: s.handle, accessJwt: s.accessJwt, refreshJwt: s.refreshJwt });
+  await db.from('bluesky_settings').update({ account_handle: s.handle, account_did: s.did, connected_at: new Date().toISOString(), connected_by: by, last_error: null }).eq('id', 1);
+  return { handle: s.handle, did: s.did };
+}
+
+/** Signs out on Bluesky (ends the session there too) and forgets it. */
+export async function disconnectAccount(db: SupabaseClient) {
+  const s = await storedSession(db);
+  if (s) await xrpc(s.service, 'com.atproto.server.deleteSession', { method: 'POST', headers: { authorization: `Bearer ${s.refreshJwt}` } }).catch(() => undefined);
+  await saveSession(db, null);
+  await db.from('bluesky_settings').update({ account_handle: null, account_did: null, connected_at: null, connected_by: null, last_error: null }).eq('id', 1);
+}
+
+/**
+ * A usable access token: the stored session (renewed with its refresh token when it is about to expire; Bluesky
+ * rotates the refresh token, so the new pair is saved), else a session from the env credentials.
+ */
+async function authFor(db: SupabaseClient, now = Date.now()): Promise<Auth> {
+  const s = await storedSession(db);
+  if (s) {
+    if (jwtExpiry(s.accessJwt) > now + 5 * 60_000) return { ...s, source: 'account' };
+    try {
+      const r = await xrpc<StoredSession>(s.service, 'com.atproto.server.refreshSession', { method: 'POST', headers: { authorization: `Bearer ${s.refreshJwt}` } });
+      const next = { service: s.service, did: r.did, handle: r.handle, accessJwt: r.accessJwt, refreshJwt: r.refreshJwt };
+      await saveSession(db, next);
+      if (r.handle !== s.handle) await db.from('bluesky_settings').update({ account_handle: r.handle }).eq('id', 1);
+      return { ...next, source: 'account' };
+    } catch (e) {
+      // Expired or revoked (e.g. the app password was deleted): say so on the admin page; sign in again to fix.
+      await db.from('bluesky_settings').update({ last_error: String((e as Error)?.message ?? e).slice(0, 300) }).eq('id', 1);
+      if (!envConfigured()) throw e;
+    }
+  }
+  if (!envConfigured()) throw new BlueskyError('not_configured', 'Bluesky is not connected');
+  const base = envService();
+  const r = await xrpc<StoredSession>(base, 'com.atproto.server.createSession', {
     method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ identifier: process.env.BLUESKY_IDENTIFIER, password: process.env.BLUESKY_APP_PASSWORD }),
   });
+  return { service: base, did: r.did, handle: r.handle, accessJwt: r.accessJwt, source: 'env' };
+}
+
+/** Checks that posting would work now: gets a token and asks Bluesky who it belongs to. */
+export async function checkConnection(db: SupabaseClient): Promise<{ handle: string; source: 'account' | 'env' }> {
+  const a = await authFor(db);
+  const me = await xrpc<{ handle: string; did: string }>(a.service, 'com.atproto.server.getSession', { headers: { authorization: `Bearer ${a.accessJwt}` } });
+  // The saved account works again: clear its error (not when the env credentials stood in for it).
+  if (a.source === 'account') await db.from('bluesky_settings').update({ last_error: null }).eq('id', 1);
+  return { handle: me.handle, source: a.source };
 }
 
 /** The share card for an event (English, km, UTC), or null if it could not be made or is too large. */
@@ -117,17 +202,17 @@ async function card(q: Quake): Promise<Uint8Array | null> {
 }
 
 /** Publishes the post; returns its at:// uri and its bsky.app link. */
-export async function publish(q: Quake, draft: PostDraft): Promise<{ uri: string; url: string; image: boolean }> {
-  const s = await session();
+export async function publish(db: SupabaseClient, q: Quake, draft: PostDraft): Promise<{ uri: string; url: string; image: boolean }> {
+  const s = await authFor(db);
   const auth = { authorization: `Bearer ${s.accessJwt}` };
   const png = await card(q);
   let embed: object | undefined;
   if (png) {
-    const { blob } = await xrpc<{ blob: object }>('com.atproto.repo.uploadBlob', { method: 'POST', headers: { ...auth, 'content-type': 'image/png' }, body: png as BodyInit });
+    const { blob } = await xrpc<{ blob: object }>(s.service, 'com.atproto.repo.uploadBlob', { method: 'POST', headers: { ...auth, 'content-type': 'image/png' }, body: png as BodyInit });
     embed = { $type: 'app.bsky.embed.images', images: [{ image: blob, alt: draft.alt, aspectRatio: { width: CARD_W, height: CARD_H } }] };
   }
   const record = { $type: 'app.bsky.feed.post', text: draft.text, facets: draft.facets, langs: ['en'], createdAt: new Date().toISOString(), ...(embed ? { embed } : {}) };
-  const res = await xrpc<{ uri: string }>('com.atproto.repo.createRecord', {
+  const res = await xrpc<{ uri: string }>(s.service, 'com.atproto.repo.createRecord', {
     method: 'POST', headers: { ...auth, 'content-type': 'application/json' },
     body: JSON.stringify({ repo: s.did, collection: 'app.bsky.feed.post', record }),
   });
@@ -169,7 +254,7 @@ export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: bo
     if (retry.error || !retry.data?.length) return { ok: false, error: 'already_posted' };
   }
   try {
-    const res = await publish(q, draft);
+    const res = await publish(db, q, draft);
     await db.from('bluesky_posts').update({ status: 'posted', post_uri: res.uri, post_url: res.url }).eq('quake_id', q.id);
     return { ok: true, url: res.url, image: res.image };
   } catch (e) {
@@ -182,7 +267,7 @@ export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: bo
 /** The automatic step of the every-minute alert job. Never throws (alerts must still go out). */
 export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number): Promise<{ posted: number; failed: number } | { skipped: string }> {
   try {
-    if (!blueskyConfigured()) return { skipped: 'not_configured' };
+    if (!(await blueskySource(db))) return { skipped: 'not_configured' };
     const { data: s } = await db.from('bluesky_settings').select('enabled, min_magnitude').eq('id', 1).maybeSingle();
     if (!s?.enabled) return { skipped: 'off' };
     const { data: rows } = await db.from('bluesky_posts').select('quake_id, quake_time, lat, lon, mag, status')

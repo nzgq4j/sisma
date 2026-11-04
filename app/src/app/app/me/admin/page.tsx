@@ -14,7 +14,8 @@ import styles from './admin.module.css';
 
 interface Recent { id: string; time: number; mag: number; place: string; posted: boolean; next: boolean }
 interface Post { quake_id: string; quake_time: string; mag: number; place: string | null; status: 'posting' | 'posted' | 'failed'; error: string | null; post_url: string | null; manual: boolean; created_at: string }
-interface Data { configured: boolean; settings: { enabled: boolean; minMagnitude: number }; mags: number[]; recent: Recent[]; posts: Post[] }
+interface Connection { source: 'account' | 'env' | null; handle: string | null; connectedAt: string | null; lastError: string | null; envAvailable: boolean }
+interface Data { configured: boolean; connection: Connection; settings: { enabled: boolean; minMagnitude: number }; mags: number[]; recent: Recent[]; posts: Post[] }
 interface Preview { text: string; alt: string; graphemes: number; image: string }
 
 export default function AdminPage() {
@@ -64,7 +65,7 @@ export default function AdminPage() {
       <h1 className={sub.h1}>{k.title}</h1>
 
       <div className={styles.head}><span>{k.bsky_h}</span><span className={data.configured ? styles.ok : styles.warn}>{data.configured ? k.connected : k.not_connected}</span></div>
-      {!data.configured && <p className={me.hint}>{k.not_configured}</p>}
+      <ConnectionCard c={data.connection} api={api} onChange={() => void load()} />
       <div className={me.card}>
         <button type="button" className={me.row} role="switch" aria-checked={s.enabled} onClick={() => void save({ enabled: !s.enabled })} disabled={!data.configured && !s.enabled}>
           <span className="ms" aria-hidden="true">campaign</span>
@@ -108,7 +109,7 @@ export default function AdminPage() {
           ))}
         </div>
       )}
-      {(() => { const n = data.posts.filter(p => p.status === 'posted').length; return <p className={me.hint}>{n === 1 ? k.count_1 : k.count.replace('{n}', nf.format(n))}</p>; })()}
+      {(() => { const n = data.posts.filter(p => p.status === 'posted').length; return n > 0 && <p className={me.hint}>{n === 1 ? k.count_1 : k.count.replace('{n}', nf.format(n))}</p>; })()}
 
       <Sheet open={magOpen} onClose={() => setMagOpen(false)} title={k.min}>
         <SheetOptions value={String(s.minMagnitude)} onPick={v => { setMagOpen(false); void save({ minMagnitude: Number(v) }); }}
@@ -116,6 +117,78 @@ export default function AdminPage() {
       </Sheet>
       <PreviewSheet q={sel} configured={data.configured} api={api} onClose={() => setSel(null)} onPosted={() => void load()} />
     </div>
+  );
+}
+
+/** The Bluesky account posts go out from: sign in (app password, used once and never stored), check, sign out. */
+function ConnectionCard({ c, api, onChange }: { c: Connection; api: (p: string, i?: RequestInit) => Promise<Response>; onChange: () => void }) {
+  const { m, locale } = useT();
+  const k = m.admin;
+  const [id, setId] = useState('');
+  const [pw, setPw] = useState('');
+  const [server, setServer] = useState('');
+  const [other, setOther] = useState(false);
+  const [st, setSt] = useState<{ kind: 'idle' | 'busy' | 'ok' | 'error'; text?: string }>({ kind: 'idle' });
+  const err = (code?: string) => (k as Record<string, string>)[`err_${code}`] ?? k.err_failed;
+
+  const signIn = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!id.trim() || !pw) { setSt({ kind: 'error', text: k.err_missing }); return; }
+    setSt({ kind: 'busy' });
+    const r = await api('/api/admin/bluesky/connect', { method: 'POST', body: JSON.stringify({ identifier: id, password: pw, service: other ? server : undefined }) }).catch(() => null);
+    const j = (await r?.json().catch(() => ({}))) as { handle?: string; error?: string };
+    setPw('');
+    if (r?.ok) { setSt({ kind: 'ok', text: k.check_ok.replace('{handle}', j.handle ?? '') }); onChange(); }
+    else setSt({ kind: 'error', text: err(j.error) });
+  };
+  const check = async () => {
+    setSt({ kind: 'busy' });
+    const r = await api('/api/admin/bluesky/connect').catch(() => null);
+    const j = (await r?.json().catch(() => ({}))) as { handle?: string; error?: string };
+    setSt(r?.ok ? { kind: 'ok', text: k.check_ok.replace('{handle}', j.handle ?? '') } : { kind: 'error', text: err(j.error) });
+    onChange();
+  };
+  const signOut = async () => {
+    setSt({ kind: 'busy' });
+    await api('/api/admin/bluesky/connect', { method: 'DELETE' }).catch(() => null);
+    setSt({ kind: 'idle' }); onChange();
+  };
+  const since = c.connectedAt ? new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(new Date(c.connectedAt)) : null;
+  const msg = st.text && <p className={st.kind === 'error' ? me.errLine : styles.done} role={st.kind === 'error' ? 'alert' : 'status'}>{st.text}</p>;
+
+  if (c.source === 'account') {
+    return (
+      <div className={me.card}>
+        <div className={me.row}>
+          <span className="ms" aria-hidden="true">verified_user</span>
+          <span className={me.grow}>{k.conn_account.replace('{handle}', c.handle ?? '')}{since && <span className={me.rowHint}>{k.since.replace('{date}', since)}</span>}</span>
+        </div>
+        {c.lastError && <p className={me.errLine} role="alert">{k.session_error.replace('{error}', c.lastError)}</p>}
+        <div className={styles.actions}>
+          <button type="button" className={styles.secondary} onClick={() => void check()} disabled={st.kind === 'busy'}>{k.check}</button>
+          <button type="button" className={styles.secondary} onClick={() => void signOut()} disabled={st.kind === 'busy'}>{k.sign_out}</button>
+        </div>
+        {msg}
+      </div>
+    );
+  }
+  return (
+    <form className={`${me.card} ${styles.login}`} onSubmit={e => void signIn(e)}>
+      <div className={styles.loginH}>{k.login_h}</div>
+      {c.source === 'env' && <p className={me.hint}>{k.conn_env}</p>}
+      {c.lastError && <p className={me.errLine} role="alert">{k.session_error.replace('{error}', c.lastError)}</p>}
+      <label className={styles.lbl}><span>{k.login_id}</span>
+        <input className={styles.input} value={id} onChange={e => setId(e.target.value)} placeholder={k.login_id_ph} autoComplete="username" autoCapitalize="none" spellCheck={false} inputMode="email" /></label>
+      <label className={styles.lbl}><span>{k.login_pw}</span>
+        <input className={styles.input} type="password" value={pw} onChange={e => setPw(e.target.value)} placeholder={k.login_pw_ph} autoComplete="current-password" /></label>
+      {other
+        ? <label className={styles.lbl}><span>{k.login_server}</span><input className={styles.input} value={server} onChange={e => setServer(e.target.value)} placeholder="https://bsky.social" inputMode="url" autoCapitalize="none" spellCheck={false} /><em>{k.login_server_hint}</em></label>
+        : <button type="button" className={styles.linkBtn} onClick={() => setOther(true)}>{k.other_server}</button>}
+      <p className={me.hint}>{k.login_hint}</p>
+      <button type="submit" className={sub.primary} disabled={st.kind === 'busy'}><span className="ms" aria-hidden="true">login</span>{st.kind === 'busy' ? k.logging_in : k.login_btn}</button>
+      {c.source === 'env' && <button type="button" className={styles.secondary} onClick={() => void check()} disabled={st.kind === 'busy'}>{k.check}</button>}
+      {msg}
+    </form>
   );
 }
 

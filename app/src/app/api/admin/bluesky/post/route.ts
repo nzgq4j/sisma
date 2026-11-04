@@ -2,14 +2,14 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { findQuake } from '@/lib/quakes/find';
-import { blueskyConfigured, postQuake } from '@/lib/bluesky';
+import { blueskySource, postQuake } from '@/lib/bluesky';
 
 export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
   const a = await requireAdmin(req);
   if (!a) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
-  if (!blueskyConfigured()) return NextResponse.json({ error: 'not_configured' }, { status: 501 });
+  if (!(await blueskySource(a.db))) return NextResponse.json({ error: 'not_configured' }, { status: 501 });
   const { id } = (await req.json().catch(() => ({}))) as { id?: unknown };
   const q = typeof id === 'string' ? await findQuake(id, 7) : null;
   if (!q) return NextResponse.json({ error: 'not_found' }, { status: 404 });
