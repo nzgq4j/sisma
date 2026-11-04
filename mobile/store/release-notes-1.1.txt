@@ -1,0 +1,80 @@
+<en-US>
+First release of sisma on Google Play.
+• Live earthquakes from USGS, EMSC, GeoNet and JMA in a feed, on a map and on a 3D globe
+• "I felt it" reports and anonymous felt maps
+• Illustrated science articles
+• sisma+: custom push alerts, up to 10 saved locations and full history
+• Sign in with Google or email
+</en-US>
+<es-ES>
+Primera versión de sisma en Google Play.
+• Terremotos en directo de USGS, EMSC, GeoNet y JMA en una lista, un mapa y un globo 3D
+• Informes «Lo sentí» y mapas anónimos de dónde se sintió
+• Artículos científicos ilustrados
+• sisma+: alertas push personalizadas, hasta 10 ubicaciones guardadas e historial completo
+• Inicia sesión con Google o con tu correo
+</es-ES>
+<ja-JP>
+sisma が Google Play に登場しました。
+• USGS・EMSC・GeoNet・JMA の地震情報をリスト、地図、3D 地球儀でリアルタイム表示
+• 「揺れを感じた」報告と匿名の有感マップ
+• 図解付きの科学記事
+• sisma+：カスタムのプッシュ通知、最大10件の保存地点、全履歴
+• Google またはメールでログイン
+</ja-JP>
+<id>
+Rilis pertama sisma di Google Play.
+• Gempa bumi terkini dari USGS, EMSC, GeoNet, dan JMA dalam daftar, peta, dan globe 3D
+• Laporan "Saya merasakannya" dan peta guncangan anonim
+• Artikel sains bergambar
+• sisma+: notifikasi push khusus, hingga 10 lokasi tersimpan, dan riwayat lengkap
+• Masuk dengan Google atau email
+</id>
+<tr-TR>
+sisma'nın Google Play'deki ilk sürümü.
+• USGS, EMSC, GeoNet ve JMA'dan canlı depremler; liste, harita ve 3D küre üzerinde
+• "Hissettim" bildirimleri ve anonim hissedilme haritaları
+• Resimli bilim makaleleri
+• sisma+: kişiye özel anlık bildirimler, 10 kayıtlı konuma kadar ve tüm geçmiş
+• Google veya e-posta ile giriş
+</tr-TR>
+<it-IT>
+Prima versione di sisma su Google Play.
+• Terremoti in tempo reale da USGS, EMSC, GeoNet e JMA in un elenco, su una mappa e su un globo 3D
+• Segnalazioni «L'ho sentito» e mappe anonime delle zone in cui è stato avvertito
+• Articoli scientifici illustrati
+• sisma+: notifiche push personalizzate, fino a 10 luoghi salvati e storico completo
+• Accesso con Google o con l'email
+</it-IT>
+<pt-BR>
+Primeira versão do sisma no Google Play.
+• Terremotos em tempo real do USGS, EMSC, GeoNet e JMA em uma lista, em um mapa e em um globo 3D
+• Relatos "Eu senti" e mapas anônimos de onde o tremor foi sentido
+• Artigos científicos ilustrados
+• sisma+: notificações push personalizadas, até 10 locais salvos e histórico completo
+• Entre com o Google ou com seu e-mail
+</pt-BR>
+<zh-CN>
+sisma 首次登陆 Google Play。
+• 实时显示来自 USGS、EMSC、GeoNet 和 JMA 的地震，支持列表、地图和 3D 地球
+• "我感觉到了"报告和匿名有感地图
+• 图文并茂的科普文章
+• sisma+：自定义推送提醒、最多 10 个保存地点和完整历史
+• 使用 Google 或电子邮件登录
+</zh-CN>
+<fr-FR>
+Première version de sisma sur Google Play.
+• Séismes en direct de l'USGS, de l'EMSC, de GeoNet et de la JMA, en liste, sur une carte et sur un globe 3D
+• Signalements « Je l'ai ressenti » et cartes anonymes des zones où il a été ressenti
+• Articles scientifiques illustrés
+• sisma+ : notifications push personnalisées, jusqu'à 10 lieux enregistrés et historique complet
+• Connexion avec Google ou par e-mail
+</fr-FR>
+<de-DE>
+Erste Version von sisma bei Google Play.
+• Aktuelle Erdbeben von USGS, EMSC, GeoNet und JMA als Liste, auf einer Karte und auf einem 3D-Globus
+• Meldungen „Ich habe es gespürt“ und anonyme Karten, wo das Beben gespürt wurde
+• Illustrierte Wissenschaftsartikel
+• sisma+: eigene Push-Benachrichtigungen, bis zu 10 gespeicherte Orte und gesamter Verlauf
+• Anmeldung mit Google oder per E-Mail
+</de-DE>
