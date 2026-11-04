@@ -53,7 +53,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    docs/play-billing-setup.md); paywall sheet with trial-or-subscribe, restore and the post-payment activation step
    (components/Paywall.tsx); lib/billing.ts for trial eligibility and running subscriptions
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_rules (done as POST /api/cron/alerts, lib/alerts/match.ts matchRules)
-10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets
+10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets (done: mobile/store/ — listing text, icon, feature graphic, phone screenshots)
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
 12. Onboarding (v1 done: components/onboarding/): welcome, language, location primer, disclaimer. Alerts step waits for 8 + 9.
     Spec and status: docs/onboarding.md
