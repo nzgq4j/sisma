@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CARDS, cardMetadata } from '@/lib/seo';
 import { PRICES, TRIAL_DAYS } from '@/lib/entitlements';
 import { SITE } from '@/lib/site';
 import { PrivacyChrome } from '../privacy/PrivacyChrome';
@@ -6,11 +7,7 @@ import styles from '../privacy/privacy.module.css';
 
 // Terms of service (English only, like the privacy policy; the page chrome is translated).
 // Keep it in step with how sisma works: plans, prices, trial, cancellation and the providers named here.
-export const metadata: Metadata = {
-  title: 'Terms of service — sisma',
-  description: 'The terms for using sisma.io, the sisma app and sisma+ subscriptions.',
-  alternates: { canonical: '/terms' },
-};
+export const metadata: Metadata = cardMetadata(CARDS.terms);
 
 const L = SITE.legal;
 const support = <a href={`mailto:${L.supportEmail}`}>{L.supportEmail}</a>;
