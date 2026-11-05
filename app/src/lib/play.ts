@@ -113,6 +113,8 @@ async function acknowledge(productId: string, token: string) {
   const r = await fetch(`${API}/subscriptions/${encodeURIComponent(productId)}/tokens/${encodeURIComponent(token)}:acknowledge`, {
     method: 'POST', headers: { authorization: `Bearer ${await accessToken()}`, 'content-type': 'application/json' }, body: '{}',
   });
+  // 409: already acknowledged (the app's own report and Google's notification can arrive together).
+  if (r.status === 409) return;
   if (!r.ok) throw await playError('acknowledge', r);
 }
 
