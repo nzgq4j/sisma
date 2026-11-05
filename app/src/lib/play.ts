@@ -166,21 +166,36 @@ async function googleCerts() {
   return j.keys;
 }
 
-/** True when the bearer token is a valid Google OIDC token for our push subscription (audience and account). */
-export async function verifyPubSubToken(authorization: string | null, now = Date.now()): Promise<boolean> {
-  const aud = process.env.PLAY_RTDN_AUDIENCE, email = process.env.PLAY_RTDN_SERVICE_ACCOUNT;
+/**
+ * Why a push request's bearer token is not a valid Google OIDC token for our push subscription (audience and account),
+ * or null when it is. The reasons name only non-secret values (the audience URL and service account email carried by
+ * the token), so they can be logged when Pub/Sub deliveries are refused.
+ */
+export async function pubSubTokenProblem(authorization: string | null, now = Date.now()): Promise<string | null> {
+  const aud = process.env.PLAY_RTDN_AUDIENCE?.trim(), email = process.env.PLAY_RTDN_SERVICE_ACCOUNT?.trim();
+  if (!aud || !email) return 'PLAY_RTDN_AUDIENCE or PLAY_RTDN_SERVICE_ACCOUNT not set';
   const jwt = authorization?.startsWith('Bearer ') ? authorization.slice(7) : '';
   const parts = jwt.split('.');
-  if (!aud || !email || parts.length !== 3) return false;
+  if (parts.length !== 3) return 'no bearer token (is authentication enabled on the push subscription?)';
   try {
     const header = JSON.parse(Buffer.from(parts[0], 'base64url').toString()) as { alg?: string; kid?: string };
     const claims = JSON.parse(Buffer.from(parts[1], 'base64url').toString()) as { iss?: string; aud?: string; email?: string; email_verified?: boolean; exp?: number; iat?: number };
-    if (header.alg !== 'RS256' || !header.kid) return false;
-    const jwk = (await googleCerts()).find(k => k.kid === header.kid);
-    if (!jwk) return false;
+    if (header.alg !== 'RS256' || !header.kid) return `unexpected token header ${header.alg}`;
+    let jwk = (await googleCerts()).find(k => k.kid === header.kid);
+    if (!jwk) { certs = null; jwk = (await googleCerts()).find(k => k.kid === header.kid); } // Google rotated its keys
+    if (!jwk) return 'token signed with an unknown Google key';
     const valid = createVerify('RSA-SHA256').update(`${parts[0]}.${parts[1]}`).verify(createPublicKey({ key: jwk, format: 'jwk' }), parts[2], 'base64url');
-    const sec = now / 1000;
-    return valid && (claims.iss === 'https://accounts.google.com' || claims.iss === 'accounts.google.com') && claims.aud === aud
-      && claims.email === email && claims.email_verified === true && typeof claims.exp === 'number' && claims.exp > sec - 60;
-  } catch { return false; }
+    if (!valid) return 'bad token signature';
+    if (claims.iss !== 'https://accounts.google.com' && claims.iss !== 'accounts.google.com') return `unexpected issuer ${claims.iss}`;
+    if (claims.aud !== aud) return `audience ${JSON.stringify(claims.aud)} does not match PLAY_RTDN_AUDIENCE`;
+    if (claims.email !== email) return `service account ${JSON.stringify(claims.email)} does not match PLAY_RTDN_SERVICE_ACCOUNT`;
+    if (claims.email_verified !== true) return 'service account email not verified';
+    if (typeof claims.exp !== 'number' || claims.exp <= now / 1000 - 60) return 'token expired';
+    return null;
+  } catch (e) { return `token check failed: ${String((e as Error)?.message ?? e)}`; }
+}
+
+/** True when the bearer token is a valid Google OIDC token for our push subscription (audience and account). */
+export async function verifyPubSubToken(authorization: string | null, now = Date.now()): Promise<boolean> {
+  return (await pubSubTokenProblem(authorization, now)) === null;
 }
