@@ -77,7 +77,9 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
   // Shown only when there is at least one.
   const reports = useFeltCells(q.id);
   const feltTotal = reports.total + (q.felt ?? 0);
-  const shareText = `M${q.mag.toFixed(1)} · ${q.region} · ${date} ${time}`;
+  // Share defaults (editable in the share sheet): a short description and the image description.
+  const fill = (s: string) => s.replace(/\{(\w+)\}/g, (_, k: string) => ({ mag: q.mag.toFixed(1), place: q.region, when: `${date} ${time}`, depth: u.depth(q.depthKm) })[k] ?? '');
+  const shareText = fill(m.sharecard.post), shareAlt = fill(m.sharecard.alt_text);
 
   return (
     <>
@@ -120,7 +122,7 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
           <FitLine>{feltTotal === 1 ? t('felt_by_1') : t('felt_by', { n: nf.format(feltTotal) })}</FitLine>
         </p>
       )}
-      <ShareCardSheet q={q} open={shareOpen} onClose={() => setShareOpen(false)} path={regionHref(q.id)} text={shareText} />
+      <ShareCardSheet q={q} open={shareOpen} onClose={() => setShareOpen(false)} path={regionHref(q.id)} text={shareText} alt={shareAlt} />
     </>
   );
 }

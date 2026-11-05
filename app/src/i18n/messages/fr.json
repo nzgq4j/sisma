@@ -406,7 +406,16 @@
     "alt": "Carte de partage : carte et détails de ce séisme",
     "label": "Séisme",
     "nearby": "Autres événements, 7 derniers jours",
-    "disclaimer": "Pas un service d'alerte officiel. Suivez les autorités locales."
+    "disclaimer": "Pas un service d'alerte officiel. Suivez les autorités locales.",
+    "post": "Séisme M{mag} · {place}\n{when} · {depth} de profondeur",
+    "tag": "#séisme",
+    "alt_text": "Carte de la zone autour d'un séisme de magnitude {mag}, {place}, {when}, à {depth} de profondeur. L'épicentre est le point cerclé ; les autres séismes des 7 derniers jours sont des points colorés, et les pointillés indiquent les limites de plaques, le cas échéant. Par sisma.io.",
+    "post_label": "Texte de la publication",
+    "alt_label": "Description de l'image (texte alternatif)",
+    "copy_text": "Copier le texte",
+    "copy_alt": "Copier le texte alternatif",
+    "copied": "Copié",
+    "hint": "Le partage copie aussi le texte, pour que vous puissiez le coller si l'app ne l'ajoute pas. Collez la description de l'image dans le champ de texte alternatif de l'app."
   },
   "felt_by_1": "1 personne l’a ressenti",
   "notif": {

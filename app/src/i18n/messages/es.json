@@ -406,7 +406,16 @@
     "alt": "Tarjeta para compartir: mapa y datos de este sismo",
     "label": "Sismo",
     "nearby": "Otros eventos, últimos 7 días",
-    "disclaimer": "No es un servicio oficial de alertas. Sigue a tus autoridades locales."
+    "disclaimer": "No es un servicio oficial de alertas. Sigue a tus autoridades locales.",
+    "post": "Terremoto M{mag} · {place}\n{when} · {depth} de profundidad",
+    "tag": "#sismo",
+    "alt_text": "Mapa de la zona de un terremoto de magnitud {mag}, {place}, {when}, a {depth} de profundidad. El epicentro es el punto con anillo; los demás terremotos de los últimos 7 días son puntos de colores, y las líneas discontinuas marcan los límites de placas cuando los hay. De sisma.io.",
+    "post_label": "Texto de la publicación",
+    "alt_label": "Descripción de la imagen (texto alternativo)",
+    "copy_text": "Copiar texto",
+    "copy_alt": "Copiar texto alternativo",
+    "copied": "Copiado",
+    "hint": "Al compartir también se copia el texto, para que puedas pegarlo si la app no lo incluye. Pega la descripción de la imagen en el campo de texto alternativo de la app."
   },
   "felt_by_1": "1 persona reportó sentirlo",
   "notif": {
