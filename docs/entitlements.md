@@ -11,7 +11,7 @@ Source of truth: app/src/lib/entitlements.ts (UI) and public.effective_plan(prof
 | advancedFilters | false | true | /api/quakes ignores minMag/maxDepth/felt/tsunami for free |
 
 Pricing: monthly $2.99 (Stripe price STRIPE_PRICE_MONTHLY, Play product sisma_plus_monthly),
-yearly $19.99 (STRIPE_PRICE_YEARLY, sisma_plus_yearly). The 7-day trial is only for accounts that have never
+yearly $19.99 (STRIPE_PRICE_YEARLY, sisma_yearly). The 7-day trial is only for accounts that have never
 subscribed (lib/billing.ts trialEligible; /api/stripe/checkout re-checks with Stripe; Google Play applies its own
 new-customer eligibility). Checkout refuses accounts with a running subscription in either store (409), and reuses a
 returning subscriber's Stripe customer. profiles.billing_source records which store the subscription comes from.

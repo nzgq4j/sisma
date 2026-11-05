@@ -14,7 +14,7 @@ describe('playPatch', () => {
     expect(playPatch(sub('SUBSCRIPTION_STATE_ACTIVE'), NOW)).toEqual({ plan: 'plus', subscription_status: 'active', billing_interval: 'monthly', current_period_end: later, cancel_at_period_end: false, trial_ends_at: null });
   });
   it('free trial phase reads as trialing, ending at expiry', () => {
-    const p = playPatch(sub('SUBSCRIPTION_STATE_ACTIVE', { productId: 'sisma_plus_yearly', offerPhase: { freeTrial: {} }, offerDetails: { basePlanId: 'yearly', offerId: 'trial' } }), NOW);
+    const p = playPatch(sub('SUBSCRIPTION_STATE_ACTIVE', { productId: 'sisma_yearly', offerPhase: { freeTrial: {} }, offerDetails: { basePlanId: 'yearly', offerId: 'trial' } }), NOW);
     expect(p).toMatchObject({ plan: 'plus', subscription_status: 'trialing', billing_interval: 'yearly', trial_ends_at: later });
   });
   it('grace period keeps access as past_due', () => {
