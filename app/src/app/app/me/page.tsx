@@ -87,7 +87,7 @@ export default function MePage() {
 }
 
 function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
-  const { t, m } = useT();
+  const { t, m, locale } = useT();
   const { plan } = useApp();
   const { profile } = useAccount();
   const now = useNow();
@@ -103,9 +103,13 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
   }
   const trialLeft = profile?.trial_ends_at ? Math.max(0, Math.ceil((new Date(profile.trial_ends_at).getTime() - now) / 86_400_000)) : 0;
   const interval = profile?.billing_interval ?? 'monthly';
+  // A cancelled subscription keeps sisma+ until the end of the paid period (or trial): say when it ends.
+  const endIso = profile?.cancel_at_period_end ? (profile.subscription_status === 'trialing' ? profile.trial_ends_at : profile.current_period_end) ?? profile.current_period_end : null;
+  const status = endIso ? m.sub.cancels_on.replace('{date}', new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(new Date(endIso)))
+    : profile?.subscription_status === 'trialing' ? t('trial_active', { n: trialLeft }) : m.acct.active;
   return (
     <div className={styles.planPlus}>
-      <div className={styles.planTop}><span>{t('current')}</span><span>{profile?.subscription_status === 'trialing' ? t('trial_active', { n: trialLeft }) : m.acct.active}</span></div>
+      <div className={styles.planTop}><span>{t('current')}</span><span>{status}</span></div>
       <div className={styles.planH}>sisma+</div>
       <div className={styles.planSub}>{new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(PRICES[interval].usd)} {t(interval === 'yearly' ? 'per_year' : 'per_month')}</div>
       <Link href="/app/me/subscription" className={styles.planManage}>{m.sub.manage}<span className="ms" aria-hidden="true">chevron_right</span></Link>

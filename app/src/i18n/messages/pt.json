@@ -489,7 +489,8 @@
     "past_due_hint": "Seu último pagamento não foi concluído. Atualize o cartão para continuar com o sisma+.",
     "err": "Não foi possível abrir a cobrança. Tente novamente.",
     "soon": "A cobrança ainda não está disponível.",
-    "st_cancelled": "Cancelada"
+    "st_cancelled": "Cancelada",
+    "cancels_on": "Termina em {date}"
   },
   "ptr": {
     "pull": "Puxe para atualizar",

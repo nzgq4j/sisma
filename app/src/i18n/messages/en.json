@@ -489,7 +489,8 @@
     "past_due_hint": "Your last payment didn’t go through. Update your card to keep sisma+.",
     "err": "Couldn’t open billing. Please try again.",
     "soon": "Billing isn’t available yet.",
-    "st_cancelled": "Cancelled"
+    "st_cancelled": "Cancelled",
+    "cancels_on": "Cancels on {date}"
   },
   "ptr": {
     "pull": "Pull to refresh",

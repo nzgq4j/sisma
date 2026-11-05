@@ -489,7 +489,8 @@
     "past_due_hint": "Votre dernier paiement n’a pas abouti. Mettez à jour votre carte pour garder sisma+.",
     "err": "Impossible d’ouvrir la facturation. Réessayez.",
     "soon": "La facturation n’est pas encore disponible.",
-    "st_cancelled": "Annulé"
+    "st_cancelled": "Annulé",
+    "cancels_on": "Prend fin le {date}"
   },
   "ptr": {
     "pull": "Tirez pour actualiser",
