@@ -85,7 +85,7 @@ async function accessToken(): Promise<string> {
     method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: `${unsigned}.${sig}` }),
   });
-  if (!r.ok) throw new Error(`Google token ${r.status}`);
+  if (!r.ok) throw await playError('token', r);
   const j = (await r.json()) as { access_token: string; expires_in: number };
   cached = { value: j.access_token, expires: Date.now() + j.expires_in * 1000 };
   return j.access_token;
@@ -93,11 +93,19 @@ async function accessToken(): Promise<string> {
 
 const API = `https://androidpublisher.googleapis.com/androidpublisher/v3/applications/${PLAY.packageName}/purchases`;
 
+/** An error from the Play Developer API with Google's own message and the service account used (neither is secret). */
+async function playError(what: string, r: Response): Promise<Error> {
+  const body = await r.text().catch(() => '');
+  let message = body.slice(0, 300);
+  try { message = (JSON.parse(body) as { error?: { message?: string } }).error?.message ?? message; } catch { /* not JSON */ }
+  return new Error(`Play ${what} ${r.status}: ${message} (service account ${serviceAccount()?.client_email ?? 'not set'})`);
+}
+
 /** The subscription for a purchase token, or null if Google does not know the token. */
 export async function getPlaySubscription(token: string): Promise<PlaySubscription | null> {
   const r = await fetch(`${API}/subscriptionsv2/tokens/${encodeURIComponent(token)}`, { headers: { authorization: `Bearer ${await accessToken()}` } });
   if (r.status === 404 || r.status === 410 || r.status === 400) return null;
-  if (!r.ok) throw new Error(`Play subscriptionsv2.get ${r.status}`);
+  if (!r.ok) throw await playError('subscriptionsv2.get', r);
   return (await r.json()) as PlaySubscription;
 }
 
@@ -105,7 +113,9 @@ async function acknowledge(productId: string, token: string) {
   const r = await fetch(`${API}/subscriptions/${encodeURIComponent(productId)}/tokens/${encodeURIComponent(token)}:acknowledge`, {
     method: 'POST', headers: { authorization: `Bearer ${await accessToken()}`, 'content-type': 'application/json' }, body: '{}',
   });
-  if (!r.ok) throw new Error(`Play acknowledge ${r.status}`);
+  // 409: already acknowledged (the app's own report and Google's notification can arrive together).
+  if (r.status === 409) return;
+  if (!r.ok) throw await playError('acknowledge', r);
 }
 
 export type SyncResult = { ok: true; userId: string; plan: 'plus' | 'free'; status: string }
