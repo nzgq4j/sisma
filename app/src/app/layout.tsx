@@ -7,7 +7,18 @@ import './globals.css';
 const figtree = Figtree({ subsets: ['latin', 'latin-ext'], variable: '--font-figtree' });
 const plexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: '500', variable: '--font-plex-mono' });
 
-export const metadata: Metadata = { title: 'sisma — The Pulse of a Living Planet', description: 'Live earthquakes from USGS, EMSC, GeoNet and JMA on a list, map and 3D globe.' };
+// Search and social cards. The card image is app/opengraph-image.png (1200 × 630); X uses it too (summary_large_image).
+const TITLE = 'sisma — Live Earthquake Map, Globe & Alerts';
+const DESCRIPTION = 'Track earthquakes worldwide in real time. Live data from USGS, EMSC, GeoNet and JMA on a map and 3D globe, with custom alerts, felt reports and the science behind them.';
+export const metadata: Metadata = {
+  metadataBase: new URL('https://sisma.io'),
+  title: TITLE,
+  description: DESCRIPTION,
+  applicationName: 'sisma',
+  keywords: ['earthquake', 'earthquakes today', 'live earthquake map', 'earthquake tracker', 'earthquake alerts', 'seismic activity', 'seismology', 'USGS', 'EMSC', 'tsunami'],
+  openGraph: { type: 'website', siteName: 'sisma', locale: 'en_US', title: TITLE, description: DESCRIPTION },
+  twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION },
+};
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#6C4BF4' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
