@@ -1,6 +1,6 @@
 import { describe, expect, it, vi, afterEach } from 'vitest';
 import { generateKeyPairSync, createSign } from 'node:crypto';
-import { playAccountId, playPatch, verifyPubSubToken, type PlaySubscription } from './play';
+import { playAccountId, playPatch, pubSubTokenProblem, verifyPubSubToken, type PlaySubscription } from './play';
 
 const NOW = Date.parse('2026-11-05T12:00:00Z');
 const later = '2026-12-05T12:00:00Z', earlier = '2026-11-01T12:00:00Z';
@@ -61,5 +61,18 @@ describe('verifyPubSubToken', () => {
     expect(await verifyPubSubToken(tok(good, 'unknown'), NOW)).toBe(false);
     const t = tok(good); expect(await verifyPubSubToken(t.slice(0, -4) + 'AAAA', NOW)).toBe(false);
     expect(await verifyPubSubToken(null, NOW)).toBe(false);
+  });
+  it('names the reason for a refusal', async () => {
+    expect(await pubSubTokenProblem(tok({ ...good, aud: 'https://evil.example' }), NOW)).toMatch(/audience "https:\/\/evil.example" does not match/);
+    expect(await pubSubTokenProblem(tok({ ...good, email: 'other@x.iam.gserviceaccount.com' }), NOW)).toMatch(/service account "other@/);
+    expect(await pubSubTokenProblem(null, NOW)).toMatch(/no bearer token/);
+    expect(await pubSubTokenProblem(tok(good), NOW)).toBeNull();
+  });
+  it('ignores stray spaces and line breaks in the settings', async () => {
+    vi.stubEnv('PLAY_RTDN_AUDIENCE', ` ${good.aud}\n`);
+    vi.stubEnv('PLAY_RTDN_SERVICE_ACCOUNT', `${good.email} `);
+    expect(await verifyPubSubToken(tok(good), NOW)).toBe(true);
+    vi.stubEnv('PLAY_RTDN_AUDIENCE', good.aud);
+    vi.stubEnv('PLAY_RTDN_SERVICE_ACCOUNT', good.email);
   });
 });
