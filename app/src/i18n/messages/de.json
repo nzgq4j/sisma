@@ -489,7 +489,8 @@
     "past_due_hint": "Deine letzte Zahlung ist nicht durchgegangen. Aktualisiere deine Karte, um sisma+ zu behalten.",
     "err": "Zahlungsseite konnte nicht geöffnet werden. Bitte versuche es erneut.",
     "soon": "Die Zahlung ist noch nicht verfügbar.",
-    "st_cancelled": "Gekündigt"
+    "st_cancelled": "Gekündigt",
+    "cancels_on": "Endet am {date}"
   },
   "ptr": {
     "pull": "Zum Aktualisieren ziehen",

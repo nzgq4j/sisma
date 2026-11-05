@@ -489,7 +489,8 @@
     "past_due_hint": "Pembayaran terakhir Anda gagal. Perbarui kartu untuk tetap memakai sisma+.",
     "err": "Tidak dapat membuka tagihan. Coba lagi.",
     "soon": "Tagihan belum tersedia.",
-    "st_cancelled": "Dibatalkan"
+    "st_cancelled": "Dibatalkan",
+    "cancels_on": "Berakhir pada {date}"
   },
   "ptr": {
     "pull": "Tarik untuk memuat ulang",

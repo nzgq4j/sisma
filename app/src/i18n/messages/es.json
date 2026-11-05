@@ -489,7 +489,8 @@
     "past_due_hint": "Tu último pago no se completó. Actualiza tu tarjeta para seguir con sisma+.",
     "err": "No se pudo abrir la facturación. Inténtalo de nuevo.",
     "soon": "La facturación aún no está disponible.",
-    "st_cancelled": "Cancelada"
+    "st_cancelled": "Cancelada",
+    "cancels_on": "Se cancela el {date}"
   },
   "ptr": {
     "pull": "Desliza para actualizar",

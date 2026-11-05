@@ -489,7 +489,8 @@
     "past_due_hint": "L’ultimo pagamento non è andato a buon fine. Aggiorna la carta per continuare con sisma+.",
     "err": "Impossibile aprire la fatturazione. Riprova.",
     "soon": "La fatturazione non è ancora disponibile.",
-    "st_cancelled": "Annullato"
+    "st_cancelled": "Annullato",
+    "cancels_on": "Termina il {date}"
   },
   "ptr": {
     "pull": "Trascina per aggiornare",

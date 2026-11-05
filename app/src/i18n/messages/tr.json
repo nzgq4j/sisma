@@ -489,7 +489,8 @@
     "past_due_hint": "Son ödemeniz gerçekleşmedi. sisma+ ile devam etmek için kartınızı güncelleyin.",
     "err": "Faturalandırma açılamadı. Lütfen tekrar deneyin.",
     "soon": "Faturalandırma henüz kullanılamıyor.",
-    "st_cancelled": "İptal edildi"
+    "st_cancelled": "İptal edildi",
+    "cancels_on": "{date} tarihinde sona eriyor"
   },
   "ptr": {
     "pull": "Yenilemek için çekin",
