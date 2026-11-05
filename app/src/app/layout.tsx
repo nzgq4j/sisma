@@ -2,12 +2,19 @@ import type { Metadata, Viewport } from 'next';
 import { Figtree, IBM_Plex_Mono } from 'next/font/google';
 import { I18nProvider } from '@/i18n/I18nProvider';
 import { THEME_SCRIPT } from '@/components/Theme';
+import { CARDS, SITE_URL, cardMetadata } from '@/lib/seo';
 import './globals.css';
 
 const figtree = Figtree({ subsets: ['latin', 'latin-ext'], variable: '--font-figtree' });
 const plexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: '500', variable: '--font-plex-mono' });
 
-export const metadata: Metadata = { title: 'sisma — The Pulse of a Living Planet', description: 'Live earthquakes from USGS, EMSC, GeoNet and JMA on a list, map and 3D globe.' };
+// Search and social cards: lib/seo.ts (one card per topic in public/og/, built by scripts/og-cards.mjs).
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  applicationName: 'sisma',
+  keywords: ['earthquake', 'earthquakes today', 'live earthquake map', 'earthquake tracker', 'earthquake alerts', 'seismic activity', 'seismology', 'USGS', 'EMSC', 'tsunami'],
+  ...cardMetadata(CARDS.home),
+};
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#6C4BF4' };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

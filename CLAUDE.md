@@ -32,7 +32,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Filters + layers + legend in a pull-up panel (components/stage/FilterPanel.tsx, peek / half / full like polar lights);
    choosing a world region zooms the map (lib/world-regions.ts REGION_VIEW) and turns the Globe to face it
    Region view (/app/map?focus=<id>): ~7.5° across the shorter side, pulsing focus marker, callouts for nearby events,
-   1:50m coastlines when zoomed in. Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx)
+   1:50m coastlines when zoomed in. Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx) with editable post
+   text + alt text; Android app shares through the system sheet (@capacitor/share + filesystem, lib/native-share.ts)
    Street level: OpenStreetMap tiles fade in from web zoom 6.5–7.5 up to 18 (lib/tiles.ts; NEXT_PUBLIC_STREET_TILES=off
    disables; docs/maps-setup.md for the OSM tile policy). Events are drop pins of one size in screen pixels, filled by
    band (--mag-0…5: MAG_MARKER_LIGHT in light mode, MAG_SCALE in dark) with the magnitude in the head (--mag-ink-N);
@@ -53,11 +54,15 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    docs/play-billing-setup.md); paywall sheet with trial-or-subscribe, restore and the post-payment activation step
    (components/Paywall.tsx); lib/billing.ts for trial eligibility and running subscriptions
 9. Push: FCM via @capacitor/push-notifications; supabase edge function matches new quakes to alert_rules (done as POST /api/cron/alerts, lib/alerts/match.ts matchRules)
-10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets (done: mobile/store/ — listing text, icon, feature graphic, phone screenshots)
+10. Service worker (todo) + manifest (done: app/manifest.ts, icons from components/Logo.tsx), Play Store assets (done: mobile/store/ — listing text, icon, feature graphic, phone
+    screenshots, release notes)
+    SEO (done): lib/seo.ts — title, description, canonical and a social card per topic (home, feed, map, globe, science and
+    each article) in app/public/og/, rebuilt with app/scripts/og-cards.mjs; robots.ts, sitemap.ts; account pages noindex
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
 12. Onboarding (v1 done: components/onboarding/): welcome, language, location primer, disclaimer. Alerts step waits for 8 + 9.
     Spec and status: docs/onboarding.md
 13. Administration (done: app/me/admin, profiles.is_admin checked by lib/admin.ts on every /api/admin request): automatic
     Bluesky posts of significant earthquakes with the share card, alt text and link (lib/bluesky.ts, run by the alert job;
     sign in to Bluesky on the page (session in Supabase Vault, password never stored; env is the fallback), on/off,
-    minimum magnitude, preview, Post now, log). docs/bluesky-setup.md
+    minimum magnitude, preview, Post now, log). The card is drawn in-process (lib/share-card.tsx); a new event waits up to
+    15 min for its card, then posts as text. docs/bluesky-setup.md

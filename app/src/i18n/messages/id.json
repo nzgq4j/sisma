@@ -406,7 +406,16 @@
     "alt": "Kartu berbagi: peta dan detail gempa ini",
     "label": "Gempa bumi",
     "nearby": "Kejadian lain, 7 hari terakhir",
-    "disclaimer": "Bukan layanan peringatan resmi. Ikuti otoritas setempat."
+    "disclaimer": "Bukan layanan peringatan resmi. Ikuti otoritas setempat.",
+    "post": "Gempa M{mag} · {place}\n{when} · kedalaman {depth}",
+    "tag": "#gempa",
+    "alt_text": "Peta wilayah sekitar gempa bermagnitudo {mag}, {place}, {when}, kedalaman {depth}. Episentrum ditandai titik bercincin; gempa lain dalam 7 hari terakhir berupa titik berwarna, dan garis putus-putus menandai batas lempeng jika ada. Dari sisma.io.",
+    "post_label": "Teks postingan",
+    "alt_label": "Deskripsi gambar (teks alternatif)",
+    "copy_text": "Salin teks",
+    "copy_alt": "Salin teks alternatif",
+    "copied": "Disalin",
+    "hint": "Saat berbagi, teks juga disalin sehingga bisa Anda tempel jika aplikasi tidak memasukkannya. Tempel deskripsi gambar ke kolom teks alternatif di aplikasi."
   },
   "felt_by_1": "1 orang melaporkan merasakannya",
   "notif": {
@@ -480,7 +489,8 @@
     "past_due_hint": "Pembayaran terakhir Anda gagal. Perbarui kartu untuk tetap memakai sisma+.",
     "err": "Tidak dapat membuka tagihan. Coba lagi.",
     "soon": "Tagihan belum tersedia.",
-    "st_cancelled": "Dibatalkan"
+    "st_cancelled": "Dibatalkan",
+    "cancels_on": "Berakhir pada {date}"
   },
   "ptr": {
     "pull": "Tarik untuk memuat ulang",

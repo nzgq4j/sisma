@@ -85,7 +85,7 @@ async function accessToken(): Promise<string> {
     method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: `${unsigned}.${sig}` }),
   });
-  if (!r.ok) throw new Error(`Google token ${r.status}`);
+  if (!r.ok) throw await playError('token', r);
   const j = (await r.json()) as { access_token: string; expires_in: number };
   cached = { value: j.access_token, expires: Date.now() + j.expires_in * 1000 };
   return j.access_token;
@@ -93,11 +93,19 @@ async function accessToken(): Promise<string> {
 
 const API = `https://androidpublisher.googleapis.com/androidpublisher/v3/applications/${PLAY.packageName}/purchases`;
 
+/** An error from the Play Developer API with Google's own message and the service account used (neither is secret). */
+async function playError(what: string, r: Response): Promise<Error> {
+  const body = await r.text().catch(() => '');
+  let message = body.slice(0, 300);
+  try { message = (JSON.parse(body) as { error?: { message?: string } }).error?.message ?? message; } catch { /* not JSON */ }
+  return new Error(`Play ${what} ${r.status}: ${message} (service account ${serviceAccount()?.client_email ?? 'not set'})`);
+}
+
 /** The subscription for a purchase token, or null if Google does not know the token. */
 export async function getPlaySubscription(token: string): Promise<PlaySubscription | null> {
   const r = await fetch(`${API}/subscriptionsv2/tokens/${encodeURIComponent(token)}`, { headers: { authorization: `Bearer ${await accessToken()}` } });
   if (r.status === 404 || r.status === 410 || r.status === 400) return null;
-  if (!r.ok) throw new Error(`Play subscriptionsv2.get ${r.status}`);
+  if (!r.ok) throw await playError('subscriptionsv2.get', r);
   return (await r.json()) as PlaySubscription;
 }
 
@@ -105,7 +113,9 @@ async function acknowledge(productId: string, token: string) {
   const r = await fetch(`${API}/subscriptions/${encodeURIComponent(productId)}/tokens/${encodeURIComponent(token)}:acknowledge`, {
     method: 'POST', headers: { authorization: `Bearer ${await accessToken()}`, 'content-type': 'application/json' }, body: '{}',
   });
-  if (!r.ok) throw new Error(`Play acknowledge ${r.status}`);
+  // 409: already acknowledged (the app's own report and Google's notification can arrive together).
+  if (r.status === 409) return;
+  if (!r.ok) throw await playError('acknowledge', r);
 }
 
 export type SyncResult = { ok: true; userId: string; plan: 'plus' | 'free'; status: string }
@@ -166,21 +176,36 @@ async function googleCerts() {
   return j.keys;
 }
 
-/** True when the bearer token is a valid Google OIDC token for our push subscription (audience and account). */
-export async function verifyPubSubToken(authorization: string | null, now = Date.now()): Promise<boolean> {
-  const aud = process.env.PLAY_RTDN_AUDIENCE, email = process.env.PLAY_RTDN_SERVICE_ACCOUNT;
+/**
+ * Why a push request's bearer token is not a valid Google OIDC token for our push subscription (audience and account),
+ * or null when it is. The reasons name only non-secret values (the audience URL and service account email carried by
+ * the token), so they can be logged when Pub/Sub deliveries are refused.
+ */
+export async function pubSubTokenProblem(authorization: string | null, now = Date.now()): Promise<string | null> {
+  const aud = process.env.PLAY_RTDN_AUDIENCE?.trim(), email = process.env.PLAY_RTDN_SERVICE_ACCOUNT?.trim();
+  if (!aud || !email) return 'PLAY_RTDN_AUDIENCE or PLAY_RTDN_SERVICE_ACCOUNT not set';
   const jwt = authorization?.startsWith('Bearer ') ? authorization.slice(7) : '';
   const parts = jwt.split('.');
-  if (!aud || !email || parts.length !== 3) return false;
+  if (parts.length !== 3) return 'no bearer token (is authentication enabled on the push subscription?)';
   try {
     const header = JSON.parse(Buffer.from(parts[0], 'base64url').toString()) as { alg?: string; kid?: string };
     const claims = JSON.parse(Buffer.from(parts[1], 'base64url').toString()) as { iss?: string; aud?: string; email?: string; email_verified?: boolean; exp?: number; iat?: number };
-    if (header.alg !== 'RS256' || !header.kid) return false;
-    const jwk = (await googleCerts()).find(k => k.kid === header.kid);
-    if (!jwk) return false;
+    if (header.alg !== 'RS256' || !header.kid) return `unexpected token header ${header.alg}`;
+    let jwk = (await googleCerts()).find(k => k.kid === header.kid);
+    if (!jwk) { certs = null; jwk = (await googleCerts()).find(k => k.kid === header.kid); } // Google rotated its keys
+    if (!jwk) return 'token signed with an unknown Google key';
     const valid = createVerify('RSA-SHA256').update(`${parts[0]}.${parts[1]}`).verify(createPublicKey({ key: jwk, format: 'jwk' }), parts[2], 'base64url');
-    const sec = now / 1000;
-    return valid && (claims.iss === 'https://accounts.google.com' || claims.iss === 'accounts.google.com') && claims.aud === aud
-      && claims.email === email && claims.email_verified === true && typeof claims.exp === 'number' && claims.exp > sec - 60;
-  } catch { return false; }
+    if (!valid) return 'bad token signature';
+    if (claims.iss !== 'https://accounts.google.com' && claims.iss !== 'accounts.google.com') return `unexpected issuer ${claims.iss}`;
+    if (claims.aud !== aud) return `audience ${JSON.stringify(claims.aud)} does not match PLAY_RTDN_AUDIENCE`;
+    if (claims.email !== email) return `service account ${JSON.stringify(claims.email)} does not match PLAY_RTDN_SERVICE_ACCOUNT`;
+    if (claims.email_verified !== true) return 'service account email not verified';
+    if (typeof claims.exp !== 'number' || claims.exp <= now / 1000 - 60) return 'token expired';
+    return null;
+  } catch (e) { return `token check failed: ${String((e as Error)?.message ?? e)}`; }
+}
+
+/** True when the bearer token is a valid Google OIDC token for our push subscription (audience and account). */
+export async function verifyPubSubToken(authorization: string | null, now = Date.now()): Promise<boolean> {
+  return (await pubSubTokenProblem(authorization, now)) === null;
 }

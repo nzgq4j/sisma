@@ -191,21 +191,33 @@ export async function checkConnection(db: SupabaseClient): Promise<{ handle: str
   return { handle: me.handle, source: a.source };
 }
 
-/** The share card for an event (English, km, UTC), or null if it could not be made or is too large. */
-async function card(q: Quake): Promise<Uint8Array | null> {
+/**
+ * The share card for an event (English, km, UTC), or null if it could not be made or is too large. Drawn here from the
+ * event the job already has (lib/share-card.tsx), not fetched from /api/share-card by id: a new event may not be found
+ * there yet under the same id (feeds disagree for the first minutes), which left the first automatic posts without a card.
+ * `known`: events already loaded (the job's last day), added to the week's events for the dots around it.
+ */
+export async function card(q: Quake, known: Quake[] = []): Promise<Uint8Array | null> {
   try {
-    const r = await fetch(`${SITE.url}/api/share-card?id=${encodeURIComponent(q.id)}&locale=en&units=km&tz=UTC`, { cache: 'no-store' });
+    const [{ shareCardResponse }, { recentQuakes }] = await Promise.all([import('./share-card'), import('./quakes/find')]);
+    const week = await recentQuakes(7).catch(() => [] as Quake[]);
+    const seen = new Set<string>([q.id]);
+    const all = [q, ...[...known, ...week].filter(x => !seen.has(x.id) && (seen.add(x.id), true))];
+    const r = await shareCardResponse({ q, all, locale: 'en', units: 'km', tz: 'UTC', origin: SITE.url });
     if (!r.ok || !r.headers.get('content-type')?.startsWith('image/png')) return null;
     const buf = new Uint8Array(await r.arrayBuffer());
     return buf.byteLength <= BLUESKY_MAX_IMAGE_BYTES ? buf : null;
-  } catch { return null; }
+  } catch (e) {
+    console.error('bluesky card', q.id, e);
+    return null;
+  }
 }
 
-/** Publishes the post; returns its at:// uri and its bsky.app link. */
-export async function publish(db: SupabaseClient, q: Quake, draft: PostDraft): Promise<{ uri: string; url: string; image: boolean }> {
+/** Publishes the post; returns its at:// uri and its bsky.app link. `png`: the card if already made (null: none). */
+export async function publish(db: SupabaseClient, q: Quake, draft: PostDraft, png?: Uint8Array | null): Promise<{ uri: string; url: string; image: boolean }> {
   const s = await authFor(db);
   const auth = { authorization: `Bearer ${s.accessJwt}` };
-  const png = await card(q);
+  if (png === undefined) png = await card(q);
   let embed: object | undefined;
   if (png) {
     const { blob } = await xrpc<{ blob: object }>(s.service, 'com.atproto.repo.uploadBlob', { method: 'POST', headers: { ...auth, 'content-type': 'image/png' }, body: png as BodyInit });
@@ -229,6 +241,11 @@ export function alreadyPosted(q: Quake, rows: Pick<PostRow, 'quake_id' | 'quake_
     || (r.status !== 'failed' && Math.abs(Date.parse(r.quake_time) - q.time) < SAME_EVENT_MS && distanceKm(r.lat, r.lon, q.lat, q.lon) < SAME_EVENT_KM));
 }
 
+/** How long a new event's automatic post waits for its card before it is posted as text only. */
+export const CARD_WAIT_MS = 15 * 60_000;
+/** True while an event without a card should still wait for it. */
+export const cardWait = (q: Pick<Quake, 'time'>, now: number) => now - q.time < CARD_WAIT_MS;
+
 /** Which recent events the automatic posting would post now (largest first). */
 export function autoCandidates(quakes: Quake[], minMagnitude: number, rows: PostRow[], now: number): Quake[] {
   return quakes
@@ -240,7 +257,7 @@ export function autoCandidates(quakes: Quake[], minMagnitude: number, rows: Post
 export type PostOutcome = { ok: true; url: string; image: boolean } | { ok: false; error: string };
 
 /** Claims the event (one post per event), posts it and records the result. A failed post can be posted again by hand. */
-export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: boolean; by?: string | null }): Promise<PostOutcome> {
+export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: boolean; by?: string | null; png?: Uint8Array | null }): Promise<PostOutcome> {
   const draft = draftPost(q);
   const row = {
     quake_id: q.id, quake_time: new Date(q.time).toISOString(), lat: q.lat, lon: q.lon, mag: Math.round(q.mag * 10) / 10,
@@ -254,7 +271,7 @@ export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: bo
     if (retry.error || !retry.data?.length) return { ok: false, error: 'already_posted' };
   }
   try {
-    const res = await publish(db, q, draft);
+    const res = await publish(db, q, draft, opts.png);
     await db.from('bluesky_posts').update({ status: 'posted', post_uri: res.uri, post_url: res.url }).eq('quake_id', q.id);
     return { ok: true, url: res.url, image: res.image };
   } catch (e) {
@@ -265,7 +282,7 @@ export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: bo
 }
 
 /** The automatic step of the every-minute alert job. Never throws (alerts must still go out). */
-export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number): Promise<{ posted: number; failed: number } | { skipped: string }> {
+export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number): Promise<{ posted: number; failed: number; waiting: number } | { skipped: string }> {
   try {
     if (!(await blueskySource(db))) return { skipped: 'not_configured' };
     const { data: s } = await db.from('bluesky_settings').select('enabled, min_magnitude').eq('id', 1).maybeSingle();
@@ -273,9 +290,15 @@ export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number)
     const { data: rows } = await db.from('bluesky_posts').select('quake_id, quake_time, lat, lon, mag, status')
       .gte('quake_time', new Date(now - 2 * 3600_000).toISOString());
     const todo = autoCandidates(quakes, Number(s.min_magnitude), (rows ?? []) as PostRow[], now);
-    let posted = 0, failed = 0;
-    for (const q of todo) { const r = await postQuake(db, q, { manual: false }); if (r.ok) posted++; else failed++; }
-    return { posted, failed };
+    let posted = 0, failed = 0, waiting = 0;
+    for (const q of todo) {
+      // Without its card, a new event waits for the next run (every minute); after CARD_WAIT_MS it goes out as text.
+      const png = await card(q, quakes);
+      if (!png && cardWait(q, now)) { waiting++; continue; }
+      const r = await postQuake(db, q, { manual: false, png });
+      if (r.ok) posted++; else failed++;
+    }
+    return { posted, failed, waiting };
   } catch (e) {
     console.error('bluesky auto post', e);
     return { skipped: 'error' };

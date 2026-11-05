@@ -406,7 +406,16 @@
     "alt": "Teilen-Karte: Karte und Details dieses Erdbebens",
     "label": "Erdbeben",
     "nearby": "Weitere Ereignisse, letzte 7 Tage",
-    "disclaimer": "Kein offizieller Warndienst. Folge den Anweisungen der Behörden vor Ort."
+    "disclaimer": "Kein offizieller Warndienst. Folge den Anweisungen der Behörden vor Ort.",
+    "post": "Erdbeben M{mag} · {place}\n{when} · {depth} tief",
+    "tag": "#Erdbeben",
+    "alt_text": "Karte der Umgebung eines Erdbebens der Magnitude {mag}, {place}, {when}, {depth} tief. Das Epizentrum ist der Punkt mit Ring; andere Erdbeben der letzten 7 Tage sind farbige Punkte, gestrichelte Linien zeigen Plattengrenzen, sofern vorhanden. Von sisma.io.",
+    "post_label": "Beitragstext",
+    "alt_label": "Bildbeschreibung (Alt-Text)",
+    "copy_text": "Text kopieren",
+    "copy_alt": "Alt-Text kopieren",
+    "copied": "Kopiert",
+    "hint": "Beim Teilen wird auch der Text kopiert, damit du ihn einfügen kannst, falls die App ihn weglässt. Füge die Bildbeschreibung in das Alt-Text-Feld der App ein."
   },
   "felt_by_1": "1 Person hat es gespürt",
   "notif": {
@@ -480,7 +489,8 @@
     "past_due_hint": "Deine letzte Zahlung ist nicht durchgegangen. Aktualisiere deine Karte, um sisma+ zu behalten.",
     "err": "Zahlungsseite konnte nicht geöffnet werden. Bitte versuche es erneut.",
     "soon": "Die Zahlung ist noch nicht verfügbar.",
-    "st_cancelled": "Gekündigt"
+    "st_cancelled": "Gekündigt",
+    "cancels_on": "Endet am {date}"
   },
   "ptr": {
     "pull": "Zum Aktualisieren ziehen",

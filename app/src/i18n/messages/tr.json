@@ -406,7 +406,16 @@
     "alt": "Paylaşım kartı: bu depremin haritası ve ayrıntıları",
     "label": "Deprem",
     "nearby": "Diğer olaylar, son 7 gün",
-    "disclaimer": "Resmî bir uyarı servisi değildir. Yerel yetkilileri takip edin."
+    "disclaimer": "Resmî bir uyarı servisi değildir. Yerel yetkilileri takip edin.",
+    "post": "M{mag} deprem · {place}\n{when} · {depth} derinlik",
+    "tag": "#deprem",
+    "alt_text": "{mag} büyüklüğündeki depremin çevresinin haritası, {place}, {when}, {depth} derinlik. Merkez üssü halkalı noktadır; son 7 günün diğer depremleri renkli noktalar, kesikli çizgiler ise varsa levha sınırlarıdır. sisma.io'dan.",
+    "post_label": "Gönderi metni",
+    "alt_label": "Görsel açıklaması (alternatif metin)",
+    "copy_text": "Metni kopyala",
+    "copy_alt": "Alternatif metni kopyala",
+    "copied": "Kopyalandı",
+    "hint": "Paylaşırken metin de kopyalanır; uygulama metni eklemezse yapıştırabilirsin. Görsel açıklamasını uygulamanın alternatif metin alanına yapıştır."
   },
   "felt_by_1": "1 kişi hissettiğini bildirdi",
   "notif": {
@@ -480,7 +489,8 @@
     "past_due_hint": "Son ödemeniz gerçekleşmedi. sisma+ ile devam etmek için kartınızı güncelleyin.",
     "err": "Faturalandırma açılamadı. Lütfen tekrar deneyin.",
     "soon": "Faturalandırma henüz kullanılamıyor.",
-    "st_cancelled": "İptal edildi"
+    "st_cancelled": "İptal edildi",
+    "cancels_on": "{date} tarihinde sona eriyor"
   },
   "ptr": {
     "pull": "Yenilemek için çekin",

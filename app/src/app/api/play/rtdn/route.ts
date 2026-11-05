@@ -5,18 +5,23 @@
 // Pub/Sub retry after a temporary failure.
 import { NextResponse, type NextRequest } from 'next/server';
 import { adminClient } from '@/lib/auth';
-import { PLAY, playConfigured, syncPlayPurchase, verifyPubSubToken } from '@/lib/play';
+import { PLAY, playConfigured, pubSubTokenProblem, syncPlayPurchase } from '@/lib/play';
 
 interface Notification { packageName?: string; subscriptionNotification?: { purchaseToken?: string; subscriptionId?: string; notificationType?: number }; testNotification?: object }
 
 export async function POST(req: NextRequest) {
-  if (!(await verifyPubSubToken(req.headers.get('authorization')))) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
+  // Refusals are logged with their reason (no secrets), so a misconfigured push subscription shows up in the logs.
+  const problem = await pubSubTokenProblem(req.headers.get('authorization'));
+  if (problem) { console.warn('play rtdn refused:', problem); return NextResponse.json({ error: 'forbidden' }, { status: 403 }); }
   const db = adminClient();
-  if (!playConfigured() || !db) return NextResponse.json({ error: 'billing_not_configured' }, { status: 501 });
+  if (!playConfigured() || !db) {
+    console.error('play rtdn: billing not configured', { serviceAccount: playConfigured(), database: !!db });
+    return NextResponse.json({ error: 'billing_not_configured' }, { status: 501 });
+  }
   const body = (await req.json().catch(() => null)) as { message?: { data?: string } } | null;
   let n: Notification = {};
   try { n = JSON.parse(Buffer.from(body?.message?.data ?? '', 'base64').toString('utf8')) as Notification; } catch { return NextResponse.json({ ignored: 'bad_message' }); }
-  if (n.testNotification) return NextResponse.json({ test: true });
+  if (n.testNotification) { console.info('play rtdn: test notification received'); return NextResponse.json({ test: true }); }
   const token = n.subscriptionNotification?.purchaseToken;
   if (n.packageName !== PLAY.packageName || !token) return NextResponse.json({ ignored: true });
   try {

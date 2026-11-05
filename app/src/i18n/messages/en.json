@@ -406,7 +406,16 @@
     "alt": "Share card: map and details of this earthquake",
     "label": "Earthquake",
     "nearby": "Other events, last 7 days",
-    "disclaimer": "Not an official warning service. Follow your local authorities."
+    "disclaimer": "Not an official warning service. Follow your local authorities.",
+    "post": "M{mag} earthquake · {place}\n{when} · {depth} deep",
+    "tag": "#earthquake",
+    "alt_text": "Map of the area around a magnitude {mag} earthquake, {place}, {when}, {depth} deep. The epicentre is the ringed dot; other earthquakes from the last 7 days are coloured dots, and dashed lines mark plate boundaries where present. From sisma.io.",
+    "post_label": "Post text",
+    "alt_label": "Image description (alt text)",
+    "copy_text": "Copy text",
+    "copy_alt": "Copy alt text",
+    "copied": "Copied",
+    "hint": "Sharing copies the text too, so you can paste it if the app leaves it out. Paste the image description into the app's alt text field."
   },
   "felt_by_1": "1 person reported feeling this",
   "notif": {
@@ -480,7 +489,8 @@
     "past_due_hint": "Your last payment didn’t go through. Update your card to keep sisma+.",
     "err": "Couldn’t open billing. Please try again.",
     "soon": "Billing isn’t available yet.",
-    "st_cancelled": "Cancelled"
+    "st_cancelled": "Cancelled",
+    "cancels_on": "Cancels on {date}"
   },
   "ptr": {
     "pull": "Pull to refresh",

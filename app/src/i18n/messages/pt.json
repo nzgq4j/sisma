@@ -406,7 +406,16 @@
     "alt": "Cartão de partilha: mapa e detalhes deste sismo",
     "label": "Sismo",
     "nearby": "Outros eventos, últimos 7 dias",
-    "disclaimer": "Não é um serviço oficial de alertas. Siga as autoridades locais."
+    "disclaimer": "Não é um serviço oficial de alertas. Siga as autoridades locais.",
+    "post": "Terremoto M{mag} · {place}\n{when} · {depth} de profundidade",
+    "tag": "#terremoto",
+    "alt_text": "Mapa da área em torno de um terremoto de magnitude {mag}, {place}, {when}, a {depth} de profundidade. O epicentro é o ponto com anel; os outros terremotos dos últimos 7 dias são pontos coloridos, e as linhas tracejadas marcam os limites das placas, quando houver. De sisma.io.",
+    "post_label": "Texto da publicação",
+    "alt_label": "Descrição da imagem (texto alternativo)",
+    "copy_text": "Copiar texto",
+    "copy_alt": "Copiar texto alternativo",
+    "copied": "Copiado",
+    "hint": "Ao compartilhar, o texto também é copiado, para você colar se o app não o incluir. Cole a descrição da imagem no campo de texto alternativo do app."
   },
   "felt_by_1": "1 pessoa relatou ter sentido",
   "notif": {
@@ -480,7 +489,8 @@
     "past_due_hint": "Seu último pagamento não foi concluído. Atualize o cartão para continuar com o sisma+.",
     "err": "Não foi possível abrir a cobrança. Tente novamente.",
     "soon": "A cobrança ainda não está disponível.",
-    "st_cancelled": "Cancelada"
+    "st_cancelled": "Cancelada",
+    "cancels_on": "Termina em {date}"
   },
   "ptr": {
     "pull": "Puxe para atualizar",

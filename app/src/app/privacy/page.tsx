@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CARDS, cardMetadata } from '@/lib/seo';
 import { SITE } from '@/lib/site';
 import { PrivacyChrome } from './PrivacyChrome';
 import styles from './privacy.module.css';
@@ -6,11 +7,7 @@ import styles from './privacy.module.css';
 // Privacy policy (English only, like the science articles; the page chrome is translated).
 // Keep it in step with what the code does: update this page whenever data collection, storage or a provider changes.
 // The "Deleting your account" section (#delete) is the account-deletion URL for Google Play.
-export const metadata: Metadata = {
-  title: 'Privacy policy — sisma',
-  description: 'What personal data sisma handles, why, which providers process it, and how to delete your account.',
-  alternates: { canonical: '/privacy' },
-};
+export const metadata: Metadata = cardMetadata(CARDS.privacy);
 
 const L = SITE.legal;
 const mail = <a href={`mailto:${L.privacyEmail}`}>{L.privacyEmail}</a>;
