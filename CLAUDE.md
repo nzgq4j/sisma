@@ -63,4 +63,5 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 13. Administration (done: app/me/admin, profiles.is_admin checked by lib/admin.ts on every /api/admin request): automatic
     Bluesky posts of significant earthquakes with the share card, alt text and link (lib/bluesky.ts, run by the alert job;
     sign in to Bluesky on the page (session in Supabase Vault, password never stored; env is the fallback), on/off,
-    minimum magnitude, preview, Post now, log). docs/bluesky-setup.md
+    minimum magnitude, preview, Post now, log). The card is drawn in-process (lib/share-card.tsx); a new event waits up to
+    15 min for its card, then posts as text. docs/bluesky-setup.md

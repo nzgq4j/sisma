@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, draftPost, eventUrl, type PostRow } from './bluesky';
+import { alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, CARD_WAIT_MS, cardWait, draftPost, eventUrl, type PostRow } from './bluesky';
 import type { Quake } from './quakes/types';
 
 const NOW = Date.parse('2026-11-06T03:10:00Z');
@@ -57,6 +57,15 @@ describe('automatic selection', () => {
     expect(alreadyPosted(emsc, [row({ quake_id: 'usgs:us7000abcd' })])).toBe(true);
     expect(alreadyPosted(emsc, [row({ quake_id: 'usgs:us7000abcd', status: 'failed' })])).toBe(false);
     expect(alreadyPosted(q(), [row({ quake_id: 'usgs:us7000abcd', status: 'failed' })])).toBe(true); // same id: retried by hand only
+  });
+});
+
+describe('cardWait', () => {
+  it('lets a new event wait for its card, then posts without it', () => {
+    const now = Date.UTC(2026, 10, 5, 17, 30);
+    expect(cardWait({ time: now - 60_000 }, now)).toBe(true);
+    expect(cardWait({ time: now - CARD_WAIT_MS + 1 }, now)).toBe(true);
+    expect(cardWait({ time: now - CARD_WAIT_MS }, now)).toBe(false);
   });
 });
 
