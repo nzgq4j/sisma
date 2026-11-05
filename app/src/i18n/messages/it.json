@@ -406,7 +406,16 @@
     "alt": "Scheda di condivisione: mappa e dettagli di questo terremoto",
     "label": "Terremoto",
     "nearby": "Altri eventi, ultimi 7 giorni",
-    "disclaimer": "Non è un servizio di allerta ufficiale. Segui le autorità locali."
+    "disclaimer": "Non è un servizio di allerta ufficiale. Segui le autorità locali.",
+    "post": "Terremoto M{mag} · {place}\n{when} · profondità {depth}",
+    "tag": "#terremoto",
+    "alt_text": "Mappa dell'area intorno a un terremoto di magnitudo {mag}, {place}, {when}, profondità {depth}. L'epicentro è il punto cerchiato; gli altri terremoti degli ultimi 7 giorni sono punti colorati e le linee tratteggiate indicano i confini delle placche, dove presenti. Da sisma.io.",
+    "post_label": "Testo del post",
+    "alt_label": "Descrizione dell'immagine (testo alternativo)",
+    "copy_text": "Copia testo",
+    "copy_alt": "Copia testo alternativo",
+    "copied": "Copiato",
+    "hint": "Condividendo viene copiato anche il testo, così puoi incollarlo se l'app non lo inserisce. Incolla la descrizione dell'immagine nel campo del testo alternativo dell'app."
   },
   "felt_by_1": "1 persona l’ha avvertito",
   "notif": {

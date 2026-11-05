@@ -1,6 +1,8 @@
 'use client';
-// Share sheet for an event: previews the portrait share card (GET /api/share-card, 1080×1350 PNG) and offers
-// Share image (Web Share API with files, where supported), Save image and Copy link.
+// Share sheet for an event: previews the portrait share card (GET /api/share-card, 1080×1350 PNG), with an editable post
+// text (description, link, hashtag) and image description (alt text), and offers Share image (Web Share API with files,
+// where supported), Save image, Copy text and Copy alt text. Many apps (X, Facebook, Bluesky) drop shared text when an
+// image comes with it, and none accept alt text this way, so sharing also copies the text for pasting.
 /* eslint-disable @next/next/no-img-element -- generated PNG preview */
 import { useEffect, useState } from 'react';
 import { Sheet } from './Sheet';
@@ -15,14 +17,24 @@ export const shareCardUrl = (id: string, locale: string, units: string, tz: stri
 type Result = { key: string } & ({ s: 'ready'; file: File; url: string } | { s: 'failed' });
 type State = { s: 'loading' } | Result;
 
-export function ShareCardSheet({ q, open, onClose, path, text }: { q: Quake; open: boolean; onClose: () => void; path: string; text: string }) {
+export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
+  q: Quake; open: boolean; onClose: () => void; path: string;
+  /** Opening line(s) of the post; the link and hashtag are added after it. */
+  text: string;
+  /** Default image description. */
+  alt: string;
+}) {
   const { m, locale } = useT();
   const units = useUnits();
   const key = `${q.id}|${locale}|${units}`;
   const [result, setResult] = useState<Result | null>(null);
   // Anything fetched for another event, language or unit setting counts as still loading.
   const state: State = result && result.key === key ? result : { s: 'loading' };
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<null | 'text' | 'alt'>(null);
+  // Editable drafts, started again from the defaults for each event, language and unit setting.
+  const [draft, setDraft] = useState<{ key: string; text: string; alt: string } | null>(null);
+  const post = draft?.key === key ? draft : { key, text: `${text}\n${typeof location === 'undefined' ? '' : location.origin + path}\n${m.sharecard.tag}`, alt };
+  const edit = (patch: Partial<{ text: string; alt: string }>) => setDraft({ ...post, ...patch });
 
   useEffect(() => {
     if (!open) return;
@@ -42,21 +54,25 @@ export function ShareCardSheet({ q, open, onClose, path, text }: { q: Quake; ope
 
   const canShareFile = state.s === 'ready' && typeof navigator !== 'undefined' && !!navigator.canShare?.({ files: [state.file] });
 
-  const link = () => `${location.origin}${path}`;
+  const copy = async (what: 'text' | 'alt') => {
+    try {
+      await navigator.clipboard.writeText(post[what]);
+      setCopied(what); setTimeout(() => setCopied(c => (c === what ? null : c)), 2500);
+    } catch {
+      // No clipboard (older browsers): hand the text to the share sheet instead.
+      if (what === 'text' && navigator.share) try { await navigator.share({ text: post.text }); } catch { /* cancelled */ }
+    }
+  };
   const shareImage = async () => {
     if (state.s !== 'ready') return;
-    try { await navigator.share({ files: [state.file], title: 'sisma', text: `${text}\n${link()}` }); } catch { /* cancelled */ }
+    // Copy first: the receiving app may ignore the text that comes with the image.
+    navigator.clipboard?.writeText(post.text).then(() => setCopied('text'), () => {});
+    try { await navigator.share({ files: [state.file], title: 'sisma', text: post.text }); } catch { /* cancelled */ }
   };
   const saveImage = () => {
     if (state.s !== 'ready') return;
     const a = document.createElement('a');
     a.href = state.url; a.download = state.file.name; document.body.appendChild(a); a.click(); a.remove();
-  };
-  const copyLink = async () => {
-    try {
-      if (!navigator.clipboard && navigator.share) { await navigator.share({ title: 'sisma', text, url: link() }); return; }
-      await navigator.clipboard.writeText(`${text}\n${link()}`); setCopied(true); setTimeout(() => setCopied(false), 2500);
-    } catch { /* clipboard unavailable or share cancelled */ }
   };
 
   return (
@@ -66,6 +82,14 @@ export function ShareCardSheet({ q, open, onClose, path, text }: { q: Quake; ope
         {state.s === 'loading' && <span className={styles.shareMsg}><span className="ms" aria-hidden="true">progress_activity</span>{m.sharecard.preparing}</span>}
         {state.s === 'failed' && <span className={styles.shareMsg} role="alert">{m.sharecard.failed}</span>}
       </div>
+      <label className={styles.shareField}>
+        <span>{m.sharecard.post_label}</span>
+        <textarea value={post.text} onChange={e => edit({ text: e.target.value })} rows={5} spellCheck />
+      </label>
+      <label className={styles.shareField}>
+        <span>{m.sharecard.alt_label}</span>
+        <textarea value={post.alt} onChange={e => edit({ alt: e.target.value })} rows={4} spellCheck />
+      </label>
       <div className={styles.shareActions}>
         {canShareFile && (
           <button type="button" className={styles.sharePrimary} onClick={shareImage}>
@@ -75,10 +99,14 @@ export function ShareCardSheet({ q, open, onClose, path, text }: { q: Quake; ope
         <button type="button" className={styles.regionBtn} onClick={saveImage} disabled={state.s !== 'ready'}>
           <span className="ms" aria-hidden="true">download</span>{m.sharecard.save_image}
         </button>
-        <button type="button" className={styles.regionBtn} onClick={copyLink} aria-live="polite">
-          <span className="ms" aria-hidden="true">{copied ? 'check' : 'link'}</span>{copied ? m.link_copied : m.sharecard.copy_link}
+        <button type="button" className={styles.regionBtn} onClick={() => void copy('text')} aria-live="polite">
+          <span className="ms" aria-hidden="true">{copied === 'text' ? 'check' : 'content_copy'}</span>{copied === 'text' ? m.sharecard.copied : m.sharecard.copy_text}
+        </button>
+        <button type="button" className={`${styles.regionBtn} ${styles.shareWide}`} onClick={() => void copy('alt')} aria-live="polite">
+          <span className="ms" aria-hidden="true">{copied === 'alt' ? 'check' : 'content_copy'}</span>{copied === 'alt' ? m.sharecard.copied : m.sharecard.copy_alt}
         </button>
       </div>
+      <p className={styles.shareHint}>{m.sharecard.hint}</p>
     </Sheet>
   );
 }
