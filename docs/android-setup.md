@@ -81,7 +81,7 @@ purchase real?" before unlocking sisma+. That needs a *service account* (a robot
 3. ☰ **IAM & Admin → Service accounts → Create service account**: name `play-billing` → Create and continue →
    no roles needed here → Done. Copy its email (looks like `play-billing@<project>.iam.gserviceaccount.com`).
 4. Open it → **Keys → Add key → Create new key → JSON**. **Secret** — password manager. When we build Play Billing
-   it goes into **Vercel → Project sisma → Settings → Environment Variables** as `PLAY_SERVICE_ACCOUNT_JSON`
+   it goes into **Vercel → Project sisma → Settings → Environment Variables** as `GOOGLE_PLAY_SERVICE_ACCOUNT`
    (Production only, marked *Sensitive*).
 5. In **Play Console → Users and permissions → Invite new users**: paste the service account email; under
    *App permissions* add the sisma app (after step 7 creates it) with **View financial data** and
@@ -151,7 +151,7 @@ Play only enables subscriptions once an app bundle exists):
    | Product ID | Name | Base plan | Price | Offer |
    | --- | --- | --- | --- | --- |
    | `sisma_plus_monthly` | sisma+ monthly | auto-renewing, every **1 month** | US$2.99 | free trial **7 days**, new customers only |
-   | `sisma_plus_yearly` | sisma+ yearly | auto-renewing, every **1 year** | US$19.99 | free trial **7 days**, new customers only |
+   | `sisma_yearly` | sisma+ yearly | auto-renewing, every **1 year** | US$19.99 | free trial **7 days**, new customers only |
 
    For each: add the *base plan* (base plan ID `monthly` or `yearly`) → set the US price → **Update prices for other countries** (Google converts) →
    *Activate*. Then **Add offer** → free trial 7 days → eligibility "New customer acquisition" → *Activate*.
@@ -251,7 +251,7 @@ key yourself, because it must stay on your machine.
 | --- | --- | --- |
 | `google-services.json` | No (keep private) | `mobile/android/app/` |
 | Firebase service account JSON | **Yes** | Vercel env `FCM_SERVICE_ACCOUNT` (Production, Sensitive) |
-| Play service account JSON | **Yes** | Vercel env `PLAY_SERVICE_ACCOUNT_JSON` (Production, Sensitive) |
+| Play service account JSON | **Yes** | Vercel env `GOOGLE_PLAY_SERVICE_ACCOUNT` (Production, Sensitive) |
 | Google OAuth client secret | **Yes** | Supabase → Auth → Providers → Google only |
 | Upload keystore `.jks` + passwords | **Yes** | Your password manager + backup only |
 | App signing SHA-256 fingerprint | No | Send to Claude (for `assetlinks.json`) |
