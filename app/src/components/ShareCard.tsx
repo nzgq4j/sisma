@@ -1,5 +1,5 @@
 'use client';
-// Share sheet for an event: previews the portrait share card (GET /api/share-card, 1080×1350 PNG), with an editable post
+// Share sheet for an event (Android app: native share via lib/native-share.ts): previews the portrait share card (GET /api/share-card, 1080×1350 PNG), with an editable post
 // text (description, link, hashtag) and image description (alt text), and offers Share image (Web Share API with files,
 // where supported), Save image, Copy text and Copy alt text. Many apps (X, Facebook, Bluesky) drop shared text when an
 // image comes with it, and none accept alt text this way, so sharing also copies the text for pasting.
@@ -9,6 +9,7 @@ import { Sheet } from './Sheet';
 import { useT } from '@/i18n/I18nProvider';
 import { useUnits } from './Units';
 import type { Quake } from '@/lib/quakes/types';
+import { canShareNatively, shareFileNatively } from '@/lib/native-share';
 import styles from './dash/dash.module.css';
 
 export const shareCardUrl = (id: string, locale: string, units: string, tz: string) =>
@@ -52,7 +53,9 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
     return () => { alive = false; if (objectUrl) URL.revokeObjectURL(objectUrl); };
   }, [open, key, q.id, q.mag, locale, units]);
 
-  const canShareFile = state.s === 'ready' && typeof navigator !== 'undefined' && !!navigator.canShare?.({ files: [state.file] });
+  // Android app: native share sheet (lib/native-share.ts); browsers: Web Share API with files, where supported.
+  const native = canShareNatively();
+  const canShareFile = state.s === 'ready' && (native || (typeof navigator !== 'undefined' && !!navigator.canShare?.({ files: [state.file] })));
 
   const copy = async (what: 'text' | 'alt') => {
     try {
@@ -67,6 +70,7 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
     if (state.s !== 'ready') return;
     // Copy first: the receiving app may ignore the text that comes with the image.
     navigator.clipboard?.writeText(post.text).then(() => setCopied('text'), () => {});
+    if (native) { await shareFileNatively(state.file, post.text, m.sharecard.title); return; }
     try { await navigator.share({ files: [state.file], title: 'sisma', text: post.text }); } catch { /* cancelled */ }
   };
   const saveImage = () => {

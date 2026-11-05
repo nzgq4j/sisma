@@ -32,7 +32,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Filters + layers + legend in a pull-up panel (components/stage/FilterPanel.tsx, peek / half / full like polar lights);
    choosing a world region zooms the map (lib/world-regions.ts REGION_VIEW) and turns the Globe to face it
    Region view (/app/map?focus=<id>): ~7.5° across the shorter side, pulsing focus marker, callouts for nearby events,
-   1:50m coastlines when zoomed in. Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx)
+   1:50m coastlines when zoomed in. Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx) with editable post
+   text + alt text; Android app shares through the system sheet (@capacitor/share + filesystem, lib/native-share.ts)
    Street level: OpenStreetMap tiles fade in from web zoom 6.5–7.5 up to 18 (lib/tiles.ts; NEXT_PUBLIC_STREET_TILES=off
    disables; docs/maps-setup.md for the OSM tile policy). Events are drop pins of one size in screen pixels, filled by
    band (--mag-0…5: MAG_MARKER_LIGHT in light mode, MAG_SCALE in dark) with the magnitude in the head (--mag-ink-N);
