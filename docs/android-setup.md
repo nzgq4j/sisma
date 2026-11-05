@@ -1,7 +1,8 @@
 # Android app setup — step by step, in plain language
 
 The Android app is a thin shell (Capacitor, in `mobile/`) that opens **https://sisma.io/app** and adds what only a
-phone app can do: push notifications, the system location prompt, and Google Play subscriptions. Most of the work below
+phone app can do: push notifications, the system location prompt, Google Play subscriptions, Google sign-in and the
+system share sheet (event share cards via `@capacitor/share` + `@capacitor/filesystem`, `app/src/lib/native-share.ts`). Most of the work below
 is clicking through Google's consoles. Where code is needed, the step says **"→ Claude"**: tell me when you reach it.
 
 **Rules that apply everywhere**
