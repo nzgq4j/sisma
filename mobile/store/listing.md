@@ -66,10 +66,15 @@ Play Console → Grow users → Store presence → Store settings → Store list
 |---|---|---|
 | App icon | icon-512.png | 512 × 512 PNG, up to 1 MB |
 | Feature graphic | feature-graphic-1024x500.png | 1024 × 500 PNG or JPEG, no transparency |
-| Phone screenshots | screenshots/phone-1…8 | 2–8 images, 1080 × 1920 (9:16) |
+| Phone screenshots | framed/phone-1…8 (upload these) | 2–8 images, 1080 × 1920 (9:16) |
+| Plain app screenshots | screenshots/phone-1…8 | the sources for framed/ |
 
 Screenshot order: 1 feed (strongest) · 2 event details · 3 world map · 4 region view · 5 globe · 6 globe depth view ·
 7 science article · 8 sisma+.
 
 The screenshots were taken from the production build with real earthquake data from 26 Oct – 2 Nov 2026, with the times
 moved forward so the newest event is 25 minutes old. Location set to Tokyo; units in miles (US English).
+
+The framed screenshots put each app screenshot in a phone frame over backdrop.webp with a feature headline
+(frame-screenshots.mjs; headlines in its HEADLINES list). Rebuild them after retaking screenshots/:
+`NODE_PATH=$(npm root -g) node mobile/store/frame-screenshots.mjs`.
