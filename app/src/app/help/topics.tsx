@@ -306,6 +306,7 @@ export const TOPICS: Topic[] = [
             <li><strong>My location</strong> uses your device’s position (your browser or phone asks for permission first).</li>
             <li><Ui>Add location</Ui> lets you search for a city or town and save it.</li>
             <li>Tap a location to make it the one used for distances. Tap <Ui>×</Ui> to remove it.</li>
+            <li>When <strong>My location</strong> is chosen, sisma uses your position whenever your device can give it. If it can’t (location turned off or not allowed), or you chose a saved place, sisma uses that saved place: your default place, or the first one you saved.</li>
           </ul>
           <p>The free plan has <strong>1 saved location</strong>, and sisma+ has <strong>up to 10</strong>. Without an account, locations are kept on this device and move into your account when you sign in.</p>
         </div>
