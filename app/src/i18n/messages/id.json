@@ -422,7 +422,9 @@
     "copy_text": "Salin teks",
     "copy_alt": "Salin teks alternatif",
     "copied": "Disalin",
-    "hint": "Saat berbagi, teks juga disalin sehingga bisa Anda tempel jika aplikasi tidak memasukkannya. Tempel deskripsi gambar ke kolom teks alternatif di aplikasi."
+    "hint": "Saat berbagi, teks juga disalin sehingga bisa Anda tempel jika aplikasi tidak memasukkannya. Tempel deskripsi gambar ke kolom teks alternatif di aplikasi.",
+    "share_link": "Bagikan tautan",
+    "share_failed": "Tidak dapat membuka menu berbagi. Anda bisa menyalin teks dan menyimpan gambar."
   },
   "felt_by_1": "1 orang melaporkan merasakannya",
   "notif": {

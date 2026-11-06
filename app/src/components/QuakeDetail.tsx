@@ -14,6 +14,7 @@ import type { Row } from './QuakeData';
 import { useDistance } from './Units';
 import { ShareCardSheet } from './ShareCard';
 import styles from './dash/dash.module.css';
+import { fillPost } from '@/lib/share-text';
 
 /** Map URL that zooms to a quake and shows its felt reports. */
 export const regionHref = (id: string) => '/app/map?focus=' + encodeURIComponent(id);
@@ -78,8 +79,9 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
   const reports = useFeltCells(q.id);
   const feltTotal = reports.total + (q.felt ?? 0);
   // Share defaults (editable in the share sheet): a short description and the image description.
-  const fill = (s: string) => s.replace(/\{(\w+)\}/g, (_, k: string) => ({ mag: q.mag.toFixed(1), place: q.region, when: `${date} ${time}`, depth: u.depth(q.depthKm) })[k] ?? '');
-  const shareText = fill(m.sharecard.post), shareAlt = fill(m.sharecard.alt_text);
+  // Empty values drop their fragment from the post (lib/share-text.ts fillPost).
+  const vals = { mag: q.mag.toFixed(1), place: q.region, when: `${date} ${time}`.trim(), depth: u.depth(q.depthKm) };
+  const shareText = fillPost(m.sharecard.post, vals), shareAlt = m.sharecard.alt_text.replace(/\{(\w+)\}/g, (_, k: string) => vals[k as keyof typeof vals] ?? '');
 
   return (
     <>

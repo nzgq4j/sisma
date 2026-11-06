@@ -422,7 +422,9 @@
     "copy_text": "Copiar texto",
     "copy_alt": "Copiar texto alternativo",
     "copied": "Copiado",
-    "hint": "Ao compartilhar, o texto também é copiado, para você colar se o app não o incluir. Cole a descrição da imagem no campo de texto alternativo do app."
+    "hint": "Ao compartilhar, o texto também é copiado, para você colar se o app não o incluir. Cole a descrição da imagem no campo de texto alternativo do app.",
+    "share_link": "Compartilhar link",
+    "share_failed": "Não foi possível abrir o menu de compartilhamento. Você pode copiar o texto e salvar a imagem."
   },
   "felt_by_1": "1 pessoa relatou ter sentido",
   "notif": {

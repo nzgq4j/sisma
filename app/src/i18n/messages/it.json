@@ -422,7 +422,9 @@
     "copy_text": "Copia testo",
     "copy_alt": "Copia testo alternativo",
     "copied": "Copiato",
-    "hint": "Condividendo viene copiato anche il testo, così puoi incollarlo se l'app non lo inserisce. Incolla la descrizione dell'immagine nel campo del testo alternativo dell'app."
+    "hint": "Condividendo viene copiato anche il testo, così puoi incollarlo se l'app non lo inserisce. Incolla la descrizione dell'immagine nel campo del testo alternativo dell'app.",
+    "share_link": "Condividi link",
+    "share_failed": "Impossibile aprire il menu di condivisione. Puoi copiare il testo e salvare l'immagine."
   },
   "felt_by_1": "1 persona l’ha avvertito",
   "notif": {

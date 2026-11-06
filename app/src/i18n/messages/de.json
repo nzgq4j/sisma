@@ -422,7 +422,9 @@
     "copy_text": "Text kopieren",
     "copy_alt": "Alt-Text kopieren",
     "copied": "Kopiert",
-    "hint": "Beim Teilen wird auch der Text kopiert, damit du ihn einfügen kannst, falls die App ihn weglässt. Füge die Bildbeschreibung in das Alt-Text-Feld der App ein."
+    "hint": "Beim Teilen wird auch der Text kopiert, damit du ihn einfügen kannst, falls die App ihn weglässt. Füge die Bildbeschreibung in das Alt-Text-Feld der App ein.",
+    "share_link": "Link teilen",
+    "share_failed": "Das Teilen-Menü ließ sich nicht öffnen. Du kannst den Text kopieren und das Bild speichern."
   },
   "felt_by_1": "1 Person hat es gespürt",
   "notif": {

@@ -12,6 +12,7 @@ import { formatDms } from '@/lib/geo';
 import { convertKmInText, KM_PER_MI, type Units } from '@/lib/units';
 import { EARTHQUAKE_PATH } from '@/components/logo-path';
 import { asLocale, serverMessages as messages } from '@/i18n/server';
+import { fitLine } from './share-text';
 const W = 1080, H = 1350, PAD = 56, MAP_W = W - PAD * 2, MAP_H = 600;
 const SPAN = 7.5;
 const C = THEME.light;
@@ -86,6 +87,11 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
   // Some sources give the same text for the place and the region (e.g. "Fiji region" twice): show it once.
   const same = (a: string, b: string) => a.trim().toLocaleLowerCase('en') === b.trim().toLocaleLowerCase('en');
   const subtitle = title && !same(title, q.region) ? title : null;
+  // Text column beside the 168 px badge (32 px gap), less the flag (48 px + 16 px gap): the place shrinks to fit one
+  // line (50 → 34 px), then is cut with "…"; the subtitle stays one line at 30 px.
+  const colW = MAP_W - 168 - 32;
+  const head = fitLine(q.region, { maxWidth: colW - (flag ? 64 : 0), size: 50, min: 34 });
+  const sub = subtitle ? fitLine(subtitle, { maxWidth: colW, size: 30, min: 30 }) : null;
   // Badge in the light pin colours, like the card's map and the app's light mode.
   const mc = { fill: MAG_MARKER_LIGHT[magIndex(q.mag)], text: MAG_INK_LIGHT[magIndex(q.mag)] };
   const stats: [string, string][] = [[m.depth, depth], [m.coords, formatDms(q.lat, q.lon)], [m.review_status, status], [m.source, source]];
@@ -133,9 +139,9 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, flex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
               {flag && <img src={flag} width={48} height={48} style={{ borderRadius: 24 }} alt="" />}
-              <div style={{ display: 'flex', fontSize: 50, fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.01em' }}>{q.region}</div>
+              <div style={{ display: 'flex', fontSize: head.size, fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>{head.text}</div>
             </div>
-            {subtitle && <div style={{ display: 'flex', fontSize: 30, fontWeight: 500, color: C.ink2 }}>{subtitle}</div>}
+            {sub && <div style={{ display: 'flex', fontSize: sub.size, fontWeight: 500, color: C.ink2, whiteSpace: 'nowrap' }}>{sub.text}</div>}
             <div style={{ display: 'flex', fontSize: 30, fontWeight: 700 }}>{date} · {time}</div>
           </div>
         </div>
