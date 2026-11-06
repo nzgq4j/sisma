@@ -27,9 +27,9 @@ const CJK = { ja: "'Noto Sans CJK JP'", zh: "'Noto Sans CJK SC'" };
 
 /** Canvas, screen size inside the frame, frame top and the headline band for each device. */
 const DEVICES = {
-  phone: { out: 'phone', W: 1080, H: 1920, screen: [720, 1280], top: 470, band: 430, radius: 54, bezel: 26 },
-  tablet7: { out: 'tablet-7in', W: 1200, H: 1920, screen: [840, 1344], top: 450, band: 410, radius: 40, bezel: 30 },
-  tablet10: { out: 'tablet-10in', W: 1250, H: 2000, screen: [880, 1408], top: 470, band: 430, radius: 34, bezel: 32 },
+  phone: { out: 'phone', css: 360, W: 1080, H: 1920, screen: [720, 1280], top: 470, band: 430, radius: 54, bezel: 26 },
+  tablet7: { out: 'tablet-7in', css: 600, W: 1200, H: 1920, screen: [840, 1344], top: 450, band: 410, radius: 40, bezel: 30 },
+  tablet10: { out: 'tablet-10in', css: 1024, W: 1250, H: 2000, screen: [880, 1408], top: 470, band: 430, radius: 34, bezel: 32 },
 };
 
 const b64 = (file, type) => `data:${type};base64,${readFileSync(file).toString('base64')}`;
@@ -43,8 +43,15 @@ const fonts = `
 const esc = s => s.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
 
 /** One framed screenshot. The headline is sized in the page to fit the band (both lines the same size). */
-function screenPage(l, d, shot, [a, b]) {
+function screenPage(l, d, shot, [a, b], note) {
   const { W, H, screen: [sw, sh], top, band, radius, bezel } = d;
+  // Push notification over the top of the screen (Android style), sized in the device's CSS px.
+  const k = sw / d.css, nw = Math.min(d.css - 16, 420) * k;
+  const banner = note ? `<div class="note" style="left:${(sw - nw) / 2 + bezel + 6}px;top:${bezel + 6 + 10 * k}px;width:${nw}px;padding:${12 * k}px ${14 * k}px;border-radius:${22 * k}px;gap:${12 * k}px">
+<img src="${icon}" style="width:${36 * k}px;height:${36 * k}px;border-radius:${10 * k}px" alt="">
+<div style="min-width:0"><div style="font-size:${12 * k}px;color:#B9B3D6">sisma · ${esc(note.when)}</div>
+<div style="font-size:${15 * k}px;font-weight:700;color:#fff;margin-top:${2 * k}px">${esc(note.title)}</div>
+<div style="font-size:${13.5 * k}px;color:#D9D4F0;margin-top:${2 * k}px">${esc(note.body)}</div></div></div>` : '';
   const rim = 6, fw = sw + 2 * (bezel + rim), fh = sh + 2 * (bezel + rim), font = CJK[l] ? `${CJK[l]}, sans-serif` : 'Figtree, sans-serif';
   return `<!doctype html><html lang="${l}"><head><meta charset="utf-8"><style>${fonts}
 * { margin: 0; box-sizing: border-box; }
@@ -60,12 +67,15 @@ body { width: ${W}px; height: ${H}px; overflow: hidden; position: relative; back
 .bezel { position: relative; width: 100%; height: 100%; padding: ${bezel}px; border-radius: ${radius + bezel}px; background: #030305; box-shadow: inset 0 0 0 2px rgba(255,255,255,.08); }
 .bezel img { display: block; width: ${sw}px; height: ${sh}px; border-radius: ${radius}px; }
 .cam { position: absolute; top: ${Math.round(bezel / 2) - 9}px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #3a4a6a, #0a0d16 55%, #000); }
+.note { position: absolute; display: flex; align-items: flex-start; background: rgba(38,33,62,.97); box-shadow: 0 18px 50px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08);
+        font-family: ${CJK[l] ? `${CJK[l]}, Figtree, sans-serif` : 'Figtree, sans-serif'}; line-height: 1.3; }
+.note img { flex: none; }
 .btn { position: absolute; width: 8px; border-radius: 4px; background: linear-gradient(90deg, #5d626e, #c8ccd5 50%, #5d626e); }
 </style></head><body><div class="shade"></div><div class="foot"></div>
 <div class="head"><div class="l1">${esc(a)}</div><div class="l2">${esc(b)}</div></div>
 <div class="dev"><div class="btn" style="right:-6px;top:${Math.round(fh * .24)}px;height:${Math.round(fh * .1)}px"></div>
 <div class="btn" style="left:-6px;top:${Math.round(fh * .2)}px;height:${Math.round(fh * .08)}px"></div><div class="btn" style="left:-6px;top:${Math.round(fh * .3)}px;height:${Math.round(fh * .08)}px"></div>
-<div class="bezel"><img src="${shot}" alt=""><div class="cam"></div></div></div></body></html>`;
+<div class="bezel"><img src="${shot}" alt=""><div class="cam"></div></div>${banner}</div></body></html>`;
 }
 
 /** Feature graphic: backdrop, app icon and wordmark, two-line tagline, and the magnitude colours as a bar. */
@@ -112,7 +122,9 @@ for (const l of LOCALES) {
     const tab = await browser.newPage({ viewport: { width: d.W, height: d.H }, deviceScaleFactor: 1 });
     for (const f of readdirSync(src).filter(x => x.endsWith('.png')).sort()) {
       const name = f.replace(/^\d+-|\.png$/g, ''), n = f.split('-')[0].padStart(2, '0');
-      await tab.setContent(screenPage(l, d, b64(`${src}/${f}`, 'image/png'), t[name]), { waitUntil: 'load' });
+      const noteFile = `${src}/${f.replace(/\.png$/, '.json')}`;
+      const note = existsSync(noteFile) ? JSON.parse(readFileSync(noteFile, 'utf8')) : null;
+      await tab.setContent(screenPage(l, d, b64(`${src}/${f}`, 'image/png'), t[name], note), { waitUntil: 'load' });
       await tab.evaluate(() => document.fonts.ready);
       const size = await fitHeadline(tab, { maxSize: Math.round(d.W * 0.118), maxW: d.W - 120, maxH: d.band - 90 });
       await sharp(await tab.screenshot({ type: 'png' })).jpeg({ quality: 90, chromaSubsampling: '4:4:4' }).toFile(`${out}/${d.out}/${n}-${name}.jpg`);

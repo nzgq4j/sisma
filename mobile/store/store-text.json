@@ -1,53 +1,383 @@
 {
-  "_comment": "Play Store headlines: [white line, violet line] per screen (capture-screens.mjs order), and the feature graphic tagline.",
+  "_comment": "Play Store headlines: [white line, violet line] per screen (capture-screens.mjs order). tagline: the feature graphic, the app's own tagline (messages app_tag), uppercased and split in two.",
   "en": {
-    "feed": ["EARTHQUAKES", "AS THEY HAPPEN"], "detail": ["EVERY DETAIL", "AT A GLANCE"], "map": ["THE WHOLE WORLD", "ON ONE MAP"],
-    "region": ["ZOOM IN ON", "ANY QUAKE"], "globe": ["SPIN THE", "LIVE 3D GLOBE"], "depth": ["SEE HOW DEEP", "THEY STRIKE"],
-    "science": ["THE SCIENCE", "MADE SIMPLE"], "plus": ["ALERTS THAT", "MATTER"], "tagline": ["KNOW WHEN THE", "EARTH MOVES"]
+    "feed": [
+      "EARTHQUAKES",
+      "AS THEY HAPPEN"
+    ],
+    "detail": [
+      "EVERY DETAIL",
+      "AT A GLANCE"
+    ],
+    "map": [
+      "THE WHOLE WORLD",
+      "ON ONE MAP"
+    ],
+    "region": [
+      "ZOOM IN ON",
+      "ANY QUAKE"
+    ],
+    "globe": [
+      "SPIN THE",
+      "LIVE 3D GLOBE"
+    ],
+    "depth": [
+      "SEE HOW DEEP",
+      "THEY STRIKE"
+    ],
+    "science": [
+      "THE SCIENCE",
+      "MADE SIMPLE"
+    ],
+    "tagline": [
+      "THE PULSE OF A",
+      "LIVING PLANET"
+    ],
+    "alerts": [
+      "ALERTS THAT",
+      "MATTER"
+    ]
   },
   "es": {
-    "feed": ["TERREMOTOS", "EN TIEMPO REAL"], "detail": ["CADA DETALLE", "DE UN VISTAZO"], "map": ["TODO EL MUNDO", "EN UN MAPA"],
-    "region": ["ACÉRCATE A", "CUALQUIER SISMO"], "globe": ["GIRA EL", "GLOBO EN VIVO"], "depth": ["DESCUBRE SU", "PROFUNDIDAD"],
-    "science": ["LA CIENCIA", "EXPLICADA"], "plus": ["ALERTAS", "QUE IMPORTAN"], "tagline": ["SABE CUÁNDO", "TIEMBLA LA TIERRA"]
+    "feed": [
+      "TERREMOTOS",
+      "EN TIEMPO REAL"
+    ],
+    "detail": [
+      "CADA DETALLE",
+      "DE UN VISTAZO"
+    ],
+    "map": [
+      "TODO EL MUNDO",
+      "EN UN MAPA"
+    ],
+    "region": [
+      "ACÉRCATE A",
+      "CUALQUIER SISMO"
+    ],
+    "globe": [
+      "GIRA EL",
+      "GLOBO EN VIVO"
+    ],
+    "depth": [
+      "DESCUBRE SU",
+      "PROFUNDIDAD"
+    ],
+    "science": [
+      "LA CIENCIA",
+      "EXPLICADA"
+    ],
+    "tagline": [
+      "EL PULSO DE UN",
+      "PLANETA VIVO"
+    ],
+    "alerts": [
+      "ALERTAS",
+      "QUE IMPORTAN"
+    ]
   },
   "ja": {
-    "feed": ["世界の地震を", "リアルタイムで"], "detail": ["すべての詳細を", "ひと目で"], "map": ["世界中の地震を", "ひとつの地図に"],
-    "region": ["どの地震も", "ズームで詳しく"], "globe": ["3D地球儀を", "回してみよう"], "depth": ["震源の深さを", "立体で見る"],
-    "science": ["地震のしくみを", "わかりやすく"], "plus": ["大切な場所の", "地震アラート"], "tagline": ["大地が動いたら", "すぐわかる"]
+    "feed": [
+      "世界の地震を",
+      "リアルタイムで"
+    ],
+    "detail": [
+      "すべての詳細を",
+      "ひと目で"
+    ],
+    "map": [
+      "世界中の地震を",
+      "ひとつの地図に"
+    ],
+    "region": [
+      "どの地震も",
+      "ズームで詳しく"
+    ],
+    "globe": [
+      "3D地球儀を",
+      "回してみよう"
+    ],
+    "depth": [
+      "震源の深さを",
+      "立体で見る"
+    ],
+    "science": [
+      "地震のしくみを",
+      "わかりやすく"
+    ],
+    "tagline": [
+      "生きている惑星の",
+      "鼓動"
+    ],
+    "alerts": [
+      "大切な場所の",
+      "地震アラート"
+    ]
   },
   "id": {
-    "feed": ["GEMPA BUMI", "SAAT TERJADI"], "detail": ["SEMUA DETAIL", "SEKILAS PANDANG"], "map": ["SELURUH DUNIA", "DALAM SATU PETA"],
-    "region": ["PERBESAR", "GEMPA MANA PUN"], "globe": ["JELAJAHI", "GLOBE 3D"], "depth": ["LIHAT KEDALAMAN", "SETIAP GEMPA"],
-    "science": ["SAINS GEMPA", "JADI MUDAH"], "plus": ["PERINGATAN", "YANG PENTING"], "tagline": ["TAHU SAAT", "BUMI BERGUNCANG"]
+    "feed": [
+      "GEMPA BUMI",
+      "SAAT TERJADI"
+    ],
+    "detail": [
+      "SEMUA DETAIL",
+      "SEKILAS PANDANG"
+    ],
+    "map": [
+      "SELURUH DUNIA",
+      "DALAM SATU PETA"
+    ],
+    "region": [
+      "PERBESAR",
+      "GEMPA MANA PUN"
+    ],
+    "globe": [
+      "JELAJAHI",
+      "GLOBE 3D"
+    ],
+    "depth": [
+      "LIHAT KEDALAMAN",
+      "SETIAP GEMPA"
+    ],
+    "science": [
+      "SAINS GEMPA",
+      "JADI MUDAH"
+    ],
+    "tagline": [
+      "DENYUT PLANET",
+      "YANG HIDUP"
+    ],
+    "alerts": [
+      "PERINGATAN",
+      "YANG PENTING"
+    ]
   },
   "tr": {
-    "feed": ["DEPREMLER", "ANINDA"], "detail": ["TÜM AYRINTILAR", "TEK BAKIŞTA"], "map": ["TÜM DÜNYA", "TEK HARİTADA"],
-    "region": ["HER DEPREME", "YAKINDAN BAK"], "globe": ["CANLI KÜREYİ", "ÇEVİR"], "depth": ["DEPREMLERİN", "DERİNLİĞİNİ GÖR"],
-    "science": ["DEPREM BİLİMİ", "KOLAYCA"], "plus": ["ÖNEMLİ OLAN", "UYARILAR"], "tagline": ["YER SARSILDIĞINDA", "HEMEN BİL"]
+    "feed": [
+      "DEPREMLER",
+      "ANINDA"
+    ],
+    "detail": [
+      "TÜM AYRINTILAR",
+      "TEK BAKIŞTA"
+    ],
+    "map": [
+      "TÜM DÜNYA",
+      "TEK HARİTADA"
+    ],
+    "region": [
+      "HER DEPREME",
+      "YAKINDAN BAK"
+    ],
+    "globe": [
+      "CANLI KÜREYİ",
+      "ÇEVİR"
+    ],
+    "depth": [
+      "DEPREMLERİN",
+      "DERİNLİĞİNİ GÖR"
+    ],
+    "science": [
+      "DEPREM BİLİMİ",
+      "KOLAYCA"
+    ],
+    "tagline": [
+      "YAŞAYAN BİR",
+      "GEZEGENİN NABZI"
+    ],
+    "alerts": [
+      "ÖNEMLİ OLAN",
+      "UYARILAR"
+    ]
   },
   "it": {
-    "feed": ["TERREMOTI", "IN TEMPO REALE"], "detail": ["OGNI DETTAGLIO", "A COLPO D’OCCHIO"], "map": ["TUTTO IL MONDO", "IN UNA MAPPA"],
-    "region": ["INGRANDISCI", "OGNI SCOSSA"], "globe": ["FAI GIRARE", "IL GLOBO LIVE"], "depth": ["SCOPRI LA", "PROFONDITÀ"],
-    "science": ["LA SCIENZA", "SPIEGATA"], "plus": ["AVVISI", "CHE CONTANO"], "tagline": ["SAPPI QUANDO", "LA TERRA TREMA"]
+    "feed": [
+      "TERREMOTI",
+      "IN TEMPO REALE"
+    ],
+    "detail": [
+      "OGNI DETTAGLIO",
+      "A COLPO D’OCCHIO"
+    ],
+    "map": [
+      "TUTTO IL MONDO",
+      "IN UNA MAPPA"
+    ],
+    "region": [
+      "INGRANDISCI",
+      "OGNI SCOSSA"
+    ],
+    "globe": [
+      "FAI GIRARE",
+      "IL GLOBO LIVE"
+    ],
+    "depth": [
+      "SCOPRI LA",
+      "PROFONDITÀ"
+    ],
+    "science": [
+      "LA SCIENZA",
+      "SPIEGATA"
+    ],
+    "tagline": [
+      "IL BATTITO DI UN",
+      "PIANETA VIVO"
+    ],
+    "alerts": [
+      "AVVISI",
+      "CHE CONTANO"
+    ]
   },
   "pt": {
-    "feed": ["TERREMOTOS", "EM TEMPO REAL"], "detail": ["CADA DETALHE", "DE RELANCE"], "map": ["O MUNDO TODO", "EM UM MAPA"],
-    "region": ["AMPLIE", "QUALQUER TREMOR"], "globe": ["GIRE O", "GLOBO AO VIVO"], "depth": ["VEJA A", "PROFUNDIDADE"],
-    "science": ["A CIÊNCIA", "EXPLICADA"], "plus": ["ALERTAS", "QUE IMPORTAM"], "tagline": ["SAIBA QUANDO", "A TERRA TREME"]
+    "feed": [
+      "TERREMOTOS",
+      "EM TEMPO REAL"
+    ],
+    "detail": [
+      "CADA DETALHE",
+      "DE RELANCE"
+    ],
+    "map": [
+      "O MUNDO TODO",
+      "EM UM MAPA"
+    ],
+    "region": [
+      "AMPLIE",
+      "QUALQUER TREMOR"
+    ],
+    "globe": [
+      "GIRE O",
+      "GLOBO AO VIVO"
+    ],
+    "depth": [
+      "VEJA A",
+      "PROFUNDIDADE"
+    ],
+    "science": [
+      "A CIÊNCIA",
+      "EXPLICADA"
+    ],
+    "tagline": [
+      "O PULSO DE UM",
+      "PLANETA VIVO"
+    ],
+    "alerts": [
+      "ALERTAS",
+      "QUE IMPORTAM"
+    ]
   },
   "zh": {
-    "feed": ["全球地震", "实时掌握"], "detail": ["每个细节", "一目了然"], "map": ["全世界的地震", "尽在一张地图"],
-    "region": ["放大查看", "任何一次地震"], "globe": ["转动", "实时三维地球"], "depth": ["看清每次地震", "有多深"],
-    "science": ["地震科学", "通俗易懂"], "plus": ["重要地点", "地震提醒"], "tagline": ["大地一动", "即刻知晓"]
+    "feed": [
+      "全球地震",
+      "实时掌握"
+    ],
+    "detail": [
+      "每个细节",
+      "一目了然"
+    ],
+    "map": [
+      "全世界的地震",
+      "尽在一张地图"
+    ],
+    "region": [
+      "放大查看",
+      "任何一次地震"
+    ],
+    "globe": [
+      "转动",
+      "实时三维地球"
+    ],
+    "depth": [
+      "看清每次地震",
+      "有多深"
+    ],
+    "science": [
+      "地震科学",
+      "通俗易懂"
+    ],
+    "tagline": [
+      "鲜活星球的",
+      "脉搏"
+    ],
+    "alerts": [
+      "重要地点",
+      "地震提醒"
+    ]
   },
   "fr": {
-    "feed": ["LES SÉISMES", "EN DIRECT"], "detail": ["CHAQUE DÉTAIL", "EN UN COUP D’ŒIL"], "map": ["LE MONDE ENTIER", "SUR UNE CARTE"],
-    "region": ["ZOOMEZ SUR", "CHAQUE SÉISME"], "globe": ["FAITES TOURNER", "LE GLOBE EN DIRECT"], "depth": ["VOYEZ LEUR", "PROFONDEUR"],
-    "science": ["LA SCIENCE", "EXPLIQUÉE"], "plus": ["DES ALERTES", "UTILES"], "tagline": ["SACHEZ QUAND", "LA TERRE TREMBLE"]
+    "feed": [
+      "LES SÉISMES",
+      "EN DIRECT"
+    ],
+    "detail": [
+      "CHAQUE DÉTAIL",
+      "EN UN COUP D’ŒIL"
+    ],
+    "map": [
+      "LE MONDE ENTIER",
+      "SUR UNE CARTE"
+    ],
+    "region": [
+      "ZOOMEZ SUR",
+      "CHAQUE SÉISME"
+    ],
+    "globe": [
+      "FAITES TOURNER",
+      "LE GLOBE EN DIRECT"
+    ],
+    "depth": [
+      "VOYEZ LEUR",
+      "PROFONDEUR"
+    ],
+    "science": [
+      "LA SCIENCE",
+      "EXPLIQUÉE"
+    ],
+    "tagline": [
+      "LE POULS D’UNE",
+      "PLANÈTE VIVANTE"
+    ],
+    "alerts": [
+      "DES ALERTES",
+      "UTILES"
+    ]
   },
   "de": {
-    "feed": ["ERDBEBEN", "IN ECHTZEIT"], "detail": ["JEDES DETAIL", "AUF EINEN BLICK"], "map": ["DIE GANZE WELT", "AUF EINER KARTE"],
-    "region": ["ZOOME IN", "JEDES BEBEN"], "globe": ["DREH DEN", "LIVE-GLOBUS"], "depth": ["SIEH DIE", "BEBENTIEFE"],
-    "science": ["WISSENSCHAFT", "EINFACH ERKLÄRT"], "plus": ["ALARME,", "DIE ZÄHLEN"], "tagline": ["WISSEN, WANN", "DIE ERDE BEBT"]
+    "feed": [
+      "ERDBEBEN",
+      "IN ECHTZEIT"
+    ],
+    "detail": [
+      "JEDES DETAIL",
+      "AUF EINEN BLICK"
+    ],
+    "map": [
+      "DIE GANZE WELT",
+      "AUF EINER KARTE"
+    ],
+    "region": [
+      "ZOOME IN",
+      "JEDES BEBEN"
+    ],
+    "globe": [
+      "DREH DEN",
+      "LIVE-GLOBUS"
+    ],
+    "depth": [
+      "SIEH DIE",
+      "BEBENTIEFE"
+    ],
+    "science": [
+      "WISSENSCHAFT",
+      "EINFACH ERKLÄRT"
+    ],
+    "tagline": [
+      "DER PULS EINES",
+      "LEBENDIGEN PLANETEN"
+    ],
+    "alerts": [
+      "ALARME,",
+      "DIE ZÄHLEN"
+    ]
   }
 }
