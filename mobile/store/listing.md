@@ -48,7 +48,17 @@ sisma is not an official warning service and does not provide earthquake early w
 
 Privacy policy: https://sisma.io/privacy
 Terms of service: https://sisma.io/terms
+Help and how-to guides: https://sisma.io/help
 Support: support@sisma.io
+
+## Contact details
+
+Play Console → Grow users → Store presence → Store settings → Store listing contact details.
+
+| Field | Value |
+|---|---|
+| Email | support@sisma.io |
+| Website | https://sisma.io/help |
 
 ## Graphics
 
