@@ -1,6 +1,8 @@
 # Google Play store listing (en-US)
 
 Paste into Play Console → Grow users → Store presence → Main store listing.
+Translations of the short and full description: listings/<locale>.md (es, ja, id, tr, it, pt, zh, fr, de), pasted under
+Main store listing → Manage translations. The help centre is English, so the translated help links say so.
 
 ## App name (30 max)
 
