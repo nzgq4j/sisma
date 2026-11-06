@@ -172,7 +172,10 @@
     "terms": "Conditions d’utilisation",
     "terms_english": "Ces conditions sont publiées en anglais.",
     "help": "Aide et assistance",
-    "help_english": "Ce guide est en anglais. L’app est disponible dans votre langue."
+    "help_english": "Ce guide est en anglais. L’app est disponible dans votre langue.",
+    "help_topics": "Rubriques d’aide",
+    "help_prev": "Précédent",
+    "help_next": "Suivant"
   },
   "dash": {
     "overview": "Vue d'ensemble",

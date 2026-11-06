@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import science from '@/content/science.json';
+import { TOPICS } from './help/topics';
 
 const BASE = 'https://sisma.io';
 
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/app/science', 0.7, 'monthly'),
     ...(science as { id: string }[]).map(a => page(`/app/science/${a.id}`, 0.6, 'monthly')),
     page('/help', 0.5, 'monthly'),
+    ...TOPICS.map(t => page(`/help/${t.slug}`, 0.4, 'monthly')),
     page('/privacy', 0.2, 'yearly'),
     page('/terms', 0.2, 'yearly'),
   ];

@@ -172,7 +172,10 @@
     "terms": "服务条款",
     "terms_english": "本条款以英文发布。",
     "help": "帮助与支持",
-    "help_english": "本指南为英文。应用本身支持你的语言。"
+    "help_english": "本指南为英文。应用本身支持你的语言。",
+    "help_topics": "帮助主题",
+    "help_prev": "上一篇",
+    "help_next": "下一篇"
   },
   "dash": {
     "overview": "概览",

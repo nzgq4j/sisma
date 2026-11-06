@@ -172,7 +172,10 @@
     "terms": "Termos de serviço",
     "terms_english": "Estes termos são publicados em inglês.",
     "help": "Ajuda e suporte",
-    "help_english": "Este guia está em inglês. O app está disponível no seu idioma."
+    "help_english": "Este guia está em inglês. O app está disponível no seu idioma.",
+    "help_topics": "Tópicos de ajuda",
+    "help_prev": "Anterior",
+    "help_next": "Próximo"
   },
   "dash": {
     "overview": "Visão geral",

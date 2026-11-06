@@ -18,6 +18,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 - sisma is not an official warning service; keep the disclaimer on Me and the site footer.
 - Selectors and pop-ups use components/Sheet.tsx (as in the polar lights app: swipe down, double tap away from
   controls, tap outside or Escape to close). Lists of choices use SheetOptions; no native <select> in the UI.
+- Keep the help centre current: any change users can see (feature, wording, button, flow, price, plan limit) updates
+  the matching topic in src/app/help/topics.tsx in the same PR. When a pictured screen changes, retake its screenshots
+  in both themes with scripts/help-shots.mjs (<name>-light.webp and <name>-dark.webp in public/help/) and check them.
 
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)
@@ -58,8 +61,10 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     screenshots, release notes)
     SEO (done): lib/seo.ts — title, description, canonical and a social card per topic (home, feed, map, globe, science and
     each article) in app/public/og/, rebuilt with app/scripts/og-cards.mjs; robots.ts, sitemap.ts; account pages noindex
-    Help centre (done): /help (app/help/page.tsx, English; screenshots in app/public/help/), linked from Me → Account and the
-    site footer. Keep it in step with the app wording when features change
+    Help centre (done): /help hub (popular questions, all topics, contact) and one page per topic at /help/<slug>
+    (app/help/topics.tsx, English; HelpChrome: sticky header with Back, topic sidebar on wide screens, prev / next).
+    Follows light / dark through the theme tokens; screenshots in app/public/help/ come in -light and -dark versions
+    (scripts/help-shots.mjs). Linked from Me → Account and the site footer; old /help#anchors redirect to their topic
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
 12. Onboarding (v1 done: components/onboarding/): welcome, language, location primer, disclaimer. Alerts step waits for 8 + 9.
     Spec and status: docs/onboarding.md

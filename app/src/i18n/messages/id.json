@@ -172,7 +172,10 @@
     "terms": "Ketentuan layanan",
     "terms_english": "Ketentuan ini diterbitkan dalam bahasa Inggris.",
     "help": "Bantuan & dukungan",
-    "help_english": "Panduan ini dalam bahasa Inggris. Aplikasinya tersedia dalam bahasa Anda."
+    "help_english": "Panduan ini dalam bahasa Inggris. Aplikasinya tersedia dalam bahasa Anda.",
+    "help_topics": "Topik bantuan",
+    "help_prev": "Sebelumnya",
+    "help_next": "Berikutnya"
   },
   "dash": {
     "overview": "Ringkasan",
