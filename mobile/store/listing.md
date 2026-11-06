@@ -62,19 +62,28 @@ Play Console → Grow users → Store presence → Store settings → Store list
 
 ## Graphics
 
-| Asset | File | Play requirement |
+Upload from `sisma-play-store-<locale>.zip` (one per language; build below). Each zip holds:
+
+| Folder / file | Play Console field | Size |
 |---|---|---|
-| App icon | icon-512.png | 512 × 512 PNG, up to 1 MB |
-| Feature graphic | feature-graphic-1024x500.png | 1024 × 500 PNG or JPEG, no transparency |
-| Phone screenshots | framed/phone-1…8 (upload these) | 2–8 images, 1080 × 1920 (9:16) |
-| Plain app screenshots | screenshots/phone-1…8 | the sources for framed/ |
+| feature-graphic.jpg | Feature graphic | 1024 × 500 |
+| phone/01…08 | Phone screenshots | 1080 × 1920 |
+| tablet-7in/01…08 | 7-inch tablet screenshots | 1200 × 1920 |
+| tablet-10in/01…08 | 10-inch tablet screenshots | 1250 × 2000 |
 
-Screenshot order: 1 feed (strongest) · 2 event details · 3 world map · 4 region view · 5 globe · 6 globe depth view ·
-7 science article · 8 sisma+.
+App icon: icon-512.png (512 × 512). All images are JPEG (no transparency), under 1 MB each.
 
-The screenshots were taken from the production build with real earthquake data from 26 Oct – 2 Nov 2026, with the times
-moved forward so the newest event is 25 minutes old. Location set to Tokyo; units in miles (US English).
+Screen order: 1 feed (strongest; 10-inch: Overview) · 2 event details · 3 world map · 4 region view · 5 globe ·
+6 globe depth view · 7 science article · 8 sisma+. Each screenshot shows the app in that language over backdrop.webp, in
+a phone or tablet frame, under a two-line headline (white, then sisma violet) from store-text.json. Phone and 7-inch
+tablets show the phone layout (360 × 640 and 600 × 960 CSS px); 10-inch tablets the wide layout (1024 × 1638).
 
-The framed screenshots put each app screenshot in a phone frame over backdrop.webp with a feature headline
-(frame-screenshots.mjs; headlines in its HEADLINES list). Rebuild them after retaking screenshots/:
-`NODE_PATH=$(npm root -g) node mobile/store/frame-screenshots.mjs`.
+Build (screens use the 26 Oct – 2 Nov 2026 earthquakes with the times moved forward so the newest is 25 minutes old;
+location Tokyo; miles for English, kilometres otherwise; times in UTC; dark theme):
+
+1. In app/: `npm run build`, then `npx next start -p 3100` with that data.
+2. `NODE_PATH=$(npm root -g) node mobile/store/capture-screens.mjs` → out/screens/ (Japanese and Chinese need
+   fonts-noto-cjk installed).
+3. `NODE_PATH=$(npm root -g) node mobile/store/compose-store.mjs` → out/store/<locale>/ and out/zips/.
+
+Pass locale codes to either script to build only those. out/ is not committed.
