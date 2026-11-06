@@ -175,7 +175,8 @@
     "help_english": "This guide is in English. The app itself is available in your language.",
     "help_topics": "Help topics",
     "help_prev": "Previous",
-    "help_next": "Next"
+    "help_next": "Next",
+    "help_back_to_app": "Back to app"
   },
   "dash": {
     "overview": "Overview",

@@ -175,7 +175,8 @@
     "help_english": "Questa guida è in inglese. L’app è disponibile nella tua lingua.",
     "help_topics": "Argomenti di aiuto",
     "help_prev": "Precedente",
-    "help_next": "Successivo"
+    "help_next": "Successivo",
+    "help_back_to_app": "Torna all’app"
   },
   "dash": {
     "overview": "Panoramica",

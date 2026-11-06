@@ -175,7 +175,8 @@
     "help_english": "このガイドは英語です。アプリ自体は日本語で利用できます。",
     "help_topics": "ヘルプのトピック",
     "help_prev": "前へ",
-    "help_next": "次へ"
+    "help_next": "次へ",
+    "help_back_to_app": "アプリに戻る"
   },
   "dash": {
     "overview": "概要",
