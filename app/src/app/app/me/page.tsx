@@ -65,10 +65,12 @@ export default function MePage() {
                 <span className="ms" aria-hidden="true">password</span><span className={styles.grow}>{a.password_row}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
               </button>
               <button type="button" className={styles.row} onClick={() => void acct.signOut()}><span className="ms" aria-hidden="true">logout</span><span className={styles.grow}>{a.sign_out}</span></button>
+              <HelpRow />
               <button type="button" className={`${styles.row} ${styles.dangerRow}`} onClick={() => setDelOpen(true)}><span className="ms" aria-hidden="true">delete</span><span className={styles.grow}>{a.delete}</span></button>
             </div>
           </>
         )}
+        {!acct.user && acct.ready && <div className={styles.card}><HelpRow /></div>}
         <p className={`${styles.disclaimer} ${styles.desktopOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a> · <a href="/terms" className={styles.privacyLink}>{m.web.terms}</a></p>
       </div>
 
@@ -83,6 +85,16 @@ export default function MePage() {
       <DeleteSheet open={delOpen} onClose={() => setDelOpen(false)} />
       {nameOpen && <NameSheet onClose={() => setNameOpen(false)} />}
     </div>
+  );
+}
+
+/** Me → Account → Help & support (the /help page; shown to guests too). */
+function HelpRow() {
+  const { m } = useT();
+  return (
+    <Link href="/help" className={styles.row}>
+      <span className="ms" aria-hidden="true">help</span><span className={styles.grow}>{m.acct.help}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
+    </Link>
   );
 }
 

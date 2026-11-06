@@ -62,6 +62,12 @@ export const CARDS = {
     path: '/app/science', image: 'science', alt: 'Diagrams of plate tectonics, fault types, seismic waves and a tsunami',
     kicker: 'Science', heading: 'How earthquakes work', sub: 'Seven illustrated guides, from plate tectonics to tsunamis.',
   },
+  help: {
+    title: 'Help & Support — sisma',
+    description: 'How to use sisma: the earthquake feed, map and globe, felt reports, sharing, your account and password reset, sisma+ billing, alerts, and troubleshooting.',
+    path: '/help', image: 'home', alt: 'sisma: live earthquakes worldwide',
+    kicker: '', heading: '', sub: '',
+  },
   privacy: {
     title: 'Privacy policy — sisma',
     description: 'What personal data sisma handles, why, which providers process it, and how to delete your account.',

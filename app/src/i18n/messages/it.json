@@ -170,7 +170,9 @@
     "privacy_english": "Questa informativa è pubblicata in inglese.",
     "privacy_open_app": "Apri l’app",
     "terms": "Termini di servizio",
-    "terms_english": "Questi termini sono pubblicati in inglese."
+    "terms_english": "Questi termini sono pubblicati in inglese.",
+    "help": "Aiuto e supporto",
+    "help_english": "Questa guida è in inglese. L’app è disponibile nella tua lingua."
   },
   "dash": {
     "overview": "Panoramica",
@@ -332,7 +334,8 @@
     "password_saved": "Password salvata.",
     "done_btn": "Fatto",
     "err_reauth": "Per sicurezza, esci e accedi di nuovo, poi cambia la password.",
-    "err_same": "Scegli una password che non hai mai usato."
+    "err_same": "Scegli una password che non hai mai usato.",
+    "help": "Aiuto e supporto"
   },
   "onboard": {
     "skip": "Salta",

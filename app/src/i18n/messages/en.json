@@ -170,7 +170,9 @@
     "privacy_english": "This policy is published in English.",
     "privacy_open_app": "Open the app",
     "terms": "Terms of service",
-    "terms_english": "These terms are published in English."
+    "terms_english": "These terms are published in English.",
+    "help": "Help & support",
+    "help_english": "This guide is in English. The app itself is available in your language."
   },
   "dash": {
     "overview": "Overview",
@@ -332,7 +334,8 @@
     "password_saved": "Your password is saved.",
     "done_btn": "Done",
     "err_reauth": "For your security, sign out and sign in again, then change your password.",
-    "err_same": "Choose a password you haven’t used before."
+    "err_same": "Choose a password you haven’t used before.",
+    "help": "Help & support"
   },
   "onboard": {
     "skip": "Skip",

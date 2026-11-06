@@ -170,7 +170,9 @@
     "privacy_english": "Bu politika İngilizce olarak yayımlanmaktadır.",
     "privacy_open_app": "Uygulamayı aç",
     "terms": "Hizmet şartları",
-    "terms_english": "Bu şartlar İngilizce olarak yayımlanmıştır."
+    "terms_english": "Bu şartlar İngilizce olarak yayımlanmıştır.",
+    "help": "Yardım ve destek",
+    "help_english": "Bu kılavuz İngilizcedir. Uygulamanın kendisi Türkçe kullanılabilir."
   },
   "dash": {
     "overview": "Genel bakış",
@@ -332,7 +334,8 @@
     "password_saved": "Şifren kaydedildi.",
     "done_btn": "Tamam",
     "err_reauth": "Güvenliğin için çıkış yapıp tekrar giriş yap, sonra şifreni değiştir.",
-    "err_same": "Daha önce kullanmadığın bir şifre seç."
+    "err_same": "Daha önce kullanmadığın bir şifre seç.",
+    "help": "Yardım ve destek"
   },
   "onboard": {
     "skip": "Atla",
