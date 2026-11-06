@@ -96,10 +96,12 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     function setRemoteLater(v: null) { void Promise.resolve().then(() => setRemote(v)); }
   }, [sb, user]);
 
-  const locateMe = useCallback(async (): Promise<LocateResult> => {
+  // select: make My location the chosen location (a tap on "Use my current location" or onboarding). The silent refresh
+  // on load only updates the position, so a saved place the user picked stays chosen.
+  const locateMe = useCallback(async (select = true): Promise<LocateResult> => {
     const applyFix = (lat: number, lon: number) => {
       setDevice({ lat, lon });
-      writeActive('device');
+      if (select) writeActive('device');
     };
     // Android app: ask through the native plugin so the system permission dialog appears (a WebView won't prompt itself).
     const G = nativeGeolocation();
@@ -125,7 +127,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
 
   // Never prompt on load (onboarding and Me ask with an explanation); only refresh when access was already granted.
   useEffect(() => {
-    navigator.permissions?.query({ name: 'geolocation' }).then(s => { if (s.state === 'granted') void locateMe(); }).catch(() => {});
+    navigator.permissions?.query({ name: 'geolocation' }).then(s => { if (s.state === 'granted') void locateMe(false); }).catch(() => {});
   }, [locateMe]);
 
   const locations = useMemo<SavedLocation[]>(() => {
@@ -136,8 +138,11 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     return list.length ? list : [FALLBACK];
   }, [device, places]);
 
-  // Chosen on this device → the account default → the device position → the first place.
-  const resolvedKey = [activeKey, places.find(p => p.primary)?.id, device ? 'device' : null, locations[0].key]
+  // My location when it is chosen and the device has a position; otherwise a set location: the place chosen on this
+  // device, the account's default place, the first saved place; with no saved places, the device position, then the
+  // example location. (Choosing My location is per device and leaves the default place as the fallback.)
+  const setPlace = places.find(p => p.primary)?.id ?? places[0]?.id;
+  const resolvedKey = [activeKey, setPlace, device ? 'device' : null, locations[0].key]
     .find(k => k && locations.some(l => l.key === k));
   const active = Math.max(0, locations.findIndex(l => l.key === resolvedKey));
 
