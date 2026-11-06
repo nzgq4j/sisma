@@ -52,6 +52,14 @@ export default function MePage() {
 
         <PlanCard onUpgrade={() => setSheet('paywall')} />
 
+        <p className={`${styles.disclaimer} ${styles.desktopOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a> · <a href="/terms" className={styles.privacyLink}>{m.web.terms}</a></p>
+      </div>
+
+      <div className={styles.col}>
+        <Alerts onLocked={() => setSheet('paywall')} />
+        <Locations onLocked={() => setSheet('paywall')} />
+        <Preferences />
+        <AdminLink />
         {acct.user && (
           <>
             <div className={styles.sectionLabel}>{a.account}</div>
@@ -71,14 +79,6 @@ export default function MePage() {
           </>
         )}
         {!acct.user && acct.ready && <div className={styles.card}><HelpRow /></div>}
-        <p className={`${styles.disclaimer} ${styles.desktopOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a> · <a href="/terms" className={styles.privacyLink}>{m.web.terms}</a></p>
-      </div>
-
-      <div className={styles.col}>
-        <Alerts onLocked={() => setSheet('paywall')} />
-        <Locations onLocked={() => setSheet('paywall')} />
-        <Preferences />
-        <AdminLink />
         <p className={`${styles.disclaimer} ${styles.phoneOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a> · <a href="/terms" className={styles.privacyLink}>{m.web.terms}</a></p>
       </div>
 
