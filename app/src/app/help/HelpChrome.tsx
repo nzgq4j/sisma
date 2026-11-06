@@ -1,6 +1,6 @@
 'use client';
 // Frame of the help centre: a sticky header with Back (to the page you came from, or Me), the help home and Back to
-// app; the topic list beside the article on wide screens; previous / next topic links; a translated notice that the
+// sisma; the topic list beside the article on wide screens; previous / next topic links; a translated notice that the
 // guide is in English. Follows the app's light / dark setting (globals.css tokens), unlike the light-only website.
 import Link from 'next/link';
 import { useEffect, type ReactNode } from 'react';
