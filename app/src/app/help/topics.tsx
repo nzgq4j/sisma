@@ -278,7 +278,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Change your email address</strong>: this isn’t possible in the app yet. Write to <a href={`mailto:${MAIL}`}>{MAIL}</a> from your current address.</li>
           </ul>
         </div>
-        <Shot src="me" alt="Me page signed in: plan card, display name, email, password, sign out, delete account and alerts" caption="Me, signed in" />
+        <Shot src="me" alt="Account section in Me: display name, email, password, sign out, help and support, and delete account" caption="Account, at the bottom of Me" />
       </div>
 
       <h3 id="delete-account">Delete your account</h3>
