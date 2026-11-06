@@ -32,7 +32,8 @@ const b64 = (file, type) => `data:${type};base64,${readFileSync(file).toString('
 const backdrop = b64(`${dir}backdrop.webp`, 'image/webp');
 const font = b64(`${dir}fonts/Figtree-latin.woff2`, 'font/woff2');
 
-// Phone: 720 × 1280 screen (the 1080 × 1920 screenshot at 2/3), 14 px bezel, centred, below the headline.
+// Phone: 720 × 1280 screen (the 1080 × 1920 screenshot at 2/3) in a black 26 px bezel, a light metallic rim that stands
+// out on the dark backdrop, side buttons and a camera dot; centred below the headline.
 const page = (shot, headline) => `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face { font-family: Figtree; src: url(${font}) format('woff2'); font-weight: 300 900; }
 * { margin: 0; box-sizing: border-box; }
@@ -41,11 +42,20 @@ body { width: ${W}px; height: ${H}px; overflow: hidden; background: #05060a url(
 .foot { position: absolute; inset: auto 0 0 0; height: 260px; background: linear-gradient(rgba(3,4,10,0), rgba(3,4,10,.55)); }
 h1 { position: absolute; top: 0; left: 80px; right: 80px; height: 470px; display: flex; align-items: center; justify-content: center; text-align: center;
      color: #fff; font-weight: 800; font-size: 84px; line-height: 1.06; letter-spacing: -0.025em; text-wrap: balance; text-shadow: 0 4px 28px rgba(0,0,0,.55); }
-.phone { position: absolute; left: ${(W - 748) / 2}px; top: 500px; width: 748px; height: 1308px; padding: 14px; border-radius: 70px; background: #0b0a12;
-         box-shadow: 0 0 0 2px rgba(255,255,255,.14), 0 40px 90px rgba(0,0,0,.65), 0 0 120px rgba(255,90,60,.18); }
-.phone img { display: block; width: 720px; height: 1280px; border-radius: 56px; }
+.phone { position: absolute; left: ${(W - 784) / 2}px; top: 488px; width: 784px; height: 1344px; padding: 6px; border-radius: 84px;
+         background: linear-gradient(140deg, #f2f4f8 0%, #9aa0ad 18%, #4b505c 42%, #2b2e36 58%, #7d8290 80%, #e6e9ef 100%);
+         box-shadow: 0 0 0 1.5px rgba(255,255,255,.55), 0 44px 100px rgba(0,0,0,.7), 0 0 140px rgba(255,90,60,.22); }
+.bezel { position: relative; width: 100%; height: 100%; padding: 26px; border-radius: 78px; background: #030305;
+         box-shadow: inset 0 0 0 2px rgba(255,255,255,.08); }
+.bezel img { display: block; width: 720px; height: 1280px; border-radius: 54px; }
+.cam { position: absolute; top: 44px; left: 50%; width: 24px; height: 24px; margin-left: -12px; border-radius: 50%;
+       background: radial-gradient(circle at 35% 35%, #3a4a6a 0%, #0a0d16 55%, #000 100%); box-shadow: 0 0 0 3px #030305; }
+.btn { position: absolute; width: 8px; border-radius: 4px; background: linear-gradient(90deg, #5d626e, #c8ccd5 50%, #5d626e); }
+.power { right: -6px; top: 330px; height: 150px; }
+.volup { left: -6px; top: 270px; height: 110px; }
+.voldn { left: -6px; top: 400px; height: 110px; }
 </style></head><body><div class="shade"></div><div class="foot"></div><h1>${headline}</h1>
-<div class="phone"><img src="${shot}" alt=""></div></body></html>`;
+<div class="phone"><div class="btn power"></div><div class="btn volup"></div><div class="btn voldn"></div><div class="bezel"><img src="${shot}" alt=""><div class="cam"></div></div></div></body></html>`;
 
 const browser = await chromium.launch();
 const tab = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
