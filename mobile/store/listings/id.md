@@ -1,5 +1,9 @@
 # Google Play store listing (id)
 
+## App name (30 max, 30 used)
+
+sisma: Peta & Peringatan Gempa
+
 ## Short description
 
 Pantau gempa bumi secara langsung: peta, globe 3D, dan peringatan gempa terdekat

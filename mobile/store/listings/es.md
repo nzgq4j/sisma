@@ -1,5 +1,9 @@
 # Google Play store listing (es-ES)
 
+## App name (30 max, 29 used)
+
+sisma: Sismos, mapa y alertas
+
 ## Short description
 
 Rastreador de terremotos en vivo: mapa, globo 3D y alertas cerca de ti

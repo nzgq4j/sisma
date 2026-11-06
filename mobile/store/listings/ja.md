@@ -1,5 +1,9 @@
 # Google Play store listing (ja-JP)
 
+## App name (30 max, 18 used)
+
+sisma:地震マップと地震アラート
+
 ## Short description
 
 世界の地震をリアルタイムで。地図、3D地球儀、近くの地震のアラート

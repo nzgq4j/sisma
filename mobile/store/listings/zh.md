@@ -1,5 +1,9 @@
 # Google Play store listing (zh-CN)
 
+## App name (30 max, 15 used)
+
+sisma：地震地图与地震提醒
+
 ## Short description
 
 全球地震实时追踪：地图、3D 地球仪，附近地震及时提醒

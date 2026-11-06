@@ -1,5 +1,9 @@
 # Google Play store listing (fr-FR)
 
+## App name (30 max, 26 used)
+
+sisma : Séismes et alertes
+
 ## Short description
 
 Séismes en direct : carte, globe 3D et alertes près de chez vous

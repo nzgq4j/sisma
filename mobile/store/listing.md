@@ -8,6 +8,8 @@ Main store listing → Manage translations. The help centre is English, so the t
 
 Sisma - Earthquake Monitoring
 
+Suggested, with the words people search for (30 used): sisma: Earthquake Map & Alerts
+
 ## Short description (80 max, 69 used)
 
 Live earthquake tracker: map, 3D globe and alerts for quakes near you

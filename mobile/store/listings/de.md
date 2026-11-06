@@ -1,5 +1,9 @@
 # Google Play store listing (de-DE)
 
+## App name (30 max, 30 used)
+
+sisma: Erdbebenkarte & Warnung
+
 ## Short description
 
 Erdbeben live: Karte, 3D-Globus und Warnungen für Beben in deiner Nähe

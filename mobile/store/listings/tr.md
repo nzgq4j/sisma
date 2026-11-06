@@ -1,5 +1,9 @@
 # Google Play store listing (tr-TR)
 
+## App name (30 max, 26 used)
+
+sisma: Canlı Deprem Takibi
+
 ## Short description
 
 Canlı deprem takibi: harita, 3B küre ve yakınındaki depremler için uyarılar

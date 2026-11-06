@@ -1,5 +1,9 @@
 # Google Play store listing (it-IT)
 
+## App name (30 max, 29 used)
+
+sisma: Mappa e avvisi sismici
+
 ## Short description
 
 Terremoti in tempo reale: mappa, globo 3D e avvisi per le scosse vicino a te

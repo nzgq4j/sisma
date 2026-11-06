@@ -1,5 +1,9 @@
 # Google Play store listing (pt-BR)
 
+## App name (30 max, 30 used)
+
+sisma: Mapa e alertas sísmicos
+
 ## Short description
 
 Terremotos ao vivo: mapa, globo 3D e alertas de tremores perto de você
