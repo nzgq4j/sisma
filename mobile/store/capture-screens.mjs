@@ -102,7 +102,7 @@ const SCREENS = [
   ['alerts', '/app/me/alerts', async (p, m, d) => {
     // Phone and 7": scroll to the alerts received, leaving room at the top for the notification banner.
     if (d === 'tablet10') return;
-    await p.locator('#history').evaluate(e => { e.scrollIntoView({ block: 'start' }); let n = e.parentElement; while (n && n.scrollHeight <= n.clientHeight) n = n.parentElement; (n ?? document.scrollingElement).scrollBy(0, -330); });
+    await p.locator('#history').evaluate(e => { e.scrollIntoView({ block: 'start' }); let n = e.parentElement; while (n && n.scrollHeight <= n.clientHeight) n = n.parentElement; (n ?? document.scrollingElement).scrollBy(0, -150); });
     await p.waitForTimeout(600);
   }, { account: true }],
 ];
