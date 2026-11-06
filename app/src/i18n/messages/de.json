@@ -170,7 +170,9 @@
     "privacy_english": "Diese Erklärung wird auf Englisch veröffentlicht.",
     "privacy_open_app": "App öffnen",
     "terms": "Nutzungsbedingungen",
-    "terms_english": "Diese Bedingungen sind auf Englisch veröffentlicht."
+    "terms_english": "Diese Bedingungen sind auf Englisch veröffentlicht.",
+    "help": "Hilfe & Support",
+    "help_english": "Diese Anleitung ist auf Englisch. Die App selbst gibt es in deiner Sprache."
   },
   "dash": {
     "overview": "Übersicht",
@@ -332,7 +334,8 @@
     "password_saved": "Dein Passwort ist gespeichert.",
     "done_btn": "Fertig",
     "err_reauth": "Melde dich zur Sicherheit ab und wieder an und ändere dann dein Passwort.",
-    "err_same": "Wähle ein Passwort, das du noch nicht verwendet hast."
+    "err_same": "Wähle ein Passwort, das du noch nicht verwendet hast.",
+    "help": "Hilfe & Support"
   },
   "onboard": {
     "skip": "Überspringen",

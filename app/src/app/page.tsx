@@ -174,6 +174,7 @@ export default function Home() {
           <p className={styles.footerText}>{w.footer}</p>
           <Link href="/privacy" className={styles.footerLink}>{w.privacy}</Link>
           <Link href="/terms" className={styles.footerLink}>{w.terms}</Link>
+          <Link href="/help" className={styles.footerLink}>{w.help}</Link>
         </div>
       </footer>
     </div>

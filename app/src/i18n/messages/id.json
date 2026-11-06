@@ -170,7 +170,9 @@
     "privacy_english": "Kebijakan ini diterbitkan dalam bahasa Inggris.",
     "privacy_open_app": "Buka aplikasi",
     "terms": "Ketentuan layanan",
-    "terms_english": "Ketentuan ini diterbitkan dalam bahasa Inggris."
+    "terms_english": "Ketentuan ini diterbitkan dalam bahasa Inggris.",
+    "help": "Bantuan & dukungan",
+    "help_english": "Panduan ini dalam bahasa Inggris. Aplikasinya tersedia dalam bahasa Anda."
   },
   "dash": {
     "overview": "Ringkasan",
@@ -332,7 +334,8 @@
     "password_saved": "Kata sandi Anda tersimpan.",
     "done_btn": "Selesai",
     "err_reauth": "Demi keamanan, keluar lalu masuk lagi, kemudian ubah kata sandi Anda.",
-    "err_same": "Pilih kata sandi yang belum pernah Anda gunakan."
+    "err_same": "Pilih kata sandi yang belum pernah Anda gunakan.",
+    "help": "Bantuan & dukungan"
   },
   "onboard": {
     "skip": "Lewati",

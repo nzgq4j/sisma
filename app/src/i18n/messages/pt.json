@@ -170,7 +170,9 @@
     "privacy_english": "Esta política é publicada em inglês.",
     "privacy_open_app": "Abrir o app",
     "terms": "Termos de serviço",
-    "terms_english": "Estes termos são publicados em inglês."
+    "terms_english": "Estes termos são publicados em inglês.",
+    "help": "Ajuda e suporte",
+    "help_english": "Este guia está em inglês. O app está disponível no seu idioma."
   },
   "dash": {
     "overview": "Visão geral",
@@ -332,7 +334,8 @@
     "password_saved": "Sua senha foi salva.",
     "done_btn": "Pronto",
     "err_reauth": "Por segurança, saia e entre novamente, depois altere sua senha.",
-    "err_same": "Escolha uma senha que você ainda não usou."
+    "err_same": "Escolha uma senha que você ainda não usou.",
+    "help": "Ajuda e suporte"
   },
   "onboard": {
     "skip": "Pular",

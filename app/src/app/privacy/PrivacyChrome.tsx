@@ -1,5 +1,5 @@
 'use client';
-// Translated header, notice and footer around the (English) legal pages: privacy policy and terms of service.
+// Translated header, notice and footer around the English pages: privacy policy, terms of service and help.
 // Light palette like the website.
 import Link from 'next/link';
 import type { ReactNode } from 'react';
@@ -8,7 +8,7 @@ import { LogoMark } from '@/components/Logo';
 import site from '@/components/site/site.module.css';
 import styles from './privacy.module.css';
 
-export function PrivacyChrome({ updated, children, doc = 'privacy' }: { updated: string; children: ReactNode; doc?: 'privacy' | 'terms' }) {
+export function PrivacyChrome({ updated, children, doc = 'privacy' }: { updated: string; children: ReactNode; doc?: 'privacy' | 'terms' | 'help' }) {
   const { m, locale } = useT();
   const w = m.web;
   const date = new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(new Date(updated + 'T12:00:00Z'));
@@ -19,9 +19,9 @@ export function PrivacyChrome({ updated, children, doc = 'privacy' }: { updated:
         <Link href="/app" className={styles.open}>{w.privacy_open_app}</Link>
       </header>
       <main className={styles.doc}>
-        <h1>{doc === 'terms' ? w.terms : w.privacy}</h1>
+        <h1>{doc === 'terms' ? w.terms : doc === 'help' ? w.help : w.privacy}</h1>
         <p className={styles.meta}>{w.privacy_updated.replace('{date}', date)}</p>
-        {locale !== 'en' && <p className={styles.notice} lang={locale}>{doc === 'terms' ? w.terms_english : w.privacy_english}</p>}
+        {locale !== 'en' && <p className={styles.notice} lang={locale}>{doc === 'terms' ? w.terms_english : doc === 'help' ? w.help_english : w.privacy_english}</p>}
         <div lang="en">{children}</div>
       </main>
       <footer className={site.footer}>
@@ -30,6 +30,7 @@ export function PrivacyChrome({ updated, children, doc = 'privacy' }: { updated:
           <p className={site.footerText}>{w.footer}</p>
           <Link href="/privacy" className={site.footerLink}>{w.privacy}</Link>
           <Link href="/terms" className={site.footerLink}>{w.terms}</Link>
+          <Link href="/help" className={site.footerLink}>{w.help}</Link>
         </div>
       </footer>
     </div>

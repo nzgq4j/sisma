@@ -170,7 +170,9 @@
     "privacy_english": "Cette politique est publiée en anglais.",
     "privacy_open_app": "Ouvrir l’app",
     "terms": "Conditions d’utilisation",
-    "terms_english": "Ces conditions sont publiées en anglais."
+    "terms_english": "Ces conditions sont publiées en anglais.",
+    "help": "Aide et assistance",
+    "help_english": "Ce guide est en anglais. L’app est disponible dans votre langue."
   },
   "dash": {
     "overview": "Vue d'ensemble",
@@ -332,7 +334,8 @@
     "password_saved": "Votre mot de passe est enregistré.",
     "done_btn": "Terminé",
     "err_reauth": "Par sécurité, déconnectez-vous puis reconnectez-vous avant de changer votre mot de passe.",
-    "err_same": "Choisissez un mot de passe que vous n’avez jamais utilisé."
+    "err_same": "Choisissez un mot de passe que vous n’avez jamais utilisé.",
+    "help": "Aide et assistance"
   },
   "onboard": {
     "skip": "Passer",

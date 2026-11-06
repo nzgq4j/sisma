@@ -170,7 +170,9 @@
     "privacy_english": "本政策以英文发布。",
     "privacy_open_app": "打开应用",
     "terms": "服务条款",
-    "terms_english": "本条款以英文发布。"
+    "terms_english": "本条款以英文发布。",
+    "help": "帮助与支持",
+    "help_english": "本指南为英文。应用本身支持你的语言。"
   },
   "dash": {
     "overview": "概览",
@@ -332,7 +334,8 @@
     "password_saved": "密码已保存。",
     "done_btn": "完成",
     "err_reauth": "为了你的安全，请退出后重新登录，再更改密码。",
-    "err_same": "请选择一个以前没用过的密码。"
+    "err_same": "请选择一个以前没用过的密码。",
+    "help": "帮助与支持"
   },
   "onboard": {
     "skip": "跳过",

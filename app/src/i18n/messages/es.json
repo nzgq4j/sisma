@@ -170,7 +170,9 @@
     "privacy_english": "Esta política se publica en inglés.",
     "privacy_open_app": "Abrir la app",
     "terms": "Condiciones del servicio",
-    "terms_english": "Estas condiciones se publican en inglés."
+    "terms_english": "Estas condiciones se publican en inglés.",
+    "help": "Ayuda y soporte",
+    "help_english": "Esta guía está en inglés. La app está disponible en tu idioma."
   },
   "dash": {
     "overview": "Resumen",
@@ -332,7 +334,8 @@
     "password_saved": "Tu contraseña se guardó.",
     "done_btn": "Listo",
     "err_reauth": "Por seguridad, cierra sesión, vuelve a entrar y cambia tu contraseña.",
-    "err_same": "Elige una contraseña que no hayas usado antes."
+    "err_same": "Elige una contraseña que no hayas usado antes.",
+    "help": "Ayuda y soporte"
   },
   "onboard": {
     "skip": "Omitir",

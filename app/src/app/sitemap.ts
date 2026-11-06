@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/app/globe', 0.8, 'always'),
     page('/app/science', 0.7, 'monthly'),
     ...(science as { id: string }[]).map(a => page(`/app/science/${a.id}`, 0.6, 'monthly')),
+    page('/help', 0.5, 'monthly'),
     page('/privacy', 0.2, 'yearly'),
     page('/terms', 0.2, 'yearly'),
   ];

@@ -58,6 +58,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     screenshots, release notes)
     SEO (done): lib/seo.ts — title, description, canonical and a social card per topic (home, feed, map, globe, science and
     each article) in app/public/og/, rebuilt with app/scripts/og-cards.mjs; robots.ts, sitemap.ts; account pages noindex
+    Help centre (done): /help (app/help/page.tsx, English; screenshots in app/public/help/), linked from Me → Account and the
+    site footer. Keep it in step with the app wording when features change
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
 12. Onboarding (v1 done: components/onboarding/): welcome, language, location primer, disclaimer. Alerts step waits for 8 + 9.
     Spec and status: docs/onboarding.md
