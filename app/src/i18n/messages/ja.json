@@ -172,7 +172,10 @@
     "terms": "利用規約",
     "terms_english": "この規約は英語で公開されています。",
     "help": "ヘルプとサポート",
-    "help_english": "このガイドは英語です。アプリ自体は日本語で利用できます。"
+    "help_english": "このガイドは英語です。アプリ自体は日本語で利用できます。",
+    "help_topics": "ヘルプのトピック",
+    "help_prev": "前へ",
+    "help_next": "次へ"
   },
   "dash": {
     "overview": "概要",
