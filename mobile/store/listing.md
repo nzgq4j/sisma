@@ -6,49 +6,59 @@ Paste into Play Console → Grow users → Store presence → Main store listing
 
 Sisma - Earthquake Monitoring
 
-## Short description (80 max, 75 used)
+## Short description (80 max, 69 used)
 
-Live earthquakes worldwide on a feed, map and 3D globe, with custom alerts.
+Live earthquake tracker: map, 3D globe and alerts for quakes near you
 
-## Full description (4000 max)
+## Full description (4000 max, 2777 used)
 
-sisma shows earthquakes around the world as they are reported, merged from four seismic agencies: USGS, EMSC, GeoNet (New Zealand) and JMA (Japan). The same event reported by several agencies appears once.
+Felt a tremor? Open sisma to see what just happened, where, and how strong.
 
-FEED
-• Sort by latest, nearest or strongest
-• Magnitude, depth, distance from you and time for every event
-• Tap an event for the full details, its location on the map and a share card
+sisma is a live earthquake tracker for the whole world. It brings together reports from four seismic agencies, USGS, EMSC, GeoNet and JMA, so each earthquake appears once, with its magnitude, depth, time and distance from you. Follow seismic activity from Japan, Indonesia and the Philippines to Turkey, Italy, Greece, California, Mexico, Chile and New Zealand.
 
-MAP AND GLOBE
-• World map centred on where you are, with plate boundaries
-• Zoom from the whole world down to street level
-• 3D globe you can spin, with a depth view that shows how deep each earthquake was
-• Filter by time range, magnitude, country or world region
+WHAT JUST SHOOK?
+• A live feed of earthquakes, sorted by latest, nearest or strongest
+• Magnitude, depth, time and distance for every event, with its country and whether it has been reviewed
+• Region view zooms in on any quake and shows the others nearby, so you can follow aftershocks
+• On tablets, an overview with daily activity, quakes by magnitude and the most active regions
 
-I FELT IT
-• Report what you felt in the first hours after an earthquake
-• See where other people felt it, shown only as anonymous counts by area
+LIVE EARTHQUAKE MAP AND 3D GLOBE
+• A world map centred on you, with tectonic plate boundaries
+• Zoom from the whole planet down to street level
+• Spin a 3D globe, then switch to depth view to see how deep each quake struck
+• Filter by time range and place
 
-SCIENCE
-• Seven illustrated articles: plate tectonics, fault types, seismic waves, magnitude and intensity, depth, tsunamis, and how to prepare
+DID YOU FEEL IT?
+• Report the shaking you felt in the first hours after an earthquake
+• See where others felt it on a felt map, shown only as anonymous counts by area
 
-SISMA+ (optional subscription)
-• Push alerts with your own minimum magnitude, places and radius, countries or regions, and quiet hours (up to 5 alert rules)
-• Up to 10 saved locations
-• Full history beyond 30 days
-• Advanced filters: depth, magnitude, felt and tsunami
+SHARE WHAT HAPPENED
+• Share any earthquake as a picture with a map of the area, plus ready-written post text and image description that you can edit
+
+UNDERSTAND EARTHQUAKES
+• Seven illustrated guides: plate tectonics, fault types, seismic waves, magnitude and intensity (and how they relate to the Richter scale), depth, tsunamis, and how to prepare
+
+SISMA+ (OPTIONAL SUBSCRIPTION)
+• Earthquake alerts on your phone: a push notification when a quake matches your rules
+• Set a minimum magnitude, a distance from your places, or countries and world regions; up to 5 alert rules
+• Quiet hours, with the option to still hear about major quakes
+• Up to 10 saved locations (1 on the free plan)
+• Up to a year of earthquake history (the free plan shows the last 30 days)
+• Magnitude and world-region filters
 • 7-day free trial for new subscribers, then monthly or yearly. Cancel any time in Google Play.
 
 Everything else is free, with no ads.
 
-Available in English, Spanish, Japanese, Indonesian, Turkish, Italian, Portuguese, Chinese, French and German. Light and dark themes.
+Available in English, Spanish, Japanese, Indonesian, Turkish, Italian, Portuguese, Chinese, French and German, in light and dark themes.
+
+Data: USGS (U.S. Geological Survey), EMSC (European-Mediterranean Seismological Centre), GeoNet (New Zealand) and JMA (Japan Meteorological Agency).
 
 IMPORTANT
 sisma is not an official warning service and does not provide earthquake early warnings. Always follow the instructions of your local authorities.
 
+Help and guides: https://sisma.io/help
 Privacy policy: https://sisma.io/privacy
 Terms of service: https://sisma.io/terms
-Help and how-to guides: https://sisma.io/help
 Support: support@sisma.io
 
 ## Contact details
