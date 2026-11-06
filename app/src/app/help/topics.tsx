@@ -118,7 +118,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <Callout kind="note"><p>A <strong>Tsunami alert issued</strong> banner appears when the agency flags possible tsunami activity. Follow official tsunami warnings in your area.</p></Callout>
         </div>
-        <Shot src="detail" alt="Earthquake details: magnitude, depth, date, time, distance, country, coordinates, review status, source, Show region and Share" caption="Details of an M6.2 earthquake" />
+        <Shot src="detail" alt="Earthquake details: magnitude, depth, date, time, distance, country, coordinates, review status, source, Show region and Share" caption="An earthquake’s details" />
       </div>
       </>
     ),
@@ -138,13 +138,13 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="World map with earthquake pins coloured by magnitude" caption="The map" />
       </div>
-      <h3>Region view</h3>
+      <h3 id="region-view">Region view</h3>
       <div className={s.pair}>
         <div>
           <p><Ui>Show region</Ui> on an earthquake opens a close-up about 800 km across around it, with a pulsing marker on the event and labels on nearby earthquakes. Tap <Ui>Back to world map</Ui> to return.</p>
           <p>The region view is also what opens when someone follows a link you shared.</p>
         </div>
-        <Shot src="region" alt="Region view around an earthquake in Vanuatu, with a summary card" caption="Region view" />
+        <Shot src="region" alt="Region view: a close-up around an earthquake with a pulsing marker and a summary card" caption="Region view" />
       </div>
       <h3>Filters, layers and legend</h3>
       <div className={s.pair}>

@@ -12,10 +12,10 @@ export const metadata: Metadata = cardMetadata(CARDS.help);
 
 const POPULAR: [string, string, string][] = [
   ['/help/account#password-reset', 'lock_reset', 'Reset a forgotten password'],
-  ['/help/plus#cancel', 'event_busy', 'Cancel sisma+'],
+  ['/help/felt', 'vibration', 'Report that you felt an earthquake'],
   ['/help/troubleshooting', 'notifications_off', 'Not getting alerts'],
   ['/help/troubleshooting', 'credit_card', 'Paid but still on the free plan'],
-  ['/help/account#delete-account', 'person_remove', 'Delete your account'],
+  ['/help/map#region-view', 'zoom_in_map', 'See the area around an earthquake'],
   ['/help/share', 'ios_share', 'Share an earthquake with text'],
 ];
 

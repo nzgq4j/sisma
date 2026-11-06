@@ -1,6 +1,6 @@
 'use client';
-// Frame of the help centre: a sticky header with Back (to the page you came from, or Me), the help home and Open the
-// app; the topic list beside the article on wide screens; previous / next topic links; a translated notice that the
+// Frame of the help centre: a sticky header with Back (to the page you came from, or Me), the help home and Back to
+// sisma; the topic list beside the article on wide screens; previous / next topic links; a translated notice that the
 // guide is in English. Follows the app's light / dark setting (globals.css tokens), unlike the light-only website.
 import Link from 'next/link';
 import { useEffect, type ReactNode } from 'react';
@@ -39,7 +39,7 @@ export function HelpChrome({ nav, current, title, children }: { nav: NavTopic[];
         <div className={s.headerInner}>
           <a href={up} onClick={back} className={s.back}><span className="ms" aria-hidden="true">arrow_back</span>{m.sub.back}</a>
           <Link href="/help" className={s.brand} aria-label={w.help}><LogoMark size={28} /><span>{w.help}</span></Link>
-          <Link href="/app" className={s.openApp}>{w.privacy_open_app}</Link>
+          <Link href="/app" className={s.openApp}>{w.help_back_to_app}</Link>
         </div>
       </header>
 
