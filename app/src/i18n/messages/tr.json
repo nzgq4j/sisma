@@ -422,7 +422,9 @@
     "copy_text": "Metni kopyala",
     "copy_alt": "Alternatif metni kopyala",
     "copied": "Kopyalandı",
-    "hint": "Paylaşırken metin de kopyalanır; uygulama metni eklemezse yapıştırabilirsin. Görsel açıklamasını uygulamanın alternatif metin alanına yapıştır."
+    "hint": "Paylaşırken metin de kopyalanır; uygulama metni eklemezse yapıştırabilirsin. Görsel açıklamasını uygulamanın alternatif metin alanına yapıştır.",
+    "share_link": "Bağlantıyı paylaş",
+    "share_failed": "Paylaşım menüsü açılamadı. Metni kopyalayıp görseli kaydedebilirsin."
   },
   "felt_by_1": "1 kişi hissettiğini bildirdi",
   "notif": {

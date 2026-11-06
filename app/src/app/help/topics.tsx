@@ -213,9 +213,9 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Tap <Ui>Share</Ui> on an earthquake to make a share card: a picture with the map and the main details.</p>
           <ul>
-            <li><strong>Post text</strong> is filled in for you (magnitude, place, time, depth, a link and a hashtag), and you can edit it.</li>
+            <li><strong>Post text</strong> is filled in for you (magnitude, place, time, depth and a hashtag, with the link last), and you can edit it.</li>
             <li><strong>Image description (alt text)</strong> describes the picture for people using screen readers. It is filled in for you, and you can edit it.</li>
-            <li><Ui>Share image</Ui> opens your phone’s share sheet (in the Android app and in browsers that support it). <Ui>Save image</Ui> downloads it, and <Ui>Copy text</Ui> and <Ui>Copy alt text</Ui> copy either field.</li>
+            <li><Ui>Share image</Ui> opens your phone’s share sheet (in the Android app and in browsers that support it). Where a browser can’t share pictures, or the picture couldn’t be made, <Ui>Share link</Ui> shares the post text with its link instead. <Ui>Save image</Ui> downloads the picture, and <Ui>Copy text</Ui> and <Ui>Copy alt text</Ui> copy either field.</li>
           </ul>
           <Callout><p>X, Facebook and Bluesky often drop the text that comes with a shared picture, and none of them take alt text this way. <strong>Share image also copies the text</strong>, so you can paste it into the post. Use <Ui>Copy alt text</Ui> and paste it into the app’s image description field.</p></Callout>
         </div>

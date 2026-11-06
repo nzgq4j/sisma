@@ -1,7 +1,7 @@
 'use client';
 // Share sheet for an event (Android app: native share via lib/native-share.ts): previews the portrait share card (GET /api/share-card, 1080×1350 PNG), with an editable post
 // text (description, link, hashtag) and image description (alt text), and offers Share image (Web Share API with files,
-// where supported), Save image, Copy text and Copy alt text. Many apps (X, Facebook, Bluesky) drop shared text when an
+// where supported; otherwise Share link with the post), Save image, Copy text and Copy alt text. Many apps (X, Facebook, Bluesky) drop shared text when an
 // image comes with it, and none accept alt text this way, so sharing also copies the text for pasting.
 /* eslint-disable @next/next/no-img-element -- generated PNG preview */
 import { useEffect, useState } from 'react';
@@ -9,7 +9,8 @@ import { Sheet } from './Sheet';
 import { useT } from '@/i18n/I18nProvider';
 import { useUnits } from './Units';
 import type { Quake } from '@/lib/quakes/types';
-import { canShareNatively, shareFileNatively } from '@/lib/native-share';
+import { canShareNatively, shareFileNatively, shareTextNatively } from '@/lib/native-share';
+import { postWithLink } from '@/lib/share-text';
 import styles from './dash/dash.module.css';
 
 export const shareCardUrl = (id: string, locale: string, units: string, tz: string) =>
@@ -34,7 +35,9 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
   const [copied, setCopied] = useState<null | 'text' | 'alt'>(null);
   // Editable drafts, started again from the defaults for each event, language and unit setting.
   const [draft, setDraft] = useState<{ key: string; text: string; alt: string } | null>(null);
-  const post = draft?.key === key ? draft : { key, text: `${text}\n${typeof location === 'undefined' ? '' : location.origin + path}\n${m.sharecard.tag}`, alt };
+  // Description, hashtag, then the link last (lib/share-text.ts).
+  const post = draft?.key === key ? draft : { key, text: postWithLink(text, typeof location === 'undefined' ? '' : location.origin + path, m.sharecard.tag), alt };
+  const [note, setNote] = useState<string | null>(null);
   const edit = (patch: Partial<{ text: string; alt: string }>) => setDraft({ ...post, ...patch });
 
   useEffect(() => {
@@ -56,6 +59,10 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
   // Android app: native share sheet (lib/native-share.ts); browsers: Web Share API with files, where supported.
   const native = canShareNatively();
   const canShareFile = state.s === 'ready' && (native || (typeof navigator !== 'undefined' && !!navigator.canShare?.({ files: [state.file] })));
+  // Where files can't be shared (or the image failed), share the post with its link instead.
+  const canShareLink = !canShareFile && state.s !== 'loading' && (native || (typeof navigator !== 'undefined' && !!navigator.share));
+  // Closing the share menu is not an error; anything else shows a short note.
+  const failed = (e: unknown) => { if ((e as Error)?.name !== 'AbortError') setNote(m.sharecard.share_failed); };
 
   const copy = async (what: 'text' | 'alt') => {
     try {
@@ -70,8 +77,15 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
     if (state.s !== 'ready') return;
     // Copy first: the receiving app may ignore the text that comes with the image.
     navigator.clipboard?.writeText(post.text).then(() => setCopied('text'), () => {});
-    if (native) { await shareFileNatively(state.file, post.text, m.sharecard.title); return; }
-    try { await navigator.share({ files: [state.file], title: 'sisma', text: post.text }); } catch { /* cancelled */ }
+    // Nothing is awaited before navigator.share: Safari opens the share menu only straight from the tap.
+    setNote(null);
+    if (native) { if (await shareFileNatively(state.file, post.text, m.sharecard.title) === 'failed') setNote(m.sharecard.share_failed); return; }
+    try { await navigator.share({ files: [state.file], title: 'sisma', text: post.text }); } catch (e) { failed(e); }
+  };
+  const shareLink = async () => {
+    setNote(null);
+    if (native) { if (await shareTextNatively(post.text, m.sharecard.title) === 'failed') setNote(m.sharecard.share_failed); return; }
+    try { await navigator.share({ title: 'sisma', text: post.text }); } catch (e) { failed(e); }
   };
   const saveImage = () => {
     if (state.s !== 'ready') return;
@@ -100,6 +114,11 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
             <span className="ms" aria-hidden="true">ios_share</span>{m.sharecard.share_image}
           </button>
         )}
+        {canShareLink && (
+          <button type="button" className={styles.sharePrimary} onClick={shareLink}>
+            <span className="ms" aria-hidden="true">share</span>{m.sharecard.share_link}
+          </button>
+        )}
         <button type="button" className={styles.regionBtn} onClick={saveImage} disabled={state.s !== 'ready'}>
           <span className="ms" aria-hidden="true">download</span>{m.sharecard.save_image}
         </button>
@@ -110,6 +129,7 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
           <span className="ms" aria-hidden="true">{copied === 'alt' ? 'check' : 'content_copy'}</span>{copied === 'alt' ? m.sharecard.copied : m.sharecard.copy_alt}
         </button>
       </div>
+      {note && <p className={styles.shareHint} role="alert">{note}</p>}
       <p className={styles.shareHint}>{m.sharecard.hint}</p>
     </Sheet>
   );

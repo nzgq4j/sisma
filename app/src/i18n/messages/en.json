@@ -422,7 +422,9 @@
     "copy_text": "Copy text",
     "copy_alt": "Copy alt text",
     "copied": "Copied",
-    "hint": "Sharing copies the text too, so you can paste it if the app leaves it out. Paste the image description into the app's alt text field."
+    "hint": "Sharing copies the text too, so you can paste it if the app leaves it out. Paste the image description into the app's alt text field.",
+    "share_link": "Share link",
+    "share_failed": "Couldn't open the share menu. You can copy the text and save the image instead."
   },
   "felt_by_1": "1 person reported feeling this",
   "notif": {
