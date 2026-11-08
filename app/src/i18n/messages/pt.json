@@ -661,6 +661,7 @@
     "err_not_configured": "O Bluesky não está conectado.",
     "err_failed": "Não foi possível conectar. Tente de novo.",
     "err_bad_service": "O servidor precisa ser um endereço https://.",
-    "err_missing": "Digite o usuário e a senha de app."
+    "err_missing": "Digite o usuário e a senha de app.",
+    "preview_failed": "Não foi possível carregar este evento. Feche e tente novamente em um minuto."
   }
 }

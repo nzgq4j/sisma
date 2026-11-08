@@ -21,6 +21,7 @@ export interface Quake {
   url?: string;
   status?: ReviewStatus; // agency review state, when the source publishes one
   alsoIn?: SourceId[];   // other sources reporting the same event
+  otherIds?: string[];   // their ids: the event's id changes when a preferred source reports it later (e.g. EMSC first, then USGS)
 }
 
 export type SortKey = 'time' | 'distance' | 'mag';

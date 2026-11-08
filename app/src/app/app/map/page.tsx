@@ -18,6 +18,7 @@ import { MagBadge } from '@/components/MagBadge';
 import { timeAgo } from '@/components/QuakeRow';
 import { useDistance } from '@/components/Units';
 import type { Quake } from '@/lib/quakes/types';
+import { hasId } from '@/lib/quakes/merge';
 import { FitLine } from '@/components/FitLine';
 import { Legend, Selection } from '@/components/stage/StageParts';
 import { FilterPanel, LayerToggle } from '@/components/stage/FilterPanel';
@@ -42,7 +43,7 @@ function MapView() {
   const [plates, setPlates] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
-  const focusQuake = focusId ? all.find(q => q.id === focusId) ?? null : null;
+  const focusQuake = focusId ? all.find(q => hasId(q, focusId)) ?? null : null;
   // A chosen world region frames the map on it (the event in focus of "Show region" comes first).
   const regionView = worldReg ? REGION_VIEW[worldReg] : null;
   // In the region view the card below always shows the event in focus; other events open a callout instead.

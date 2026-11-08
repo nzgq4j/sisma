@@ -661,6 +661,7 @@
     "err_not_configured": "Bluesky bağlı değil.",
     "err_failed": "Bağlanılamadı. Tekrar deneyin.",
     "err_bad_service": "Sunucu https:// ile başlayan bir adres olmalı.",
-    "err_missing": "Kullanıcı adını ve uygulama şifresini girin."
+    "err_missing": "Kullanıcı adını ve uygulama şifresini girin.",
+    "preview_failed": "Bu deprem yüklenemedi. Bunu kapatıp bir dakika sonra tekrar dene."
   }
 }

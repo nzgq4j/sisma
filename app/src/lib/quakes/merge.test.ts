@@ -15,3 +15,18 @@ describe('mergeQuakes', () => {
     expect(mergeQuakes([[q({ id: 'a' }), q({ id: 'b', time: 600_000 })]])).toHaveLength(2);
   });
 });
+
+describe('merged ids', () => {
+  const base = { mag: 4.6, magType: 'mb', title: 'x', region: 'Indonesia', lat: 2.55, lon: 128.67, depthKm: 200, tsunami: false, url: '' };
+  it('keeps the id of the report that lost, so an earlier id still finds the event', async () => {
+    const { hasId } = await import('./find');
+    const emsc = { ...base, id: 'emsc:20261108_0001', source: 'emsc' as const, time: 1_000_000 };
+    const usgs = { ...base, id: 'usgs:us7000twyd', source: 'usgs' as const, time: 1_030_000 };
+    const [m] = mergeQuakes([[emsc], [usgs]]);
+    expect(m.id).toBe('usgs:us7000twyd');
+    expect(m.otherIds).toEqual(['emsc:20261108_0001']);
+    expect(hasId(m, 'emsc:20261108_0001')).toBe(true);
+    expect(hasId(m, 'usgs:us7000twyd')).toBe(true);
+    expect(hasId(m, 'emsc:other')).toBe(false);
+  });
+});

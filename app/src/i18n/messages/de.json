@@ -661,6 +661,7 @@
     "err_not_configured": "Bluesky ist nicht verbunden.",
     "err_failed": "Verbindung fehlgeschlagen. Versuche es erneut.",
     "err_bad_service": "Der Server muss eine https://-Adresse sein.",
-    "err_missing": "Gib Handle und App-Passwort ein."
+    "err_missing": "Gib Handle und App-Passwort ein.",
+    "preview_failed": "Dieses Ereignis konnte nicht geladen werden. Schließe das hier und versuche es in einer Minute erneut."
   }
 }
