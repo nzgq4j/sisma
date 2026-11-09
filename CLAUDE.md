@@ -81,3 +81,6 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     sign in to Bluesky on the page (session in Supabase Vault, password never stored; env is the fallback), on/off,
     minimum magnitude, preview, Post now, log). The card is drawn in-process (lib/share-card.tsx); a new event waits up to
     15 min for its card, then posts as text. docs/bluesky-setup.md
+    X (formerly Twitter) posts in the same manner and timing (lib/x.ts, autoPostX in the same job; Bluesky / X switch on
+    the page): "Sign in with X" (OAuth 2.0 + PKCE, X_CLIENT_ID / X_CLIENT_SECRET in Vercel; tokens in Supabase Vault,
+    password never seen), own settings and log (x_settings, x_posts). docs/x-setup.md

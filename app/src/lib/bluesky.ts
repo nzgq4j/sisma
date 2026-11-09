@@ -40,30 +40,41 @@ export interface PostDraft { text: string; facets: Facet[]; alt: string; url: st
 const time = (ms: number) => new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(ms);
 const depth = (km: number) => `${Math.round(km)} km (${Math.round(km / KM_PER_MI)} mi) deep`;
 
-/** Text (≤ 300 graphemes), link and hashtag facets, and alt text for one event. English: the account's language. */
-export function draftPost(q: Quake): PostDraft {
+/** The hashtags for an event: #earthquake, and the country when it is in or near one. Shared with lib/x.ts. */
+export function postTags(q: Quake): string[] {
   const country = countryName(countryAt(q.lat, q.lon)?.code ?? null);
-  const url = eventUrl(q);
-  const mag = `M${q.mag.toFixed(1)}`;
-  const tags = ['earthquake', ...(country ? [tagOf(country)] : [])].filter(t => t && graphemes(t) <= 64);
-  const build = (place: string) => {
-    const lines = [
-      `${mag} earthquake · ${place}`,
-      `${time(q.time)} UTC · ${depth(q.depthKm)}`,
-      ...(q.tsunami ? ['Tsunami information issued: follow official warnings.'] : []),
-      `Map and details: ${url}`,
-      tags.map(t => `#${t}`).join(' '),
-      'Automated post · not an official warning service',
-    ];
-    return lines.join('\n');
-  };
-  // Shorten the place name until the post fits (the URL and the rest are fixed).
+  return ['earthquake', ...(country ? [tagOf(country)] : [])].filter(t => t && graphemes(t) <= 64);
+}
+
+/** The post's lines for an event, with `place` as given (callers shorten it to fit). Shared with lib/x.ts. */
+export function postText(q: Quake, place: string, url: string, tags: string[]): string {
+  return [
+    `M${q.mag.toFixed(1)} earthquake · ${place}`,
+    `${time(q.time)} UTC · ${depth(q.depthKm)}`,
+    ...(q.tsunami ? ['Tsunami information issued: follow official warnings.'] : []),
+    `Map and details: ${url}`,
+    tags.map(t => `#${t}`).join(' '),
+    'Automated post · not an official warning service',
+  ].join('\n');
+}
+
+/** The event's place name, shortened step by step until `fits` accepts the text. */
+export function fitPlace(q: Quake, fits: (text: string) => boolean, build: (place: string) => string): { place: string; text: string } {
   let place = (q.region || q.title || 'Unknown location').trim();
   let text = build(place);
-  while ((graphemes(text) > BLUESKY_MAX_GRAPHEMES || bytes(text) > 3000) && place.length > 8) {
+  while (!fits(text) && place.length > 8) {
     place = place.slice(0, Math.max(8, place.length - 10)).trimEnd() + '…';
     text = build(place);
   }
+  return { place, text };
+}
+
+/** Text (≤ 300 graphemes), link and hashtag facets, and alt text for one event. English: the account's language. */
+export function draftPost(q: Quake): PostDraft {
+  const url = eventUrl(q);
+  const tags = postTags(q);
+  // Shorten the place name until the post fits (the URL and the rest are fixed).
+  const { place, text } = fitPlace(q, t => graphemes(t) <= BLUESKY_MAX_GRAPHEMES && bytes(t) <= 3000, p => postText(q, p, url, tags));
   const facets: Facet[] = [];
   const at = (needle: string, from = 0) => {
     const i = text.indexOf(needle, from);
@@ -78,14 +89,19 @@ export function draftPost(q: Quake): PostDraft {
     facets.push({ index: { byteStart: hit.byteStart, byteEnd: hit.byteEnd }, features: [{ $type: 'app.bsky.richtext.facet#tag', tag: t }] });
     from = hit.end;
   }
-  // Describes the share card as drawn (app/api/share-card): map with the event as a ringed dot, other events of the last
-  // 7 days as coloured dots, plate boundaries as dashed lines, then the details and the disclaimer.
+  return { text, facets, alt: altText(q, place), url, place };
+}
+
+/**
+ * Describes the share card as drawn (app/api/share-card): map with the event as a ringed dot, other events of the last
+ * 7 days as coloured dots, plate boundaries as dashed lines, then the details and the disclaimer. Shared with lib/x.ts.
+ */
+export function altText(q: Quake, place: string): string {
   const source = [q.source, ...(q.alsoIn ?? [])].map(x => x.toUpperCase()).join(', ');
-  const alt = `sisma.io earthquake card. Map of the area around a magnitude ${q.mag.toFixed(1)} earthquake, ${place}: `
+  return `sisma.io earthquake card. Map of the area around a magnitude ${q.mag.toFixed(1)} earthquake, ${place}: `
     + `the epicentre is a ringed dot in the magnitude colour, other earthquakes from the last 7 days are coloured dots, and dashed lines, where present, `
     + `mark tectonic plate boundaries. ${time(q.time)} UTC, depth ${Math.round(q.depthKm)} km, coordinates ${formatDms(q.lat, q.lon)}, `
     + `source ${source}. Not an official warning service.`;
-  return { text, facets, alt, url, place };
 }
 
 // --- AT Protocol client ---

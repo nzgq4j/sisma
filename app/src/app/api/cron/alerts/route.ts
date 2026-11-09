@@ -6,6 +6,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { adminClient } from '@/lib/auth';
 import { recentQuakes } from '@/lib/quakes/find';
 import { autoPost } from '@/lib/bluesky';
+import { autoPostX } from '@/lib/x';
 import { matchRules, type AlertRecipient, type AlertRule, type Delivered, type RuleRecipient } from '@/lib/alerts/match';
 import { alertMessage } from '@/lib/alerts/message';
 import { sendPush } from '@/lib/alerts/send';
@@ -31,12 +32,13 @@ export async function POST(req: NextRequest) {
 
   const now = Date.now();
   const quakes = await recentQuakes(1);
-  // Automatic Bluesky posts (Me → Admin): run alongside the alerts below so they never delay or stop them.
+  // Automatic Bluesky and X posts (Me → Admin): run alongside the alerts below so they never delay or stop them.
   const blueskyRun = autoPost(db, quakes, now);
+  const xRun = autoPostX(db, quakes, now);
 
   const recipients = await loadRecipients(db);
-  if (!recipients) return NextResponse.json({ error: 'recipients', bluesky: await blueskyRun }, { status: 500 });
-  if (!recipients.length) return NextResponse.json({ recipients: 0, sent: 0, bluesky: await blueskyRun });
+  if (!recipients) return NextResponse.json({ error: 'recipients', bluesky: await blueskyRun, x: await xRun }, { status: 500 });
+  if (!recipients.length) return NextResponse.json({ recipients: 0, sent: 0, bluesky: await blueskyRun, x: await xRun });
 
   const [past] = await Promise.all([
     db.from('alert_deliveries').select('user_id, quake_id, quake_time, lat, lon')
@@ -66,7 +68,7 @@ export async function POST(req: NextRequest) {
     }));
   }
   if (gone.size) await db.from('push_tokens').delete().in('id', [...gone]);
-  return NextResponse.json({ recipients: recipients.length, alerts: alerts.length, sent, removed: gone.size, bluesky: await blueskyRun });
+  return NextResponse.json({ recipients: recipients.length, alerts: alerts.length, sent, removed: gone.size, bluesky: await blueskyRun, x: await xRun });
 }
 
 /** Users with alerts on and their rules (public.alert_rule_recipients). Until that migration is applied, falls back to
