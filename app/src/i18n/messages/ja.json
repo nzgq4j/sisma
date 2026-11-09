@@ -454,7 +454,7 @@
     "test_sent": "テスト通知を送信しました",
     "test_failed": "テスト通知を送信できませんでした。",
     "title_area": "M{mag}の地震 · {area}",
-    "areas_label": "次の地域も通知",
+    "areas_label": "その他の場所",
     "areas_hint": "これらの国や地域のどこで起きても、最小マグニチュード以上の地震を通知します。",
     "add_area": "国や地域を追加",
     "area_search": "国を検索",

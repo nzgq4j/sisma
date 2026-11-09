@@ -43,6 +43,7 @@ export function Sheet({ open, ...rest }: SheetProps) {
 }
 
 function SheetPanel({ onClose, children, title, label, className }: Omit<SheetProps, 'open'>) {
+  const wrap = useRef<HTMLDivElement>(null);
   const panel = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
   const [closing, setClosing] = useState(false);
@@ -61,6 +62,25 @@ function SheetPanel({ onClose, children, title, label, className }: Omit<SheetPr
     return () => prev?.focus?.();
   }, []);
   useEffect(() => { lockPage(); return unlockPage; }, []);
+
+  // Keep the sheet in the part of the screen the keyboard leaves visible. On iPhone and iPad the on-screen keyboard
+  // covers fixed content without resizing the page, so a search field and its results would end up behind it.
+  useEffect(() => {
+    const vv = window.visualViewport, el = wrap.current;
+    if (!vv || !el) return;
+    let frame = 0;
+    const fit = () => {
+      frame = 0;
+      // Zoomed in: the visible area is smaller on purpose; leave the sheet on the whole screen.
+      const covered = vv.scale <= 1.01 && window.innerHeight - vv.height > 1;
+      Object.assign(el.style, covered ? { top: `${vv.offsetTop}px`, bottom: 'auto', height: `${vv.height}px` } : { top: '', bottom: '', height: '' });
+    };
+    const queue = () => { if (!frame) frame = requestAnimationFrame(fit); };
+    vv.addEventListener('resize', queue);
+    vv.addEventListener('scroll', queue);
+    queue();
+    return () => { vv.removeEventListener('resize', queue); vv.removeEventListener('scroll', queue); if (frame) cancelAnimationFrame(frame); };
+  }, []);
 
   // Slide down, then close (a swipe or a double tap).
   const dismiss = () => { setClosing(true); setTimeout(() => closeRef.current(), 180); };
@@ -116,7 +136,7 @@ function SheetPanel({ onClose, children, title, label, className }: Omit<SheetPr
 
   const dragging = offset > 0 && !closing;
   return createPortal(
-    <div className={`${styles.wrap} ${className ?? ''}`}>
+    <div ref={wrap} className={`${styles.wrap} ${className ?? ''}`}>
       {/* Closes when the finger lifts as well as on click, so a tap outside always closes it. */}
       <button type="button" className={styles.backdrop} aria-label={title ?? label} tabIndex={-1} onClick={onClose}
         onPointerUp={e => { if (e.pointerType !== 'mouse') onClose(); }}

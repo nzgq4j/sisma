@@ -396,7 +396,7 @@ export const TOPICS: Topic[] = [
         <li><strong>Name</strong>: for example <em>Near home</em>.</li>
         <li><strong>Minimum magnitude</strong>: you get alerts for this magnitude and anything stronger.</li>
         <li><strong>Watching</strong>: your saved places within a distance you choose (100, 250, 500 or 1,000 km), or anywhere in the world.</li>
-        <li><strong>Also alert for</strong>: up to 20 countries or regions, anywhere inside them.</li>
+        <li><strong>Other locations</strong>: up to 20 countries or regions, anywhere inside them.</li>
         <li><strong>Quiet hours</strong>: no alerts overnight, with the option to still let strong earthquakes (magnitude 6 or more) through.</li>
         <li>A chart shows how many earthquakes in the last 30 days would have triggered the alert, so you can tune it.</li>
       </ul>

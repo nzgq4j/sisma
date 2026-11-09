@@ -454,7 +454,7 @@
     "test_sent": "Test alert sent",
     "test_failed": "Couldn’t send a test alert.",
     "title_area": "M{mag} earthquake · {area}",
-    "areas_label": "Also alert for",
+    "areas_label": "Other locations",
     "areas_hint": "Quakes anywhere in these countries or regions, at or above your minimum magnitude.",
     "add_area": "Add a country or region",
     "area_search": "Search countries",

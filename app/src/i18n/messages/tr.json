@@ -454,7 +454,7 @@
     "test_sent": "Test uyarısı gönderildi",
     "test_failed": "Test uyarısı gönderilemedi.",
     "title_area": "M{mag} deprem · {area}",
-    "areas_label": "Şunlar için de uyar",
+    "areas_label": "Diğer konumlar",
     "areas_hint": "Bu ülke veya bölgelerin herhangi bir yerinde, en düşük büyüklüğünüz ve üzerindeki depremler.",
     "add_area": "Ülke veya bölge ekle",
     "area_search": "Ülke ara",

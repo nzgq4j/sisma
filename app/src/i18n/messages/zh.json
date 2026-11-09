@@ -454,7 +454,7 @@
     "test_sent": "测试提醒已发送",
     "test_failed": "无法发送测试提醒。",
     "title_area": "M{mag} 地震 · {area}",
-    "areas_label": "同时提醒",
+    "areas_label": "其他地点",
     "areas_hint": "这些国家或地区内任何地方达到或超过你的最小震级的地震。",
     "add_area": "添加国家或地区",
     "area_search": "搜索国家",
