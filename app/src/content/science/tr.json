@@ -1,0 +1,164 @@
+{
+  "plates": {
+    "intro": "Dünya’nın dış kabuğu, her biri ~100 km kalınlığa varan, katı litosferden oluşan yaklaşık 15 büyük levhaya bölünmüştür. Bu levhalar, daha sıcak ve daha zayıf olan astenosferin üzerinde yılda 2–10 cm hızla kayar; bu, aşağı yukarı tırnakların uzama hızıdır. Depremlerin neredeyse tamamı levhaların buluştuğu yerlerde olur.",
+    "sections": [
+      {
+        "h": "Üç tür levha sınırı",
+        "p": "Yakınsak sınırlarda levhalar çarpışır: yoğun okyanus levhası bir dalma-batma zonunda diğerinin altına dalar ve gezegenin en büyük depremleri ile volkan zincirleri burada oluşur. Orta Atlantik Sırtı gibi ıraksak sınırlarda levhalar birbirinden uzaklaşır ve aradaki boşluğu magma doldurur. San Andreas Fayı gibi dönüşüm sınırlarında ise levhalar birbirine sürtünerek yanlamasına kayar."
+      },
+      {
+        "h": "Önce kilitlenme, sonra kayma",
+        "p": "Levha kenarları düzgünce kaymaz. Levhalar hareket etmeyi sürdürürken sürtünme kenarları kilitler; kaya bükülür ve elastik gerinim biriktirir, bazen yüzyıllar boyunca. Gerilim fayın dayanımını aştığında fay saniyeler içinde kırılır ve biriken enerji sismik dalgalar hâlinde yayılır. Buna elastik geri sekme kuramı denir; ilk kez 1906 San Francisco depreminden sonra tanımlanmıştır."
+      },
+      {
+        "h": "Pasifik Ateş Çemberi",
+        "p": "Dünyadaki büyük depremlerin yaklaşık %80’i, okyanus levhalarının Japonya, Endonezya, And Dağları, Alaska ve Yeni Zelanda’nın altına daldığı Pasifik çevresinde olur. Yüzlerce kilometre derinlikteki depremlerin çizdiği dalan levhaları görmek için Küre sekmesinde Derinlik’i aç."
+      }
+    ]
+  },
+  "faults": {
+    "intro": "Fay, kaya bloklarının birbirine göre yer değiştirdiği bir kırıktır. Blokların nasıl hareket edeceği, kabuğun gerilmesine, sıkışmasına ya da makaslanmasına bağlıdır.",
+    "sections": [
+      {
+        "h": "Normal faylar — gerilme",
+        "p": "Kabuk çekilip gerildiğinde, eğimli bir fayın üstündeki blok, yani tavan bloğu, taban bloğuna göre aşağı kayar. Doğu Afrika Riftı ve ABD’nin batısındaki Basin and Range bölgesi gibi rift vadilerini normal faylar şekillendirir."
+      },
+      {
+        "h": "Ters ve bindirme fayları — sıkışma",
+        "p": "Kabuk sıkıştığında tavan bloğu yukarı itilir. Düşük açılı ters faylara bindirme denir; dalma-batma zonlarındaki dev megabindirmeler, M9,1 Tōhoku (2011) ve M9,5 Şili (1960) depremlerini üretmiştir."
+      },
+      {
+        "h": "Doğrultu atımlı faylar — makaslama",
+        "p": "Burada bloklar neredeyse düşey bir fay boyunca yatay olarak kayar. Fayın bir tarafında dur: karşı taraf sağına doğru hareket ediyorsa fay, San Andreas gibi sağ yanal atımlıdır; soluna doğru hareket ediyorsa sol yanal atımlıdır. 2023 Türkiye depremleri, 300 km’den uzun doğrultu atımlı fayları kırdı."
+      },
+      {
+        "h": "Neden önemli",
+        "p": "Fay türü, yerin nasıl sarsılacağını ve deniz tabanının düşey yönde hareket edip etmeyeceğini belirler; bu da tsunaminin temel bileşenidir."
+      }
+    ]
+  },
+  "waves": {
+    "intro": "Bir fay kırıldığında enerji sismik dalgalar hâlinde yayılır. Sismometreler bu dalgaları hep aynı sırayla kaydeder; varış zamanları arasındaki farklar, depremin nerede olduğunu ve ne kadar büyük olduğunu gösterir.",
+    "sections": [
+      {
+        "h": "P dalgaları — ilk gelenler",
+        "p": "Birincil dalgalar sıkışma dalgalarıdır: kaya, bir yay boyunca ilerleyen bir itme gibi, dalganın ilerleme yönünde sıkışıp gerilir. En hızlı dalgalar bunlardır (kabukta yaklaşık 6 km/s) ve katıların, sıvıların ve gazların içinden geçebilir. Onları ani, sert bir sarsıntı olarak hissedebilir ya da bir uğultu olarak duyabilirsin."
+      },
+      {
+        "h": "S dalgaları — güçlü sarsıntı",
+        "p": "İkincil dalgalar, kayayı ilerleme yönüne dik olarak bir yandan öbür yana makaslar ve yaklaşık 3,5 km/s hızla ilerler. Sıvılar makaslanamaz; bu yüzden S dalgaları Dünya’nın dış çekirdeğini geçemez. Dış çekirdeğin sıvı olduğunu da bu sayede biliyoruz."
+      },
+      {
+        "h": "Yüzey dalgaları — uzun yuvarlanma",
+        "p": "Love ve Rayleigh dalgaları yüzey boyunca ilerler. En yavaş dalgalar bunlardır ama çoğu zaman en büyükleri de bunlardır; Rayleigh dalgaları zemini, okyanustaki ölü dalgalar gibi yuvarlanan bir elips çizerek hareket ettirir. Merkez üssünden uzak yerlerdeki hasarın büyük kısmına bu dalgalar yol açar."
+      },
+      {
+        "h": "Depremin yerini bulmak",
+        "p": "P ve S dalgalarının varışı arasındaki her bir saniyelik fark, yaklaşık 8 km uzaklığa karşılık gelir. Üç ya da daha fazla istasyonun çevresine bu uzaklıkta birer daire çizersen daireler merkez üssünde kesişir. Erken uyarı sistemleri hızlı P dalgasından yararlanır ve S dalgasının güçlü sarsıntısı gelmeden saniyeler önce uyarı gönderir."
+      }
+    ]
+  },
+  "mag": {
+    "intro": "Büyüklük, bir depremin kaynağındaki boyutunu ölçer: her deprem için tek bir sayı. Şiddet ise belirli bir yerdeki sarsıntıyı ölçer ve uzaklığa, derinliğe ve zemin türüne göre değişir.",
+    "sections": [
+      {
+        "h": "Moment büyüklüğü",
+        "p": "Günümüzde kullanılan büyüklük (Mw), sismik momente dayanır: fayın alanı × kayma miktarı × kayanın rijitliği. Her tam basamak, yaklaşık 32 kat daha fazla enerji ve sismogramda 10 kat daha büyük yer hareketi demektir. M8 bir deprem, M6 bir depremden kabaca 1.000 kat daha fazla enerji açığa çıkarır."
+      },
+      {
+        "h": "Şiddet — insanların hissettikleri",
+        "p": "Değiştirilmiş Mercalli Şiddet ölçeği, I’den (hissedilmez) X+’ya (aşırı) kadar uzanır ve Roma rakamlarıyla yazılır. Ölçek gözlemlere dayanır; sisma’dan gönderdiğin raporlar gibi bildirimler de bunlara dahildir. Bu yüzden aynı M6 deprem, yakın çevrede VIII, birkaç yüz kilometre ötede ise III şiddetinde olabilir."
+      },
+      {
+        "h": "Yumuşak zemin neden daha çok sallanır",
+        "p": "Gevşek tortullar ve dolgu alanlar, ana kayaya göre sarsıntıyı hem büyütür hem de uzatır. Meksiko’nun üzerine kurulduğu eski göl yatağı, 1985’teki M8,0 depremi merkez üssünden 350 km uzakta bile yıkıcı kıldı."
+      }
+    ]
+  },
+  "depth": {
+    "intro": "Depremler yüzeyden yaklaşık 700 km derinliğe kadar olabilir. Derinlik, sarsıntının bize ne kadar güçlü ulaşacağını etkiler ve alttaki levhalar hakkında bilgi verir.",
+    "sections": [
+      {
+        "h": "Sığ, orta, derin",
+        "p": "Sığ depremler (0–70 km) hem en yaygın hem de en çok hasar veren depremlerdir, çünkü enerjinin sönümlenmek için kat edeceği yol kısadır. Orta (70–300 km) ve derin (300–700 km) depremler neredeyse yalnızca dalan levhaların soğuk parçalarının içinde olur; geniş alanlarda hissedilirler ama nadiren ağır hasara yol açarlar."
+      },
+      {
+        "h": "Artçılar",
+        "p": "Büyük bir deprem, yakındaki faylardaki gerilimi değiştirerek artçı depremleri tetikler. Artçıların sıklığı kabaca 1 / zaman oranında azalır (Omori yasası): ikinci gün birinci günün yaklaşık yarısı kadar, onuncu gün ise onda biri kadar artçı olur. En büyük artçı genellikle ana şoktan yaklaşık 1,2 büyüklük birimi küçüktür (Båth yasası); bu da zayıflamış binalara hasar vermeye yeter."
+      },
+      {
+        "h": "Öncü depremler",
+        "p": "Bazen bir deprem, daha büyük bir depremin öncüsü çıkar. Bunu ancak sonradan bilmek mümkündür; bu yüzden artçı tahminleri kesin öngörü değil, olasılık verir."
+      }
+    ]
+  },
+  "tsunami": {
+    "intro": "Tsunami, büyük bir su kütlesinin aniden yer değiştirmesiyle oluşan bir dalga dizisidir; çoğunlukla bir megabindirme depremi deniz tabanını yükselttiğinde ya da alçalttığında ortaya çıkar.",
+    "sections": [
+      {
+        "h": "Derin suda hızlı ve alçak",
+        "p": "Açık okyanusta tsunami √(g × derinlik) hızıyla ilerler: 4.000 m derinlikteki suda yaklaşık 700 km/sa, yani bir jet uçağı kadar hızlı. Yüksekliği bir metrenin altında olabilir ve gemiler geçtiğini fark etmeyebilir."
+      },
+      {
+        "h": "Kıyıda yavaş ve yüksek",
+        "p": "Su sığlaştıkça dalga yavaşlar ve enerjisi daha az derinliğe sıkışır; bu yüzden yüksekliği çarpıcı biçimde artar. Deniz önce geri çekilip tabanı açığa çıkarabilir: bu, doğal bir uyarı işaretidir."
+      },
+      {
+        "h": "Ne yapmalı",
+        "p": "Kıyıdaysan ve 20 saniye ya da daha uzun süren güçlü bir sarsıntı hissedersen veya denizin çekildiğini görürsen hemen yüksek bir yere ya da iç kesimlere git. Resmî bir uyarıyı bekleme ve yetkililer tehlikenin geçtiğini açıklayana kadar uzak dur; sonraki dalgalar daha büyük olabilir."
+      }
+    ]
+  },
+  "prep": {
+    "intro": "Depremleri kimse önceden kestiremez ama hazırlık hayat kurtarır. Yaralanmaların çoğu çöken binalardan değil, düşen eşyalardan ve molozdan kaynaklanır.",
+    "sections": [
+      {
+        "h": "Sarsıntı sırasında",
+        "p": "Ellerinin ve dizlerinin üzerine çök. Sağlam bir masanın altına ya da bir iç duvarın yanına kapan, başını ve enseni koru. Sarsıntı durana kadar tutun. Yer sallanırken dışarı koşma; yataktaysan orada kal ve başını bir yastıkla koru."
+      },
+      {
+        "h": "Sarsıntıdan sonra",
+        "p": "Artçılara hazırlıklı ol. Kendinde ve başkalarında yaralanma olup olmadığını kontrol et. Gaz kokusu alırsan dışarı çık; elektrik düğmelerine dokunma, ateş yakma. Hatları meşgul etmemek için arama yapmak yerine mesaj gönder ve yerel yetkilileri takip et."
+      },
+      {
+        "h": "Deprem olmadan önce",
+        "p": "Ağır mobilyaları ve termosifonları duvara sabitle, gazı ve suyu nasıl kapatacağını öğren ve ev halkınla bir buluşma noktası belirle. En az üç gün yetecek bir afet çantası hazırla."
+      }
+    ],
+    "kit": [
+      "Su — kişi başına günde 4 L, 3 gün için",
+      "Bozulmayan yiyecekler",
+      "El feneri ve yedek piller",
+      "İlk yardım çantası",
+      "Reçeteli ilaçlar",
+      "Düdük",
+      "Telefon için taşınabilir şarj cihazı",
+      "Önemli belgelerin kopyaları"
+    ]
+  },
+  "ring": {
+    "intro": "Pasifik Ateş Çemberi, Pasifik Okyanusu’nun kenarını saran, yaklaşık 40.000 km uzunluğunda, at nalı biçiminde bir okyanus çukurları, volkanlar ve faylar kuşağıdır: Yeni Zelanda, Tonga ve Endonezya’dan Filipinler, Japonya ve Kamçatka’ya, oradan Aleut Adaları ve Alaska üzerinden Amerika kıtaları boyunca Şili’nin ucuna kadar uzanır. Dünyadaki depremlerin yaklaşık %90’ı, en büyüklerinin çoğu da dahil, bu kuşak boyunca olur.",
+    "sections": [
+      {
+        "h": "Tek bir fay değil, levha kenarlarından bir zincir",
+        "p": "Çember tek bir yarık değildir. Burası, Dünya’nın en büyük levhası olan Pasifik levhası ile daha küçük Nazca, Cocos, Juan de Fuca ve Filipin Denizi levhalarının çevrelerindeki levhalarla buluştuğu yerdir. Bu sınırın büyük kısmında dalma-batma yaşanır: daha yaşlı, daha soğuk ve daha yoğun okyanus tabanı komşusunun altından mantoya dalar ve geride derin çukurlar bırakır. Bunlardan biri olan Mariana Çukuru, yaklaşık 11 km ile okyanusların en derin noktasıdır. Bazı yerlerde ise levhalar, Kaliforniya’daki San Andreas Fayı ve Yeni Zelanda’daki Alp Fayı gibi dönüşüm fayları boyunca yanlamasına kayar."
+      },
+      {
+        "h": "En büyük depremler neden burada olur",
+        "p": "Bir levha diğerinin altına daldığında ikisi, megabindirme denen hafif eğimli bir fay boyunca birbirine kilitlenir. Bu fay 1.000 km’den uzun ve 100 km’den geniş olabilir. Gerinim yüzyıllar boyunca birikir ve sonunda çok geniş bir alan bir anda kayar. Kaydedilmiş en büyük depremlerin Çember’de olmasının nedeni budur: 1960 Şili (M9,5; ölçülmüş en büyük deprem), 1964 Alaska (M9,2), 2011 Japonya Tōhoku (M9,1) ve 1952 Kamçatka (M9,0). ABD Jeolojik Araştırmalar Kurumu (USGS), dünyanın en büyük depremlerinin yaklaşık %81’inin Pasifik çevresinde olduğunu tahmin ediyor. Bu kırılmalar deniz tabanını aniden yükselttiği için bütün okyanusu aşan tsunamilere de yol açabilir: 1960 Şili depreminin dalgaları bir gün içinde Hawaii’ye ve Japonya’ya ulaştı."
+      },
+      {
+        "h": "Dalan levhaların üzerindeki volkanlar",
+        "p": "Bir levha dalarken ısı ve basınç, kayalarındaki suyu dışarı atar. Bu su, üstündeki sıcak mantonun erime noktasını düşürür; manto kısmen erir, yükselir ve çukura paralel volkan dizilerini besler: And Dağları, Cascade Dağları, Japonya, Endonezya ve Filipinler. Çember’de yaklaşık 450 volkan bulunur; bu, karadaki aktif volkanların kabaca dörtte üçüdür. Ateş Çemberi adını bu volkanlardan alır, ama en sık ürettiği şey depremlerdir."
+      },
+      {
+        "h": "Yerin derinliklerindeki depremler",
+        "p": "Depremlerin çoğu yüzeyin ilk birkaç on kilometresinde olur. Çember boyunca ise depremler, dalan her levhayı mantoya doğru izler ve onu haritalayan bilim insanlarının adıyla Wadati-Benioff zonu denen eğimli bir kuşak oluşturur. Bu depremler yaklaşık 700 km derinliğe kadar inebilir. Derin depremlerin dünyada en etkin olduğu bölge olan Tonga ve Fiji’nin altında bu kuşak, batıya doğru 600 km’nin ötesine dalar. Derin depremler geniş alanlarda hissedilir ama yüzeyi genellikle aynı büyüklükteki sığ depremlerden daha az sarsar. Depremlerin kendi çizdiği levhaları görmek için Küre sekmesinde Derinlik’i aç."
+      },
+      {
+        "h": "Sessizlik güvenli demek değil",
+        "p": "Çember’in bazı kesimlerinde yaşayanların hatırladığı hiçbir dönemde büyük deprem olmamıştır; yine de bu kesimler kilitlidir ve gerilim biriktirmektedir. Britanya Kolumbiyası, Washington ve Oregon açıklarındaki Cascadia dalma-batma zonu en son Ocak 1700’de, yaklaşık 9 büyüklüğünde bir depremle kırıldı; bilim insanları bu depremi Japonya’ya ulaşan tsunamisinden yola çıkarak tarihlendirdi. Ancak Pasifik’teki her şey Çember’in parçası değildir: Hawaii, Pasifik levhasının ortasındaki bir sıcak noktanın üzerinde yer alır; Paskalya Adası yakınlarındaki Doğu Pasifik Yükselimi ise levhaların birbirinden uzaklaştığı ve depremlerin genellikle daha küçük olduğu bir okyanus ortası sırtıdır."
+      }
+    ]
+  }
+}

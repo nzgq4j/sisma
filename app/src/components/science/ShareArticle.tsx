@@ -9,7 +9,7 @@ import { postWithLink } from '@/lib/share-text';
 import styles from './science.module.css';
 
 /** The first sentence of a paragraph (Latin and CJK full stops), or the whole of it. */
-const firstSentence = (s: string) => s.match(/^.+?[.!?。！？](?=\s|$)/u)?.[0] ?? s;
+const firstSentence = (s: string) => s.match(/^.+?(?:[.!?](?=\s|$)|[。！？])/u)?.[0] ?? s;
 
 export function ShareArticle({ id, title, intro }: { id: string; title: string; intro: string }) {
   const { t, m } = useT();
