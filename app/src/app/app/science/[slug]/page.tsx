@@ -7,6 +7,7 @@ import { use, useState } from 'react';
 import { notFound } from 'next/navigation';
 import science from '@/content/science.json';
 import { localArticle, type ScienceArticle } from '@/lib/science';
+import { ShareArticle } from '@/components/science/ShareArticle';
 import { useT } from '@/i18n/I18nProvider';
 import { ScienceCanvas } from '@/components/science/ScienceCanvas';
 import { DepthWidget, MagnitudeWidget, PrepWidget, RingWidget } from '@/components/science/Widgets';
@@ -34,6 +35,7 @@ function ArticleView({ a: source, i }: { a: Article; i: number }) {
       <div className={styles.artHead}>
         <span className={`${styles.tile} ${styles.tileSm} ${styles[a.tone as 'violet' | 'mint' | 'warm']}`}><span className="ms" aria-hidden="true">{a.icon}</span></span>
         <span className={styles.muted}>{t('min_read', { n: a.mins })}</span>
+        <ShareArticle id={a.id} title={m.sci_t[i]} intro={a.intro} />
       </div>
       <h1 className={styles.h1}>{m.sci_t[i]}</h1>
       <p className={styles.intro} lang={a.lang}>{a.intro}</p>
