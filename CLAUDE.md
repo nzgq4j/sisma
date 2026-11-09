@@ -10,6 +10,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 ## Rules
 - Every user-facing string comes from src/i18n/messages/<locale>.json via useT(). Add keys to en.json
   first, then all 9 other locales in the same change. Run npm run check:i18n.
+- Science article text: English in src/content/science.json, translations in src/content/science/<locale>.json
+  (intro, sections, kit; same order and count, read through lib/science.ts). Any change to an article updates all
+  10 languages in the same PR; check:i18n fails when a translation is missing or out of step.
 - Entitlement checks go through src/lib/entitlements.ts (client) and public.effective_plan() (server/DB).
   Never trust the client for paid features; /api routes re-check.
 - Colours come from src/lib/theme.ts / CSS variables in globals.css. Magnitude colours use MAG_SCALE only.
@@ -46,7 +49,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
    Events are the same numbered pins as the maps (lib/pin.ts; Depth mode fills them by depth), drawn from cached sprites
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
-   magnitude / depth / preparedness widgets — components/science/. Article text is English only (content/science.json)
+   magnitude / depth / preparedness widgets — components/science/. Article text in all 10 languages (content/science.json
+   + content/science/<locale>.json, lib/science.ts); SEO titles and descriptions stay English
    The Ring of Fire article has a live widget: the period's M4.5+ events on a Pacific-centred map, counted on / off the
    Ring (rough outline in lib/ring-of-fire.ts, tested); its social card is public/og/science-ring.jpg (og-cards.mjs)
 7. Me / account dashboard (skeleton done: app/app/me): email + password (sign-in, sign-up, reset, change; no email-link sign-in) and Google sign-in (components/Account.tsx, lib/oauth.ts;

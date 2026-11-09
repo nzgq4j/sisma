@@ -1,0 +1,164 @@
+{
+  "plates": {
+    "intro": "A camada externa da Terra é dividida em cerca de 15 grandes placas de litosfera rígida, cada uma com até ~100 km de espessura, que deslizam sobre a astenosfera, mais quente e menos resistente, a 2–10 cm por ano — mais ou menos a velocidade com que as unhas crescem. Quase todos os terremotos acontecem onde as placas se encontram.",
+    "sections": [
+      {
+        "h": "Três tipos de limite",
+        "p": "Nos limites convergentes, as placas colidem: a placa oceânica, mais densa, afunda sob outra numa zona de subducção, gerando os maiores terremotos do planeta e cadeias de vulcões. Nos limites divergentes, como a Dorsal Mesoatlântica, as placas se afastam e o magma preenche o espaço. Nos limites transformantes, como a Falha de San Andreas, as placas deslizam lateralmente, raspando uma na outra."
+      },
+      {
+        "h": "Primeiro travar, depois deslizar",
+        "p": "As bordas das placas não deslizam suavemente. O atrito as mantém travadas enquanto as placas continuam se movendo, então a rocha se deforma e acumula tensão elástica — às vezes por séculos. Quando o esforço supera a resistência da falha, ela se rompe em segundos e a energia acumulada se irradia em forma de ondas sísmicas. É a teoria do rebote elástico, descrita pela primeira vez após o terremoto de São Francisco de 1906."
+      },
+      {
+        "h": "O Círculo de Fogo",
+        "p": "Cerca de 80% dos grandes terremotos do mundo ocorrem ao redor do Pacífico, onde placas oceânicas mergulham sob o Japão, a Indonésia, os Andes, o Alasca e a Nova Zelândia. Ative Profundidade na aba Globo para ver as placas em subducção desenhadas por terremotos a centenas de quilômetros de profundidade."
+      }
+    ]
+  },
+  "faults": {
+    "intro": "Uma falha é uma fratura ao longo da qual blocos de rocha se deslocaram um em relação ao outro. O tipo de movimento depende de a crosta estar sendo esticada, comprimida ou cisalhada.",
+    "sections": [
+      {
+        "h": "Falhas normais: distensão",
+        "p": "Quando a crosta é esticada, o bloco acima de uma falha inclinada — o bloco superior — desce em relação ao bloco inferior. As falhas normais moldam vales de rifte como o Rifte da África Oriental e a província de Basin and Range, no oeste dos Estados Unidos."
+      },
+      {
+        "h": "Falhas inversas e de empurrão: compressão",
+        "p": "Quando a crosta é comprimida, o bloco superior é empurrado para cima. As falhas inversas de baixo ângulo são chamadas de falhas de empurrão; os gigantescos megaempurrões das zonas de subducção produziram os terremotos de Tōhoku (M9.1, 2011) e do Chile (M9.5, 1960)."
+      },
+      {
+        "h": "Falhas transcorrentes: cisalhamento",
+        "p": "Aqui os blocos deslizam na horizontal ao longo de uma falha quase vertical. Fique de um lado: se o lado oposto se move para a sua direita, a falha é dextral, como a de San Andreas; se vai para a sua esquerda, é sinistral. Os terremotos de 2023 na Turquia romperam falhas transcorrentes com mais de 300 km de extensão."
+      },
+      {
+        "h": "Por que isso importa",
+        "p": "O tipo de falha determina como o solo treme e se o fundo do mar se desloca na vertical — o ingrediente principal de um tsunami."
+      }
+    ]
+  },
+  "waves": {
+    "intro": "Quando uma falha se rompe, a energia se espalha em forma de ondas sísmicas. Os sismômetros as registram sempre na mesma ordem, e os intervalos entre as chegadas revelam onde foi o terremoto e qual foi o seu tamanho.",
+    "sections": [
+      {
+        "h": "Ondas P: as primeiras a chegar",
+        "p": "As ondas primárias são de compressão: a rocha é comprimida e esticada na direção em que a onda viaja, como um pulso ao longo de uma mola. São as mais rápidas, cerca de 6 km/s na crosta, e atravessam sólidos, líquidos e gases. Você pode senti-las como um solavanco seco ou ouvi-las como um estrondo."
+      },
+      {
+        "h": "Ondas S: o tremor forte",
+        "p": "As ondas secundárias cisalham a rocha de um lado para o outro, perpendicularmente à propagação, a cerca de 3,5 km/s. Líquidos não podem ser cisalhados, então as ondas S não atravessam o núcleo externo da Terra — e é assim que sabemos que ele é líquido."
+      },
+      {
+        "h": "Ondas superficiais: o longo balanço",
+        "p": "As ondas Love e Rayleigh viajam pela superfície. São as mais lentas, mas muitas vezes as maiores, e as ondas Rayleigh movem o solo numa elipse ondulante, como as ondas do mar. Elas causam boa parte dos danos longe do epicentro."
+      },
+      {
+        "h": "Como localizar um terremoto",
+        "p": "Cada segundo de atraso entre a chegada da onda P e a da onda S corresponde a cerca de 8 km de distância. Trace um círculo com esse raio em torno de três ou mais estações: eles se cruzam no epicentro. Os sistemas de alerta antecipado usam a rápida onda P para enviar avisos segundos antes de o forte tremor da onda S chegar."
+      }
+    ]
+  },
+  "mag": {
+    "intro": "A magnitude mede o tamanho de um terremoto na sua origem — um único número por evento. A intensidade mede o tremor em um determinado lugar e varia com a distância, a profundidade e o tipo de solo.",
+    "sections": [
+      {
+        "h": "Magnitude de momento",
+        "p": "A magnitude moderna (Mw) se baseia no momento sísmico: a área da falha × quanto ela deslizou × a rigidez da rocha. Cada grau inteiro significa cerca de 32 vezes mais energia e 10 vezes mais movimento do solo num sismograma. Um M8 libera cerca de 1.000 vezes a energia de um M6."
+      },
+      {
+        "h": "Intensidade: o que as pessoas sentem",
+        "p": "A escala de Mercalli Modificada vai de I (não sentido) a X+ (extremo), em algarismos romanos. Ela é construída a partir de observações — incluindo relatos como os que você envia pelo sisma —, por isso um mesmo M6 pode ter intensidade VIII nas proximidades e III a algumas centenas de quilômetros."
+      },
+      {
+        "h": "Por que o solo mole treme mais",
+        "p": "Sedimentos soltos e aterros amplificam e prolongam o tremor em comparação com a rocha firme. O antigo leito de lago sob a Cidade do México tornou o terremoto de M8.0 de 1985 devastador a 350 km do epicentro."
+      }
+    ]
+  },
+  "depth": {
+    "intro": "Os terremotos acontecem desde a superfície até cerca de 700 km de profundidade. A profundidade muda a força com que o tremor chega até nós e revela informações sobre as placas lá embaixo.",
+    "sections": [
+      {
+        "h": "Rasos, intermediários, profundos",
+        "p": "Os terremotos rasos (0–70 km) são os mais comuns e os mais destrutivos, porque a energia tem pouca distância para se dissipar. Os intermediários (70–300 km) e os profundos (300–700 km) ocorrem quase só dentro das placas frias que mergulham na subducção; são sentidos em áreas amplas, mas raramente causam danos graves."
+      },
+      {
+        "h": "Réplicas",
+        "p": "Um grande terremoto altera as tensões nas falhas próximas e desencadeia réplicas. A frequência delas cai aproximadamente na proporção de 1 / tempo (lei de Omori): no segundo dia há cerca da metade do primeiro, e no décimo, um décimo. A maior réplica costuma ter magnitude cerca de 1,2 menor que a do tremor principal (lei de Båth) — ainda o suficiente para danificar edifícios enfraquecidos."
+      },
+      {
+        "h": "Tremores precursores",
+        "p": "Às vezes um terremoto acaba se revelando o precursor de outro maior. Isso só se sabe depois, e é por isso que as estimativas de réplicas trazem probabilidades, não previsões."
+      }
+    ]
+  },
+  "tsunami": {
+    "intro": "Um tsunami é uma série de ondas causada pelo deslocamento repentino de um enorme volume de água — na maioria das vezes, quando um terremoto de megaempurrão levanta ou rebaixa o fundo do mar.",
+    "sections": [
+      {
+        "h": "Rápido e baixo em águas profundas",
+        "p": "Em mar aberto, um tsunami viaja a √(g × profundidade): cerca de 700 km/h em 4.000 m de água, tão rápido quanto um avião a jato. Sua altura pode ser inferior a um metro, e os navios podem nem perceber sua passagem."
+      },
+      {
+        "h": "Lento e alto na costa",
+        "p": "À medida que o mar fica raso, a onda desacelera e sua energia se concentra em menos profundidade, então sua altura cresce de forma impressionante. Antes, o mar pode recuar e expor o fundo — um alerta natural."
+      },
+      {
+        "h": "O que fazer",
+        "p": "Se você estiver no litoral e sentir um tremor forte que dure 20 segundos ou mais, ou vir o mar recuar, vá imediatamente para um lugar alto ou para o interior. Não espere um alerta oficial e fique longe até que as autoridades informem que o perigo passou — as ondas seguintes podem ser maiores."
+      }
+    ]
+  },
+  "prep": {
+    "intro": "Ninguém consegue prever terremotos, mas a preparação salva vidas. A maioria dos ferimentos é causada pela queda de objetos e por escombros, e não pelo desabamento de edifícios.",
+    "sections": [
+      {
+        "h": "Durante o tremor",
+        "p": "Abaixe-se, apoiando-se nas mãos e nos joelhos. Proteja a cabeça e o pescoço embaixo de uma mesa firme ou junto a uma parede interna. Segure-se até o tremor parar. Não saia correndo enquanto o chão estiver se movendo; se estiver na cama, fique nela e proteja a cabeça com um travesseiro."
+      },
+      {
+        "h": "Depois do tremor",
+        "p": "Espere réplicas. Verifique se você ou outras pessoas estão feridos. Se sentir cheiro de gás, saia e não use interruptores nem chamas. Mande mensagens de texto em vez de ligar, para não congestionar as redes, e siga as orientações das autoridades locais."
+      },
+      {
+        "h": "Antes que aconteça",
+        "p": "Prenda móveis pesados e aquecedores de água às paredes, aprenda a fechar o gás e a água e combine um ponto de encontro com as pessoas da sua casa. Monte um kit para pelo menos três dias."
+      }
+    ],
+    "kit": [
+      "Água: 4 L por pessoa por dia, para 3 dias",
+      "Alimentos não perecíveis",
+      "Lanterna e pilhas extras",
+      "Kit de primeiros socorros",
+      "Medicamentos receitados",
+      "Apito",
+      "Carregador portátil para o celular",
+      "Cópias de documentos importantes"
+    ]
+  },
+  "ring": {
+    "intro": "O Círculo de Fogo é uma ferradura de fossas oceânicas, vulcões e falhas com cerca de 40.000 km de extensão que contorna o oceano Pacífico: da Nova Zelândia, Tonga e Indonésia, passando pelas Filipinas, pelo Japão e por Kamchatka, atravessando as Aleutas e o Alasca e descendo pelas Américas até a ponta do Chile. Cerca de 90% dos terremotos do mundo acontecem ao longo dele, incluindo a maioria dos maiores.",
+    "sections": [
+      {
+        "h": "Não é uma falha, e sim uma cadeia de bordas de placas",
+        "p": "O Círculo não é uma rachadura única. É onde a placa do Pacífico, a maior da Terra, e as placas menores de Nazca, Cocos, Juan de Fuca e do Mar das Filipinas encontram as placas ao seu redor. A maior parte desse limite é de subducção: o fundo oceânico mais antigo, frio e denso afunda sob a placa vizinha em direção ao manto, deixando fossas profundas como a Fossa das Marianas, o ponto mais profundo dos oceanos, com cerca de 11 km. Em alguns lugares, em vez disso, as placas deslizam lateralmente, ao longo de falhas transformantes como a Falha de San Andreas, na Califórnia, e a Falha Alpina, na Nova Zelândia."
+      },
+      {
+        "h": "Por que os maiores terremotos acontecem aqui",
+        "p": "Onde uma placa mergulha sob outra, as duas ficam travadas ao longo de uma falha de inclinação suave chamada megaempurrão, que pode ter mais de 1.000 km de comprimento e mais de 100 km de largura. A tensão se acumula por séculos até que uma área enorme deslize de uma só vez. É por isso que os maiores terremotos já registrados atingiram o Círculo: Chile em 1960 (M9.5, o maior já medido), Alasca em 1964 (M9.2), Tōhoku, no Japão, em 2011 (M9.1) e Kamchatka em 1952 (M9.0). O Serviço Geológico dos Estados Unidos (USGS) estima que cerca de 81% dos maiores terremotos do mundo ocorrem ao redor do Pacífico. Como essas rupturas levantam o fundo do mar de repente, também podem gerar tsunamis que atravessam todo o oceano: as ondas do Chile em 1960 atingiram o Havaí e o Japão em menos de um dia."
+      },
+      {
+        "h": "Vulcões sobre placas que afundam",
+        "p": "Quando uma placa afunda, o calor e a pressão expulsam a água de suas rochas. Essa água reduz o ponto de fusão do manto quente acima dela, que se funde parcialmente, sobe e alimenta fileiras de vulcões paralelas à fossa: os Andes, a Cordilheira das Cascatas, o Japão, a Indonésia e as Filipinas. O Círculo abriga cerca de 450 vulcões, aproximadamente três quartos dos vulcões ativos em terra firme. É por causa deles que ele se chama Círculo de Fogo, mas o que ele produz com mais frequência são terremotos."
+      },
+      {
+        "h": "Terremotos nas profundezas da Terra",
+        "p": "A maioria dos terremotos acontece nas primeiras dezenas de quilômetros. Ao longo do Círculo, eles também acompanham cada placa que afunda manto adentro, numa faixa inclinada chamada zona de Wadati–Benioff, em homenagem aos cientistas que a mapearam. Esses tremores podem chegar a cerca de 700 km de profundidade. Sob Tonga e Fiji, a zona de terremotos profundos mais ativa do mundo, a faixa mergulha para oeste até mais de 600 km. Terremotos profundos são sentidos em áreas amplas, mas costumam sacudir a superfície menos do que os rasos de mesma magnitude. Ative Profundidade na aba Globo para ver as placas desenhadas pelos próprios terremotos."
+      },
+      {
+        "h": "Calmaria não significa segurança",
+        "p": "Alguns trechos do Círculo não têm um grande terremoto na memória de ninguém vivo, mas estão travados e acumulando tensão. A zona de subducção de Cascádia, ao largo da Colúmbia Britânica, de Washington e do Oregon, se rompeu pela última vez em janeiro de 1700, num terremoto de magnitude próxima de 9 que os cientistas dataram a partir do tsunami que ele provocou no Japão. Mas nem tudo no Pacífico faz parte do Círculo: o Havaí fica sobre um ponto quente no meio da placa do Pacífico, e a Dorsal do Pacífico Oriental, perto da Ilha de Páscoa, é uma dorsal onde as placas se afastam e os terremotos costumam ser menores."
+      }
+    ]
+  }
+}

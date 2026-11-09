@@ -2,11 +2,12 @@
 // Science list. Spec: design/SismaApp.dc.html (isSciList block).
 import Link from 'next/link';
 import science from '@/content/science.json';
+import { localArticle } from '@/lib/science';
 import { useT } from '@/i18n/I18nProvider';
 import styles from '@/components/science/science.module.css';
 
 export default function SciencePage() {
-  const { m, t } = useT();
+  const { m, t, locale } = useT();
   return (
     <div className={styles.list}>
       <p className={styles.lead}>{m.sci_sub}</p>
@@ -17,7 +18,7 @@ export default function SciencePage() {
             <span className={styles.topicText}>
               <span className={styles.meta}>{String(i + 1).padStart(2, '0')} · {t('min_read', { n: a.mins })}</span>
               <span className={styles.topicTitle}>{m.sci_t[i]}</span>
-              <span className={styles.blurb}>{a.intro}</span>
+              <span className={styles.blurb} lang={localArticle(a, locale).lang}>{localArticle(a, locale).intro}</span>
             </span>
           </Link>
         ))}

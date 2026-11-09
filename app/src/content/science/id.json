@@ -1,0 +1,164 @@
+{
+  "plates": {
+    "intro": "Kulit terluar Bumi terpecah menjadi sekitar 15 lempeng utama dari litosfer yang kaku, masing-masing setebal hingga ~100 km, yang meluncur di atas astenosfer yang lebih panas dan lebih lemah dengan kecepatan 2–10 cm per tahun — kira-kira secepat kuku tumbuh. Hampir semua gempa bumi terjadi di tempat lempeng-lempeng bertemu.",
+    "sections": [
+      {
+        "h": "Tiga jenis batas lempeng",
+        "p": "Di batas konvergen, lempeng saling bertumbukan: lempeng samudra yang lebih rapat menunjam ke bawah lempeng lain di zona subduksi, memicu gempa terbesar di planet ini dan membentuk deretan gunung api. Di batas divergen, seperti Punggung Tengah Atlantik, lempeng saling menjauh dan magma mengisi celahnya. Di batas transform, seperti Sesar San Andreas, lempeng saling bergesekan ke samping."
+      },
+      {
+        "h": "Terkunci, lalu tergelincir",
+        "p": "Tepi lempeng tidak bergeser dengan mulus. Gesekan menguncinya sementara lempeng terus bergerak, sehingga batuan melentur dan menyimpan regangan elastis — kadang selama berabad-abad. Ketika tegangan melampaui kekuatan sesar, sesar itu patah dalam hitungan detik, dan energi yang tersimpan terpancar sebagai gelombang seismik. Inilah teori pantulan elastis, yang pertama kali dijelaskan setelah gempa San Francisco 1906."
+      },
+      {
+        "h": "Cincin Api Pasifik",
+        "p": "Sekitar 80% gempa besar di dunia terjadi di sekeliling Pasifik, tempat lempeng samudra menunjam ke bawah Jepang, Indonesia, Andes, Alaska, dan Selandia Baru. Aktifkan Kedalaman di tab Globe untuk melihat lempeng yang menunjam, tergambar oleh gempa hingga ratusan kilometer di bawah permukaan."
+      }
+    ]
+  },
+  "faults": {
+    "intro": "Sesar adalah rekahan tempat blok-blok batuan bergeser satu terhadap yang lain. Cara geraknya bergantung pada apakah kerak bumi sedang ditarik, ditekan, atau digeser.",
+    "sections": [
+      {
+        "h": "Sesar normal — tarikan",
+        "p": "Ketika kerak ditarik terpisah, blok di atas sesar yang miring — dinding gantung — turun relatif terhadap dinding alas. Sesar normal membentuk lembah retakan seperti Lembah Retakan Afrika Timur dan Basin and Range di Amerika Serikat bagian barat."
+      },
+      {
+        "h": "Sesar naik dan sesar sungkup — tekanan",
+        "p": "Ketika kerak ditekan, dinding gantung terdorong ke atas. Sesar naik bersudut landai disebut sesar sungkup (thrust); sesar sungkup raksasa (megathrust) di zona subduksi menghasilkan gempa Tōhoku M9.1 (2011) dan gempa Chili M9.5 (1960)."
+      },
+      {
+        "h": "Sesar geser — geseran",
+        "p": "Di sini blok bergeser mendatar di sepanjang sesar yang hampir tegak. Berdirilah di satu sisi: jika sisi seberang bergerak ke kanan Anda, sesar itu menganan, seperti San Andreas; jika ke kiri Anda, sesar itu mengiri. Gempa Turki 2023 mematahkan sesar geser sepanjang lebih dari 300 km."
+      },
+      {
+        "h": "Mengapa ini penting",
+        "p": "Jenis sesar menentukan bagaimana tanah berguncang dan apakah dasar laut bergerak secara vertikal — unsur utama terjadinya tsunami."
+      }
+    ]
+  },
+  "waves": {
+    "intro": "Ketika sesar patah, energi menyebar sebagai gelombang seismik. Seismometer merekamnya dalam urutan yang tetap, dan selisih waktu kedatangannya memberi tahu kita di mana gempa terjadi dan seberapa besar.",
+    "sections": [
+      {
+        "h": "Gelombang P — yang pertama tiba",
+        "p": "Gelombang primer adalah gelombang mampatan: batuan dimampatkan dan diregangkan searah rambatan gelombang, seperti denyut yang merambat di sepanjang pegas. Gelombang ini paling cepat, sekitar 6 km/s di kerak bumi, dan dapat melewati zat padat, cair, maupun gas. Anda mungkin merasakannya sebagai sentakan tajam atau mendengar suara gemuruh."
+      },
+      {
+        "h": "Gelombang S — guncangan kuat",
+        "p": "Gelombang sekunder menggeser batuan ke kiri dan ke kanan, tegak lurus arah rambatan, dengan kecepatan sekitar 3,5 km/s. Zat cair tidak dapat digeser, sehingga gelombang S tidak dapat menembus inti luar Bumi — dari situlah kita tahu bahwa inti luar itu cair."
+      },
+      {
+        "h": "Gelombang permukaan — ayunan panjang",
+        "p": "Gelombang Love dan Rayleigh merambat di sepanjang permukaan. Keduanya paling lambat, tetapi sering kali paling besar, dan gelombang Rayleigh menggerakkan tanah dalam lintasan elips yang bergulung seperti alun laut. Gelombang inilah yang menyebabkan sebagian besar kerusakan di tempat yang jauh dari episentrum."
+      },
+      {
+        "h": "Menentukan lokasi gempa",
+        "p": "Selisih waktu kedatangan gelombang P dan S bertambah sekitar 1 detik untuk setiap 8 km jarak. Gambarlah lingkaran dengan jarak itu di sekeliling tiga stasiun atau lebih, dan lingkaran-lingkaran itu akan berpotongan di episentrum. Sistem peringatan dini memanfaatkan gelombang P yang cepat untuk mengirim peringatan beberapa detik sebelum guncangan kuat gelombang S tiba."
+      }
+    ]
+  },
+  "mag": {
+    "intro": "Magnitudo mengukur besarnya gempa di sumbernya — satu angka untuk setiap kejadian. Intensitas mengukur guncangan di suatu tempat, dan berubah menurut jarak, kedalaman, dan jenis tanah.",
+    "sections": [
+      {
+        "h": "Magnitudo momen",
+        "p": "Magnitudo modern (Mw) didasarkan pada momen seismik: luas bidang sesar × jarak pergeserannya × kekakuan batuan. Setiap kenaikan satu angka berarti energi sekitar 32 kali lebih besar dan gerakan tanah 10 kali lebih besar pada seismogram. Gempa M8 melepaskan energi kira-kira 1.000 kali lipat gempa M6."
+      },
+      {
+        "h": "Intensitas — yang dirasakan orang",
+        "p": "Skala Intensitas Mercalli yang Dimodifikasi berkisar dari I (tidak terasa) hingga X+ (ekstrem), ditulis dalam angka Romawi. Skala ini disusun dari pengamatan — termasuk laporan seperti yang Anda kirim dari sisma — sehingga satu gempa M6 bisa berintensitas VIII di dekatnya dan III di tempat yang berjarak beberapa ratus kilometer."
+      },
+      {
+        "h": "Mengapa tanah lunak berguncang lebih kuat",
+        "p": "Dibandingkan batuan dasar, endapan lepas dan tanah urukan memperkuat dan memperpanjang guncangan. Dasar danau purba di bawah Kota Meksiko membuat gempa M8.0 tahun 1985 begitu merusak di kota itu, padahal episentrumnya berjarak 350 km."
+      }
+    ]
+  },
+  "depth": {
+    "intro": "Gempa bumi terjadi mulai dari permukaan hingga kedalaman sekitar 700 km. Kedalaman memengaruhi seberapa kuat guncangan sampai kepada kita, dan memberi petunjuk tentang lempeng di bawahnya.",
+    "sections": [
+      {
+        "h": "Dangkal, menengah, dalam",
+        "p": "Gempa dangkal (0–70 km) paling sering terjadi dan paling merusak, karena energinya hanya menempuh jarak pendek sebelum melemah. Gempa menengah (70–300 km) dan dalam (300–700 km) hampir hanya terjadi di dalam lempeng dingin yang sedang menunjam; gempa ini terasa di wilayah yang luas, tetapi jarang menimbulkan kerusakan berat."
+      },
+      {
+        "h": "Gempa susulan",
+        "p": "Gempa besar mengubah tegangan pada sesar-sesar di sekitarnya dan memicu gempa susulan. Lajunya menurun kira-kira sebanding dengan 1 / waktu (hukum Omori): pada hari kedua jumlahnya sekitar separuh hari pertama, dan pada hari kesepuluh tinggal sepersepuluhnya. Gempa susulan terbesar biasanya sekitar 1,2 magnitudo lebih kecil daripada gempa utama (hukum Båth) — masih cukup kuat untuk merusak bangunan yang sudah melemah."
+      },
+      {
+        "h": "Gempa pendahuluan",
+        "p": "Terkadang sebuah gempa ternyata merupakan gempa pendahuluan dari gempa yang lebih besar. Hal itu baru dapat diketahui sesudahnya; itulah sebabnya prakiraan gempa susulan berupa peluang, bukan ramalan."
+      }
+    ]
+  },
+  "tsunami": {
+    "intro": "Tsunami adalah serangkaian gelombang yang timbul akibat berpindahnya volume air yang sangat besar secara tiba-tiba — paling sering ketika gempa megathrust mengangkat atau menurunkan dasar laut.",
+    "sections": [
+      {
+        "h": "Cepat dan rendah di laut dalam",
+        "p": "Di laut lepas, tsunami merambat dengan kecepatan √(g × kedalaman): sekitar 700 km/jam di perairan sedalam 4.000 m, secepat pesawat jet. Tingginya bisa kurang dari satu meter, dan kapal mungkin tidak menyadarinya saat lewat."
+      },
+      {
+        "h": "Lambat dan tinggi di pantai",
+        "p": "Saat air makin dangkal, gelombang melambat dan energinya terjepit ke dalam kolom air yang lebih dangkal, sehingga tingginya bertambah drastis. Laut bisa lebih dulu surut dan memperlihatkan dasarnya — sebuah peringatan alami."
+      },
+      {
+        "h": "Apa yang harus dilakukan",
+        "p": "Jika Anda berada di pantai dan merasakan guncangan kuat selama 20 detik atau lebih, atau melihat air laut surut, segera pergi ke tempat tinggi atau menjauh ke daratan. Jangan menunggu peringatan resmi, dan jangan kembali sampai pihak berwenang menyatakan aman — gelombang berikutnya bisa lebih besar."
+      }
+    ]
+  },
+  "prep": {
+    "intro": "Tidak ada yang bisa meramalkan gempa, tetapi kesiapsiagaan menyelamatkan nyawa. Sebagian besar cedera disebabkan oleh benda yang jatuh dan puing, bukan oleh bangunan yang runtuh.",
+    "sections": [
+      {
+        "h": "Saat guncangan",
+        "p": "Merunduklah dengan bertumpu pada tangan dan lutut. Lindungi kepala dan leher di bawah meja yang kokoh, atau di samping dinding bagian dalam. Berpeganganlah sampai guncangan berhenti. Jangan berlari ke luar saat tanah masih bergerak; jika Anda sedang di tempat tidur, tetaplah di sana dan lindungi kepala dengan bantal."
+      },
+      {
+        "h": "Setelah guncangan",
+        "p": "Bersiaplah menghadapi gempa susulan. Periksa apakah Anda dan orang lain cedera. Jika mencium bau gas, tinggalkan tempat itu dan jangan menyalakan sakelar atau api. Kirim pesan teks alih-alih menelepon agar jaringan tidak padat, dan ikuti arahan pihak berwenang setempat."
+      },
+      {
+        "h": "Sebelum terjadi",
+        "p": "Ikat furnitur berat dan pemanas air ke dinding, pelajari cara menutup aliran gas dan air, dan sepakati tempat berkumpul dengan anggota keluarga. Siapkan tas siaga untuk setidaknya tiga hari."
+      }
+    ],
+    "kit": [
+      "Air — 4 L per orang per hari, untuk 3 hari",
+      "Makanan tahan lama",
+      "Senter dan baterai cadangan",
+      "Kotak P3K",
+      "Obat resep",
+      "Peluit",
+      "Power bank ponsel",
+      "Salinan dokumen penting"
+    ]
+  },
+  "ring": {
+    "intro": "Cincin Api Pasifik adalah sabuk berbentuk tapal kuda sepanjang sekitar 40.000 km yang terdiri atas palung laut, gunung api, dan sesar di sepanjang tepi Samudra Pasifik: dari Selandia Baru, Tonga, dan Indonesia melalui Filipina, Jepang, dan Kamchatka, melintasi Kepulauan Aleut dan Alaska, lalu menyusuri benua Amerika hingga ujung Chili. Sekitar 90% gempa di dunia terjadi di sepanjang sabuk ini, termasuk sebagian besar gempa terbesar.",
+    "sections": [
+      {
+        "h": "Bukan satu sesar, melainkan rangkaian tepi lempeng",
+        "p": "Cincin Api bukanlah satu retakan tunggal. Di sinilah Lempeng Pasifik, lempeng terbesar di Bumi, serta lempeng-lempeng yang lebih kecil — Nazca, Cocos, Juan de Fuca, dan Laut Filipina — bertemu dengan lempeng-lempeng di sekitarnya. Sebagian besar batas itu berupa subduksi: dasar samudra yang lebih tua, lebih dingin, dan lebih rapat tenggelam ke bawah lempeng tetangganya menuju mantel, meninggalkan palung-palung dalam seperti Palung Mariana, tempat terdalam di lautan dengan kedalaman sekitar 11 km. Di beberapa tempat, lempeng justru bergeser ke samping, di sepanjang sesar transform seperti Sesar San Andreas di California dan Sesar Alpine di Selandia Baru."
+      },
+      {
+        "h": "Mengapa gempa terbesar terjadi di sini",
+        "p": "Di tempat satu lempeng menunjam ke bawah lempeng lain, keduanya saling mengunci di sepanjang sesar landai yang disebut megathrust, yang panjangnya bisa lebih dari 1.000 km dan lebarnya lebih dari 100 km. Regangan menumpuk selama berabad-abad sampai area yang sangat luas tergelincir sekaligus. Itulah sebabnya gempa-gempa terbesar yang pernah tercatat melanda Cincin Api: Chili pada 1960 (M9.5, yang terbesar yang pernah diukur), Alaska pada 1964 (M9.2), Tōhoku di Jepang pada 2011 (M9.1), dan Kamchatka pada 1952 (M9.0). Survei Geologi Amerika Serikat (USGS) memperkirakan sekitar 81% gempa terbesar di dunia terjadi di sekeliling Pasifik. Karena patahan semacam ini mengangkat dasar laut secara tiba-tiba, gempa tersebut juga dapat mengirim tsunami melintasi seluruh samudra: gelombang dari Chili pada 1960 menghantam Hawaii dan Jepang dalam waktu kurang dari sehari."
+      },
+      {
+        "h": "Gunung api di atas lempeng yang tenggelam",
+        "p": "Saat lempeng tenggelam, panas dan tekanan mendorong air keluar dari batuannya. Air itu menurunkan titik leleh mantel panas di atasnya, yang kemudian meleleh sebagian, naik, dan memasok deretan gunung api yang sejajar dengan palung: Andes, Cascade, Jepang, Indonesia, dan Filipina. Cincin Api memiliki sekitar 450 gunung api, kira-kira tiga perempat gunung api aktif di daratan. Karena gunung-gunung api inilah sabuk ini disebut Cincin Api, tetapi yang paling sering dihasilkannya justru gempa bumi."
+      },
+      {
+        "h": "Gempa jauh di dalam Bumi",
+        "p": "Sebagian besar gempa terjadi di beberapa puluh kilometer teratas. Di sepanjang Cincin Api, gempa juga mengikuti setiap lempeng yang tenggelam hingga ke dalam mantel, membentuk pita miring yang disebut zona Wadati–Benioff, sesuai nama para ilmuwan yang memetakannya. Gempa ini dapat mencapai kedalaman sekitar 700 km. Di bawah Tonga dan Fiji, zona gempa dalam paling aktif di dunia, pita itu menukik ke arah barat hingga lebih dari 600 km. Gempa dalam terasa di wilayah yang luas, tetapi biasanya mengguncang permukaan lebih lemah daripada gempa dangkal dengan magnitudo yang sama. Aktifkan Kedalaman di tab Globe untuk melihat lempeng-lempeng itu tergambar oleh gempa itu sendiri."
+      },
+      {
+        "h": "Tenang bukan berarti aman",
+        "p": "Beberapa bagian Cincin Api belum pernah mengalami gempa besar dalam ingatan orang yang masih hidup, padahal bagian itu terkunci dan terus menumpuk regangan. Zona subduksi Cascadia di lepas pantai British Columbia, Washington, dan Oregon terakhir kali patah pada Januari 1700, dalam gempa berkekuatan sekitar magnitudo 9 yang waktunya ditentukan para ilmuwan dari tsunami yang dikirimnya ke Jepang. Namun, tidak semua yang ada di Pasifik termasuk Cincin Api: Hawaii terletak di atas titik panas di tengah Lempeng Pasifik, dan Punggungan Pasifik Timur, di dekat Pulau Paskah, adalah punggungan tempat lempeng saling menjauh dan gempanya biasanya lebih kecil."
+      }
+    ]
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "plates": {
+    "intro": "Il guscio esterno della Terra è suddiviso in circa 15 grandi placche di litosfera rigida, ciascuna spessa fino a ~100 km, che scivolano sull’astenosfera, più calda e meno resistente, a 2–10 cm l’anno: più o meno la velocità con cui crescono le unghie. Quasi tutti i terremoti avvengono dove le placche si incontrano.",
+    "sections": [
+      {
+        "h": "Tre tipi di margine",
+        "p": "Ai margini convergenti le placche si scontrano: la placca oceanica, più densa, sprofonda sotto un’altra in una zona di subduzione, dando origine ai terremoti più forti del pianeta e a catene di vulcani. Ai margini divergenti, come la Dorsale medio-atlantica, le placche si allontanano e il magma riempie lo spazio. Ai margini trasformi, come la Faglia di Sant’Andrea, le placche scorrono lateralmente sfregando l’una contro l’altra."
+      },
+      {
+        "h": "Prima si bloccano, poi scattano",
+        "p": "I bordi delle placche non scorrono in modo regolare. L’attrito li tiene bloccati mentre le placche continuano a muoversi, così la roccia si deforma e accumula deformazione elastica, a volte per secoli. Quando lo sforzo supera la resistenza della faglia, questa si rompe in pochi secondi e l’energia accumulata si propaga sotto forma di onde sismiche. È la teoria del rimbalzo elastico, descritta per la prima volta dopo il terremoto di San Francisco del 1906."
+      },
+      {
+        "h": "L’Anello di Fuoco",
+        "p": "Circa l’80% dei grandi terremoti del mondo avviene intorno al Pacifico, dove le placche oceaniche sprofondano sotto il Giappone, l’Indonesia, le Ande, l’Alaska e la Nuova Zelanda. Attiva Profondità nella scheda Globo per vedere le placche in subduzione disegnate da terremoti a centinaia di chilometri di profondità."
+      }
+    ]
+  },
+  "faults": {
+    "intro": "Una faglia è una frattura lungo la quale due blocchi di roccia si sono spostati l’uno rispetto all’altro. Il modo in cui si muovono dipende dal fatto che la crosta venga stirata, compressa o sottoposta a taglio.",
+    "sections": [
+      {
+        "h": "Faglie dirette: distensione",
+        "p": "Quando la crosta viene stirata, il blocco sopra una faglia inclinata — il tetto — scivola verso il basso rispetto al letto. Le faglie dirette modellano valli di rift come la Rift Valley dell’Africa orientale e la regione del Basin and Range, negli Stati Uniti occidentali."
+      },
+      {
+        "h": "Faglie inverse e sovrascorrimenti: compressione",
+        "p": "Quando la crosta viene compressa, il tetto viene spinto verso l’alto. Le faglie inverse a basso angolo si chiamano sovrascorrimenti; i giganteschi megasovrascorrimenti delle zone di subduzione hanno prodotto i terremoti di Tōhoku (M9.1, 2011) e del Cile (M9.5, 1960)."
+      },
+      {
+        "h": "Faglie trascorrenti: taglio",
+        "p": "Qui i blocchi scorrono in orizzontale lungo una faglia quasi verticale. Mettiti da un lato: se il blocco opposto si sposta verso la tua destra, la faglia è destra, come quella di Sant’Andrea; se si sposta verso la tua sinistra, è sinistra. I terremoti del 2023 in Turchia hanno rotto faglie trascorrenti lunghe più di 300 km."
+      },
+      {
+        "h": "Perché è importante",
+        "p": "Il tipo di faglia determina come trema il suolo e se il fondale marino si sposta in verticale: l’ingrediente chiave di uno tsunami."
+      }
+    ]
+  },
+  "waves": {
+    "intro": "Quando una faglia si rompe, l’energia si propaga sotto forma di onde sismiche. I sismometri le registrano sempre nello stesso ordine, e gli intervalli tra un arrivo e l’altro ci dicono dove è avvenuto il terremoto e quanto è stato grande.",
+    "sections": [
+      {
+        "h": "Onde P: le prime ad arrivare",
+        "p": "Le onde primarie sono di compressione: la roccia viene compressa e dilatata nella direzione in cui l’onda viaggia, come un impulso lungo una molla. Sono le più veloci, circa 6 km/s nella crosta, e attraversano solidi, liquidi e gas. Puoi avvertirle come un colpo secco o sentirle come un boato."
+      },
+      {
+        "h": "Onde S: lo scuotimento forte",
+        "p": "Le onde secondarie sollecitano la roccia a taglio, da un lato all’altro, perpendicolarmente alla propagazione, a circa 3,5 km/s. I liquidi non possono essere sottoposti a taglio, quindi le onde S non attraversano il nucleo esterno della Terra: è così che sappiamo che è liquido."
+      },
+      {
+        "h": "Onde superficiali: il lungo ondeggiare",
+        "p": "Le onde di Love e di Rayleigh viaggiano lungo la superficie. Sono le più lente, ma spesso le più ampie, e le onde di Rayleigh muovono il suolo lungo un’ellisse, come il moto ondoso del mare. Causano gran parte dei danni lontano dall’epicentro."
+      },
+      {
+        "h": "Come si localizza un terremoto",
+        "p": "Ogni secondo di ritardo tra l’arrivo dell’onda P e quello dell’onda S corrisponde a circa 8 km di distanza. Traccia un cerchio di quel raggio attorno a tre o più stazioni: si intersecano nell’epicentro. I sistemi di allerta precoce sfruttano la veloce onda P per inviare avvisi qualche secondo prima che arrivi il forte scuotimento dell’onda S."
+      }
+    ]
+  },
+  "mag": {
+    "intro": "La magnitudo misura le dimensioni di un terremoto alla sorgente: un solo numero per evento. L’intensità misura lo scuotimento in un determinato luogo e cambia con la distanza, la profondità e il tipo di terreno.",
+    "sections": [
+      {
+        "h": "Magnitudo momento",
+        "p": "La magnitudo moderna (Mw) si basa sul momento sismico: l’area della faglia × quanto è scivolata × la rigidità della roccia. Ogni gradino intero significa circa 32 volte più energia e 10 volte più movimento del suolo su un sismogramma. Un M8 libera circa 1000 volte l’energia di un M6."
+      },
+      {
+        "h": "Intensità: ciò che sentono le persone",
+        "p": "La scala Mercalli modificata va da I (non avvertito) a X+ (estremo), in numeri romani. Si basa sulle osservazioni, comprese segnalazioni come quelle che invii da sisma, quindi uno stesso M6 può avere intensità VIII nelle vicinanze e III a qualche centinaio di chilometri."
+      },
+      {
+        "h": "Perché il terreno soffice trema di più",
+        "p": "I sedimenti sciolti e i terreni di riporto amplificano e prolungano lo scuotimento rispetto alla roccia compatta. L’antico fondale lacustre di Città del Messico rese devastante il terremoto di M8.0 del 1985 a 350 km dall’epicentro."
+      }
+    ]
+  },
+  "depth": {
+    "intro": "I terremoti avvengono dalla superficie fino a circa 700 km di profondità. La profondità cambia la forza con cui lo scuotimento ci raggiunge e ci racconta qualcosa sulle placche sottostanti.",
+    "sections": [
+      {
+        "h": "Superficiali, intermedi, profondi",
+        "p": "I terremoti superficiali (0–70 km) sono i più comuni e i più distruttivi, perché l’energia ha poca strada per attenuarsi. Quelli intermedi (70–300 km) e profondi (300–700 km) avvengono quasi solo all’interno delle fredde placche in subduzione; si avvertono su aree vaste, ma raramente causano danni gravi."
+      },
+      {
+        "h": "Repliche",
+        "p": "Un forte terremoto modifica gli sforzi sulle faglie vicine e innesca repliche. La loro frequenza diminuisce all’incirca come 1 / tempo (legge di Omori): il secondo giorno sono circa la metà del primo, e il decimo giorno un decimo. La replica più forte è in genere di circa 1,2 gradi di magnitudo inferiore alla scossa principale (legge di Båth): abbastanza, comunque, per danneggiare edifici già indeboliti."
+      },
+      {
+        "h": "Scosse premonitrici",
+        "p": "A volte un terremoto si rivela la scossa premonitrice di uno più forte. Lo si può sapere solo dopo, ed è per questo che per le repliche si danno probabilità, non previsioni."
+      }
+    ]
+  },
+  "tsunami": {
+    "intro": "Uno tsunami è una serie di onde causate dallo spostamento improvviso di un enorme volume d’acqua, il più delle volte quando un terremoto di megasovrascorrimento solleva o abbassa il fondale marino.",
+    "sections": [
+      {
+        "h": "Veloce e basso in acque profonde",
+        "p": "In mare aperto uno tsunami viaggia a √(g × profondità): circa 700 km/h con 4000 m d’acqua, veloce come un aereo a reazione. La sua altezza può essere inferiore a un metro, e le navi potrebbero non accorgersi del suo passaggio."
+      },
+      {
+        "h": "Lento e alto sulla costa",
+        "p": "Man mano che il mare diventa basso, l’onda rallenta e la sua energia si concentra in meno profondità, così la sua altezza cresce in modo impressionante. Prima, il mare può ritirarsi e lasciare scoperto il fondale: un segnale d’allarme naturale."
+      },
+      {
+        "h": "Cosa fare",
+        "p": "Se sei sulla costa e senti una scossa forte che dura 20 secondi o più, o vedi il mare ritirarsi, raggiungi subito un’altura o spostati verso l’interno. Non aspettare un’allerta ufficiale e resta lontano finché le autorità non dichiarano cessato il pericolo: le onde successive possono essere più grandi."
+      }
+    ]
+  },
+  "prep": {
+    "intro": "Nessuno può prevedere i terremoti, ma prepararsi salva vite. La maggior parte delle ferite è causata da oggetti che cadono e da detriti, non dal crollo degli edifici.",
+    "sections": [
+      {
+        "h": "Durante la scossa",
+        "p": "Abbassati a terra su mani e ginocchia. Riparati testa e collo sotto un tavolo robusto o accanto a un muro interno. Tieniti finché la scossa non finisce. Non correre fuori mentre il suolo si muove; se sei a letto, restaci e proteggiti la testa con un cuscino."
+      },
+      {
+        "h": "Dopo la scossa",
+        "p": "Aspettati delle repliche. Controlla se tu o altre persone siete feriti. Se senti odore di gas, esci e non usare interruttori né fiamme. Invia messaggi invece di telefonare, per non intasare le reti, e segui le indicazioni delle autorità locali."
+      },
+      {
+        "h": "Prima che accada",
+        "p": "Fissa al muro i mobili pesanti e lo scaldabagno, impara a chiudere gas e acqua e concorda un punto di ritrovo con chi vive con te. Prepara un kit per almeno tre giorni."
+      }
+    ],
+    "kit": [
+      "Acqua: 4 L a persona al giorno, per 3 giorni",
+      "Cibo a lunga conservazione",
+      "Torcia e batterie di ricambio",
+      "Kit di pronto soccorso",
+      "Farmaci su prescrizione",
+      "Fischietto",
+      "Power bank per il telefono",
+      "Copie dei documenti importanti"
+    ]
+  },
+  "ring": {
+    "intro": "L’Anello di Fuoco è un ferro di cavallo di fosse oceaniche, vulcani e faglie lungo circa 40.000 km, che segue il bordo dell’oceano Pacifico: dalla Nuova Zelanda, Tonga e Indonesia attraverso le Filippine, il Giappone e la Kamčatka, poi lungo le Aleutine e l’Alaska e giù per le Americhe fino alla punta del Cile. Lungo il suo tracciato avviene circa il 90% dei terremoti del mondo, compresa la maggior parte dei più forti.",
+    "sections": [
+      {
+        "h": "Non una faglia, ma una catena di margini di placca",
+        "p": "L’Anello non è un’unica frattura. È il punto in cui la placca pacifica, la più grande della Terra, e le placche minori di Nazca, di Cocos, di Juan de Fuca e del Mare delle Filippine incontrano le placche circostanti. Gran parte di questo margine è di subduzione: il fondale oceanico più antico, freddo e denso sprofonda sotto la placca vicina fin dentro il mantello, lasciando fosse profonde come la Fossa delle Marianne, il punto più profondo degli oceani, a circa 11 km. In alcuni tratti, invece, le placche scorrono lateralmente lungo faglie trasformi come la Faglia di Sant’Andrea, in California, e la Faglia Alpina, in Nuova Zelanda."
+      },
+      {
+        "h": "Perché qui avvengono i terremoti più forti",
+        "p": "Dove una placca si immerge sotto un’altra, le due restano bloccate lungo una faglia a debole inclinazione chiamata megasovrascorrimento, che può superare i 1000 km di lunghezza e i 100 km di larghezza. La deformazione si accumula per secoli, finché un’area enorme scivola tutta in una volta. Ecco perché i terremoti più forti mai registrati hanno colpito l’Anello: Cile nel 1960 (M9.5, il più forte mai misurato), Alaska nel 1964 (M9.2), Tōhoku, in Giappone, nel 2011 (M9.1) e Kamčatka nel 1952 (M9.0). Il Servizio geologico degli Stati Uniti (USGS) stima che circa l’81% dei terremoti più forti del mondo avvenga intorno al Pacifico. Poiché queste rotture sollevano all’improvviso il fondale marino, possono anche generare tsunami che attraversano l’intero oceano: le onde partite dal Cile nel 1960 raggiunsero le Hawaii e il Giappone in meno di un giorno."
+      },
+      {
+        "h": "Vulcani sopra placche che sprofondano",
+        "p": "Mentre una placca sprofonda, calore e pressione espellono l’acqua dalle sue rocce. L’acqua abbassa il punto di fusione del mantello caldo sovrastante, che fonde in parte, risale e alimenta file di vulcani parallele alla fossa: le Ande, la Catena delle Cascate, il Giappone, l’Indonesia e le Filippine. L’Anello ospita circa 450 vulcani, all’incirca tre quarti dei vulcani attivi sulle terre emerse. È per loro che si chiama Anello di Fuoco, ma ciò che produce più spesso sono i terremoti."
+      },
+      {
+        "h": "Terremoti nelle profondità della Terra",
+        "p": "La maggior parte dei terremoti avviene nelle prime decine di chilometri. Lungo l’Anello, però, i terremoti seguono anche ogni placca che sprofonda nel mantello, in una fascia inclinata chiamata zona di Wadati–Benioff, dal nome degli scienziati che la mapparono. Possono arrivare a circa 700 km di profondità. Sotto Tonga e le Figi, la zona di terremoti profondi più attiva del mondo, la fascia si immerge verso ovest fino a oltre 600 km. I terremoti profondi si avvertono su aree vaste, ma di solito scuotono la superficie meno di quelli superficiali di pari magnitudo. Attiva Profondità nella scheda Globo per vedere le placche disegnate dai terremoti stessi."
+      },
+      {
+        "h": "Calma non vuol dire sicurezza",
+        "p": "Alcuni tratti dell’Anello non hanno avuto un grande terremoto a memoria d’uomo, eppure sono bloccati e stanno accumulando energia. La zona di subduzione della Cascadia, al largo della Columbia Britannica, dello stato di Washington e dell’Oregon, si è rotta l’ultima volta nel gennaio del 1700, con un terremoto di magnitudo circa 9 che gli scienziati hanno datato grazie allo tsunami arrivato fino in Giappone. Non tutto il Pacifico, però, fa parte dell’Anello: le Hawaii si trovano sopra un punto caldo al centro della placca pacifica, e la Dorsale del Pacifico orientale, vicino all’Isola di Pasqua, è una dorsale dove le placche si allontanano e i terremoti sono di solito più deboli."
+      }
+    ]
+  }
+}

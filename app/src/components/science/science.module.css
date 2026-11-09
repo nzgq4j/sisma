@@ -98,3 +98,9 @@
 .ringLegend i { width: 12px; height: 12px; border-radius: 6px; flex: none; }
 .ringLegend b { font-weight: 800; }
 .ringNote { margin: 0; font-size: 13px; line-height: 1.45; color: var(--ink2); }
+
+/* Share button at the right of the article header (44 px touch target). */
+.shareBtn { margin-left: auto; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 16px; border-radius: 22px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.shareBtn :global(.ms) { font-size: 20px; color: var(--violet-text); }
+.shareBtn:hover { border-color: var(--violet); }

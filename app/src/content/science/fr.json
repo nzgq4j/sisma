@@ -1,0 +1,164 @@
+{
+  "plates": {
+    "intro": "L’enveloppe externe de la Terre est fragmentée en une quinzaine de grandes plaques de lithosphère rigide, épaisses chacune de ~100 km au plus, qui glissent sur l’asthénosphère, plus chaude et plus malléable, à raison de 2 à 10 cm par an — à peu près la vitesse à laquelle poussent les ongles. Presque tous les séismes se produisent là où les plaques se rencontrent.",
+    "sections": [
+      {
+        "h": "Trois types de limites",
+        "p": "Aux limites convergentes, les plaques entrent en collision : la plaque océanique, plus dense, plonge sous une autre dans une zone de subduction, ce qui engendre les plus grands séismes de la planète et des chaînes de volcans. Aux limites divergentes, comme la dorsale médio-atlantique, les plaques s’écartent et le magma comble l’espace. Aux limites transformantes, comme la faille de San Andreas, les plaques frottent latéralement l’une contre l’autre."
+      },
+      {
+        "h": "Blocage, puis glissement",
+        "p": "Les bords des plaques ne glissent pas en douceur. Le frottement les bloque alors que les plaques continuent d’avancer : la roche se déforme et accumule une contrainte élastique, parfois pendant des siècles. Lorsque la contrainte dépasse la résistance de la faille, celle-ci rompt en quelques secondes et l’énergie accumulée se propage sous forme d’ondes sismiques. C’est la théorie du rebond élastique, décrite pour la première fois après le séisme de San Francisco de 1906."
+      },
+      {
+        "h": "La Ceinture de feu",
+        "p": "Environ 80 % des grands séismes du monde se produisent autour du Pacifique, là où des plaques océaniques plongent sous le Japon, l’Indonésie, les Andes, l’Alaska et la Nouvelle-Zélande. Activez Profondeur dans l’onglet Globe pour voir les panneaux plongeants, dessinés par des séismes situés à des centaines de kilomètres de profondeur."
+      }
+    ]
+  },
+  "faults": {
+    "intro": "Une faille est une fracture le long de laquelle des blocs de roche se sont déplacés l’un par rapport à l’autre. La façon dont ils bougent dépend de ce que subit la croûte : étirement, compression ou cisaillement.",
+    "sections": [
+      {
+        "h": "Failles normales — l’extension",
+        "p": "Quand la croûte est étirée, le bloc situé au-dessus d’une faille inclinée — le toit — glisse vers le bas par rapport au mur. Les failles normales façonnent des vallées de rift comme le rift est-africain ou la province du Basin and Range, dans l’ouest des États-Unis."
+      },
+      {
+        "h": "Failles inverses et chevauchements — la compression",
+        "p": "Quand la croûte est comprimée, le toit est poussé vers le haut. Les failles inverses à faible pendage sont appelées chevauchements ; les gigantesques mégachevauchements des zones de subduction ont produit les séismes de Tōhoku (M9,1, 2011) et du Chili (M9,5, 1960)."
+      },
+      {
+        "h": "Failles décrochantes — le cisaillement",
+        "p": "Ici, les blocs coulissent horizontalement le long d’une faille presque verticale. Placez-vous d’un côté : si le bloc d’en face se déplace vers votre droite, la faille est dextre, comme celle de San Andreas ; s’il se déplace vers votre gauche, elle est senestre. Les séismes de 2023 en Turquie ont rompu des failles décrochantes sur plus de 300 km de long."
+      },
+      {
+        "h": "Pourquoi c’est important",
+        "p": "Le type de faille détermine la façon dont le sol tremble, et si le fond marin se déplace verticalement — l’ingrédient clé d’un tsunami."
+      }
+    ]
+  },
+  "waves": {
+    "intro": "Lorsqu’une faille rompt, l’énergie se propage sous forme d’ondes sismiques. Les sismomètres les enregistrent toujours dans le même ordre, et les écarts entre leurs arrivées nous disent où s’est produit le séisme et quelle était sa taille.",
+    "sections": [
+      {
+        "h": "Ondes P — les premières à arriver",
+        "p": "Les ondes primaires sont des ondes de compression : la roche est comprimée puis étirée dans le sens de propagation, comme une impulsion qui parcourt un ressort. Ce sont les plus rapides — environ 6 km/s dans la croûte — et elles traversent les solides, les liquides et les gaz. Vous pouvez les ressentir comme une secousse sèche, ou les entendre comme un grondement."
+      },
+      {
+        "h": "Ondes S — les fortes secousses",
+        "p": "Les ondes secondaires cisaillent la roche d’un côté à l’autre, perpendiculairement à la propagation, à environ 3,5 km/s. Un liquide ne peut pas être cisaillé : les ondes S ne peuvent donc pas traverser le noyau externe de la Terre — c’est ainsi que l’on sait qu’il est liquide."
+      },
+      {
+        "h": "Ondes de surface — le long roulis",
+        "p": "Les ondes de Love et de Rayleigh se propagent le long de la surface. Ce sont les plus lentes, mais souvent les plus amples, et les ondes de Rayleigh font décrire au sol une ellipse roulante, comme la houle sur l’océan. Elles causent une grande partie des dégâts loin de l’épicentre."
+      },
+      {
+        "h": "Localiser un séisme",
+        "p": "Chaque seconde d’écart entre l’arrivée des ondes P et celle des ondes S correspond à environ 8 km de distance. Tracez un cercle de ce rayon autour d’au moins trois stations : les cercles se croisent à l’épicentre. Les systèmes d’alerte précoce exploitent la rapidité des ondes P pour envoyer des alertes quelques secondes avant l’arrivée des fortes secousses des ondes S."
+      }
+    ]
+  },
+  "mag": {
+    "intro": "La magnitude mesure la taille d’un séisme à sa source — un seul chiffre par événement. L’intensité mesure les secousses en un lieu donné et varie selon la distance, la profondeur et la nature du sol.",
+    "sections": [
+      {
+        "h": "Magnitude de moment",
+        "p": "La magnitude moderne (Mw) repose sur le moment sismique : surface de la faille × ampleur du glissement × rigidité de la roche. Chaque unité entière correspond à environ 32 fois plus d’énergie et à un mouvement du sol 10 fois plus ample sur un sismogramme. Un séisme de M8 libère environ 1 000 fois plus d’énergie qu’un M6."
+      },
+      {
+        "h": "L’intensité — ce que l’on ressent",
+        "p": "L’échelle d’intensité de Mercalli modifiée va de I (non ressenti) à X+ (extrême) et s’écrit en chiffres romains. Elle repose sur des observations, dont des témoignages comme ceux que vous envoyez depuis sisma : un même séisme de M6 peut ainsi atteindre l’intensité VIII à proximité et III à quelques centaines de kilomètres."
+      },
+      {
+        "h": "Pourquoi les sols meubles tremblent davantage",
+        "p": "Par rapport au socle rocheux, les sédiments meubles et les remblais amplifient et prolongent les secousses. L’ancien fond lacustre sur lequel repose Mexico a rendu le séisme de M8,0 de 1985 dévastateur à 350 km de son épicentre."
+      }
+    ]
+  },
+  "depth": {
+    "intro": "Les séismes se produisent de la surface jusqu’à environ 700 km de profondeur. La profondeur influe sur la force des secousses qui nous parviennent et nous renseigne sur les plaques sous nos pieds.",
+    "sections": [
+      {
+        "h": "Superficiels, intermédiaires, profonds",
+        "p": "Les séismes superficiels (0–70 km) sont les plus fréquents et les plus destructeurs, car l’énergie a peu de distance pour s’atténuer. Les séismes intermédiaires (70–300 km) et profonds (300–700 km) se produisent presque exclusivement dans les panneaux froids des plaques en subduction ; ils sont ressentis sur de vastes zones, mais causent rarement de gros dégâts."
+      },
+      {
+        "h": "Répliques",
+        "p": "Un grand séisme modifie les contraintes sur les failles voisines et déclenche des répliques. Leur fréquence décroît à peu près en 1 / temps (loi d’Omori) : environ deux fois moins le deuxième jour que le premier, et dix fois moins le dixième jour. La plus forte réplique est généralement inférieure d’environ 1,2 unité de magnitude au choc principal (loi de Båth) — assez, malgré tout, pour endommager des bâtiments fragilisés."
+      },
+      {
+        "h": "Séismes précurseurs",
+        "p": "Il arrive qu’un séisme se révèle être le précurseur d’un séisme plus fort. On ne peut le savoir qu’après coup : c’est pourquoi les prévisions de répliques donnent des probabilités, et non des prédictions."
+      }
+    ]
+  },
+  "tsunami": {
+    "intro": "Un tsunami est une série de vagues provoquée par le déplacement soudain d’un énorme volume d’eau — le plus souvent lorsqu’un séisme de mégachevauchement soulève ou abaisse le fond marin.",
+    "sections": [
+      {
+        "h": "Rapide et peu élevé au large",
+        "p": "En plein océan, un tsunami se propage à la vitesse √(g × profondeur) : environ 700 km/h par 4 000 m de fond, aussi vite qu’un avion de ligne. Sa hauteur peut être inférieure à un mètre, au point que les navires ne le remarquent parfois pas."
+      },
+      {
+        "h": "Lent et très haut à la côte",
+        "p": "À mesure que l’eau devient moins profonde, la vague ralentit et son énergie se concentre sur une moindre profondeur : sa hauteur augmente alors considérablement. La mer peut d’abord se retirer et découvrir le fond — un signal d’alerte naturel."
+      },
+      {
+        "h": "Que faire",
+        "p": "Si vous êtes sur la côte et ressentez une forte secousse qui dure 20 secondes ou plus, ou si vous voyez la mer se retirer, gagnez immédiatement les hauteurs ou l’intérieur des terres. N’attendez pas d’alerte officielle, et ne revenez pas avant que les autorités n’annoncent la fin de l’alerte — les vagues suivantes peuvent être plus grosses."
+      }
+    ]
+  },
+  "prep": {
+    "intro": "Personne ne peut prédire les séismes, mais se préparer sauve des vies. La plupart des blessures sont dues à la chute d’objets et de débris, pas à l’effondrement des bâtiments.",
+    "sections": [
+      {
+        "h": "Pendant les secousses",
+        "p": "Baissez-vous : mettez-vous à genoux, en appui sur les mains. Abritez-vous : protégez votre tête et votre nuque sous une table solide, ou contre un mur intérieur. Tenez bon jusqu’à ce que les secousses cessent. Ne courez pas dehors tant que le sol bouge ; si vous êtes au lit, restez-y et protégez votre tête avec un oreiller."
+      },
+      {
+        "h": "Après les secousses",
+        "p": "Attendez-vous à des répliques. Vérifiez si vous-même ou d’autres personnes êtes blessés. Si vous sentez une odeur de gaz, sortez, et n’actionnez aucun interrupteur ni aucune flamme. Envoyez des SMS plutôt que d’appeler, pour ne pas saturer les réseaux, et suivez les consignes des autorités locales."
+      },
+      {
+        "h": "Avant qu’il ne survienne",
+        "p": "Fixez aux murs les meubles lourds et le chauffe-eau, apprenez à couper le gaz et l’eau, et convenez d’un point de rendez-vous avec les membres de votre foyer. Préparez un kit pour au moins trois jours."
+      }
+    ],
+    "kit": [
+      "Eau — 4 L par personne et par jour, pour 3 jours",
+      "Nourriture non périssable",
+      "Lampe de poche et piles de rechange",
+      "Trousse de premiers secours",
+      "Médicaments sur ordonnance",
+      "Sifflet",
+      "Batterie externe pour téléphone",
+      "Copies des documents importants"
+    ]
+  },
+  "ring": {
+    "intro": "La Ceinture de feu est un fer à cheval de fosses océaniques, de volcans et de failles, long d’environ 40 000 km, qui borde l’océan Pacifique : de la Nouvelle-Zélande, des Tonga et de l’Indonésie aux Philippines, au Japon et au Kamtchatka, puis à travers les Aléoutiennes et l’Alaska, et enfin le long des Amériques jusqu’à la pointe du Chili. Environ 90 % des séismes du monde s’y produisent, dont la plupart des plus forts.",
+    "sections": [
+      {
+        "h": "Non pas une faille, mais une chaîne de bords de plaques",
+        "p": "La Ceinture n’est pas une fissure unique. C’est là que la plaque Pacifique, la plus grande de la Terre, et les plaques plus petites de Nazca, de Cocos, de Juan de Fuca et des Philippines rencontrent les plaques qui les entourent. Sur la majeure partie de cette limite, il s’agit de subduction : un plancher océanique plus ancien, plus froid et plus dense s’enfonce sous la plaque voisine, dans le manteau, et laisse derrière lui des fosses profondes comme la fosse des Mariannes, l’endroit le plus profond des océans, à environ 11 km. En quelques endroits, les plaques coulissent plutôt latéralement, le long de failles transformantes comme la faille de San Andreas en Californie ou la faille alpine en Nouvelle-Zélande."
+      },
+      {
+        "h": "Pourquoi les plus grands séismes se produisent ici",
+        "p": "Là où une plaque plonge sous une autre, les deux se bloquent le long d’une faille en pente douce appelée mégachevauchement, qui peut dépasser 1 000 km de long et 100 km de large. La contrainte s’accumule pendant des siècles, jusqu’à ce qu’une immense surface glisse d’un coup. C’est pourquoi les plus grands séismes jamais enregistrés ont frappé la Ceinture : le Chili en 1960 (M9,5, le plus fort jamais mesuré), l’Alaska en 1964 (M9,2), Tōhoku au Japon en 2011 (M9,1) et le Kamtchatka en 1952 (M9,0). L’Institut d’études géologiques des États-Unis (USGS) estime qu’environ 81 % des plus grands séismes du monde se produisent autour du Pacifique. Comme ces ruptures soulèvent brusquement le fond marin, elles peuvent aussi envoyer des tsunamis à travers tout l’océan : les vagues du séisme chilien de 1960 ont frappé Hawaï et le Japon en moins d’une journée."
+      },
+      {
+        "h": "Des volcans au-dessus des plaques qui plongent",
+        "p": "À mesure qu’une plaque s’enfonce, la chaleur et la pression chassent l’eau de ses roches. Cette eau abaisse le point de fusion du manteau chaud situé au-dessus, qui fond partiellement, remonte et alimente des alignements de volcans parallèles à la fosse : les Andes, les Cascades, le Japon, l’Indonésie et les Philippines. La Ceinture compte environ 450 volcans, soit à peu près les trois quarts des volcans actifs émergés. C’est à eux qu’elle doit son nom, mais ce sont les séismes qu’elle produit le plus souvent."
+      },
+      {
+        "h": "Des séismes au plus profond de la Terre",
+        "p": "La plupart des séismes se produisent dans les premières dizaines de kilomètres. Le long de la Ceinture, ils suivent aussi chaque plaque plongeante jusque dans le manteau, dans une bande inclinée appelée zone de Wadati-Benioff, du nom des scientifiques qui l’ont cartographiée. Ces séismes peuvent atteindre environ 700 km de profondeur. Sous les Tonga et les Fidji, la zone de séismes profonds la plus active du monde, la bande plonge vers l’ouest jusqu’à plus de 600 km. Les séismes profonds sont ressentis sur de vastes zones, mais secouent généralement moins la surface que des séismes superficiels de même magnitude. Activez Profondeur dans l’onglet Globe pour voir les panneaux plongeants dessinés par les séismes eux-mêmes."
+      },
+      {
+        "h": "Calme ne veut pas dire sûr",
+        "p": "Certains tronçons de la Ceinture n’ont connu aucun grand séisme de mémoire d’homme, et pourtant ils sont bloqués et accumulent des contraintes. La zone de subduction de Cascadia, au large de la Colombie-Britannique, de l’État de Washington et de l’Oregon, a rompu pour la dernière fois en janvier 1700, lors d’un séisme de magnitude 9 environ, que les scientifiques ont daté grâce au tsunami qu’il a envoyé jusqu’au Japon. Tout ce qui se trouve dans le Pacifique ne fait pas partie de la Ceinture pour autant : Hawaï se situe au-dessus d’un point chaud, au milieu de la plaque Pacifique, et la dorsale est-pacifique, près de l’île de Pâques, est une dorsale océanique où les plaques s’écartent et où les séismes sont généralement plus faibles."
+      }
+    ]
+  }
+}
