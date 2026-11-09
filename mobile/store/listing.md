@@ -14,7 +14,7 @@ Suggested, with the words people search for (30 used): sisma: Earthquake Map & A
 
 Live earthquake tracker: map, 3D globe and alerts for quakes near you
 
-## Full description (4000 max, 2777 used)
+## Full description (4000 max, 2842 used)
 
 Felt a tremor? Open sisma to see what just happened, where, and how strong.
 
@@ -40,7 +40,7 @@ SHARE WHAT HAPPENED
 • Share any earthquake as a picture with a map of the area, plus ready-written post text and image description that you can edit
 
 UNDERSTAND EARTHQUAKES
-• Seven illustrated guides: plate tectonics, fault types, seismic waves, magnitude and intensity (and how they relate to the Richter scale), depth, tsunamis, and how to prepare
+• Eight illustrated guides: plate tectonics, fault types, seismic waves, magnitude and intensity (and how they relate to the Richter scale), depth, tsunamis, how to prepare, and the Pacific Ring of Fire with a live map
 
 SISMA+ (OPTIONAL SUBSCRIPTION)
 • Earthquake alerts on your phone: a push notification when a quake matches your rules

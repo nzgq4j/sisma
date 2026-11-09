@@ -34,7 +34,7 @@ PARTAGEZ CE QUI S'EST PASSÉ
 • Partagez n'importe quel séisme sous forme d'image avec la carte de la région, accompagnée d'un texte de publication et d'une description d'image prêts à l'emploi et modifiables
 
 COMPRENDRE LES SÉISMES
-• Sept guides illustrés : tectonique des plaques, types de failles, ondes sismiques, magnitude et intensité (et leur lien avec l'échelle de Richter), profondeur, tsunamis, et comment se préparer
+• Huit guides illustrés : tectonique des plaques, types de failles, ondes sismiques, magnitude et intensité (et leur lien avec l'échelle de Richter), profondeur, tsunamis, comment se préparer, et la Ceinture de feu du Pacifique avec une carte en direct
 
 SISMA+ (ABONNEMENT FACULTATIF)
 • Alertes séisme sur votre téléphone : une notification push quand un séisme correspond à vos règles

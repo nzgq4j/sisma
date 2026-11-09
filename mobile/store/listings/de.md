@@ -34,7 +34,7 @@ TEILE, WAS PASSIERT IST
 • Teile jedes Erdbeben als Bild mit einer Karte der Region, dazu einen fertigen Beitragstext und eine Bildbeschreibung, die du bearbeiten kannst
 
 ERDBEBEN VERSTEHEN
-• Sieben illustrierte Leitfäden: Plattentektonik, Verwerfungstypen, seismische Wellen, Magnitude und Intensität (und ihr Bezug zur Richterskala), Tiefe, Tsunamis und wie du dich vorbereitest
+• Acht illustrierte Leitfäden: Plattentektonik, Verwerfungstypen, seismische Wellen, Magnitude und Intensität (und ihr Bezug zur Richterskala), Tiefe, Tsunamis, wie du dich vorbereitest, und der Pazifische Feuerring mit einer Live-Karte
 
 SISMA+ (OPTIONALES ABO)
 • Erdbebenwarnungen auf deinem Handy: eine Push-Benachrichtigung, wenn ein Beben zu deinen Regeln passt

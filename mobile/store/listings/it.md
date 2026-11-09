@@ -34,7 +34,7 @@ CONDIVIDI COSA È SUCCESSO
 • Condividi qualsiasi terremoto come immagine con la mappa della zona, con un testo del post già pronto e una descrizione dell'immagine che puoi modificare
 
 CAPIRE I TERREMOTI
-• Sette guide illustrate: tettonica a placche, tipi di faglia, onde sismiche, magnitudo e intensità (e il loro legame con la scala Richter), profondità, tsunami e come prepararsi
+• Otto guide illustrate: tettonica a placche, tipi di faglia, onde sismiche, magnitudo e intensità (e il loro legame con la scala Richter), profondità, tsunami, come prepararsi e l’Anello di Fuoco del Pacifico con una mappa in tempo reale
 
 SISMA+ (ABBONAMENTO FACOLTATIVO)
 • Avvisi di terremoto sul telefono: una notifica push quando una scossa corrisponde alle tue regole

@@ -34,7 +34,7 @@ OLANLARI PAYLAŞ
 • Herhangi bir depremi bölgenin haritasını içeren bir görsel olarak paylaş; hazır yazılmış gönderi metnini ve görsel açıklamasını düzenleyebilirsin
 
 DEPREMLERİ ANLA
-• Yedi resimli rehber: levha tektoniği, fay türleri, sismik dalgalar, büyüklük ve şiddet (ve Richter ölçeğiyle ilişkileri), derinlik, tsunamiler ve depreme nasıl hazırlanılır
+• Sekiz resimli rehber: levha tektoniği, fay türleri, sismik dalgalar, büyüklük ve şiddet (ve Richter ölçeğiyle ilişkileri), derinlik, tsunamiler, depreme nasıl hazırlanılır ve canlı haritasıyla Pasifik Ateş Çemberi
 
 SISMA+ (İSTEĞE BAĞLI ABONELİK)
 • Telefonunda deprem uyarıları: bir deprem kurallarına uyduğunda anlık bildirim

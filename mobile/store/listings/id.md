@@ -34,7 +34,7 @@ BAGIKAN APA YANG TERJADI
 • Bagikan gempa apa pun sebagai gambar dengan peta wilayahnya, lengkap dengan teks unggahan dan deskripsi gambar siap pakai yang bisa Anda ubah
 
 PAHAMI GEMPA BUMI
-• Tujuh panduan bergambar: tektonik lempeng, jenis sesar, gelombang seismik, magnitudo dan intensitas (serta kaitannya dengan skala Richter), kedalaman, tsunami, dan cara bersiap
+• Delapan panduan bergambar: tektonik lempeng, jenis sesar, gelombang seismik, magnitudo dan intensitas (serta kaitannya dengan skala Richter), kedalaman, tsunami, cara bersiap, dan Cincin Api Pasifik dengan peta langsung
 
 SISMA+ (LANGGANAN OPSIONAL)
 • Peringatan gempa di ponsel Anda: notifikasi push saat gempa sesuai aturan Anda

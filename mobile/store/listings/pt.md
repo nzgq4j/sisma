@@ -34,7 +34,7 @@ COMPARTILHE O QUE ACONTECEU
 • Compartilhe qualquer terremoto como uma imagem com o mapa da região, com um texto de publicação pronto e uma descrição da imagem que você pode editar
 
 ENTENDA OS TERREMOTOS
-• Sete guias ilustrados: tectônica de placas, tipos de falha, ondas sísmicas, magnitude e intensidade (e como se relacionam com a escala Richter), profundidade, tsunamis e como se preparar
+• Oito guias ilustrados: tectônica de placas, tipos de falha, ondas sísmicas, magnitude e intensidade (e como se relacionam com a escala Richter), profundidade, tsunamis, como se preparar e o Círculo de Fogo do Pacífico com um mapa ao vivo
 
 SISMA+ (ASSINATURA OPCIONAL)
 • Alertas de terremoto no seu celular: uma notificação push quando um tremor atende às suas regras
