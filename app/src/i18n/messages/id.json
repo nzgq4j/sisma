@@ -661,6 +661,7 @@
     "err_not_configured": "Bluesky tidak terhubung.",
     "err_failed": "Tidak dapat terhubung. Coba lagi.",
     "err_bad_service": "Server harus berupa alamat https://.",
-    "err_missing": "Masukkan handle dan kata sandi aplikasi."
+    "err_missing": "Masukkan handle dan kata sandi aplikasi.",
+    "preview_failed": "Tidak dapat memuat kejadian ini. Tutup ini dan coba lagi dalam satu menit."
   }
 }

@@ -661,6 +661,7 @@
     "err_not_configured": "Bluesky 未连接。",
     "err_failed": "无法连接。请重试。",
     "err_bad_service": "服务器必须是 https:// 地址。",
-    "err_missing": "请输入用户名和应用密码。"
+    "err_missing": "请输入用户名和应用密码。",
+    "preview_failed": "无法加载此地震。请关闭后过一分钟再试。"
   }
 }

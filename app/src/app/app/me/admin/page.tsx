@@ -197,13 +197,15 @@ function PreviewSheet({ q, configured, api, onClose, onPosted }: {
 }) {
   const { m } = useT();
   const k = m.admin;
-  const [p, setP] = useState<Preview | null>(null);
+  const [p, setP] = useState<Preview | 'failed' | null>(null);
   const [st, setSt] = useState<{ kind: 'idle' | 'busy' | 'done' | 'failed'; url?: string; error?: string }>({ kind: 'idle' });
   useEffect(() => {
     if (!q) return;
     let alive = true;
     void Promise.resolve().then(() => { setP(null); setSt({ kind: 'idle' }); });
-    void api(`/api/admin/bluesky/preview?id=${encodeURIComponent(q.id)}`).then(r => (r.ok ? r.json() : null)).then(j => { if (alive) setP(j as Preview | null); });
+    // A failed request shows a message instead of loading for ever.
+    void api(`/api/admin/bluesky/preview?id=${encodeURIComponent(q.id)}`).then(r => (r.ok ? r.json() : 'failed')).catch(() => 'failed')
+      .then(j => { if (alive) setP(j as Preview | 'failed'); });
     return () => { alive = false; };
   }, [q, api]);
   const post = async () => {
@@ -216,7 +218,7 @@ function PreviewSheet({ q, configured, api, onClose, onPosted }: {
   };
   return (
     <Sheet open={!!q} onClose={onClose} title={k.preview}>
-      {!p ? <p className={me.hint}>{k.loading}</p> : (
+      {!p ? <p className={me.hint}>{k.loading}</p> : p === 'failed' ? <p className={me.errLine} role="alert">{k.preview_failed}</p> : (
         <div className={styles.preview}>
           {/* eslint-disable-next-line @next/next/no-img-element -- generated PNG */}
           <img src={p.image} alt={p.alt} className={styles.card} width={1080} height={1350} />

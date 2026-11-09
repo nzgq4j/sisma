@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { supabaseAdminConfig } from '@/lib/supabase-env';
 import { SOURCES } from '@/lib/quakes/sources';
-import { mergeQuakes } from '@/lib/quakes/merge';
+import { hasId, mergeQuakes } from '@/lib/quakes/merge';
 import { REPORT_GRACE_MS, REPORT_WINDOW_MS } from '@/lib/quakes/report-window';
 
 export interface FeltCell { lat: number; lon: number; n: number; mmi: number }
@@ -16,7 +16,7 @@ async function findRecentQuake(id: string) {
     SOURCES.geonet({ days: 1, minMag: 0 }), SOURCES.jma({ days: 1, minMag: 0 }),
   ]);
   const merged = mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])));
-  return merged.find(q => q.id === id) ?? null;
+  return merged.find(q => hasId(q, id)) ?? null;
 }
 
 // POST /api/reports  { quakeId, mmi 1-10, note?, place? 0|1, duration? 0-3, moved?: number[], damage? 0-3, lat?, lon?, locale }
