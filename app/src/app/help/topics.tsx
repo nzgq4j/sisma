@@ -434,7 +434,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>The <Ui>Science</Ui> tab has eight short illustrated guides, each with an animated diagram or a live chart: plate tectonics, fault types, seismic waves, magnitude and intensity, depth and aftershocks, tsunamis, how to prepare, and the Ring of Fire, with a live map of how many recent earthquakes struck around the Pacific.</p>
-          <p>Tap the buttons under a diagram to switch views, and the pause button to stop the animation. The guides follow your language, like the rest of the app. Tap <Ui>Share</Ui> at the top of a guide to send it to someone.</p>
+          <p>Tap the buttons under a diagram to switch views, and the pause button to stop the animation. The guides follow your language, like the rest of the app. Tap <Ui>Share</Ui> at the top of a guide to send it to someone, with its picture, a short summary and the link.</p>
         </div>
         <Shot src="science" alt="Seismic waves article with an animated diagram of P waves" caption="A science guide" />
       </div>
