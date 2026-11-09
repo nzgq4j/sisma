@@ -454,7 +454,7 @@
     "test_sent": "Testalarm gesendet",
     "test_failed": "Testalarm konnte nicht gesendet werden.",
     "title_area": "Erdbeben M{mag} · {area}",
-    "areas_label": "Auch Alarme für",
+    "areas_label": "Weitere Orte",
     "areas_hint": "Erdbeben überall in diesen Ländern oder Regionen, ab deiner Mindeststärke.",
     "add_area": "Land oder Region hinzufügen",
     "area_search": "Länder suchen",

@@ -454,7 +454,7 @@
     "test_sent": "Alerta de prueba enviada",
     "test_failed": "No se pudo enviar la alerta de prueba.",
     "title_area": "Sismo M{mag} · {area}",
-    "areas_label": "Avisar también para",
+    "areas_label": "Otras ubicaciones",
     "areas_hint": "Sismos en cualquier parte de estos países o regiones, a partir de tu magnitud mínima.",
     "add_area": "Añadir un país o región",
     "area_search": "Buscar países",

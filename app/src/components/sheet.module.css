@@ -2,7 +2,7 @@
 .wrap { position: fixed; inset: 0; z-index: 1500; display: flex; flex-direction: column; justify-content: flex-end; touch-action: none; overscroll-behavior: contain; }
 .backdrop { position: absolute; inset: 0; border: 0; padding: 0; background: var(--scrim); cursor: default; animation: fade .2s ease-out; transition: opacity .18s ease-out; touch-action: none; }
 .panel {
-  position: relative; display: flex; flex-direction: column; gap: 16px; max-height: 88vh; overflow-y: auto; outline: none;
+  position: relative; display: flex; flex-direction: column; gap: 16px; max-height: 88%; overflow-y: auto; outline: none;
   width: 100%; max-width: 520px; margin: 0 auto; box-sizing: border-box;
   padding: 10px max(20px, env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
   border-radius: 28px 28px 0 0; background: var(--surface); color: var(--ink);

@@ -454,7 +454,7 @@
     "test_sent": "Avviso di prova inviato",
     "test_failed": "Impossibile inviare l’avviso di prova.",
     "title_area": "Terremoto M{mag} · {area}",
-    "areas_label": "Avvisa anche per",
+    "areas_label": "Altri luoghi",
     "areas_hint": "Terremoti ovunque in questi paesi o regioni, pari o superiori alla magnitudo minima.",
     "add_area": "Aggiungi un paese o una regione",
     "area_search": "Cerca paesi",

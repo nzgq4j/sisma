@@ -454,7 +454,7 @@
     "test_sent": "Alerte de test envoyée",
     "test_failed": "Impossible d’envoyer l’alerte de test.",
     "title_area": "Séisme M{mag} · {area}",
-    "areas_label": "Alerter aussi pour",
+    "areas_label": "Autres lieux",
     "areas_hint": "Séismes n’importe où dans ces pays ou régions, à partir de votre magnitude minimale.",
     "add_area": "Ajouter un pays ou une région",
     "area_search": "Rechercher un pays",
