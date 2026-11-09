@@ -1,9 +1,11 @@
 import type { Quake, SourceId } from './types';
 import { distanceKm } from '../geo';
+import { inJapanArea } from './sources';
 
 const PRIORITY: SourceId[] = ['usgs', 'emsc'];
 function rank(q: Quake): number {
-  if (q.source === 'jma' && q.region === 'Japan') return 0;
+  // JMA's location is preferred only for earthquakes in Japan's area, decided by position (not by the region label).
+  if (q.source === 'jma' && inJapanArea(q.lat, q.lon)) return 0;
   if (q.source === 'geonet' && q.region === 'New Zealand') return 0;
   const i = PRIORITY.indexOf(q.source);
   return i < 0 ? 9 : i + 1;

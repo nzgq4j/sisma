@@ -60,6 +60,13 @@ export function parseJmaCod(cod: string): { lat: number; lon: number; depthKm: n
   return { lat, lon, depthKm: m[3] ? Math.abs(parseInt(m[3], 10)) / 1000 : 0 };
 }
 
+/**
+ * Japan and its seas (Hokkaido and the southern Kurils to Okinotorishima, Yonaguni to Minamitorishima's waters): where
+ * JMA's own network locates earthquakes. JMA's list also carries large earthquakes elsewhere (e.g. "Western China"), with
+ * rough coordinates and no depth; those are left to USGS and EMSC, which locate them properly.
+ */
+export const inJapanArea = (lat: number, lon: number) => lat >= 20 && lat <= 46.5 && lon >= 122 && lon <= 154;
+
 export const jma: Fetcher = async () => {
   const res = await fetch('https://www.jma.go.jp/bosai/quake/data/list.json', { next: { revalidate: 60 } });
   const list: any[] = await res.json();
@@ -67,7 +74,7 @@ export const jma: Fetcher = async () => {
   const seen = new Set<string>();
   return list.filter(e => e.cod && e.mag && e.mag !== 'Ｍ不明').flatMap((e): Quake[] => {
     const pos = parseJmaCod(e.cod);
-    if (!pos || seen.has(e.eid)) return [];
+    if (!pos || seen.has(e.eid) || !inJapanArea(pos.lat, pos.lon)) return [];
     seen.add(e.eid);
     return [{ id: 'jma:' + e.eid, source: 'jma', mag: parseFloat(e.mag), title: e.en_anm ?? e.anm, region: 'Japan', time: Date.parse(e.at),
       ...pos, tsunami: false, url: 'https://www.jma.go.jp/bosai/map.html#contents=earthquake_map' }];
