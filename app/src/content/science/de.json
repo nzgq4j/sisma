@@ -1,0 +1,164 @@
+{
+  "plates": {
+    "intro": "Die äußere Schale der Erde ist in etwa 15 große Platten aus starrer Lithosphäre zerbrochen. Jede ist bis zu ~100 km dick und gleitet mit 2–10 cm pro Jahr über die heißere, weichere Asthenosphäre – etwa so schnell, wie Fingernägel wachsen. Fast alle Erdbeben ereignen sich dort, wo Platten aufeinandertreffen.",
+    "sections": [
+      {
+        "h": "Drei Arten von Plattengrenzen",
+        "p": "An konvergenten Grenzen stoßen Platten zusammen: Die dichte ozeanische Platte taucht in einer Subduktionszone unter eine andere ab. Dort entstehen die stärksten Erdbeben der Erde und ganze Vulkanketten. An divergenten Grenzen wie dem Mittelatlantischen Rücken driften Platten auseinander, und Magma füllt die Lücke. An Transformgrenzen wie der San-Andreas-Verwerfung schrammen Platten seitlich aneinander vorbei."
+      },
+      {
+        "h": "Erst haften, dann gleiten",
+        "p": "Plattenränder gleiten nicht gleichmäßig. Reibung verhakt sie, während sich die Platten weiterbewegen – das Gestein verbiegt sich und speichert elastische Spannung, manchmal über Jahrhunderte. Übersteigt die Spannung die Festigkeit der Verwerfung, bricht sie innerhalb von Sekunden, und die gespeicherte Energie breitet sich als seismische Wellen aus. Das ist die Theorie des elastischen Rückpralls, erstmals beschrieben nach dem Erdbeben von San Francisco 1906."
+      },
+      {
+        "h": "Der Pazifische Feuerring",
+        "p": "Etwa 80 % der starken Erdbeben weltweit ereignen sich rund um den Pazifik, wo ozeanische Platten unter Japan, Indonesien, die Anden, Alaska und Neuseeland abtauchen. Schalte im Tab Globus „Tiefe“ ein: Dann siehst du die abtauchenden Platten, nachgezeichnet von Beben in Hunderten Kilometern Tiefe."
+      }
+    ]
+  },
+  "faults": {
+    "intro": "Eine Verwerfung ist ein Bruch, an dem sich Gesteinsschollen gegeneinander verschoben haben. Wie sie sich bewegen, hängt davon ab, ob die Kruste gedehnt, eingeengt oder geschert wird.",
+    "sections": [
+      {
+        "h": "Abschiebungen – Dehnung",
+        "p": "Wird die Kruste auseinandergezogen, gleitet der Block über einer geneigten Verwerfung – die hangende Scholle – gegenüber der liegenden Scholle nach unten. Abschiebungen formen Grabenbrüche wie den Ostafrikanischen Graben und die Basin-and-Range-Provinz im Westen der USA."
+      },
+      {
+        "h": "Auf- und Überschiebungen – Einengung",
+        "p": "Wird die Kruste zusammengedrückt, wird die hangende Scholle nach oben geschoben. Flach einfallende Aufschiebungen heißen Überschiebungen; die gewaltigen Megaüberschiebungen an Subduktionszonen lösten die Erdbeben von Tōhoku (M9,1, 2011) und Chile (M9,5, 1960) aus."
+      },
+      {
+        "h": "Blattverschiebungen – Scherung",
+        "p": "Hier gleiten die Schollen an einer fast senkrechten Verwerfung horizontal aneinander vorbei. Stell dich auf eine Seite: Bewegt sich die gegenüberliegende Seite nach rechts, ist die Verschiebung rechtsseitig, wie an der San-Andreas-Verwerfung; bewegt sie sich nach links, ist sie linksseitig. Bei den Erdbeben in der Türkei 2023 rissen Blattverschiebungen auf mehr als 300 km Länge auf."
+      },
+      {
+        "h": "Warum das wichtig ist",
+        "p": "Der Verwerfungstyp bestimmt, wie der Boden bebt und ob sich der Meeresboden vertikal bewegt – die entscheidende Zutat für einen Tsunami."
+      }
+    ]
+  },
+  "waves": {
+    "intro": "Wenn eine Verwerfung bricht, breitet sich die Energie als seismische Wellen aus. Seismometer zeichnen sie in einer festen Reihenfolge auf, und aus den Abständen zwischen ihren Ankunftszeiten lässt sich ablesen, wo das Erdbeben war und wie stark.",
+    "sections": [
+      {
+        "h": "P-Wellen – die ersten",
+        "p": "Primärwellen sind Kompressionswellen: Das Gestein wird in Ausbreitungsrichtung gestaucht und gedehnt, wie ein Impuls, der durch eine Spiralfeder läuft. Sie sind am schnellsten – in der Kruste etwa 6 km/s – und durchqueren Festkörper, Flüssigkeiten und Gase. Du spürst sie vielleicht als kurzen, harten Stoß oder hörst ein Grollen."
+      },
+      {
+        "h": "S-Wellen – das starke Rütteln",
+        "p": "Sekundärwellen scheren das Gestein seitlich hin und her, quer zur Ausbreitungsrichtung, mit etwa 3,5 km/s. Flüssigkeiten lassen sich nicht scheren, deshalb können S-Wellen den äußeren Erdkern nicht durchqueren – daher wissen wir, dass er flüssig ist."
+      },
+      {
+        "h": "Oberflächenwellen – das lange Rollen",
+        "p": "Love- und Rayleigh-Wellen laufen an der Oberfläche entlang. Sie sind am langsamsten, aber oft am stärksten; Rayleigh-Wellen bewegen den Boden in einer rollenden Ellipse, wie die Dünung auf dem Meer. Sie verursachen einen Großteil der Schäden weit entfernt vom Epizentrum."
+      },
+      {
+        "h": "Ein Erdbeben orten",
+        "p": "Jede Sekunde Abstand zwischen der Ankunft der P- und der S-Welle entspricht etwa 8 km Entfernung. Zieh um drei oder mehr Messstationen einen Kreis mit dieser Entfernung – die Kreise schneiden sich im Epizentrum. Frühwarnsysteme nutzen die schnelle P-Welle, um Warnungen Sekunden bevor das starke Rütteln der S-Welle eintrifft zu verschicken."
+      }
+    ]
+  },
+  "mag": {
+    "intro": "Die Magnitude misst die Stärke eines Erdbebens an seinem Ursprung – ein einziger Wert pro Ereignis. Die Intensität misst die Erschütterung an einem bestimmten Ort und hängt von Entfernung, Tiefe und Untergrund ab.",
+    "sections": [
+      {
+        "h": "Momenten-Magnitude",
+        "p": "Die moderne Magnitude (Mw) beruht auf dem seismischen Moment: Fläche der Verwerfung × Versatz × Steifigkeit des Gesteins. Jede ganze Stufe bedeutet etwa 32-mal mehr Energie und eine 10-mal stärkere Bodenbewegung im Seismogramm. Ein M8 setzt rund 1.000-mal so viel Energie frei wie ein M6."
+      },
+      {
+        "h": "Intensität – was Menschen spüren",
+        "p": "Die modifizierte Mercalli-Skala reicht von I (nicht gespürt) bis X+ (extrem) und wird in römischen Ziffern angegeben. Sie beruht auf Beobachtungen – auch auf Meldungen wie denen, die du aus sisma schickst. Deshalb kann ein und dasselbe M6-Beben in der Nähe Intensität VIII erreichen und einige hundert Kilometer entfernt III."
+      },
+      {
+        "h": "Warum weicher Boden stärker bebt",
+        "p": "Lockere Sedimente und aufgeschüttetes Land verstärken und verlängern die Erschütterungen im Vergleich zu Festgestein. Der uralte Seeboden, auf dem Mexiko-Stadt steht, machte das Erdbeben von 1985 (M8,0) noch 350 km vom Epizentrum entfernt verheerend."
+      }
+    ]
+  },
+  "depth": {
+    "intro": "Erdbeben ereignen sich von der Oberfläche bis in etwa 700 km Tiefe. Die Tiefe bestimmt, wie stark die Erschütterungen bei uns ankommen, und verrät etwas über die Platten darunter.",
+    "sections": [
+      {
+        "h": "Flach, mitteltief, tief",
+        "p": "Flache Erdbeben (0–70 km) sind am häufigsten und richten die größten Schäden an, weil die Energie nur einen kurzen Weg hat, um abzuklingen. Mitteltiefe (70–300 km) und tiefe Beben (300–700 km) treten fast nur im Inneren kalter, abtauchender Plattenstücke auf; sie sind weiträumig spürbar, verursachen aber selten schwere Schäden."
+      },
+      {
+        "h": "Nachbeben",
+        "p": "Ein starkes Erdbeben verändert die Spannung an benachbarten Verwerfungen und löst Nachbeben aus. Ihre Häufigkeit nimmt ungefähr mit 1 / Zeit ab (Omori-Gesetz): am zweiten Tag etwa halb so viele wie am ersten, am zehnten Tag ein Zehntel. Das stärkste Nachbeben ist meist etwa 1,2 Magnitudeneinheiten schwächer als das Hauptbeben (Båth-Gesetz) – immer noch genug, um geschwächte Gebäude zu beschädigen."
+      },
+      {
+        "h": "Vorbeben",
+        "p": "Manchmal stellt sich ein Erdbeben als Vorbeben eines stärkeren heraus. Das lässt sich erst im Nachhinein sagen – deshalb geben Nachbebenprognosen Wahrscheinlichkeiten an, keine Vorhersagen."
+      }
+    ]
+  },
+  "tsunami": {
+    "intro": "Ein Tsunami ist eine Folge von Wellen, ausgelöst durch die plötzliche Verdrängung einer riesigen Wassermenge – meist dann, wenn ein Megaüberschiebungsbeben den Meeresboden anhebt oder absenkt.",
+    "sections": [
+      {
+        "h": "Schnell und niedrig auf hoher See",
+        "p": "Im offenen Ozean breitet sich ein Tsunami mit √(g × Tiefe) aus: bei 4.000 m Wassertiefe mit etwa 700 km/h, so schnell wie ein Düsenflugzeug. Seine Höhe kann unter einem Meter liegen, und Schiffe bemerken ihn womöglich gar nicht."
+      },
+      {
+        "h": "Langsam und hoch an der Küste",
+        "p": "Wird das Wasser flacher, bremst die Welle ab, und ihre Energie drängt sich auf weniger Tiefe zusammen – ihre Höhe wächst dramatisch. Das Meer kann sich zuerst zurückziehen und den Meeresboden freilegen – ein natürliches Warnzeichen."
+      },
+      {
+        "h": "Was du tun solltest",
+        "p": "Wenn du an der Küste bist und starke Erschütterungen spürst, die 20 Sekunden oder länger dauern, oder siehst, wie sich das Meer zurückzieht, geh sofort auf höheres Gelände oder ins Landesinnere. Warte nicht auf eine offizielle Warnung, und halte dich fern, bis die Behörden Entwarnung geben – spätere Wellen können größer sein."
+      }
+    ]
+  },
+  "prep": {
+    "intro": "Niemand kann Erdbeben vorhersagen, aber Vorsorge rettet Leben. Die meisten Verletzungen entstehen durch herabfallende Gegenstände und Trümmer, nicht durch einstürzende Gebäude.",
+    "sections": [
+      {
+        "h": "Während des Bebens",
+        "p": "Runter auf Hände und Knie. Schütze Kopf und Nacken unter einem stabilen Tisch oder an einer Innenwand. Halte dich fest, bis das Beben aufhört. Lauf nicht nach draußen, solange sich der Boden bewegt; wenn du im Bett liegst, bleib dort und schütze deinen Kopf mit einem Kissen."
+      },
+      {
+        "h": "Nach dem Beben",
+        "p": "Rechne mit Nachbeben. Prüfe, ob du oder andere verletzt sind. Riechst du Gas, verlass das Gebäude und benutze weder Schalter noch offenes Feuer. Schick lieber Textnachrichten, statt anzurufen, damit die Netze frei bleiben, und folge den Anweisungen der örtlichen Behörden."
+      },
+      {
+        "h": "Bevor es passiert",
+        "p": "Befestige schwere Möbel und Warmwasserspeicher an der Wand, lerne, wie du Gas und Wasser abstellst, und vereinbare mit deinem Haushalt einen Treffpunkt. Stell ein Notfallset für mindestens drei Tage zusammen."
+      }
+    ],
+    "kit": [
+      "Wasser – 4 L pro Person und Tag, für 3 Tage",
+      "Haltbare Lebensmittel",
+      "Taschenlampe und Ersatzbatterien",
+      "Erste-Hilfe-Set",
+      "Verschreibungspflichtige Medikamente",
+      "Trillerpfeife",
+      "Powerbank fürs Handy",
+      "Kopien wichtiger Dokumente"
+    ]
+  },
+  "ring": {
+    "intro": "Der Pazifische Feuerring ist ein etwa 40.000 km langes Hufeisen aus Tiefseegräben, Vulkanen und Verwerfungen am Rand des Pazifischen Ozeans: von Neuseeland, Tonga und Indonesien über die Philippinen, Japan und Kamtschatka, quer über die Aleuten und Alaska und dann entlang Nord- und Südamerikas bis zur Südspitze Chiles. Rund 90 % aller Erdbeben weltweit ereignen sich an ihm, darunter die meisten der stärksten.",
+    "sections": [
+      {
+        "h": "Keine einzelne Verwerfung, sondern eine Kette von Plattenrändern",
+        "p": "Der Feuerring ist kein einzelner Riss. Hier treffen die Pazifische Platte, die größte der Erde, und die kleineren Nazca-, Cocos-, Juan-de-Fuca- und Philippinischen Platten auf ihre Nachbarplatten. Größtenteils ist diese Grenze eine Subduktionszone: Älterer, kälterer und dichterer Ozeanboden taucht unter die Nachbarplatte in den Erdmantel ab und hinterlässt tiefe Gräben wie den Marianengraben, mit etwa 11 km die tiefste Stelle der Ozeane. An einigen Stellen gleiten die Platten stattdessen seitlich aneinander vorbei, entlang von Transformverwerfungen wie der San-Andreas-Verwerfung in Kalifornien und der Alpinen Verwerfung in Neuseeland."
+      },
+      {
+        "h": "Warum hier die stärksten Erdbeben entstehen",
+        "p": "Wo eine Platte unter eine andere abtaucht, verhaken sich beide an einer flach geneigten Verwerfung, der sogenannten Megaüberschiebung. Sie kann über 1.000 km lang und mehr als 100 km breit sein. Über Jahrhunderte baut sich Spannung auf, bis eine riesige Fläche auf einmal abrutscht. Deshalb trafen die stärksten je aufgezeichneten Erdbeben den Feuerring: Chile 1960 (M9,5, das stärkste je gemessene), Alaska 1964 (M9,2), Tōhoku in Japan 2011 (M9,1) und Kamtschatka 1952 (M9,0). Der US Geological Survey schätzt, dass sich etwa 81 % der stärksten Erdbeben der Welt rund um den Pazifik ereignen. Weil diese Brüche den Meeresboden schlagartig anheben, können sie auch Tsunamis über den ganzen Ozean schicken: Die Wellen aus Chile erreichten 1960 innerhalb eines Tages Hawaii und Japan."
+      },
+      {
+        "h": "Vulkane über abtauchenden Platten",
+        "p": "Wenn eine Platte absinkt, treiben Hitze und Druck das Wasser aus ihrem Gestein. Das Wasser senkt den Schmelzpunkt des heißen Mantels darüber; er schmilzt teilweise auf, steigt auf und speist Vulkanketten parallel zum Graben: die Anden, das Kaskadengebirge, Japan, Indonesien und die Philippinen. Am Feuerring liegen rund 450 Vulkane, etwa drei Viertel der aktiven Vulkane an Land. Ihnen verdankt er seinen Namen – doch am häufigsten bringt er Erdbeben hervor."
+      },
+      {
+        "h": "Erdbeben tief im Erdinneren",
+        "p": "Die meisten Erdbeben ereignen sich in den obersten paar Dutzend Kilometern. Am Feuerring folgen sie außerdem jeder abtauchenden Platte hinab in den Mantel, in einem geneigten Band, das nach den Forschern, die es kartierten, Wadati-Benioff-Zone heißt. Diese Beben können bis in etwa 700 km Tiefe reichen. Unter Tonga und Fidschi, der weltweit aktivsten Zone für tiefe Erdbeben, fällt das Band nach Westen bis in mehr als 600 km Tiefe ein. Tiefe Erdbeben sind weiträumig spürbar, erschüttern die Oberfläche aber meist weniger als flache Beben gleicher Magnitude. Schalte im Tab Globus „Tiefe“ ein: Dann siehst du die abtauchenden Platten, gezeichnet von den Beben selbst."
+      },
+      {
+        "h": "Ruhe heißt nicht Sicherheit",
+        "p": "Manche Abschnitte des Feuerrings haben seit Menschengedenken kein großes Erdbeben erlebt – und doch sind sie verhakt und laden sich auf. Die Cascadia-Subduktionszone vor British Columbia, Washington und Oregon brach zuletzt im Januar 1700, bei einem Beben von etwa Magnitude 9, das Forschende anhand des Tsunamis datierten, den es bis nach Japan schickte. Nicht alles im Pazifik gehört jedoch zum Feuerring: Hawaii liegt über einem Hotspot mitten auf der Pazifischen Platte, und der Ostpazifische Rücken nahe der Osterinsel ist ein mittelozeanischer Rücken, an dem Platten auseinanderdriften und die Erdbeben meist schwächer sind."
+      }
+    ]
+  }
+}

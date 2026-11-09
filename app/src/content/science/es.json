@@ -1,0 +1,164 @@
+{
+  "plates": {
+    "intro": "La capa externa de la Tierra está fragmentada en unas 15 placas principales de litosfera rígida, de hasta ~100 km de espesor cada una, que se deslizan sobre la astenosfera, más caliente y débil, a un ritmo de 2–10 cm al año: más o menos lo que crecen las uñas. Casi todos los sismos ocurren donde se encuentran las placas.",
+    "sections": [
+      {
+        "h": "Tres tipos de límite",
+        "p": "En los límites convergentes las placas chocan: la placa oceánica, más densa, se hunde bajo otra en una zona de subducción, donde se generan los mayores terremotos del planeta y cadenas de volcanes. En los límites divergentes, como la Dorsal Mesoatlántica, las placas se separan y el magma rellena el hueco. En los límites transformantes, como la Falla de San Andrés, las placas se desplazan de lado y rozan una contra otra."
+      },
+      {
+        "h": "Primero se traban, luego se deslizan",
+        "p": "Los bordes de las placas no se deslizan con suavidad. La fricción los mantiene trabados mientras las placas siguen moviéndose, así que la roca se deforma y acumula tensión elástica, a veces durante siglos. Cuando el esfuerzo supera la resistencia de la falla, esta se rompe en cuestión de segundos y la energía acumulada se libera en forma de ondas sísmicas. Es la teoría del rebote elástico, descrita por primera vez tras el terremoto de San Francisco de 1906."
+      },
+      {
+        "h": "El Anillo de Fuego",
+        "p": "Alrededor del 80 % de los grandes terremotos del mundo ocurren en torno al Pacífico, donde las placas oceánicas se hunden bajo Japón, Indonesia, los Andes, Alaska y Nueva Zelanda. Activa Profundidad en la pestaña Globo para ver las placas en subducción dibujadas por sismos a cientos de kilómetros de profundidad."
+      }
+    ]
+  },
+  "faults": {
+    "intro": "Una falla es una fractura a lo largo de la cual dos bloques de roca se han desplazado uno respecto al otro. Cómo se mueven depende de si la corteza se estira, se comprime o sufre cizalla.",
+    "sections": [
+      {
+        "h": "Fallas normales: extensión",
+        "p": "Cuando la corteza se estira, el bloque situado sobre una falla inclinada —el bloque colgante— desciende respecto al bloque yacente. Las fallas normales modelan valles de rift como el Rift de África Oriental o la región de Cuencas y Cordilleras (Basin and Range), en el oeste de Estados Unidos."
+      },
+      {
+        "h": "Fallas inversas y cabalgamientos: compresión",
+        "p": "Cuando la corteza se comprime, el bloque colgante es empujado hacia arriba. Las fallas inversas de bajo ángulo se llaman cabalgamientos; los gigantescos megacabalgamientos de las zonas de subducción produjeron los terremotos de Tōhoku (M9.1, 2011) y Chile (M9.5, 1960)."
+      },
+      {
+        "h": "Fallas de desgarre: cizalla",
+        "p": "Aquí los bloques se desplazan en horizontal a lo largo de una falla casi vertical. Colócate a un lado: si el bloque de enfrente se mueve hacia tu derecha, la falla es dextral, como la de San Andrés; si se mueve hacia tu izquierda, es sinestral. Los terremotos de Turquía de 2023 rompieron fallas de desgarre de más de 300 km de longitud."
+      },
+      {
+        "h": "Por qué importa",
+        "p": "El tipo de falla determina cómo tiembla el suelo y si el fondo marino se desplaza en vertical, el ingrediente clave de un tsunami."
+      }
+    ]
+  },
+  "waves": {
+    "intro": "Cuando una falla se rompe, la energía se propaga en forma de ondas sísmicas. Los sismómetros las registran siempre en el mismo orden, y el tiempo que separa cada llegada nos dice dónde se produjo el terremoto y qué tamaño tuvo.",
+    "sections": [
+      {
+        "h": "Ondas P: las primeras en llegar",
+        "p": "Las ondas primarias son de compresión: la roca se comprime y se estira en la misma dirección en que avanza la onda, como un impulso que recorre un muelle. Son las más rápidas, unos 6 km/s en la corteza, y atraviesan sólidos, líquidos y gases. Puedes notarlas como una sacudida seca u oírlas como un retumbo."
+      },
+      {
+        "h": "Ondas S: la sacudida fuerte",
+        "p": "Las ondas secundarias cizallan la roca de lado a lado, en perpendicular a su avance, a unos 3,5 km/s. Los líquidos no se pueden cizallar, así que las ondas S no atraviesan el núcleo externo de la Tierra: así sabemos que es líquido."
+      },
+      {
+        "h": "Ondas superficiales: el largo vaivén",
+        "p": "Las ondas Love y Rayleigh viajan por la superficie. Son las más lentas, pero a menudo las de mayor amplitud, y las de Rayleigh mueven el suelo describiendo una elipse, como el oleaje del mar. Causan gran parte de los daños lejos del epicentro."
+      },
+      {
+        "h": "Cómo se localiza un terremoto",
+        "p": "Cada segundo de retraso entre la llegada de la onda P y la de la onda S equivale a unos 8 km de distancia. Traza un círculo de ese radio alrededor de tres o más estaciones: se cortan en el epicentro. Los sistemas de alerta temprana aprovechan la rápida onda P para enviar avisos segundos antes de que llegue la fuerte sacudida de la onda S."
+      }
+    ]
+  },
+  "mag": {
+    "intro": "La magnitud mide el tamaño de un terremoto en su origen: un único número por evento. La intensidad mide la sacudida en un lugar concreto y varía con la distancia, la profundidad y el tipo de suelo.",
+    "sections": [
+      {
+        "h": "Magnitud de momento",
+        "p": "La magnitud moderna (Mw) se basa en el momento sísmico: el área de la falla × cuánto se desplazó × la rigidez de la roca. Cada unidad entera supone unas 32 veces más energía y 10 veces más movimiento del suelo en un sismograma. Un M8 libera unas 1000 veces la energía de un M6."
+      },
+      {
+        "h": "Intensidad: lo que siente la gente",
+        "p": "La escala de Mercalli modificada va de I (no se siente) a X+ (extrema) y se escribe en números romanos. Se elabora a partir de observaciones —incluidos reportes como los que envías desde sisma—, así que un mismo M6 puede tener intensidad VIII cerca y III a unos cientos de kilómetros."
+      },
+      {
+        "h": "Por qué el suelo blando tiembla más",
+        "p": "Los sedimentos sueltos y los rellenos artificiales amplifican y prolongan la sacudida en comparación con la roca firme. El antiguo lecho lacustre de la Ciudad de México hizo que el terremoto de M8.0 de 1985 fuera devastador a 350 km de su epicentro."
+      }
+    ]
+  },
+  "depth": {
+    "intro": "Los terremotos se producen desde la superficie hasta unos 700 km de profundidad. La profundidad influye en la fuerza con que nos llega la sacudida y nos informa sobre las placas que hay debajo.",
+    "sections": [
+      {
+        "h": "Superficiales, intermedios, profundos",
+        "p": "Los sismos superficiales (0–70 km) son los más frecuentes y los más dañinos, porque la energía apenas tiene recorrido para atenuarse. Los intermedios (70–300 km) y los profundos (300–700 km) se producen casi solo dentro de las frías placas que se hunden en subducción; se sienten en zonas amplias, pero rara vez causan daños graves."
+      },
+      {
+        "h": "Réplicas",
+        "p": "Un gran terremoto altera los esfuerzos en las fallas cercanas y desencadena réplicas. Su ritmo disminuye aproximadamente como 1 / tiempo (ley de Omori): el segundo día hay más o menos la mitad que el primero, y el décimo, una décima parte. La réplica mayor suele ser unas 1,2 unidades de magnitud menor que el sismo principal (ley de Båth), lo que aún basta para dañar edificios debilitados."
+      },
+      {
+        "h": "Sismos precursores",
+        "p": "A veces un terremoto resulta ser el precursor de otro mayor. Eso solo se sabe a posteriori, y por eso los pronósticos de réplicas dan probabilidades, no predicciones."
+      }
+    ]
+  },
+  "tsunami": {
+    "intro": "Un tsunami es una serie de olas causada por el desplazamiento repentino de un enorme volumen de agua, casi siempre cuando un terremoto de megacabalgamiento eleva o hunde el fondo marino.",
+    "sections": [
+      {
+        "h": "Rápido y bajo en aguas profundas",
+        "p": "En mar abierto, un tsunami viaja a √(g × profundidad): unos 700 km/h en 4000 m de agua, tan rápido como un avión a reacción. Puede medir menos de un metro de altura, y los barcos quizá ni lo noten pasar."
+      },
+      {
+        "h": "Lento y alto en la costa",
+        "p": "Al disminuir la profundidad, la ola se frena y su energía se concentra en menos agua, así que su altura crece de forma espectacular. Antes, el mar puede retirarse y dejar al descubierto el fondo: una señal de alarma natural."
+      },
+      {
+        "h": "Qué hacer",
+        "p": "Si estás en la costa y sientes una sacudida fuerte que dura 20 segundos o más, o ves que el mar se retira, dirígete de inmediato a un terreno elevado o tierra adentro. No esperes a una alerta oficial y mantente alejado hasta que las autoridades indiquen que ha pasado el peligro: las olas posteriores pueden ser más grandes."
+      }
+    ]
+  },
+  "prep": {
+    "intro": "Nadie puede predecir los terremotos, pero prepararse salva vidas. La mayoría de las lesiones se deben a objetos que caen y a escombros, no al derrumbe de edificios.",
+    "sections": [
+      {
+        "h": "Durante la sacudida",
+        "p": "Agáchate y apóyate sobre las manos y las rodillas. Cúbrete la cabeza y el cuello bajo una mesa resistente o junto a una pared interior. Sujétate hasta que termine la sacudida. No salgas corriendo mientras el suelo se mueve; si estás en la cama, quédate en ella y protégete la cabeza con una almohada."
+      },
+      {
+        "h": "Después de la sacudida",
+        "p": "Cuenta con que habrá réplicas. Comprueba si tú u otras personas tienen heridas. Si huele a gas, sal y no uses interruptores ni llamas. Envía mensajes de texto en lugar de llamar para no saturar las redes, y sigue las indicaciones de las autoridades locales."
+      },
+      {
+        "h": "Antes de que ocurra",
+        "p": "Fija a la pared los muebles pesados y el calentador de agua, aprende a cortar el gas y el agua, y acuerda un punto de encuentro con las personas con las que vives. Prepara un kit para al menos tres días."
+      }
+    ],
+    "kit": [
+      "Agua: 4 L por persona y día, para 3 días",
+      "Alimentos no perecederos",
+      "Linterna y pilas de repuesto",
+      "Botiquín de primeros auxilios",
+      "Medicamentos con receta",
+      "Silbato",
+      "Batería externa para el teléfono",
+      "Copias de documentos importantes"
+    ]
+  },
+  "ring": {
+    "intro": "El Anillo de Fuego es una herradura de fosas oceánicas, volcanes y fallas de unos 40 000 km de longitud que bordea el océano Pacífico: desde Nueva Zelanda, Tonga e Indonesia, pasando por Filipinas, Japón y Kamchatka, cruza las Aleutianas y Alaska y desciende por América hasta el extremo de Chile. A lo largo de él se producen cerca del 90 % de los terremotos del mundo, entre ellos la mayoría de los más grandes.",
+    "sections": [
+      {
+        "h": "No es una falla, sino una cadena de bordes de placa",
+        "p": "El Anillo no es una única grieta. Es donde la placa del Pacífico, la mayor de la Tierra, y las placas más pequeñas de Nazca, Cocos, Juan de Fuca y del Mar de Filipinas se encuentran con las placas que las rodean. La mayor parte de ese límite es de subducción: el fondo oceánico más antiguo, frío y denso se hunde bajo su vecino hacia el manto y deja fosas profundas como la Fosa de las Marianas, el lugar más profundo de los océanos, con unos 11 km. En algunos puntos, en cambio, las placas se deslizan lateralmente a lo largo de fallas transformantes, como la Falla de San Andrés, en California, o la Falla Alpina, en Nueva Zelanda."
+      },
+      {
+        "h": "Por qué aquí ocurren los mayores terremotos",
+        "p": "Donde una placa se hunde bajo otra, ambas quedan trabadas a lo largo de una falla de suave pendiente llamada megacabalgamiento, que puede superar los 1000 km de longitud y los 100 km de anchura. La tensión se acumula durante siglos hasta que una zona enorme se desliza de golpe. Por eso los mayores terremotos jamás registrados se produjeron en el Anillo: Chile en 1960 (M9.5, el mayor jamás medido), Alaska en 1964 (M9.2), Tōhoku (Japón) en 2011 (M9.1) y Kamchatka en 1952 (M9.0). El Servicio Geológico de Estados Unidos (USGS) calcula que cerca del 81 % de los mayores terremotos del mundo ocurren en torno al Pacífico. Como estas rupturas elevan de repente el fondo marino, también pueden generar tsunamis que cruzan todo el océano: las olas del terremoto de Chile de 1960 llegaron a Hawái y Japón en menos de un día."
+      },
+      {
+        "h": "Volcanes sobre placas que se hunden",
+        "p": "Al hundirse una placa, el calor y la presión expulsan el agua de sus rocas. Esa agua rebaja el punto de fusión del manto caliente que tiene encima, que se funde en parte, asciende y alimenta hileras de volcanes paralelas a la fosa: los Andes, la cordillera de las Cascadas, Japón, Indonesia y Filipinas. El Anillo alberga unos 450 volcanes, cerca de tres cuartas partes de los volcanes activos en tierra firme. Por ellos se le llama Anillo de Fuego, aunque lo que produce con más frecuencia son terremotos."
+      },
+      {
+        "h": "Terremotos en las profundidades de la Tierra",
+        "p": "La mayoría de los terremotos se producen en las primeras decenas de kilómetros. A lo largo del Anillo, además, siguen a cada placa que se hunde en el manto, en una franja inclinada llamada zona de Wadati–Benioff, por los científicos que la cartografiaron. Pueden alcanzar unos 700 km de profundidad. Bajo Tonga y Fiyi, la zona con más terremotos profundos del mundo, la franja se inclina hacia el oeste hasta más de 600 km. Los terremotos profundos se sienten en zonas amplias, pero suelen sacudir la superficie menos que los superficiales de la misma magnitud. Activa Profundidad en la pestaña Globo para ver las placas dibujadas por los propios sismos."
+      },
+      {
+        "h": "Calma no significa seguridad",
+        "p": "Algunos tramos del Anillo no han sufrido ningún gran terremoto que se recuerde, pero están trabados y acumulando tensión. La zona de subducción de Cascadia, frente a la Columbia Británica, Washington y Oregón, se rompió por última vez en enero de 1700, en un terremoto de magnitud cercana a 9 que los científicos fecharon gracias al tsunami que llegó hasta Japón. Sin embargo, no todo el Pacífico forma parte del Anillo: Hawái se encuentra sobre un punto caliente en medio de la placa del Pacífico, y la Dorsal del Pacífico Oriental, cerca de la Isla de Pascua, es una dorsal donde las placas se separan y los terremotos suelen ser menores."
+      }
+    ]
+  }
+}
