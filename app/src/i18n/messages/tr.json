@@ -143,7 +143,8 @@
     "Büyüklük ve şiddet",
     "Derinlik ve artçılar",
     "Tsunamiler",
-    "Hazırlık"
+    "Hazırlık",
+    "Pasifik Ateş Çemberi"
   ],
   "web": {
     "nav_features": "Özellikler",
@@ -160,7 +161,7 @@
     "f3_h": "Ne hissettiğini anlat",
     "f3_p": "On saniyelik bir bildirim ve isteğe bağlı ayrıntılar, yerel sarsıntı tablosunu oluşturur.",
     "f4_h": "Görünür bilim",
-    "f4_p": "Levha tektoniğinden tsunamilere, animasyonlu şemalarla yedi kapsamlı anlatım.",
+    "f4_p": "Levha tektoniğinden Ateş Çemberi’ne, animasyonlu şemalar ve canlı verilerle sekiz kapsamlı anlatım.",
     "price_h": "Kullanımı ücretsiz. Daha fazlası için sisma+.",
     "price_p": "sisma+’ı 7 gün ücretsiz dene.",
     "lang_h": "Senin dilini konuşur",
@@ -270,7 +271,14 @@
     },
     "next": "Sonraki konu",
     "pause": "Animasyonu duraklat",
-    "play": "Animasyonu oynat"
+    "play": "Animasyonu oynat",
+    "ring": {
+      "live": "Canlı: {total} M4.5+ depremin {n} tanesi (%{pct}) Ateş Çemberi’nde ({range})",
+      "on": "Ateş Çemberi",
+      "off": "Diğer yerler",
+      "map": "Son M4.5+ depremleri gösteren Pasifik haritası; Ateş Çemberi’ndekiler vurgulanır",
+      "note": "Filtreler’de seçilen dönemdeki M4.5+ depremleri sayar; bu yüzden oran haftadan haftaya değişir. Çemberin sınırı yaklaşıktır."
+    }
   },
   "acct": {
     "account": "Hesap",

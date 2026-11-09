@@ -143,7 +143,8 @@
     "Magnitudo e intensità",
     "Profondità e repliche",
     "Tsunami",
-    "Prepararsi"
+    "Prepararsi",
+    "L’Anello di Fuoco"
   ],
   "web": {
     "nav_features": "Funzioni",
@@ -160,7 +161,7 @@
     "f3_h": "Raccontaci cosa hai sentito",
     "f3_p": "Una segnalazione di dieci secondi, con dettagli facoltativi, costruisce un quadro locale dello scuotimento.",
     "f4_h": "Scienza da vedere",
-    "f4_p": "Sette approfondimenti con diagrammi animati, dalla tettonica delle placche agli tsunami.",
+    "f4_p": "Otto approfondimenti con diagrammi animati e dati in tempo reale, dalla tettonica delle placche all’Anello di Fuoco.",
     "price_h": "Gratis da usare. sisma+ quando vuoi di più.",
     "price_p": "Prova sisma+ gratis per 7 giorni.",
     "lang_h": "Parla la tua lingua",
@@ -270,7 +271,14 @@
     },
     "next": "Argomento successivo",
     "pause": "Metti in pausa l’animazione",
-    "play": "Avvia l’animazione"
+    "play": "Avvia l’animazione",
+    "ring": {
+      "live": "Live: {n} terremoti M4.5+ su {total} ({pct}%) sull’Anello di Fuoco ({range})",
+      "on": "Anello di Fuoco",
+      "off": "Altrove",
+      "map": "Mappa del Pacifico con i terremoti recenti di M4.5+; quelli sull’Anello di Fuoco sono evidenziati",
+      "note": "Conta i terremoti di M4.5+ del periodo scelto in Filtri, quindi la percentuale cambia di settimana in settimana. Il contorno dell’Anello è approssimativo."
+    }
   },
   "acct": {
     "account": "Account",
