@@ -30,3 +30,12 @@ describe('merged ids', () => {
     expect(hasId(m, 'emsc:other')).toBe(false);
   });
 });
+
+describe('JMA reports of earthquakes abroad', () => {
+  it('lose to USGS even when labelled Japan (preference follows the location)', () => {
+    const usgs = q({ id: 'usgs:us6000u43g', region: 'China', lat: 32.35, lon: 93.72, depthKm: 10, time: 1_000_000, mag: 7.0 });
+    const jma = q({ id: 'jma:20261022233944', source: 'jma', region: 'Japan', lat: 32.3, lon: 93.7, depthKm: 0, time: 1_020_000, mag: 7.0 });
+    const [m] = mergeQuakes([[usgs], [jma]]);
+    expect(m).toMatchObject({ id: 'usgs:us6000u43g', region: 'China', depthKm: 10 });
+  });
+});
