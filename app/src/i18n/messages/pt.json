@@ -143,7 +143,8 @@
     "Magnitude e intensidade",
     "Profundidade e réplicas",
     "Tsunamis",
-    "Preparação"
+    "Preparação",
+    "O Círculo de Fogo"
   ],
   "web": {
     "nav_features": "Recursos",
@@ -160,7 +161,7 @@
     "f3_h": "Conte o que você sentiu",
     "f3_p": "Um relato de dez segundos, com detalhes opcionais, forma um retrato local do tremor.",
     "f4_h": "Ciência visível",
-    "f4_p": "Sete explicações aprofundadas com diagramas animados, da tectônica de placas aos tsunamis.",
+    "f4_p": "Oito explicações aprofundadas com diagramas animados e dados ao vivo, da tectônica de placas ao Círculo de Fogo.",
     "price_h": "Grátis para usar. sisma+ quando quiser mais.",
     "price_p": "Experimente o sisma+ grátis por 7 dias.",
     "lang_h": "Fala o seu idioma",
@@ -270,7 +271,14 @@
     },
     "next": "Próximo tema",
     "pause": "Pausar animação",
-    "play": "Reproduzir animação"
+    "play": "Reproduzir animação",
+    "ring": {
+      "live": "Ao vivo: {n} de {total} terremotos M4.5+ ({pct}%) no Círculo de Fogo ({range})",
+      "on": "Círculo de Fogo",
+      "off": "Em outros lugares",
+      "map": "Mapa do Pacífico com os terremotos recentes de M4.5+; os do Círculo de Fogo estão destacados",
+      "note": "Conta os terremotos de M4.5+ do período escolhido em Filtros, por isso a porcentagem muda de uma semana para outra. O contorno do Círculo é aproximado."
+    }
   },
   "acct": {
     "account": "Conta",

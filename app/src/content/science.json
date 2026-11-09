@@ -216,5 +216,36 @@
       "Phone power bank",
       "Copies of key documents"
     ]
+  },
+  {
+    "id": "ring",
+    "icon": "volcano",
+    "tone": "warm",
+    "mins": 6,
+    "visual": "ring",
+    "modes": [],
+    "intro": "The Ring of Fire is a horseshoe of ocean trenches, volcanoes and faults about 40,000 km long around the edge of the Pacific Ocean: from New Zealand, Tonga and Indonesia through the Philippines, Japan and Kamchatka, across the Aleutians and Alaska, and down the Americas to the tip of Chile. About 90% of the world’s earthquakes happen along it, including most of the largest.",
+    "sections": [
+      {
+        "h": "Not one fault, but a chain of plate edges",
+        "p": "The Ring isn’t a single crack. It is where the Pacific plate, the largest on Earth, and the smaller Nazca, Cocos, Juan de Fuca and Philippine Sea plates meet the plates around them. Most of that boundary is subduction: older, colder and denser ocean floor sinks beneath its neighbour into the mantle, leaving deep trenches such as the Mariana Trench, the deepest place in the oceans at about 11 km. In a few places the plates slide sideways instead, along transform faults like California’s San Andreas Fault and New Zealand’s Alpine Fault."
+      },
+      {
+        "h": "Why the largest earthquakes happen here",
+        "p": "Where one plate dives beneath another, the two lock together along a gently sloping fault called a megathrust, which can be over 1,000 km long and more than 100 km wide. Strain builds for centuries until a huge area slips at once. That is why the largest earthquakes ever recorded struck the Ring: Chile in 1960 (M9.5, the largest ever measured), Alaska in 1964 (M9.2), Tōhoku in Japan in 2011 (M9.1) and Kamchatka in 1952 (M9.0). The US Geological Survey estimates that about 81% of the world’s largest earthquakes happen around the Pacific. Because these ruptures suddenly lift the sea floor, they can also send tsunamis across the whole ocean: the waves from Chile in 1960 struck Hawaii and Japan within a day."
+      },
+      {
+        "h": "Volcanoes above sinking plates",
+        "p": "As a plate sinks, heat and pressure drive water out of its rocks. The water lowers the melting point of the hot mantle above it, which partly melts, rises and feeds lines of volcanoes parallel to the trench: the Andes, the Cascades, Japan, Indonesia and the Philippines. The Ring holds about 450 volcanoes, roughly three-quarters of the active volcanoes on land. It is called the Ring of Fire for them, but it is earthquakes that it produces most often."
+      },
+      {
+        "h": "Earthquakes deep inside the Earth",
+        "p": "Most earthquakes happen in the top few tens of kilometres. Along the Ring they also follow each sinking plate down into the mantle, in a sloping band called a Wadati–Benioff zone, after the scientists who mapped it. These can reach about 700 km deep. Beneath Tonga and Fiji, the world’s most active zone for deep earthquakes, the band dips westward to more than 600 km. Deep earthquakes are felt over wide areas but usually shake the surface less than shallow ones of the same magnitude. Turn on Depth in the Globe tab to see the slabs drawn by the quakes themselves."
+      },
+      {
+        "h": "Quiet doesn’t mean safe",
+        "p": "Some stretches of the Ring have had no great earthquake in living memory, yet they are locked and loading. The Cascadia subduction zone off British Columbia, Washington and Oregon last ruptured in January 1700, in an earthquake of about magnitude 9 that scientists dated from the tsunami it sent to Japan. Not everything in the Pacific is part of the Ring, though: Hawaii sits above a hotspot in the middle of the Pacific plate, and the East Pacific Rise, near Easter Island, is a ridge where plates pull apart and earthquakes are usually smaller."
+      }
+    ]
   }
 ]

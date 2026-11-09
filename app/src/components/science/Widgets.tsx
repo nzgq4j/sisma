@@ -1,9 +1,13 @@
 'use client';
 // Interactive article widgets from design/SismaApp.dc.html: magnitude slider (visMag),
-// live depth histogram + Omori aftershock decay (visDepth), Drop/Cover/Hold + 3-day kit (visPrep).
+// live depth histogram + Omori aftershock decay (visDepth), Drop/Cover/Hold + 3-day kit (visPrep), and the live
+// Ring of Fire map (the M4.5+ earthquakes of the selected period around the Pacific, lib/ring-of-fire.ts).
 import { useMemo, useState, useSyncExternalStore } from 'react';
 import { useT } from '@/i18n/I18nProvider';
+import { geoEqualEarth, geoPath } from 'd3-geo';
 import { useQuakeData, RANGE_LABEL } from '@/components/QuakeData';
+import { LAND, SPHERE, usePlates } from '@/lib/world';
+import { onRingOfFire } from '@/lib/ring-of-fire';
 import styles from './science.module.css';
 
 const fill = (s: string, v: Record<string, string>) => s.replace(/\{(\w+)\}/g, (_, k) => v[k] ?? '');
@@ -113,5 +117,45 @@ export function PrepWidget({ kit }: { kit: string[] }) {
         ))}
       </section>
     </div>
+  );
+}
+
+// Equal Earth centred on 170° W and cropped to the Pacific (90° E to 60° W, 62° S to 68° N), so the rim fills the card.
+const RW = 640, RH = 400;
+const PACIFIC = { type: 'MultiPoint' as const, coordinates: [90, 130, 170, 210, 250, 300].flatMap(lon => [[lon, -62], [lon, 0], [lon, 68]]) };
+const ringProj = geoEqualEarth().rotate([170, 0]).fitExtent([[6, 6], [RW - 6, RH - 6]], PACIFIC);
+const ringPath = geoPath(ringProj);
+const RING_SPHERE = ringPath(SPHERE) ?? '';
+const RING_LAND = ringPath(LAND) ?? '';
+
+/** Live map of the selected period's M4.5+ earthquakes: on the Ring of Fire (warm) and elsewhere (muted), with counts. */
+export function RingWidget() {
+  const { t, m, nf } = useT();
+  const L = m.sci.ring;
+  const { all, range, loaded } = useQuakeData();
+  const plates = usePlates(true);
+  const platePath = useMemo(() => (plates ? ringPath(plates) ?? '' : ''), [plates]);
+  const dots = useMemo(() => all.filter(q => q.mag >= 4.5).map(q => ({ q, on: onRingOfFire(q.lat, q.lon), xy: ringProj([q.lon, q.lat]) }))
+    .filter(d => d.xy).sort((a, b) => Number(a.on) - Number(b.on) || a.q.mag - b.q.mag), [all]);
+  const on = dots.filter(d => d.on).length, total = dots.length;
+  const pct = total ? Math.round((on / total) * 100) : 0;
+  return (
+    <section className={styles.card}>
+      <p className={styles.cardLabel}>{loaded ? fill(L.live, { n: nf.format(on), total: nf.format(total), pct: String(pct), range: t(RANGE_LABEL[range]) }) : '…'}</p>
+      <svg viewBox={`0 0 ${RW} ${RH}`} className={styles.ringMap} role="img" aria-label={L.map}>
+        <path d={RING_SPHERE} fill="var(--map-sea)" />
+        <path d={RING_LAND} fill="var(--map-land)" stroke="var(--map-line)" strokeWidth={0.5} />
+        {platePath && <path d={platePath} fill="none" stroke="var(--map-plate)" strokeWidth={1} strokeDasharray="4 3" opacity={0.7} />}
+        {dots.map(({ q, on: o, xy }) => (
+          <circle key={q.id} cx={xy![0]} cy={xy![1]} r={2.6 + (q.mag - 4.5) * 1.8} fill={o ? 'var(--mag-2)' : 'var(--ink2)'} fillOpacity={o ? 0.85 : 0.45}
+            stroke={o ? 'var(--bg)' : 'none'} strokeWidth={0.5} />
+        ))}
+      </svg>
+      <div className={styles.ringLegend}>
+        <span><i style={{ background: 'var(--mag-2)' }} />{L.on}<b>{nf.format(on)}</b></span>
+        <span><i style={{ background: 'var(--ink2)', opacity: 0.6 }} />{L.off}<b>{nf.format(total - on)}</b></span>
+      </div>
+      <p className={styles.ringNote}>{L.note}</p>
+    </section>
   );
 }

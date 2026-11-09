@@ -143,7 +143,8 @@
     "Magnitude und Intensität",
     "Tiefe und Nachbeben",
     "Tsunamis",
-    "Vorsorge"
+    "Vorsorge",
+    "Der Pazifische Feuerring"
   ],
   "web": {
     "nav_features": "Funktionen",
@@ -160,7 +161,7 @@
     "f3_h": "Erzähl uns, was du gespürt hast",
     "f3_p": "Eine Zehn-Sekunden-Meldung mit optionalen Details ergibt ein lokales Bild der Erschütterung.",
     "f4_h": "Wissen, sichtbar gemacht",
-    "f4_p": "Sieben ausführliche Erklärungen mit animierten Grafiken, von Plattentektonik bis Tsunami.",
+    "f4_p": "Acht ausführliche Erklärungen mit animierten Grafiken und Live-Daten, von Plattentektonik bis zum Feuerring.",
     "price_h": "Kostenlos nutzbar. sisma+, wenn du mehr willst.",
     "price_p": "Teste sisma+ 7 Tage kostenlos.",
     "lang_h": "Spricht deine Sprache",
@@ -270,7 +271,14 @@
     },
     "next": "Nächstes Thema",
     "pause": "Animation anhalten",
-    "play": "Animation abspielen"
+    "play": "Animation abspielen",
+    "ring": {
+      "live": "Live: {n} von {total} Erdbeben ab M4,5 ({pct} %) am Feuerring ({range})",
+      "on": "Feuerring",
+      "off": "Anderswo",
+      "map": "Karte des Pazifiks mit aktuellen Erdbeben ab M4,5; die am Feuerring sind hervorgehoben",
+      "note": "Zählt Erdbeben ab M4,5 aus dem in den Filtern gewählten Zeitraum, daher ändert sich der Anteil von Woche zu Woche. Der Umriss des Feuerrings ist ungefähr."
+    }
   },
   "acct": {
     "account": "Konto",

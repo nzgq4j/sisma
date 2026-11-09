@@ -143,7 +143,8 @@
     "Magnitude vs intensity",
     "Depth & aftershocks",
     "Tsunamis",
-    "Preparedness"
+    "Preparedness",
+    "The Ring of Fire"
   ],
   "web": {
     "nav_features": "Features",
@@ -160,7 +161,7 @@
     "f3_h": "Tell us what you felt",
     "f3_p": "A ten-second report, with optional detail, builds a local picture of shaking.",
     "f4_h": "Science, made visible",
-    "f4_p": "Seven deep explainers with animated diagrams, from plate tectonics to tsunamis.",
+    "f4_p": "Eight deep explainers with animated diagrams and live data, from plate tectonics to the Ring of Fire.",
     "price_h": "Free to use. sisma+ when you want more.",
     "price_p": "Try sisma+ free for 7 days.",
     "lang_h": "Speaks your language",
@@ -270,7 +271,14 @@
     },
     "next": "Next topic",
     "pause": "Pause animation",
-    "play": "Play animation"
+    "play": "Play animation",
+    "ring": {
+      "live": "Live: {n} of {total} M4.5+ earthquakes ({pct}%) on the Ring of Fire ({range})",
+      "on": "Ring of Fire",
+      "off": "Elsewhere",
+      "map": "Map of the Pacific with recent M4.5+ earthquakes; those on the Ring of Fire are highlighted",
+      "note": "Counts M4.5+ earthquakes from the period chosen in Filters, so the share changes from week to week. The outline of the Ring is approximate."
+    }
   },
   "acct": {
     "account": "Account",

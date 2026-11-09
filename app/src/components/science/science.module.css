@@ -90,3 +90,11 @@
 .box :global(.ms) { font-size: 16px; color: transparent; }
 .box[data-on='true'] { border-color: var(--mint); background: var(--mint); }
 .box[data-on='true'] :global(.ms) { color: #0B2A20; }
+
+/* Ring of Fire widget: Pacific-centred map of the period's M4.5+ events, legend and note. */
+.ringMap { display: block; width: 100%; height: auto; border-radius: 16px; }
+.ringLegend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; font-weight: 600; }
+.ringLegend span { display: inline-flex; align-items: center; gap: 8px; }
+.ringLegend i { width: 12px; height: 12px; border-radius: 6px; flex: none; }
+.ringLegend b { font-weight: 800; }
+.ringNote { margin: 0; font-size: 13px; line-height: 1.45; color: var(--ink2); }

@@ -143,7 +143,8 @@
     "Magnitudo vs intensitas",
     "Kedalaman & gempa susulan",
     "Tsunami",
-    "Kesiapsiagaan"
+    "Kesiapsiagaan",
+    "Cincin Api Pasifik"
   ],
   "web": {
     "nav_features": "Fitur",
@@ -160,7 +161,7 @@
     "f3_h": "Ceritakan yang Anda rasakan",
     "f3_p": "Laporan sepuluh detik, dengan detail opsional, membentuk gambaran guncangan setempat.",
     "f4_h": "Sains yang terlihat",
-    "f4_p": "Tujuh penjelasan mendalam dengan diagram animasi, dari tektonik lempeng hingga tsunami.",
+    "f4_p": "Delapan penjelasan mendalam dengan diagram animasi dan data langsung, dari tektonik lempeng hingga Cincin Api.",
     "price_h": "Gratis digunakan. sisma+ saat Anda butuh lebih.",
     "price_p": "Coba sisma+ gratis selama 7 hari.",
     "lang_h": "Berbicara dalam bahasa Anda",
@@ -270,7 +271,14 @@
     },
     "next": "Topik berikutnya",
     "pause": "Jeda animasi",
-    "play": "Putar animasi"
+    "play": "Putar animasi",
+    "ring": {
+      "live": "Langsung: {n} dari {total} gempa M4.5+ ({pct}%) di Cincin Api ({range})",
+      "on": "Cincin Api",
+      "off": "Di tempat lain",
+      "map": "Peta Pasifik dengan gempa M4.5+ terbaru; gempa di Cincin Api ditandai",
+      "note": "Menghitung gempa M4.5+ dari periode yang dipilih di Filter, jadi persentasenya berubah dari minggu ke minggu. Batas Cincin Api bersifat perkiraan."
+    }
   },
   "acct": {
     "account": "Akun",

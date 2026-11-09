@@ -143,7 +143,8 @@
     "Magnitud e intensidad",
     "Profundidad y réplicas",
     "Tsunamis",
-    "Preparación"
+    "Preparación",
+    "El Anillo de Fuego"
   ],
   "web": {
     "nav_features": "Funciones",
@@ -160,7 +161,7 @@
     "f3_h": "Cuéntanos qué sentiste",
     "f3_p": "Un reporte de diez segundos, con detalles opcionales, crea una imagen local del movimiento.",
     "f4_h": "Ciencia que se ve",
-    "f4_p": "Siete explicaciones a fondo con diagramas animados, de la tectónica de placas a los tsunamis.",
+    "f4_p": "Ocho explicaciones a fondo con diagramas animados y datos en vivo, de la tectónica de placas al Anillo de Fuego.",
     "price_h": "Gratis. sisma+ cuando quieras más.",
     "price_p": "Prueba sisma+ gratis durante 7 días.",
     "lang_h": "Habla tu idioma",
@@ -270,7 +271,14 @@
     },
     "next": "Siguiente tema",
     "pause": "Pausar animación",
-    "play": "Reproducir animación"
+    "play": "Reproducir animación",
+    "ring": {
+      "live": "En vivo: {n} de {total} sismos de M4.5+ ({pct} %) en el Anillo de Fuego ({range})",
+      "on": "Anillo de Fuego",
+      "off": "En otras zonas",
+      "map": "Mapa del Pacífico con los sismos recientes de M4.5+; se destacan los del Anillo de Fuego",
+      "note": "Cuenta los sismos de M4.5+ del periodo elegido en Filtros, así que el porcentaje cambia de una semana a otra. El contorno del Anillo es aproximado."
+    }
   },
   "acct": {
     "account": "Cuenta",

@@ -58,9 +58,9 @@ export const CARDS = {
   },
   science: {
     title: 'How Earthquakes Work: Illustrated Science | sisma',
-    description: 'Seven illustrated guides to plate tectonics, faults, seismic waves, magnitude, depth, tsunamis and earthquake preparedness.',
+    description: 'Eight illustrated guides to plate tectonics, faults, seismic waves, magnitude, depth, tsunamis, the Pacific Ring of Fire and earthquake preparedness.',
     path: '/app/science', image: 'science', alt: 'Diagrams of plate tectonics, fault types, seismic waves and a tsunami',
-    kicker: 'Science', heading: 'How earthquakes work', sub: 'Seven illustrated guides, from plate tectonics to tsunamis.',
+    kicker: 'Science', heading: 'How earthquakes work', sub: 'Eight illustrated guides, from plate tectonics to the Ring of Fire.',
   },
   help: {
     title: 'Help & Support — sisma',

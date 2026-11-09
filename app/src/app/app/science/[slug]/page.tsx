@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation';
 import science from '@/content/science.json';
 import { useT } from '@/i18n/I18nProvider';
 import { ScienceCanvas } from '@/components/science/ScienceCanvas';
-import { DepthWidget, MagnitudeWidget, PrepWidget } from '@/components/science/Widgets';
+import { DepthWidget, MagnitudeWidget, PrepWidget, RingWidget } from '@/components/science/Widgets';
 import { VISUALS, type CanvasVisual } from '@/components/science/visuals';
 import styles from '@/components/science/science.module.css';
 
@@ -50,6 +50,7 @@ function ArticleView({ a, i }: { a: Article; i: number }) {
       {a.visual === 'mag' && <MagnitudeWidget />}
       {a.visual === 'depth' && <DepthWidget />}
       {a.visual === 'prep' && <PrepWidget kit={a.kit ?? []} />}
+      {a.visual === 'ring' && <RingWidget />}
 
       {a.sections.map(s => (
         <section key={s.h} className={styles.section} lang="en"><h2>{s.h}</h2><p>{s.p}</p></section>

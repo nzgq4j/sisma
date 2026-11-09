@@ -143,7 +143,8 @@
     "Magnitude et intensité",
     "Profondeur et répliques",
     "Tsunamis",
-    "Se préparer"
+    "Se préparer",
+    "La Ceinture de feu"
   ],
   "web": {
     "nav_features": "Fonctions",
@@ -160,7 +161,7 @@
     "f3_h": "Dites-nous ce que vous avez ressenti",
     "f3_p": "Un signalement de dix secondes, avec détails facultatifs, dessine la carte locale des secousses.",
     "f4_h": "La science, en images",
-    "f4_p": "Sept dossiers approfondis avec schémas animés, de la tectonique des plaques aux tsunamis.",
+    "f4_p": "Huit dossiers approfondis avec schémas animés et données en direct, de la tectonique des plaques à la Ceinture de feu.",
     "price_h": "Gratuit. sisma+ quand vous voulez plus.",
     "price_p": "Essayez sisma+ gratuitement pendant 7 jours.",
     "lang_h": "Parle votre langue",
@@ -270,7 +271,14 @@
     },
     "next": "Sujet suivant",
     "pause": "Mettre l’animation en pause",
-    "play": "Lire l’animation"
+    "play": "Lire l’animation",
+    "ring": {
+      "live": "En direct : {n} séismes M4.5+ sur {total} ({pct} %) dans la Ceinture de feu ({range})",
+      "on": "Ceinture de feu",
+      "off": "Ailleurs",
+      "map": "Carte du Pacifique avec les séismes récents de M4.5+ ; ceux de la Ceinture de feu sont mis en évidence",
+      "note": "Compte les séismes de M4.5+ de la période choisie dans Filtres : la part varie donc d’une semaine à l’autre. Le contour de la Ceinture est approximatif."
+    }
   },
   "acct": {
     "account": "Compte",
