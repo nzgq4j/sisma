@@ -7,7 +7,7 @@ webmaster tool.
 
 | Piece | Where | What it does |
 |---|---|---|
-| `robots.txt` | `app/src/app/robots.ts` | Everything may be crawled except `/api/` and the account pages (`/app/me`); points to the sitemap. |
+| `robots.txt` | `app/src/app/robots.ts` | Everything may be crawled except `/api/`; points to the sitemap. The account pages (`/app/me`) are crawlable but `noindex` (meta tag and `X-Robots-Tag`), so search engines see that and drop them. |
 | `sitemap.xml` | `app/src/app/sitemap.ts` | Home, feed, map, globe, science list, every science article, help hub and topics, privacy, terms. New articles and help topics are added automatically. |
 | Titles, descriptions, canonical URLs, social cards | `app/src/lib/seo.ts` | One per page; every page names its `https://sisma.io/...` address as canonical. Account pages are `noindex`. |
 | Structured data (JSON-LD) | `app/src/lib/structured-data.tsx` | Every page: the publisher (Organization) and the WebSite. Home: the app (SoftwareApplication; free, with the sisma+ prices). Science articles: Article + breadcrumbs. Help topics: TechArticle + breadcrumbs. No ratings or reviews. |
