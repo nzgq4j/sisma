@@ -43,7 +43,7 @@ SISMA+ (ASSINATURA OPCIONAL)
 • Até 10 locais salvos (1 no plano gratuito)
 • Até um ano de histórico de terremotos (o plano gratuito mostra os últimos 30 dias)
 • Filtros por magnitude e por região do mundo
-• Teste grátis de 7 dias para novos assinantes; depois, mensal ou anual. Cancele quando quiser no Google Play.
+• Teste grátis de 3 dias para novos assinantes; depois, um único plano anual. Cancele quando quiser no Google Play.
 
 Todo o resto é grátis e sem anúncios.
 

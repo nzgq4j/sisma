@@ -1,11 +1,12 @@
 export type Plan = 'free' | 'plus';
-export type Billing = 'monthly' | 'yearly';
+/** sisma+ is sold as one plan: yearly. */
+export type Billing = 'yearly';
 
-export const TRIAL_DAYS = 7;
+/** Free trial for new subscribers (the Google Play offer and the Stripe checkout use the same length). */
+export const TRIAL_DAYS = 3;
 
 export const PRICES: Record<Billing, { usd: number; stripePriceEnv: string; playProductId: string }> = {
-  monthly: { usd: 2.99, stripePriceEnv: 'STRIPE_PRICE_MONTHLY', playProductId: 'sisma_plus_monthly' },
-  yearly: { usd: 19.99, stripePriceEnv: 'STRIPE_PRICE_YEARLY', playProductId: 'sisma_yearly' },
+  yearly: { usd: 6.99, stripePriceEnv: 'STRIPE_PRICE_YEARLY', playProductId: 'sisma_yearly' },
 };
 
 export const ENTITLEMENTS = {

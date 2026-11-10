@@ -15,7 +15,7 @@ import { regionHref } from '@/components/QuakeDetail';
 import { AlertDevice, countryName } from '@/components/alerts/shared';
 import { useAlertHistory, useAlertRules, type Rule } from '@/components/alerts/useAlerts';
 import { quietLine, watchingLine } from '@/components/alerts/describe';
-import { limits } from '@/lib/entitlements';
+import { TRIAL_DAYS, limits } from '@/lib/entitlements';
 import { snapRadius } from '@/lib/alert-radius';
 import type { WorldRegion } from '@/lib/world-regions';
 import me from '../me.module.css';
@@ -42,7 +42,7 @@ export default function AlertsPage() {
         <div className={me.planFree}>
           <div className={me.planH}>{k.locked_h}</div>
           <div className={me.planP}>{user ? k.locked_p : k.signin_p}</div>
-          <button type="button" className={me.planBtn} onClick={() => setSheet('paywall')}>{t('trial')}</button>
+          <button type="button" className={me.planBtn} onClick={() => setSheet('paywall')}>{t('trial', { n: TRIAL_DAYS })}</button>
         </div>
       </div>
     );

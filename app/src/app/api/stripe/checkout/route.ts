@@ -5,13 +5,14 @@ import { adminClient, userForRequest } from '@/lib/auth';
 import { hasLiveSubscription, trialEligible, type BillingProfile } from '@/lib/billing';
 import { SITE } from '@/lib/site';
 
-// POST /api/stripe/checkout { billing: 'monthly' | 'yearly' } with Authorization: Bearer <Supabase access token>.
+// POST /api/stripe/checkout { billing: 'yearly' } (the only plan) with Authorization: Bearer <Supabase access token>.
 // The user id and email come from the verified session, never from the request body. The account's billing state is
 // read with the service role: an account that already has a live subscription (Stripe or Google Play) is refused,
 // the free trial is only offered to accounts that have never subscribed, and a returning subscriber's existing Stripe
 // customer is reused (so payment methods and invoices stay in one place).
 export async function POST(req: NextRequest) {
   const { billing } = (await req.json().catch(() => ({}))) as { billing?: Billing };
+  if (billing !== 'yearly') return NextResponse.json({ error: 'plan_not_offered' }, { status: 400 });
   const secret = process.env.STRIPE_SECRET_KEY, price = billing && process.env[PRICES[billing]?.stripePriceEnv ?? ''];
   if (!secret || !price) return NextResponse.json({ error: 'billing_not_configured' }, { status: 501 });
   const user = await userForRequest(req), db = adminClient();

@@ -9,7 +9,7 @@
 // - Back from Stripe (/app/me?upgraded=1): the plan is written by the webhook, so we wait for it (ActivationSheet).
 import { useEffect, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
-import { PRICES, type Billing } from '@/lib/entitlements';
+import { PRICES, TRIAL_DAYS, type Billing } from '@/lib/entitlements';
 import { trialEligible } from '@/lib/billing';
 import { clearPendingUpgrade, setPendingUpgrade, takePendingUpgrade } from '@/lib/pending-upgrade';
 import { buyWithPlay, inApp, playBillingReady, playPrices, restorePlay, type PlayResult } from '@/lib/play-client';
@@ -19,7 +19,6 @@ import { Sheet } from './Sheet';
 import styles from './paywall.module.css';
 
 const ICONS = ['notifications_active', 'bookmark_added', 'history', 'tune'];
-const SAVE = Math.round((1 - PRICES.yearly.usd / (PRICES.monthly.usd * 12)) * 100);
 type State = 'idle' | 'busy' | 'soon' | 'error' | 'already' | 'restore_none' | 'other_account' | 'unavailable';
 
 export function PaywallSheet() {
@@ -77,8 +76,9 @@ export function PaywallSheet() {
   // The plan chosen before signing up can arrive in the confirmation link (another browser): keep it for below.
   useEffect(() => {
     const url = new URL(location.href), up = url.searchParams.get('upgrade');
+    // 'monthly' links from before sisma+ became yearly only continue as yearly.
     if (up !== 'monthly' && up !== 'yearly') return;
-    setPendingUpgrade(up);
+    setPendingUpgrade('yearly');
     url.searchParams.delete('upgrade');
     history.replaceState(history.state, '', url.pathname + url.search + url.hash);
   }, []);
@@ -94,7 +94,7 @@ export function PaywallSheet() {
   }, [user, profile, plan]);
 
   const blocked = app && play === false;
-  const label = !user ? `${t('sign_in')} · ${t('trial')}` : trial ? t('trial') : b.subscribe;
+  const label = !user ? `${t('sign_in')} · ${t('trial', { n: TRIAL_DAYS })}` : trial ? t('trial', { n: TRIAL_DAYS }) : b.subscribe;
   const msg: Partial<Record<State, string>> = {
     soon: m.acct.billing_soon, error: m.acct.error, unavailable: b.play_not_ready, already: b.already, restore_none: b.restore_none, other_account: b.other_account,
   };
@@ -113,11 +113,10 @@ export function PaywallSheet() {
             ))}
           </ul>
           <div className={styles.prices} role="radiogroup">
-            {(['yearly', 'monthly'] as Billing[]).map(x => (
+            {(['yearly'] as Billing[]).map(x => (
               <button key={x} type="button" role="radio" aria-checked={billing === x} className={styles.price} onClick={() => setBilling(x)}>
                 <span className={styles.radio} aria-hidden="true"><span /></span>
-                <span className={styles.priceText}><strong>{t(x)}</strong><span>{t(x === 'yearly' ? 'per_year' : 'per_month')}</span></span>
-                {x === 'yearly' && <span className={styles.badge}>{t('save', { n: SAVE })}</span>}
+                <span className={styles.priceText}><strong>{t(x)}</strong><span>{t('per_year')}</span></span>
                 <span className={styles.amount}>{localPrices[x] ?? usd(PRICES[x].usd)}</span>
               </button>
             ))}

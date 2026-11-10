@@ -13,6 +13,6 @@ export const SITE = {
     privacyEmail: 'privacy@sisma.io',
     policyUpdated: '2026-11-03',
     supportEmail: 'support@sisma.io',
-    termsUpdated: '2026-11-04',
+    termsUpdated: '2026-11-10',
   },
 };

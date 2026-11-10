@@ -10,8 +10,8 @@ Source of truth: app/src/lib/entitlements.ts (UI) and public.effective_plan(prof
 | maxAlertRules | 0 | 5 | alert_rules trigger (enforce_alert_rules), Me → Alerts |
 | advancedFilters | false | true | /api/quakes ignores minMag/maxDepth/felt/tsunami for free |
 
-Pricing: monthly $2.99 (Stripe price STRIPE_PRICE_MONTHLY, Play product sisma_plus_monthly),
-yearly $19.99 (STRIPE_PRICE_YEARLY, sisma_yearly). The 7-day trial is only for accounts that have never
+Pricing: one plan, yearly $6.99 (Stripe price STRIPE_PRICE_YEARLY, Play product sisma_yearly; lib/entitlements.ts
+PRICES). The 3-day trial (TRIAL_DAYS) is only for accounts that have never
 subscribed (lib/billing.ts trialEligible; /api/stripe/checkout re-checks with Stripe; Google Play applies its own
 new-customer eligibility). Checkout refuses accounts with a running subscription in either store (409), and reuses a
 returning subscriber's Stripe customer. profiles.billing_source records which store the subscription comes from.
@@ -23,5 +23,5 @@ Cancelling happens in the Stripe billing portal or Play subscriptions, never by 
 Me → sisma+ card → Manage subscription (/app/me/subscription) shows the status, price and next date.
 Website subscriptions open Stripe's customer portal (POST /api/stripe/portal; the customer id comes from the
 signed-in user's profile on the server). Configure the portal once in Stripe (Settings → Billing → Customer portal):
-allow cancelling, updating the payment method, viewing invoices and switching between the monthly and yearly prices.
+allow cancelling, updating the payment method, and viewing invoices.
 Subscriptions bought in the Android app link to Google Play's subscription page instead.

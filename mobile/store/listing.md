@@ -49,7 +49,7 @@ SISMA+ (OPTIONAL SUBSCRIPTION)
 • Up to 10 saved locations (1 on the free plan)
 • Up to a year of earthquake history (the free plan shows the last 30 days)
 • Magnitude and world-region filters
-• 7-day free trial for new subscribers, then monthly or yearly. Cancel any time in Google Play.
+• 3-day free trial for new subscribers, then one simple yearly plan. Cancel any time in Google Play.
 
 Everything else is free, with no ads.
 

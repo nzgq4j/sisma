@@ -52,9 +52,9 @@ export default function TermsPage() {
       <h2 id="plus">4. sisma+ subscriptions</h2>
       <ul>
         <li><strong>What it includes.</strong> sisma+ adds the features described in the app at the time you subscribe, such as personal alerts, more saved places, full history and advanced filters. We may improve or change features over time.</li>
-        <li><strong>Price.</strong> {usd(PRICES.monthly.usd)} per month or {usd(PRICES.yearly.usd)} per year, or the local price shown by Google Play, plus any applicable taxes. The price that applies is the one shown when you subscribe.</li>
+        <li><strong>Price.</strong> {usd(PRICES.yearly.usd)} per year, or the local price shown by Google Play, plus any applicable taxes. The price that applies is the one shown when you subscribe.</li>
         <li><strong>Free trial.</strong> New subscribers may get a {TRIAL_DAYS}-day free trial, once per person. Unless you cancel before the trial ends, the subscription starts and you are charged.</li>
-        <li><strong>Renewal.</strong> Subscriptions renew automatically at the end of each monthly or yearly period until you cancel.</li>
+        <li><strong>Renewal.</strong> Subscriptions renew automatically at the end of each yearly period until you cancel.</li>
         <li><strong>Cancelling.</strong> You can cancel at any time: for subscriptions bought on the website, in Me → Subscription → Manage billing (Stripe); for subscriptions bought in the Android app, in Google Play → Payments &amp; subscriptions. Cancelling stops the next renewal; you keep sisma+ until the end of the period you have paid for.</li>
         <li><strong>Refunds.</strong> Except where the law requires otherwise, payments are not refundable and we don’t refund partial periods. Purchases made through Google Play are also subject to Google Play’s refund policies. If you have a legal right to cancel or to a refund where you live, these terms don’t limit it.</li>
         <li><strong>Price changes.</strong> If we change the price, we’ll tell you in advance, and the new price applies only from your next renewal. You can cancel before then.</li>

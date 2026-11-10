@@ -21,7 +21,7 @@ import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_TEXT_DY, dotRadius } from '@/lib/p
 import { setUnits, useUnits, type Units } from '@/components/Units';
 import { openOnboarding } from '@/components/onboarding/store';
 import { FeltMapInfoSheet, setFeltMapSharing, useFeltMapSharing } from '@/components/FeltMap';
-import { PRICES, limits } from '@/lib/entitlements';
+import { PRICES, TRIAL_DAYS, limits } from '@/lib/entitlements';
 import type { PlaceHit } from '@/lib/places';
 import styles from './me.module.css';
 
@@ -109,12 +109,11 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
         <div className={styles.planTop}><span>{t('current')}</span><span className={styles.planBadge}>{t('plan_free')}</span></div>
         <div className={styles.planH}>{t('upgrade')}</div>
         <div className={styles.planP}>{m.ent_plus.slice(0, 3).join(' · ')}</div>
-        <button type="button" className={styles.planBtn} onClick={onUpgrade}>{t('trial')}</button>
+        <button type="button" className={styles.planBtn} onClick={onUpgrade}>{t('trial', { n: TRIAL_DAYS })}</button>
       </div>
     );
   }
   const trialLeft = profile?.trial_ends_at ? Math.max(0, Math.ceil((new Date(profile.trial_ends_at).getTime() - now) / 86_400_000)) : 0;
-  const interval = profile?.billing_interval ?? 'monthly';
   // A cancelled subscription keeps sisma+ until the end of the paid period (or trial): say when it ends.
   const endIso = profile?.cancel_at_period_end ? (profile.subscription_status === 'trialing' ? profile.trial_ends_at : profile.current_period_end) ?? profile.current_period_end : null;
   const status = endIso ? m.sub.cancels_on.replace('{date}', new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(new Date(endIso)))
@@ -123,7 +122,7 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
     <div className={styles.planPlus}>
       <div className={styles.planTop}><span>{t('current')}</span><span>{status}</span></div>
       <div className={styles.planH}>sisma+</div>
-      <div className={styles.planSub}>{new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(PRICES[interval].usd)} {t(interval === 'yearly' ? 'per_year' : 'per_month')}</div>
+      <div className={styles.planSub}>{new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(PRICES.yearly.usd)} {t('per_year')}</div>
       <Link href="/app/me/subscription" className={styles.planManage}>{m.sub.manage}<span className="ms" aria-hidden="true">chevron_right</span></Link>
     </div>
   );

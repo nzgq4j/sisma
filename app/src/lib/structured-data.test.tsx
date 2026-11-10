@@ -11,7 +11,7 @@ describe('structured data', () => {
     expect(siteGraph().map(t => t['@type'])).toEqual(['Organization', 'WebSite']);
     const [app] = appGraph();
     expect(app).toMatchObject({ '@type': 'SoftwareApplication', name: 'sisma', operatingSystem: 'Web, Android' });
-    expect((app.offers as { price: number }[]).map(o => o.price)).toEqual([0, 2.99, 19.99]);
+    expect((app.offers as { price: number }[]).map(o => o.price)).toEqual([0, 6.99]);
     expect(app).not.toHaveProperty('aggregateRating');
   });
   it('has an article with breadcrumbs for every science article', () => {

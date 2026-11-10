@@ -76,7 +76,7 @@ const SHOTS = {
   me_more: { path: '/app/me', account: PLUS, act: async p => { await p.getByRole('button').filter({ hasText: /^languageLanguage/ }).first().evaluate(e => { e.scrollIntoView({ block: 'start' }); let n = e.parentElement; while (n && n.scrollHeight <= n.clientHeight) n = n.parentElement; (n ?? document.scrollingElement).scrollBy(0, -70); }); await p.waitForTimeout(600); } },
   password: { path: '/app/me', account: PLUS, act: async p => { await p.getByRole('button', { name: /Set or change password/ }).click(); await p.waitForTimeout(900); } },
   delete: { path: '/app/me', account: FREE, act: async p => { await p.getByRole('button', { name: 'Delete account' }).click(); await p.waitForTimeout(900); } },
-  paywall: { path: '/app/me', account: FREE, act: async p => { await p.getByRole('button', { name: /Start 7-day free trial/ }).click(); await p.waitForTimeout(1200); } },
+  paywall: { path: '/app/me', account: FREE, act: async p => { await p.getByRole('button', { name: /free trial/ }).click(); await p.waitForTimeout(1200); } },
   subscription: { path: '/app/me/subscription', account: PLUS },
   alerts: { path: '/app/me/alerts', account: PLUS },
   addloc: { path: '/app/me', account: PLUS, act: async p => { await p.getByRole('button', { name: /Add location/ }).first().click(); await p.waitForTimeout(900); } },

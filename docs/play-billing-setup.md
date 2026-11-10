@@ -6,8 +6,8 @@ has sisma+ wherever it signs in.
 
 ## How it works
 
-- **Products:** two subscriptions, `sisma_plus_monthly` and `sisma_yearly` (`lib/play-config.ts`, as in
-  docs/android-setup.md), each with one auto-renewing base plan (IDs `monthly` and `yearly`). The 7-day free trial is
+- **Products:** one subscription, `sisma_yearly` (`lib/play-config.ts`, as in docs/android-setup.md), with one
+  auto-renewing base plan (ID `yearly`, US$6.99 a year). The 3-day free trial is
   an *offer* on the base plan for new customers; Google decides who is eligible.
 - **Buying (app):** the upgrade sheet uses the Capacitor plugin `@capgo/native-purchases` (installed in `mobile/`).
   The purchase is tagged with the account id `sha-256(user id)` (Google asks for an obfuscated id; the same value is
@@ -31,9 +31,8 @@ Nothing here needs to be sent to Claude. The service account key is a secret: pu
 
 1. **App release with billing.** Build and upload the new version (versionCode 3, includes the billing plugin) to a
    testing track first. Play Console only lets you create subscriptions once a build with billing has been uploaded.
-2. **Subscription products** — as in docs/android-setup.md (*Set up Play subscriptions*): `sisma_plus_monthly`
-   (base plan ID `monthly`, every 1 month, US$2.99) and `sisma_yearly` (base plan ID `yearly`, every 1 year,
-   US$19.99), each with a 7-day free-trial offer for new customers. The product IDs must match exactly. If you already
+2. **Subscription products** — as in docs/android-setup.md (*Set up Play subscriptions*): `sisma_yearly`
+   (base plan ID `yearly`, every 1 year, US$6.99) with a 3-day free-trial offer for new customers. The product IDs must match exactly. If you already
    created the base plans with other IDs, it still works: the app then uses the product's first offer.
 3. **Service account for the API**:
    - Google Cloud console (the project linked to Play Console, or a new one) → *APIs & Services* → enable
