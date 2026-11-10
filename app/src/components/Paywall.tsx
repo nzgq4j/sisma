@@ -1,13 +1,13 @@
 'use client';
 // sisma+ paywall sheet (design: sheetPaywall). Opened through useApp().setSheet('paywall') from anywhere in /app.
 // - Starting needs an account: guests sign in first and the chosen plan carries on afterwards (lib/pending-upgrade.ts;
-//   also through the sign-up confirmation link, ?upgrade=<plan>).
+//   also through the sign-up confirmation link, ?upgrade=<plan>, which the tab that opens the link continues).
 // - Website: Stripe Checkout (/api/stripe/checkout re-checks the session and the account's subscriptions; answers 501
 //   until Stripe is configured). Android app: Google Play Billing (lib/play-client.ts → /api/play/verify), with
 //   "Restore purchase"; an app version without the billing plugin asks for an update instead of selling on the web.
 // - The free trial is offered to accounts that have never subscribed (lib/billing.ts); others see "Subscribe".
 // - Back from Stripe (/app/me?upgraded=1): the plan is written by the webhook, so we wait for it (ActivationSheet).
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { PRICES, TRIAL_DAYS, type Billing } from '@/lib/entitlements';
 import { trialEligible } from '@/lib/billing';
@@ -73,23 +73,36 @@ export function PaywallSheet() {
     await afterPlay(await restorePlay(user.id, token));
   };
 
-  // The plan chosen before signing up can arrive in the confirmation link (another browser): keep it for below.
+  // The plan chosen before signing up arrives in the confirmation link (?upgrade=<plan>). The tab that opened the link
+  // carries on to checkout: it keeps the plan to itself and removes the copy saved on this device, so the tab where
+  // sign-up started (still open in the background, and signed in at the same moment) does not take it and open Stripe
+  // out of sight.
+  const linkPlan = useRef<Billing | null>(null);
   useEffect(() => {
     const url = new URL(location.href), up = url.searchParams.get('upgrade');
     // 'monthly' links from before sisma+ became yearly only continue as yearly.
     if (up !== 'monthly' && up !== 'yearly') return;
-    setPendingUpgrade('yearly');
+    linkPlan.current = 'yearly';
+    clearPendingUpgrade();
     url.searchParams.delete('upgrade');
     history.replaceState(history.state, '', url.pathname + url.search + url.hash);
   }, []);
 
   // Signed in (and the profile loaded) with an upgrade waiting: reopen the sheet on that plan and go on to checkout,
-  // unless the account already has sisma+.
+  // unless the account already has sisma+. A plan saved on this device (sign-in in this tab, e.g. the Google round
+  // trip) is taken only by a tab on screen; a background tab waits until it is shown, by when it is usually gone.
   useEffect(() => {
     if (!user || !profile) return;
-    const pending = takePendingUpgrade();
-    if (!pending || plan === 'plus') return;
-    void Promise.resolve().then(() => { setBilling(pending); setSheet('paywall'); return checkout(pending); });
+    const go = () => {
+      const pending = linkPlan.current ?? takePendingUpgrade();
+      linkPlan.current = null;
+      if (!pending || plan === 'plus') return;
+      void Promise.resolve().then(() => { setBilling(pending); setSheet('paywall'); return checkout(pending); });
+    };
+    if (linkPlan.current || document.visibilityState === 'visible') { go(); return; }
+    const shown = () => { if (document.visibilityState === 'visible') { document.removeEventListener('visibilitychange', shown); go(); } };
+    document.addEventListener('visibilitychange', shown);
+    return () => document.removeEventListener('visibilitychange', shown);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run when the signed-in profile arrives
   }, [user, profile, plan]);
 

@@ -341,7 +341,7 @@ export const TOPICS: Topic[] = [
 
       <h3>Subscribe</h3>
       <ul>
-        <li><strong>On the website</strong>: <Ui>Me</Ui> → <Ui>Start {TRIAL_DAYS}-day free trial</Ui> (or <Ui>Subscribe</Ui>), then pay on Stripe’s secure checkout page. When you come back, sisma shows <em>Activating sisma+…</em> for a few seconds, then <em>Welcome to sisma+</em>.</li>
+        <li><strong>On the website</strong>: <Ui>Me</Ui> → <Ui>Start {TRIAL_DAYS}-day free trial</Ui> (or <Ui>Subscribe</Ui>), then pay on Stripe’s secure checkout page. If you create an account first, checkout opens when you tap the link in the confirmation email. When you come back, sisma shows <em>Activating sisma+…</em> for a few seconds, then <em>Welcome to sisma+</em>.</li>
         <li><strong>In the Android app</strong>: the same button opens Google Play’s payment sheet, where you can pay with Google Pay, a card or other Google Play payment methods.</li>
       </ul>
       <p>You need to be signed in. Your subscription then works everywhere you sign in to that account, on the web and in the app.</p>
