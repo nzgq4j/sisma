@@ -5,7 +5,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { MAG_SCALE } from '@/lib/theme';
-import { PRICES } from '@/lib/entitlements';
+import { PRICES, TRIAL_DAYS } from '@/lib/entitlements';
 import { SITE } from '@/lib/site';
 import legal from '../privacy/privacy.module.css';
 import s from './help.module.css';
@@ -334,14 +334,14 @@ export const TOPICS: Topic[] = [
               </tbody>
             </table>
           </div>
-          <p>Prices: <strong>{usd(PRICES.monthly.usd)} a month</strong> or <strong>{usd(PRICES.yearly.usd)} a year</strong>. Google Play shows the price in your local currency. New subscribers get a <strong>7-day free trial</strong>, once per account.</p>
+          <p>Price: <strong>{usd(PRICES.yearly.usd)} a year</strong>, one plan. Google Play shows the price in your local currency. New subscribers get a <strong>{TRIAL_DAYS}-day free trial</strong>, once per account.</p>
         </div>
-        <Shot src="paywall" alt="sisma+ sheet with the features, yearly and monthly prices and Start 7-day free trial" caption="Choosing a plan" />
+        <Shot src="paywall" alt={`sisma+ sheet with the features, the yearly price and Start ${TRIAL_DAYS}-day free trial`} caption="Choosing a plan" />
       </div>
 
       <h3>Subscribe</h3>
       <ul>
-        <li><strong>On the website</strong>: <Ui>Me</Ui> → <Ui>Start 7-day free trial</Ui> (or <Ui>Subscribe</Ui>), choose yearly or monthly, then pay on Stripe’s secure checkout page. When you come back, sisma shows <em>Activating sisma+…</em> for a few seconds, then <em>Welcome to sisma+</em>.</li>
+        <li><strong>On the website</strong>: <Ui>Me</Ui> → <Ui>Start {TRIAL_DAYS}-day free trial</Ui> (or <Ui>Subscribe</Ui>), then pay on Stripe’s secure checkout page. When you come back, sisma shows <em>Activating sisma+…</em> for a few seconds, then <em>Welcome to sisma+</em>.</li>
         <li><strong>In the Android app</strong>: the same button opens Google Play’s payment sheet, where you can pay with Google Pay, a card or other Google Play payment methods.</li>
       </ul>
       <p>You need to be signed in. Your subscription then works everywhere you sign in to that account, on the web and in the app.</p>
@@ -351,7 +351,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Go to <Ui>Me</Ui> → <Ui>Manage subscription</Ui> to see your status, plan and next date.</p>
           <ul>
-            <li><strong>Bought on the website</strong>: <Ui>Manage billing</Ui> opens Stripe’s page, where you can switch between monthly and yearly, update your card, see invoices or cancel.</li>
+            <li><strong>Bought on the website</strong>: <Ui>Manage billing</Ui> opens Stripe’s page, where you can update your card, see invoices or cancel.</li>
             <li><strong>Bought in the Android app</strong>: <Ui>Manage in Google Play</Ui> opens your subscription in Google Play.</li>
           </ul>
         </div>

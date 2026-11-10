@@ -150,19 +150,20 @@ Play only enables subscriptions once an app bundle exists):
 
    | Product ID | Name | Base plan | Price | Offer |
    | --- | --- | --- | --- | --- |
-   | `sisma_plus_monthly` | sisma+ monthly | auto-renewing, every **1 month** | US$2.99 | free trial **7 days**, new customers only |
-   | `sisma_yearly` | sisma+ yearly | auto-renewing, every **1 year** | US$19.99 | free trial **7 days**, new customers only |
+   | `sisma_yearly` | sisma+ yearly | auto-renewing, every **1 year** | US$6.99 | free trial **3 days**, new customers only |
 
-   For each: add the *base plan* (base plan ID `monthly` or `yearly`) → set the US price → **Update prices for other countries** (Google converts) →
-   *Activate*. Then **Add offer** → free trial 7 days → eligibility "New customer acquisition" → *Activate*.
+   sisma+ is one plan, yearly. (An earlier `sisma_plus_monthly` product has no active base plan and is not used.)
+
+   Add the *base plan* (base plan ID `yearly`) → set the US price → **Update prices for other countries** (Google converts) →
+   *Activate*. Then **Add offer** → free trial 3 days → eligibility "New customer acquisition" → *Activate*.
    Benefits text (shown by Google): "Push alerts", "Up to 10 saved locations", "Full history", "Advanced filters".
 3. Under **Settings → License testing**, add your own Gmail so your test purchases are free.
 
 **Google Pay on the website (optional, 2 minutes):** Stripe Dashboard → **Settings → Payment methods** → turn on
 **Google Pay** (and Apple Pay). Stripe's checkout then shows the button automatically on supported phones and browsers.
 
-**Stripe (website) checklist** if not done yet: create the two prices (US$2.99/month, US$19.99/year) and add to Vercel:
-`STRIPE_SECRET_KEY`, `STRIPE_PRICE_MONTHLY`, `STRIPE_PRICE_YEARLY`, `STRIPE_WEBHOOK_SECRET`, with a webhook to
+**Stripe (website) checklist** if not done yet: create the yearly price (US$6.99/year) and add to Vercel:
+`STRIPE_SECRET_KEY`, `STRIPE_PRICE_YEARLY`, `STRIPE_WEBHOOK_SECRET`, with a webhook to
 `https://sisma.io/api/stripe/webhook` for `customer.subscription.*` events. Until then the paywall says payments
 aren't available yet.
 

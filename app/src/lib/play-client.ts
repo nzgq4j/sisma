@@ -40,9 +40,9 @@ export async function playPrices(): Promise<Partial<Record<Billing, string>>> {
   const p = plugin();
   if (!p) return {};
   try {
-    const { products } = await p.getProducts({ productIdentifiers: [PLAY.products.monthly, PLAY.products.yearly], productType: 'subs' });
+    const { products } = await p.getProducts({ productIdentifiers: [PLAY.products.yearly], productType: 'subs' });
     const out: Partial<Record<Billing, string>> = {};
-    for (const b of ['monthly', 'yearly'] as Billing[]) {
+    for (const b of ['yearly'] as Billing[]) {
       // Android subscriptions: planIdentifier is the product id; the base offer (the regular price) has no offerId.
       const mine = products.filter(x => x.planIdentifier === PLAY.products[b]);
       const base = mine.find(x => !x.offerId) ?? mine[0];

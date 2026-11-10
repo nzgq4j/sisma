@@ -43,7 +43,7 @@ SISMA+ (OPTIONALES ABO)
 • Bis zu 10 gespeicherte Orte (1 im kostenlosen Tarif)
 • Bis zu ein Jahr Erdbebenverlauf (der kostenlose Tarif zeigt die letzten 30 Tage)
 • Filter nach Magnitude und Weltregion
-• 7 Tage kostenlos testen für neue Abonnenten, danach monatlich oder jährlich. Jederzeit in Google Play kündbar.
+• 3 Tage kostenlos testen für neue Abonnenten, danach ein einfaches Jahresabo. Jederzeit in Google Play kündbar.
 
 Alles andere ist kostenlos und werbefrei.
 

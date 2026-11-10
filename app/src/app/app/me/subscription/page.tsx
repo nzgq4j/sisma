@@ -1,7 +1,7 @@
 'use client';
 // Me → Subscription: the sisma+ plan, its status (trial, active, cancelling, payment problem), price and next date,
 // and where to manage it: Stripe's customer portal for website subscriptions (POST /api/stripe/portal; switch
-// monthly / yearly, card, invoices, cancel), Google Play for subscriptions bought in the Android app, or the paywall
+// card, invoices, cancel), Google Play for subscriptions bought in the Android app, or the paywall
 // to choose a plan (free plan, or a trial without a payment method).
 import Link from 'next/link';
 import { useState } from 'react';
@@ -60,7 +60,6 @@ export default function SubscriptionPage() {
   const trialEnd = profile.trial_ends_at ? new Date(profile.trial_ends_at).getTime() : 0;
   const daysLeft = Math.max(0, Math.ceil((trialEnd - now) / 86_400_000));
   const onTrial = status === 'trialing' || (!status && trialEnd > now);
-  const interval = profile.billing_interval ?? 'monthly';
   // Which store the subscription is managed in (billing_source; older rows: a Stripe customer means Stripe).
   const stripe = profile.billing_source === 'stripe' || (!profile.billing_source && !!profile.stripe_customer_id);
   const play = profile.billing_source === 'play';
@@ -80,13 +79,13 @@ export default function SubscriptionPage() {
       <div className={styles.planPlus}>
         <div className={styles.planTop}><span>{t('current')}</span><span>{statusText}</span></div>
         <div className={styles.planH}>sisma+</div>
-        {(stripe || play) && <div className={styles.planSub}>{usd(PRICES[interval].usd)} {t(interval === 'yearly' ? 'per_year' : 'per_month')}</div>}
+        {(stripe || play) && <div className={styles.planSub}>{usd(PRICES.yearly.usd)} {t('per_year')}</div>}
       </div>
 
       <div className={styles.card}>
         <div className={styles.row}><span className="ms" aria-hidden="true">verified</span><span className={styles.grow}>{s.status}</span><span className={styles.meta}>{!onTrial && status !== 'past_due' && profile.cancel_at_period_end ? s.st_cancelled : statusText}</span></div>
         {(stripe || play) && (
-          <div className={styles.row}><span className="ms" aria-hidden="true">event_repeat</span><span className={styles.grow}>{s.plan}</span><span className={styles.meta}>{t(interval)}</span></div>
+          <div className={styles.row}><span className="ms" aria-hidden="true">event_repeat</span><span className={styles.grow}>{s.plan}</span><span className={styles.meta}>{t('yearly')}</span></div>
         )}
         {dateValue && (
           <div className={styles.row}><span className="ms" aria-hidden="true">event</span><span className={styles.grow}>{dateLabel}</span><span className={styles.meta}>{dateValue}</span></div>

@@ -6,12 +6,12 @@ const NOW = Date.parse('2026-11-05T12:00:00Z');
 const later = '2026-12-05T12:00:00Z', earlier = '2026-11-01T12:00:00Z';
 const sub = (state: string, o: Partial<PlaySubscription['lineItems'] extends (infer L)[] | undefined ? L : never> = {}): PlaySubscription => ({
   subscriptionState: state,
-  lineItems: [{ productId: 'sisma_plus_monthly', expiryTime: later, autoRenewingPlan: { autoRenewEnabled: true }, offerDetails: { basePlanId: 'monthly' }, ...o }],
+  lineItems: [{ productId: 'sisma_yearly', expiryTime: later, autoRenewingPlan: { autoRenewEnabled: true }, offerDetails: { basePlanId: 'yearly' }, ...o }],
 });
 
 describe('playPatch', () => {
   it('active paid subscription', () => {
-    expect(playPatch(sub('SUBSCRIPTION_STATE_ACTIVE'), NOW)).toEqual({ plan: 'plus', subscription_status: 'active', billing_interval: 'monthly', current_period_end: later, cancel_at_period_end: false, trial_ends_at: null });
+    expect(playPatch(sub('SUBSCRIPTION_STATE_ACTIVE'), NOW)).toEqual({ plan: 'plus', subscription_status: 'active', billing_interval: 'yearly', current_period_end: later, cancel_at_period_end: false, trial_ends_at: null });
   });
   it('free trial phase reads as trialing, ending at expiry', () => {
     const p = playPatch(sub('SUBSCRIPTION_STATE_ACTIVE', { productId: 'sisma_yearly', offerPhase: { freeTrial: {} }, offerDetails: { basePlanId: 'yearly', offerId: 'trial' } }), NOW);

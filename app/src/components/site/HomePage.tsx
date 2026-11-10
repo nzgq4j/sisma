@@ -1,8 +1,7 @@
 'use client';
 // Public overview website. Spec: design/Sisma Website.dc.html
-// (header, hero with live app, features, science, pricing with monthly/yearly toggle, languages, footer).
+// (header, hero with live app, features, science, pricing (one yearly plan), languages, footer).
 import Link from 'next/link';
-import { useState } from 'react';
 import { useT, LOCALES, type Locale } from '@/i18n/I18nProvider';
 import { AppPreview } from '@/components/site/AppPreview';
 import { LogoMark } from '@/components/Logo';
@@ -10,7 +9,7 @@ import { LanguagePicker } from '@/components/LanguagePicker';
 import styles from '@/components/site/site.module.css';
 import science from '@/content/science.json';
 import { MAG_SCALE } from '@/lib/theme';
-import { PRICES, type Billing } from '@/lib/entitlements';
+import { PRICES, TRIAL_DAYS } from '@/lib/entitlements';
 import { SITE } from '@/lib/site';
 
 const LOCALE_FLAGS = LOCALES as { code: Locale; name: string; flag?: string }[];
@@ -23,14 +22,10 @@ const usd = (n: number) => '$' + (Number.isInteger(n) ? String(n) : n.toFixed(2)
 export function Home() {
   const { m, t, locale, setLocale } = useT();
   const w = m.web;
-  const [billing, setBilling] = useState<Billing>('yearly');
-  const yearly = billing === 'yearly';
-
-  const monthly = PRICES.monthly.usd, annual = PRICES.yearly.usd;
-  const savePct = Math.round((1 - annual / (monthly * 12)) * 100);
-  const price = yearly ? usd(annual) : usd(monthly);
-  const per = yearly ? t('per_year') : t('per_month');
-  const priceSub = yearly ? `$${(annual / 12).toFixed(2)} ${t('per_month')}` : `$${(monthly * 12).toFixed(2)} ${t('per_year')}`;
+  // sisma+ is one yearly plan; the line under the price gives the monthly equivalent.
+  const annual = PRICES.yearly.usd;
+  const price = usd(annual), per = t('per_year');
+  const priceSub = `$${(annual / 12).toFixed(2)} ${t('per_month')}`;
 
   return (
     <div className={styles.site}>
@@ -115,12 +110,7 @@ export function Home() {
           <div className={styles.priceHead}>
             <div className={styles.sectionHead}>
               <h2 className={styles.h2}>{w.price_h}</h2>
-              <p className={styles.sub}>{w.price_p}</p>
-            </div>
-            <div className={styles.billToggle} role="group" aria-label={w.nav_pricing}>
-              {(['monthly', 'yearly'] as const).map(id => (
-                <button key={id} type="button" className={styles.billBtn} aria-pressed={billing === id} onClick={() => setBilling(id)}>{t(id)}</button>
-              ))}
+              <p className={styles.sub}>{w.price_p.replace('{n}', String(TRIAL_DAYS))}</p>
             </div>
           </div>
           <div className={styles.planGrid}>
@@ -138,7 +128,6 @@ export function Home() {
               <div className={styles.planHead}>
                 <div className={styles.planNameRow}>
                   <span className={styles.planNamePlus}>sisma+</span>
-                  {yearly && <span className={styles.saveBadge}>{t('save', { n: savePct })}</span>}
                 </div>
                 <div className={styles.priceRow}><span className={styles.price}>{price}</span><span className={styles.per}>{per}</span></div>
                 <span className={styles.priceSub}>{priceSub}</span>
@@ -147,7 +136,7 @@ export function Home() {
               <div className={styles.entList}>
                 {m.ent_plus.map(e => <div key={e} className={`${styles.ent} ${styles.entPlus}`}><span className={styles.ms} aria-hidden="true">check_circle</span>{e}</div>)}
               </div>
-              <Link href={`${SITE.appPath}/me`} className={styles.planCtaPlus}>{t('trial')}</Link>
+              <Link href={`${SITE.appPath}/me`} className={styles.planCtaPlus}>{t('trial', { n: TRIAL_DAYS })}</Link>
             </div>
           </div>
         </section>

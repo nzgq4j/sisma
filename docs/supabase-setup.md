@@ -122,5 +122,5 @@ Defaults are fine: refresh-token rotation on, reuse interval 10 s. Optionally se
 - **Quake cache and push alerts**: enable `pg_cron` and `pg_net`, deploy an ingest edge function, store its URL and
   key in Vault, schedule it (same pattern as polar lights' `supabase/README.md`), and add the FCM credentials as
   **Edge Functions → Secrets**.
-- **Stripe**: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_MONTHLY`, `STRIPE_PRICE_YEARLY` in Vercel, and
+- **Stripe**: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_YEARLY` in Vercel, and
   a Stripe webhook pointing at `https://sisma.io/api/stripe/webhook`.

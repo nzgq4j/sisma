@@ -43,7 +43,7 @@ SISMA+ (LANGGANAN OPSIONAL)
 • Hingga 10 lokasi tersimpan (1 pada paket gratis)
 • Riwayat gempa hingga satu tahun (paket gratis menampilkan 30 hari terakhir)
 • Filter magnitudo dan wilayah dunia
-• Uji coba gratis 7 hari untuk pelanggan baru, lalu bulanan atau tahunan. Batalkan kapan saja di Google Play.
+• Uji coba gratis 3 hari untuk pelanggan baru, lalu satu paket tahunan yang sederhana. Batalkan kapan saja di Google Play.
 
 Semua fitur lainnya gratis, tanpa iklan.
 

@@ -16,13 +16,17 @@ describe('pending upgrade', () => {
     expect(takePendingUpgrade()).toBeNull();
   });
   it('expires after an hour', () => {
-    setPendingUpgrade('monthly');
+    setPendingUpgrade('yearly');
     expect(takePendingUpgrade(Date.now() + 61 * 60 * 1000)).toBeNull();
   });
   it('can be cleared', () => {
-    setPendingUpgrade('monthly');
+    setPendingUpgrade('yearly');
     clearPendingUpgrade();
     expect(takePendingUpgrade()).toBeNull();
+  });
+  it('continues a monthly choice saved before sisma+ became yearly only as yearly', () => {
+    localStorage.setItem('sisma.pendingUpgrade', JSON.stringify({ billing: 'monthly', at: Date.now() }));
+    expect(takePendingUpgrade()).toBe('yearly');
   });
   it('ignores bad data', () => {
     localStorage.setItem('sisma.pendingUpgrade', '{"billing":"weekly","at":1}');

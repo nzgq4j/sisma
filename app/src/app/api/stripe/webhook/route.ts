@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
       stripe_customer_id: String(sub.customer),
       stripe_subscription_id: sub.id,
       subscription_status: sub.status,
-      billing_interval: sub.items.data[0]?.price.recurring?.interval === 'year' ? 'yearly' : 'monthly',
+      billing_interval: 'yearly', // the only plan sold
       trial_ends_at: sub.trial_end ? new Date(sub.trial_end * 1000).toISOString() : null,
       cancel_at_period_end: sub.cancel_at_period_end,
       current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,

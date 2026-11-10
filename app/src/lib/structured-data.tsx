@@ -4,7 +4,7 @@
 import en from '@/i18n/messages/en.json';
 import science from '@/content/science.json';
 import { SITE_URL, articleCard } from './seo';
-import { PRICES } from './entitlements';
+import { PRICES, type Billing } from './entitlements';
 import { SITE } from './site';
 
 type Thing = Record<string, unknown>;
@@ -23,14 +23,14 @@ export function siteGraph(): Thing[] {
 /** The app (web and Android): free, with the optional sisma+ subscription. */
 export function appGraph(): Thing[] {
   const free = { '@type': 'Offer', price: 0, priceCurrency: 'USD', category: 'free' };
-  const plus = (b: 'monthly' | 'yearly') => ({ '@type': 'Offer', name: `sisma+ ${b}`, price: PRICES[b].usd, priceCurrency: 'USD', category: 'subscription' });
+  const plus = (b: Billing) => ({ '@type': 'Offer', name: `sisma+ ${b}`, price: PRICES[b].usd, priceCurrency: 'USD', category: 'subscription' });
   return [{
     '@type': 'SoftwareApplication', '@id': `${SITE_URL}/#app`, name: 'sisma', url: `${SITE_URL}/app`, publisher: { '@id': ORG_ID },
     applicationCategory: 'ReferenceApplication', operatingSystem: 'Web, Android',
     // The Play Store page, once NEXT_PUBLIC_PLAY_URL is set (while the app is in testing there is no public page).
     ...(SITE.playUrl.startsWith('https://') ? { installUrl: SITE.playUrl } : {}),
     description: 'Track earthquakes worldwide in real time from USGS, EMSC, GeoNet and JMA, on a map and 3D globe, with custom alerts.',
-    screenshot: `${SITE_URL}/og/home.jpg`, offers: [free, plus('monthly'), plus('yearly')],
+    screenshot: `${SITE_URL}/og/home.jpg`, offers: [free, plus('yearly')],
   }];
 }
 

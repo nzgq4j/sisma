@@ -43,7 +43,7 @@ SISMA+ (ABONNEMENT FACULTATIF)
 • Jusqu'à 10 lieux enregistrés (1 avec l'offre gratuite)
 • Jusqu'à un an d'historique des séismes (l'offre gratuite affiche les 30 derniers jours)
 • Filtres par magnitude et par région du monde
-• Essai gratuit de 7 jours pour les nouveaux abonnés, puis mensuel ou annuel. Résiliable à tout moment dans Google Play.
+• Essai gratuit de 3 jours pour les nouveaux abonnés, puis un seul abonnement annuel. Résiliable à tout moment dans Google Play.
 
 Tout le reste est gratuit, sans publicité.
 

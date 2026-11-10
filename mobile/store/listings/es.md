@@ -43,7 +43,7 @@ SISMA+ (SUSCRIPCIÓN OPCIONAL)
 • Hasta 10 ubicaciones guardadas (1 en el plan gratuito)
 • Hasta un año de historial de terremotos (el plan gratuito muestra los últimos 30 días)
 • Filtros por magnitud y por región del mundo
-• Prueba gratuita de 7 días para nuevos suscriptores; después, mensual o anual. Cancela cuando quieras en Google Play.
+• Prueba gratuita de 3 días para nuevos suscriptores; después, un único plan anual. Cancela cuando quieras en Google Play.
 
 Todo lo demás es gratis y sin anuncios.
 

@@ -43,7 +43,7 @@ SISMA+ (ABBONAMENTO FACOLTATIVO)
 • Fino a 10 luoghi salvati (1 con il piano gratuito)
 • Fino a un anno di storico dei terremoti (il piano gratuito mostra gli ultimi 30 giorni)
 • Filtri per magnitudo e regione del mondo
-• Prova gratuita di 7 giorni per i nuovi abbonati, poi mensile o annuale. Disdici quando vuoi su Google Play.
+• Prova gratuita di 3 giorni per i nuovi abbonati, poi un unico piano annuale. Disdici quando vuoi su Google Play.
 
 Tutto il resto è gratuito e senza pubblicità.
 

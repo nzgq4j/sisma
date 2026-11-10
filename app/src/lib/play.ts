@@ -1,4 +1,4 @@
-// Google Play subscriptions (Android app). One subscription product per billing interval (PLAY.products), each with
+// Google Play subscriptions (Android app). One subscription product, sisma+ yearly (PLAY.products), with
 // one base plan; the free trial is an offer on the base plan for new customers (Play decides eligibility).
 // - The app buys with the plugin @capgo/native-purchases and tags the purchase with playAccountId(user.id) (sha-256 of
 //   the user id: Google asks for an obfuscated id), then reports the purchase token to POST /api/play/verify.
@@ -58,7 +58,7 @@ export function playPatch(sub: PlaySubscription, now = Date.now()): PlayProfileP
   return {
     plan: live ? 'plus' : 'free',
     subscription_status: status,
-    billing_interval: playBilling(li.productId) ?? (li.offerDetails?.basePlanId === PLAY.basePlans.yearly ? 'yearly' : 'monthly'),
+    billing_interval: playBilling(li.productId) ?? 'yearly', // the only plan sold
     current_period_end: li.expiryTime ?? null,
     cancel_at_period_end: sub.subscriptionState === 'SUBSCRIPTION_STATE_CANCELED' || li.autoRenewingPlan?.autoRenewEnabled === false,
     trial_ends_at: status === 'trialing' ? li.expiryTime ?? null : null,

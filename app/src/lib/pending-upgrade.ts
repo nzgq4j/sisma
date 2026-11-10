@@ -33,7 +33,8 @@ function parse(raw: string | null, now: number): Billing | null {
   try {
     const v = JSON.parse(raw) as { billing?: unknown; at?: unknown };
     const fresh = typeof v.at === 'number' && now - v.at >= 0 && now - v.at < TTL_MS;
-    return fresh && (v.billing === 'monthly' || v.billing === 'yearly') ? v.billing : null;
+    // 'monthly' may still be stored from before sisma+ became yearly only: it continues as yearly.
+    return fresh && (v.billing === 'monthly' || v.billing === 'yearly') ? 'yearly' : null;
   } catch { return null; }
 }
 

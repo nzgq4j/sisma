@@ -43,7 +43,7 @@ SISMA+ (İSTEĞE BAĞLI ABONELİK)
 • En fazla 10 kayıtlı konum (ücretsiz planda 1)
 • Bir yıla kadar deprem geçmişi (ücretsiz plan son 30 günü gösterir)
 • Büyüklük ve dünya bölgesi filtreleri
-• Yeni aboneler için 7 günlük ücretsiz deneme, ardından aylık veya yıllık. Google Play'den istediğin zaman iptal edebilirsin.
+• Yeni aboneler için 3 günlük ücretsiz deneme, ardından tek ve basit bir yıllık plan. Google Play'den istediğin zaman iptal edebilirsin.
 
 Diğer her şey ücretsiz ve reklamsız.
 
