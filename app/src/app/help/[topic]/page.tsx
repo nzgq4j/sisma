@@ -5,6 +5,9 @@ import { notFound } from 'next/navigation';
 import { cardMetadata } from '@/lib/seo';
 import { HelpChrome } from '../HelpChrome';
 import { TOPICS, topicBySlug } from '../topics';
+import { JsonLd, helpGraph } from '@/lib/structured-data';
+
+const describe = (sub: string) => `${sub}. How to use sisma, with screenshots and troubleshooting.`;
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -15,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ topic: st
   const t = topicBySlug((await params).topic);
   if (!t) return {};
   return cardMetadata({
-    title: `${t.title} — sisma Help`, description: `${t.sub}. How to use sisma, with screenshots and troubleshooting.`,
+    title: `${t.title} — sisma Help`, description: describe(t.sub),
     path: `/help/${t.slug}`, image: 'home', alt: 'sisma: live earthquakes worldwide', kicker: '', heading: '', sub: '',
   });
 }
@@ -24,5 +27,5 @@ export default async function HelpTopic({ params }: { params: Promise<{ topic: s
   const t = topicBySlug((await params).topic);
   if (!t) notFound();
   const nav = TOPICS.map(({ slug, icon, title, sub }) => ({ slug, icon, title, sub }));
-  return <HelpChrome nav={nav} current={t.slug} title={t.title}>{t.body}</HelpChrome>;
+  return <><JsonLd graph={helpGraph(t.slug, t.title, describe(t.sub))} /><HelpChrome nav={nav} current={t.slug} title={t.title}>{t.body}</HelpChrome></>;
 }
