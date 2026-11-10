@@ -69,6 +69,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     screenshots, release notes)
     SEO (done): lib/seo.ts — title, description, canonical and a social card per topic (home, feed, map, globe, science and
     each article) in app/public/og/, rebuilt with app/scripts/og-cards.mjs; robots.ts, sitemap.ts; account pages noindex
+    Indexing (done, docs/search-setup.md): JSON-LD structured data (lib/structured-data.tsx: Organization, WebSite, app,
+    Article / TechArticle + breadcrumbs), webmaster verification tags from env (siteVerification in lib/seo.ts), IndexNow
+    key + scripts/indexnow.mjs, X-Robots-Tag noindex on hosts other than sisma.io (next.config.ts)
     Help centre (done): /help hub (popular questions, all topics, contact) and one page per topic at /help/<slug>
     (app/help/topics.tsx, English; HelpChrome: sticky header with Back, topic sidebar on wide screens, prev / next).
     Follows light / dark through the theme tokens; screenshots in app/public/help/ come in -light and -dark versions

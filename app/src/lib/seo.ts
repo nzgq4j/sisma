@@ -108,3 +108,20 @@ export function cardMetadata(c: Card): Metadata {
     twitter: { card: 'summary_large_image', title: c.title, description: c.description, images },
   };
 }
+
+/**
+ * Site ownership tags for search engines' webmaster tools, from the server env (set in Vercel, then redeploy):
+ * GOOGLE_SITE_VERIFICATION (Search Console, URL-prefix property; the sisma.io domain property is verified by DNS),
+ * BING_SITE_VERIFICATION (Bing Webmaster Tools, msvalidate.01) and YANDEX_VERIFICATION (Yandex Webmaster).
+ * The values are the content of each tool's meta tag and are not secret. docs/search-setup.md
+ */
+export function siteVerification(env: Record<string, string | undefined> = process.env): Metadata['verification'] {
+  const v = (k: string) => env[k]?.trim() || undefined;
+  const bing = v('BING_SITE_VERIFICATION');
+  const out: NonNullable<Metadata['verification']> = {
+    ...(v('GOOGLE_SITE_VERIFICATION') ? { google: v('GOOGLE_SITE_VERIFICATION') } : {}),
+    ...(v('YANDEX_VERIFICATION') ? { yandex: v('YANDEX_VERIFICATION') } : {}),
+    ...(bing ? { other: { 'msvalidate.01': bing } } : {}),
+  };
+  return Object.keys(out).length ? out : undefined;
+}
