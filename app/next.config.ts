@@ -16,6 +16,9 @@ const nextConfig: NextConfig = {
       // Only sisma.io is indexed: the same site under *.vercel.app (deployment and branch addresses) asks search engines
       // to leave it out, so they don't list duplicates. Every page also names its sisma.io address as canonical.
       { source: '/:path*', missing: [{ type: 'host', value: 'sisma.io' }], headers: [{ key: 'X-Robots-Tag', value: 'noindex' }] },
+      // Account pages are never listed (also a noindex meta tag in app/app/me/layout.tsx).
+      { source: '/app/me', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] },
+      { source: '/app/me/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] },
     ];
   },
 };
