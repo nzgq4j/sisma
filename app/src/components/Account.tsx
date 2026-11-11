@@ -78,6 +78,10 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   // Android app: finish a Google sign-in that returned from the phone's browser.
   useEffect(() => listenForOAuthReturn(), []);
 
+  // Signed in elsewhere (e.g. the confirmation link opened in another tab): the sign-in sheet left open here, waiting
+  // on the email, has nothing left to do.
+  useEffect(() => { if (user) { cancelRef.current = null; void Promise.resolve().then(() => setSignIn(false)); } }, [user]);
+
   // Keep the language used for auth emails ({{ .Data.locale }}) and the profile in step with the app language.
   useEffect(() => {
     if (!sb || !user) return;
@@ -150,6 +154,8 @@ function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () =
   const [err, setErr] = useState<string | null>(null);
   const [providers, setProviders] = useState<string[]>([]);
   useEffect(() => { if (open) void enabledProviders().then(setProviders); }, [open]);
+  // Closed from outside while waiting on an email (signed in from another tab): start afresh next time, as close() does.
+  useEffect(() => { if (!open && (status === 'signup_sent' || status === 'reset_sent')) void Promise.resolve().then(() => { setStatus('idle'); setPassword(''); }); }, [open, status]);
   // Read on click (`location` doesn't exist while prerendering). A plan chosen before signing up travels in the
   // link, so checkout continues even when the confirmation email is opened in another browser.
   const redirect = () => { const up = peekPendingUpgrade(); return `${location.origin}/app/me${up ? `?upgrade=${up}` : ''}`; };
