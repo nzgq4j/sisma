@@ -9,8 +9,6 @@ import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, depthInk, magIndex } from '@/lib/theme';
-import { RELIEF_ON } from '@/lib/relief';
-import { createReliefGlobe } from '@/lib/relief-globe';
 import { markerHit } from '@/lib/pin';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
 import { useMarkerStyle } from '@/components/MarkerStyle';
@@ -41,7 +39,7 @@ const memo: { rot: [number, number, number] | null; k: number } = { rot: null, k
 
 function readTheme() {
   const cs = getComputedStyle(document.documentElement), v = (n: string) => cs.getPropertyValue(n).trim();
-  return { relief: RELIEF_ON && v('--map-relief') === '1', sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
+  return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
     // Marker colours by magnitude band, following light/dark mode (globals.css --mag-0 … --mag-5).
     mags: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)), magInks: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-ink-${i}`)),
     surface: v('--surface'), font: getComputedStyle(document.body).fontFamily };
@@ -156,21 +154,6 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     st.px = 0; st.py = 0; st.pk = memo.k;
     zoomRef.current = { z, el: cv };
 
-    // Light theme: relief drawn by the GPU on a canvas underneath (lib/relief-globe.ts). Created only while the light
-    // theme is on (dark mode gets no WebGL context and no texture download) and removed when it goes; stays off if the
-    // device has no WebGL.
-    let rg: ReturnType<typeof createReliefGlobe> = null, gcv: HTMLCanvasElement | null = null, noGl = false;
-    const reliefLayer = (on: boolean) => {
-      if (on && !rg && !noGl) {
-        gcv = document.createElement('canvas');
-        gcv.setAttribute('aria-hidden', 'true');
-        Object.assign(gcv.style, { position: 'absolute', left: '0', top: '0', pointerEvents: 'none' });
-        rg = createReliefGlobe(gcv);
-        if (rg) wrap.insertBefore(gcv, cv); else { noGl = true; gcv = null; }
-      } else if (!on && rg) { rg.dispose(); gcv?.remove(); rg = null; gcv = null; }
-      return rg;
-    };
-
     const frame = () => {
       const p = live.current;
       if (++frameNo % 30 === 0) theme = readTheme();
@@ -203,24 +186,12 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       memo.rot = proj.rotate();
       ctx.clearRect(0, 0, W, H);
       const Rs = proj.scale(), grd = ctx.createRadialGradient(cx, cy, Rs * 0.92, cx, cy, Rs * 1.3);
-      grd.addColorStop(0, theme.glow); grd.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = grd;
-      const layer = reliefLayer(theme.relief), relief = !!layer?.ready();
-      if (gcv) gcv.style.visibility = relief ? 'visible' : 'hidden';
-      if (relief) {
-        layer!.render({ W, H, dpr: window.devicePixelRatio || 1, cx, cy, R: Rs, rot: proj.rotate() });
-        // The glow only round the sphere: inside it, this canvas stays clear so the relief underneath shows.
-        ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); path(SPHERE); ctx.clip('evenodd'); ctx.fillRect(0, 0, W, H); ctx.restore();
-      } else {
-        ctx.fillRect(0, 0, W, H);
-        ctx.beginPath(); path(SPHERE); ctx.fillStyle = theme.sea; ctx.fill();
-      }
+      grd.addColorStop(0, theme.glow); grd.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
+      ctx.beginPath(); path(SPHERE); ctx.fillStyle = theme.sea; ctx.fill();
       ctx.beginPath(); path(GRATICULE); ctx.strokeStyle = theme.grat; ctx.lineWidth = 0.7; ctx.stroke();
-      if (relief) { ctx.beginPath(); path(LAND); ctx.strokeStyle = theme.line; ctx.globalAlpha = 0.5; ctx.lineWidth = 0.5; ctx.stroke(); ctx.globalAlpha = 1; }
-      else {
-        ctx.beginPath(); path(LAND); ctx.fillStyle = theme.land; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.6; ctx.stroke();
-        const lakes = lakesRef.current;
-        if (lakes) { ctx.beginPath(); path(lakes); ctx.fillStyle = theme.sea; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.5; ctx.stroke(); }
-      }
+      ctx.beginPath(); path(LAND); ctx.fillStyle = theme.land; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.6; ctx.stroke();
+      const lakes = lakesRef.current;
+      if (lakes) { ctx.beginPath(); path(lakes); ctx.fillStyle = theme.sea; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.5; ctx.stroke(); }
       const plates = platesRef.current;
       if (p.plates && plates) { ctx.beginPath(); path(plates); ctx.strokeStyle = theme.plate; ctx.globalAlpha = 0.65; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; }
 
@@ -273,7 +244,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     };
     raf = requestAnimationFrame(frame);
     return () => {
-      cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null; reliefLayer(false);
+      cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null;
       cv.removeEventListener('pointerdown', onDown); cv.removeEventListener('pointerup', onUp); cv.removeEventListener('pointercancel', onCancel);
       cv.removeEventListener('pointermove', onMove); cv.removeEventListener('pointerleave', onLeave);
     };
@@ -281,7 +252,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
 
   return (
     <div ref={wrapRef} style={{ position: 'absolute', inset: 0 }}>
-      <canvas ref={canvasRef} role="img" aria-label={props.label} style={{ position: 'relative', display: 'block', touchAction: 'none', cursor: 'default' }} />
+      <canvas ref={canvasRef} role="img" aria-label={props.label} style={{ display: 'block', touchAction: 'none', cursor: 'default' }} />
     </div>
   );
 });
