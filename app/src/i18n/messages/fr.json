@@ -200,7 +200,8 @@
     "table_view": "Afficher en tableau",
     "chart_view": "Afficher en graphique",
     "loading": "Chargement des séismes…",
-    "distance": "Distance"
+    "distance": "Distance",
+    "close": "Fermer"
   },
   "sci": {
     "modes": {

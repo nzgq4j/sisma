@@ -200,7 +200,8 @@
     "table_view": "Als Tabelle anzeigen",
     "chart_view": "Als Diagramm anzeigen",
     "loading": "Erdbeben werden geladen…",
-    "distance": "Entfernung"
+    "distance": "Entfernung",
+    "close": "Schließen"
   },
   "sci": {
     "modes": {

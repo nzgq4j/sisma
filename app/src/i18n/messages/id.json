@@ -200,7 +200,8 @@
     "table_view": "Tampilkan sebagai tabel",
     "chart_view": "Tampilkan sebagai grafik",
     "loading": "Memuat data gempa…",
-    "distance": "Jarak"
+    "distance": "Jarak",
+    "close": "Tutup"
   },
   "sci": {
     "modes": {

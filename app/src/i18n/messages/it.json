@@ -200,7 +200,8 @@
     "table_view": "Mostra come tabella",
     "chart_view": "Mostra come grafico",
     "loading": "Caricamento dei terremoti…",
-    "distance": "Distanza"
+    "distance": "Distanza",
+    "close": "Chiudi"
   },
   "sci": {
     "modes": {

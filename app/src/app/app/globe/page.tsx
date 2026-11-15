@@ -1,13 +1,14 @@
 'use client';
 // Globe tab. Spec: design/SismaApp.dc.html (isGlobe block + initGlobe): +/− zoom, tap a quake for the selected-quake
 // card. Filters, the Depth / Plates / Spin layers and the legend live in the pull-up filter panel; choosing a world
-// region there turns the globe to face it (and stops the spin unless the user turned it on).
+// region there turns the globe to face it (and stops the spin unless the user turned it on). My location (under −)
+// turns to the device position and zooms in; the location chosen in Me stays as it is.
 import { useRef, useState, useSyncExternalStore } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData } from '@/components/QuakeData';
 import { Globe, type GlobeHandle } from '@/components/Globe';
-import { Legend, Selection } from '@/components/stage/StageParts';
+import { Legend, LocateNote, Selection, useLocateHere } from '@/components/stage/StageParts';
 import { FilterPanel, LayerToggle } from '@/components/stage/FilterPanel';
 import { REGION_VIEW } from '@/lib/world-regions';
 import styles from '@/components/stage/stage.module.css';
@@ -18,6 +19,8 @@ const subscribeRM = (cb: () => void) => { const q = matchMedia(RM); q.addEventLi
 export default function GlobePage() {
   const { t, m } = useT();
   const { locations, active } = useApp();
+  const locate = useLocateHere();
+  const device = locations.find(l => l.fromDevice) ?? null;
   const { mapList: list, loaded, worldReg } = useQuakeData();
   const reducedMotion = useSyncExternalStore(subscribeRM, () => matchMedia(RM).matches, () => false);
   const globe = useRef<GlobeHandle>(null);
@@ -35,12 +38,19 @@ export default function GlobePage() {
     <div className={`${styles.stage} ${styles.globeStage}`}>
       <Globe ref={globe} quakes={list} center={locations[active]} selectedId={selId} onSelect={q => { setSelId(q?.id ?? null); setSheet(false); }}
         depthMode={depth} plates={plates} spin={spin} label={t('count', { n: list.length })}
-        focus={regionView ? { key: `wr:${worldReg}`, lat: regionView.lat, lon: regionView.lon } : null} />
+        focus={regionView ? { key: `wr:${worldReg}`, lat: regionView.lat, lon: regionView.lon } : null} here={device} />
       <div className={styles.zoomPill}>
         <button type="button" onClick={() => globe.current?.zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>
         <hr />
         <button type="button" onClick={() => globe.current?.zoomBy(1 / 1.6)} aria-label={m.dash.zoom_out} title={m.dash.zoom_out}><span className="ms">remove</span></button>
+        <hr />
+        {/* Turns to the device position and zooms in; the spin stops so it stays in view. */}
+        <button type="button" aria-label={m.acct.my_location} title={m.acct.my_location} aria-busy={locate.busy}
+          onClick={async () => { const p = await locate.go(); if (p) { setSpin(false); globe.current?.flyTo(p.lat, p.lon); } }}>
+          <span className="ms">my_location</span>
+        </button>
       </div>
+      <LocateNote note={locate.note} onClose={locate.dismiss} />
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}
       {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={() => setSelId(null)} /> : (
         <FilterPanel legend={<Legend depth={depth} plain />}

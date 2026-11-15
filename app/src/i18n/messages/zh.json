@@ -200,7 +200,8 @@
     "table_view": "以表格显示",
     "chart_view": "以图表显示",
     "loading": "正在加载地震数据…",
-    "distance": "距离"
+    "distance": "距离",
+    "close": "关闭"
   },
   "sci": {
     "modes": {

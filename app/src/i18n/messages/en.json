@@ -200,7 +200,8 @@
     "table_view": "Show as table",
     "chart_view": "Show as chart",
     "loading": "Loading earthquakes…",
-    "distance": "Distance"
+    "distance": "Distance",
+    "close": "Close"
   },
   "sci": {
     "modes": {

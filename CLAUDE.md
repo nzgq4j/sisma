@@ -46,6 +46,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    disables; docs/maps-setup.md for the OSM tile policy). Events are drop pins of one size in screen pixels, filled by
    band (--mag-0…5: MAG_MARKER_LIGHT in light mode, MAG_SCALE in dark) with the magnitude in the head (--mag-ink-N);
    a tap picks the nearest pin within ~22 px
+   My location button (map tools; globe zoom pill): device position via AppState.locateHere (asks for access, leaves the
+   chosen location as it is), glides / turns there and zooms in; a ringed dot marks it when another place is chosen in Me
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
    Events are the same numbered pins as the maps (lib/pin.ts; Depth mode fills them by depth), drawn from cached sprites
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the

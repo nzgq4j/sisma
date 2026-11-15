@@ -28,6 +28,9 @@ interface AppState {
   addPlace: (p: PlaceHit) => Promise<AddResult>; removePlace: (id: string) => Promise<void>;
   /** Asks for the device position (shows the browser/OS prompt if not yet decided) and makes it the active location. */
   locateMe: () => Promise<LocateResult>;
+  /** The device position for the map and globe "My location" button: asks as locateMe does and refreshes My location,
+   *  but leaves the chosen location as it is. */
+  locateHere: () => Promise<{ lat: number; lon: number } | Exclude<LocateResult, 'ok'>>;
   sheet: null | 'detail' | 'report' | 'filter' | 'paywall' | 'lang'; setSheet: (s: AppState['sheet']) => void;
 }
 const Ctx = createContext<AppState | null>(null);
@@ -98,11 +101,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
 
   // select: make My location the chosen location (a tap on "Use my current location" or onboarding). The silent refresh
   // on load only updates the position, so a saved place the user picked stays chosen.
-  const locateMe = useCallback(async (select = true): Promise<LocateResult> => {
-    const applyFix = (lat: number, lon: number) => {
-      setDevice({ lat, lon });
-      if (select) writeActive('device');
-    };
+  const locateHere = useCallback(async (): Promise<{ lat: number; lon: number } | Exclude<LocateResult, 'ok'>> => {
+    const applyFix = (lat: number, lon: number) => { const at = { lat, lon }; setDevice(at); return at; };
     // Android app: ask through the native plugin so the system permission dialog appears (a WebView won't prompt itself).
     const G = nativeGeolocation();
     if (G) {
@@ -110,17 +110,23 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         const perm = await G.requestPermissions();
         if (perm.location === 'denied') return 'denied';
         const p = await G.getCurrentPosition({ enableHighAccuracy: false, timeout: 15_000 });
-        applyFix(p.coords.latitude, p.coords.longitude); return 'ok';
+        return applyFix(p.coords.latitude, p.coords.longitude);
       } catch { return 'unavailable'; }
     }
     if (!navigator.geolocation) return 'unavailable';
     // Browser: shows the permission prompt when the user hasn't decided yet; resolves at once when already allowed.
-    return new Promise<LocateResult>(resolve => navigator.geolocation.getCurrentPosition(
-      p => { applyFix(p.coords.latitude, p.coords.longitude); resolve('ok'); },
+    return new Promise(resolve => navigator.geolocation.getCurrentPosition(
+      p => resolve(applyFix(p.coords.latitude, p.coords.longitude)),
       e => resolve(e.code === e.PERMISSION_DENIED ? 'denied' : 'unavailable'),
       { maximumAge: 300_000, timeout: 20_000 },
     ));
   }, []);
+  const locateMe = useCallback(async (select = true): Promise<LocateResult> => {
+    const r = await locateHere();
+    if (typeof r === 'string') return r;
+    if (select) writeActive('device');
+    return 'ok';
+  }, [locateHere]);
 
   // Automatic felt maps: approximate position while the app is open (only with location allowed; Me can turn it off).
   usePresencePings(device);
@@ -185,7 +191,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   return (
     <Ctx.Provider value={{
       plan, locations, active, setActive, places, canAddPlace: ready && places.length < max,
-      addPlace, removePlace, locateMe, sheet, setSheet,
+      addPlace, removePlace, locateMe, locateHere, sheet, setSheet,
     }}>{children}</Ctx.Provider>
   );
 }

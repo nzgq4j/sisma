@@ -200,7 +200,8 @@
     "table_view": "Mostrar como tabela",
     "chart_view": "Mostrar como gráfico",
     "loading": "Carregando terremotos…",
-    "distance": "Distância"
+    "distance": "Distância",
+    "close": "Fechar"
   },
   "sci": {
     "modes": {
