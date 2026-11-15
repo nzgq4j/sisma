@@ -7,6 +7,18 @@ tiles are darkened with a colour filter (OSM has no dark style). Code: `lib/tile
 
 No account or key is needed.
 
+## Relief layer (light theme)
+
+The light theme's Mercator map and globe show Natural Earth's "Cross Blended Hypso with Shaded Relief and Water"
+(1:50m, 10 800 × 5 400 px, public domain; naturalearthdata.com, also in github.com/nvkelso/natural-earth-raster under
+`50m_rasters/HYP_50M_SR_W/`). `scripts/relief-tiles.mjs` turns it into `public/relief/`: 256 px web-Mercator tiles,
+zoom 0–5 (WebP quality 90, about 6 MB in all; lower quality shows seams between tiles when scaled up) and
+`globe.webp` (2048 × 1024) for the globe. The tiles are served with the site, so no outside service is involved.
+Between zoom 5 and the street tiles (web zoom 6.5–7.5) the zoom-5 tiles are scaled up. The dark theme and the
+dashboard's Equal Earth map keep the flat colours; `NEXT_PUBLIC_RELIEF=off` turns the layer off.
+
+    node scripts/relief-tiles.mjs path/to/HYP_50M_SR_W.tif
+
 ## OpenStreetMap tile usage policy
 
 The tiles come from servers run by the OpenStreetMap Foundation with volunteer support

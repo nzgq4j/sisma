@@ -133,6 +133,7 @@ export const TOPICS: Topic[] = [
           <ul>
             <li><strong>Move and zoom</strong> with your fingers or mouse, or with the <Ui>+</Ui> and <Ui>−</Ui> buttons. The third button resets the view.</li>
             <li><strong>My location</strong> (the fourth button) zooms to where you are now. The first time, sisma asks for access to your location. A ring round the dot marks your position when another place is chosen in <Ui>Me</Ui>; that choice stays as it is.</li>
+            <li>In the light theme the land shows the <strong>terrain</strong>: green where it’s humid, tan and brown where it’s dry, lighter in the mountains, with shaded relief (from Natural Earth). The globe looks the same.</li>
             <li>Zoom in far enough and <strong>street maps</strong> from OpenStreetMap fade in, so you can see exactly where an event was.</li>
             <li><strong>Tap a pin</strong> to see a summary card, then <Ui>Details</Ui> for everything about it.</li>
           </ul>

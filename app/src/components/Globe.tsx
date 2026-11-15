@@ -9,6 +9,7 @@ import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, depthInk, magIndex } from '@/lib/theme';
+import { RELIEF_ON, reliefGlobePixels } from '@/lib/relief';
 import { markerHit } from '@/lib/pin';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
 import { useMarkerStyle } from '@/components/MarkerStyle';
@@ -34,12 +35,14 @@ const TURN_MS = 700;
 const LOCATE_K = 4;
 
 const GRATICULE = geoGraticule10();
+/** Relief on the globe: at most this many texture samples per frame (scaled up to the globe's size on screen). */
+const RELIEF_SAMPLES = 70_000;
 // Remember the view between visits to the tab, like the design (globeRot / globeK).
 const memo: { rot: [number, number, number] | null; k: number } = { rot: null, k: 1 };
 
 function readTheme() {
   const cs = getComputedStyle(document.documentElement), v = (n: string) => cs.getPropertyValue(n).trim();
-  return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
+  return { relief: RELIEF_ON && v('--map-relief') === '1', sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
     // Marker colours by magnitude band, following light/dark mode (globals.css --mag-0 … --mag-5).
     mags: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)), magInks: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-ink-${i}`)),
     surface: v('--surface'), font: getComputedStyle(document.body).fontFamily };
@@ -154,6 +157,48 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     st.px = 0; st.py = 0; st.pk = memo.k;
     zoomRef.current = { z, el: cv };
 
+    // Light theme: the relief texture (lib/relief.ts) reprojected onto the visible disc at up to RELIEF_SAMPLES points,
+    // drawn scaled up and clipped to the sphere. Recomputed only when the view moves. False until the texture is in.
+    const rel = { cv: document.createElement('canvas'), img: null as ImageData | null, key: '' };
+    const drawRelief = (Rs: number, rot: [number, number, number]) => {
+      const tex = reliefGlobePixels();
+      if (!tex) return false;
+      const x0 = Math.max(0, Math.floor(cx - Rs)), x1 = Math.min(W, Math.ceil(cx + Rs));
+      const y0 = Math.max(0, Math.floor(cy - Rs)), y1 = Math.min(H, Math.ceil(cy + Rs));
+      const bw = x1 - x0, bh = y1 - y0;
+      if (bw <= 0 || bh <= 0) return true;
+      const step = Math.max(1, Math.sqrt((bw * bh) / RELIEF_SAMPLES)), sw = Math.ceil(bw / step), sh = Math.ceil(bh / step);
+      const key = `${sw}x${sh}:${x0},${y0},${step.toFixed(3)}:${Rs.toFixed(2)}:${rot[0].toFixed(3)},${rot[1].toFixed(3)}`;
+      if (key !== rel.key) {
+        rel.key = key;
+        if (rel.cv.width !== sw || rel.cv.height !== sh || !rel.img) { rel.cv.width = sw; rel.cv.height = sh; rel.img = new ImageData(sw, sh); }
+        const out = rel.img.data, src = tex.data, tw = tex.w, th = tex.h, d = Math.PI / 180;
+        const cp = Math.cos(rot[1] * d), sp = Math.sin(rot[1] * d), lam = rot[0];
+        for (let j = 0; j < sh; j++) {
+          const v = -((y0 + (j + 0.5) * step) - cy) / Rs;
+          for (let i = 0; i < sw; i++) {
+            const u = ((x0 + (i + 0.5) * step) - cx) / Rs, o = (j * sw + i) * 4, rr = u * u + v * v;
+            if (rr > 1) { out[o + 3] = 0; continue; }
+            // Same as orthoInvert(u, v, λ, φ), inlined for speed.
+            const x = Math.sqrt(1 - rr);
+            let lon = Math.atan2(u, x * cp + v * sp) / d - lam;
+            lon = ((lon % 360) + 540) % 360 - 180;
+            const lat = Math.asin(Math.max(-1, Math.min(1, v * cp - x * sp))) / d;
+            const tx = Math.min(tw - 1, ((lon + 180) / 360 * tw) | 0), ty = Math.min(th - 1, Math.max(0, ((90 - lat) / 180 * th) | 0));
+            const s = (ty * tw + tx) * 4;
+            out[o] = src[s]; out[o + 1] = src[s + 1]; out[o + 2] = src[s + 2]; out[o + 3] = 255;
+          }
+        }
+        rel.cv.getContext('2d')?.putImageData(rel.img, 0, 0);
+      }
+      ctx.save();
+      ctx.beginPath(); path(SPHERE); ctx.clip();
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(rel.cv, x0, y0, sw * step, sh * step);
+      ctx.restore();
+      return true;
+    };
+
     const frame = () => {
       const p = live.current;
       if (++frameNo % 30 === 0) theme = readTheme();
@@ -188,10 +233,14 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       const Rs = proj.scale(), grd = ctx.createRadialGradient(cx, cy, Rs * 0.92, cx, cy, Rs * 1.3);
       grd.addColorStop(0, theme.glow); grd.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
       ctx.beginPath(); path(SPHERE); ctx.fillStyle = theme.sea; ctx.fill();
+      const relief = theme.relief && drawRelief(Rs, proj.rotate());
       ctx.beginPath(); path(GRATICULE); ctx.strokeStyle = theme.grat; ctx.lineWidth = 0.7; ctx.stroke();
-      ctx.beginPath(); path(LAND); ctx.fillStyle = theme.land; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.6; ctx.stroke();
-      const lakes = lakesRef.current;
-      if (lakes) { ctx.beginPath(); path(lakes); ctx.fillStyle = theme.sea; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.5; ctx.stroke(); }
+      if (relief) { ctx.beginPath(); path(LAND); ctx.strokeStyle = theme.line; ctx.globalAlpha = 0.5; ctx.lineWidth = 0.5; ctx.stroke(); ctx.globalAlpha = 1; }
+      else {
+        ctx.beginPath(); path(LAND); ctx.fillStyle = theme.land; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.6; ctx.stroke();
+        const lakes = lakesRef.current;
+        if (lakes) { ctx.beginPath(); path(lakes); ctx.fillStyle = theme.sea; ctx.fill(); ctx.strokeStyle = theme.line; ctx.lineWidth = 0.5; ctx.stroke(); }
+      }
       const plates = platesRef.current;
       if (p.plates && plates) { ctx.beginPath(); path(plates); ctx.strokeStyle = theme.plate; ctx.globalAlpha = 0.65; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.2; ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; }
 
