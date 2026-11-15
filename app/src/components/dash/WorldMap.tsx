@@ -12,8 +12,7 @@ import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'rea
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
-import { TILE_MAX_ZOOM, TILE_PX, kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
-import { RELIEF_MAX_ZOOM, RELIEF_ON, reliefImage, reliefTileUrl } from '@/lib/relief';
+import { TILE_MAX_ZOOM, kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
 import { useTheme } from '@/components/Theme';
 import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, dotRadius, markerHit, pinLabel } from '@/lib/pin';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
@@ -435,58 +434,32 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     };
   }, [land, borders, lakesD, mercator, path]);
   const hideOutlines = zw >= HIDE_OUTLINES_FROM;
-  // Light theme, Mercator map: Natural Earth relief (lib/relief.ts) instead of the flat land and sea colours.
-  const relief = RELIEF_ON && mercator && !dark;
   useEffect(() => {
     const cv = baseCanvasRef.current, wrap = wrapRef.current;
     if (!cv || !wrap || !size.w || !shapes) return;
-    let alive = true, last = tf;
     const cs = getComputedStyle(wrap), v = (n: string) => cs.getPropertyValue(n).trim();
     const col = { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat') };
     const dpr = window.devicePixelRatio || 1, W = worldW, cx = size.w / 2;
     if (cv.width !== Math.round(size.w * dpr) || cv.height !== Math.round(size.h * dpr)) { cv.width = Math.round(size.w * dpr); cv.height = Math.round(size.h * dpr); }
     const ctx = cv.getContext('2d'); if (!ctx) return;
-    const redraw = () => { if (alive) draw(last); };
-    // Relief tiles for the view: the level's own tile when loaded, else the nearest loaded coarser tile, scaled up.
-    const drawRelief = (t: { x: number; y: number; k: number }) => {
-      const z = Math.min(RELIEF_MAX_ZOOM, Math.max(0, Math.round(webZoom(sc, t.k))));
-      for (const tl of visibleTiles({ w: size.w, h: size.h, sc, lon0: center.lon, tf: t }, z)) {
-        for (let d = 0; d <= z; d++) {
-          const img = reliefImage(reliefTileUrl(z - d, tl.x >> d, tl.y >> d), d === 0 ? redraw : undefined);
-          if (!img) continue;
-          const part = TILE_PX / 2 ** d, sx = (tl.x - ((tl.x >> d) << d)) * part, sy = (tl.y - ((tl.y >> d) << d)) * part;
-          // Only the part of the tile that is on screen: browsers can scale a draw that runs off the canvas with a
-          // different filter, which shows as a seam between tiles.
-          const ds = tl.size + 0.5, f = part / ds;
-          const l = Math.max(0, tl.left), r = Math.min(size.w, tl.left + ds), tp = Math.max(0, tl.top), b = Math.min(size.h, tl.top + ds);
-          if (r > l && b > tp) ctx.drawImage(img, sx + (l - tl.left) * f, sy + (tp - tl.top) * f, (r - l) * f, (b - tp) * f, l, tp, r - l, b - tp);
-          break;
-        }
-      }
-    };
-    const draw = (t: { x: number; y: number; k: number }) => {
-      last = t;
-      const { x, y, k: tk } = t;
+    const draw = ({ x, y, k: tk }: { x: number; y: number; k: number }) => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = col.sea; ctx.fillRect(0, 0, size.w, size.h);
       if (hideOutlines) return; // street tiles cover the map from here
       const offs = W ? [0, ...(-x / tk < cx - W / 2 ? [-W] : []), ...((size.w - x) / tk > cx + W / 2 ? [W] : [])] : [0];
-      const each = (fn: () => void) => { for (const off of offs) { ctx.setTransform(dpr * tk, 0, 0, dpr * tk, dpr * (x + tk * off), dpr * y); fn(); } };
-      // Flat land first: what shows where a relief tile hasn't arrived yet (and the whole map in dark mode).
-      each(() => {
+      for (const off of offs) {
+        ctx.setTransform(dpr * tk, 0, 0, dpr * tk, dpr * (x + tk * off), dpr * y);
         if (shapes.sphere) { ctx.fillStyle = col.sea; ctx.fill(shapes.sphere); }
         if (shapes.grat) { ctx.strokeStyle = col.grat; ctx.lineWidth = 1 / tk; ctx.stroke(shapes.grat); }
         ctx.fillStyle = col.land; ctx.fill(shapes.land);
-        if (shapes.lakes && !relief) { ctx.fillStyle = col.sea; ctx.fill(shapes.lakes); ctx.strokeStyle = col.line; ctx.lineWidth = 0.5 / tk; ctx.stroke(shapes.lakes); }
-      });
-      if (relief) { ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.imageSmoothingEnabled = true; drawRelief(t); }
-      each(() => { ctx.strokeStyle = col.line; ctx.lineWidth = 0.6 / tk; ctx.lineJoin = 'round'; ctx.stroke(shapes.borders); });
+        if (shapes.lakes) { ctx.fillStyle = col.sea; ctx.fill(shapes.lakes); ctx.strokeStyle = col.line; ctx.lineWidth = 0.5 / tk; ctx.stroke(shapes.lakes); }
+        ctx.strokeStyle = col.line; ctx.lineWidth = 0.6 / tk; ctx.lineJoin = 'round'; ctx.stroke(shapes.borders);
+      }
     };
     drawBaseRef.current = draw;
     draw(tf);
-    return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- tf changes are drawn by the zoom handler directly
-  }, [shapes, size.w, size.h, worldW, dark, hideOutlines, relief, sc, center.lon]);
+  }, [shapes, size.w, size.h, worldW, dark, hideOutlines]);
 
   // Everything drawn over the map (and over the street tiles): plates, felt layers, events, markers.
   const over = (
