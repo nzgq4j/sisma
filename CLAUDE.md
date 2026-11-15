@@ -49,7 +49,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    My location button (map tools; globe zoom pill): device position via AppState.locateHere (asks for access, leaves the
    chosen location as it is), glides / turns there and zooms in; a ringed dot marks it when another place is chosen in Me
    Relief (light theme): Natural Earth hypsometric tints + shaded relief as tiles in public/relief/ (scripts/relief-tiles.mjs,
-   lib/relief.ts) under the borders on the Mercator map, and as a texture on the globe; docs/maps-setup.md
+   lib/relief.ts) under the borders on the Mercator map, and as a WebGL-drawn texture on the globe (lib/relief-globe.ts);
+   docs/maps-setup.md
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
    Events are the same numbered pins as the maps (lib/pin.ts; Depth mode fills them by depth), drawn from cached sprites
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
