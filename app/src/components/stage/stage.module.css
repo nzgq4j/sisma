@@ -20,6 +20,15 @@
 .zoomPill :global(.ms) { font-size: 22px; }
 .zoomPill hr { height: 1px; border: 0; background: var(--line); margin: 0 8px; }
 
+/* "My location" could not be used: a note across the top, left of the map controls. */
+.locateNote { position: absolute; top: 12px; left: 12px; right: 68px; display: flex; align-items: flex-start; gap: 6px; padding: 10px 6px 10px 14px; border-radius: 16px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow); font-size: 13px; line-height: 1.4; z-index: 5; }
+@media (min-width: 1024px) { .locateNote { top: 16px; left: auto; right: 72px; width: 360px; } }
+.locateNote span { flex: 1; }
+.locateNote button { flex: none; width: 44px; height: 44px; margin: -10px 0; border: 0; background: transparent; color: var(--ink2); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.zoomPill button[aria-busy='true'] :global(.ms) { animation: locPulse 1s ease-in-out infinite; }
+@keyframes locPulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .zoomPill button[aria-busy='true'] :global(.ms) { animation: none; opacity: .5; } }
+
 /* The 2D map's own zoom buttons: top right (the filters are in the pull-up panel). */
 .mapTools { top: 12px !important; right: 12px !important; }
 @media (min-width: 1024px) { .mapTools { top: 16px !important; right: 16px !important; } }

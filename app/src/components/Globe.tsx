@@ -7,7 +7,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
-import { zoom, zoomIdentity, type ZoomBehavior } from 'd3-zoom';
+import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, depthInk, magIndex } from '@/lib/theme';
 import { markerHit } from '@/lib/pin';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
@@ -15,15 +15,23 @@ import { useMarkerStyle } from '@/components/MarkerStyle';
 import { LAND, SPHERE, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
 
-export interface GlobeHandle { zoomBy: (f: number) => void }
+export interface GlobeHandle {
+  zoomBy: (f: number) => void;
+  /** Turns to face this point and zooms in to LOCATE_K (the "My location" button). */
+  flyTo: (lat: number, lon: number) => void;
+}
 interface Props {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   depthMode: boolean; plates: boolean; spin: boolean; label: string;
   /** Turns the globe to face this point (e.g. a chosen world region) whenever `key` changes. */
   focus?: { key: string; lat: number; lon: number } | null;
+  /** The device position, marked with a ring when it differs from `center` (the location chosen in Me). */
+  here?: { lat: number; lon: number } | null;
 }
 /** How long (ms) the turn to a new focus takes. */
 const TURN_MS = 700;
+/** Zoom reached by flyTo (about 30° of the globe across the view). */
+const LOCATE_K = 4;
 
 const GRATICULE = geoGraticule10();
 // Remember the view between visits to the tab, like the design (globeRot / globeK).
@@ -57,7 +65,9 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
 
   useImperativeHandle(ref, () => ({
     zoomBy: f => { const h = zoomRef.current; if (h) select(h.el).call(h.z.scaleBy, f); },
+    flyTo: (lat, lon) => { flyRef.current = { lat, lon }; },
   }), []);
+  const flyRef = useRef<{ lat: number; lon: number } | null>(null);
 
   useEffect(() => {
     const wrap = wrapRef.current, cv = canvasRef.current; if (!wrap || !cv) return;
@@ -69,7 +79,9 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       .rotate(memo.rot ?? [-center.lon, -Math.max(-40, Math.min(40, center.lat)) * 0.7, 0]);
     const path = geoPath(proj, ctx);
     const st = { drag: false, moved: false, px: 0, py: 0, pk: memo.k, pts: [] as [number, number, Quake][],
-      focusKey: null as string | null, turn: null as { from: [number, number]; to: [number, number]; t0: number } | null };
+      focusKey: null as string | null,
+      turn: null as { from: [number, number]; to: [number, number]; t0: number; k?: [number, number] } | null };
+    const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -154,10 +166,22 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
           st.turn = { from: [r[0], r[1]], to, t0: performance.now() };
         }
       }
+      const fly = flyRef.current;
+      if (fly) {
+        flyRef.current = null;
+        const r = proj.rotate(), to: [number, number] = [-fly.lon, -Math.max(-85, Math.min(85, fly.lat))];
+        to[0] = r[0] + ((((to[0] - r[0]) % 360) + 540) % 360) - 180; // the short way round
+        st.turn = { from: [r[0], r[1]], to, t0: reduced() ? -Infinity : performance.now(), k: [memo.k, Math.max(memo.k, LOCATE_K)] };
+      }
       if (st.turn) {
-        const { from, to, t0 } = st.turn, u = Math.min(1, (performance.now() - t0) / TURN_MS), e = u < 0.5 ? 2 * u * u : 1 - (-2 * u + 2) ** 2 / 2;
+        const { from, to, t0, k: zk } = st.turn, u = Math.min(1, (performance.now() - t0) / TURN_MS), e = u < 0.5 ? 2 * u * u : 1 - (-2 * u + 2) ** 2 / 2;
         proj.rotate([from[0] + (to[0] - from[0]) * e, from[1] + (to[1] - from[1]) * e, 0]);
-        if (u >= 1) st.turn = null;
+        if (zk) { memo.k = zk[0] * (zk[1] / zk[0]) ** e; proj.scale(R * memo.k); }
+        if (u >= 1) {
+          st.turn = null;
+          // Hand the new zoom to d3-zoom, so pinch and the +/− buttons carry on from it.
+          if (zk) { const cur = zoomTransform(cv); select(cv).call(z.transform, zoomIdentity.translate(cur.x, cur.y).scale(zk[1])); }
+        }
       } else if (p.spin && !st.drag) { const r = proj.rotate(); proj.rotate([r[0] + 0.12 / memo.k, r[1], 0]); }
       memo.rot = proj.rotate();
       ctx.clearRect(0, 0, W, H);
@@ -202,6 +226,16 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
         if (xy) {
           ctx.fillStyle = theme.violet; ctx.globalAlpha = 0.22; ctx.beginPath(); ctx.arc(xy[0], xy[1], 12, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
           ctx.beginPath(); ctx.arc(xy[0], xy[1], 5, 0, 7); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+        }
+      }
+      // The device position when another location is chosen in Me: the same dot with a ring round it (as on the map).
+      const D = p.here;
+      if (D && Math.hypot(D.lat - L.lat, D.lon - L.lon) > 0.001 && geoDistance([D.lon, D.lat], c) < 1.55) {
+        const xy = proj([D.lon, D.lat]);
+        if (xy) {
+          ctx.fillStyle = theme.violet; ctx.globalAlpha = 0.22; ctx.beginPath(); ctx.arc(xy[0], xy[1], 13, 0, 7); ctx.fill(); ctx.globalAlpha = 1;
+          ctx.beginPath(); ctx.arc(xy[0], xy[1], 8.5, 0, 7); ctx.strokeStyle = theme.violet; ctx.lineWidth = 2; ctx.stroke();
+          ctx.beginPath(); ctx.arc(xy[0], xy[1], 4.2, 0, 7); ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5; ctx.stroke();
         }
       }
       st.pts = pts;

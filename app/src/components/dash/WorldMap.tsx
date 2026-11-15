@@ -28,6 +28,9 @@ import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
 
 const GRATICULE = geoGraticule10();
+/** "My location": degrees of longitude across the shorter side of the view (~330 km), and the glide's length (ms). */
+const LOCATE_SPAN = 3;
+const LOCATE_MS = 900;
 
 // Event markers (lib/pin.ts, shared with the globe), in the style chosen in Me → Map markers: numbered pins of one
 // size (fill = magnitude band, number = magnitude, tip on the epicentre) or circles sized and filled by magnitude.
@@ -102,7 +105,7 @@ function TileCredit() {
   );
 }
 
-export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], onReset }: {
+export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], onReset, onLocate, here = null }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   projection?: 'equalEarth' | 'mercator'; plates?: boolean; pin?: boolean; controls?: boolean; toolsClassName?: string;
   /** Zoom to this point (changing `key` re-applies it). */
@@ -119,6 +122,10 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   heat?: HeatCell[];
   /** Called when the reset-view button is pressed (e.g. to leave a focused region). */
   onReset?: () => void;
+  /** Shows a "My location" button: resolves with the device position (or null), which the map then zooms to. */
+  onLocate?: () => Promise<{ lat: number; lon: number } | null>;
+  /** The device position, marked when it differs from `center` (the location chosen in Me). */
+  here?: { lat: number; lon: number } | null;
 }) {
   const gid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const { t, m } = useT();
@@ -239,6 +246,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     return null;
   })();
   const me = pin ? project(center.lon, center.lat) : null;
+  // The device position, when it isn't the chosen location itself (more than ~100 m away).
+  const away = here && Math.hypot(here.lat - center.lat, here.lon - center.lon) > 0.001 ? project(here.lon, here.lat) : null;
   // ~10 km radius (0.09° of latitude) in map units, never smaller than ~10 screen px so a cell stays visible.
   const blobs = useMemo(() => cells.flatMap(c => {
     const a = project(c.lon, c.lat), b = project(c.lon, Math.min(89, c.lat + 0.09));
@@ -270,6 +279,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     return null;
   };
   const selAt = selected ? toScreen(selected.xy) : null, focAt = focused ? toScreen(focused.xy) : null, meAt = me ? toScreen(me) : null;
+  const hereAt = away ? toScreen(away) : null;
 
   // Tap or click: the nearest pin within reach of a fingertip (about 44 px across on touch) is selected; empty map
   // clears the selection.
@@ -370,7 +380,48 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   }, [popKey]);
 
   const zoomBy = (f: number) => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.scaleBy, f); };
-  const reset = () => { const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); onReset?.(); };
+  const reset = () => { flight.current?.(); const z = zoomRef.current, s = svgRef.current; if (z && s) select(s).call(z.transform, zoomIdentity); onReset?.(); };
+
+  // "My location": glide to the device position, ~LOCATE_SPAN° across the shorter side (street level begins). The centre
+  // of the view moves in a straight line while the scale changes evenly; a drag, pinch or wheel stops it.
+  const flight = useRef<(() => void) | null>(null);
+  const [locating, setLocating] = useState(false);
+  const flyTo = (lat: number, lon: number) => {
+    const z = zoomRef.current, s = svgRef.current, fp = project(lon, lat);
+    if (!z || !s || !fp || !size.w || !size.h) return;
+    flight.current?.();
+    const { w, h } = size, fz = mercator && sc ? (Math.min(w, h) * 180) / (Math.PI * sc * LOCATE_SPAN) : 8;
+    const k1 = Math.min(z.scaleExtent()[1], Math.max(1, fz));
+    const from = zoomTransform(s);
+    let x0 = from.x;
+    if (worldW) { // start from the copy of the world nearest the centred one, so the glide is never more than half a world
+      const kW = from.k * worldW, base = (w / 2) * (1 - from.k);
+      let d = ((x0 - base) % kW + kW) % kW; if (d >= kW / 2) d -= kW;
+      x0 = base + d;
+    }
+    const c0 = { x: (w / 2 - x0) / from.k, y: (h / 2 - from.y) / from.k }, c1 = { x: fp[0], y: fp[1] };
+    const at = (k: number, c: { x: number; y: number }) => zoomIdentity.translate(w / 2 - k * c.x, h / 2 - k * c.y).scale(k);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { select(s).call(z.transform, at(k1, c1)); return; }
+    let raf = 0;
+    const t0 = performance.now(), stop = () => { cancelAnimationFrame(raf); s.removeEventListener('pointerdown', stop); s.removeEventListener('wheel', stop); flight.current = null; };
+    const step = (now: number) => {
+      const u = Math.min(1, (now - t0) / LOCATE_MS), e = u < 0.5 ? 2 * u * u : 1 - (-2 * u + 2) ** 2 / 2;
+      const k = from.k * (k1 / from.k) ** e;
+      select(s).call(z.transform, at(k, { x: c0.x + (c1.x - c0.x) * e, y: c0.y + (c1.y - c0.y) * e }));
+      if (u < 1) raf = requestAnimationFrame(step); else stop();
+    };
+    s.addEventListener('pointerdown', stop); s.addEventListener('wheel', stop, { passive: true });
+    flight.current = stop;
+    raf = requestAnimationFrame(step);
+  };
+  useEffect(() => () => flight.current?.(), []);
+  const locate = async () => {
+    if (!onLocate || locating) return;
+    setLocating(true);
+    const p = await onLocate();
+    setLocating(false);
+    if (p) flyTo(p.lat, p.lon);
+  };
 
   // The world layer (sea, land, lakes, borders; Equal Earth adds the sphere and graticule) on a canvas: Path2D shapes
   // in map units, redrawn with the zoom transform. On the Mercator map it is repeated one world-width to the left and
@@ -490,6 +541,14 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
                 <circle r={5.5} fill="var(--violet)" stroke="#fff" strokeWidth={2} />
               </g>
             )}
+            {/* The device position (another location is chosen in Me): a ring round the dot tells it apart. */}
+            {hereAt && (
+              <g transform={`translate(${hereAt.x},${hereAt.y})`} data-here="">
+                <circle r={14} fill="var(--violet)" fillOpacity={0.2} />
+                <circle r={9} fill="none" stroke="var(--violet)" strokeWidth={2} />
+                <circle r={4.5} fill="var(--violet)" stroke="#fff" strokeWidth={1.5} />
+              </g>
+            )}
           </svg>
         </>
       )}
@@ -498,6 +557,11 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           <button type="button" onClick={() => zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>
           <button type="button" onClick={() => zoomBy(1 / 1.6)} aria-label={m.dash.zoom_out} title={m.dash.zoom_out}><span className="ms">remove</span></button>
           <button type="button" onClick={reset} aria-label={m.dash.reset_view} title={m.dash.reset_view}><span className="ms">fit_screen</span></button>
+          {onLocate && (
+            <button type="button" onClick={() => void locate()} aria-label={m.acct.my_location} title={m.acct.my_location} aria-busy={locating}>
+              <span className="ms">my_location</span>
+            </button>
+          )}
         </div>
       )}
       {/* Bottom right, kept above whatever covers the bottom of the map (the page sets --map-bottom-inset). */}

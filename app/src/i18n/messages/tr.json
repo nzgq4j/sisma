@@ -200,7 +200,8 @@
     "table_view": "Tablo olarak göster",
     "chart_view": "Grafik olarak göster",
     "loading": "Depremler yükleniyor…",
-    "distance": "Mesafe"
+    "distance": "Mesafe",
+    "close": "Kapat"
   },
   "sci": {
     "modes": {

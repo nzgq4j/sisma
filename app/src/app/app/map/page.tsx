@@ -5,6 +5,7 @@
 // /app/map?focus=<quake id> ("Show region") zooms to ~7.5° across the shorter side of the view around that quake,
 // marks it as the event in focus (pulsing marker, summary card below) and draws its felt reports. Tapping a nearby
 // event there opens a callout on the map; tapping the callout makes that event the focus.
+// The My location button (under the zoom buttons) zooms to the device position; the location chosen in Me stays as it is.
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/I18nProvider';
@@ -20,7 +21,7 @@ import { useDistance } from '@/components/Units';
 import type { Quake } from '@/lib/quakes/types';
 import { hasId } from '@/lib/quakes/merge';
 import { FitLine } from '@/components/FitLine';
-import { Legend, Selection } from '@/components/stage/StageParts';
+import { Legend, LocateNote, Selection, useLocateHere } from '@/components/stage/StageParts';
 import { FilterPanel, LayerToggle } from '@/components/stage/FilterPanel';
 import { REGION_VIEW } from '@/lib/world-regions';
 import { HEAT_COLORS, MMI_COLORS, ROMAN } from '@/lib/theme';
@@ -39,6 +40,8 @@ function MapView() {
   const router = useRouter();
   const focusId = useSearchParams().get('focus');
   const { locations, active } = useApp();
+  const locate = useLocateHere();
+  const device = locations.find(l => l.fromDevice) ?? null;
   const { mapList: list, all, loaded, worldReg } = useQuakeData();
   const [plates, setPlates] = useState(false);
   const [picked, setPicked] = useState<string | null>(null);
@@ -117,7 +120,9 @@ function MapView() {
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
         focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, span: REGION_SPAN, y: 0.42 }
           : regionView ? { key: `wr:${worldReg}`, ...regionView, y: 0.42 } : null}
-        cells={focusQuake ? felt.cells : []} heat={focusQuake && auto.map ? auto.map.cells : []} onReset={focusId ? exitRegion : undefined} />
+        cells={focusQuake ? felt.cells : []} heat={focusQuake && auto.map ? auto.map.cells : []} onReset={focusId ? exitRegion : undefined}
+        onLocate={locate.go} here={device} />
+      <LocateNote note={locate.note} onClose={locate.dismiss} />
       {focusId && (
         <div className={styles.feltCard} role="status">
           <button type="button" className={styles.exitBtn} onClick={exitRegion}>

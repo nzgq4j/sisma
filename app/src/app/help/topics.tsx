@@ -132,6 +132,7 @@ export const TOPICS: Topic[] = [
           <p>The <Ui>Map</Ui> tab shows recent earthquakes as pins coloured by magnitude, centred on your part of the world.</p>
           <ul>
             <li><strong>Move and zoom</strong> with your fingers or mouse, or with the <Ui>+</Ui> and <Ui>−</Ui> buttons. The third button resets the view.</li>
+            <li><strong>My location</strong> (the fourth button) zooms to where you are now. The first time, sisma asks for access to your location. A ring round the dot marks your position when another place is chosen in <Ui>Me</Ui>; that choice stays as it is.</li>
             <li>Zoom in far enough and <strong>street maps</strong> from OpenStreetMap fade in, so you can see exactly where an event was.</li>
             <li><strong>Tap a pin</strong> to see a summary card, then <Ui>Details</Ui> for everything about it.</li>
           </ul>
@@ -170,7 +171,7 @@ export const TOPICS: Topic[] = [
       <>
       <div className={s.pair}>
         <div>
-          <p>The <Ui>Globe</Ui> tab shows the same earthquakes on a 3D Earth. Drag to turn it and pinch or scroll to zoom. Tap a pin for its summary.</p>
+          <p>The <Ui>Globe</Ui> tab shows the same earthquakes on a 3D Earth. Drag to turn it and pinch or scroll to zoom. Tap a pin for its summary. <Ui>My location</Ui>, under the <Ui>−</Ui> button, turns the globe to where you are now and zooms in (the spin stops so you stay in view).</p>
           <p>In the <Ui>Filters</Ui> panel’s layers:</p>
           <ul>
             <li><strong>Depth</strong> colours each earthquake by depth and draws a line down to where it started, so you can see deep earthquakes under subduction zones.</li>

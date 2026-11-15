@@ -1,6 +1,6 @@
 'use client';
 // Overlay pieces shared by the Map and Globe tabs.
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useCardGestures } from './useCardGestures';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
@@ -16,6 +16,43 @@ import { dotRadius } from '@/lib/pin';
 import styles from './stage.module.css';
 
 export const MAG_STEPS = [2.5, 3, 4, 5, 6, 7];
+
+/**
+ * The "My location" button on the Map and Globe: finds the device position (asking for access the first time) without
+ * changing the location chosen in Me. `go` resolves with the position, or null after showing why it isn't available.
+ */
+export function useLocateHere() {
+  const { locateHere } = useApp();
+  const [busy, setBusy] = useState(false);
+  const [note, setNote] = useState<null | 'denied' | 'unavailable'>(null);
+  useEffect(() => {
+    if (!note) return;
+    const id = setTimeout(() => setNote(null), 6000);
+    return () => clearTimeout(id);
+  }, [note]);
+  const go = async () => {
+    if (busy) return null;
+    setBusy(true); setNote(null);
+    const r = await locateHere();
+    setBusy(false);
+    if (typeof r === 'string') { setNote(r); return null; }
+    return r;
+  };
+  return { busy, note, go, dismiss: () => setNote(null) };
+}
+
+/** Why the position couldn't be used (location access off, or no fix), under the map controls. */
+export function LocateNote({ note, onClose }: { note: null | 'denied' | 'unavailable'; onClose: () => void }) {
+  const { m } = useT();
+  if (!note) return null;
+  const a = m.acct as unknown as Record<string, string>;
+  return (
+    <div className={styles.locateNote} role="alert">
+      <span>{note === 'denied' ? a.loc_denied : a.loc_unavailable}</span>
+      <button type="button" onClick={onClose} aria-label={m.dash.close}><span className="ms" aria-hidden="true">close</span></button>
+    </div>
+  );
+}
 
 /** Minimum-magnitude filter for the maps (sisma+). Free users see a lock that opens the paywall. */
 export function MagFilterChip() {
