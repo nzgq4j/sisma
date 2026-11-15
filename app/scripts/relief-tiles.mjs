@@ -2,7 +2,7 @@
 // (HYP_50M_SR_W.tif, 10 800 × 5 400 px, equirectangular, public domain; naturalearthdata.com, also in the
 // github.com/nvkelso/natural-earth-raster repository under 50m_rasters/):
 //   - public/relief/{z}/{x}/{y}.webp: 256 px web-Mercator tiles, zoom 0–RELIEF_MAX_ZOOM, for the 2D map (lib/relief.ts)
-//   - public/relief/globe.webp: 2048 × 1024 equirectangular texture for the globe
+//   - public/relief/globe.webp: 4096 × 2048 equirectangular texture for the globe (WebGL, lib/relief-globe.ts)
 //
 //   node scripts/relief-tiles.mjs path/to/HYP_50M_SR_W.tif
 //
@@ -66,6 +66,6 @@ for (let z = 0; z <= MAX_ZOOM; z++) {
   }
   console.log(`zoom ${z}: ${n * n} tiles`);
 }
-const g = await sharp(src, { limitInputPixels: false }).removeAlpha().resize(2048, 1024, { kernel: 'lanczos3' })
+const g = await sharp(src, { limitInputPixels: false }).removeAlpha().resize(4096, 2048, { kernel: 'lanczos3' })
   .webp({ quality: 78 }).toFile(join(out, 'globe.webp'));
 console.log(`${count} tiles, ${(bytes / 1e6).toFixed(1)} MB; globe.webp ${(g.size / 1e3).toFixed(0)} kB`);

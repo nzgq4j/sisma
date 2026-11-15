@@ -13,7 +13,9 @@ The light theme's Mercator map and globe show Natural Earth's "Cross Blended Hyp
 (1:50m, 10 800 × 5 400 px, public domain; naturalearthdata.com, also in github.com/nvkelso/natural-earth-raster under
 `50m_rasters/HYP_50M_SR_W/`). `scripts/relief-tiles.mjs` turns it into `public/relief/`: 256 px web-Mercator tiles,
 zoom 0–5 (WebP quality 90, about 6 MB in all; lower quality shows seams between tiles when scaled up) and
-`globe.webp` (2048 × 1024) for the globe. The tiles are served with the site, so no outside service is involved.
+`globe.webp` (4096 × 2048, about 400 kB) for the globe. The globe draws it with WebGL (`lib/relief-globe.ts`): each
+screen pixel is mapped back to longitude / latitude in a shader and read with smooth (mipmapped) filtering, on a canvas
+under the globe's 2D canvas. It is created only in the light theme; without WebGL the globe keeps the flat colours. The tiles are served with the site, so no outside service is involved.
 Between zoom 5 and the street tiles (web zoom 6.5–7.5) the zoom-5 tiles are scaled up. The dark theme and the
 dashboard's Equal Earth map keep the flat colours; `NEXT_PUBLIC_RELIEF=off` turns the layer off.
 

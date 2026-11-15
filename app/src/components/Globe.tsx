@@ -9,7 +9,8 @@ import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, depthInk, magIndex } from '@/lib/theme';
-import { RELIEF_ON, reliefGlobePixels } from '@/lib/relief';
+import { RELIEF_ON } from '@/lib/relief';
+import { createReliefGlobe } from '@/lib/relief-globe';
 import { markerHit } from '@/lib/pin';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
 import { useMarkerStyle } from '@/components/MarkerStyle';
@@ -35,8 +36,6 @@ const TURN_MS = 700;
 const LOCATE_K = 4;
 
 const GRATICULE = geoGraticule10();
-/** Relief on the globe: at most this many texture samples per frame (scaled up to the globe's size on screen). */
-const RELIEF_SAMPLES = 70_000;
 // Remember the view between visits to the tab, like the design (globeRot / globeK).
 const memo: { rot: [number, number, number] | null; k: number } = { rot: null, k: 1 };
 
@@ -157,46 +156,19 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     st.px = 0; st.py = 0; st.pk = memo.k;
     zoomRef.current = { z, el: cv };
 
-    // Light theme: the relief texture (lib/relief.ts) reprojected onto the visible disc at up to RELIEF_SAMPLES points,
-    // drawn scaled up and clipped to the sphere. Recomputed only when the view moves. False until the texture is in.
-    const rel = { cv: document.createElement('canvas'), img: null as ImageData | null, key: '' };
-    const drawRelief = (Rs: number, rot: [number, number, number]) => {
-      const tex = reliefGlobePixels();
-      if (!tex) return false;
-      const x0 = Math.max(0, Math.floor(cx - Rs)), x1 = Math.min(W, Math.ceil(cx + Rs));
-      const y0 = Math.max(0, Math.floor(cy - Rs)), y1 = Math.min(H, Math.ceil(cy + Rs));
-      const bw = x1 - x0, bh = y1 - y0;
-      if (bw <= 0 || bh <= 0) return true;
-      const step = Math.max(1, Math.sqrt((bw * bh) / RELIEF_SAMPLES)), sw = Math.ceil(bw / step), sh = Math.ceil(bh / step);
-      const key = `${sw}x${sh}:${x0},${y0},${step.toFixed(3)}:${Rs.toFixed(2)}:${rot[0].toFixed(3)},${rot[1].toFixed(3)}`;
-      if (key !== rel.key) {
-        rel.key = key;
-        if (rel.cv.width !== sw || rel.cv.height !== sh || !rel.img) { rel.cv.width = sw; rel.cv.height = sh; rel.img = new ImageData(sw, sh); }
-        const out = rel.img.data, src = tex.data, tw = tex.w, th = tex.h, d = Math.PI / 180;
-        const cp = Math.cos(rot[1] * d), sp = Math.sin(rot[1] * d), lam = rot[0];
-        for (let j = 0; j < sh; j++) {
-          const v = -((y0 + (j + 0.5) * step) - cy) / Rs;
-          for (let i = 0; i < sw; i++) {
-            const u = ((x0 + (i + 0.5) * step) - cx) / Rs, o = (j * sw + i) * 4, rr = u * u + v * v;
-            if (rr > 1) { out[o + 3] = 0; continue; }
-            // Same as orthoInvert(u, v, λ, φ), inlined for speed.
-            const x = Math.sqrt(1 - rr);
-            let lon = Math.atan2(u, x * cp + v * sp) / d - lam;
-            lon = ((lon % 360) + 540) % 360 - 180;
-            const lat = Math.asin(Math.max(-1, Math.min(1, v * cp - x * sp))) / d;
-            const tx = Math.min(tw - 1, ((lon + 180) / 360 * tw) | 0), ty = Math.min(th - 1, Math.max(0, ((90 - lat) / 180 * th) | 0));
-            const s = (ty * tw + tx) * 4;
-            out[o] = src[s]; out[o + 1] = src[s + 1]; out[o + 2] = src[s + 2]; out[o + 3] = 255;
-          }
-        }
-        rel.cv.getContext('2d')?.putImageData(rel.img, 0, 0);
-      }
-      ctx.save();
-      ctx.beginPath(); path(SPHERE); ctx.clip();
-      ctx.imageSmoothingEnabled = true;
-      ctx.drawImage(rel.cv, x0, y0, sw * step, sh * step);
-      ctx.restore();
-      return true;
+    // Light theme: relief drawn by the GPU on a canvas underneath (lib/relief-globe.ts). Created only while the light
+    // theme is on (dark mode gets no WebGL context and no texture download) and removed when it goes; stays off if the
+    // device has no WebGL.
+    let rg: ReturnType<typeof createReliefGlobe> = null, gcv: HTMLCanvasElement | null = null, noGl = false;
+    const reliefLayer = (on: boolean) => {
+      if (on && !rg && !noGl) {
+        gcv = document.createElement('canvas');
+        gcv.setAttribute('aria-hidden', 'true');
+        Object.assign(gcv.style, { position: 'absolute', left: '0', top: '0', pointerEvents: 'none' });
+        rg = createReliefGlobe(gcv);
+        if (rg) wrap.insertBefore(gcv, cv); else { noGl = true; gcv = null; }
+      } else if (!on && rg) { rg.dispose(); gcv?.remove(); rg = null; gcv = null; }
+      return rg;
     };
 
     const frame = () => {
@@ -231,9 +203,17 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       memo.rot = proj.rotate();
       ctx.clearRect(0, 0, W, H);
       const Rs = proj.scale(), grd = ctx.createRadialGradient(cx, cy, Rs * 0.92, cx, cy, Rs * 1.3);
-      grd.addColorStop(0, theme.glow); grd.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = grd; ctx.fillRect(0, 0, W, H);
-      ctx.beginPath(); path(SPHERE); ctx.fillStyle = theme.sea; ctx.fill();
-      const relief = theme.relief && drawRelief(Rs, proj.rotate());
+      grd.addColorStop(0, theme.glow); grd.addColorStop(1, 'rgba(0,0,0,0)'); ctx.fillStyle = grd;
+      const layer = reliefLayer(theme.relief), relief = !!layer?.ready();
+      if (gcv) gcv.style.visibility = relief ? 'visible' : 'hidden';
+      if (relief) {
+        layer!.render({ W, H, dpr: window.devicePixelRatio || 1, cx, cy, R: Rs, rot: proj.rotate() });
+        // The glow only round the sphere: inside it, this canvas stays clear so the relief underneath shows.
+        ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); path(SPHERE); ctx.clip('evenodd'); ctx.fillRect(0, 0, W, H); ctx.restore();
+      } else {
+        ctx.fillRect(0, 0, W, H);
+        ctx.beginPath(); path(SPHERE); ctx.fillStyle = theme.sea; ctx.fill();
+      }
       ctx.beginPath(); path(GRATICULE); ctx.strokeStyle = theme.grat; ctx.lineWidth = 0.7; ctx.stroke();
       if (relief) { ctx.beginPath(); path(LAND); ctx.strokeStyle = theme.line; ctx.globalAlpha = 0.5; ctx.lineWidth = 0.5; ctx.stroke(); ctx.globalAlpha = 1; }
       else {
@@ -293,7 +273,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
     };
     raf = requestAnimationFrame(frame);
     return () => {
-      cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null;
+      cancelAnimationFrame(raf); ro.disconnect(); sel.on('.zoom', null); zoomRef.current = null; reliefLayer(false);
       cv.removeEventListener('pointerdown', onDown); cv.removeEventListener('pointerup', onUp); cv.removeEventListener('pointercancel', onCancel);
       cv.removeEventListener('pointermove', onMove); cv.removeEventListener('pointerleave', onLeave);
     };
@@ -301,7 +281,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
 
   return (
     <div ref={wrapRef} style={{ position: 'absolute', inset: 0 }}>
-      <canvas ref={canvasRef} role="img" aria-label={props.label} style={{ display: 'block', touchAction: 'none', cursor: 'default' }} />
+      <canvas ref={canvasRef} role="img" aria-label={props.label} style={{ position: 'relative', display: 'block', touchAction: 'none', cursor: 'default' }} />
     </div>
   );
 });

@@ -29,26 +29,9 @@ export function reliefImage(url: string, onLoad?: () => void): HTMLImageElement 
 }
 
 /**
- * The globe texture as pixels (2048 × 1024, equirectangular: x = longitude −180…180, y = latitude 90…−90), once loaded.
- */
-let globePixels: { w: number; h: number; data: Uint8ClampedArray } | null = null;
-export function reliefGlobePixels(onLoad?: () => void) {
-  if (globePixels) return globePixels;
-  const img = reliefImage(RELIEF_GLOBE_URL, onLoad);
-  if (!img) return null;
-  const c = document.createElement('canvas');
-  c.width = img.naturalWidth; c.height = img.naturalHeight;
-  const ctx = c.getContext('2d', { willReadFrequently: true });
-  if (!ctx) return null;
-  ctx.drawImage(img, 0, 0);
-  globePixels = { w: c.width, h: c.height, data: ctx.getImageData(0, 0, c.width, c.height).data };
-  return globePixels;
-}
-
-/**
  * Longitude / latitude (degrees) under a point of an orthographic globe, for a d3 rotation [λ, φ, 0] (degrees) and a
- * point (u, v) on the unit disc (u right, v up; u² + v² ≤ 1). Same result as d3's geoOrthographic().rotate().invert,
- * without per-point projection objects (used for every pixel of the globe texture).
+ * point (u, v) on the unit disc (u right, v up; u² + v² ≤ 1). Same result as d3's geoOrthographic().rotate().invert;
+ * the globe's relief shader (lib/relief-globe.ts) does the same per pixel, and the test checks this against d3.
  */
 export function orthoInvert(u: number, v: number, lambda: number, phi: number): [number, number] {
   const r = Math.PI / 180, x = Math.sqrt(Math.max(0, 1 - u * u - v * v)), y = u, z = v;
