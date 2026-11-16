@@ -98,15 +98,20 @@ async function render(key, card, vis) {
       ? `<div style="position:absolute;right:56px;top:50%;transform:translateY(-50%);display:grid;grid-template-columns:250px 250px;gap:14px">${vis.grid.map(s => `<div style="width:250px;height:230px;overflow:hidden;${frame};background:#191431"><img src="${s}" style="width:100%;height:100%;object-fit:cover"></div>`).join('')}</div>`
       : `<div style="position:absolute;right:56px;top:50%;transform:translateY(-50%);width:500px;max-height:500px;overflow:hidden;${frame};background:#191431"><img src="${vis.src}" style="width:100%;display:block"></div>`;
   const url = 'sisma.io' + (card.path === '/' ? '' : card.path);
+  // Long titles (In Depth articles) get a smaller heading and a shorter sub line, so nothing runs into the logo or the
+  // address; a long address gets a smaller size so it stays on one line.
+  const hl = card.heading.length, headSize = hl <= 30 ? 58 : hl <= 48 ? 50 : 42;
+  const sub = hl > 48 ? card.sub.replace(/^(.{0,90}\S*).*$/s, (m, a) => (a.length < card.sub.length ? a.replace(/[\s,;:.–—-]+$/, '') + '…' : a)) : card.sub;
+  const urlSize = url.length > 44 ? 17 : 22;
   await page.setContent(`<html><head><style>${faces} html,body{margin:0;font-family:Figtree,sans-serif}</style></head><body>
     <div style="position:fixed;inset:0;background:radial-gradient(circle at 900px 315px,#2e2275 0,${BG} 520px);overflow:hidden">
       ${picture}
       <div style="position:absolute;left:68px;top:64px;bottom:60px;width:${vis.bleed ? 600 : 540}px;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:14px"><div style="width:52px;height:52px">${icon}</div><div style="font-size:40px;font-weight:800;color:#fff">sisma</div></div>
         <div style="margin-top:auto;font-size:22px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#a996ff">${esc(card.kicker)}</div>
-        <div style="margin-top:12px;font-size:58px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-1px">${esc(card.heading)}</div>
-        <div style="margin-top:20px;font-size:26px;color:#cfc8f2;line-height:1.35">${esc(card.sub)}</div>
-        <div style="margin-top:auto;padding-top:24px;font-size:22px;font-weight:700;color:#a996ff">${esc(url)}</div>
+        <div style="margin-top:12px;font-size:${headSize}px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-1px">${esc(card.heading)}</div>
+        <div style="margin-top:20px;font-size:${hl > 48 ? 23 : 26}px;color:#cfc8f2;line-height:1.35">${esc(sub)}</div>
+        <div style="margin-top:auto;padding-top:24px;font-size:${urlSize}px;font-weight:700;color:#a996ff;white-space:nowrap">${esc(url)}</div>
       </div>
     </div></body></html>`, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);

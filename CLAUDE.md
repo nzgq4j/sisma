@@ -55,6 +55,11 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    + content/science/<locale>.json, lib/science.ts); SEO titles and descriptions stay English
    The Ring of Fire article has a live widget: the period's M4.5+ events on a Pacific-centred map, counted on / off the
    Ring (rough outline in lib/ring-of-fire.ts, tested); its social card is public/og/science-ring.jpg (og-cards.mjs)
+   In Depth library (/app/science/in-depth, linked from the Science list): long-form, sourced articles — English text, SEO
+   title/description and references in content/library.json, translations (title, dek, sections, FAQ; same counts) in
+   content/library/<locale>.json loaded per language (lib/library.ts). Static pages with Article + FAQPage + breadcrumbs
+   JSON-LD, sitemap lastModified, share cards public/og/library[-<id>].jpg (og-cards.mjs). The 10-language rule applies;
+   references stay English. Facts and citations must be checked before publishing
 7. Me / account dashboard (skeleton done: app/app/me): email + password (sign-in, sign-up, reset, change; no email-link sign-in) and Google sign-in (components/Account.tsx, lib/oauth.ts;
    Google button shows when the provider is on in Supabase; Android: in-app account picker via @capgo/capacitor-social-login →
    signInWithIdToken with a nonce; Android OAuth clients per signing key, docs/android-setup.md §4), profile + plan, alerts saved to
