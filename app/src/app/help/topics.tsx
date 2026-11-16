@@ -1,53 +1,36 @@
-// Help centre topics (English, like the legal pages): one page each at /help/<slug> (app/help/[topic]/page.tsx), listed
-// on the hub (app/help/page.tsx). Screenshots: public/help/<name>-light.webp and -dark.webp, taken from the app by
-// scripts/help-shots.mjs. Keep the wording in step with the app (i18n/messages/en.json): see the help rule in CLAUDE.md.
-/* eslint-disable @next/next/no-img-element -- static screenshots with fixed size */
+// Help centre topics, English: one page each at /help/<slug> (app/help/[topic]/page.tsx), listed on the hub
+// (app/help/page.tsx). Translations with the same structure in ./i18n/<locale>.tsx (same topics in the same order, same
+// anchors, links and screenshots; checked by help-i18n.test.ts), shown in the reader's language by HelpChrome.
+// Screenshots: public/help/<name>-light.webp and -dark.webp (English) and public/help/<locale>/… , taken from the app by
+// scripts/help-shots.mjs. Keep the wording in step with the app (i18n/messages/*.json): see the help rule in CLAUDE.md.
 import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { MAG_SCALE } from '@/lib/theme';
 import { PRICES, TRIAL_DAYS } from '@/lib/entitlements';
-import { SITE } from '@/lib/site';
 import legal from '../privacy/privacy.module.css';
 import s from './help.module.css';
+import { Callout, Faq, MAIL, MagLegend, Shot, Ui, usd } from './help-parts';
 
-export const MAIL = SITE.legal.supportEmail;
-const usd = (n: number) => `US$${n.toFixed(2)}`;
-
-export const Ui = ({ children }: { children: ReactNode }) => <span className={s.ui}>{children}</span>;
-
-/** A phone screenshot in the light and the dark theme; the CSS shows the one that matches the page's theme. */
-export function Shot({ src, alt, caption }: { src: string; alt: string; caption?: string }) {
-  return (
-    <figure className={s.shot}>
-      <img className={s.onLight} src={`/help/${src}-light.webp`} alt={alt} width={585} height={1266} loading="lazy" decoding="async" />
-      <img className={s.onDark} src={`/help/${src}-dark.webp`} alt={alt} width={585} height={1266} loading="lazy" decoding="async" />
-      {caption && <figcaption>{caption}</figcaption>}
-    </figure>
-  );
-}
-
-export function Callout({ kind = 'tip', children }: { kind?: 'tip' | 'note' | 'warn'; children: ReactNode }) {
-  const icon = kind === 'tip' ? 'lightbulb' : kind === 'warn' ? 'warning' : 'info';
-  return <div className={`${s.callout} ${s[kind]}`} role="note"><span className="ms" aria-hidden="true">{icon}</span><div>{children}</div></div>;
-}
-
-function Faq({ q, children }: { q: string; children: ReactNode }) {
-  return <details><summary>{q}</summary><div>{children}</div></details>;
-}
-
-function MagLegend() {
-  const bands = MAG_SCALE.map(([min, fill, ink], i) => ({
-    fill, ink, label: i === 0 ? `${min} or more` : i === MAG_SCALE.length - 1 ? `below ${MAG_SCALE[i - 1][0]}` : `${min} to ${MAG_SCALE[i - 1][0] - 0.1}`,
-    sample: i === MAG_SCALE.length - 1 ? '2.5' : (min + 0.4).toFixed(1),
-  }));
-  return (
-    <ul className={s.legend} aria-label="Magnitude colours">
-      {bands.map(b => <li key={b.label}><span className={s.badge} style={{ background: b.fill, color: b.ink }}>{b.sample}</span>Magnitude {b.label}</li>)}
-    </ul>
-  );
-}
+export { MAIL } from './help-parts';
 
 export interface Topic { slug: string; icon: string; title: string; sub: string; body: ReactNode }
+/** The help home's own text: the intro, the popular tasks (same order and links as English), headings and contact line. */
+export interface Hub {
+  lead: string; popularH: string; allH: string; contactQ: string; contactP: string;
+  popular: [href: string, icon: string, label: string][];
+}
+
+export const HUB: Hub = {
+  lead: 'Everything you need to use sisma on the website and in the Android app, with fixes for the most common problems.',
+  popularH: 'Popular', allH: 'All topics', contactQ: 'Can’t find an answer?', contactP: 'Write to us and we’ll help.',
+  popular: [
+    ['/help/account#password-reset', 'lock_reset', 'Reset a forgotten password'],
+    ['/help/felt', 'vibration', 'Report that you felt an earthquake'],
+    ['/help/troubleshooting', 'notifications_off', 'Not getting alerts'],
+    ['/help/troubleshooting', 'credit_card', 'Paid but still on the free plan'],
+    ['/help/map#region-view', 'zoom_in_map', 'See the area around an earthquake'],
+    ['/help/share', 'ios_share', 'Share an earthquake with text'],
+  ],
+};
 
 export const TOPICS: Topic[] = [
   {

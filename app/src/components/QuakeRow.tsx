@@ -17,7 +17,7 @@ export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | nul
   const { t } = useT();
   const u = useDistance();
   return (
-    <button type="button" onClick={onOpen} style={{ width: '100%', minWidth: 0, display: 'flex', alignItems: 'center', gap: 12, padding: 12, border: 0, background: 'var(--surface)', borderRadius: 18, textAlign: 'left', color: 'var(--ink)', font: 'inherit', cursor: 'pointer' }}>
+    <button type="button" data-quake-row="" onClick={onOpen} style={{ width: '100%', minWidth: 0, display: 'flex', alignItems: 'center', gap: 12, padding: 12, border: 0, background: 'var(--surface)', borderRadius: 18, textAlign: 'left', color: 'var(--ink)', font: 'inherit', cursor: 'pointer' }}>
       <MagBadge mag={q.mag} />
       <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
         <div style={{ fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{q.region}</div>
