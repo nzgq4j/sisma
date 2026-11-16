@@ -1,18 +1,28 @@
 'use client';
 // Frame of the help centre: a sticky header with Back (to the page you came from, or Me), the help home and Back to
 // sisma; the topic list beside the article on wide screens; previous / next topic links; a translated notice that the
-// guide is in English. Follows the app's light / dark setting (globals.css tokens), unlike the light-only website.
+// guide is in English where no translation exists. The topics, titles and hub text switch to the reader's language
+// once its file has loaded (./help-i18n.ts); the server renders English. Follows the app's light / dark setting.
 import Link from 'next/link';
 import { useEffect, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { useT } from '@/i18n/I18nProvider';
 import { LogoMark } from '@/components/Logo';
+import { useHelpTranslation } from './help-i18n';
+import { HelpLang } from './help-shot';
 import s from './help.module.css';
 
 export interface NavTopic { slug: string; icon: string; title: string; sub: string }
 
-export function HelpChrome({ nav, current, title, children }: { nav: NavTopic[]; current?: string; title: string; children: ReactNode }) {
+export function HelpChrome({ nav: navEn, current, title: titleEn, children }: { nav: NavTopic[]; current?: string; title: string; children: ReactNode }) {
   const { m, locale } = useT();
+  // The reader's language once its help file is in; until then (and in English) what the server rendered.
+  const tr = useHelpTranslation();
+  const lang = tr ? tr.locale : 'en';
+  const nav = tr ? tr.help.TOPICS.map(({ slug, icon, title, sub }) => ({ slug, icon, title, sub })) : navEn;
+  const topic = tr && current ? tr.help.TOPICS.find(t => t.slug === current) : null;
+  const title = topic ? topic.title : current ? titleEn : m.web.help;
+  const body = topic ? topic.body : children;
   const w = m.web;
   const router = useRouter();
   const i = current ? nav.findIndex(t => t.slug === current) : -1;
@@ -49,7 +59,7 @@ export function HelpChrome({ nav, current, title, children }: { nav: NavTopic[];
           <ul>
             {nav.map(t => (
               <li key={t.slug}>
-                <Link href={`/help/${t.slug}`} aria-current={t.slug === current ? 'page' : undefined} lang="en">
+                <Link href={`/help/${t.slug}`} aria-current={t.slug === current ? 'page' : undefined} lang={lang}>
                   <span className="ms" aria-hidden="true">{t.icon}</span>{t.title}
                 </Link>
               </li>
@@ -59,16 +69,16 @@ export function HelpChrome({ nav, current, title, children }: { nav: NavTopic[];
 
         <main className={s.main}>
           {current && (
-            <p className={s.crumbs}><Link href="/help">{w.help}</Link><span aria-hidden="true">›</span><span lang="en">{title}</span></p>
+            <p className={s.crumbs}><Link href="/help">{w.help}</Link><span aria-hidden="true">›</span><span lang={lang}>{title}</span></p>
           )}
-          <h1 className={s.h1} lang={current ? 'en' : undefined}>{title}</h1>
-          {locale !== 'en' && <p className={s.notice} lang={locale}>{w.help_english}</p>}
-          <div className={s.doc} lang="en">{children}</div>
+          <h1 className={s.h1} lang={current ? lang : undefined}>{title}</h1>
+          {locale !== 'en' && !tr && <p className={s.notice} lang={locale}>{w.help_english}</p>}
+          <div className={s.doc} lang={current ? lang : undefined}><HelpLang.Provider value={lang}>{current ? body : children}</HelpLang.Provider></div>
 
           {current && (
             <nav className={s.pager} aria-label={w.help_topics}>
-              {prev ? <Link href={`/help/${prev.slug}`} className={s.pagerLink}><small>{w.help_prev}</small><span lang="en"><span className="ms" aria-hidden="true">arrow_back</span>{prev.title}</span></Link> : <span />}
-              {next ? <Link href={`/help/${next.slug}`} className={`${s.pagerLink} ${s.pagerNext}`}><small>{w.help_next}</small><span lang="en">{next.title}<span className="ms" aria-hidden="true">arrow_forward</span></span></Link> : <span />}
+              {prev ? <Link href={`/help/${prev.slug}`} className={s.pagerLink}><small>{w.help_prev}</small><span lang={lang}><span className="ms" aria-hidden="true">arrow_back</span>{prev.title}</span></Link> : <span />}
+              {next ? <Link href={`/help/${next.slug}`} className={`${s.pagerLink} ${s.pagerNext}`}><small>{w.help_next}</small><span lang={lang}>{next.title}<span className="ms" aria-hidden="true">arrow_forward</span></span></Link> : <span />}
             </nav>
           )}
         </main>

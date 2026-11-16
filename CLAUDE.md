@@ -22,8 +22,10 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 - Selectors and pop-ups use components/Sheet.tsx (as in the polar lights app: swipe down, double tap away from
   controls, tap outside or Escape to close). Lists of choices use SheetOptions; no native <select> in the UI.
 - Keep the help centre current: any change users can see (feature, wording, button, flow, price, plan limit) updates
-  the matching topic in src/app/help/topics.tsx in the same PR. When a pictured screen changes, retake its screenshots
-  in both themes with scripts/help-shots.mjs (<name>-light.webp and <name>-dark.webp in public/help/) and check them.
+  the matching topic in src/app/help/topics.tsx and in all 9 translations (src/app/help/i18n/<locale>.tsx, same
+  structure; app labels exactly as in messages/<locale>.json; help-i18n.test.ts checks the structure) in the same PR.
+  When a pictured screen changes, retake its screenshots in both themes and every language with scripts/help-shots.mjs
+  (--locale=all; public/help/<name>-<theme>.webp and public/help/<locale>/…) and check them.
 
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)
@@ -80,7 +82,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     Article / TechArticle + breadcrumbs), webmaster verification tags from env (siteVerification in lib/seo.ts), IndexNow
     key + scripts/indexnow.mjs, X-Robots-Tag noindex on hosts other than sisma.io (next.config.ts)
     Help centre (done): /help hub (popular questions, all topics, contact) and one page per topic at /help/<slug>
-    (app/help/topics.tsx, English; HelpChrome: sticky header with Back, topic sidebar on wide screens, prev / next).
+    (app/help/topics.tsx; translations app/help/i18n/<locale>.tsx loaded per language by help-i18n.ts, the server
+    renders English; HelpChrome: sticky header with Back, topic sidebar on wide screens, prev / next).
     Follows light / dark through the theme tokens; screenshots in app/public/help/ come in -light and -dark versions
     (scripts/help-shots.mjs). Linked from Me → Account and the site footer; old /help#anchors redirect to their topic
 11. Splash (done: components/splash/Splash.tsx, once per session, hands over from the Android launch screen; mobile/assets/splash*.png)
