@@ -17,7 +17,7 @@ sisma can post significant earthquakes to its Bluesky account on its own. Admini
   Tsunami information issued: follow official warnings.      ← only when the agency flags a tsunami
   Map and details: https://sisma.io/app/map?focus=…           ← clickable link to the event's region view
   #earthquake #Japan                                          ← country tag when the event is in or near a country
-  Automated post · not an official warning service
+  Not an official warning service
   ```
 
 ## When it posts
