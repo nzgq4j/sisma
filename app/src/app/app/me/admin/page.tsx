@@ -1,13 +1,17 @@
 'use client';
 // Me → Administration (profiles.is_admin only; every request is re-checked by /api/admin/*): automatic Bluesky posts —
 // on/off, minimum magnitude, the last 24 hours of M4.5+ events with a preview of each post (card image, text, alt text)
-// and "Post now", and the log of posts with links. Posting itself is in lib/bluesky.ts (every-minute alert job).
+// and "Post now", the log of posts with links, and In Depth articles to post by hand (components/admin/LibraryBluesky).
+// Posting itself is in lib/bluesky.ts (every-minute alert job).
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useAccount } from '@/components/Account';
 import { MagBadge } from '@/components/MagBadge';
 import { Sheet, SheetOptions } from '@/components/Sheet';
+import { LibraryBlueskySheet } from '@/components/admin/LibraryBluesky';
+import { useLibraryTranslation } from '@/components/science/Library';
+import { LIBRARY, localLibrary } from '@/lib/library';
 import me from '../me.module.css';
 import sub from '../subscription/subscription.module.css';
 import styles from './admin.module.css';
@@ -26,6 +30,8 @@ export default function AdminPage() {
   const [state, setState] = useState<'loading' | 'ok' | 'forbidden' | 'error'>('loading');
   const [magOpen, setMagOpen] = useState(false);
   const [sel, setSel] = useState<Recent | null>(null);
+  const [article, setArticle] = useState<string | null>(null);
+  const libTr = useLibraryTranslation();
   const nf1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const when = new Intl.DateTimeFormat(locale, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 
@@ -93,6 +99,21 @@ export default function AdminPage() {
         </div>
       )}
 
+      <div className={styles.head}><span>{k.library_h}</span></div>
+      <p className={me.hint}>{k.library_p}</p>
+      <div className={styles.list}>
+        {LIBRARY.map(src => {
+          const a = localLibrary(src, libTr, locale);
+          return (
+            <button key={a.id} type="button" className={styles.item} onClick={() => setArticle(a.id)} aria-haspopup="dialog">
+              <span className={styles.tile}><span className="ms" aria-hidden="true">{a.icon}</span></span>
+              <span className={styles.itemText}><strong lang={a.lang}>{a.title}</strong><span>#{src.hashtags.join(' #')}</span></span>
+              <span className="ms" aria-hidden="true">chevron_right</span>
+            </button>
+          );
+        })}
+      </div>
+
       <div className={styles.head}><span>{k.log}</span></div>
       {data.posts.length === 0 ? <p className={me.hint}>{k.log_none}</p> : (
         <div className={styles.list}>
@@ -115,6 +136,7 @@ export default function AdminPage() {
         <SheetOptions value={String(s.minMagnitude)} onPick={v => { setMagOpen(false); void save({ minMagnitude: Number(v) }); }}
           options={data.mags.map(v => ({ value: String(v), label: `M${nf1.format(v)}+` }))} />
       </Sheet>
+      <LibraryBlueskySheet id={article} title={LIBRARY.find(a => a.id === article)?.title} onClose={() => setArticle(null)} />
       <PreviewSheet q={sel} configured={data.configured} api={api} onClose={() => setSel(null)} onPosted={() => void load()} />
     </div>
   );

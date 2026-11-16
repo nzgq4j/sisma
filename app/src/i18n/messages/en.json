@@ -671,7 +671,16 @@
     "err_failed": "Couldn’t connect. Try again.",
     "err_bad_service": "The server must be an https:// address.",
     "err_missing": "Enter the handle and the app password.",
-    "preview_failed": "Couldn't load this event. Close this and try again in a minute."
+    "preview_failed": "Couldn't load this event. Close this and try again in a minute.",
+    "library_h": "In Depth on Bluesky",
+    "library_p": "Post an article with its share card. You can edit the text and the alt text first.",
+    "library_post": "Post to Bluesky",
+    "library_hint": "Posted in English. Links and #hashtags in the text become clickable.",
+    "alt_chars": "{n} / 2,000 characters",
+    "reset": "Reset",
+    "err_empty": "Write the text of the post first.",
+    "err_too_long": "The text is longer than 300 characters.",
+    "err_alt_too_long": "The alt text is longer than 2,000 characters."
   },
   "library": {
     "title": "In Depth",

@@ -7,8 +7,8 @@
 import Link from 'next/link';
 import { usePushDevice } from '@/components/PushDevice';
 import { useAlertRules } from '@/components/alerts/useAlerts';
-import { useEffect, useState } from 'react';
-import { supabaseBrowser } from '@/lib/supabase-browser';
+import { useState } from 'react';
+import { useIsAdmin } from '@/components/admin/LibraryBluesky';
 import { useT, LOCALES } from '@/i18n/I18nProvider';
 import { useApp, type LocateResult } from '@/components/AppState';
 import { useAccount } from '@/components/Account';
@@ -286,15 +286,7 @@ function AddPlaceSheet({ open, onClose, onLimit }: { open: boolean; onClose: () 
 /** Me → Administration, shown to administrators only (profiles.is_admin; the admin pages and API re-check it). */
 function AdminLink() {
   const { m } = useT();
-  const { user } = useAccount();
-  const [admin, setAdmin] = useState(false);
-  useEffect(() => {
-    const sb = supabaseBrowser();
-    if (!sb || !user) { void Promise.resolve().then(() => setAdmin(false)); return; }
-    let alive = true;
-    void sb.from('profiles').select('is_admin').eq('id', user.id).maybeSingle().then(({ data }) => { if (alive) setAdmin(data?.is_admin === true); });
-    return () => { alive = false; };
-  }, [user]);
+  const admin = useIsAdmin();
   if (!admin) return null;
   return (
     <div className={styles.card}>

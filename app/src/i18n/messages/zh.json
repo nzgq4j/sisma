@@ -671,7 +671,16 @@
     "err_failed": "无法连接。请重试。",
     "err_bad_service": "服务器必须是 https:// 地址。",
     "err_missing": "请输入用户名和应用密码。",
-    "preview_failed": "无法加载此地震。请关闭后过一分钟再试。"
+    "preview_failed": "无法加载此地震。请关闭后过一分钟再试。",
+    "library_h": "在 Bluesky 发布「深度阅读」",
+    "library_p": "附带分享卡片发布文章。发布前可以编辑正文和替代文本。",
+    "library_post": "发布到 Bluesky",
+    "library_hint": "以英文发布。正文中的链接和 #话题标签 会变为可点击。",
+    "alt_chars": "{n} / 2,000 个字符",
+    "reset": "重置",
+    "err_empty": "请先填写帖子正文。",
+    "err_too_long": "正文超过 300 个字符。",
+    "err_alt_too_long": "替代文本超过 2,000 个字符。"
   },
   "library": {
     "title": "深度阅读",

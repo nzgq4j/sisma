@@ -104,6 +104,8 @@
   border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
 .shareBtn :global(.ms) { font-size: 20px; color: var(--violet-text); }
 .shareBtn:hover { border-color: var(--violet); }
+/* Administrators: post to Bluesky (icon only, after Share) */
+.shareBtn.iconBtn { margin-left: 0; width: 44px; padding: 0; justify-content: center; flex: none; }
 
 /* In Depth library (long-form articles) */
 .longform { display: flex; flex-direction: column; gap: 16px; }
