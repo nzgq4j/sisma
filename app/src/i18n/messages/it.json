@@ -693,5 +693,14 @@
     "all": "Tutti gli approfondimenti",
     "next": "Prossimo approfondimento",
     "count": "{n} articoli"
+  },
+  "install": {
+    "title": "Ricevi gli avvisi di terremoto sul telefono",
+    "body": "Aggiungi sisma alla schermata Home per ricevere notifiche push sui terremoti che scegli.",
+    "step1": "Tocca Condividi nella barra del browser",
+    "step2": "Scegli «Aggiungi alla schermata Home»",
+    "step3": "Apri sisma dalla schermata Home e attiva {push} in {me}",
+    "not_now": "Non ora",
+    "got_it": "Ho capito"
   }
 }

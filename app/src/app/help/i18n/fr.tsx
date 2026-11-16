@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>Un graphique montre combien de séismes des 30 derniers jours auraient déclenché l’alerte, pour vous aider à la régler.</li>
       </ul>
       <p>Les alertes reçues au cours des 30 derniers jours sont listées sous <em>Historique des alertes</em>.</p>
-      <Callout kind="note"><p><strong>iPhone et iPad :</strong> les notifications web ne fonctionnent qu’après avoir ajouté sisma à l’écran d’accueil (Partager → Sur l’écran d’accueil) et l’avoir ouvert depuis celui-ci.</p></Callout>
+      <Callout kind="note"><p><strong>iPhone et iPad :</strong> les notifications web ne fonctionnent qu’après avoir ajouté sisma à l’écran d’accueil (Partager → Sur l’écran d’accueil) et l’avoir ouvert depuis celui-ci. La première fois que vous ouvrez sisma dans le navigateur d’un iPhone ou d’un iPad, une fenêtre affiche ces étapes ; touchez <Ui>Plus tard</Ui> pour la revoir dans deux semaines ou <Ui>Compris</Ui> pour la masquer.</p></Callout>
       </>
     ),
   },

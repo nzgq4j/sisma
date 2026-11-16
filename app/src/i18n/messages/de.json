@@ -693,5 +693,14 @@
     "all": "Alle Artikel aus „Im Detail“",
     "next": "Weiter in „Im Detail“",
     "count": "{n} Artikel"
+  },
+  "install": {
+    "title": "Erdbebenwarnungen aufs Handy",
+    "body": "Füge sisma zum Home-Bildschirm hinzu, um Push-Benachrichtigungen zu den Erdbeben deiner Wahl zu bekommen.",
+    "step1": "Tippe in der Browserleiste auf Teilen",
+    "step2": "Wähle „Zum Home-Bildschirm“",
+    "step3": "Öffne sisma vom Home-Bildschirm und schalte {push} unter {me} ein",
+    "not_now": "Nicht jetzt",
+    "got_it": "Verstanden"
   }
 }

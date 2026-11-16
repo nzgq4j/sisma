@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>Ein Diagramm zeigt, wie viele Erdbeben der letzten 30 Tage die Warnung ausgelöst hätten, damit du sie anpassen kannst.</li>
       </ul>
       <p>Warnungen, die du in den letzten 30 Tagen erhalten hast, stehen unter <em>Warnverlauf</em>.</p>
-      <Callout kind="note"><p><strong>iPhone und iPad:</strong> Web-Mitteilungen funktionieren erst, wenn du sisma zum Home-Bildschirm hinzufügst (Teilen → Zum Home-Bildschirm) und es von dort öffnest.</p></Callout>
+      <Callout kind="note"><p><strong>iPhone und iPad:</strong> Web-Mitteilungen funktionieren erst, wenn du sisma zum Home-Bildschirm hinzufügst (Teilen → Zum Home-Bildschirm) und es von dort öffnest. Wenn du sisma zum ersten Mal im Browser auf einem iPhone oder iPad öffnest, zeigt ein Fenster diese Schritte; tippe auf <Ui>Nicht jetzt</Ui>, um es in zwei Wochen wiederzusehen, oder auf <Ui>Verstanden</Ui>, um es auszublenden.</p></Callout>
       </>
     ),
   },

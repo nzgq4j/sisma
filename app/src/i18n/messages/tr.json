@@ -693,5 +693,14 @@
     "all": "Tüm Derinlemesine yazılar",
     "next": "Derinlemesine’de sıradaki",
     "count": "{n} yazı"
+  },
+  "install": {
+    "title": "Deprem uyarılarını telefonunuzda alın",
+    "body": "Seçtiğiniz depremler için anlık bildirim almak üzere sisma’yı Ana Ekran’a ekleyin.",
+    "step1": "Tarayıcı araç çubuğunda Paylaş’a dokunun",
+    "step2": "“Ana Ekrana Ekle”yi seçin",
+    "step3": "sisma’yı Ana Ekran’dan açın ve {me} bölümünde {push} özelliğini açın",
+    "not_now": "Şimdi değil",
+    "got_it": "Anladım"
   }
 }

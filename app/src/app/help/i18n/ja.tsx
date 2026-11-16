@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>過去 30 日間にそのアラートが発動したはずの地震の数がグラフで表示されるので、設定を調整できます。</li>
       </ul>
       <p>過去 30 日間に受け取ったアラートは<em>アラート履歴</em>に表示されます。</p>
-      <Callout kind="note"><p><strong>iPhone と iPad：</strong>ウェブの通知は、sisma をホーム画面に追加し（共有 → ホーム画面に追加）、そこから開いた場合にのみ機能します。</p></Callout>
+      <Callout kind="note"><p><strong>iPhone と iPad：</strong>ウェブの通知は、sisma をホーム画面に追加し（共有 → ホーム画面に追加）、そこから開いた場合にのみ機能します。 iPhone や iPad のブラウザで初めて sisma を開くと、この手順がポップアップで表示されます。<Ui>今はしない</Ui>をタップすると 2 週間後に再表示され、<Ui>OK</Ui>をタップすると表示されなくなります。</p></Callout>
       </>
     ),
   },

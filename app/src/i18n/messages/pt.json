@@ -693,5 +693,14 @@
     "all": "Todos os artigos Em profundidade",
     "next": "Próximo em Em profundidade",
     "count": "{n} artigos"
+  },
+  "install": {
+    "title": "Receba alertas de terremoto no celular",
+    "body": "Adicione o sisma à Tela de Início para receber alertas push dos terremotos que você escolher.",
+    "step1": "Toque em Compartilhar na barra do navegador",
+    "step2": "Escolha “Adicionar à Tela de Início”",
+    "step3": "Abra o sisma pela Tela de Início e ative {push} em {me}",
+    "not_now": "Agora não",
+    "got_it": "Entendi"
   }
 }

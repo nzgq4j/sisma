@@ -693,5 +693,14 @@
     "all": "Tous les articles En profondeur",
     "next": "Suivant dans En profondeur",
     "count": "{n} articles"
+  },
+  "install": {
+    "title": "Recevez les alertes séisme sur votre téléphone",
+    "body": "Ajoutez sisma à l’écran d’accueil pour recevoir des alertes push pour les séismes de votre choix.",
+    "step1": "Touchez Partager dans la barre du navigateur",
+    "step2": "Choisissez « Sur l’écran d’accueil »",
+    "step3": "Ouvrez sisma depuis l’écran d’accueil et activez {push} dans {me}",
+    "not_now": "Plus tard",
+    "got_it": "Compris"
   }
 }

@@ -693,5 +693,14 @@
     "all": "Semua artikel Mendalam",
     "next": "Berikutnya di Mendalam",
     "count": "{n} artikel"
+  },
+  "install": {
+    "title": "Dapatkan peringatan gempa di ponsel Anda",
+    "body": "Tambahkan sisma ke Layar Utama untuk menerima peringatan push tentang gempa yang Anda pilih.",
+    "step1": "Ketuk Bagikan di bilah alat browser",
+    "step2": "Pilih “Tambah ke Layar Utama”",
+    "step3": "Buka sisma dari Layar Utama dan aktifkan {push} di {me}",
+    "not_now": "Nanti saja",
+    "got_it": "Mengerti"
   }
 }

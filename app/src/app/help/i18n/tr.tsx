@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>Bir grafik, son 30 günde kaç depremin bu uyarıyı tetikleyeceğini gösterir; böylece uyarını ince ayarlayabilirsin.</li>
       </ul>
       <p>Son 30 günde aldığın uyarılar <em>Uyarı geçmişi</em> altında listelenir.</p>
-      <Callout kind="note"><p><strong>iPhone ve iPad:</strong> web bildirimleri yalnızca sisma’yı Ana Ekran’a ekledikten (Paylaş → Ana Ekrana Ekle) ve oradan açtıktan sonra çalışır.</p></Callout>
+      <Callout kind="note"><p><strong>iPhone ve iPad:</strong> web bildirimleri yalnızca sisma’yı Ana Ekran’a ekledikten (Paylaş → Ana Ekrana Ekle) ve oradan açtıktan sonra çalışır. sisma’yı iPhone veya iPad’de tarayıcıda ilk kez açtığınızda bu adımlar bir açılır pencerede gösterilir; iki hafta sonra yeniden görmek için <Ui>Şimdi değil</Ui>, gizlemek için <Ui>Anladım</Ui> düğmesine dokunun.</p></Callout>
       </>
     ),
   },
