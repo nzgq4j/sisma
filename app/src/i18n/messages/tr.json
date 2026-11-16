@@ -672,5 +672,15 @@
     "err_bad_service": "Sunucu https:// ile başlayan bir adres olmalı.",
     "err_missing": "Kullanıcı adını ve uygulama şifresini girin.",
     "preview_failed": "Bu deprem yüklenemedi. Bunu kapatıp bir dakika sonra tekrar dene."
+  },
+  "library": {
+    "title": "Derinlemesine",
+    "sub": "Depremler, jeoloji ve tektonik üzerine kaynaklı uzun yazılar.",
+    "refs": "Kaynaklar",
+    "faq": "Sık sorulan sorular",
+    "updated": "Güncelleme: {d}",
+    "all": "Tüm Derinlemesine yazılar",
+    "next": "Derinlemesine’de sıradaki",
+    "count": "{n} yazı"
   }
 }

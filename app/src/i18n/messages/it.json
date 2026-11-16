@@ -672,5 +672,15 @@
     "err_bad_service": "Il server deve essere un indirizzo https://.",
     "err_missing": "Inserisci l’handle e la password per app.",
     "preview_failed": "Impossibile caricare questo evento. Chiudi e riprova tra un minuto."
+  },
+  "library": {
+    "title": "Approfondimenti",
+    "sub": "Letture approfondite su terremoti, geologia e tettonica, con le fonti.",
+    "refs": "Bibliografia",
+    "faq": "Domande frequenti",
+    "updated": "Aggiornato il {d}",
+    "all": "Tutti gli approfondimenti",
+    "next": "Prossimo approfondimento",
+    "count": "{n} articoli"
   }
 }

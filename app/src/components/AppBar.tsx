@@ -9,14 +9,17 @@ import { LogoMark } from './Logo';
 
 export function AppBar() {
   const path = usePathname();
-  const { t, locale } = useT();
+  const { t, m, locale } = useT();
   const article = path.startsWith('/app/science/');
+  // In Depth (/app/science/in-depth): its articles go back to the In Depth list, the list back to Science.
+  const inDepth = path.startsWith('/app/science/in-depth');
+  const back = path.startsWith('/app/science/in-depth/') ? '/app/science/in-depth' : '/app/science';
   const title = path === '/app' ? 'sisma' : path.startsWith('/app/map') ? t('tab_map') : path.startsWith('/app/globe') ? t('tab_globe')
-    : path.startsWith('/app/science') ? t('sci_title') : path.startsWith('/app/me') ? t('tab_me') : 'sisma';
+    : inDepth ? m.library.title : path.startsWith('/app/science') ? t('sci_title') : path.startsWith('/app/me') ? t('tab_me') : 'sisma';
   return (
     <header style={{ position: 'sticky', top: 0, zIndex: 10, height: 56, display: 'flex', alignItems: 'center', gap: 4, padding: '0 8px 0 12px', background: 'var(--bg)' }}>
       {article && (
-        <Link href="/app/science" aria-label={t('sci_title')} style={{ width: 44, height: 44, borderRadius: 22, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)' }}>
+        <Link href={back} aria-label={back === '/app/science' ? t('sci_title') : m.library.title} style={{ width: 44, height: 44, borderRadius: 22, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)' }}>
           <span className="ms">arrow_back</span>
         </Link>
       )}

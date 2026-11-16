@@ -1,0 +1,173 @@
+[
+  {
+    "id": "earthquake-prediction",
+    "icon": "query_stats",
+    "tone": "violet",
+    "title": "Why Earthquakes Resist Prediction, and What Seismology Offers Instead",
+    "description": "No one has ever predicted a major earthquake. Haicheng, Parkfield, foreshocks and machine learning, and what forecasts and early warning offer instead.",
+    "dek": "A prediction needs a date and time, a place and a magnitude. Here is why that has never been done for a major earthquake, and what seismology delivers instead.",
+    "published": "2026-11-16",
+    "updated": "2026-11-16",
+    "mins": 7,
+    "sections": [
+      {
+        "h": "Defining the Terms",
+        "p": [
+          "The U.S. Geological Survey (USGS) reports that neither it nor any other scientists have ever predicted a major earthquake (USGS n.d.a). The statement rests on a strict definition. A prediction must give the date and time, the location, and the magnitude, and a claim that omits one of the three cannot be tested (USGS n.d.a).",
+          "Seismology does produce three related products. Long-term probabilities give the chance of an earthquake of a certain size in a region over years or decades, usually calculated from the average rate of historical events. Forecasts apply similar reasoning to shorter windows and are generally used for aftershocks. Early warning is an alert sent after a rupture has begun, giving seconds to tens of seconds of notice before damaging waves arrive (USGS n.d.b). Each product answers a different question, and public discussion often merges them.",
+          "The definition also explains why individual claims of successful prediction rarely survive scrutiny. According to USGS, such claims typically leave out at least one of the three elements, and when an earthquake loosely resembles the claim, the claimant counts it as a success even though one or more elements differ widely from what happened (USGS n.d.a)."
+        ]
+      },
+      {
+        "h": "Two Landmark Tests",
+        "p": [
+          "The 1975 Haicheng earthquake in northeast China is the most cited success. Officials ordered a city of about one million people to evacuate after a rising count of small earthquakes, later recognized as foreshocks, and reports of unusual phenomena across the region. A magnitude 7.3 earthquake struck days later. USGS cites an estimate that deaths and injuries would have exceeded 150,000 without the evacuation; the recorded toll was 2,041 deaths and 27,538 injuries (USGS n.d.c). A U.S. delegation that visited Chinese laboratories in 1976 concluded that the decision rested mainly on the pronounced foreshock sequence and found other parts of the method difficult to assess (USGS n.d.c).",
+          "The following year a magnitude 7.6 earthquake struck Tangshan without warning. None of the precursors seen near Haicheng appeared, and the estimated death toll was 250,000 (USGS n.d.c). The two events, only a year apart, show that the signals available before one earthquake can be absent before another.",
+          "The United States ran its own test at Parkfield, California. In 1985 USGS issued a long-term prediction that a magnitude 6 earthquake would strike that section of the San Andreas Fault before 1993, based on a record of similar earthquakes at fairly regular intervals (Bakun et al. 2005). The window closed without an earthquake. A magnitude 6.0 event arrived in 2004, eleven years later. Foreshocks had preceded the 1934 and 1966 Parkfield earthquakes by 17 minutes, yet the 2004 event came with a lack of obvious precursors, and the authors concluded that reliable short-term prediction remains out of reach (Bakun et al. 2005).",
+          "The Parkfield authors drew a practical conclusion from the result. To reduce the effect of earthquakes now, they recommended developing the next generation of models that estimate the strength and location of damaging ground shaking, a goal that does not depend on knowing when a rupture will start (Bakun et al. 2005)."
+        ]
+      },
+      {
+        "h": "Why Precursors Prove Unreliable",
+        "p": [
+          "Most proposed precursors, including unusual small earthquakes, occur frequently without a larger earthquake following, so a signal that precedes some earthquakes cannot support a prediction by itself (USGS n.d.a). Geller et al. (1997) added that thousands of claimed precursors were generally identified as precursors only after the earthquake occurred.",
+          "Foreshocks illustrate the difficulty. They had been documented before fewer than half of mainshocks, but a high-resolution catalog of magnitude 4 and larger mainshocks in southern California from 2008 to 2017 showed that 72 percent were preceded by foreshock activity significantly above the local background rate (Trugman and Ross 2019). That finding looks backward in time. Worldwide, the chance that an earthquake is followed within a week by a larger one nearby is about 5 percent (USGS n.d.b), so roughly 95 percent of earthquakes lead to nothing larger. Picking out the sequences that will grow, while they are still unfolding, is the unsolved part."
+        ]
+      },
+      {
+        "h": "What Seismology Delivers",
+        "p": [
+          "Long-term probabilities carry the most operational weight. They guide building codes and seismic design, which makes them the most important forecasting tools for protecting communities from earthquake damage (Jordan et al. 2011). California’s third Uniform California Earthquake Rupture Forecast (UCERF3) estimates that a magnitude 6.7 earthquake, the size of the 1994 Northridge event, occurs somewhere in the state about every 6.3 years, compared with every 4.8 years in the previous model. It also raised the 30-year chance of a magnitude 8 or larger earthquake from 4.7 percent to 7 percent (SCEC n.d.). The 30-year window matches the length of a typical mortgage. Forecasts of this kind describe where and when earthquakes may occur, and separate ground motion models describe how strongly the shaking will be felt (SCEC n.d.).",
+          "Short-term forecasting concentrates on aftershocks. The Epidemic-Type Aftershock Sequence (ETAS) model treats every earthquake as capable of triggering aftershocks of its own, and a panel of forecasting experts surveyed for a 2024 review named it the preferred default model (Mizrahi 2024). Italy issues forecasts weekly, while New Zealand and the United States issue them for specific sequences (Mizrahi 2024). Few countries operate such systems, and no agreed tests exist for deciding whether a model is suitable (Mizrahi 2024). Properly applied, short-term forecasts have operational value, for example in anticipating the aftershocks that follow large earthquakes (Jordan et al. 2011). These models share a limitation: they fail to forecast future large earthquakes with high probability (Mizrahi 2024). The International Commission on Earthquake Forecasting noted that short-term probabilities can vary by orders of magnitude yet usually remain low in absolute terms, and that large earthquakes cannot be reliably predicted for specific regions over time scales shorter than decades (Jordan et al. 2011).",
+          "Early warning moves the goal from foretelling to rapid detection. ShakeAlert, the West Coast system, works because its data processing and message delivery are faster than the seismic waves themselves. Warning time depends on distance from the earthquake, processing speed, and the level of shaking selected for alerts. For a Loma Prieta-sized event, a USGS analysis found warning times ranging from none to twenty seconds (USGS 2019)."
+        ]
+      },
+      {
+        "h": "Frontier Research",
+        "p": [
+          "Slow slip offers one line of inquiry. In the weeks before the 2011 magnitude 9.0 Tohoku-Oki earthquake, two sequences of small earthquakes migrated at 2 to 10 kilometers per day toward the eventual epicenter. Kato et al. (2012) interpreted them as slow slip on the plate boundary, with the second sequence probably adding stress that helped start the main rupture. The study covers one earthquake, and the authors framed the stress contribution as a possibility. In Cascadia, Hulbert et al. (2020) applied machine learning to continuous seismic waves and found patterns that follow the 14-month slow slip cycle, which they present as evidence that slow slip can be predicted. They treat slow slip as a window onto nucleation, a process that remains elusive for fast earthquakes (Hulbert et al. 2020).",
+          "Machine learning has produced mixed results. Rouet-Leduc et al. (2017) showed that a model fed the acoustic signal from a laboratory fault could estimate the time remaining before the fault failed. Laboratory shear rates exceed those of real faults by orders of magnitude, and the researchers described themselves as cautious about extending the method to real earthquakes (Physics Today 2017).",
+          "A widely publicized 2018 study trained a neural network on more than 131,000 mainshock and aftershock pairs to map where aftershocks occur (DeVries et al. 2018). Mignan and Broccardo (2019) reproduced the performance with a two-parameter logistic regression, against 13,451 parameters in the original network. Brendan Meade, a co-author of the original study, replied that approximation by a simpler model was a core result of that paper (Synced 2019)."
+        ]
+      },
+      {
+        "h": "Communication After L’Aquila",
+        "p": [
+          "A magnitude 6.3 earthquake struck L’Aquila, Italy, in April 2009 and killed 309 people. In 2012 a court found six scientists and a government official guilty of manslaughter for failing to alert residents to the risk, and sentenced the scientists to six years in prison. An appeals court overturned the scientists’ convictions in 2014 (The World 2014).",
+          "Italy’s Civil Protection Department then appointed the International Commission on Earthquake Forecasting. Its 2011 report recommended systematic and transparent operational forecasting and warned that relying only on informal communication between scientists and the public invites confusion (Jordan et al. 2011)."
+        ]
+      },
+      {
+        "h": "Where Scientists Disagree",
+        "p": [
+          "Geller et al. (1997) argued that earthquakes are inherently unpredictable, because whether a small rupture grows into a large one depends on details of conditions inside the Earth that cannot be measured. Commenters in Science replied that this position was unduly negative about a difficult field, while another commenter conceded that no mechanism for electromagnetic precursors is known well enough for reliable use (\"Cannot Earthquakes Be Predicted?\" 1997).",
+          "USGS describes its own focus as the long-term reduction of earthquake hazard through safer structures, with short-term prediction outside that effort (USGS n.d.a). The evidence supports both readings. Decades of monitoring have produced no validated short-term method, and no proof exists that such a method is impossible. Denser instruments, continuous seismic records, and slow slip observations widen what researchers can test. Any new claim faces the standard applied at Parkfield: a specified time, place, and magnitude, stated in advance."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can scientists predict earthquakes?",
+        "a": "No. The U.S. Geological Survey reports that neither it nor any other scientists have ever predicted a major earthquake. A prediction must give the date and time, the location and the magnitude, and a claim that omits one of the three cannot be tested."
+      },
+      {
+        "q": "What is the difference between an earthquake forecast, a probability and early warning?",
+        "a": "Long-term probabilities give the chance of an earthquake of a certain size in a region over years or decades. Forecasts apply similar reasoning to shorter windows and are generally used for aftershocks. Early warning is an alert sent after a rupture has begun, giving seconds to tens of seconds of notice before damaging waves arrive."
+      },
+      {
+        "q": "Was the 1975 Haicheng earthquake predicted?",
+        "a": "Officials evacuated Haicheng after a rising count of small earthquakes, later recognised as foreshocks, and a magnitude 7.3 earthquake struck days later. A U.S. delegation concluded the decision rested mainly on the foreshock sequence. The next year the magnitude 7.6 Tangshan earthquake struck without any of those signals."
+      },
+      {
+        "q": "Do foreshocks warn of a big earthquake?",
+        "a": "Not reliably. In southern California 72 percent of magnitude 4 and larger mainshocks from 2008 to 2017 were preceded by elevated foreshock activity, but worldwide only about 5 percent of earthquakes are followed within a week by a larger one nearby."
+      },
+      {
+        "q": "Can machine learning predict earthquakes?",
+        "a": "Not yet. Models have estimated the time to failure of laboratory faults and found patterns that track the slow slip cycle in Cascadia, but a widely publicised deep-learning aftershock study was matched by a two-parameter logistic regression."
+      },
+      {
+        "q": "How much warning does earthquake early warning give?",
+        "a": "It depends on distance from the earthquake, processing speed and the shaking level chosen for alerts. For an earthquake the size of the 1989 Loma Prieta event, a USGS analysis of ShakeAlert found warning times ranging from none to twenty seconds."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Bakun, W. H., B. Aagaard, B. Dost, W. L. Ellsworth, J. L. Hardebeck, R. A. Harris, C. Ji, et al. 2005. \"Implications for Prediction and Hazard Assessment from the 2004 Parkfield Earthquake.\" Nature 437: 969–74. https://doi.org/10.1038/nature04067.",
+        "url": "https://doi.org/10.1038/nature04067"
+      },
+      {
+        "text": "\"Cannot Earthquakes Be Predicted?\" 1997. Technical Comments. Science 278 (5337): 487–90. https://doi.org/10.1126/science.278.5337.487.",
+        "url": "https://doi.org/10.1126/science.278.5337.487"
+      },
+      {
+        "text": "DeVries, Phoebe M. R., Fernanda Viégas, Martin Wattenberg, and Brendan J. Meade. 2018. \"Deep Learning of Aftershock Patterns Following Large Earthquakes.\" Nature 560 (7720): 632–34.",
+        "url": null
+      },
+      {
+        "text": "Geller, Robert J., David D. Jackson, Yan Y. Kagan, and Francesco Mulargia. 1997. \"Earthquakes Cannot Be Predicted.\" Science 275 (5306): 1616–17. https://doi.org/10.1126/science.275.5306.1616.",
+        "url": "https://doi.org/10.1126/science.275.5306.1616"
+      },
+      {
+        "text": "Hulbert, Claudia, Bertrand Rouet-Leduc, Romain Jolivet, and Paul A. Johnson. 2020. \"An Exponential Build-Up in Seismic Energy Suggests a Months-Long Nucleation of Slow Slip in Cascadia.\" Nature Communications 11: 4139. https://doi.org/10.1038/s41467-020-17754-9.",
+        "url": "https://doi.org/10.1038/s41467-020-17754-9"
+      },
+      {
+        "text": "Jordan, Thomas H., Yun-Tai Chen, Paolo Gasparini, Raul Madariaga, Ian Main, Warner Marzocchi, Gerassimos Papadopoulos, Gennady Sobolev, Koshun Yamaoka, and Jochen Zschau. 2011. \"Operational Earthquake Forecasting: State of Knowledge and Guidelines for Utilization.\" Annals of Geophysics 54 (4). https://doi.org/10.4401/ag-5350.",
+        "url": "https://doi.org/10.4401/ag-5350"
+      },
+      {
+        "text": "Kato, Aitaro, Kazushige Obara, Toshihiro Igarashi, Hiroshi Tsuruoka, Shigeki Nakagawa, and Naoshi Hirata. 2012. \"Propagation of Slow Slip Leading Up to the 2011 Mw 9.0 Tohoku-Oki Earthquake.\" Science 335 (6069): 705–8. https://doi.org/10.1126/science.1215141.",
+        "url": "https://doi.org/10.1126/science.1215141"
+      },
+      {
+        "text": "Mignan, Arnaud, and Marco Broccardo. 2019. \"One Neuron versus Deep Learning in Aftershock Prediction.\" Nature 574. https://doi.org/10.1038/s41586-019-1582-8.",
+        "url": "https://doi.org/10.1038/s41586-019-1582-8"
+      },
+      {
+        "text": "Mizrahi, Leila. 2024. \"Operational Earthquake Forecasting: What Is It and How Is It Done?\" Eos 105. https://doi.org/10.1029/2024EO245024.",
+        "url": "https://doi.org/10.1029/2024EO245024"
+      },
+      {
+        "text": "Physics Today. 2017. \"Predicting Quakes in Laboratory Analogs.\" October 30, 2017. https://physicstoday.aip.org/news/predicting-quakes-in-laboratory-analogs.",
+        "url": "https://physicstoday.aip.org/news/predicting-quakes-in-laboratory-analogs"
+      },
+      {
+        "text": "Rouet-Leduc, Bertrand, Claudia Hulbert, Nicholas Lubbers, Kipton Barros, Colin J. Humphreys, and Paul A. Johnson. 2017. \"Machine Learning Predicts Laboratory Earthquakes.\" Geophysical Research Letters 44: 9276–82.",
+        "url": null
+      },
+      {
+        "text": "SCEC (Southern California Earthquake Center). n.d. \"UCERF3: Significant Advancements Made in Earthquake Forecasting.\" https://southern.scec.org/node/5868.",
+        "url": "https://southern.scec.org/node/5868"
+      },
+      {
+        "text": "Synced. 2019. \"Harvard & Google Seismic Paper Hit With Rebuttals: Is Deep Learning Suited to Aftershock Prediction?\" October 22, 2019. https://syncedreview.com/2019/10/22/harvard-google-seismic-paper-hit-with-rebuttals-is-deep-learning-suited-to-aftershock-prediction/.",
+        "url": "https://syncedreview.com/2019/10/22/harvard-google-seismic-paper-hit-with-rebuttals-is-deep-learning-suited-to-aftershock-prediction/"
+      },
+      {
+        "text": "Trugman, Daniel T., and Zachary E. Ross. 2019. \"Pervasive Foreshock Activity across Southern California.\" Geophysical Research Letters. https://doi.org/10.1029/2019GL083725.",
+        "url": "https://doi.org/10.1029/2019GL083725"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. \"Can You Predict Earthquakes?\" https://www.usgs.gov/faqs/can-you-predict-earthquakes.",
+        "url": "https://www.usgs.gov/faqs/can-you-predict-earthquakes"
+      },
+      {
+        "text": "USGS. n.d.b. \"What Is the Difference between Earthquake Early Warning, Earthquake Forecasts, Earthquake Probabilities, and Earthquake Prediction?\" https://www.usgs.gov/faqs/what-difference-between-earthquake-early-warning-earthquake-forecasts-earthquake-probabilities.",
+        "url": "https://www.usgs.gov/faqs/what-difference-between-earthquake-early-warning-earthquake-forecasts-earthquake-probabilities"
+      },
+      {
+        "text": "USGS. n.d.c. \"Earthquake Prediction.\" Parkfield Earthquake Prediction Experiment overview. https://earthquake.usgs.gov/learn/parkfield/eq_predict.php.",
+        "url": "https://earthquake.usgs.gov/learn/parkfield/eq_predict.php"
+      },
+      {
+        "text": "USGS. 2019. \"What If the ShakeAlert Earthquake Early Warning System Had Been Operating During the M6.9 1989 Loma Prieta Earthquake?\" October 17, 2019. https://www.usgs.gov/programs/earthquake-hazards/science/what-if-shakealert-earthquake-early-warning-system-had-been.",
+        "url": "https://www.usgs.gov/programs/earthquake-hazards/science/what-if-shakealert-earthquake-early-warning-system-had-been"
+      },
+      {
+        "text": "The World. 2014. \"An Italian Appeals Court Overturns the Convictions of Six Scientists Accused of Not Warning People about an Earthquake.\" November 12, 2014. https://theworld.org/stories/2014/11/12/italian-court-overturns-convictions-6-earthquake-scientists.",
+        "url": "https://theworld.org/stories/2014/11/12/italian-court-overturns-convictions-6-earthquake-scientists"
+      }
+    ]
+  }
+]

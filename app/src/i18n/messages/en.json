@@ -672,5 +672,15 @@
     "err_bad_service": "The server must be an https:// address.",
     "err_missing": "Enter the handle and the app password.",
     "preview_failed": "Couldn't load this event. Close this and try again in a minute."
+  },
+  "library": {
+    "title": "In Depth",
+    "sub": "Long reads on earthquakes, geology and tectonics, with sources.",
+    "refs": "References",
+    "faq": "Frequently asked questions",
+    "updated": "Updated {d}",
+    "all": "All In Depth articles",
+    "next": "Next in In Depth",
+    "count": "{n} articles"
   }
 }

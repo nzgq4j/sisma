@@ -1,5 +1,6 @@
 // Builds the 1200 × 630 social cards in public/og/ from a running local copy of the app, using the card texts in
-// src/lib/seo.ts and live captures of each topic (feed list, map, globe in depth view, science visuals).
+// src/lib/seo.ts and live captures of each topic (feed list, map, globe in depth view, science visuals; In Depth
+// articles use the science illustration closest to their subject, LIBRARY_VISUAL).
 //
 //   OG_CARDS=1 npm run build && OG_CARDS=1 npx next start -p 3100     (in another terminal)
 //   node scripts/og-cards.mjs [http://localhost:3100] [card …]
@@ -62,6 +63,17 @@ const visuals = {
     for (const id of ['plates', 'faults', 'waves', 'tsunami']) parts.push((await articleVisual(id)).src);
     return { grid: parts };
   },
+  // In Depth (the long-form library): four of the illustrations its articles build on.
+  async library() {
+    const parts = [];
+    for (const id of ['plates', 'faults', 'waves', 'depth']) parts.push((await articleVisual(id)).src);
+    return { grid: parts };
+  },
+};
+/** In Depth articles (library-<id> cards) take the science illustration closest to their subject. */
+const LIBRARY_VISUAL = {
+  'earthquake-prediction': 'mag', 'plate-tectonics-subduction': 'plates', 'faults-and-stress': 'faults',
+  'earth-interior-seismic-waves': 'waves', 'aftershocks-and-hazards': 'depth',
 };
 /** The article's illustration (canvas or widget): the block after the intro. */
 async function articleVisual(id) {
@@ -105,7 +117,9 @@ async function render(key, card, vis) {
 
 for (const [key, card] of Object.entries(cards)) {
   if (ONLY.length ? !ONLY.includes(key) : (key === 'home' || !card.heading)) continue;
-  const vis = key.startsWith('science-') ? await articleVisual(key.slice(8)) : await visuals[key]?.();
+  const vis = key.startsWith('science-') ? await articleVisual(key.slice(8))
+    : key.startsWith('library-') ? await articleVisual(LIBRARY_VISUAL[key.slice(8)] ?? 'plates')
+      : await visuals[key]?.();
   if (!vis) { console.warn('no picture for', key); continue; }
   await render(key, card, vis);
 }

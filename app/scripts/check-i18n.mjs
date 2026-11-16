@@ -28,4 +28,23 @@ for (const f of fs.readdirSync(dir).filter(f => f !== 'en.json')) {
   });
   if (problems.length) { bad++; console.error('content/science/' + f + ': ' + problems.join('; ')); }
 }
+// In Depth library: content/library/<locale>.json translates every article in content/library.json with a title,
+// standfirst, the same sections with the same number of paragraphs, and the same number of FAQ items.
+const lib = JSON.parse(fs.readFileSync(new URL('library.json', sciDir)));
+for (const f of fs.readdirSync(dir).filter(f => f !== 'en.json')) {
+  const file = new URL('library/' + f, sciDir);
+  if (!fs.existsSync(file)) { bad++; console.error('content/library/' + f + ' missing'); continue; }
+  const tr = JSON.parse(fs.readFileSync(file));
+  const problems = lib.flatMap(a => {
+    const t = tr[a.id];
+    if (!t?.title || !t.dek) return [a.id + ': not translated'];
+    return [
+      ...((t.sections?.length ?? 0) !== a.sections.length ? [`${a.id}: ${t.sections?.length ?? 0} sections, English has ${a.sections.length}`] : []),
+      ...(t.sections ?? []).flatMap((s, i) => (!s.h || s.p?.length !== a.sections[i]?.p.length || !s.p.every(Boolean)
+        ? [`${a.id}: section ${i + 1} has ${s.p?.length ?? 0} paragraphs, English has ${a.sections[i]?.p.length}`] : [])),
+      ...((t.faq?.length ?? 0) !== a.faq.length || !(t.faq ?? []).every(q => q.q && q.a) ? [`${a.id}: FAQ out of step (${t.faq?.length ?? 0} of ${a.faq.length})`] : []),
+    ];
+  });
+  if (problems.length) { bad++; console.error('content/library/' + f + ': ' + problems.join('; ')); }
+}
 process.exit(bad ? 1 : 0);

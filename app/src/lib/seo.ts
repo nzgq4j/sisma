@@ -2,6 +2,7 @@
 // (built by scripts/og-cards.mjs from the running app). English, like the science articles; the interface is translated.
 import type { Metadata } from 'next';
 import science from '@/content/science.json';
+import { LIBRARY, LIBRARY_PATH, libraryArticle, libraryHref } from '@/lib/library';
 import en from '@/i18n/messages/en.json';
 
 export const SITE_URL = 'https://sisma.io';
@@ -62,6 +63,12 @@ export const CARDS = {
     path: '/app/science', image: 'science', alt: 'Diagrams of plate tectonics, fault types, seismic waves and a tsunami',
     kicker: 'Science', heading: 'How earthquakes work', sub: 'Eight illustrated guides, from plate tectonics to the Ring of Fire.',
   },
+  library: {
+    title: 'In Depth: Earthquakes, Geology and Plate Tectonics | sisma',
+    description: 'Long-form, sourced articles on earthquake prediction, plate tectonics and subduction, faults, Earth’s interior, seismic waves, aftershocks and hazards.',
+    path: LIBRARY_PATH, image: 'library', alt: 'Diagrams of plate tectonics, fault types, seismic waves and aftershock decay',
+    kicker: 'Science · In Depth', heading: 'Earthquakes, in depth', sub: 'Long-form, sourced articles on geology and tectonics.',
+  },
   help: {
     title: 'Help & Support — sisma',
     description: 'How to use sisma: the earthquake feed, map and globe, felt reports, sharing, your account and password reset, sisma+ billing, alerts, and troubleshooting.',
@@ -97,14 +104,31 @@ export function articleCard(id: string): Card | null {
 
 export const ARTICLE_IDS = science.map(a => a.id);
 
+/** One card per In Depth article (content/library.json): its own SEO title and description, picture library-<id>. */
+export function libraryCard(id: string): Card | null {
+  const a = libraryArticle(id);
+  if (!a) return null;
+  return {
+    title: `${a.title} | sisma`, description: a.description,
+    path: libraryHref(a.id), image: `library-${a.id}`, alt: `${a.title}: an In Depth article from sisma`,
+    kicker: 'In Depth', heading: a.title, sub: clip(a.dek, 130),
+  };
+}
+export const LIBRARY_IDS = LIBRARY.map(a => a.id);
+
 /** Next.js metadata for a card: title, description, canonical, Open Graph and the X large-image card. */
 export function cardMetadata(c: Card): Metadata {
   const images = [{ url: `/og/${c.image}.jpg`, width: 1200, height: 630, alt: c.alt, type: 'image/jpeg' }];
+  const lib = c.path.startsWith(LIBRARY_PATH + '/') ? libraryArticle(c.path.slice(LIBRARY_PATH.length + 1)) : null;
+  const article = c.path.startsWith('/app/science/') && c.path !== LIBRARY_PATH;
   return {
     title: c.title,
     description: c.description,
     alternates: { canonical: c.path },
-    openGraph: { type: c.path.startsWith('/app/science/') ? 'article' : 'website', siteName: 'sisma', locale: 'en_US', url: c.path, title: c.title, description: c.description, images },
+    openGraph: article
+      ? { type: 'article', siteName: 'sisma', locale: 'en_US', url: c.path, title: c.title, description: c.description, images,
+        ...(lib ? { publishedTime: lib.published, modifiedTime: lib.updated, section: 'Science' } : {}) }
+      : { type: 'website', siteName: 'sisma', locale: 'en_US', url: c.path, title: c.title, description: c.description, images },
     twitter: { card: 'summary_large_image', title: c.title, description: c.description, images },
   };
 }

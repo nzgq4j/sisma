@@ -1,9 +1,12 @@
 'use client';
-// Science list. Spec: design/SismaApp.dc.html (isSciList block).
+// Science list. Spec: design/SismaApp.dc.html (isSciList block). Below the illustrated topics, the In Depth library
+// of long-form articles (lib/library.ts).
 import Link from 'next/link';
 import science from '@/content/science.json';
 import { localArticle } from '@/lib/science';
 import { useT } from '@/i18n/I18nProvider';
+import { LibraryCards } from '@/components/science/Library';
+import { LIBRARY_PATH } from '@/lib/library';
 import styles from '@/components/science/science.module.css';
 
 export default function SciencePage() {
@@ -23,6 +26,12 @@ export default function SciencePage() {
           </Link>
         ))}
       </div>
+      <div className={styles.libraryHead}>
+        <h2>{m.library.title}</h2>
+        <Link href={LIBRARY_PATH}>{m.library.all}</Link>
+      </div>
+      <p className={styles.lead}>{m.library.sub}</p>
+      <LibraryCards />
     </div>
   );
 }
