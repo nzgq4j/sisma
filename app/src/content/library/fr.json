@@ -1,1 +1,446 @@
-{}
+{
+  "earthquake-prediction": {
+    "title": "Pourquoi les séismes échappent à la prédiction, et ce que la sismologie propose à la place",
+    "dek": "Une prédiction exige une date et une heure, un lieu et une magnitude. Voici pourquoi cela n’a jamais été fait pour un séisme majeur, et ce que la sismologie fournit à la place.",
+    "sections": [
+      {
+        "h": "Définir les termes",
+        "p": [
+          "L’Institut d’études géologiques des États-Unis (USGS) indique que ni lui ni aucun autre scientifique n’a jamais prédit un séisme majeur (USGS n.d.a). Cette affirmation repose sur une définition stricte. Une prédiction doit donner la date et l’heure, le lieu et la magnitude, et une annonce qui omet l’un de ces trois éléments ne peut pas être vérifiée (USGS n.d.a).",
+          "La sismologie produit en revanche trois outils apparentés. Les probabilités à long terme donnent la probabilité d’un séisme d’une certaine taille dans une région sur des années ou des décennies, généralement calculée à partir du taux moyen des événements historiques. Les prévisions appliquent un raisonnement semblable à des fenêtres plus courtes et servent généralement pour les répliques. L’alerte précoce est un avertissement envoyé une fois la rupture commencée, qui laisse de quelques secondes à quelques dizaines de secondes avant l’arrivée des ondes destructrices (USGS n.d.b). Chaque outil répond à une question différente, et le débat public les confond souvent.",
+          "Cette définition explique aussi pourquoi les annonces individuelles de prédictions réussies résistent rarement à l’examen. Selon l’USGS, ces annonces omettent généralement au moins l’un des trois éléments, et lorsqu’un séisme ressemble vaguement à ce qui avait été annoncé, son auteur le compte comme un succès, alors même qu’un ou plusieurs éléments diffèrent largement de ce qui s’est produit (USGS n.d.a)."
+        ]
+      },
+      {
+        "h": "Deux tests marquants",
+        "p": [
+          "Le séisme de Haicheng de 1975, dans le nord-est de la Chine, est le succès le plus souvent cité. Les autorités ont ordonné l’évacuation d’une ville d’environ un million d’habitants après une augmentation du nombre de petits séismes, reconnus plus tard comme des séismes précurseurs, et des signalements de phénomènes inhabituels dans toute la région. Un séisme de magnitude 7,3 a frappé quelques jours plus tard. L’USGS cite une estimation selon laquelle les morts et les blessés auraient dépassé 150 000 sans l’évacuation ; le bilan enregistré a été de 2 041 morts et 27 538 blessés (USGS n.d.c). Une délégation américaine qui a visité des laboratoires chinois en 1976 a conclu que la décision reposait principalement sur la séquence très marquée de séismes précurseurs, et a jugé les autres aspects de la méthode difficiles à évaluer (USGS n.d.c).",
+          "L’année suivante, un séisme de magnitude 7,6 a frappé Tangshan sans avertissement. Aucun des signes précurseurs observés près de Haicheng n’est apparu, et le nombre de morts a été estimé à 250 000 (USGS n.d.c). Ces deux événements, à seulement un an d’intervalle, montrent que les signaux disponibles avant un séisme peuvent être absents avant un autre.",
+          "Les États-Unis ont mené leur propre test à Parkfield, en Californie. En 1985, l’USGS a émis une prédiction à long terme selon laquelle un séisme de magnitude 6 frapperait ce tronçon de la faille de San Andreas avant 1993, sur la base d’une série de séismes semblables survenus à intervalles assez réguliers (Bakun et al. 2005). La fenêtre s’est refermée sans séisme. Un événement de magnitude 6,0 est survenu en 2004, onze ans plus tard. Des séismes précurseurs avaient précédé de 17 minutes les séismes de Parkfield de 1934 et de 1966, mais l’événement de 2004 est survenu sans signe précurseur évident, et les auteurs ont conclu qu’une prédiction fiable à court terme reste hors de portée (Bakun et al. 2005).",
+          "Les auteurs de l’étude de Parkfield en ont tiré une conclusion pratique. Pour réduire dès maintenant les effets des séismes, ils ont recommandé de développer la prochaine génération de modèles estimant l’intensité et la localisation des secousses destructrices, un objectif qui ne dépend pas de la connaissance du moment où une rupture commencera (Bakun et al. 2005)."
+        ]
+      },
+      {
+        "h": "Pourquoi les signes précurseurs se révèlent peu fiables",
+        "p": [
+          "La plupart des signes précurseurs proposés, y compris des petits séismes inhabituels, se produisent fréquemment sans être suivis d’un séisme plus fort ; un signal qui précède certains séismes ne peut donc pas, à lui seul, fonder une prédiction (USGS n.d.a). Geller et al. (1997) ont ajouté que des milliers de signes précurseurs revendiqués n’avaient généralement été identifiés comme tels qu’après le séisme.",
+          "Les séismes précurseurs illustrent la difficulté. Ils avaient été documentés avant moins de la moitié des chocs principaux, mais un catalogue à haute résolution des chocs principaux de magnitude 4 et plus dans le sud de la Californie, de 2008 à 2017, a montré que 72 % d’entre eux avaient été précédés d’une activité précurseur nettement supérieure au taux de fond local (Trugman and Ross 2019). Ce constat est rétrospectif. À l’échelle mondiale, la probabilité qu’un séisme soit suivi, dans la semaine, d’un séisme plus fort à proximité est d’environ 5 % (USGS n.d.b) : environ 95 % des séismes ne débouchent donc sur rien de plus fort. Repérer les séquences qui vont s’amplifier, pendant qu’elles sont encore en cours, reste le problème non résolu."
+        ]
+      },
+      {
+        "h": "Ce que fournit la sismologie",
+        "p": [
+          "Les probabilités à long terme ont le plus de poids opérationnel. Elles orientent les codes de construction et la conception parasismique, ce qui en fait les outils de prévision les plus importants pour protéger les populations des dégâts sismiques (Jordan et al. 2011). Le troisième modèle unifié de prévision des ruptures sismiques en Californie (UCERF3) estime qu’un séisme de magnitude 6,7, la taille de celui de Northridge en 1994, se produit quelque part dans l’État environ tous les 6,3 ans, contre tous les 4,8 ans dans le modèle précédent. Il a aussi relevé la probabilité sur 30 ans d’un séisme de magnitude 8 ou plus de 4,7 % à 7 % (SCEC n.d.). La fenêtre de 30 ans correspond à la durée d’un prêt immobilier typique. Les prévisions de ce type décrivent où et quand des séismes peuvent se produire, et des modèles distincts de mouvement du sol décrivent avec quelle force les secousses seront ressenties (SCEC n.d.).",
+          "La prévision à court terme se concentre sur les répliques. Le modèle ETAS (Epidemic-Type Aftershock Sequence, séquence de répliques de type épidémique) considère que chaque séisme peut déclencher ses propres répliques, et un panel d’experts de la prévision interrogés pour une synthèse de 2024 l’a désigné comme modèle de référence privilégié (Mizrahi 2024). L’Italie publie des prévisions chaque semaine, tandis que la Nouvelle-Zélande et les États-Unis en publient pour des séquences précises (Mizrahi 2024). Peu de pays exploitent de tels systèmes, et il n’existe aucun test reconnu pour décider si un modèle est adapté (Mizrahi 2024). Correctement appliquées, les prévisions à court terme ont une valeur opérationnelle, par exemple pour anticiper les répliques qui suivent les grands séismes (Jordan et al. 2011). Ces modèles ont une limite commune : ils ne parviennent pas à prévoir les futurs grands séismes avec une probabilité élevée (Mizrahi 2024). La Commission internationale sur la prévision des séismes a noté que les probabilités à court terme peuvent varier de plusieurs ordres de grandeur tout en restant généralement faibles en valeur absolue, et que les grands séismes ne peuvent pas être prédits de manière fiable pour des régions précises sur des échelles de temps inférieures à plusieurs décennies (Jordan et al. 2011).",
+          "L’alerte précoce déplace l’objectif de la prédiction vers la détection rapide. ShakeAlert, le système de la côte ouest des États-Unis, fonctionne parce que le traitement de ses données et la transmission de ses messages sont plus rapides que les ondes sismiques elles-mêmes. Le délai d’alerte dépend de la distance au séisme, de la vitesse de traitement et du niveau de secousses retenu pour déclencher les alertes. Pour un événement de la taille de celui de Loma Prieta, une analyse de l’USGS a trouvé des délais d’alerte allant de zéro à vingt secondes (USGS 2019)."
+        ]
+      },
+      {
+        "h": "Recherches de pointe",
+        "p": [
+          "Le glissement lent offre une piste de recherche. Dans les semaines qui ont précédé le séisme de Tōhoku-Oki de magnitude 9,0 en 2011, deux séquences de petits séismes ont migré à raison de 2 à 10 kilomètres par jour vers ce qui allait devenir l’épicentre. Kato et al. (2012) les ont interprétées comme un glissement lent à la limite de plaques, la seconde séquence ayant probablement ajouté une contrainte qui a contribué à déclencher la rupture principale. L’étude porte sur un seul séisme, et les auteurs ont présenté cette contribution à la contrainte comme une possibilité. En Cascadia, Hulbert et al. (2020) ont appliqué l’apprentissage automatique aux ondes sismiques enregistrées en continu et y ont trouvé des motifs qui suivent le cycle de glissement lent de 14 mois, ce qu’ils présentent comme la preuve que le glissement lent peut être prédit. Ils voient dans le glissement lent une fenêtre sur la nucléation, un processus qui reste insaisissable pour les séismes rapides (Hulbert et al. 2020).",
+          "L’apprentissage automatique a donné des résultats mitigés. Rouet-Leduc et al. (2017) ont montré qu’un modèle alimenté par le signal acoustique d’une faille de laboratoire pouvait estimer le temps restant avant la rupture de cette faille. Les vitesses de cisaillement en laboratoire dépassent de plusieurs ordres de grandeur celles des failles réelles, et les chercheurs se sont dits prudents quant à l’extension de la méthode aux vrais séismes (Physics Today 2017).",
+          "Une étude de 2018 très médiatisée a entraîné un réseau de neurones sur plus de 131 000 paires de chocs principaux et de répliques pour cartographier l’emplacement des répliques (DeVries et al. 2018). Mignan and Broccardo (2019) ont reproduit ses performances avec une régression logistique à deux paramètres, contre 13 451 paramètres dans le réseau d’origine. Brendan Meade, coauteur de l’étude initiale, a répondu que l’approximation par un modèle plus simple était l’un des résultats centraux de cet article (Synced 2019)."
+        ]
+      },
+      {
+        "h": "La communication après L’Aquila",
+        "p": [
+          "Un séisme de magnitude 6,3 a frappé L’Aquila, en Italie, en avril 2009 et a tué 309 personnes. En 2012, un tribunal a reconnu six scientifiques et un fonctionnaire coupables d’homicide involontaire pour ne pas avoir alerté les habitants du risque, et a condamné les scientifiques à six ans de prison. Une cour d’appel a annulé les condamnations des scientifiques en 2014 (The World 2014).",
+          "Le Département de la protection civile italien a ensuite nommé la Commission internationale sur la prévision des séismes. Son rapport de 2011 recommandait une prévision opérationnelle systématique et transparente, et avertissait que s’en remettre uniquement à une communication informelle entre scientifiques et public crée la confusion (Jordan et al. 2011)."
+        ]
+      },
+      {
+        "h": "Là où les scientifiques divergent",
+        "p": [
+          "Geller et al. (1997) ont soutenu que les séismes sont intrinsèquement imprévisibles, car le fait qu’une petite rupture devienne grande dépend de détails des conditions à l’intérieur de la Terre qui ne peuvent pas être mesurés. Des commentateurs dans Science ont répondu que cette position était exagérément négative envers un domaine difficile, tandis qu’un autre commentateur a reconnu qu’aucun mécanisme des précurseurs électromagnétiques n’est assez bien connu pour un usage fiable (\"Cannot Earthquakes Be Predicted?\" 1997).",
+          "L’USGS décrit sa propre priorité comme la réduction à long terme du risque sismique grâce à des constructions plus sûres, la prédiction à court terme ne faisant pas partie de cet effort (USGS n.d.a). Les données étayent les deux lectures. Des décennies de surveillance n’ont produit aucune méthode à court terme validée, et rien ne prouve qu’une telle méthode soit impossible. Des instruments plus denses, des enregistrements sismiques continus et les observations de glissement lent élargissent ce que les chercheurs peuvent tester. Toute nouvelle annonce devra satisfaire au critère appliqué à Parkfield : un moment, un lieu et une magnitude précis, énoncés à l’avance."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Les scientifiques peuvent-ils prédire les séismes ?",
+        "a": "Non. L’Institut d’études géologiques des États-Unis indique que ni lui ni aucun autre scientifique n’a jamais prédit un séisme majeur. Une prédiction doit donner la date et l’heure, le lieu et la magnitude, et une annonce qui omet l’un de ces trois éléments ne peut pas être vérifiée."
+      },
+      {
+        "q": "Quelle est la différence entre prévision sismique, probabilité et alerte précoce ?",
+        "a": "Les probabilités à long terme donnent la probabilité d’un séisme d’une certaine taille dans une région sur des années ou des décennies. Les prévisions appliquent un raisonnement semblable à des fenêtres plus courtes et servent généralement pour les répliques. L’alerte précoce est un avertissement envoyé une fois la rupture commencée, qui laisse de quelques secondes à quelques dizaines de secondes avant l’arrivée des ondes destructrices."
+      },
+      {
+        "q": "Le séisme de Haicheng de 1975 a-t-il été prédit ?",
+        "a": "Les autorités ont évacué Haicheng après une augmentation du nombre de petits séismes, reconnus plus tard comme des séismes précurseurs, et un séisme de magnitude 7,3 a frappé quelques jours plus tard. Une délégation américaine a conclu que la décision reposait principalement sur la séquence de séismes précurseurs. L’année suivante, le séisme de Tangshan, de magnitude 7,6, a frappé sans aucun de ces signaux."
+      },
+      {
+        "q": "Les séismes précurseurs annoncent-ils un grand séisme ?",
+        "a": "Pas de manière fiable. Dans le sud de la Californie, 72 % des chocs principaux de magnitude 4 et plus survenus de 2008 à 2017 ont été précédés d’une activité précurseur accrue, mais à l’échelle mondiale, seuls environ 5 % des séismes sont suivis, dans la semaine, d’un séisme plus fort à proximité."
+      },
+      {
+        "q": "L’intelligence artificielle peut-elle prédire les séismes ?",
+        "a": "Pas encore. Des modèles ont estimé le temps restant avant la rupture de failles de laboratoire et trouvé des motifs qui suivent le cycle de glissement lent en Cascadia, mais une étude très médiatisée sur les répliques fondée sur l’apprentissage profond a été égalée par une régression logistique à deux paramètres."
+      },
+      {
+        "q": "Combien de temps d’avance donne l’alerte sismique précoce ?",
+        "a": "Cela dépend de la distance au séisme, de la vitesse de traitement et du niveau de secousses retenu pour les alertes. Pour un séisme de la taille de celui de Loma Prieta en 1989, une analyse de ShakeAlert par l’USGS a trouvé des délais d’alerte allant de zéro à vingt secondes."
+      }
+    ]
+  },
+  "plate-tectonics-subduction": {
+    "title": "Tectonique des plaques, zones de subduction et séismes de mégachevauchement",
+    "dek": "Là où une plaque s’enfonce sous une autre, la limite peut rester bloquée pendant des siècles, puis rompre lors d’un séisme de magnitude 9. Voici comment fonctionne la subduction, ce qu’ont révélé les grands séismes de mégachevauchement, et comment les scientifiques ont daté la dernière rupture de Cascadia d’une nuit d’hiver de 1700.",
+    "sections": [
+      {
+        "h": "Comment et pourquoi les plaques tectoniques se déplacent",
+        "p": [
+          "L’enveloppe externe de la Terre est fragmentée en plaques rigides qui se déplacent les unes par rapport aux autres. L’Institut d’études géologiques des États-Unis (USGS) compare leur vitesse à celle à laquelle poussent les ongles. Chaque plaque se déplace à sa propre vitesse et dans sa propre direction, et le GPS mesure aujourd’hui les mouvements de la croûte à une fraction de millimètre par an près (USGS n.d.a).",
+          "Les forces à l’origine de ce mouvement ont été évaluées dans une étude classique de Forsyth and Uyeda (1975). Ils ont fait le bilan des moments de force agissant sur chaque plaque afin de comparer les forces qui les mettent en mouvement à celles qui leur résistent. Leur analyse désignait l’enfoncement des panneaux océaniques denses au niveau des fosses océaniques comme principale force motrice, un effet aujourd’hui généralement appelé traction du panneau plongeant (slab pull), compensée surtout par la résistance visqueuse du manteau (Forsyth and Uyeda 1975). Une seconde force, plus faible, la poussée à la dorsale (ridge push), agit là où se forme le nouveau plancher océanique, au niveau des dorsales médio-océaniques.",
+          "La traction du panneau plongeant place les zones de subduction au cœur de la tectonique des plaques. Les endroits où les vieilles plaques océaniques replongent dans le manteau sont aussi ceux qui accumulent et libèrent les plus grandes quantités de déformation, ce qui explique qu’ils soient le siège des plus grands séismes jamais enregistrés."
+        ]
+      },
+      {
+        "h": "Les trois types de limites de plaques",
+        "p": [
+          "Les plaques interagissent selon trois grands types de limites (Kious and Tilling 1996). Aux limites divergentes, les plaques s’écartent et une nouvelle croûte se forme à partir du magma qui remonte du manteau. Les dorsales médio-océaniques en sont le principal exemple.",
+          "Aux limites transformantes, les plaques coulissent horizontalement l’une contre l’autre, et la croûte n’est ni créée ni détruite (Kious and Tilling 1996). La faille de San Andreas, en Californie, en est l’exemple le plus connu.",
+          "Aux limites convergentes, les plaques se rapprochent et la croûte est détruite à mesure qu’une plaque s’enfonce sous une autre (Kious and Tilling 1996). Là où une lithosphère océanique rencontre une autre plaque, la plaque océanique, plus dense, s’enfonce, et la limite devient une zone de subduction. Kious and Tilling (1996) notent aussi que certaines limites de plaques sont de larges zones de déformation plutôt que des lignes nettes, ce qui rappelle que ces trois types sont une idéalisation d’une surface plus complexe."
+        ]
+      },
+      {
+        "h": "Qu’est-ce qu’une zone de subduction ?",
+        "p": [
+          "Une zone de subduction est une limite convergente où une plaque plonge sous une autre, dans le manteau. En surface, elle est marquée par une fosse océanique profonde et, là où une plaque océanique s’enfonce sous un continent, des chaînes de volcans comme les Andes et les Cascades se dressent à l’intérieur des terres (Kious and Tilling 1996).",
+          "Le contact entre les deux plaques est une immense faille en pente douce appelée mégachevauchement. À faible profondeur, à moins de 25 kilomètres environ, l’interface peut se coincer, c’est-à-dire se bloquer, et la contrainte s’y accumule (USGS n.d.b). Pendant les centaines d’années qui séparent deux grands séismes, la compression continue fait bomber et se soulever la plaque supérieure juste au-dessus et en arrière de la zone bloquée, sur des milliers de kilomètres carrés (USGS n.d.b).",
+          "Lorsque la contrainte accumulée dépasse la résistance de la faille, la partie bloquée se libère et relâche son énergie emmagasinée sous forme d’ondes sismiques (USGS n.d.b). La plaque supérieure se détend brusquement. Les zones qui s’étaient bombées peuvent s’affaisser soudainement, tandis que le fond marin situé au-dessus de la rupture est projeté vers le haut et déplace l’océan qui le recouvre. Ce brusque mouvement vertical du fond marin est ce qui engendre les grands tsunamis des zones de subduction."
+        ]
+      },
+      {
+        "h": "Pourquoi les séismes de mégachevauchement sont les plus grands",
+        "p": [
+          "L’USGS décrit l’interface peu profonde du mégachevauchement des zones de subduction comme le siège des plus grands séismes et comme le seul type de faille capable de produire des ruptures de magnitude 9 ou plus (USGS n.d.c). La raison tient à la façon dont la magnitude est mesurée. La magnitude de moment est dérivée du moment sismique, qui est le produit de la rigidité de la roche, de la surface de faille qui a glissé et du glissement moyen.",
+          "Un mégachevauchement offre une surface de faille énorme. Comme l’interface est faiblement inclinée, une rupture peut s’étendre loin dans le sens du pendage de la faille, ainsi que sur plusieurs centaines de kilomètres le long de la fosse. Dans une étude des séismes d’interface de subduction de magnitude 7,1 à 9,5, Allen and Hayes (2017) ont constaté que la largeur de rupture plafonne à environ 200 kilomètres pour les plus grands événements. Au-delà, les séismes grandissent surtout en s’allongeant le long de la fosse et par un glissement plus important, et les auteurs ont conclu que la taille des grands séismes semble davantage contrôlée par le glissement moyen sur les zones les plus résistantes de la faille (Allen and Hayes 2017).",
+          "Aucun autre type de faille ne combine une telle longueur, une telle largeur et un tel glissement. Les deux plus grands séismes enregistrés par des instruments modernes ont tous deux frappé des zones de subduction : le séisme du Chili de magnitude 9,5 en 1960 et le séisme d’Alaska de magnitude 9,2 en 1964 (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Chili 1960, Sumatra 2004 et Tōhoku 2011",
+        "p": [
+          "Le séisme du Chili du 22 mai 1960 est le plus grand jamais enregistré, avec une magnitude de moment de 9,5 (USGS n.d.d). Les premiers rapports indiquaient une magnitude des ondes de surface de 8,6. La magnitude de moment, meilleure mesure de l’énergie libérée, a ensuite été estimée à 9,5 (USGS n.d.d). Il a rompu la limite où la plaque de Nazca s’enfonce sous l’Amérique du Sud. Cifuentes (1989) a estimé la longueur de la rupture, d’après les répliques et la déformation de la croûte, à 920 ± 100 kilomètres, se terminant près du point où la dorsale du Chili rejoint la fosse du Pérou-Chili. L’USGS recense environ 1 655 morts dans le sud du Chili et quelque 2 millions de sans-abri. Le tsunami a traversé le Pacifique, tuant 61 personnes à Hawaï, principalement à Hilo, et 138 au Japon (USGS n.d.d).",
+          "Le séisme de Sumatra-Andaman du 26 décembre 2004 avait une magnitude de 9,1 (USGS n.d.f). Ses répliques ont dessiné une rupture d’environ 1 300 kilomètres de long, du nord-ouest de Sumatra aux îles Andaman (Lay et al. 2005). Le tsunami de l’océan Indien qui a suivi a fait 227 898 morts ou disparus présumés morts, et environ 1,7 million de déplacés (USGS n.d.g).",
+          "Le séisme de Tōhoku-Oki du 11 mars 2011 a frappé la fosse du Japon, où la plaque Pacifique s’enfonce sous le nord du Japon. L’USGS lui attribue une magnitude de 9,1 et indique que la faille s’est déplacée de 50 à 60 mètres sur une zone d’environ 400 kilomètres de long et 150 kilomètres de large (USGS n.d.e). Des relevés du fond marin effectués moins de deux semaines après le séisme ont montré que le fond marin près de la fosse s’était déplacé d’environ 50 mètres vers l’est-sud-est et de 7 à 10 mètres vers le haut, preuve que la rupture avait atteint l’axe de la fosse (Fujiwara et al. 2011). Six mois après la catastrophe, l’Agence nationale de la police du Japon avait confirmé au moins 15 782 morts (Nippon.com n.d.)."
+        ]
+      },
+      {
+        "h": "La zone de subduction de Cascadia et le séisme de 1700",
+        "p": [
+          "La zone de subduction de Cascadia s’étend au large, du nord de l’île de Vancouver au cap Mendocino, dans le nord de la Californie, là où la plaque Juan de Fuca et ses voisines s’enfoncent sous l’Amérique du Nord (PNSN n.d.). La plaque Juan de Fuca se rapproche de l’Amérique du Nord à raison d’environ 4 centimètres par an (PNSN n.d.).",
+          "Le dernier grand séisme de Cascadia s’est produit le 26 janvier 1700, avec une magnitude estimée entre 8,7 et 9,2 (Wirth et al. 2025). Sa date et sa taille ont été reconstituées à partir d’un tsunami consigné au Japon. Des samouraïs, des marchands et des villageois ont décrit des vagues, en janvier 1700, arrivées sans aucun séisme local, ce que les chercheurs ont plus tard appelé un tsunami orphelin (Atwater et al. 2005). Satake et al. (1996) ont écarté l’Amérique du Sud, l’Alaska et le Kamtchatka comme sources, car les archives historiques et géologiques n’y montraient aucun grand séisme en 1700, et ont situé le séisme en Cascadia vers 21 h, heure locale, le 26 janvier 1700. À partir des hauteurs du tsunami, ils ont estimé une magnitude d’environ 9, ce qui impliquerait une rupture de toute la zone de subduction (Satake et al. 1996).",
+          "Une analyse ultérieure a comparé les inondations signalées sur sept sites au Japon, d’une hauteur d’environ 1 à 5 mètres, à des tsunamis modélisés à partir de six sources possibles en Cascadia. Le séisme le plus probable avait une magnitude de moment de 9,0, avec 19 mètres de glissement sur une zone au large d’environ 1 100 kilomètres de long (Satake et al. 2003). L’éventail des sources plausibles correspond à des magnitudes de 8,7 à 9,2. Des ruptures plus courtes ne pourraient reproduire le tsunami observé au Japon qu’avec jusqu’à 40 mètres de glissement au large, et les variations du niveau du sol qu’elles provoqueraient contredisent les indices géologiques relevés le long de la côte de Cascadia (Satake et al. 2003)."
+        ]
+      },
+      {
+        "h": "Les indices des séismes de Cascadia : forêts fantômes et marais ensevelis",
+        "p": [
+          "Les indices géologiques sont d’abord venus de la côte. Atwater (1987) a découvert que de la vase de marée avait enseveli six fois en environ 7 000 ans les basses terres côtières de l’extrême ouest de l’État de Washington, chaque ensevelissement ayant probablement été causé par un affaissement soudain d’environ 0,5 à 2 mètres. Des nappes de sable sur au moins trois des surfaces ensevelies indiquaient que des tsunamis étaient arrivés lors des mêmes événements (Atwater 1987). C’est le schéma attendu lorsque la plaque supérieure s’affaisse au moment où un mégachevauchement rompt.",
+          "Le même affaissement a créé des forêts fantômes. Le long de la rivière Copalis, dans l’État de Washington, un bosquet de thuyas géants morts se dresse au milieu d’un marais à marée saumâtre. Les arbres ont péri lorsque le sol s’est affaissé lors du plus récent séisme de Cascadia et que l’eau salée a inondé leurs racines (USGS n.d.i). Yamaguchi et al. (1997) ont daté leur mort grâce aux cernes de croissance. Les arbres tués par le séisme avaient achevé leur croissance de 1699 mais n’avaient pas commencé celle de 1700, ce qui situait l’affaissement entre les saisons de croissance de 1699 et de 1700 et concordait avec la date tirée des archives japonaises (Yamaguchi et al. 1997).",
+          "Les sédiments marins prolongent ces archives plus loin dans le passé. Les turbidites, dépôts laissés par des glissements de terrain sous-marins, s’accumulent dans les chenaux sous-marins le long de la marge. Goldfinger et al. (2012) les ont suivies sur environ 500 kilomètres du nord de la Cascadia et ont conclu que leur synchronisme sur 10 000 ans s’explique au mieux par un déclenchement lors de grands séismes. Ces archives suggèrent des groupes de deux à cinq séismes séparés par des intervalles inhabituellement longs, plutôt qu’un cycle régulier, et les archives marines concordent bien avec celles, plus courtes, conservées à terre (Goldfinger et al. 2012).",
+          "L’USGS estime désormais à 10 à 15 % la probabilité d’un séisme de magnitude 9 environ en Cascadia au cours des 50 prochaines années (Wirth et al. 2025). Cette estimation repose sur les mêmes indices : les archives écrites du Japon, les arbres morts et les sols ensevelis de la côte pacifique, et les couches de sédiments du fond marin."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qu’est-ce qu’une zone de subduction ?",
+        "a": "Une zone de subduction est une limite de plaques convergente où une plaque, généralement océanique, s’enfonce sous une autre, dans le manteau. Elle est marquée par une fosse océanique profonde, et le contact entre les plaques est une grande faille en pente douce appelée mégachevauchement."
+      },
+      {
+        "q": "Qu’est-ce qu’un séisme de mégachevauchement ?",
+        "a": "Un séisme de mégachevauchement est la rupture de l’interface bloquée entre deux plaques dans une zone de subduction. La contrainte s’accumule pendant des siècles tant que la partie peu profonde de l’interface reste coincée, puis se libère lorsque la faille se débloque. L’USGS décrit ces failles comme les seules capables de produire des séismes de magnitude 9 ou plus."
+      },
+      {
+        "q": "Pourquoi les zones de subduction produisent-elles les plus grands séismes ?",
+        "a": "La magnitude d’un séisme dépend de la surface de faille qui glisse et de l’ampleur du glissement. Un mégachevauchement est faiblement incliné et peut s’étendre sur plusieurs centaines de kilomètres le long d’une fosse, ce qui lui donne une surface de faille bien plus grande que celle des autres types de failles. Les plus grands événements impliquent aussi des dizaines de mètres de glissement."
+      },
+      {
+        "q": "Quel est le plus grand séisme jamais enregistré ?",
+        "a": "Le plus grand séisme enregistré par des instruments a frappé le sud du Chili le 22 mai 1960, avec une magnitude de 9,5. Son tsunami a tué 61 personnes à Hawaï et 138 au Japon, en plus d’environ 1 655 morts au Chili."
+      },
+      {
+        "q": "Comment sait-on que le séisme de Cascadia a eu lieu en 1700 ?",
+        "a": "Des archives japonaises décrivent un tsunami, en janvier 1700, arrivé sans aucun séisme local. Les cernes de croissance de thuyas tués lors de l’affaissement de la côte du nord-ouest Pacifique montrent que les arbres sont morts entre les saisons de croissance de 1699 et de 1700. Ensemble, ces indices situent le séisme au 26 janvier 1700."
+      },
+      {
+        "q": "Quelle est la probabilité d’un séisme de magnitude 9 en Cascadia ?",
+        "a": "L’USGS estime à 10 à 15 % la probabilité d’un séisme de magnitude 9 environ sur la zone de subduction de Cascadia au cours des 50 prochaines années. Les archives sédimentaires marines suggèrent que ces séismes surviennent en groupes séparés par de longs intervalles, plutôt qu’à un rythme régulier."
+      }
+    ]
+  },
+  "faults-and-stress": {
+    "title": "Failles et contraintes : pourquoi les séismes se produisent",
+    "dek": "Un séisme est la libération soudaine de la contrainte qu’une faille a accumulée pendant des décennies ou des siècles. Voici comment cette contrainte s’accumule, comment les failles cèdent, et comment une rupture peut préparer la suivante.",
+    "sections": [
+      {
+        "h": "La théorie du rebond élastique et le séisme de San Francisco de 1906",
+        "p": [
+          "Le 18 avril 1906, la faille de San Andreas a rompu sur environ 477 kilomètres dans le nord de la Californie, lors d’un séisme dont la magnitude est aujourd’hui estimée à 7,9 (USGS n.d.b). Les recherches de Gladys Hansen et Emmet Condon ont porté le nombre de personnes mortes directement ou indirectement à plus de 3 000, plusieurs fois le chiffre d’environ 700 cité pendant des décennies (USGS n.d.c).",
+          "Le séisme a aussi donné naissance à la première explication opérationnelle de la rupture des failles. Harry Fielding Reid, géologue à l’université Johns Hopkins, a étudié la façon dont la surface du sol s’était déplacée pendant le séisme et a conclu que la rupture devait correspondre à un rebond élastique d’une contrainte élastique accumulée auparavant (USGS n.d.a). Les clôtures, les routes et les autres lignes droites qui traversaient la faille avaient été décalées ; une clôture photographiée par G. K. Gilbert près de Bolinas avait été déplacée d’environ 8,5 pieds le long du tracé de la faille (USGS n.d.a).",
+          "Reid a exposé son raisonnement dans le deuxième volume du rapport de la commission de l’État (Reid 1910). La roche de part et d’autre d’une faille est entraînée par un mouvement lent et régulier, mais la faille elle-même reste bloquée. La croûte se courbe comme un ressort et accumule une déformation élastique, jusqu’à ce que la contrainte dépasse la résistance de la faille. La faille glisse alors brusquement, la roche déformée revient vers une forme non déformée, et l’énergie accumulée s’échappe sous forme d’ondes sismiques.",
+          "La théorie a une conséquence directe. Une fois qu’une faille a glissé, le même mouvement lent recommence à la charger, si bien que les séismes sur une faille donnée devraient se répéter. L’essentiel de la science moderne des failles et des contraintes approfondit ce cycle de chargement et de libération."
+        ]
+      },
+      {
+        "h": "Les types de failles : normales, inverses, chevauchements et décrochements",
+        "p": [
+          "L’Institut d’études géologiques des États-Unis (USGS) définit une faille comme une fracture ou une zone de fractures entre deux blocs de roche, qui permet aux blocs de se déplacer l’un par rapport à l’autre (USGS n.d.d). Les failles sont classées selon l’inclinaison du plan de faille, appelée pendage, et selon la direction du glissement le long de ce plan (USGS n.d.d).",
+          "Sur une faille normale, le bloc situé au-dessus du plan de faille incliné descend par rapport au bloc situé en dessous. Sur une faille inverse, le bloc supérieur monte et passe par-dessus le bloc inférieur, et une faille inverse à faible pendage est appelée chevauchement. Sur une faille décrochante, les blocs coulissent latéralement l’un contre l’autre, et les failles qui combinent mouvements latéral et vertical sont appelées failles obliques (USGS n.d.d). Une faille décrochante est dite dextre ou senestre selon le sens dans lequel le bloc d’en face semble se déplacer lorsqu’on l’observe depuis l’autre côté de la faille. Les failles de San Andreas et nord-anatolienne sont dextres ; la faille est-anatolienne est senestre.",
+          "Chaque type reflète une disposition différente des contraintes. Ernest Masson Anderson (1905) a observé que, la surface du sol ne supportant aucune contrainte de cisaillement, l’une des trois contraintes principales dans la croûte peu profonde est proche de la verticale. Si la plus forte contrainte de compression est verticale, comme là où la croûte est étirée, des failles normales se forment. Si la plus faible est verticale, comme là où la croûte est comprimée, des failles inverses et des chevauchements se forment. Si la contrainte intermédiaire est verticale, des failles décrochantes se forment. Avec le frottement habituel des roches, la théorie prévoit des failles normales inclinées d’environ 60 degrés, des chevauchements d’environ 30 degrés et des failles décrochantes presque verticales."
+        ]
+      },
+      {
+        "h": "Le frottement par adhérence-glissement : comment les failles accumulent et libèrent l’énergie",
+        "p": [
+          "Le rebond élastique décrit le chargement. Le frottement explique pourquoi la libération est soudaine plutôt que progressive. Lors d’expériences de laboratoire sur des roches, Brace and Byerlee (1966) ont constaté que des surfaces soumises à une forte pression ne glissaient pas en douceur, mais adhéraient, glissaient brusquement, puis adhéraient de nouveau. Ils ont proposé que les séismes superficiels puissent correspondre à ce mouvement d’adhérence-glissement (stick-slip) sur les failles, et ont noté que la contrainte libérée lors de chaque glissement ne représentait qu’une petite partie de la contrainte que supportait la roche (Brace and Byerlee 1966).",
+          "Des travaux ultérieurs ont transformé cette observation en lois du frottement des roches. Scholz (1998) a résumé comment le résultat dépend de l’augmentation ou de la diminution du frottement à mesure que le glissement s’accélère. Là où le frottement se renforce avec la vitesse, tout glissement se ralentit de lui-même et la faille glisse de façon stable. Là où le frottement s’affaiblit avec la vitesse, le glissement peut s’accélérer jusqu’à une rupture instable, c’est-à-dire un séisme. Scholz a soutenu qu’une seule loi constitutive de ce type rend compte d’un large éventail de comportements sismiques, notamment de la part du mouvement d’une faille libérée lors de séismes et de celle qui s’effectue sans séisme (Scholz 1998).",
+          "Cette distinction compte à l’échelle des failles entières. Une portion de faille dont le frottement s’affaiblit avec la vitesse peut se bloquer et rompre ensuite violemment. Une portion dont le frottement se renforce avec la vitesse tend à fluer."
+        ]
+      },
+      {
+        "h": "Failles bloquées et failles en fluage sur la San Andreas",
+        "p": [
+          "La majeure partie de la faille de San Andreas est bloquée. Entre les grands séismes, ses deux côtés restent coincés en profondeur tandis que les plaques continuent de se déplacer, et la déformation s’accumule dans la roche environnante, comme l’avait décrit Reid. Le tronçon qui a rompu en 1906 se comporte ainsi.",
+          "Entre San Juan Bautista et Parkfield, dans le centre de la Californie, la faille se comporte différemment. Les deux côtés y coulissent l’un contre l’autre de façon plus ou moins continue, selon un processus appelé fluage asismique, qui déplace le sol sans produire de grands séismes. Titus et al. (2006) ont mesuré à nouveau sept réseaux d’alignement, des rangées de repères topographiques disposées en travers de la faille, et ont obtenu des vitesses de glissement minimales moyennes de 21 à 26 millimètres par an sur 33 à 36 ans. Les résultats indiquent un fluage à peu près régulier le long du segment central en fluage depuis au moins 35 ans (Titus et al. 2006).",
+          "Le fluage est visible en surface. Là où une faille en fluage traverse une ville, les bordures de trottoir, les trottoirs et les murs sont courbés ou décalés un peu plus chaque année. La ville de Hollister, près de l’extrémité nord du tronçon en fluage, en est un exemple bien connu, bien que la faille qui traverse ses rues soit la faille de Calaveras, une branche du système de San Andreas, et non la faille de San Andreas elle-même.",
+          "Un tronçon en fluage n’accumule pas de déformation comme le fait un tronçon bloqué, et il peut aussi limiter la propagation des ruptures. Après le séisme de Parkfield de magnitude 6,0 en 2004, survenu à l’extrémité sud du tronçon en fluage, les stations GPS ont montré peu de glissement pendant et après le séisme le long du segment central en fluage (Titus et al. 2006). Le fluage ne rend pas une faille inoffensive, car les failles en fluage peuvent tout de même produire des séismes modérés, mais il modifie la façon et l’endroit où la contrainte s’accumule."
+        ]
+      },
+      {
+        "h": "Le transfert de contraintes et la variation de contrainte de Coulomb",
+        "p": [
+          "Lorsqu’une faille glisse, la contrainte qu’elle supportait ne disparaît pas. Une partie est redistribuée à la croûte environnante, rapprochant certaines failles voisines de la rupture et en éloignant d’autres. Les sismologues la mesurent avec le critère de rupture de Coulomb, qui combine la variation de la contrainte de cisaillement qui pousse une faille à glisser et la variation de la contrainte de serrage qui la maintient fermée (King et al. 1994). Les variations de contrainte sont couramment exprimées en bars ; un bar vaut 0,1 mégapascal, à peu près la pression atmosphérique au niveau de la mer.",
+          "Ces variations sont faibles par rapport à la contrainte totale dans la croûte, mais elles comptent pour les failles déjà proches de la rupture. King et al. (1994) ont constaté que les répliques étaient abondantes là où la contrainte de Coulomb sur les failles favorablement orientées augmentait de plus d’un demi-bar environ, et rares là où elle diminuait d’autant. Les zones où la contrainte a baissé sont appelées ombres de contrainte. La même étude a calculé que les séismes de Landers et de Big Bear de 1992, dans le sud de la Californie, avaient augmenté la contrainte sur le tronçon de San Bernardino de la faille de San Andreas de 2 à 6 bars, assez pour avancer d’environ une décennie le prochain grand séisme à cet endroit (King et al. 1994).",
+          "Stein (1999) a passé en revue les données et a conclu que, lorsque les variations de contrainte sont traduites en variations de probabilité, l’aléa sismique est fortement influencé par les interactions entre séismes. La probabilité qu’une faille rompe dépend donc de son propre chargement et de ce que ses voisines ont fait récemment."
+        ]
+      },
+      {
+        "h": "La faille nord-anatolienne : une séquence de séismes depuis 1939",
+        "p": [
+          "La faille nord-anatolienne, une faille décrochante dextre qui traverse le nord de la Turquie, offre l’exemple le plus clair de séismes progressant le long d’une faille. La séquence a commencé le 26 décembre 1939 par un séisme de magnitude 7,8 près d’Erzincan, dans l’est, qui a tué 32 700 personnes (USGS n.d.e).",
+          "Au cours des décennies suivantes, de grands séismes ont rompu des tronçons successifs de la faille, progressant pour la plupart vers l’ouest. Stein et al. (1997) ont étudié dix séismes de magnitude 6,7 ou plus qui ont, ensemble, rompu 1 000 kilomètres de la faille entre 1939 et 1992. Ils ont calculé que neuf des dix ruptures avaient été rapprochées de la rupture par les secousses précédentes, généralement de 1 à 10 bars, l’équivalent de 3 à 30 ans de chargement tectonique ordinaire. Ces variations de contrainte ont multiplié en moyenne par trois la probabilité d’un séisme au cours de la décennie suivant chaque événement (Stein et al. 1997).",
+          "Les auteurs ont appliqué le même raisonnement à l’avenir. Pour les 30 années à partir de 1996, ils ont estimé à 12 % la probabilité d’un séisme de magnitude 6,7 ou plus près de la ville portuaire d’Izmit (Stein et al. 1997). Le 17 août 1999, un séisme de magnitude 7,4 selon les premières estimations (USGS 2000), et de 7,6 selon le rapport de l’USGS sur l’événement (USGS 1999), a frappé ce tronçon de la faille. Les estimations gouvernementales ont chiffré le bilan à 17 127 morts et 43 953 blessés, et plus de 250 000 personnes ont été déplacées (USGS 2000). Les auteurs n’avaient pas prédit le séisme ; ils avaient identifié ce segment comme plus susceptible que la plupart des autres de rompre.",
+          "La rupture de 1999 a déplacé la concentration de contraintes plus à l’ouest, vers les failles situées sous la mer de Marmara, près d’Istanbul. En tenant compte du séisme d’Izmit, Parsons et al. (2000) ont calculé une probabilité de 62 ± 15 % de fortes secousses à Istanbul au cours des 30 années suivantes, et de 32 ± 12 % au cours de la décennie suivante. Ce calcul est une probabilité, non une prédiction, et les failles situées sous la mer de Marmara restent une préoccupation centrale pour la planification face à l’aléa dans la région."
+        ]
+      },
+      {
+        "h": "Les séismes de 2023 en Turquie et en Syrie, sur la faille est-anatolienne",
+        "p": [
+          "La faille est-anatolienne forme la limite sud-est du bloc anatolien et, avec la faille nord-anatolienne, accommode le déplacement de la Turquie vers l’ouest, en direction de la mer Égée (USGS n.d.f). Le 6 février 2023, elle a été la source de deux grands séismes à neuf heures d’intervalle.",
+          "Le séisme de Pazarcık, de magnitude 7,8, a rompu près de 354 kilomètres de la faille est-anatolienne. Le second, un séisme de magnitude 7,5 près d’Elbistan, a rompu environ 161 kilomètres de la faille de Çardak, distincte et située plus au nord (USGS n.d.g). L’USGS a indiqué que le bilan en Turquie et en Syrie dépassait 57 000 morts à la fin du mois de mars 2023 (USGS n.d.g).",
+          "Les deux séismes montrent le transfert de contraintes à l’œuvre, ainsi que ses limites. Les calculs de Coulomb indiquent que le premier séisme a augmenté la contrainte d’environ 1 à 4 bars sur le tronçon de la faille de Çardak où la seconde rupture a commencé, tout en la diminuant d’environ 3 à 10 bars sur la partie de cette faille parallèle à la faille est-anatolienne (Toda and Stein 2024). Une augmentation de contrainte de cet ordre est faible par rapport à la contrainte libérée lors d’un séisme, mais elle peut suffire à déclencher une faille déjà proche de la rupture (Stein et al. 2023).",
+          "Les mêmes calculs ont laissé des questions ouvertes. Certains tronçons de la faille est-anatolienne qui avaient reçu un surcroît de contrainte n’ont pas rompu, et une partie de la faille de Çardak qui n’avait pas été chargée a participé à la rupture de magnitude 7,5. Le second séisme n’a pas non plus été précédé de séismes précurseurs, malgré un chargement important et soudain (Stein et al. 2023). Le transfert de contraintes explique en grande partie où les séismes se regroupent, mais il ne dit pas encore quelle faille chargée rompra, ni quand."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qu’est-ce que la théorie du rebond élastique ?",
+        "a": "La théorie du rebond élastique veut que la roche de part et d’autre d’une faille bloquée se courbe lentement à mesure que la croûte se déplace, en accumulant une déformation élastique. Lorsque la contrainte dépasse la résistance de la faille, celle-ci glisse et la roche revient brusquement en place, libérant l’énergie sous forme de séisme. Harry Fielding Reid l’a proposée après avoir étudié les mouvements du sol lors du séisme de San Francisco de 1906."
+      },
+      {
+        "q": "Quels sont les trois principaux types de failles ?",
+        "a": "Les failles normales, où le bloc supérieur descend, se forment là où la croûte est étirée. Les failles inverses et les chevauchements, où le bloc supérieur monte, se forment là où elle est comprimée. Les failles décrochantes, où les blocs coulissent latéralement l’un contre l’autre, comprennent les failles de San Andreas et nord-anatolienne."
+      },
+      {
+        "q": "Qu’est-ce qu’une faille en fluage ?",
+        "a": "Une faille en fluage glisse lentement et de façon plus ou moins continue, au lieu de rester bloquée et de rompre lors de grands séismes. La faille de San Andreas flue entre San Juan Bautista et Parkfield, dans le centre de la Californie, où les relevés montrent un glissement régulier d’environ 21 à 26 millimètres par an depuis plus de trois décennies."
+      },
+      {
+        "q": "Un séisme peut-il en déclencher un autre ?",
+        "a": "Oui. Un séisme redistribue les contraintes, en les augmentant sur certaines failles voisines et en les diminuant sur d’autres. Des failles déjà proches de la rupture peuvent être poussées à céder, ce qui explique que les répliques se regroupent là où la contrainte de Coulomb a augmenté et que de grands séismes se succèdent parfois le long d’une faille."
+      },
+      {
+        "q": "Pourquoi les séismes se sont-ils déplacés vers l’ouest le long de la faille nord-anatolienne ?",
+        "a": "Entre 1939 et 1992, dix séismes de magnitude 6,7 ou plus ont rompu environ 1 000 kilomètres de la faille, et neuf d’entre eux ont frappé là où des secousses antérieures avaient augmenté la contrainte. Le séisme d’Izmit de 1999 a prolongé la séquence vers l’ouest, augmentant l’aléa estimé pour Istanbul."
+      },
+      {
+        "q": "Quelle faille a causé le séisme de 2023 en Turquie et en Syrie ?",
+        "a": "Le séisme de magnitude 7,8 du 6 février 2023 a rompu près de 354 kilomètres de la faille est-anatolienne. Un séisme de magnitude 7,5, environ neuf heures plus tard, a rompu environ 161 kilomètres de la faille voisine de Çardak, que le premier séisme avait en partie chargée d’une contrainte supplémentaire."
+      }
+    ]
+  },
+  "earth-interior-seismic-waves": {
+    "title": "L’intérieur de la Terre, les ondes sismiques et la mesure des séismes",
+    "dek": "Les profondeurs de la croûte, du manteau et du noyau ont été mesurées grâce aux ondes sismiques, et non par des forages. Ces mêmes ondes servent aujourd’hui à localiser chaque séisme et à mesurer sa taille.",
+    "sections": [
+      {
+        "h": "Les couches de la Terre : croûte, manteau, noyau externe et graine",
+        "p": [
+          "La Terre comporte quatre couches principales, définies par la façon dont les ondes sismiques les traversent. La plus externe est la croûte. La croûte continentale, dont l’épaisseur est la plus variable, mesure en moyenne environ 30 à 35 kilomètres, tandis que la croûte océanique ne s’étend généralement que jusqu’à environ 5 kilomètres (Kious and Tilling 1996).",
+          "Sous la croûte se trouve le manteau, une couche de roche chaude et dense qui descend jusqu’au noyau. Dans le modèle de référence préliminaire de la Terre (PREM), un modèle largement utilisé des propriétés moyennes de la planète en fonction de la profondeur, le noyau a un rayon de 3 480 kilomètres, ce qui place la limite noyau-manteau à environ 2 900 kilomètres sous la surface (Dziewonski and Anderson 1981).",
+          "Le noyau comprend deux parties. Le noyau externe est liquide, et le noyau interne, ou graine, est solide, avec un rayon de 1 221,5 kilomètres dans le PREM : sa surface se trouve donc à environ 5 150 kilomètres de profondeur (Dziewonski and Anderson 1981). Le PREM a été construit en ajustant environ 1 000 périodes des oscillations libres de la Terre et 500 observations synthétiques de temps de parcours, ainsi que la masse et le moment d’inertie de la planète (Dziewonski and Anderson 1981). Aucun de ces chiffres ne provient d’un échantillonnage direct. Chaque limite a été découverte parce que les ondes sismiques y changent de vitesse, s’y courbent, s’y réfléchissent ou y disparaissent."
+        ]
+      },
+      {
+        "h": "Ondes P, ondes S et ondes de surface",
+        "p": [
+          "Un séisme libère plusieurs sortes d’ondes sismiques. Les ondes de volume se propagent à l’intérieur de la Terre, et les ondes de surface le long de ses couches externes. Les ondes P, ou ondes primaires, sont les plus rapides et arrivent les premières à une station d’enregistrement. Elles compriment et étirent la roche dans leur direction de propagation. Les ondes S, ou ondes secondaires, cisaillent la roche perpendiculairement à leur direction de propagation et arrivent plus tard. Dans la roche, les ondes S se propagent généralement à environ 60 % de la vitesse des ondes P (USGS n.d.a).",
+          "Les ondes de surface arrivent après les deux types d’ondes de volume. Les ondes de Love déplacent le sol d’un côté à l’autre, et les ondes de Rayleigh le font rouler selon un mouvement elliptique. Les ondes de Rayleigh produisent la plupart des secousses ressenties à la surface du sol lors d’un séisme (USGS n.d.a).",
+          "La différence entre ondes P et ondes S détient la clé des profondeurs de la Terre. Un liquide n’oppose aucune résistance au cisaillement : les ondes S ne peuvent donc pas le traverser. Les ondes P peuvent traverser aussi bien les solides que les liquides, même si elles ralentissent et changent de direction lorsqu’elles pénètrent dans une couche liquide (USGS n.d.b)."
+        ]
+      },
+      {
+        "h": "La zone d’ombre et pourquoi les ondes S ne traversent pas le noyau externe",
+        "p": [
+          "Les stations sismiques situées de l’autre côté de la planète par rapport à un grand séisme enregistrent une lacune caractéristique. L’USGS décrit la zone d’ombre comme la région comprise entre 104 et 140 degrés de distance angulaire du séisme, qui ne reçoit aucune onde P directe (USGS n.d.b). Le noyau externe liquide en est la cause de deux façons : il arrête complètement les ondes S, et il réfracte les ondes P en les déviant de cette bande (USGS n.d.b). Les ondes S directes sont absentes à partir d’environ 104 degrés.",
+          "Richard Dixon Oldham a été le premier à identifier le noyau à partir d’enregistrements de séismes, en 1906 (Oldham 1906; Brush 1980). L’absence d’ondes S détectées à travers le noyau ne suffisait pas, à elle seule, à convaincre les sismologues que le noyau est fluide (Brush 1980). Harold Jeffreys a apporté un argument plus solide en 1926. À partir des marées terrestres et des observations sismiques, il a montré que le noyau a une rigidité bien plus faible que le manteau et pourrait être liquide (Jeffreys 1926; Brush 1980)."
+        ]
+      },
+      {
+        "h": "Mohorovičić, Gutenberg et Lehmann : la découverte du Moho et de la graine",
+        "p": [
+          "Le 8 octobre 1909, un séisme a frappé la vallée de la Kupa, au sud de Zagreb. Andrija Mohorovičić, sismologue à Zagreb, a rassemblé ses sismogrammes provenant de stations de toute l’Europe et a remarqué qu’au-delà d’une certaine distance, les ondes P arrivaient plus tôt que ne le permettrait une couche unique et homogène. Il a expliqué ces arrivées précoces par des ondes qui avaient plongé dans une couche plus profonde et plus rapide avant de remonter. À partir de ses données, il a estimé l’épaisseur de la couche supérieure à 54 kilomètres (Herak and Herak 2007). Il a publié son analyse en 1910 (Mohorovičić 1910). La limite entre la croûte et le manteau s’appelle aujourd’hui la discontinuité de Mohorovičić, ou Moho.",
+          "Beno Gutenberg a localisé la limite externe du noyau. Travaillant à Göttingen, il a utilisé la zone d’ombre dans les enregistrements de séismes lointains pour situer la limite noyau-manteau à une profondeur d’environ 2 900 kilomètres, résultat publié en 1914 (Gutenberg 1914; Brush 1980). Les modèles modernes la situent presque à la même profondeur (Dziewonski and Anderson 1981).",
+          "Inge Lehmann, sismologue danoise, a découvert la graine. En étudiant les enregistrements d’un grand séisme survenu en 1929 en Nouvelle-Zélande, elle a examiné de faibles ondes P arrivées à l’intérieur de la zone d’ombre, là où un noyau entièrement liquide n’aurait dû en laisser aucune. Dans un article de 1936 intitulé simplement P′, elle a proposé que ces ondes avaient été déviées par un noyau interne plus petit, situé à l’intérieur du noyau externe liquide (Lehmann 1936; Kölbl-Ebert 2001). La conclusion que ce noyau interne est solide est venue plus tard. En 1971, Adam Dziewonski et Freeman Gilbert ont montré, à partir des oscillations libres de la Terre, qu’aucun modèle doté d’une graine liquide ne pouvait rendre compte des données (Dziewonski and Gilbert 1971)."
+        ]
+      },
+      {
+        "h": "Comment les sismomètres localisent un séisme : épicentre, hypocentre et profondeur",
+        "p": [
+          "Un séisme commence à l’hypocentre, aussi appelé foyer, le point à l’intérieur de la Terre où la rupture s’amorce. L’épicentre est le point de la surface situé juste au-dessus, et la profondeur focale est la distance entre les deux (USGS n.d.c).",
+          "La localisation d’un séisme commence par les temps d’arrivée. Comme les ondes P devancent les ondes S, l’écart entre leurs arrivées augmente avec la distance, et les sismologues le convertissent en distance à l’aide de courbes standard de temps de parcours (IRIS n.d.). Une station donne un cercle d’épicentres possibles, deux stations donnent deux cercles qui se croisent en deux points, et trois stations réduisent la solution à un seul emplacement. Cette méthode est couramment appelée triangulation (IRIS n.d.).",
+          "Les réseaux modernes travaillent en trois dimensions et déterminent aussi l’heure d’origine. Dans la région de Yellowstone, par exemple, un ordinateur part d’une estimation initiale de l’hypocentre, utilise un modèle des vitesses des ondes sismiques dans la région pour calculer le temps d’arrivée attendu à chaque station, et ajuste l’emplacement et l’heure d’origine jusqu’à ce que les temps calculés correspondent aux temps mesurés. Plus les stations qui enregistrent un séisme sont nombreuses, plus la localisation est précise, et un séisme enregistré par une ou deux stations seulement ne peut pas être localisé (USGS n.d.d).",
+          "La profondeur est l’élément de la solution le plus difficile à déterminer. En règle générale, une profondeur fiable exige une station plus proche de l’épicentre que le séisme n’est profond (USGS n.d.e). Lorsque les données ne permettent pas de déterminer la profondeur, le catalogue la fixe à une valeur par défaut, aujourd’hui de 10 kilomètres pour les événements superficiels (USGS n.d.e). Pour les séismes les mieux localisés, au centre de réseaux denses, l’incertitude de localisation est d’environ 100 mètres à l’horizontale et 300 mètres à la verticale ; pour les événements localisés avec des données mondiales, elle atteint des dizaines de kilomètres (USGS n.d.f). L’USGS classe les séismes situés entre 0 et 70 kilomètres de profondeur comme superficiels, ceux entre 70 et 300 kilomètres comme intermédiaires, et ceux entre 300 et 700 kilomètres comme profonds (USGS n.d.c)."
+        ]
+      },
+      {
+        "h": "Les échelles de magnitude : de l’échelle de Richter à la magnitude de moment",
+        "p": [
+          "Charles Richter a publié la première échelle de magnitude instrumentale en 1935, pour les séismes du sud de la Californie (Richter 1935). Aujourd’hui notée ML, pour magnitude locale, elle repose sur l’amplitude maximale enregistrée par un sismographe à torsion de Wood-Anderson à une distance connue. Ces instruments ne sont plus guère utilisés : ML est donc calculée à partir d’instruments modernes, avec des ajustements. L’USGS indique que son domaine d’utilité va environ de la magnitude 2,0 à 6,5, pour des stations situées jusqu’à environ 600 kilomètres (USGS n.d.g).",
+          "L’échelle a ensuite été étendue en magnitude des ondes de volume (mb) et magnitude des ondes de surface (Ms), afin d’exploiter les stations sismographiques du monde entier. Chacune est valable pour une gamme de fréquences et un type de signal sismique particuliers (USGS n.d.h). Toutes ces échelles ont un point faible commun : pour les très grands séismes, l’amplitude des ondes mesurées cesse de croître au même rythme que la taille de la rupture. Kanamori (1977) a montré que cette saturation conduit à des estimations inexactes de l’énergie libérée lors des plus grands événements.",
+          "La solution a été de mesurer la taille physique de la rupture. Le moment sismique est le produit de la rigidité de la roche, de la surface de faille qui a glissé et de la distance moyenne du glissement (USGS n.d.i). Thomas Hanks et Hiroo Kanamori ont défini l’échelle de magnitude de moment, Mw, à partir du moment sismique en 1979 (Hanks and Kanamori 1979), en s’appuyant sur les travaux de Kanamori de 1977, qui avaient montré que l’échelle ne sature pas et attribué au séisme du Chili de 1960 une magnitude de 9,5 (Kanamori 1977). Comme la magnitude augmente des deux tiers du logarithme du moment, chaque unité entière de l’échelle correspond à un moment sismique environ 32 fois plus grand.",
+          "Pour les très grands séismes, la magnitude de moment donne l’estimation de taille la plus fiable (USGS n.d.h). L’USGS calcule une magnitude de moment en phase W, Mww, pour tous les séismes de magnitude 5,0 et plus dans le monde, et la considère comme la valeur de référence lorsqu’elle est disponible (USGS n.d.g). Des procédures différentes donnent souvent des magnitudes légèrement différentes pour un même séisme, ce qui explique que les premiers rapports puissent changer à mesure que de nouvelles données arrivent (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Magnitude et intensité : l’échelle de Mercalli modifiée",
+        "p": [
+          "La magnitude décrit la taille d’un séisme à sa source. L’intensité décrit la force des secousses en un lieu donné. Un séisme a une seule magnitude, mais de nombreuses intensités, une pour chaque lieu où ses secousses sont évaluées (USGS n.d.j).",
+          "Aux États-Unis, l’intensité est attribuée selon l’échelle d’intensité de Mercalli modifiée, mise au point par Harry Wood et Frank Neumann en 1931 (Wood and Neumann 1931). Ses degrés s’écrivent en chiffres romains et vont de secousses imperceptibles à une destruction catastrophique (USGS n.d.k). L’échelle classe des effets observés plutôt qu’elle n’enregistre une mesure instrumentale (USGS n.d.k).",
+          "Les témoignages du public alimentent désormais directement les cartes d’intensité. Le programme « Did You Feel It? » de l’USGS recueille les récits de personnes ayant ressenti un séisme et les convertit en valeurs d’intensité communautaires. Là où l’on dispose à la fois d’instruments et de témoignages, ces valeurs servent à étalonner les équations qui convertissent le mouvement du sol mesuré en intensité sur ShakeMap (USGS n.d.l)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quelles sont les couches de la Terre ?",
+        "a": "La Terre comporte une croûte rocheuse, un manteau qui s’étend jusqu’à environ 2 900 kilomètres de profondeur, un noyau externe liquide et une graine solide. Dans le modèle de référence standard, la graine a un rayon d’environ 1 220 kilomètres. Toutes ces limites ont été découvertes en étudiant la façon dont les ondes sismiques traversent la planète."
+      },
+      {
+        "q": "Pourquoi les ondes S ne traversent-elles pas le noyau externe ?",
+        "a": "Les ondes S déplacent la roche en la cisaillant, et un liquide n’oppose aucune résistance au cisaillement. Le noyau externe est liquide : les ondes S s’arrêtent donc à la limite noyau-manteau. Il n’y a ainsi aucune onde S directe aux stations situées à plus d’environ 104 degrés d’un séisme."
+      },
+      {
+        "q": "Qu’est-ce que la zone d’ombre sismique ?",
+        "a": "La zone d’ombre des ondes P est la bande comprise entre environ 104 et 140 degrés d’un séisme, qui ne reçoit aucune onde P directe. Le noyau externe liquide dévie les ondes P de cette bande et bloque complètement les ondes S. De faibles ondes P détectées à l’intérieur de cette zone ont conduit Inge Lehmann à proposer l’existence de la graine en 1936."
+      },
+      {
+        "q": "Quelle est la différence entre l’épicentre et l’hypocentre ?",
+        "a": "L’hypocentre est le point à l’intérieur de la Terre où la rupture commence. L’épicentre est le point de la surface situé juste au-dessus. La distance entre les deux est la profondeur focale."
+      },
+      {
+        "q": "L’échelle de Richter est-elle encore utilisée ?",
+        "a": "La magnitude locale de Richter, ML, est encore calculée pour les séismes faibles et modérés à l’aide d’instruments modernes. Pour les grands séismes, elle sature, comme les autres échelles fondées sur l’amplitude : les sismologues indiquent donc la magnitude de moment, qui repose sur la surface et le glissement de la faille."
+      },
+      {
+        "q": "Quelle est la différence entre magnitude et intensité ?",
+        "a": "La magnitude mesure la taille d’un séisme à sa source, et chaque séisme n’en a qu’une. L’intensité mesure la force avec laquelle le sol a tremblé en un lieu donné : un même séisme a donc de nombreuses intensités. Aux États-Unis, l’intensité est donnée sur l’échelle de Mercalli modifiée, en chiffres romains."
+      }
+    ]
+  },
+  "aftershocks-and-hazards": {
+    "title": "Répliques, liquéfaction et autres aléas sismiques expliqués",
+    "dek": "Un grand séisme est le début d’une séquence, et non un événement isolé. Voici comment se comportent les répliques, et pourquoi les dégâts d’un séisme dépendent autant du sol que de sa magnitude.",
+    "sections": [
+      {
+        "h": "Ce que sont les répliques et comment la loi d’Omori les décrit",
+        "p": [
+          "Les séismes se regroupent dans le temps et dans l’espace. Au sein d’un groupe, les sismologues appellent le plus fort événement le choc principal, les séismes qui le précèdent les séismes précurseurs, et ceux qui le suivent les répliques (Jones and Reasenberg 1996). En règle générale, un séisme est considéré comme une réplique s’il se situe à une ou deux longueurs de rupture de faille du choc principal. Cette distance varie fortement : la rupture mesurait environ 15 kilomètres de long lors du séisme de Northridge de 1994, et 430 kilomètres lors du séisme de San Francisco de 1906 (Jones and Reasenberg 1996).",
+          "Le sismologue japonais Fusakichi Omori a publié en 1894 la première description quantitative de la décroissance des répliques, à partir des répliques du séisme de Nōbi de 1891, dans le centre du Japon. Sa formule énonce que le taux de répliques diminue à peu près proportionnellement à l’inverse du temps écoulé depuis le choc principal. Tokuji Utsu y a ensuite ajouté un exposant, p, qui permet à la décroissance d’être un peu plus rapide ou plus lente, et une synthèse publiée un siècle après l’article d’Omori a conclu que la formule modifiée décrit généralement de façon appropriée l’évolution de l’activité des répliques dans le temps (Utsu et al. 1995).",
+          "Concrètement, le deuxième jour après un choc principal apporte environ deux fois moins de répliques que le premier, et le dixième jour environ dix fois moins (Jones and Reasenberg 1996). Les répliques de toutes tailles diminuent au même rythme : une séquence n’épuise donc pas d’abord ses événements les plus forts (Jones and Reasenberg 1996). Des sismologues du sud de la Californie ont noté que les répliques du séisme de Landers de 1992 devenaient moins fréquentes avec le temps plutôt que plus faibles, et que des événements de magnitude 5 pouvaient encore survenir tard dans la séquence, simplement plus espacés (SCEDC 1999)."
+        ]
+      },
+      {
+        "h": "Quelle peut être la force d’une réplique ? La loi de Båth",
+        "p": [
+          "Les chocs principaux plus forts tendent à produire des répliques plus fortes (Jones and Reasenberg 1996). Le sismologue suédois Markus Båth a chiffré cette relation. La loi de Båth veut que la plus forte réplique soit, en moyenne, inférieure d’environ 1,2 unité de magnitude au choc principal, quelle que soit la magnitude de celui-ci (Båth 1965; Helmstetter and Sornette 2003). Selon cette règle, un choc principal de magnitude 7,0 serait généralement suivi d’une plus forte réplique de magnitude proche de 5,8.",
+          "Cette valeur est une moyenne sur de nombreuses séquences, et chaque séquence peut s’en écarter dans un sens ou dans l’autre. Helmstetter and Sornette (2003) ont montré que la loi peut être retrouvée à partir de deux autres propriétés statistiques des séismes : la distribution des magnitudes décrite ci-dessous et la façon dont les répliques déclenchent à leur tour d’autres répliques. Ils ont soutenu que son origine tient en partie à la façon dont chocs principaux et répliques sont définis, plutôt qu’à un mécanisme physique distinct."
+        ]
+      },
+      {
+        "h": "La loi de Gutenberg-Richter et ce que signifie la valeur b",
+        "p": [
+          "Les petits séismes sont bien plus nombreux que les grands, et ce rapport est régulier. Beno Gutenberg et Charles Richter ont décrit cette relation dans une étude de 1944 sur les séismes de Californie (Gutenberg and Richter 1944). On l’écrit généralement log N = a − bM, où N est le nombre de séismes de magnitude M ou plus, a reflète le niveau global d’activité, et b détermine la vitesse à laquelle ce nombre diminue quand la magnitude augmente.",
+          "La valeur b est proche de 1 dans la plupart des catalogues mondiaux, un résultat si bien établi qu’une synthèse de 1993 avait pour sous-titre « much ado about 1.0 » (Frohlich and Davis 1993). Avec b égal à 1, chaque unité de magnitude supplémentaire divise par dix le nombre de séismes. Une région qui enregistre 100 séismes de magnitude 5 ou plus sur une période donnée en enregistrerait en moyenne environ 10 de magnitude 6 ou plus, et environ un de magnitude 7 ou plus.",
+          "Cette valeur n’est pas fixe. Les catalogues mondiaux donnent des valeurs b allant d’environ 0,72 à 1,34, et une partie de cette dispersion reflète des erreurs de détection, de localisation et de magnitude plutôt que des différences réelles (Frohlich and Davis 1993). Une partie de la variation est bien réelle. Schorlemmer et al. (2005) ont constaté que b est le plus faible pour les chevauchements et le plus élevé pour les failles normales, et ont interprété cette différence comme le signe que les chevauchements fonctionnent sous une contrainte plus forte. En Californie, b diminue à mesure que les séismes sont plus profonds (Mori and Abercrombie 1997). Une valeur b plus faible signifie que les grands séismes représentent une part plus importante du total, ce qui explique l’importance de ce paramètre dans les estimations de l’aléa."
+        ]
+      },
+      {
+        "h": "Combien de temps durent les répliques ?",
+        "p": [
+          "Un séisme est considéré comme une réplique tant que le taux de séismes dans la zone reste supérieur à celui d’avant le choc principal. Le temps nécessaire dépend de la taille du choc principal et de l’activité de la région auparavant, car les répliques se distinguent plus longtemps sur un fond calme (Jones and Reasenberg 1996). Huit ans et demi après le séisme de Landers de 1992, les répliques étaient devenues rares et espacées, mais survenaient encore nettement au-dessus du taux de fond (SCEDC 2001).",
+          "Toda and Stein (2018) ont constaté que la durée d’une séquence dépend moins de la taille du choc principal que de la vitesse de glissement de la faille. En étudiant le séisme de Tōhoku-Oki de 2011 et huit autres grands chocs principaux au Japon, ils ont observé des séquences d’environ un mois sur les failles au glissement le plus rapide, et ont estimé que les séquences sur les failles les plus lentes se prolongeraient pendant plus de 2 000 ans. Dans les régions à déformation lente, loin des limites de plaques, des séquences de répliques de longue durée peuvent donc être confondues avec une activité de fond ordinaire, ce qui peut gonfler les estimations de l’aléa futur (Toda and Stein 2018)."
+        ]
+      },
+      {
+        "h": "Ce qui rend les secousses destructrices : distance, profondeur, sol et durée",
+        "p": [
+          "La magnitude mesure la taille de la source du séisme, et non les secousses en un lieu donné. L’Institut d’études géologiques des États-Unis (USGS) cite le type de séisme, sa profondeur, la distance à la rupture de faille et la nature du sol, des sols meubles au socle rocheux, parmi les facteurs qui déterminent ce que ressentent les gens, aux côtés du mode de construction des bâtiments (USGS n.d.a). Les secousses sont généralement les plus fortes près de la faille qui rompt et s’atténuent avec la distance. Un séisme profond place cette distance entre la source et tout ce qui se trouve en surface au-dessus.",
+          "Les conditions locales du sol peuvent l’emporter sur la distance. Des recherches du Southern California Earthquake Center (SCEC) et de l’USGS ont montré que, lors d’un même séisme, les secousses en un site peuvent facilement être dix fois plus fortes que sur un site voisin situé à la même distance de la faille. Les facteurs locaux les plus importants étaient la mollesse de la roche ou du sol près de la surface et l’épaisseur des sédiments au-dessus du socle rocheux dur (SCEC n.d.; Field et al. 2000).",
+          "Mexico en 1985 en est l’exemple de référence. Le séisme de magnitude 8,0 du 19 septembre 1985 a frappé au large de la côte pacifique du Michoacán, à environ 350 à 400 kilomètres de la capitale (Furumura and Kennett 1998). Les accélérations maximales du sol dans la région épicentrale étaient faibles, et pourtant les dégâts à Mexico ont été graves (Anderson et al. 1986). Le centre de la ville repose sur une argile molle et gorgée d’eau, déposée dans un ancien lac. Par rapport à un site de la zone des collines de la ville, les sites de l’ancien fond lacustre ont amplifié le mouvement du sol d’un facteur 8 à 56 à leurs périodes propres (Singh et al. 1988). La durée a accentué l’effet : les fortes secousses dans la zone de l’ancien lac ont duré plus de trois minutes (Furumura and Kennett 1998). Les estimations du nombre de morts varient fortement ; le chiffre attribué à l’USGS est d’au moins 9 500, et d’autres estimations sont nettement plus élevées (Live Science n.d.)."
+        ]
+      },
+      {
+        "h": "La liquéfaction et les glissements de terrain déclenchés par les séismes",
+        "p": [
+          "La liquéfaction se produit lorsque de fortes secousses frappent du sable et du limon meubles gorgés d’eau, et que le sol solide se met à se comporter comme un liquide (USGS n.d.b). Les secousses font monter la pression de l’eau entre les grains jusqu’à ce qu’ils perdent le contact les uns avec les autres. Le sol peut alors perdre sa capacité à porter les bâtiments, s’écouler même sur des pentes douces et jaillir en surface sous forme de volcans de sable (USGS n.d.c).",
+          "Le séisme de Niigata, de magnitude 7,5, le 16 juin 1964, a causé d’importants dégâts aux ouvrages par liquéfaction du sol sableux (Seed and Idriss 1967). À Kawagishi-cho, près du fleuve Shinano, des immeubles d’habitation ont subi des ruptures de portance et se sont fortement inclinés tout en restant presque intacts sur le plan structurel (University of Washington n.d.). L’analyse publiée par Seed and Idriss (1967) après le séisme est devenue l’un des fondements de l’évaluation moderne de la liquéfaction.",
+          "La séquence sismique de Canterbury de 2010-2011, en Nouvelle-Zélande, a répété la leçon dans une ville moderne. Le séisme de magnitude 6,2 du 22 février 2011 a tué 185 personnes (Canterbury Earthquakes Royal Commission n.d.). La liquéfaction des sols naturels a été plus étendue et plus grave que lors du séisme de Darfield, de magnitude 7,1, en septembre 2010. Elle a été la plus grave dans les quartiers résidentiels à l’est du quartier central des affaires, où se combinaient de fortes secousses près de la faille, une nappe phréatique à environ un mètre sous la surface et des sols très sensibles. Dans le centre-ville, la liquéfaction a fait s’enfoncer et s’incliner des bâtiments (Cubrinovski et al. 2011).",
+          "Les glissements de terrain sont un autre aléa secondaire fréquent. Une étude de 40 séismes historiques a montré que les chutes de pierres, les glissements de sol désagrégé et les glissements rocheux étaient les types les plus nombreux et étaient déclenchés par les secousses les plus faibles. La surface maximale susceptible d’être touchée passe de pratiquement zéro vers la magnitude 4,0 à quelque 500 000 kilomètres carrés à la magnitude 9,2 (Keefer 1984). Le séisme du Wenchuan, de magnitude 7,9, en Chine, le 12 mai 2008, a déclenché plus de 60 000 glissements de terrain (Zhang et al. 2016). Les estimations des morts qu’ils ont causées vont d’environ 20 000 (Yin et al. 2009) à 25 000-30 000 (Zhang et al. 2016).",
+          "Les tsunamis se forment lorsque des failles peu profondes glissent lors de grands séismes et déplacent rapidement et verticalement le fond marin, le plus souvent dans les zones de subduction (USGS n.d.d). Leur propagation et la conduite à tenir sont expliquées dans le guide Tsunamis de la rubrique Science."
+        ]
+      },
+      {
+        "h": "Les séismes induits : l’injection d’eaux usées en Oklahoma",
+        "p": [
+          "L’activité humaine peut aussi déclencher des séismes. Injecter des fluides en profondeur augmente la pression des fluides dans les failles, ce qui peut permettre à une faille sous contrainte de glisser (Ellsworth 2013). La fracturation hydraulique ne cause directement qu’un faible pourcentage des séismes induits ressentis. L’évacuation des eaux usées dans des puits profonds présente un risque plus élevé, car elle injecte de plus grands volumes sur de plus longues périodes (Ellsworth 2013; Rubinstein and Mahani 2015). La plupart des puits ne causent aucun séisme ressenti : sur environ 35 000 puits d’évacuation d’eaux usées en activité et des dizaines de milliers d’autres puits d’injection et de fracturation aux États-Unis, seules quelques dizaines étaient connues pour avoir induit des séismes ressentis, et la sismicité induite peut se produire à 10 kilomètres ou plus du point d’injection (Rubinstein and Mahani 2015).",
+          "L’Oklahoma est devenu le cas le plus net. Selon l’USGS, la plupart des séismes de l’État sont causés par l’évacuation des eaux usées, et plus de 90 % des eaux usées injectées sont un sous-produit de l’extraction pétrolière plutôt que du fluide de fracturation usagé. De 2014 à 2017, le taux de séismes de magnitude 3 et plus dans l’État a dépassé celui de la Californie (USGS n.d.e). L’Oklahoma Geological Survey a compté environ un tel séisme par an de 1976 à 2007, et un record de 903 en 2015. Après que les autorités de régulation de l’État ont ordonné, à partir de la mi-2015, la fermeture de certains puits et la réduction des volumes injectés dans d’autres, ce nombre est tombé à 623 en 2016, 302 en 2017 et 196 en 2018 (Associated Press 2019).",
+          "Le plus fort séisme enregistré en Oklahoma a frappé près de Pawnee le 3 septembre 2016. Cet événement de magnitude 5,8 a rompu une faille jusque-là non cartographiée dans le socle cristallin. Yeck et al. (2017) ont noté que, s’il était induit, il serait le plus fort séisme connu à avoir été induit par injection de fluides, et qu’il s’est produit après le début des réductions de volumes. Ils ont conclu que les effets durables du fluide injecté qui se diffuse dans la roche rendent l’aléa induit difficile à réduire rapidement (Yeck et al. 2017)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Combien de temps durent les répliques après un grand séisme ?",
+        "a": "Les répliques se poursuivent tant que le taux de séismes dans la zone reste supérieur à son niveau d’avant le choc principal. Sur les failles au glissement rapide, une séquence peut s’éteindre en un mois environ, tandis que sur les failles au glissement lent, loin des limites de plaques, elle peut durer des siècles, voire davantage. Le taux diminue d’abord rapidement : le dixième jour apporte généralement environ dix fois moins de répliques que le premier."
+      },
+      {
+        "q": "Une réplique peut-elle être plus forte que le séisme principal ?",
+        "a": "Par définition, non. Le choc principal est le plus fort séisme d’un groupe : si un séisme ultérieur est plus fort, le premier est reclassé comme séisme précurseur. En moyenne, la plus forte réplique est inférieure d’environ 1,2 unité de magnitude au choc principal, une règle connue sous le nom de loi de Båth."
+      },
+      {
+        "q": "Qu’est-ce que la loi de Gutenberg-Richter ?",
+        "a": "Elle décrit la façon dont le nombre de séismes diminue quand la magnitude augmente. La pente, appelée valeur b, est proche de 1 dans la plupart des catalogues mondiaux, ce qui signifie environ dix fois plus de séismes de magnitude 5 que de magnitude 6. La valeur b varie selon le type de faille et la profondeur."
+      },
+      {
+        "q": "Pourquoi Mexico a-t-elle été si durement touchée en 1985 alors que l’épicentre était loin ?",
+        "a": "Le centre de Mexico est construit sur une argile molle et gorgée d’eau provenant d’un ancien lac. Ces sédiments ont amplifié les secousses d’un facteur 8 à 56 par rapport au sol plus ferme des collines de la ville, et les fortes secousses ont duré plus de trois minutes, alors même que l’épicentre se trouvait à environ 350 à 400 kilomètres."
+      },
+      {
+        "q": "Qu’est-ce que la liquéfaction lors d’un séisme ?",
+        "a": "La liquéfaction se produit lorsque les secousses font monter la pression de l’eau dans du sable ou du limon meubles gorgés d’eau, jusqu’à ce que les grains perdent le contact et que le sol se comporte comme un liquide. Les bâtiments peuvent s’enfoncer ou s’incliner, comme à Niigata en 1964 et à Christchurch en 2011."
+      },
+      {
+        "q": "La fracturation hydraulique provoque-t-elle des séismes en Oklahoma ?",
+        "a": "Pour l’essentiel, non. L’USGS attribue la plupart des séismes de l’Oklahoma à l’évacuation des eaux usées en profondeur, dont la majeure partie est un sous-produit de l’extraction pétrolière plutôt que du fluide de fracturation. La fracturation hydraulique ne cause directement qu’un faible pourcentage des séismes induits ressentis."
+      }
+    ]
+  }
+}
