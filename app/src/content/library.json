@@ -169,5 +169,815 @@
         "url": "https://theworld.org/stories/2014/11/12/italian-court-overturns-convictions-6-earthquake-scientists"
       }
     ]
+  },
+  {
+    "id": "plate-tectonics-subduction",
+    "icon": "landscape",
+    "tone": "warm",
+    "title": "Plate Tectonics, Subduction Zones and Megathrust Earthquakes",
+    "description": "How plates move, why subduction zones host the largest earthquakes, and what Chile 1960, Sumatra 2004, Tōhoku 2011 and Cascadia 1700 reveal.",
+    "dek": "Where one plate sinks beneath another, the boundary can lock for centuries and then fail in a magnitude 9 earthquake. Here is how subduction works, what the great megathrust earthquakes showed, and how scientists dated Cascadia’s last rupture to a winter night in 1700.",
+    "published": "2026-11-16",
+    "updated": "2026-11-16",
+    "mins": 7,
+    "sections": [
+      {
+        "h": "How and Why Tectonic Plates Move",
+        "p": [
+          "Earth’s outer shell is broken into rigid plates that move relative to one another. The U.S. Geological Survey (USGS) describes their speed as roughly the rate at which fingernails grow. Each plate moves at its own speed and in its own direction, and GPS now measures crustal motion to within a fraction of a millimeter per year (USGS n.d.a).",
+          "The forces behind that motion were weighed in a classic study by Forsyth and Uyeda (1975). They balanced the torques acting on individual plates to compare the forces that drive them with the forces that resist them. Their analysis pointed to the sinking of dense oceanic slabs at deep-sea trenches as the main driving force, an effect now usually called slab pull, balanced mostly by viscous resistance in the mantle (Forsyth and Uyeda 1975). A second, smaller force, ridge push, acts where new seafloor forms at mid-ocean ridges.",
+          "Slab pull places subduction zones at the center of plate tectonics. The places where old oceanic plates sink back into the mantle are also the places that store and release the greatest amounts of strain, which is why they host the largest earthquakes on record."
+        ]
+      },
+      {
+        "h": "The Three Types of Plate Boundaries",
+        "p": [
+          "Plates interact at three main kinds of boundary (Kious and Tilling 1996). At divergent boundaries, plates move apart and new crust forms from magma rising out of the mantle. The mid-ocean ridges are the main example.",
+          "At transform boundaries, plates slide horizontally past one another and crust is neither created nor destroyed (Kious and Tilling 1996). The San Andreas Fault in California is the best known example.",
+          "At convergent boundaries, plates move toward each other and crust is destroyed as one plate descends beneath another (Kious and Tilling 1996). Where oceanic lithosphere meets another plate, the denser oceanic plate sinks, and the boundary becomes a subduction zone. Kious and Tilling (1996) also note that some plate boundaries are broad zones of deformation rather than sharp lines, a reminder that the three types are an idealization of a more complicated surface."
+        ]
+      },
+      {
+        "h": "What Is a Subduction Zone?",
+        "p": [
+          "A subduction zone is a convergent boundary where one plate dives beneath another into the mantle. At the surface it is marked by a deep ocean trench, and where an oceanic plate descends beneath a continent, chains of volcanoes such as the Andes and the Cascades rise inland (Kious and Tilling 1996).",
+          "The contact between the two plates is a vast, gently dipping fault called a megathrust. At shallow depths, less than about 25 kilometers, the interface can become stuck, or locked, and stress builds along it (USGS n.d.b). In the hundreds of years between great earthquakes, the continued squeezing causes the upper plate to bulge and rise just above and inboard of the locked region, over thousands of square kilometers (USGS n.d.b).",
+          "When the accumulated stress exceeds the strength of the fault, the locked section breaks free and releases its stored energy as seismic waves (USGS n.d.b). The upper plate springs back. Areas that had been bulging upward can drop suddenly, while the seafloor above the rupture is thrust upward and displaces the overlying ocean. That sudden vertical motion of the seafloor is what generates the great subduction zone tsunamis."
+        ]
+      },
+      {
+        "h": "Why Megathrust Earthquakes Are the Largest",
+        "p": [
+          "USGS describes the shallow megathrust interface of subduction zones as host to the largest earthquakes and as the only type of fault capable of magnitude 9 or larger ruptures (USGS n.d.c). The reason lies in how magnitude is measured. Moment magnitude is derived from the seismic moment, which is the product of the rigidity of the rock, the area of the fault that slipped and the average amount of slip.",
+          "A megathrust offers an enormous fault area. Because the interface dips at a shallow angle, a rupture can extend a long way down the dip of the fault as well as for many hundreds of kilometers along the trench. In a study of subduction interface earthquakes of magnitude 7.1 to 9.5, Allen and Hayes (2017) found that rupture width levels off at about 200 kilometers for the largest events. Beyond that point, earthquakes grow mainly by lengthening along the trench and by larger slip, and the authors concluded that the size of great earthquakes appears to be controlled more strongly by average slip across the strongest patches of the fault (Allen and Hayes 2017).",
+          "No other fault type combines such length, width and slip. The two largest earthquakes recorded with modern instruments both struck subduction zones: the magnitude 9.5 Chile earthquake of 1960 and the magnitude 9.2 Alaska earthquake of 1964 (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Chile 1960, Sumatra 2004 and Tōhoku 2011",
+        "p": [
+          "The Chile earthquake of 22 May 1960 is the largest ever recorded, with a moment magnitude of 9.5 (USGS n.d.d). Early reports gave a surface-wave magnitude of 8.6. The moment magnitude, a better measure of the energy released, was later estimated at 9.5 (USGS n.d.d). It ruptured the boundary where the Nazca Plate descends beneath South America. Cifuentes (1989) estimated the rupture length from aftershocks and crustal deformation at 920 ± 100 kilometers, ending near the point where the Chile Ridge meets the Peru–Chile Trench. USGS records about 1,655 deaths in southern Chile and some 2 million people left homeless. The tsunami crossed the Pacific, killing 61 people in Hawaii, mostly in Hilo, and 138 in Japan (USGS n.d.d).",
+          "The Sumatra–Andaman earthquake of 26 December 2004 had a magnitude of 9.1 (USGS n.d.f). Its aftershocks outlined a rupture about 1,300 kilometers long, from northwestern Sumatra to the Andaman Islands (Lay et al. 2005). The Indian Ocean tsunami that followed left 227,898 people dead or missing and presumed dead, and about 1.7 million displaced (USGS n.d.g).",
+          "The Tōhoku-Oki earthquake of 11 March 2011 struck the Japan Trench, where the Pacific Plate descends beneath northern Japan. USGS rates it at magnitude 9.1 and reports that the fault moved as much as 50 to 60 meters over an area about 400 kilometers long and 150 kilometers wide (USGS n.d.e). Seafloor surveys made less than two weeks after the earthquake indicated that the seafloor near the trench had moved about 50 meters east-southeast and 7 to 10 meters upward, evidence that the rupture reached the trench axis (Fujiwara et al. 2011). Japan’s National Police Agency had confirmed at least 15,782 deaths six months after the disaster (Nippon.com n.d.)."
+        ]
+      },
+      {
+        "h": "The Cascadia Subduction Zone and the 1700 Earthquake",
+        "p": [
+          "The Cascadia Subduction Zone runs offshore from northern Vancouver Island to Cape Mendocino in northern California, where the Juan de Fuca Plate and its neighbors descend beneath North America (PNSN n.d.). The Juan de Fuca Plate moves toward North America at about 4 centimeters per year (PNSN n.d.).",
+          "The last great Cascadia earthquake occurred on 26 January 1700, with an estimated magnitude between 8.7 and 9.2 (Wirth et al. 2025). Its date and size were reconstructed from a tsunami recorded in Japan. Samurai, merchants and villagers wrote of waves in January 1700 that arrived without any local earthquake, which later researchers called an orphan tsunami (Atwater et al. 2005). Satake et al. (1996) ruled out South America, Alaska and Kamchatka as sources, because historical and geological records showed no large earthquake there in 1700, and placed the earthquake in Cascadia at about 21:00 local time on 26 January 1700. From the tsunami heights they estimated a magnitude of about 9, which would mean a rupture of the entire subduction zone (Satake et al. 1996).",
+          "A later analysis compared flooding reported at seven sites in Japan, with heights of roughly 1 to 5 meters, against tsunamis modeled from six possible Cascadia sources. The most likely earthquake had a moment magnitude of 9.0, with 19 meters of slip on an offshore zone about 1,100 kilometers long (Satake et al. 2003). The range of plausible sources corresponds to magnitudes 8.7 to 9.2. Shorter ruptures could match the Japanese tsunami only with up to 40 meters of offshore slip, and the changes in land level they would cause conflict with the geological evidence along the Cascadia coast (Satake et al. 2003)."
+        ]
+      },
+      {
+        "h": "Evidence for Cascadia Earthquakes: Ghost Forests and Buried Marshes",
+        "p": [
+          "The geological evidence came first from the coast. Atwater (1987) found that tidal mud had buried coastal lowlands in westernmost Washington six times in about 7,000 years, each burial probably caused by sudden subsidence of roughly 0.5 to 2 meters. Sand sheets on at least three of the buried surfaces pointed to tsunamis arriving with the same events (Atwater 1987). This is the pattern expected when the upper plate drops at the moment a megathrust fails.",
+          "The same subsidence created ghost forests. Along the Copalis River in Washington, a stand of dead western red cedars rises from a brackish tidal marsh. The trees were killed when the land dropped during the most recent Cascadia earthquake and salt water flooded their roots (USGS n.d.i). Yamaguchi et al. (1997) used tree rings to date the deaths. Trees killed by the earthquake had completed growth in 1699 but did not begin growth in 1700, which placed the subsidence between the 1699 and 1700 growing seasons and matched the date from the Japanese records (Yamaguchi et al. 1997).",
+          "Offshore sediments extend the record further back. Turbidites, deposits left by underwater landslides, accumulate in submarine channels along the margin. Goldfinger et al. (2012) traced them across about 500 kilometers of northern Cascadia and concluded that their synchronous timing over 10,000 years is best explained by triggering in great earthquakes. The record suggests clusters of two to five earthquakes separated by unusually long intervals, rather than a regular cycle, and the offshore record correlates well with the shorter record preserved on land (Goldfinger et al. 2012).",
+          "USGS now estimates a 10 to 15 percent chance of an approximately magnitude 9 Cascadia earthquake in the next 50 years (Wirth et al. 2025). The estimate rests on the same evidence: written records from Japan, dead trees and buried soils on the Pacific coast, and layered sediment on the seafloor."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is a subduction zone?",
+        "a": "A subduction zone is a convergent plate boundary where one plate, usually oceanic, descends beneath another into the mantle. It is marked by a deep ocean trench, and the contact between the plates is a large, gently dipping fault called a megathrust."
+      },
+      {
+        "q": "What is a megathrust earthquake?",
+        "a": "A megathrust earthquake is a rupture of the locked interface between two plates at a subduction zone. Stress builds for centuries while the shallow part of the interface is stuck, then releases when the fault breaks free. USGS describes these faults as the only ones capable of magnitude 9 or larger earthquakes."
+      },
+      {
+        "q": "Why do subduction zones produce the largest earthquakes?",
+        "a": "Earthquake magnitude depends on the area of fault that slips and the amount of slip. A megathrust dips at a shallow angle and can extend for many hundreds of kilometers along a trench, giving it a far larger fault area than other fault types. The largest events also involve tens of meters of slip."
+      },
+      {
+        "q": "What was the largest earthquake ever recorded?",
+        "a": "The largest earthquake recorded with instruments struck southern Chile on 22 May 1960, with a magnitude of 9.5. Its tsunami killed 61 people in Hawaii and 138 in Japan, in addition to about 1,655 deaths in Chile."
+      },
+      {
+        "q": "How do we know the Cascadia earthquake happened in 1700?",
+        "a": "Japanese records describe a tsunami in January 1700 that arrived with no local earthquake. Tree rings from cedars killed when the Pacific Northwest coast subsided show the trees died between the 1699 and 1700 growing seasons. Together these place the earthquake on 26 January 1700."
+      },
+      {
+        "q": "How likely is a magnitude 9 Cascadia earthquake?",
+        "a": "USGS estimates a 10 to 15 percent chance of an approximately magnitude 9 earthquake on the Cascadia Subduction Zone in the next 50 years. Offshore sediment records suggest such earthquakes come in clusters separated by long intervals rather than on a regular schedule."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Allen, Trevor I., and Gavin P. Hayes. 2017. “Alternative Rupture-Scaling Relationships for Subduction Interface and Other Offshore Environments.” Bulletin of the Seismological Society of America 107 (3): 1240–53. https://doi.org/10.1785/0120160255.",
+        "url": "https://doi.org/10.1785/0120160255"
+      },
+      {
+        "text": "Atwater, Brian F. 1987. “Evidence for Great Holocene Earthquakes along the Outer Coast of Washington State.” Science 236 (4804): 942–44. https://doi.org/10.1126/science.236.4804.942.",
+        "url": "https://doi.org/10.1126/science.236.4804.942"
+      },
+      {
+        "text": "Atwater, Brian F., Satoko Musumi-Rokkaku, Kenji Satake, Yoshinobu Tsuji, Kazue Ueda, and David K. Yamaguchi. 2005. The Orphan Tsunami of 1700: Japanese Clues to a Parent Earthquake in North America. U.S. Geological Survey Professional Paper 1707. https://doi.org/10.3133/pp1707.",
+        "url": "https://doi.org/10.3133/pp1707"
+      },
+      {
+        "text": "Cifuentes, I. L. 1989. “The 1960 Chilean Earthquakes.” Journal of Geophysical Research: Solid Earth 94 (B1).",
+        "url": null
+      },
+      {
+        "text": "Forsyth, D. W., and S. Uyeda. 1975. “On the Relative Importance of the Driving Forces of Plate Motion.” Geophysical Journal of the Royal Astronomical Society 43 (1): 163–200.",
+        "url": null
+      },
+      {
+        "text": "Fujiwara, Toshiya, Shuichi Kodaira, Tetsuo No, Yuka Kaiho, Narumi Takahashi, and Yoshiyuki Kaneda. 2011. “The 2011 Tohoku-Oki Earthquake: Displacement Reaching the Trench Axis.” Science 334 (6060): 1240. https://doi.org/10.1126/science.1211554.",
+        "url": "https://doi.org/10.1126/science.1211554"
+      },
+      {
+        "text": "Goldfinger, Chris, et al. 2012. Turbidite Event History—Methods and Implications for Holocene Paleoseismicity of the Cascadia Subduction Zone. U.S. Geological Survey Professional Paper 1661-F. https://pubs.usgs.gov/publication/pp1661F.",
+        "url": "https://pubs.usgs.gov/publication/pp1661F"
+      },
+      {
+        "text": "Kious, W. Jacquelyne, and Robert I. Tilling. 1996. This Dynamic Earth: The Story of Plate Tectonics. U.S. Geological Survey general interest publication. https://pubs.usgs.gov/gip/dynamic/dynamic.html.",
+        "url": "https://pubs.usgs.gov/gip/dynamic/dynamic.html"
+      },
+      {
+        "text": "Lay, Thorne, Hiroo Kanamori, Charles J. Ammon, Meredith Nettles, Steven N. Ward, Richard C. Aster, Susan L. Beck, et al. 2005. “The Great Sumatra-Andaman Earthquake of 26 December 2004.” Science 308 (5725): 1127–33. https://doi.org/10.1126/science.1112250.",
+        "url": "https://doi.org/10.1126/science.1112250"
+      },
+      {
+        "text": "Nippon.com. n.d. “The Great East Japan Earthquake Disaster: Latest Figures.” https://www.nippon.com/en/features/h00004.",
+        "url": "https://www.nippon.com/en/features/h00004"
+      },
+      {
+        "text": "PNSN (Pacific Northwest Seismic Network). n.d. “Cascadia Subduction Zone.” https://pnsn.org/education/pnw-earthquakes/sources/cascadia.",
+        "url": "https://pnsn.org/education/pnw-earthquakes/sources/cascadia"
+      },
+      {
+        "text": "Satake, K., K. Shimazaki, Y. Tsuji, and K. Ueda. 1996. “Time and Size of a Giant Earthquake in Cascadia Inferred from Japanese Tsunami Records of January 1700.” Nature 379 (6562): 246–49. https://doi.org/10.1038/379246a0.",
+        "url": "https://doi.org/10.1038/379246a0"
+      },
+      {
+        "text": "Satake, Kenji, Kelin Wang, and Brian F. Atwater. 2003. “Fault Slip and Seismic Moment of the 1700 Cascadia Earthquake Inferred from Japanese Tsunami Descriptions.” Journal of Geophysical Research 108 (B11). https://doi.org/10.1029/2003JB002521.",
+        "url": "https://doi.org/10.1029/2003JB002521"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. “How Fast Do Tectonic Plates Move?” https://www.usgs.gov/faqs/how-fast-do-tectonic-plates-move.",
+        "url": "https://www.usgs.gov/faqs/how-fast-do-tectonic-plates-move"
+      },
+      {
+        "text": "USGS. n.d.b. “Introduction to Subduction Zones: Amazing Events in Subduction Zones.” Subduction Zone Science. https://www.usgs.gov/special-topics/subduction-zone-science/science/introduction-subduction-zones-amazing-events.",
+        "url": "https://www.usgs.gov/special-topics/subduction-zone-science/science/introduction-subduction-zones-amazing-events"
+      },
+      {
+        "text": "USGS. n.d.c. “Earthquakes.” Subduction Zone Science. https://www.usgs.gov/special-topics/subduction-zone-science/science/earthquakes.",
+        "url": "https://www.usgs.gov/special-topics/subduction-zone-science/science/earthquakes"
+      },
+      {
+        "text": "USGS. n.d.d. “Historic Earthquakes: Chile, 1960 May 22, Magnitude 9.5.” Archived web page. https://webarchive.library.unt.edu/eot2008/20090109060417/http://earthquake.usgs.gov/regional/world/events/1960_05_22.php.",
+        "url": "https://webarchive.library.unt.edu/eot2008/20090109060417/http://earthquake.usgs.gov/regional/world/events/1960_05_22.php"
+      },
+      {
+        "text": "USGS. n.d.e. “M 9.1 – 2011 Great Tohoku Earthquake, Japan.” Earthquake event page. https://earthquake.usgs.gov/earthquakes/eventpage/official20110311054624120_30.",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/official20110311054624120_30"
+      },
+      {
+        "text": "USGS. n.d.f. “Tsunami Generation from the 2004 M=9.1 Sumatra-Andaman Earthquake.” Pacific Coastal and Marine Science Center. https://www.usgs.gov/centers/pcmsc/science/tsunami-generation-2004-m91-sumatra-andaman-earthquake.",
+        "url": "https://www.usgs.gov/centers/pcmsc/science/tsunami-generation-2004-m91-sumatra-andaman-earthquake"
+      },
+      {
+        "text": "USGS. n.d.g. “Magnitude 9.1 – Off the West Coast of Northern Sumatra.” Archived web page. https://webarchive.library.unt.edu/web/20120915214431/http://earthquake.usgs.gov/earthquakes/eqinthenews/2004/us2004slav.",
+        "url": "https://webarchive.library.unt.edu/web/20120915214431/http://earthquake.usgs.gov/earthquakes/eqinthenews/2004/us2004slav"
+      },
+      {
+        "text": "USGS. n.d.h. “1964 Great Alaska Earthquake and Tsunami.” Alaska Science Center. https://www.usgs.gov/centers/alaska-science-center/science/1964-great-alaska-earthquake-and-tsunami.",
+        "url": "https://www.usgs.gov/centers/alaska-science-center/science/1964-great-alaska-earthquake-and-tsunami"
+      },
+      {
+        "text": "USGS. n.d.i. “Dead Red Cedar Forest.” Image. https://www.usgs.gov/media/images/dead-red-cedar-forest.",
+        "url": "https://www.usgs.gov/media/images/dead-red-cedar-forest"
+      },
+      {
+        "text": "Wirth, Erin A., Arthur D. Frankel, Brian L. Sherrod, Alex R. Grant, Audrey Dunham, Ian P. Stone, and Julia Grossman. 2025. Earthquake Probabilities and Hazards in the U.S. Pacific Northwest. U.S. Geological Survey Fact Sheet 2025–3050. https://pubs.usgs.gov/publication/fs20253050.",
+        "url": "https://pubs.usgs.gov/publication/fs20253050"
+      },
+      {
+        "text": "Yamaguchi, David K., Brian F. Atwater, Daniel E. Bunker, Boyd E. Benson, and Marion S. Reid. 1997. “Tree-Ring Dating the 1700 Cascadia Earthquake.” Nature 389 (6654): 922–23. https://doi.org/10.1038/40048.",
+        "url": "https://doi.org/10.1038/40048"
+      }
+    ]
+  },
+  {
+    "id": "faults-and-stress",
+    "icon": "call_split",
+    "tone": "warm",
+    "title": "Faults and Stress: Why Earthquakes Happen",
+    "description": "How faults store and release stress: elastic rebound, fault types, stick-slip friction, fault creep, Coulomb stress and the Anatolian earthquake sequences.",
+    "dek": "An earthquake is the sudden release of stress that a fault has stored for decades or centuries. Here is how that stress builds, how faults give way, and how one rupture can set up the next.",
+    "published": "2026-11-16",
+    "updated": "2026-11-16",
+    "mins": 9,
+    "sections": [
+      {
+        "h": "Elastic Rebound Theory and the 1906 San Francisco Earthquake",
+        "p": [
+          "On 18 April 1906 the San Andreas Fault ruptured along about 477 kilometers of northern California, in an earthquake now estimated at magnitude 7.9 (USGS n.d.b). Research by Gladys Hansen and Emmet Condon put the number of people who died directly or indirectly at more than 3,000, several times the figure of about 700 quoted for decades (USGS n.d.c).",
+          "The earthquake also produced the first working explanation of why faults fail. Harry Fielding Reid, a geologist at Johns Hopkins University, examined how the ground surface had moved during the earthquake and concluded that the rupture must have involved an elastic rebound of previously stored elastic stress (USGS n.d.a). Fences, roads and other straight lines that crossed the fault had been offset; a fence photographed by G. K. Gilbert near Bolinas was displaced about 8.5 feet along the fault trace (USGS n.d.a).",
+          "Reid set out the argument in the second volume of the state commission’s report (Reid 1910). Rock on either side of a fault is carried along by slow, steady motion, but the fault itself stays stuck. The crust bends like a spring, storing elastic strain, until the stress exceeds the strength of the fault. The fault then slips suddenly, the bent rock snaps back toward an unstrained shape, and the stored energy leaves as seismic waves.",
+          "The theory has a direct consequence. Once a fault has slipped, the same slow motion begins to load it again, so earthquakes on a given fault are expected to recur. Most of the modern science of faults and stress elaborates on that cycle of loading and release."
+        ]
+      },
+      {
+        "h": "Types of Faults: Normal, Reverse, Thrust and Strike-Slip",
+        "p": [
+          "The U.S. Geological Survey defines a fault as a fracture or zone of fractures between two blocks of rock that allows the blocks to move relative to each other (USGS n.d.d). Faults are classified by the angle of the fault surface, called the dip, and by the direction of slip along it (USGS n.d.d).",
+          "On a normal fault, the block above the inclined fault surface moves down relative to the block below. On a reverse fault the upper block moves up and over the lower one, and a reverse fault with a shallow dip is called a thrust fault. On a strike-slip fault the blocks slide sideways past each other, and faults that combine sideways and vertical motion are called oblique-slip faults (USGS n.d.d). A strike-slip fault is described as right-lateral or left-lateral according to which way the far side appears to move when viewed from across the fault. The San Andreas and North Anatolian faults are right-lateral; the East Anatolian Fault is left-lateral.",
+          "Each type reflects a different arrangement of stress. Ernest Masson Anderson (1905) observed that because the ground surface carries no shear stress, one of the three principal stresses in the shallow crust is close to vertical. If the largest compressive stress is vertical, as where the crust is being stretched, normal faults form. If the smallest is vertical, as where the crust is being squeezed, reverse and thrust faults form. If the intermediate stress is vertical, strike-slip faults form. With typical rock friction, the theory predicts normal faults dipping at about 60 degrees, thrusts at about 30 degrees and near-vertical strike-slip faults."
+        ]
+      },
+      {
+        "h": "Stick-Slip Friction: How Faults Store and Release Energy",
+        "p": [
+          "Elastic rebound describes the loading. Friction explains why the release is sudden rather than gradual. In laboratory experiments on rock, Brace and Byerlee (1966) found that surfaces under high pressure did not slide smoothly but stuck, slipped abruptly and stuck again. They proposed that shallow earthquakes may be this stick-slip motion on faults, and noted that the stress released in each slip event was only a small part of the stress the rock was carrying (Brace and Byerlee 1966).",
+          "Later work turned this observation into laws of rock friction. Scholz (1998) summarized how the outcome depends on whether friction rises or falls as sliding speeds up. Where friction strengthens with speed, any slip slows itself down and the fault slides stably. Where friction weakens with speed, slip can accelerate into an unstable rupture, which is an earthquake. Scholz argued that a single constitutive law of this kind accounts for a broad range of earthquake behavior, including how much of a fault’s motion is released in earthquakes and how much passes without them (Scholz 1998).",
+          "The distinction matters at the scale of whole faults. A fault patch with velocity-weakening friction can lock and later fail violently. A patch with velocity-strengthening friction tends to creep."
+        ]
+      },
+      {
+        "h": "Locked Versus Creeping Faults on the San Andreas",
+        "p": [
+          "Most of the San Andreas Fault is locked. Between large earthquakes its two sides stay stuck at depth while the plates continue to move, and strain accumulates in the surrounding rock as Reid described. The section that broke in 1906 behaves this way.",
+          "Between San Juan Bautista and Parkfield in central California, the fault behaves differently. There the two sides slide past each other more or less continuously in a process called aseismic creep, which moves the ground without producing large earthquakes. Titus et al. (2006) resurveyed seven alignment arrays, rows of survey markers set across the fault, and obtained average minimum slip rates of 21 to 26 millimeters per year over 33 to 36 years. The results indicate approximately steady creep along the central creeping segment for at least 35 years (Titus et al. 2006).",
+          "Creep is visible at the surface. Where a creeping fault crosses a town, curbs, sidewalks and walls are bent or offset a little more each year. The city of Hollister, near the northern end of the creeping section, is a well-known example, although the fault that runs through its streets is the Calaveras Fault, a branch of the San Andreas system, rather than the San Andreas itself.",
+          "A creeping section does not store strain in the way a locked one does, and it can also limit the spread of ruptures. After the magnitude 6.0 Parkfield earthquake of 2004, which struck at the southern end of the creeping section, GPS stations showed little slip during or after the earthquake along the central creeping segment (Titus et al. 2006). Creep does not make a fault harmless, since creeping faults can still host moderate earthquakes, but it changes how and where stress builds."
+        ]
+      },
+      {
+        "h": "Stress Transfer and Coulomb Stress Change",
+        "p": [
+          "When a fault slips, the stress it was carrying does not disappear. Part of it is redistributed to the surrounding crust, pushing some nearby faults closer to failure and moving others further away. Seismologists measure this with the Coulomb failure criterion, which combines the change in shear stress that drives a fault to slip with the change in the clamping stress that holds it shut (King et al. 1994). Stress changes are commonly given in bars; one bar is 0.1 megapascals, roughly atmospheric pressure at sea level.",
+          "The changes are small compared with the total stress in the crust, but they matter for faults that are already close to failure. King et al. (1994) found that aftershocks were abundant where the Coulomb stress on favorably oriented faults rose by more than about half a bar, and sparse where it fell by a similar amount. Regions where stress dropped are called stress shadows. The same study calculated that the 1992 Landers and Big Bear earthquakes in southern California raised stress on the San Bernardino section of the San Andreas Fault by 2 to 6 bars, enough to bring forward the next large earthquake there by about a decade (King et al. 1994).",
+          "Stein (1999) reviewed the evidence and concluded that when stress changes are translated into changes in probability, seismic hazard is strongly influenced by interactions between earthquakes. A fault’s chance of rupturing therefore depends on its own loading and on what its neighbors have recently done."
+        ]
+      },
+      {
+        "h": "The North Anatolian Fault: An Earthquake Sequence Since 1939",
+        "p": [
+          "The North Anatolian Fault, a right-lateral strike-slip fault that runs across northern Türkiye, offers the clearest example of earthquakes marching along a fault. The sequence began on 26 December 1939 with a magnitude 7.8 earthquake near Erzincan in the east, which killed 32,700 people (USGS n.d.e).",
+          "Over the following decades, large earthquakes broke successive stretches of the fault, mostly progressing westward. Stein et al. (1997) studied ten earthquakes of magnitude 6.7 or larger that together ruptured 1,000 kilometers of the fault between 1939 and 1992. They calculated that nine of the ten ruptures had been brought closer to failure by the shocks before them, typically by 1 to 10 bars, equivalent to 3 to 30 years of ordinary tectonic loading. The stress changes produced an average threefold gain in the probability of an earthquake during the decade after each event (Stein et al. 1997).",
+          "The authors used the same reasoning to look ahead. For the 30 years from 1996 they estimated a 12 percent chance of a magnitude 6.7 or larger earthquake near the port city of Izmit (Stein et al. 1997). On 17 August 1999, an earthquake of magnitude 7.4 in early estimates (USGS 2000), and 7.6 in the USGS report of the event (USGS 1999), struck that stretch of the fault. Government estimates put the losses at 17,127 deaths and 43,953 injuries, and more than 250,000 people were displaced (USGS 2000). The authors had not predicted the earthquake; they had identified the segment as more likely than most to fail.",
+          "The 1999 rupture moved the stress concentration further west, toward the faults beneath the Sea of Marmara near Istanbul. Taking the Izmit earthquake into account, Parsons et al. (2000) calculated a 62 ± 15 percent probability of strong shaking in Istanbul during the next 30 years and 32 ± 12 percent during the next decade. The calculation is a probability, not a prediction, and the faults beneath the Sea of Marmara remain a central concern for hazard planning in the region."
+        ]
+      },
+      {
+        "h": "The 2023 Türkiye–Syria Earthquakes on the East Anatolian Fault",
+        "p": [
+          "The East Anatolian Fault forms the southeastern boundary of the Anatolian block and, together with the North Anatolian Fault, accommodates the westward movement of Türkiye toward the Aegean Sea (USGS n.d.f). On 6 February 2023 it was the source of two large earthquakes nine hours apart.",
+          "The magnitude 7.8 Pazarcık earthquake ruptured nearly 354 kilometers of the East Anatolian Fault. The second, a magnitude 7.5 earthquake near Elbistan, ruptured roughly 161 kilometers of the separate Çardak Fault to the north (USGS n.d.g). USGS reported that the death toll in Türkiye and Syria exceeded 57,000 by the end of March 2023 (USGS n.d.g).",
+          "The two earthquakes show stress transfer at work, and its limits. Coulomb calculations indicate that the first earthquake raised stress by about 1 to 4 bars on the section of the Çardak Fault where the second rupture began, while lowering it by about 3 to 10 bars on the part of that fault running parallel to the East Anatolian Fault (Toda and Stein 2024). A stress increase of this size is small compared with the stress released in an earthquake, but it can be enough to trigger a fault that is already near failure (Stein et al. 2023).",
+          "The same calculations left open questions. Some sections of the East Anatolian Fault that received increased stress did not rupture, and part of the Çardak Fault that had not been stressed joined the magnitude 7.5 rupture. The second earthquake was also not preceded by foreshocks, despite the large and sudden loading (Stein et al. 2023). Stress transfer explains much of where earthquakes cluster, but it does not yet say which loaded fault will fail, or when."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is elastic rebound theory?",
+        "a": "Elastic rebound theory holds that rock on either side of a locked fault slowly bends as the crust moves, storing elastic strain. When the stress exceeds the fault’s strength, the fault slips and the rock snaps back, releasing the energy as an earthquake. Harry Fielding Reid proposed it after studying ground movement in the 1906 San Francisco earthquake."
+      },
+      {
+        "q": "What are the three main types of faults?",
+        "a": "Normal faults, where the upper block moves down, form where the crust is stretched. Reverse and thrust faults, where the upper block moves up, form where it is compressed. Strike-slip faults, where the blocks slide sideways past each other, include the San Andreas and the North Anatolian faults."
+      },
+      {
+        "q": "What is a creeping fault?",
+        "a": "A creeping fault slides slowly and more or less continuously instead of staying locked and failing in large earthquakes. The San Andreas Fault creeps between San Juan Bautista and Parkfield in central California, where surveys show steady slip of roughly 21 to 26 millimeters per year for more than three decades."
+      },
+      {
+        "q": "Can one earthquake trigger another?",
+        "a": "Yes. An earthquake redistributes stress, raising it on some nearby faults and lowering it on others. Faults already close to failure can be pushed over the edge, which is why aftershocks cluster where Coulomb stress has increased and large earthquakes sometimes follow one another along a fault."
+      },
+      {
+        "q": "Why did earthquakes move west along the North Anatolian Fault?",
+        "a": "Between 1939 and 1992, ten earthquakes of magnitude 6.7 or larger ruptured about 1,000 kilometers of the fault, and nine of them struck where earlier shocks had raised the stress. The 1999 Izmit earthquake continued the sequence westward, increasing the estimated hazard for Istanbul."
+      },
+      {
+        "q": "What fault caused the 2023 Türkiye–Syria earthquake?",
+        "a": "The magnitude 7.8 earthquake of 6 February 2023 ruptured nearly 354 kilometers of the East Anatolian Fault. A magnitude 7.5 earthquake about nine hours later ruptured roughly 161 kilometers of the nearby Çardak Fault, which the first earthquake had partly loaded with additional stress."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Anderson, E. M. 1905. “The Dynamics of Faulting.” Transactions of the Edinburgh Geological Society 8 (3): 387–402. https://doi.org/10.1144/transed.8.3.387.",
+        "url": "https://doi.org/10.1144/transed.8.3.387"
+      },
+      {
+        "text": "Brace, W. F., and J. D. Byerlee. 1966. “Stick-Slip as a Mechanism for Earthquakes.” Science 153 (3739): 990–92. https://doi.org/10.1126/science.153.3739.990.",
+        "url": "https://doi.org/10.1126/science.153.3739.990"
+      },
+      {
+        "text": "King, Geoffrey C. P., Ross S. Stein, and Jian Lin. 1994. “Static Stress Changes and the Triggering of Earthquakes.” Bulletin of the Seismological Society of America 84 (3): 935–53. https://doi.org/10.1785/BSSA0840030935.",
+        "url": "https://doi.org/10.1785/BSSA0840030935"
+      },
+      {
+        "text": "Parsons, Tom, Shinji Toda, Ross S. Stein, Aykut Barka, and James H. Dieterich. 2000. “Heightened Odds of Large Earthquakes Near Istanbul: An Interaction-Based Probability Calculation.” Science 288 (5466): 661–65. https://doi.org/10.1126/science.288.5466.661.",
+        "url": "https://doi.org/10.1126/science.288.5466.661"
+      },
+      {
+        "text": "Reid, Harry Fielding. 1910. The Mechanics of the Earthquake. Vol. 2 of The California Earthquake of April 18, 1906: Report of the State Earthquake Investigation Commission. Publication 87. Washington, DC: Carnegie Institution of Washington.",
+        "url": null
+      },
+      {
+        "text": "Scholz, Christopher H. 1998. “Earthquakes and Friction Laws.” Nature 391 (6662): 37–42. https://doi.org/10.1038/34097.",
+        "url": "https://doi.org/10.1038/34097"
+      },
+      {
+        "text": "Stein, Ross S. 1999. “The Role of Stress Transfer in Earthquake Occurrence.” Nature 402 (6762): 605–9. https://doi.org/10.1038/45144.",
+        "url": "https://doi.org/10.1038/45144"
+      },
+      {
+        "text": "Stein, Ross S., Aykut A. Barka, and James H. Dieterich. 1997. “Progressive Failure on the North Anatolian Fault since 1939 by Earthquake Stress Triggering.” Geophysical Journal International 128 (3): 594–604. https://doi.org/10.1111/j.1365-246X.1997.tb05321.x.",
+        "url": "https://doi.org/10.1111/j.1365-246X.1997.tb05321.x"
+      },
+      {
+        "text": "Stein, Ross S., Shinji Toda, Ali Deger Özbakir, Volkan Sevilgen, Hector Gonzalez-Huizar, Gabriel Lotto, and Serkan Sevilgen. 2023. “Interactions, Stress Changes, Mysteries, and Partial Forecasts of the 2023 Kahramanmaraş, Türkiye, Earthquakes.” Temblor. https://doi.org/10.32858/temblor.299.",
+        "url": "https://doi.org/10.32858/temblor.299"
+      },
+      {
+        "text": "Titus, Sarah J., Charles DeMets, and Basil Tikoff. 2006. “Thirty-Five-Year Creep Rates for the Creeping Segment of the San Andreas Fault and the Effects of the 2004 Parkfield Earthquake: Constraints from Alignment Arrays, Continuous Global Positioning System, and Creepmeters.” Bulletin of the Seismological Society of America 96 (4B): S250–68. https://doi.org/10.1785/0120050811.",
+        "url": "https://doi.org/10.1785/0120050811"
+      },
+      {
+        "text": "Toda, Shinji, and Ross S. Stein. 2024. “The Role of Stress Transfer in Rupture Nucleation and Inhibition in the 2023 Kahramanmaraş, Türkiye, Sequence, and a One-Year Earthquake Forecast.” Seismological Research Letters 95 (2A): 596–606. https://doi.org/10.1785/0220230252.",
+        "url": "https://doi.org/10.1785/0220230252"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). 1999. “Magnitude 7.6 Turkey, 1999 August 17 00:01:39 UTC.” National Earthquake Information Center preliminary report. Archived web page. https://webarchive.library.unt.edu/eot2008/20090510165706/http:/neic.usgs.gov/neis/eq_depot/1999/eq_990817.",
+        "url": "https://webarchive.library.unt.edu/eot2008/20090510165706/http:/neic.usgs.gov/neis/eq_depot/1999/eq_990817"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). 2000. Implications for Earthquake Risk Reduction in the United States from the Kocaeli, Turkey, Earthquake of August 17, 1999. Circular 1193. https://doi.org/10.3133/cir1193.",
+        "url": "https://doi.org/10.3133/cir1193"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. “Reid’s Elastic Rebound Theory.” The Great 1906 San Francisco Earthquake. Accessed November 16, 2026. https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/reid.php.",
+        "url": "https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/reid.php"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.b. “How Long Was the 1906 Rupture?” The Great 1906 San Francisco Earthquake. Accessed November 16, 2026. https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/howlong.php.",
+        "url": "https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/howlong.php"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.c. “Casualties and Damage after the 1906 Earthquake.” The Great 1906 San Francisco Earthquake. Accessed November 16, 2026. https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/casualties.php.",
+        "url": "https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/casualties.php"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.d. “What Is a Fault and What Are the Different Types?” Frequently Asked Questions. Accessed November 16, 2026. https://www.usgs.gov/faqs/what-fault-and-what-are-different-types.",
+        "url": "https://www.usgs.gov/faqs/what-fault-and-what-are-different-types"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.e. “Historic Earthquakes: Erzincan, Turkey, 1939 December 26.” Archived web page. Accessed November 16, 2026. https://webarchive.library.unt.edu/web/20090509190328/http://earthquake.usgs.gov/regional/world/events/1939_12_26.php.",
+        "url": "https://webarchive.library.unt.edu/web/20090509190328/http://earthquake.usgs.gov/regional/world/events/1939_12_26.php"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.f. “M 7.8 – Pazarcik Earthquake, Kahramanmaras Earthquake Sequence.” Earthquake Hazards Program event page. Accessed November 16, 2026. https://earthquake.usgs.gov/earthquakes/eventpage/us6000jllz.",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000jllz"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.g. “Frequently Asked Questions about 2023 Earthquakes in Türkiye.” Earthquake Hazards Program. Accessed November 16, 2026. https://www.usgs.gov/programs/earthquake-hazards/science/frequently-asked-questions-about-2023-earthquakes-turkiye.",
+        "url": "https://www.usgs.gov/programs/earthquake-hazards/science/frequently-asked-questions-about-2023-earthquakes-turkiye"
+      }
+    ]
+  },
+  {
+    "id": "earth-interior-seismic-waves",
+    "icon": "graphic_eq",
+    "tone": "mint",
+    "title": "Earth’s Interior, Seismic Waves and How Earthquakes Are Measured",
+    "description": "How P and S waves revealed Earth’s crust, mantle and core, how seismic networks locate an earthquake, and how moment magnitude differs from intensity.",
+    "dek": "The depths of the crust, mantle and core were measured with seismic waves, not drills. The same waves are used today to locate every earthquake and measure its size.",
+    "published": "2026-11-16",
+    "updated": "2026-11-16",
+    "mins": 7,
+    "sections": [
+      {
+        "h": "Earth’s Layers: Crust, Mantle, Outer Core and Inner Core",
+        "p": [
+          "The Earth has four main layers, defined by how seismic waves travel through them. The outermost is the crust. Continental crust is the more variable in thickness and averages about 30–35 kilometers, while oceanic crust generally extends only to about 5 kilometers (Kious and Tilling 1996).",
+          "Below the crust lies the mantle, a layer of hot, dense rock that reaches down to the core. In the Preliminary Reference Earth Model (PREM), a widely used model of the planet’s average properties by depth, the core has a radius of 3,480 kilometers, which places the core–mantle boundary roughly 2,900 kilometers below the surface (Dziewonski and Anderson 1981).",
+          "The core has two parts. The outer core is liquid, and the inner core is solid, with a radius of 1,221.5 kilometers in PREM, so its surface lies about 5,150 kilometers down (Dziewonski and Anderson 1981). PREM was built by fitting about 1,000 periods of the Earth’s free oscillations and 500 summary travel-time observations, together with the planet’s mass and moment of inertia (Dziewonski and Anderson 1981). None of these figures comes from direct sampling. Each boundary was found because seismic waves change speed, bend, reflect or disappear there."
+        ]
+      },
+      {
+        "h": "P Waves, S Waves and Surface Waves",
+        "p": [
+          "An earthquake releases several kinds of seismic waves. Body waves travel through the interior of the Earth, and surface waves travel along its outer layers. P waves, or primary waves, are the fastest and arrive first at a recording station. They compress and stretch rock along their direction of travel. S waves, or secondary waves, shear the rock at right angles to their direction of travel and arrive later. In rock, S waves generally travel at about 60 percent of the speed of P waves (USGS n.d.a).",
+          "Surface waves arrive after both kinds of body waves. Love waves move the ground from side to side, and Rayleigh waves roll it in an elliptical motion. Rayleigh waves produce most of the shaking felt at the ground surface during an earthquake (USGS n.d.a).",
+          "The difference between P and S waves carries the key to the deep Earth. A liquid has no resistance to shearing, so S waves cannot pass through one. P waves can travel through solids and liquids alike, although they slow down and change direction when they enter a liquid layer (USGS n.d.b)."
+        ]
+      },
+      {
+        "h": "The Shadow Zone and Why S Waves Do Not Cross the Outer Core",
+        "p": [
+          "Seismic stations on the far side of the planet from a large earthquake record a distinctive gap. USGS describes the shadow zone as the area between angular distances of 104 and 140 degrees from the earthquake that receives no direct P waves (USGS n.d.b). The liquid outer core causes it in two ways: it stops S waves entirely, and it refracts P waves, bending them away from that band (USGS n.d.b). Direct S waves are absent from about 104 degrees outward.",
+          "Richard Dixon Oldham first identified the core from earthquake records in 1906 (Oldham 1906; Brush 1980). The failure to detect S waves crossing the core was not, on its own, enough to convince seismologists that the core is fluid (Brush 1980). Harold Jeffreys made the stronger case in 1926. Using Earth tides and seismic observations, he showed that the core has much lower rigidity than the mantle and could be liquid (Jeffreys 1926; Brush 1980)."
+        ]
+      },
+      {
+        "h": "Mohorovičić, Gutenberg and Lehmann: Discovering the Moho and the Inner Core",
+        "p": [
+          "On 8 October 1909, an earthquake struck the Kupa Valley south of Zagreb. Andrija Mohorovičić, a seismologist in Zagreb, collected its seismograms from stations across Europe and noticed that beyond a certain distance P waves arrived earlier than a single uniform layer would allow. He explained the early arrivals as waves that had dipped into a deeper, faster layer and returned. From his data he estimated the upper layer to be 54 kilometers thick (Herak and Herak 2007). He published the analysis in 1910 (Mohorovičić 1910). The boundary between the crust and the mantle is now called the Mohorovičić discontinuity, or the Moho.",
+          "Beno Gutenberg located the core’s outer edge. Working at Göttingen, he used the shadow zone in records of distant earthquakes to place the core–mantle boundary at a depth of about 2,900 kilometers, published in 1914 (Gutenberg 1914; Brush 1980). Modern models place it at almost the same depth (Dziewonski and Anderson 1981).",
+          "Inge Lehmann, a Danish seismologist, found the inner core. Studying records of a large 1929 earthquake in New Zealand, she examined weak P waves that arrived inside the shadow zone, where a fully liquid core should have left none. In a 1936 paper titled simply P′, she proposed that the waves had been deflected by a smaller inner core inside the liquid outer core (Lehmann 1936; Kölbl-Ebert 2001). The inference that this inner core is solid came later. In 1971 Adam Dziewonski and Freeman Gilbert showed from the Earth’s free oscillations that no model with a liquid inner core could satisfy the data (Dziewonski and Gilbert 1971)."
+        ]
+      },
+      {
+        "h": "How Seismometers Locate an Earthquake: Epicenter, Hypocenter and Depth",
+        "p": [
+          "An earthquake begins at the hypocenter, also called the focus, the point inside the Earth where the rupture starts. The epicenter is the point on the surface directly above it, and the focal depth is the distance between the two (USGS n.d.c).",
+          "Locating an earthquake starts with arrival times. Because P waves outrun S waves, the gap between their arrivals grows with distance, and seismologists convert it into a distance using standard travel-time curves (IRIS n.d.). One station gives a circle of possible epicenters, two stations give two circles that cross at two points, and three stations narrow the solution to a single location. The method is commonly called triangulation (IRIS n.d.).",
+          "Modern networks work in three dimensions and solve for the origin time as well. In the Yellowstone region, for example, a computer starts from an initial guess of the hypocenter, uses a model of seismic wave speeds in the region to calculate the expected arrival time at each station, and adjusts the location and origin time until the calculated times fit the measured ones. The more stations that record an earthquake, the more accurate the location, and an earthquake recorded on only one or two stations cannot be located (USGS n.d.d).",
+          "Depth is the hardest part of the solution to pin down. As a rule of thumb, a reliable depth requires a station closer to the epicenter than the earthquake is deep (USGS n.d.e). When the data cannot resolve depth, the catalog fixes it at a default value, now 10 kilometers for shallow events (USGS n.d.e). For the best-located earthquakes, in the middle of dense networks, location uncertainty is about 100 meters horizontally and 300 meters vertically; for events located with global data it grows to tens of kilometers (USGS n.d.f). USGS classes earthquakes between 0 and 70 kilometers deep as shallow, those between 70 and 300 kilometers as intermediate, and those between 300 and 700 kilometers as deep (USGS n.d.c)."
+        ]
+      },
+      {
+        "h": "Earthquake Magnitude Scales: From the Richter Scale to Moment Magnitude",
+        "p": [
+          "Charles Richter published the first instrumental magnitude scale in 1935, for earthquakes in southern California (Richter 1935). Now labeled ML, for local magnitude, it is based on the maximum amplitude recorded on a Wood-Anderson torsion seismograph at a known distance. Those instruments are no longer widely used, so ML is calculated from modern instruments with adjustments. USGS lists its useful range as roughly magnitude 2.0 to 6.5, for stations up to about 600 kilometers away (USGS n.d.g).",
+          "The scale was later extended into body-wave magnitude (mb) and surface-wave magnitude (Ms) to make use of seismograph stations around the world. Each is valid for a particular frequency range and type of seismic signal (USGS n.d.h). All of these scales share a weakness: for great earthquakes, the amplitude of the measured waves stops growing in step with the size of the rupture. Kanamori (1977) showed that this saturation leads to inaccurate estimates of the energy released in the largest events.",
+          "The remedy was to measure the physical size of the rupture. Seismic moment is the product of the rigidity of the rock, the area of the fault that slipped and the average distance it slipped (USGS n.d.i). Thomas Hanks and Hiroo Kanamori defined the moment magnitude scale, Mw, from the seismic moment in 1979 (Hanks and Kanamori 1979), building on Kanamori’s 1977 work, which found that the scale does not saturate and gave the 1960 Chile earthquake a magnitude of 9.5 (Kanamori 1977). Because magnitude rises by two-thirds of the logarithm of the moment, each whole step on the scale corresponds to about 32 times more seismic moment.",
+          "For very large earthquakes, moment magnitude gives the most reliable estimate of size (USGS n.d.h). USGS computes a W-phase moment magnitude, Mww, for all earthquakes of magnitude 5.0 and larger worldwide and treats it as authoritative when available (USGS n.d.g). Different procedures often give slightly different magnitudes for the same earthquake, which is why early reports can change as more data arrive (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Magnitude versus Intensity: The Modified Mercalli Scale",
+        "p": [
+          "Magnitude describes the size of an earthquake at its source. Intensity describes the strength of shaking at a particular place. An earthquake has one magnitude but many intensities, one for each place where its shaking is assessed (USGS n.d.j).",
+          "In the United States, intensity is assigned on the Modified Mercalli Intensity scale, developed by Harry Wood and Frank Neumann in 1931 (Wood and Neumann 1931). Its levels are written in Roman numerals and rise from imperceptible shaking to catastrophic destruction (USGS n.d.k). The scale ranks observed effects rather than recording a measurement from an instrument (USGS n.d.k).",
+          "Public reports now feed intensity maps directly. The USGS Did You Feel It? program collects accounts from people who felt an earthquake and converts them into community intensity values. Where both instruments and reports are available, those values are used to calibrate the equations that convert measured ground motion into intensity on ShakeMap (USGS n.d.l)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What are the layers of the Earth?",
+        "a": "The Earth has a rocky crust, a mantle that extends to about 2,900 kilometers deep, a liquid outer core and a solid inner core. In the standard reference model, the inner core has a radius of about 1,220 kilometers. All of these boundaries were found by studying how seismic waves travel through the planet."
+      },
+      {
+        "q": "Why can’t S waves travel through the outer core?",
+        "a": "S waves move rock by shearing it, and a liquid has no resistance to shearing. The outer core is liquid, so S waves stop at the core–mantle boundary. This leaves no direct S waves at stations more than about 104 degrees from an earthquake."
+      },
+      {
+        "q": "What is the seismic shadow zone?",
+        "a": "The P-wave shadow zone is the band between about 104 and 140 degrees from an earthquake that receives no direct P waves. The liquid outer core bends P waves away from that band and blocks S waves entirely. Weak P waves found inside the zone led Inge Lehmann to propose the inner core in 1936."
+      },
+      {
+        "q": "What is the difference between the epicenter and the hypocenter?",
+        "a": "The hypocenter is the point inside the Earth where the rupture begins. The epicenter is the point on the surface directly above it. The distance between them is the focal depth."
+      },
+      {
+        "q": "Is the Richter scale still used?",
+        "a": "Richter’s local magnitude, ML, is still calculated for small and moderate earthquakes with modern instruments. For large earthquakes, it and other amplitude-based scales saturate, so seismologists report moment magnitude, which is based on the area and slip of the fault."
+      },
+      {
+        "q": "What is the difference between magnitude and intensity?",
+        "a": "Magnitude measures the size of an earthquake at its source, and each earthquake has one. Intensity measures how strongly the ground shook at a particular place, so one earthquake has many intensities. In the United States intensity is given on the Modified Mercalli scale in Roman numerals."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Brush, Stephen G. 1980. \"Discovery of the Earth’s Core.\" American Journal of Physics 48: 705. https://doi.org/10.1119/1.12026.",
+        "url": "https://doi.org/10.1119/1.12026"
+      },
+      {
+        "text": "Dziewonski, Adam M., and Don L. Anderson. 1981. \"Preliminary Reference Earth Model.\" Physics of the Earth and Planetary Interiors 25 (4): 297–356. https://doi.org/10.1016/0031-9201(81)90046-7.",
+        "url": "https://doi.org/10.1016/0031-9201(81)90046-7"
+      },
+      {
+        "text": "Dziewonski, A. M., and F. Gilbert. 1971. \"Solidity of the Inner Core of the Earth Inferred from Normal Mode Observations.\" Nature 234: 465–66. https://doi.org/10.1038/234465a0.",
+        "url": "https://doi.org/10.1038/234465a0"
+      },
+      {
+        "text": "Gutenberg, B. 1914. \"Ueber Erdbebenwellen. VII A. Beobachtungen an Registrierungen von Fernbeben in Göttingen und Folgerung über die Konstitution des Erdkörpers.\" Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen, Mathematisch-Physikalische Klasse 1914: 125–76.",
+        "url": null
+      },
+      {
+        "text": "Hanks, Thomas C., and Hiroo Kanamori. 1979. \"A Moment Magnitude Scale.\" Journal of Geophysical Research 84 (B5): 2348–50. https://doi.org/10.1029/JB084iB05p02348.",
+        "url": "https://doi.org/10.1029/JB084iB05p02348"
+      },
+      {
+        "text": "Herak, Davorka, and Marijan Herak. 2007. \"Andrija Mohorovičić (1857–1936): On the Occasion of the 150th Anniversary of His Birth.\" Seismological Research Letters 78 (6): 671–74.",
+        "url": null
+      },
+      {
+        "text": "IRIS (Incorporated Research Institutions for Seismology). n.d. \"How Are Earthquakes Located?\" Fact sheet. https://clean.iris.edu/hq/inclass/fact-sheet/13.",
+        "url": "https://clean.iris.edu/hq/inclass/fact-sheet/13"
+      },
+      {
+        "text": "Jeffreys, Harold. 1926. \"The Rigidity of the Earth’s Central Core.\" Monthly Notices of the Royal Astronomical Society, Geophysical Supplement 1 (7): 371–83. https://doi.org/10.1111/j.1365-246X.1926.tb05385.x.",
+        "url": "https://doi.org/10.1111/j.1365-246X.1926.tb05385.x"
+      },
+      {
+        "text": "Kanamori, Hiroo. 1977. \"The Energy Release in Great Earthquakes.\" Journal of Geophysical Research 82 (20): 2981–87. https://doi.org/10.1029/JB082i020p02981.",
+        "url": "https://doi.org/10.1029/JB082i020p02981"
+      },
+      {
+        "text": "Kious, W. Jacquelyne, and Robert I. Tilling. 1996. This Dynamic Earth: The Story of Plate Tectonics. U.S. Geological Survey. \"Inside the Earth.\" https://pubs.usgs.gov/gip/dynamic/inside.html.",
+        "url": "https://pubs.usgs.gov/gip/dynamic/inside.html"
+      },
+      {
+        "text": "Kölbl-Ebert, Martina. 2001. \"Inge Lehmann’s Paper: ‘P′’ (1936).\" Episodes 24 (4): 262–67.",
+        "url": null
+      },
+      {
+        "text": "Lehmann, Inge. 1936. \"P′.\" Publications du Bureau Central Séismologique International, Série A, Travaux Scientifiques 14: 87–115.",
+        "url": null
+      },
+      {
+        "text": "Mohorovičić, Andrija. 1910. \"Potres od 8. X. 1909.\" Godišnje izvješće Zagrebačkog meteorološkog opservatorija za godinu 1909. English translation: \"Earthquake of 8 October 1909.\" 1992. Geofizika 9 (1): 3–55. https://hrcak.srce.hr/20133.",
+        "url": "https://hrcak.srce.hr/20133"
+      },
+      {
+        "text": "Oldham, R. D. 1906. \"The Constitution of the Interior of the Earth, as Revealed by Earthquakes.\" Quarterly Journal of the Geological Society 62: 456–75.",
+        "url": null
+      },
+      {
+        "text": "Richter, C. F. 1935. \"An Instrumental Earthquake Magnitude Scale.\" Bulletin of the Seismological Society of America 25 (1): 1–32. https://doi.org/10.1785/BSSA0250010001.",
+        "url": "https://doi.org/10.1785/BSSA0250010001"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. \"Two Kinds of Waves Are Generated by Earthquakes and Travel through Solid Rock.\" The Great 1906 San Francisco Earthquake. https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/earthwaves.php.",
+        "url": "https://earthquake.usgs.gov/earthquakes/events/1906calif/18april/earthwaves.php"
+      },
+      {
+        "text": "USGS. n.d.b. \"Shadow Zone.\" Video. https://www.usgs.gov/media/videos/shadow-zone.",
+        "url": "https://www.usgs.gov/media/videos/shadow-zone"
+      },
+      {
+        "text": "USGS. n.d.c. \"Determining the Depth of an Earthquake.\" https://www.usgs.gov/programs/earthquake-hazards/determining-depth-earthquake.",
+        "url": "https://www.usgs.gov/programs/earthquake-hazards/determining-depth-earthquake"
+      },
+      {
+        "text": "USGS. n.d.d. \"Locating Earthquakes in the Yellowstone Region.\" Yellowstone Volcano Observatory. https://www.usgs.gov/center-news/locating-earthquakes-yellowstone-region.",
+        "url": "https://www.usgs.gov/center-news/locating-earthquakes-yellowstone-region"
+      },
+      {
+        "text": "USGS. n.d.e. \"Why Do So Many Earthquakes Occur at a Depth of 10km?\" https://www.usgs.gov/faqs/why-do-so-many-earthquakes-occur-depth-10km.",
+        "url": "https://www.usgs.gov/faqs/why-do-so-many-earthquakes-occur-depth-10km"
+      },
+      {
+        "text": "USGS. n.d.f. \"Technical Terms Used on Event Pages.\" Archived September 28, 2012. https://webarchive.library.unt.edu/web/20120928115346/http://earthquake.usgs.gov/earthquakes/eventpage/terms.php.",
+        "url": "https://webarchive.library.unt.edu/web/20120928115346/http://earthquake.usgs.gov/earthquakes/eventpage/terms.php"
+      },
+      {
+        "text": "USGS. n.d.g. \"Magnitude Types.\" https://www.usgs.gov/programs/earthquake-hazards/magnitude-types.",
+        "url": "https://www.usgs.gov/programs/earthquake-hazards/magnitude-types"
+      },
+      {
+        "text": "USGS. n.d.h. \"Moment Magnitude, Richter Scale – What Are the Different Magnitude Scales, and Why Are There So Many?\" https://www.usgs.gov/faqs/moment-magnitude-richter-scale-what-are-different-magnitude-scales-and-why-are-there-so-many.",
+        "url": "https://www.usgs.gov/faqs/moment-magnitude-richter-scale-what-are-different-magnitude-scales-and-why-are-there-so-many"
+      },
+      {
+        "text": "USGS. n.d.i. \"Earthquake Magnitude, Energy Release, and Shaking Intensity.\" https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity.",
+        "url": "https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity"
+      },
+      {
+        "text": "USGS. n.d.j. \"What Is the Difference between Magnitude and Intensity? What Is the Modified Mercalli Intensity Scale?\" https://www.usgs.gov/faqs/what-difference-between-magnitude-and-intensity-what-modified-mercalli-intensity-scale.",
+        "url": "https://www.usgs.gov/faqs/what-difference-between-magnitude-and-intensity-what-modified-mercalli-intensity-scale"
+      },
+      {
+        "text": "USGS. n.d.k. \"The Modified Mercalli Intensity Scale.\" https://www.usgs.gov/programs/earthquake-hazards/modified-mercalli-intensity-scale.",
+        "url": "https://www.usgs.gov/programs/earthquake-hazards/modified-mercalli-intensity-scale"
+      },
+      {
+        "text": "USGS. n.d.l. \"What Is DYFI For?\" Did You Feel It? https://earthquake.usgs.gov/data/dyfi/background.php.",
+        "url": "https://earthquake.usgs.gov/data/dyfi/background.php"
+      },
+      {
+        "text": "Wood, Harry O., and Frank Neumann. 1931. \"Modified Mercalli Intensity Scale of 1931.\" Bulletin of the Seismological Society of America 21 (4): 277–83.",
+        "url": null
+      }
+    ]
+  },
+  {
+    "id": "aftershocks-and-hazards",
+    "icon": "timeline",
+    "tone": "warm",
+    "title": "Aftershocks, Liquefaction and Other Earthquake Hazards Explained",
+    "description": "How aftershocks decay under Omori’s law, what Båth’s law and the b-value mean, and why soil, liquefaction, landslides and wastewater injection shape risk.",
+    "dek": "A large earthquake is the start of a sequence, not a single event. Here is how aftershocks behave, and why the damage a quake does depends as much on the ground as on its magnitude.",
+    "published": "2026-11-16",
+    "updated": "2026-11-16",
+    "mins": 8,
+    "sections": [
+      {
+        "h": "What Aftershocks Are and How Omori’s Law Describes Them",
+        "p": [
+          "Earthquakes cluster in time and space. Within a cluster, seismologists call the largest event the mainshock, the earthquakes before it foreshocks, and those after it aftershocks (Jones and Reasenberg 1996). As a rule of thumb, an earthquake counts as an aftershock if it lies within one or two fault-rupture lengths of the mainshock. That distance varies widely: the rupture was about 15 kilometers long in the 1994 Northridge earthquake and 430 kilometers long in the 1906 San Francisco earthquake (Jones and Reasenberg 1996).",
+          "The Japanese seismologist Fusakichi Omori published the first quantitative description of aftershock decay in 1894, based on the aftershocks of the 1891 Nōbi earthquake in central Japan. His formula states that the aftershock rate falls roughly in proportion to the inverse of the time since the mainshock. Tokuji Utsu later added an exponent, p, that lets the decay run slightly faster or slower than that, and a review published a century after Omori’s paper concluded that the modified formula generally gives an appropriate description of how aftershock activity changes over time (Utsu et al. 1995).",
+          "In practical terms, the second day after a mainshock brings about half as many aftershocks as the first, and the tenth day about a tenth as many (Jones and Reasenberg 1996). Aftershocks of all sizes decline at the same rate, so a sequence does not run out of large events first (Jones and Reasenberg 1996). Seismologists in southern California noted that aftershocks of the 1992 Landers earthquake became less frequent with time rather than smaller, and that magnitude 5 events could still occur late in the sequence, only spaced farther apart (SCEDC 1999)."
+        ]
+      },
+      {
+        "h": "How Big Can an Aftershock Be? Båth’s Law",
+        "p": [
+          "Larger mainshocks tend to produce larger aftershocks (Jones and Reasenberg 1996). The Swedish seismologist Markus Båth gave the relationship a number. Båth’s law holds that the largest aftershock is, on average, about 1.2 magnitude units smaller than the mainshock, independent of the mainshock’s magnitude (Båth 1965; Helmstetter and Sornette 2003). By that rule, a magnitude 7.0 mainshock would typically be followed by a largest aftershock near magnitude 5.8.",
+          "The value is an average across many sequences, and individual sequences depart from it in both directions. Helmstetter and Sornette (2003) showed that the law can be reproduced from two other statistical properties of earthquakes, the magnitude distribution described below and the way aftershocks trigger further aftershocks. They argued that its origin lies partly in how mainshocks and aftershocks are defined, rather than in a separate physical mechanism."
+        ]
+      },
+      {
+        "h": "The Gutenberg–Richter Law and What the b-Value Means",
+        "p": [
+          "Small earthquakes vastly outnumber large ones, and the ratio is regular. Beno Gutenberg and Charles Richter described the relationship in a 1944 study of California earthquakes (Gutenberg and Richter 1944). It is usually written log N = a − bM, where N is the number of earthquakes of magnitude M or larger, a reflects the overall level of activity, and b sets how quickly the count falls as magnitude rises.",
+          "The b-value is close to 1 in most global catalogues, a result well enough established that a 1993 review was subtitled “much ado about 1.0” (Frohlich and Davis 1993). With b equal to 1, each step of one magnitude unit cuts the number of earthquakes by a factor of ten. A region that records 100 earthquakes of magnitude 5 or larger in a given period would, on average, record about 10 of magnitude 6 or larger and about one of magnitude 7 or larger.",
+          "The value is not fixed. Global catalogues give b-values from roughly 0.72 to 1.34, and part of that spread reflects errors in detection, location and magnitude rather than real differences (Frohlich and Davis 1993). Some variation is genuine. Schorlemmer et al. (2005) found that b is lowest for thrust faulting and highest for normal faulting, and interpreted the difference as a sign that thrust faults operate under higher stress. In California, b decreases as earthquakes get deeper (Mori and Abercrombie 1997). A lower b-value means that large earthquakes make up a larger share of the total, which is why the parameter matters in hazard estimates."
+        ]
+      },
+      {
+        "h": "How Long Do Aftershocks Last?",
+        "p": [
+          "An earthquake counts as an aftershock for as long as the rate of earthquakes in the area stays above the rate before the mainshock. How long that takes depends on the size of the mainshock and on how active the region was beforehand, since aftershocks stand out longer against a quiet background (Jones and Reasenberg 1996). Eight and a half years after the 1992 Landers earthquake, aftershocks had become few and far between but still occurred clearly above the background rate (SCEDC 2001).",
+          "Toda and Stein (2018) found that the duration of a sequence depends less on the mainshock’s size than on how fast the fault slips. Studying the 2011 Tohoku-Oki earthquake and eight other large Japanese mainshocks, they found sequences that lasted about a month on the fastest-slipping faults and projected that sequences on the slowest faults would persist for more than 2,000 years. In slowly deforming regions far from plate boundaries, long-lived aftershock sequences can therefore be mistaken for ordinary background activity, which can inflate estimates of future hazard (Toda and Stein 2018)."
+        ]
+      },
+      {
+        "h": "What Makes Earthquake Shaking Damaging: Distance, Depth, Soil and Duration",
+        "p": [
+          "Magnitude measures the size of the earthquake source, not the shaking at a particular place. The U.S. Geological Survey (USGS) lists the type of earthquake, its depth, the distance from the fault rupture and the ground material, from soft soil to bedrock, among the factors that control what people feel, along with building construction (USGS n.d.a). Shaking is generally strongest near the rupturing fault and weakens with distance. A deep earthquake places that distance between the source and everything on the surface above it.",
+          "Local ground conditions can outweigh distance. Research by the Southern California Earthquake Center (SCEC) and USGS found that in a single earthquake, shaking at one site can easily be ten times stronger than at a neighboring site the same distance from the fault. The most important local factors were the softness of the rock or soil near the surface and the thickness of sediments above hard bedrock (SCEC n.d.; Field et al. 2000).",
+          "Mexico City in 1985 is the standard example. The magnitude 8.0 earthquake of 19 September 1985 struck off the Pacific coast of Michoacán, roughly 350 to 400 kilometers from the capital (Furumura and Kennett 1998). Peak ground accelerations in the epicentral region were low, yet the damage in Mexico City was severe (Anderson et al. 1986). Central parts of the city stand on soft, water-saturated clay deposited in a former lake. Measured against a site in the city’s hill zone, the lake-bed sites amplified ground motion by factors of 8 to 56 at their natural periods (Singh et al. 1988). Duration added to the effect: strong shaking in the lake-bed zone lasted more than three minutes (Furumura and Kennett 1998). Estimates of the number of deaths vary widely; the figure attributed to USGS is at least 9,500, and other estimates are considerably higher (Live Science n.d.)."
+        ]
+      },
+      {
+        "h": "Liquefaction and Earthquake-Triggered Landslides",
+        "p": [
+          "Liquefaction occurs when strong shaking strikes loose sand and silt saturated with water and the solid ground begins to behave like a liquid (USGS n.d.b). The shaking raises the water pressure between grains until they lose contact with one another. The ground can then lose its ability to support buildings, flow down even gentle slopes and erupt at the surface as sand boils (USGS n.d.c).",
+          "The magnitude 7.5 Niigata earthquake of 16 June 1964 caused extensive damage to engineering structures through liquefaction of sandy soil (Seed and Idriss 1967). At Kawagishi-cho, near the Shinano River, apartment buildings suffered bearing-capacity failures and tilted severely while remaining structurally almost intact (University of Washington n.d.). The analysis that Seed and Idriss (1967) published after the earthquake became a foundation of modern liquefaction assessment.",
+          "The 2010–2011 Canterbury earthquake sequence in New Zealand repeated the lesson in a modern city. The magnitude 6.2 earthquake of 22 February 2011 killed 185 people (Canterbury Earthquakes Royal Commission n.d.). Liquefaction in native soils was greater in both extent and severity than in the magnitude 7.1 Darfield earthquake of September 2010. It was most severe in residential areas east of the central business district, where strong shaking near the fault, a water table about one meter below the surface and highly susceptible soils combined. In the city center, liquefaction caused buildings to settle and tilt (Cubrinovski et al. 2011).",
+          "Landslides are another common secondary hazard. A study of 40 historical earthquakes found that rock falls, disrupted soil slides and rock slides were the most abundant types and were triggered by the weakest shaking. The maximum area likely to be affected grows from essentially zero at about magnitude 4.0 to some 500,000 square kilometers at magnitude 9.2 (Keefer 1984). The magnitude 7.9 Wenchuan earthquake in China on 12 May 2008 triggered more than 60,000 landslides (Zhang et al. 2016). Estimates of the deaths they caused range from about 20,000 (Yin et al. 2009) to 25,000–30,000 (Zhang et al. 2016).",
+          "Tsunamis form when shallow faults slip during large earthquakes and rapidly displace the seafloor vertically, most often at subduction zones (USGS n.d.d). How they travel and what to do is explained in the Tsunamis guide in the Science section."
+        ]
+      },
+      {
+        "h": "Induced Earthquakes: Wastewater Injection in Oklahoma",
+        "p": [
+          "Human activity can also trigger earthquakes. Pumping fluid deep underground raises the fluid pressure within faults, which can allow a stressed fault to slip (Ellsworth 2013). Hydraulic fracturing, or fracking, directly causes only a small percentage of felt induced earthquakes. Disposal of wastewater in deep wells carries a higher risk, because it injects larger volumes over longer periods (Ellsworth 2013; Rubinstein and Mahani 2015). Most wells cause no felt earthquakes: of roughly 35,000 active wastewater disposal wells and tens of thousands of other injection and fracking wells in the United States, only a few dozen were known to have induced felt earthquakes, and induced seismicity can occur 10 kilometers or more from the injection point (Rubinstein and Mahani 2015).",
+          "Oklahoma became the clearest case. According to USGS, most of the state’s earthquakes are caused by wastewater disposal, and more than 90 percent of the injected wastewater is a byproduct of oil extraction rather than spent fracking fluid. From 2014 through 2017 the state’s rate of magnitude 3 and larger earthquakes exceeded California’s (USGS n.d.e). The Oklahoma Geological Survey counted about one such earthquake per year from 1976 to 2007 and a record 903 in 2015. After state regulators ordered some wells closed and injection volumes cut in others from mid-2015, the count fell to 623 in 2016, 302 in 2017 and 196 in 2018 (Associated Press 2019).",
+          "The largest earthquake recorded in Oklahoma struck near Pawnee on 3 September 2016. The magnitude 5.8 event ruptured a previously unmapped fault in the crystalline basement rock. Yeck et al. (2017) noted that if it was induced, it would be the largest earthquake known to have been induced by fluid injection, and that it occurred after volume reductions had begun. They concluded that the long-lasting effects of injected fluid spreading through the rock make induced hazard difficult to reduce quickly (Yeck et al. 2017)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "How long do aftershocks last after a big earthquake?",
+        "a": "Aftershocks continue for as long as the earthquake rate in the area stays above its level before the mainshock. On fast-slipping faults a sequence can fade within about a month, while on slowly slipping faults far from plate boundaries it may persist for centuries or longer. The rate falls quickly at first: the tenth day usually brings about a tenth as many aftershocks as the first."
+      },
+      {
+        "q": "Can an aftershock be bigger than the main earthquake?",
+        "a": "By definition, no. The mainshock is the largest earthquake in a cluster, so if a later earthquake is larger, the first is reclassified as a foreshock. On average the largest aftershock is about 1.2 magnitude units smaller than the mainshock, a rule known as Båth’s law."
+      },
+      {
+        "q": "What is the Gutenberg–Richter law?",
+        "a": "It describes how the number of earthquakes falls as magnitude rises. The slope, called the b-value, is close to 1 in most global catalogues, which means about ten times as many magnitude 5 earthquakes as magnitude 6 earthquakes. The b-value varies with faulting style and depth."
+      },
+      {
+        "q": "Why was Mexico City so badly damaged in 1985 when the epicenter was far away?",
+        "a": "Central Mexico City is built on soft, water-saturated clay from a former lake. Those sediments amplified the shaking by factors of 8 to 56 compared with firmer ground in the city’s hills, and the strong motion lasted more than three minutes, even though the epicenter lay roughly 350 to 400 kilometers away."
+      },
+      {
+        "q": "What is liquefaction in an earthquake?",
+        "a": "Liquefaction happens when shaking raises the water pressure in loose, water-saturated sand or silt until the grains lose contact and the ground behaves like a liquid. Buildings can sink or tilt, as they did in Niigata in 1964 and Christchurch in 2011."
+      },
+      {
+        "q": "Does fracking cause earthquakes in Oklahoma?",
+        "a": "Mostly not. USGS attributes most of Oklahoma’s earthquakes to deep disposal of wastewater, most of which is a byproduct of oil extraction rather than fracking fluid. Hydraulic fracturing directly causes only a small percentage of felt induced earthquakes."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Anderson, J. G., P. Bodin, J. N. Brune, J. Prince, S. K. Singh, R. Quaas, and M. Onate. 1986. \"Strong Ground Motion from the Michoacan, Mexico, Earthquake.\" Science 233 (4768): 1043–49.",
+        "url": null
+      },
+      {
+        "text": "Associated Press. 2019. \"For Third Straight Year, Oklahoma Sees Decrease in Quakes.\" Insurance Journal, January 2, 2019. https://www.insurancejournal.com/news/southcentral/2019/01/02/513352.htm.",
+        "url": "https://www.insurancejournal.com/news/southcentral/2019/01/02/513352.htm"
+      },
+      {
+        "text": "Båth, Markus. 1965. \"Lateral Inhomogeneities of the Upper Mantle.\" Tectonophysics 2 (6): 483–514. https://doi.org/10.1016/0040-1951(65)90003-X.",
+        "url": "https://doi.org/10.1016/0040-1951(65)90003-X"
+      },
+      {
+        "text": "Canterbury Earthquakes Royal Commission. n.d. \"Canterbury Earthquakes Royal Commission.\" https://canterbury.royalcommission.govt.nz/.",
+        "url": "https://canterbury.royalcommission.govt.nz/"
+      },
+      {
+        "text": "Cubrinovski, Misko, Brendon Bradley, Liam Wotherspoon, Russell Green, Jonathan Bray, Clint Wood, Michael Pender, et al. 2011. \"Geotechnical Aspects of the 22 February 2011 Christchurch Earthquake.\" Bulletin of the New Zealand Society for Earthquake Engineering 44 (4): 205–26. https://doi.org/10.5459/bnzsee.44.4.205-226.",
+        "url": "https://doi.org/10.5459/bnzsee.44.4.205-226"
+      },
+      {
+        "text": "Ellsworth, William L. 2013. \"Injection-Induced Earthquakes.\" Science 341 (6142). https://doi.org/10.1126/science.1225942.",
+        "url": "https://doi.org/10.1126/science.1225942"
+      },
+      {
+        "text": "Field, Edward H., and the SCEC Phase III Working Group. 2000. \"Accounting for Site Effects in Probabilistic Seismic Hazard Analyses of Southern California: Overview of the SCEC Phase III Report.\" Bulletin of the Seismological Society of America 90 (6B): S1–31. https://doi.org/10.1785/0120000512.",
+        "url": "https://doi.org/10.1785/0120000512"
+      },
+      {
+        "text": "Frohlich, Cliff, and Scott D. Davis. 1993. \"Teleseismic b Values; or, Much Ado about 1.0.\" Journal of Geophysical Research 98 (B1): 631–44. https://doi.org/10.1029/92JB01891.",
+        "url": "https://doi.org/10.1029/92JB01891"
+      },
+      {
+        "text": "Furumura, T., and B. L. N. Kennett. 1998. \"On the Nature of Regional Seismic Phases—III. The Influence of Crustal Heterogeneity on the Wavefield for Subduction Earthquakes: The 1985 Michoacan and 1995 Copala, Guerrero, Mexico Earthquakes.\" Geophysical Journal International 135: 1060–84.",
+        "url": null
+      },
+      {
+        "text": "Gutenberg, B., and C. F. Richter. 1944. \"Frequency of Earthquakes in California.\" Bulletin of the Seismological Society of America 34 (4): 185–88. https://doi.org/10.1785/BSSA0340040185.",
+        "url": "https://doi.org/10.1785/BSSA0340040185"
+      },
+      {
+        "text": "Helmstetter, Agnès, and Didier Sornette. 2003. \"Båth’s Law Derived from the Gutenberg-Richter Law and from Aftershock Properties.\" Geophysical Research Letters 30 (20): 2069. https://doi.org/10.1029/2003GL018186.",
+        "url": "https://doi.org/10.1029/2003GL018186"
+      },
+      {
+        "text": "Jones, Lucile M., and Paul A. Reasenberg. 1996. \"Some Facts about Aftershocks to Large Earthquakes in California.\" U.S. Geological Survey Open-File Report 96-266. https://doi.org/10.3133/ofr96266.",
+        "url": "https://doi.org/10.3133/ofr96266"
+      },
+      {
+        "text": "Keefer, David K. 1984. \"Landslides Caused by Earthquakes.\" Geological Society of America Bulletin 95 (4): 406–21. https://doi.org/10.1130/0016-7606(1984)95<406:LCBE>2.0.CO;2.",
+        "url": "https://doi.org/10.1130/0016-7606(1984)95<406:LCBE>2.0.CO;2"
+      },
+      {
+        "text": "Live Science. n.d. \"Seismic History: The Deadly 1985 Mexico City Earthquake.\" https://www.livescience.com/30791-deadly-1985-mexico-city-earthquake.html.",
+        "url": "https://www.livescience.com/30791-deadly-1985-mexico-city-earthquake.html"
+      },
+      {
+        "text": "Mori, Jim, and Rachel E. Abercrombie. 1997. \"Depth Dependence of Earthquake Frequency-Magnitude Distributions in California: Implications for Rupture Initiation.\" Journal of Geophysical Research 102 (B7): 15081–90. https://doi.org/10.1029/97JB01356.",
+        "url": "https://doi.org/10.1029/97JB01356"
+      },
+      {
+        "text": "Rubinstein, Justin L., and Alireza Babaie Mahani. 2015. \"Myths and Facts on Wastewater Injection, Hydraulic Fracturing, Enhanced Oil Recovery, and Induced Seismicity.\" Seismological Research Letters 86 (4): 1060–67. https://doi.org/10.1785/0220150067.",
+        "url": "https://doi.org/10.1785/0220150067"
+      },
+      {
+        "text": "SCEC (Southern California Earthquake Center). n.d. \"Phase III Fact Sheet: Finding the Hotspots.\" https://ceo.scec.org/phase3/factsheet.html.",
+        "url": "https://ceo.scec.org/phase3/factsheet.html"
+      },
+      {
+        "text": "SCEDC (Southern California Earthquake Data Center). 1999. \"Earthquake Commentary for May, 1999.\" https://service.scedc.caltech.edu/ftp/ca.earthquakes/1999/May1999.html.",
+        "url": "https://service.scedc.caltech.edu/ftp/ca.earthquakes/1999/May1999.html"
+      },
+      {
+        "text": "SCEDC. 2001. \"Earthquake Commentary for November, 2001.\" https://service.scedc.caltech.edu/ftp/ca.earthquakes/2001/November2001.html.",
+        "url": "https://service.scedc.caltech.edu/ftp/ca.earthquakes/2001/November2001.html"
+      },
+      {
+        "text": "Seed, H. Bolton, and I. M. Idriss. 1967. \"Analysis of Soil Liquefaction: Niigata Earthquake.\" Journal of the Soil Mechanics and Foundations Division 93 (3): 83–108. https://doi.org/10.1061/JSFEAQ.0000981.",
+        "url": "https://doi.org/10.1061/JSFEAQ.0000981"
+      },
+      {
+        "text": "Singh, S. K., J. Lermo, T. Domínguez, M. Ordaz, J. M. Espinosa, E. Mena, and R. Quaas. 1988. \"The Mexico Earthquake of September 19, 1985—A Study of Amplification of Seismic Waves in the Valley of Mexico with Respect to a Hill Zone Site.\" Earthquake Spectra 4 (4): 653–73. https://doi.org/10.1193/1.1585496.",
+        "url": "https://doi.org/10.1193/1.1585496"
+      },
+      {
+        "text": "Toda, Shinji, and Ross S. Stein. 2018. \"Why Aftershock Duration Matters for Probabilistic Seismic Hazard Assessment.\" Bulletin of the Seismological Society of America 108 (3A): 1414–26. https://doi.org/10.1785/0120170270.",
+        "url": "https://doi.org/10.1785/0120170270"
+      },
+      {
+        "text": "University of Washington. n.d. \"Niigata, Japan Earthquake.\" Soil Liquefaction Web Site, Department of Civil and Environmental Engineering. https://depts.washington.edu/liquefy/html/quakes/niigata/niigata.html.",
+        "url": "https://depts.washington.edu/liquefy/html/quakes/niigata/niigata.html"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. \"Earthquakes: What You Feel.\" https://www.usgs.gov/media/images/earthquakes-what-you-feel.",
+        "url": "https://www.usgs.gov/media/images/earthquakes-what-you-feel"
+      },
+      {
+        "text": "USGS. n.d.b. \"EarthWord: Liquefaction.\" https://www.usgs.gov/news/earthword-liquefaction.",
+        "url": "https://www.usgs.gov/news/earthword-liquefaction"
+      },
+      {
+        "text": "USGS. n.d.c. \"San Francisco Bay Region Geology and Geologic Hazards: About Liquefaction.\" Archived copy. https://webarchive.library.unt.edu/eot2008/20081108052822/http://geomaps.wr.usgs.gov/sfgeo/liquefaction/aboutliq.html.",
+        "url": "https://webarchive.library.unt.edu/eot2008/20081108052822/http://geomaps.wr.usgs.gov/sfgeo/liquefaction/aboutliq.html"
+      },
+      {
+        "text": "USGS. n.d.d. \"Tsunamis.\" Subduction Zone Science. https://www.usgs.gov/special-topics/subduction-zone-science/science/tsunamis.",
+        "url": "https://www.usgs.gov/special-topics/subduction-zone-science/science/tsunamis"
+      },
+      {
+        "text": "USGS. n.d.e. \"Oklahoma Has Had a Surge of Earthquakes since 2009. Are They Due to Fracking?\" https://www.usgs.gov/faqs/oklahoma-has-had-surge-earthquakes-2009-are-they-due-fracking.",
+        "url": "https://www.usgs.gov/faqs/oklahoma-has-had-surge-earthquakes-2009-are-they-due-fracking"
+      },
+      {
+        "text": "Utsu, Tokuji, Yosihiko Ogata, and Ritsuko S. Matsu’ura. 1995. \"The Centenary of the Omori Formula for a Decay Law of Aftershock Activity.\" Journal of Physics of the Earth 43 (1): 1–33. https://doi.org/10.4294/jpe1952.43.1.",
+        "url": "https://doi.org/10.4294/jpe1952.43.1"
+      },
+      {
+        "text": "Yeck, W. L., G. P. Hayes, D. E. McNamara, J. L. Rubinstein, W. D. Barnhart, P. S. Earle, and H. M. Benz. 2017. \"Oklahoma Experiences Largest Earthquake during Ongoing Regional Wastewater Injection Hazard Mitigation Efforts.\" Geophysical Research Letters 44: 711–17. https://doi.org/10.1002/2016GL071685.",
+        "url": "https://doi.org/10.1002/2016GL071685"
+      },
+      {
+        "text": "Yin, Yueping, Fawu Wang, and Peng Sun. 2009. \"Landslide Hazards Triggered by the 2008 Wenchuan Earthquake, Sichuan, China.\" Landslides 6 (2): 139–52. https://doi.org/10.1007/s10346-009-0148-5.",
+        "url": "https://doi.org/10.1007/s10346-009-0148-5"
+      },
+      {
+        "text": "Zhang, Shuai, Limin Zhang, Suzanne Lacasse, and Farrokh Nadim. 2016. \"Evolution of Mass Movements near Epicentre of Wenchuan Earthquake, the First Eight Years.\" Scientific Reports 6: 36154. https://doi.org/10.1038/srep36154.",
+        "url": "https://doi.org/10.1038/srep36154"
+      }
+    ]
   }
 ]
