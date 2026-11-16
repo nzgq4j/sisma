@@ -1,1 +1,446 @@
-{}
+{
+  "earthquake-prediction": {
+    "title": "Depremler Neden Önceden Kestirilemez ve Sismoloji Bunun Yerine Ne Sunar",
+    "dek": "Bir deprem tahmini; tarih ve saat, yer ve büyüklük içermelidir. Bunun büyük bir deprem için neden hiç başarılamadığını ve sismolojinin bunun yerine neler sunduğunu burada anlatıyoruz.",
+    "sections": [
+      {
+        "h": "Terimleri tanımlamak",
+        "p": [
+          "ABD Jeolojik Araştırmalar Kurumu (USGS), ne kendisinin ne de başka herhangi bir bilim insanının bugüne kadar büyük bir depremi önceden tahmin edebildiğini bildirir (USGS n.d.a). Bu ifade katı bir tanıma dayanır. Bir tahmin tarihi ve saati, yeri ve büyüklüğü vermelidir; bu üçünden birini atlayan bir iddia sınanamaz (USGS n.d.a).",
+          "Sismoloji bununla ilişkili üç ürün üretir. Uzun vadeli olasılıklar, bir bölgede belirli büyüklükte bir depremin yıllar ya da on yıllar içinde olma ihtimalini verir ve genellikle tarihsel depremlerin ortalama sıklığından hesaplanır. Öngörüler benzer bir akıl yürütmeyi daha kısa zaman aralıklarına uygular ve genellikle artçı depremler için kullanılır. Erken uyarı ise kırılma başladıktan sonra gönderilen bir uyarıdır; hasar verici dalgalar gelmeden saniyeler ile onlarca saniye önce haber verir (USGS n.d.b). Her ürün farklı bir soruyu yanıtlar ve kamuoyundaki tartışmalarda bunlar çoğu zaman birbirine karıştırılır.",
+          "Bu tanım, başarılı tahmin iddialarının neden incelemeye nadiren dayanabildiğini de açıklar. USGS’ye göre bu tür iddialar genellikle üç unsurdan en az birini dışarıda bırakır; bir deprem iddiaya kabaca benzediğinde de iddia sahibi, unsurlardan biri ya da birkaçı gerçekte olandan çok farklı olsa bile bunu başarı sayar (USGS n.d.a)."
+        ]
+      },
+      {
+        "h": "İki dönüm noktası niteliğinde sınama",
+        "p": [
+          "Çin’in kuzeydoğusundaki 1975 Haicheng depremi, en çok anılan başarıdır. Yetkililer, sonradan öncü deprem olduğu anlaşılan küçük depremlerin sayısı artınca ve bölgenin dört bir yanından olağandışı olgulara dair haberler gelince yaklaşık bir milyon nüfuslu bir kentin boşaltılmasını emretti. Günler sonra 7,3 büyüklüğünde bir deprem oldu. USGS, tahliye yapılmasaydı ölü ve yaralı sayısının 150.000’i aşacağına dair bir tahmine yer verir; kayıtlara geçen bilanço 2.041 ölü ve 27.538 yaralıydı (USGS n.d.c). 1976’da Çin laboratuvarlarını ziyaret eden bir ABD heyeti, kararın esas olarak belirgin öncü deprem dizisine dayandığı sonucuna vardı ve yöntemin diğer kısımlarını değerlendirmenin güç olduğunu belirtti (USGS n.d.c).",
+          "Ertesi yıl Tangshan’da hiçbir uyarı olmadan 7,6 büyüklüğünde bir deprem oldu. Haicheng yakınlarında görülen öncü belirtilerin hiçbiri ortaya çıkmamıştı ve tahmini ölü sayısı 250.000’di (USGS n.d.c). Aralarında yalnızca bir yıl bulunan bu iki olay, bir depremden önce gözlenebilen işaretlerin bir başka depremden önce hiç görülmeyebileceğini gösterir.",
+          "ABD de Kaliforniya’daki Parkfield’da kendi sınamasını yaptı. USGS 1985’te, oldukça düzenli aralıklarla tekrarlanan benzer depremlerin kaydına dayanarak San Andreas Fayı’nın o kesiminde 1993’ten önce 6 büyüklüğünde bir deprem olacağına dair uzun vadeli bir tahmin yayımladı (Bakun et al. 2005). Bu süre deprem olmadan doldu. 6,0 büyüklüğündeki deprem on bir yıl sonra, 2004’te geldi. 1934 ve 1966 Parkfield depremlerinden 17 dakika önce öncü depremler olmuştu; oysa 2004 depremi belirgin öncü belirtiler olmadan geldi ve yazarlar, güvenilir kısa vadeli tahminin hâlâ erişilemez olduğu sonucuna vardı (Bakun et al. 2005).",
+          "Parkfield çalışmasının yazarları bu sonuçtan pratik bir ders çıkardı. Depremlerin etkisini bugünden azaltmak için hasar verici yer sarsıntısının şiddetini ve yerini tahmin eden yeni nesil modellerin geliştirilmesini önerdiler; bu hedef, bir kırılmanın ne zaman başlayacağını bilmeye bağlı değildir (Bakun et al. 2005)."
+        ]
+      },
+      {
+        "h": "Öncü belirtiler neden güvenilmez çıkıyor",
+        "p": [
+          "Olağandışı küçük depremler de dahil olmak üzere önerilen öncü belirtilerin çoğu, ardından daha büyük bir deprem gelmeden sık sık ortaya çıkar; bu yüzden bazı depremlerden önce görülen bir işaret, tek başına bir tahmine dayanak olamaz (USGS n.d.a). Geller et al. (1997), öne sürülen binlerce öncü belirtinin genellikle ancak deprem olduktan sonra öncü belirti olarak tanımlandığını ekledi.",
+          "Öncü depremler bu güçlüğü açıkça gösterir. Daha önce ana şokların yarısından azında belgelenmişlerdi; ancak güney Kaliforniya’da 2008–2017 arasındaki 4 ve üzeri büyüklükteki ana şokları kapsayan yüksek çözünürlüklü bir katalog, bunların yüzde 72’sinden önce yerel arka plan düzeyinin belirgin biçimde üzerinde öncü deprem etkinliği olduğunu gösterdi (Trugman and Ross 2019). Bu bulgu geriye dönük bir bakıştır. Dünya genelinde bir depremin ardından bir hafta içinde yakınında daha büyük bir deprem olma olasılığı yaklaşık yüzde 5’tir (USGS n.d.b); yani depremlerin kabaca yüzde 95’inin ardından daha büyüğü gelmez. Büyüyecek dizileri daha sürerken ayırt edebilmek, çözülemeyen kısımdır."
+        ]
+      },
+      {
+        "h": "Sismolojinin sundukları",
+        "p": [
+          "Uygulamada en çok ağırlık taşıyan, uzun vadeli olasılıklardır. Bunlar yapı yönetmeliklerine ve depreme dayanıklı tasarıma yön verir; bu da onları toplulukları deprem hasarından korumada en önemli öngörü araçları yapar (Jordan et al. 2011). Kaliforniya’nın üçüncü Birleşik Kaliforniya Deprem Kırılması Öngörüsü (UCERF3), 1994 Northridge depremi büyüklüğündeki 6,7 büyüklüğünde bir depremin eyalette bir yerlerde yaklaşık her 6,3 yılda bir olduğunu tahmin eder; önceki modelde bu süre 4,8 yıldı. Model ayrıca 8 ve üzeri büyüklükte bir depremin 30 yıllık olasılığını yüzde 4,7’den yüzde 7’ye yükseltti (SCEC n.d.). 30 yıllık süre, tipik bir konut kredisinin vadesine denk gelir. Bu tür öngörüler depremlerin nerede ve ne zaman olabileceğini tanımlar; ayrı yer hareketi modelleri ise sarsıntının ne kadar güçlü hissedileceğini tanımlar (SCEC n.d.).",
+          "Kısa vadeli öngörü artçı depremler üzerinde yoğunlaşır. Salgın Tipi Artçı Deprem Dizisi (ETAS) modeli, her depremi kendi artçılarını tetikleyebilecek bir olay olarak ele alır; 2024 tarihli bir derleme için görüşlerine başvurulan öngörü uzmanlarından oluşan bir kurul, bu modeli tercih edilen varsayılan model olarak gösterdi (Mizrahi 2024). İtalya öngörüleri haftalık yayımlarken Yeni Zelanda ve ABD bunları belirli diziler için yayımlar (Mizrahi 2024). Bu tür sistemleri işleten ülke sayısı azdır ve bir modelin uygun olup olmadığına karar vermek için üzerinde uzlaşılmış sınamalar yoktur (Mizrahi 2024). Doğru uygulandığında kısa vadeli öngörülerin, örneğin büyük depremlerin ardından gelen artçıları önceden kestirmede, operasyonel değeri vardır (Jordan et al. 2011). Bu modellerin ortak bir sınırlılığı vardır: gelecekteki büyük depremleri yüksek olasılıkla öngörmede başarısız olurlar (Mizrahi 2024). Uluslararası Deprem Öngörüsü Komisyonu, kısa vadeli olasılıkların kat kat değişebildiğini ama mutlak değer olarak genellikle düşük kaldığını ve büyük depremlerin belirli bölgeler için on yıllardan kısa zaman ölçeklerinde güvenilir biçimde tahmin edilemeyeceğini belirtti (Jordan et al. 2011).",
+          "Erken uyarı, hedefi önceden bilmekten hızlı algılamaya kaydırır. ABD’nin Batı Kıyısı’ndaki sistem ShakeAlert, veri işleme ve mesaj iletimi sismik dalgaların kendisinden daha hızlı olduğu için işe yarar. Uyarı süresi depreme olan uzaklığa, işleme hızına ve uyarı için seçilen sarsıntı düzeyine bağlıdır. Loma Prieta büyüklüğündeki bir deprem için bir USGS analizi, uyarı sürelerinin hiç olmamasından yirmi saniyeye kadar değiştiğini buldu (USGS 2019)."
+        ]
+      },
+      {
+        "h": "Araştırmanın ön cephesi",
+        "p": [
+          "Yavaş kayma, araştırma yollarından birini sunar. 2011’deki 9,0 büyüklüğündeki Tōhoku-Oki depreminden önceki haftalarda iki küçük deprem dizisi, günde 2 ila 10 kilometre hızla sonradan merkez üssü olacak noktaya doğru göç etti. Kato et al. (2012) bunları levha sınırındaki yavaş kayma olarak yorumladı; ikinci dizinin büyük olasılıkla ana kırılmanın başlamasına yardım eden gerilimi eklediğini öne sürdü. Çalışma tek bir depremi kapsar ve yazarlar gerilime yapılan katkıyı bir olasılık olarak sundu. Cascadia’da Hulbert et al. (2020), sürekli sismik dalgalara makine öğrenmesi uyguladı ve 14 aylık yavaş kayma döngüsünü izleyen örüntüler buldu; bunu yavaş kaymanın tahmin edilebileceğine dair bir kanıt olarak sundular. Yavaş kaymayı, hızlı depremlerde hâlâ yakalanamayan bir süreç olan çekirdeklenmeye açılan bir pencere olarak görüyorlar (Hulbert et al. 2020).",
+          "Makine öğrenmesi karışık sonuçlar verdi. Rouet-Leduc et al. (2017), bir laboratuvar fayından gelen akustik sinyalle beslenen bir modelin, fay kırılmadan önce kalan süreyi tahmin edebildiğini gösterdi. Laboratuvardaki makaslama hızları gerçek faylarınkini kat kat aşar ve araştırmacılar yöntemi gerçek depremlere genişletme konusunda temkinli olduklarını söyledi (Physics Today 2017).",
+          "2018’de geniş yankı uyandıran bir çalışma, artçı depremlerin nerede olduğunu haritalamak için bir sinir ağını 131.000’den fazla ana şok ve artçı çifti üzerinde eğitti (DeVries et al. 2018). Mignan and Broccardo (2019), aynı başarımı iki parametreli bir lojistik regresyonla yeniden elde etti; özgün ağda ise 13.451 parametre vardı. Özgün çalışmanın yazarlarından Brendan Meade, daha basit bir modelle yaklaşık olarak elde edilebilmenin o makalenin temel sonuçlarından biri olduğunu söyleyerek yanıt verdi (Synced 2019)."
+        ]
+      },
+      {
+        "h": "L’Aquila’dan sonra iletişim",
+        "p": [
+          "Nisan 2009’da İtalya’nın L’Aquila kentinde 6,3 büyüklüğünde bir deprem oldu ve 309 kişi hayatını kaybetti. 2012’de bir mahkeme, altı bilim insanını ve bir devlet yetkilisini, halkı riske karşı uyarmadıkları gerekçesiyle taksirle öldürmekten suçlu buldu ve bilim insanlarını altı yıl hapis cezasına çarptırdı. Bir istinaf mahkemesi 2014’te bilim insanlarının mahkûmiyetlerini bozdu (The World 2014).",
+          "Bunun ardından İtalya Sivil Koruma Dairesi, Uluslararası Deprem Öngörüsü Komisyonu’nu atadı. Komisyonun 2011 raporu sistemli ve şeffaf operasyonel öngörü yapılmasını önerdi ve yalnızca bilim insanlarıyla halk arasındaki gayriresmî iletişime güvenmenin kafa karışıklığına yol açacağı uyarısında bulundu (Jordan et al. 2011)."
+        ]
+      },
+      {
+        "h": "Bilim insanlarının ayrıştığı noktalar",
+        "p": [
+          "Geller et al. (1997), küçük bir kırılmanın büyük bir kırılmaya dönüşüp dönüşmeyeceği Dünya’nın içindeki ölçülemeyen koşulların ayrıntılarına bağlı olduğu için depremlerin doğası gereği tahmin edilemez olduğunu savundu. Science dergisinde yorum yazanlar bu görüşün zor bir alana karşı gereğinden fazla olumsuz olduğunu yanıtladı; bir başka yorumcu ise elektromanyetik öncü belirtilere ilişkin hiçbir mekanizmanın güvenilir biçimde kullanılacak kadar iyi bilinmediğini kabul etti (\"Cannot Earthquakes Be Predicted?\" 1997).",
+          "USGS kendi odağını, kısa vadeli tahmini bu çabanın dışında tutarak, daha güvenli yapılar aracılığıyla deprem tehlikesinin uzun vadede azaltılması olarak tanımlar (USGS n.d.a). Kanıtlar her iki yorumu da destekler. On yıllardır süren izleme, doğrulanmış hiçbir kısa vadeli yöntem ortaya koymadı; böyle bir yöntemin imkânsız olduğuna dair bir kanıt da yok. Daha yoğun ölçüm ağları, sürekli sismik kayıtlar ve yavaş kayma gözlemleri, araştırmacıların sınayabileceği alanı genişletiyor. Her yeni iddia, Parkfield’da uygulanan ölçütle karşılaşır: önceden açıklanmış belirli bir zaman, yer ve büyüklük."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Bilim insanları depremi önceden tahmin edebilir mi?",
+        "a": "Hayır. ABD Jeolojik Araştırmalar Kurumu, ne kendisinin ne de başka herhangi bir bilim insanının bugüne kadar büyük bir depremi önceden tahmin edebildiğini bildirir. Bir tahmin tarihi ve saati, yeri ve büyüklüğü vermelidir; bu üçünden birini atlayan bir iddia sınanamaz."
+      },
+      {
+        "q": "Deprem öngörüsü, deprem olasılığı ve erken uyarı arasındaki fark nedir?",
+        "a": "Uzun vadeli olasılıklar, bir bölgede belirli büyüklükte bir depremin yıllar ya da on yıllar içinde olma ihtimalini verir. Öngörüler benzer bir akıl yürütmeyi daha kısa zaman aralıklarına uygular ve genellikle artçı depremler için kullanılır. Erken uyarı ise kırılma başladıktan sonra gönderilen bir uyarıdır; hasar verici dalgalar gelmeden saniyeler ile onlarca saniye önce haber verir."
+      },
+      {
+        "q": "1975 Haicheng depremi önceden tahmin edildi mi?",
+        "a": "Yetkililer, sonradan öncü deprem olduğu anlaşılan küçük depremlerin sayısı artınca Haicheng’i boşalttı ve günler sonra 7,3 büyüklüğünde bir deprem oldu. Bir ABD heyeti, kararın esas olarak öncü deprem dizisine dayandığı sonucuna vardı. Ertesi yıl 7,6 büyüklüğündeki Tangshan depremi bu işaretlerin hiçbiri görülmeden oldu."
+      },
+      {
+        "q": "Öncü depremler büyük bir depremin habercisi mi?",
+        "a": "Güvenilir biçimde değil. Güney Kaliforniya’da 2008–2017 arasındaki 4 ve üzeri büyüklükteki ana şokların yüzde 72’sinden önce artmış öncü deprem etkinliği görüldü; ancak dünya genelinde depremlerin yalnızca yaklaşık yüzde 5’inin ardından bir hafta içinde yakınında daha büyük bir deprem olur."
+      },
+      {
+        "q": "Yapay zekâ ve makine öğrenmesi depremi tahmin edebilir mi?",
+        "a": "Henüz değil. Modeller laboratuvar faylarında kırılmaya kalan süreyi tahmin etti ve Cascadia’daki yavaş kayma döngüsünü izleyen örüntüler buldu; ancak geniş yankı uyandıran bir derin öğrenme artçı deprem çalışmasının başarımına iki parametreli bir lojistik regresyonla ulaşıldı."
+      },
+      {
+        "q": "Deprem erken uyarı sistemi kaç saniye önceden uyarır?",
+        "a": "Bu; depreme olan uzaklığa, işleme hızına ve uyarı için seçilen sarsıntı düzeyine bağlıdır. 1989 Loma Prieta depremi büyüklüğündeki bir deprem için yapılan bir USGS ShakeAlert analizi, uyarı sürelerinin hiç olmamasından yirmi saniyeye kadar değiştiğini buldu."
+      }
+    ]
+  },
+  "plate-tectonics-subduction": {
+    "title": "Levha Tektoniği, Dalma-Batma Zonları ve Megabindirme Depremleri",
+    "dek": "Bir levhanın diğerinin altına daldığı yerlerde sınır yüzyıllar boyunca kilitli kalabilir ve sonra 9 büyüklüğünde bir depremle kırılabilir. Dalma-batmanın nasıl işlediğini, büyük megabindirme depremlerinin neler gösterdiğini ve bilim insanlarının Cascadia’nın son kırılmasını 1700 yılında bir kış gecesine nasıl tarihlendirdiğini burada anlatıyoruz.",
+    "sections": [
+      {
+        "h": "Tektonik levhalar nasıl ve neden hareket eder",
+        "p": [
+          "Dünya’nın dış kabuğu, birbirine göre hareket eden katı levhalara bölünmüştür. ABD Jeolojik Araştırmalar Kurumu (USGS), bu levhaların hızını kabaca tırnakların uzama hızına benzetir. Her levha kendi hızında ve kendi yönünde hareket eder; GPS bugün kabuk hareketini yılda bir milimetrenin kesri kadar bir hassasiyetle ölçebilir (USGS n.d.a).",
+          "Bu hareketin ardındaki kuvvetler, Forsyth and Uyeda (1975) tarafından yapılan klasik bir çalışmada tartıldı. Yazarlar, levhaları süren kuvvetlerle onlara direnen kuvvetleri karşılaştırmak için tek tek levhalara etki eden torkları dengelediler. Analizleri, derin deniz çukurlarında yoğun okyanus levhası parçalarının batmasını asıl itici kuvvet olarak gösterdi; bugün genellikle levha çekmesi denen bu etki, büyük ölçüde mantodaki viskoz dirençle dengelenir (Forsyth and Uyeda 1975). Daha küçük ikinci bir kuvvet olan sırt itmesi, okyanus ortası sırtlarda yeni deniz tabanının oluştuğu yerlerde etki eder.",
+          "Levha çekmesi, dalma-batma zonlarını levha tektoniğinin merkezine yerleştirir. Yaşlı okyanus levhalarının mantoya geri battığı yerler, aynı zamanda en büyük miktarda gerinimi biriktiren ve boşaltan yerlerdir; kaydedilmiş en büyük depremlerin buralarda olmasının nedeni budur."
+        ]
+      },
+      {
+        "h": "Üç tür levha sınırı",
+        "p": [
+          "Levhalar üç ana sınır türünde etkileşir (Kious and Tilling 1996). Iraksak sınırlarda levhalar birbirinden uzaklaşır ve mantodan yükselen magmadan yeni kabuk oluşur. Bunun başlıca örneği okyanus ortası sırtlarıdır.",
+          "Dönüşüm sınırlarında levhalar birbirinin yanından yatay olarak kayar; kabuk ne oluşur ne de yok olur (Kious and Tilling 1996). En bilinen örnek Kaliforniya’daki San Andreas Fayı’dır.",
+          "Yakınsak sınırlarda levhalar birbirine doğru hareket eder ve bir levha diğerinin altına daldıkça kabuk yok olur (Kious and Tilling 1996). Okyanus litosferinin başka bir levhayla buluştuğu yerde daha yoğun olan okyanus levhası batar ve sınır bir dalma-batma zonuna dönüşür. Kious and Tilling (1996), bazı levha sınırlarının keskin çizgiler değil geniş deformasyon kuşakları olduğunu da belirtir; bu, üç türün daha karmaşık bir yüzeyin idealleştirilmiş hâli olduğunu hatırlatır."
+        ]
+      },
+      {
+        "h": "Dalma-batma zonu nedir?",
+        "p": [
+          "Dalma-batma zonu, bir levhanın diğerinin altından mantoya daldığı yakınsak bir sınırdır. Yüzeyde derin bir okyanus çukuruyla belirginleşir; bir okyanus levhasının bir kıtanın altına daldığı yerlerde ise And Dağları ve Cascade Dağları gibi volkan zincirleri iç kesimlerde yükselir (Kious and Tilling 1996).",
+          "İki levha arasındaki temas yüzeyi, megabindirme denen, çok geniş ve hafif eğimli bir faydır. Yaklaşık 25 kilometreden sığ derinliklerde bu ara yüzey takılıp kalabilir, yani kilitlenebilir ve boyunca gerilim birikir (USGS n.d.b). Büyük depremler arasındaki yüzlerce yılda süren sıkışma, üstteki levhanın kilitli bölgenin hemen üzerinde ve kara tarafında, binlerce kilometrekarelik bir alanda kabarıp yükselmesine yol açar (USGS n.d.b).",
+          "Biriken gerilim fayın dayanımını aştığında kilitli kesim serbest kalır ve depoladığı enerjiyi sismik dalgalar olarak açığa çıkarır (USGS n.d.b). Üstteki levha geri sıçrar. Yukarı doğru kabarmış olan alanlar aniden çökebilir; kırılmanın üzerindeki deniz tabanı ise yukarı itilir ve üstündeki okyanus suyunu yerinden eder. Büyük dalma-batma zonu tsunamilerini üreten, deniz tabanının bu ani düşey hareketidir."
+        ]
+      },
+      {
+        "h": "Megabindirme depremleri neden en büyükleridir",
+        "p": [
+          "USGS, dalma-batma zonlarının sığ megabindirme ara yüzeyini en büyük depremlerin kaynağı ve 9 ya da daha büyük kırılmalar üretebilen tek fay türü olarak tanımlar (USGS n.d.c). Bunun nedeni büyüklüğün nasıl ölçüldüğünde yatar. Moment büyüklüğü sismik momentten türetilir; sismik moment ise kayanın rijitliği, kayan fay alanı ve ortalama kayma miktarının çarpımıdır.",
+          "Bir megabindirme muazzam bir fay alanı sunar. Ara yüzey düşük bir açıyla eğimli olduğu için bir kırılma, çukur boyunca yüzlerce kilometre uzanmanın yanı sıra fayın eğimi doğrultusunda da çok aşağılara kadar yayılabilir. 7,1 ile 9,5 büyüklük arasındaki dalma-batma ara yüzeyi depremlerini inceleyen Allen and Hayes (2017), en büyük depremlerde kırılma genişliğinin yaklaşık 200 kilometrede sabitlendiğini buldu. Bu noktadan sonra depremler esas olarak çukur boyunca uzayarak ve daha fazla kayarak büyür; yazarlar, büyük depremlerin boyutunun daha çok fayın en dayanıklı yamaları üzerindeki ortalama kaymayla belirleniyor göründüğü sonucuna vardı (Allen and Hayes 2017).",
+          "Başka hiçbir fay türü bu uzunluğu, genişliği ve kaymayı bir araya getirmez. Modern aletlerle kaydedilen en büyük iki deprem de dalma-batma zonlarında oldu: 1960’taki 9,5 büyüklüğündeki Şili depremi ve 1964’teki 9,2 büyüklüğündeki Alaska depremi (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Şili 1960, Sumatra 2004 ve Tōhoku 2011",
+        "p": [
+          "22 Mayıs 1960 Şili depremi, 9,5 moment büyüklüğüyle kaydedilmiş en büyük depremdir (USGS n.d.d). İlk raporlar yüzey dalgası büyüklüğünü 8,6 olarak vermişti. Açığa çıkan enerjinin daha iyi bir ölçüsü olan moment büyüklüğü sonradan 9,5 olarak hesaplandı (USGS n.d.d). Deprem, Nazca Levhası’nın Güney Amerika’nın altına daldığı sınırı kırdı. Cifuentes (1989), artçı depremlerden ve kabuk deformasyonundan yola çıkarak kırılma uzunluğunu 920 ± 100 kilometre olarak hesapladı; kırılma, Şili Sırtı’nın Peru-Şili Çukuru ile buluştuğu noktanın yakınında sona eriyordu. USGS, güney Şili’de yaklaşık 1.655 ölü ve evsiz kalan yaklaşık 2 milyon kişi kaydeder. Tsunami Pasifik’i aşarak Hawaii’de çoğu Hilo’da olmak üzere 61 kişinin, Japonya’da ise 138 kişinin ölümüne yol açtı (USGS n.d.d).",
+          "26 Aralık 2004 Sumatra-Andaman depremi 9,1 büyüklüğündeydi (USGS n.d.f). Artçı depremleri, kuzeybatı Sumatra’dan Andaman Adaları’na uzanan yaklaşık 1.300 kilometre uzunluğunda bir kırılmanın sınırlarını çizdi (Lay et al. 2005). Ardından gelen Hint Okyanusu tsunamisi 227.898 ölü ya da kayıp ve ölü sayılan kişiye ve yaklaşık 1,7 milyon yerinden edilmiş kişiye yol açtı (USGS n.d.g).",
+          "11 Mart 2011 Tōhoku-Oki depremi, Pasifik Levhası’nın kuzey Japonya’nın altına daldığı Japonya Çukuru’nda oldu. USGS depremi 9,1 büyüklüğünde değerlendirir ve fayın yaklaşık 400 kilometre uzunluğunda ve 150 kilometre genişliğinde bir alanda 50 ila 60 metreye kadar hareket ettiğini bildirir (USGS n.d.e). Depremden iki haftadan kısa bir süre sonra yapılan deniz tabanı ölçümleri, çukurun yakınındaki deniz tabanının doğu-güneydoğuya yaklaşık 50 metre ve yukarı doğru 7 ila 10 metre hareket ettiğini gösterdi; bu, kırılmanın çukur eksenine ulaştığının kanıtıdır (Fujiwara et al. 2011). Japonya Ulusal Polis Teşkilatı, felaketten altı ay sonra en az 15.782 ölümü doğrulamıştı (Nippon.com n.d.)."
+        ]
+      },
+      {
+        "h": "Cascadia Dalma-Batma Zonu ve 1700 depremi",
+        "p": [
+          "Cascadia Dalma-Batma Zonu, açık denizde kuzey Vancouver Adası’ndan kuzey Kaliforniya’daki Cape Mendocino’ya kadar uzanır; burada Juan de Fuca Levhası ve komşuları Kuzey Amerika’nın altına dalar (PNSN n.d.). Juan de Fuca Levhası Kuzey Amerika’ya doğru yılda yaklaşık 4 santimetre hareket eder (PNSN n.d.).",
+          "Cascadia’daki son büyük deprem 26 Ocak 1700’de oldu ve büyüklüğünün 8,7 ile 9,2 arasında olduğu tahmin ediliyor (Wirth et al. 2025). Tarihi ve büyüklüğü, Japonya’da kaydedilen bir tsunamiden yola çıkarak yeniden kurgulandı. Samuraylar, tüccarlar ve köylüler, Ocak 1700’de herhangi bir yerel deprem olmadan gelen dalgaları yazıya geçirdi; sonraki araştırmacılar buna yetim tsunami adını verdi (Atwater et al. 2005). Satake et al. (1996), tarihsel ve jeolojik kayıtlar 1700’de oralarda büyük bir deprem göstermediği için Güney Amerika’yı, Alaska’yı ve Kamçatka’yı olası kaynaklar arasından çıkardı ve depremi Cascadia’da, 26 Ocak 1700’de yerel saatle yaklaşık 21.00’e yerleştirdi. Tsunami yüksekliklerinden yaklaşık 9 büyüklük hesapladılar; bu, dalma-batma zonunun tamamının kırıldığı anlamına gelir (Satake et al. 1996).",
+          "Daha sonraki bir analiz, Japonya’daki yedi noktada bildirilen ve yükseklikleri kabaca 1 ila 5 metre olan su baskınlarını, Cascadia’daki altı olası kaynaktan modellenen tsunamilerle karşılaştırdı. En olası deprem 9,0 moment büyüklüğündeydi ve açık denizdeki yaklaşık 1.100 kilometre uzunluğundaki bir zonda 19 metre kayma içeriyordu (Satake et al. 2003). Makul kaynakların aralığı 8,7 ile 9,2 arasındaki büyüklüklere karşılık gelir. Daha kısa kırılmalar Japonya’daki tsunamiyi ancak açık denizde 40 metreye varan kaymayla açıklayabiliyordu; bunların yol açacağı kara seviyesi değişimleri de Cascadia kıyısı boyunca bulunan jeolojik kanıtlarla çelişir (Satake et al. 2003)."
+        ]
+      },
+      {
+        "h": "Cascadia depremlerinin kanıtları: hayalet ormanlar ve gömülü bataklıklar",
+        "p": [
+          "Jeolojik kanıtlar ilk olarak kıyıdan geldi. Atwater (1987), Washington’ın en batısındaki kıyı ovalarının yaklaşık 7.000 yılda altı kez gelgit çamuruyla gömüldüğünü buldu; her gömülmeye büyük olasılıkla kabaca 0,5 ila 2 metrelik ani bir çökme yol açmıştı. Gömülü yüzeylerin en az üçündeki kum tabakaları, aynı olaylarla birlikte tsunamilerin de geldiğine işaret ediyordu (Atwater 1987). Bu, bir megabindirme kırıldığı anda üstteki levhanın çökmesi durumunda beklenen örüntüdür.",
+          "Aynı çökme hayalet ormanlar da yarattı. Washington’daki Copalis Nehri boyunca, acı sulu bir gelgit bataklığından ölü batı kırmızı sedirlerinden oluşan bir koru yükselir. Ağaçlar, en son Cascadia depremi sırasında kara alçalıp tuzlu su köklerini bastığında öldü (USGS n.d.i). Yamaguchi et al. (1997), ölümleri tarihlendirmek için ağaç halkalarını kullandı. Depremde ölen ağaçlar 1699’daki büyümelerini tamamlamış ama 1700’de büyümeye başlamamıştı; bu da çökmeyi 1699 ve 1700 büyüme mevsimlerinin arasına yerleştirdi ve Japon kayıtlarındaki tarihle örtüştü (Yamaguchi et al. 1997).",
+          "Açık denizdeki tortullar kaydı daha da geriye götürür. Su altı heyelanlarının bıraktığı çökeller olan türbiditler, kıta kenarı boyunca denizaltı kanallarında birikir. Goldfinger et al. (2012), bunları kuzey Cascadia’nın yaklaşık 500 kilometrelik bir kesiminde izledi ve 10.000 yıl boyunca eşzamanlı oluşmalarının en iyi büyük depremlerin tetiklemesiyle açıklanabileceği sonucuna vardı. Kayıt, düzenli bir döngüden çok, aralarında olağandışı uzun süreler bulunan ikişer ila beşer depremlik kümelere işaret eder; açık denizdeki kayıt, karada korunmuş daha kısa kayıtla da iyi bir uyum gösterir (Goldfinger et al. 2012).",
+          "USGS bugün önümüzdeki 50 yılda Cascadia’da yaklaşık 9 büyüklüğünde bir deprem olma olasılığını yüzde 10 ila 15 olarak tahmin ediyor (Wirth et al. 2025). Bu tahmin aynı kanıtlara dayanır: Japonya’daki yazılı kayıtlar, Pasifik kıyısındaki ölü ağaçlar ve gömülü topraklar ve deniz tabanındaki katmanlı tortullar."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Dalma-batma zonu nedir?",
+        "a": "Dalma-batma zonu, genellikle okyanusal olan bir levhanın diğerinin altından mantoya daldığı yakınsak bir levha sınırıdır. Derin bir okyanus çukuruyla belirginleşir; levhalar arasındaki temas yüzeyi, megabindirme denen büyük ve hafif eğimli bir faydır."
+      },
+      {
+        "q": "Megabindirme depremi nedir?",
+        "a": "Megabindirme depremi, bir dalma-batma zonunda iki levha arasındaki kilitli ara yüzeyin kırılmasıdır. Ara yüzeyin sığ kısmı takılı kaldığı sürece gerilim yüzyıllar boyunca birikir, sonra fay serbest kaldığında boşalır. USGS bu fayları, 9 ya da daha büyük depremler üretebilen tek faylar olarak tanımlar."
+      },
+      {
+        "q": "En büyük depremler neden dalma-batma zonlarında olur?",
+        "a": "Deprem büyüklüğü, kayan fay alanına ve kayma miktarına bağlıdır. Bir megabindirme düşük bir açıyla eğimlidir ve bir çukur boyunca yüzlerce kilometre uzanabilir; bu da ona diğer fay türlerinden çok daha geniş bir fay alanı kazandırır. En büyük depremlerde ayrıca onlarca metrelik kayma olur."
+      },
+      {
+        "q": "Dünyada kaydedilen en büyük deprem hangisi?",
+        "a": "Aletlerle kaydedilmiş en büyük deprem, 22 Mayıs 1960’ta güney Şili’de 9,5 büyüklüğünde oldu. Tsunamisi, Şili’deki yaklaşık 1.655 ölüme ek olarak Hawaii’de 61, Japonya’da 138 kişinin ölümüne yol açtı."
+      },
+      {
+        "q": "Cascadia depreminin 1700’de olduğunu nereden biliyoruz?",
+        "a": "Japon kayıtları, Ocak 1700’de hiçbir yerel deprem olmadan gelen bir tsunamiyi anlatır. Kuzeybatı Pasifik kıyısı çöktüğünde ölen sedirlerin ağaç halkaları, ağaçların 1699 ve 1700 büyüme mevsimleri arasında öldüğünü gösterir. Bu kanıtlar birlikte depremi 26 Ocak 1700’e yerleştirir."
+      },
+      {
+        "q": "Cascadia’da 9 büyüklüğünde deprem olma olasılığı nedir?",
+        "a": "USGS, önümüzdeki 50 yılda Cascadia Dalma-Batma Zonu’nda yaklaşık 9 büyüklüğünde bir deprem olma olasılığını yüzde 10 ila 15 olarak tahmin ediyor. Açık denizdeki tortul kayıtları, bu tür depremlerin düzenli bir takvimle değil, aralarında uzun süreler bulunan kümeler hâlinde geldiğini düşündürür."
+      }
+    ]
+  },
+  "faults-and-stress": {
+    "title": "Faylar ve Gerilim: Depremler Neden Olur",
+    "dek": "Deprem, bir fayın on yıllar ya da yüzyıllar boyunca biriktirdiği gerilimin aniden boşalmasıdır. Bu gerilimin nasıl biriktiğini, fayların nasıl kırıldığını ve bir kırılmanın bir sonrakine nasıl zemin hazırlayabildiğini burada anlatıyoruz.",
+    "sections": [
+      {
+        "h": "Elastik geri sekme kuramı ve 1906 San Francisco depremi",
+        "p": [
+          "18 Nisan 1906’da San Andreas Fayı kuzey Kaliforniya’da yaklaşık 477 kilometre boyunca kırıldı; bu depremin büyüklüğü bugün 7,9 olarak tahmin ediliyor (USGS n.d.b). Gladys Hansen ve Emmet Condon’un araştırması, doğrudan ya da dolaylı olarak hayatını kaybedenlerin sayısını 3.000’in üzerinde buldu; bu, on yıllar boyunca aktarılan yaklaşık 700 rakamının birkaç katıdır (USGS n.d.c).",
+          "Bu deprem, fayların neden kırıldığına dair ilk işe yarar açıklamayı da ortaya çıkardı. Johns Hopkins Üniversitesi’nden jeolog Harry Fielding Reid, deprem sırasında yer yüzeyinin nasıl hareket ettiğini inceledi ve kırılmanın, daha önce depolanmış elastik gerilimin elastik geri sekmesini içermiş olması gerektiği sonucuna vardı (USGS n.d.a). Fayı kesen çitler, yollar ve diğer düz çizgiler ötelenmişti; G. K. Gilbert’in Bolinas yakınında fotoğrafladığı bir çit, fay izi boyunca yaklaşık 8,5 fit yer değiştirmişti (USGS n.d.a).",
+          "Reid bu savı eyalet komisyonu raporunun ikinci cildinde ortaya koydu (Reid 1910). Bir fayın iki yanındaki kaya yavaş ve düzenli bir hareketle sürüklenir, ama fayın kendisi takılı kalır. Kabuk bir yay gibi bükülür ve elastik gerinim depolar; ta ki gerilim fayın dayanımını aşana dek. Ardından fay aniden kayar, bükülmüş kaya gerinimsiz bir şekle doğru geri sıçrar ve depolanan enerji sismik dalgalar olarak açığa çıkar.",
+          "Kuramın doğrudan bir sonucu vardır. Bir fay kaydıktan sonra aynı yavaş hareket onu yeniden yüklemeye başlar; bu yüzden belirli bir fay üzerindeki depremlerin tekrarlanması beklenir. Faylar ve gerilim üzerine modern bilimin büyük kısmı, bu yüklenme ve boşalma döngüsünü ayrıntılandırır."
+        ]
+      },
+      {
+        "h": "Fay türleri: normal, ters, bindirme ve doğrultu atımlı",
+        "p": [
+          "ABD Jeolojik Araştırmalar Kurumu, fayı iki kaya bloğu arasında blokların birbirine göre hareket etmesine izin veren bir kırık ya da kırıklar zonu olarak tanımlar (USGS n.d.d). Faylar, eğim denen fay yüzeyi açısına ve bu yüzey boyunca kaymanın yönüne göre sınıflandırılır (USGS n.d.d).",
+          "Normal fayda, eğimli fay yüzeyinin üzerindeki blok alttaki bloğa göre aşağı hareket eder. Ters fayda üstteki blok yukarı ve alttaki bloğun üzerine doğru hareket eder; düşük eğimli ters faya bindirme fayı denir. Doğrultu atımlı fayda bloklar birbirinin yanından yanlamasına kayar; yanal ve düşey hareketi birleştiren faylara da verev atımlı fay denir (USGS n.d.d). Doğrultu atımlı bir fay, fayın karşısından bakıldığında karşı tarafın hangi yöne hareket ettiği görünüyorsa ona göre sağ yanal ya da sol yanal olarak tanımlanır. San Andreas ve Kuzey Anadolu fayları sağ yanaldır; Doğu Anadolu Fayı ise sol yanaldır.",
+          "Her tür farklı bir gerilim düzenini yansıtır. Ernest Masson Anderson (1905), yer yüzeyi makaslama gerilimi taşımadığı için sığ kabuktaki üç asal gerilimden birinin düşeye yakın olduğunu gözlemledi. En büyük sıkıştırma gerilimi düşeyse, yani kabuk geriliyorsa normal faylar oluşur. En küçük gerilim düşeyse, yani kabuk sıkışıyorsa ters ve bindirme fayları oluşur. Ara gerilim düşeyse doğrultu atımlı faylar oluşur. Kuram, tipik kaya sürtünmesiyle yaklaşık 60 derece eğimli normal faylar, yaklaşık 30 derece eğimli bindirmeler ve düşeye yakın doğrultu atımlı faylar öngörür."
+        ]
+      },
+      {
+        "h": "Takılma-kayma sürtünmesi: faylar enerjiyi nasıl depolar ve boşaltır",
+        "p": [
+          "Elastik geri sekme yüklenmeyi tanımlar. Sürtünme ise boşalmanın neden yavaş yavaş değil de aniden olduğunu açıklar. Brace and Byerlee (1966), kaya üzerinde yaptıkları laboratuvar deneylerinde yüksek basınç altındaki yüzeylerin düzgünce kaymadığını; takıldığını, birden kaydığını ve yeniden takıldığını buldu. Sığ depremlerin faylardaki bu takılma-kayma hareketi olabileceğini öne sürdüler ve her kayma olayında boşalan gerilimin, kayanın taşıdığı gerilimin yalnızca küçük bir kısmı olduğunu belirttiler (Brace and Byerlee 1966).",
+          "Sonraki çalışmalar bu gözlemi kaya sürtünmesi yasalarına dönüştürdü. Scholz (1998), sonucun kayma hızlandıkça sürtünmenin artıp artmamasına nasıl bağlı olduğunu özetledi. Sürtünmenin hızla birlikte güçlendiği yerlerde her kayma kendi kendini yavaşlatır ve fay kararlı biçimde kayar. Sürtünmenin hızla birlikte zayıfladığı yerlerde ise kayma hızlanarak kararsız bir kırılmaya, yani bir depreme dönüşebilir. Scholz, bu türden tek bir bünye yasasının, bir fayın hareketinin ne kadarının depremlerle ne kadarının depremsiz boşaldığı da dahil olmak üzere geniş bir deprem davranışı yelpazesini açıkladığını savundu (Scholz 1998).",
+          "Bu ayrım, fayların bütünü ölçeğinde önem taşır. Hızla zayıflayan sürtünmeye sahip bir fay yaması kilitlenebilir ve sonra şiddetle kırılabilir. Hızla güçlenen sürtünmeye sahip bir yama ise krip yapma eğilimindedir."
+        ]
+      },
+      {
+        "h": "San Andreas’ta kilitli ve krip yapan faylar",
+        "p": [
+          "San Andreas Fayı’nın büyük kısmı kilitlidir. Büyük depremler arasında iki yanı derinde birbirine takılı kalırken levhalar hareket etmeyi sürdürür ve Reid’in tanımladığı gibi çevredeki kayada gerinim birikir. 1906’da kırılan kesim bu şekilde davranır.",
+          "Orta Kaliforniya’da San Juan Bautista ile Parkfield arasında fay farklı davranır. Orada iki yan, sismik olmayan krip denen bir süreçle birbirinin yanından aşağı yukarı sürekli olarak kayar; bu süreç büyük depremler üretmeden yeri hareket ettirir. Titus et al. (2006), fayı kesecek biçimde dizilmiş ölçüm işaretlerinden oluşan yedi hizalama dizisini yeniden ölçtü ve 33 ila 36 yıl boyunca yılda 21 ila 26 milimetrelik ortalama asgari kayma hızları elde etti. Sonuçlar, orta krip kesimi boyunca en az 35 yıldır yaklaşık olarak sabit bir krip olduğunu gösteriyor (Titus et al. 2006).",
+          "Krip yüzeyde görülebilir. Krip yapan bir fayın bir kasabadan geçtiği yerlerde kaldırım kenarları, kaldırımlar ve duvarlar her yıl biraz daha bükülür ya da ötelenir. Krip kesiminin kuzey ucuna yakın Hollister kenti bilinen bir örnektir; ancak sokaklarından geçen fay San Andreas’ın kendisi değil, San Andreas sisteminin bir kolu olan Calaveras Fayı’dır.",
+          "Krip yapan bir kesim, kilitli bir kesim gibi gerinim depolamaz ve kırılmaların yayılmasını da sınırlayabilir. Krip kesiminin güney ucunda olan 2004’teki 6,0 büyüklüğündeki Parkfield depreminden sonra GPS istasyonları, orta krip kesimi boyunca deprem sırasında ve sonrasında çok az kayma gösterdi (Titus et al. 2006). Krip bir fayı zararsız kılmaz, çünkü krip yapan faylar yine de orta büyüklükte depremler üretebilir; ama gerilimin nasıl ve nerede biriktiğini değiştirir."
+        ]
+      },
+      {
+        "h": "Gerilim aktarımı ve Coulomb gerilim değişimi",
+        "p": [
+          "Bir fay kaydığında taşıdığı gerilim yok olmaz. Bir kısmı çevredeki kabuğa yeniden dağılır; yakındaki bazı fayları kırılmaya yaklaştırırken bazılarını uzaklaştırır. Sismologlar bunu, fayı kaymaya zorlayan makaslama gerilimindeki değişimle onu kapalı tutan sıkıştırma gerilimindeki değişimi birleştiren Coulomb kırılma ölçütüyle ölçer (King et al. 1994). Gerilim değişimleri genellikle bar cinsinden verilir; bir bar 0,1 megapaskaldır, yani kabaca deniz seviyesindeki atmosfer basıncıdır.",
+          "Bu değişimler kabuktaki toplam gerilime göre küçüktür, ancak zaten kırılmaya yakın olan faylar için önem taşır. King et al. (1994), uygun yönelimli faylarda Coulomb geriliminin yaklaşık yarım bardan fazla arttığı yerlerde artçı depremlerin bol, benzer miktarda azaldığı yerlerde ise seyrek olduğunu buldu. Gerilimin düştüğü bölgelere gerilim gölgesi denir. Aynı çalışma, güney Kaliforniya’daki 1992 Landers ve Big Bear depremlerinin San Andreas Fayı’nın San Bernardino kesimindeki gerilimi 2 ila 6 bar artırdığını hesapladı; bu, oradaki bir sonraki büyük depremi yaklaşık on yıl öne çekmeye yeter (King et al. 1994).",
+          "Stein (1999), kanıtları gözden geçirdi ve gerilim değişimleri olasılık değişimlerine çevrildiğinde deprem tehlikesinin depremler arasındaki etkileşimlerden güçlü biçimde etkilendiği sonucuna vardı. Dolayısıyla bir fayın kırılma olasılığı hem kendi yüklenmesine hem de komşularının yakın zamanda neler yaptığına bağlıdır."
+        ]
+      },
+      {
+        "h": "Kuzey Anadolu Fayı: 1939’dan bu yana bir deprem dizisi",
+        "p": [
+          "Türkiye’nin kuzeyini boydan boya kat eden sağ yanal doğrultu atımlı bir fay olan Kuzey Anadolu Fayı, depremlerin bir fay boyunca ilerleyişinin en açık örneğini sunar. Dizi, 26 Aralık 1939’da doğuda Erzincan yakınlarında 32.700 kişinin ölümüne yol açan 7,8 büyüklüğündeki bir depremle başladı (USGS n.d.e).",
+          "Sonraki on yıllarda büyük depremler, çoğunlukla batıya doğru ilerleyerek fayın art arda kesimlerini kırdı. Stein et al. (1997), 1939 ile 1992 arasında fayın toplam 1.000 kilometresini kıran, 6,7 ve üzeri büyüklükteki on depremi inceledi. On kırılmadan dokuzunun kendilerinden önceki şoklarla, tipik olarak 1 ila 10 bar, yani olağan tektonik yüklenmenin 3 ila 30 yılına eşdeğer miktarda, kırılmaya yaklaştırılmış olduğunu hesapladılar. Gerilim değişimleri, her olaydan sonraki on yılda deprem olasılığında ortalama üç katlık bir artış sağladı (Stein et al. 1997).",
+          "Yazarlar aynı akıl yürütmeyi ileriye bakmak için kullandı. 1996’dan itibaren 30 yıl için liman kenti İzmit yakınlarında 6,7 ve üzeri büyüklükte bir deprem olma olasılığını yüzde 12 olarak hesapladılar (Stein et al. 1997). 17 Ağustos 1999’da fayın bu kesiminde, ilk tahminlerde 7,4 (USGS 2000), USGS’nin olay raporunda ise 7,6 (USGS 1999) büyüklüğünde bir deprem oldu. Hükümet tahminlerine göre kayıplar 17.127 ölü ve 43.953 yaralıydı ve 250.000’den fazla kişi yerinden edildi (USGS 2000). Yazarlar depremi önceden tahmin etmemişti; o kesimin kırılma olasılığının çoğu kesimden yüksek olduğunu belirlemişlerdi.",
+          "1999 kırılması gerilim yoğunlaşmasını daha batıya, İstanbul yakınlarında Marmara Denizi’nin altındaki faylara doğru taşıdı. İzmit depremini hesaba katan Parsons et al. (2000), İstanbul’da önümüzdeki 30 yıl içinde güçlü sarsıntı olma olasılığını yüzde 62 ± 15, önümüzdeki on yıl içinde ise yüzde 32 ± 12 olarak hesapladı. Bu hesaplama bir tahmin değil, bir olasılıktır; Marmara Denizi’nin altındaki faylar bölgedeki tehlike planlamasının temel kaygısı olmayı sürdürüyor."
+        ]
+      },
+      {
+        "h": "Doğu Anadolu Fayı’nda 2023 Türkiye-Suriye depremleri",
+        "p": [
+          "Doğu Anadolu Fayı, Anadolu bloğunun güneydoğu sınırını oluşturur ve Kuzey Anadolu Fayı ile birlikte Türkiye’nin Ege Denizi’ne doğru batıya hareketini karşılar (USGS n.d.f). 6 Şubat 2023’te bu fay, aralarında dokuz saat bulunan iki büyük depremin kaynağı oldu.",
+          "7,8 büyüklüğündeki Pazarcık depremi, Doğu Anadolu Fayı’nın yaklaşık 354 kilometresini kırdı. İkincisi, Elbistan yakınlarındaki 7,5 büyüklüğündeki deprem ise kuzeydeki ayrı Çardak Fayı’nın kabaca 161 kilometresini kırdı (USGS n.d.g). USGS, Türkiye ve Suriye’deki ölü sayısının Mart 2023 sonunda 57.000’i aştığını bildirdi (USGS n.d.g).",
+          "Bu iki deprem, gerilim aktarımının işleyişini de sınırlarını da gösterir. Coulomb hesaplamaları, ilk depremin Çardak Fayı’nın ikinci kırılmanın başladığı kesiminde gerilimi yaklaşık 1 ila 4 bar artırdığını, aynı fayın Doğu Anadolu Fayı’na paralel uzanan kısmında ise yaklaşık 3 ila 10 bar azalttığını gösteriyor (Toda and Stein 2024). Bu büyüklükteki bir gerilim artışı, bir depremde boşalan gerilime göre küçüktür; ancak zaten kırılmaya yakın olan bir fayı tetiklemeye yetebilir (Stein et al. 2023).",
+          "Aynı hesaplamalar bazı soruları yanıtsız bıraktı. Doğu Anadolu Fayı’nın gerilimi artan bazı kesimleri kırılmadı; gerilim almamış olan Çardak Fayı’nın bir kısmı ise 7,5 büyüklüğündeki kırılmaya katıldı. İkinci depremden önce, büyük ve ani yüklenmeye rağmen, öncü deprem de olmadı (Stein et al. 2023). Gerilim aktarımı depremlerin nerede kümelendiğini büyük ölçüde açıklar, ama yüklenmiş hangi fayın ne zaman kırılacağını henüz söyleyemez."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Elastik geri sekme kuramı nedir?",
+        "a": "Elastik geri sekme kuramına göre kilitli bir fayın iki yanındaki kaya, kabuk hareket ettikçe yavaşça bükülür ve elastik gerinim depolar. Gerilim fayın dayanımını aştığında fay kayar, kaya geri sıçrar ve enerji bir deprem olarak açığa çıkar. Kuramı, 1906 San Francisco depremindeki yer hareketini inceledikten sonra Harry Fielding Reid öne sürdü."
+      },
+      {
+        "q": "Üç ana fay türü nelerdir?",
+        "a": "Üstteki bloğun aşağı hareket ettiği normal faylar, kabuğun gerildiği yerlerde oluşur. Üstteki bloğun yukarı hareket ettiği ters ve bindirme fayları, kabuğun sıkıştığı yerlerde oluşur. Blokların birbirinin yanından yanlamasına kaydığı doğrultu atımlı faylara San Andreas ve Kuzey Anadolu fayları örnektir."
+      },
+      {
+        "q": "Krip yapan fay nedir?",
+        "a": "Krip yapan fay, kilitli kalıp büyük depremlerle kırılmak yerine yavaşça ve aşağı yukarı sürekli olarak kayan bir faydır. San Andreas Fayı, orta Kaliforniya’da San Juan Bautista ile Parkfield arasında krip yapar; ölçümler burada otuz yılı aşkın süredir yılda kabaca 21 ila 26 milimetrelik sabit bir kayma olduğunu gösteriyor."
+      },
+      {
+        "q": "Bir deprem başka bir depremi tetikleyebilir mi?",
+        "a": "Evet. Bir deprem gerilimi yeniden dağıtır; yakındaki bazı faylarda artırır, bazılarında azaltır. Zaten kırılmaya yakın olan faylar sınırın ötesine itilebilir; artçı depremlerin Coulomb geriliminin arttığı yerlerde kümelenmesinin ve büyük depremlerin bazen bir fay boyunca birbirini izlemesinin nedeni budur."
+      },
+      {
+        "q": "Kuzey Anadolu Fayı’nda depremler neden batıya doğru ilerledi?",
+        "a": "1939 ile 1992 arasında 6,7 ve üzeri büyüklükteki on deprem fayın yaklaşık 1.000 kilometresini kırdı ve bunlardan dokuzu, önceki şokların gerilimi artırdığı yerlerde oldu. 1999 İzmit depremi diziyi batıya doğru sürdürdü ve İstanbul için tahmin edilen tehlikeyi artırdı."
+      },
+      {
+        "q": "2023 Türkiye-Suriye depremine hangi fay neden oldu?",
+        "a": "6 Şubat 2023’teki 7,8 büyüklüğündeki deprem, Doğu Anadolu Fayı’nın yaklaşık 354 kilometresini kırdı. Yaklaşık dokuz saat sonraki 7,5 büyüklüğündeki deprem ise yakındaki Çardak Fayı’nın kabaca 161 kilometresini kırdı; ilk deprem bu fayı kısmen ek gerilimle yüklemişti."
+      }
+    ]
+  },
+  "earth-interior-seismic-waves": {
+    "title": "Dünya’nın İç Yapısı, Sismik Dalgalar ve Depremlerin Ölçülmesi",
+    "dek": "Kabuğun, mantonun ve çekirdeğin derinlikleri sondajla değil, sismik dalgalarla ölçüldü. Aynı dalgalar bugün her depremin yerini bulmak ve büyüklüğünü ölçmek için kullanılıyor.",
+    "sections": [
+      {
+        "h": "Dünya’nın katmanları: kabuk, manto, dış çekirdek ve iç çekirdek",
+        "p": [
+          "Dünya’nın, sismik dalgaların içlerinden nasıl geçtiğine göre tanımlanan dört ana katmanı vardır. En dıştaki katman kabuktur. Kıtasal kabuğun kalınlığı daha değişkendir ve ortalama 30–35 kilometre kadardır; okyanusal kabuk ise genellikle yalnızca yaklaşık 5 kilometre derinliğe uzanır (Kious and Tilling 1996).",
+          "Kabuğun altında, çekirdeğe kadar inen sıcak ve yoğun kayalardan oluşan manto yer alır. Gezegenin derinliğe göre ortalama özelliklerini veren ve yaygın olarak kullanılan bir model olan Ön Referans Yer Modeli’nde (PREM) çekirdeğin yarıçapı 3.480 kilometredir; bu da çekirdek-manto sınırını yüzeyin kabaca 2.900 kilometre altına yerleştirir (Dziewonski and Anderson 1981).",
+          "Çekirdek iki kısımdan oluşur. Dış çekirdek sıvıdır; iç çekirdek ise katıdır ve PREM’de yarıçapı 1.221,5 kilometredir, dolayısıyla yüzeyi yaklaşık 5.150 kilometre derindedir (Dziewonski and Anderson 1981). PREM, Dünya’nın serbest salınımlarına ait yaklaşık 1.000 periyot ve 500 özet seyahat süresi gözlemi, gezegenin kütlesi ve eylemsizlik momentiyle birlikte uydurularak oluşturuldu (Dziewonski and Anderson 1981). Bu rakamların hiçbiri doğrudan örneklemeden gelmez. Her sınır, sismik dalgalar orada hız değiştirdiği, büküldüğü, yansıdığı ya da kaybolduğu için bulundu."
+        ]
+      },
+      {
+        "h": "P dalgaları, S dalgaları ve yüzey dalgaları",
+        "p": [
+          "Bir deprem birkaç türde sismik dalga açığa çıkarır. Cisim dalgaları Dünya’nın içinden, yüzey dalgaları ise dış katmanları boyunca ilerler. P dalgaları ya da birincil dalgalar en hızlı dalgalardır ve bir kayıt istasyonuna ilk onlar ulaşır. Kayayı ilerleme yönleri boyunca sıkıştırıp gerer. S dalgaları ya da ikincil dalgalar ise kayayı ilerleme yönlerine dik olarak makaslar ve daha sonra ulaşır. Kayada S dalgaları genellikle P dalgalarının hızının yaklaşık yüzde 60’ı ile ilerler (USGS n.d.a).",
+          "Yüzey dalgaları, her iki tür cisim dalgasından sonra ulaşır. Love dalgaları yeri bir yandan öbür yana hareket ettirir, Rayleigh dalgaları ise eliptik bir hareketle yuvarlar. Bir deprem sırasında yer yüzeyinde hissedilen sarsıntının büyük kısmını Rayleigh dalgaları oluşturur (USGS n.d.a).",
+          "P ve S dalgaları arasındaki fark, Dünya’nın derinliklerinin anahtarını taşır. Bir sıvının makaslamaya karşı direnci yoktur; bu yüzden S dalgaları sıvıdan geçemez. P dalgaları ise katılardan da sıvılardan da geçebilir, ancak sıvı bir katmana girdiklerinde yavaşlar ve yön değiştirirler (USGS n.d.b)."
+        ]
+      },
+      {
+        "h": "Gölge zonu ve S dalgalarının dış çekirdeği neden geçemediği",
+        "p": [
+          "Gezegenin büyük bir depremin karşı tarafındaki sismik istasyonlar belirgin bir boşluk kaydeder. USGS, gölge zonunu depremden 104 ile 140 derece açısal uzaklık arasında kalan ve doğrudan P dalgası almayan alan olarak tanımlar (USGS n.d.b). Sıvı dış çekirdek buna iki yoldan yol açar: S dalgalarını tamamen durdurur ve P dalgalarını kırarak bu kuşaktan uzağa büker (USGS n.d.b). Doğrudan S dalgaları yaklaşık 104 dereceden itibaren dışarıda görülmez.",
+          "Çekirdeği deprem kayıtlarından ilk kez 1906’da Richard Dixon Oldham belirledi (Oldham 1906; Brush 1980). Çekirdeği geçen S dalgalarının saptanamaması, tek başına sismologları çekirdeğin akışkan olduğuna ikna etmeye yetmedi (Brush 1980). Daha güçlü savı 1926’da Harold Jeffreys ortaya koydu. Yer gelgitlerini ve sismik gözlemleri kullanarak çekirdeğin rijitliğinin mantonunkinden çok daha düşük olduğunu ve çekirdeğin sıvı olabileceğini gösterdi (Jeffreys 1926; Brush 1980)."
+        ]
+      },
+      {
+        "h": "Mohorovičić, Gutenberg ve Lehmann: Moho’nun ve iç çekirdeğin keşfi",
+        "p": [
+          "8 Ekim 1909’da Zagreb’in güneyindeki Kupa Vadisi’nde bir deprem oldu. Zagreb’de çalışan sismolog Andrija Mohorovičić, depremin sismogramlarını Avrupa’nın dört bir yanındaki istasyonlardan topladı ve belirli bir uzaklığın ötesinde P dalgalarının, tek ve tekdüze bir katmanın izin vereceğinden daha erken geldiğini fark etti. Bu erken varışları, daha derindeki daha hızlı bir katmana dalıp geri dönen dalgalarla açıkladı. Verilerinden üst katmanın kalınlığını 54 kilometre olarak hesapladı (Herak and Herak 2007). Analizini 1910’da yayımladı (Mohorovičić 1910). Kabuk ile manto arasındaki sınıra bugün Mohorovičić süreksizliği ya da Moho denir.",
+          "Çekirdeğin dış sınırının yerini Beno Gutenberg belirledi. Göttingen’de çalışırken uzak depremlerin kayıtlarındaki gölge zonunu kullanarak çekirdek-manto sınırını yaklaşık 2.900 kilometre derinliğe yerleştirdi ve bunu 1914’te yayımladı (Gutenberg 1914; Brush 1980). Modern modeller onu hemen hemen aynı derinliğe yerleştirir (Dziewonski and Anderson 1981).",
+          "İç çekirdeği Danimarkalı sismolog Inge Lehmann buldu. 1929’da Yeni Zelanda’da olan büyük bir depremin kayıtlarını incelerken, tamamen sıvı bir çekirdeğin hiç bırakmaması gereken gölge zonunun içinde ulaşan zayıf P dalgalarını inceledi. Başlığı yalnızca P′ olan 1936 tarihli bir makalede, bu dalgaların sıvı dış çekirdeğin içindeki daha küçük bir iç çekirdek tarafından saptırıldığını öne sürdü (Lehmann 1936; Kölbl-Ebert 2001). Bu iç çekirdeğin katı olduğu çıkarımı daha sonra geldi. 1971’de Adam Dziewonski ve Freeman Gilbert, Dünya’nın serbest salınımlarından yola çıkarak sıvı iç çekirdekli hiçbir modelin verilerle uyuşamayacağını gösterdi (Dziewonski and Gilbert 1971)."
+        ]
+      },
+      {
+        "h": "Sismometreler depremin yerini nasıl bulur: merkez üssü, odak ve derinlik",
+        "p": [
+          "Bir deprem, odak ya da hiposantr denen, Dünya’nın içinde kırılmanın başladığı noktada başlar. Merkez üssü, yüzeyde bu noktanın tam üzerindeki noktadır; odak derinliği ise ikisi arasındaki uzaklıktır (USGS n.d.c).",
+          "Bir depremin yerini bulmak varış zamanlarıyla başlar. P dalgaları S dalgalarından hızlı olduğu için varışları arasındaki fark uzaklıkla birlikte büyür ve sismologlar bu farkı standart seyahat süresi eğrileri yardımıyla uzaklığa çevirir (IRIS n.d.). Tek bir istasyon olası merkez üslerinden oluşan bir daire verir; iki istasyon iki noktada kesişen iki daire verir; üç istasyon ise çözümü tek bir konuma indirir. Bu yönteme genellikle üçgenleme denir (IRIS n.d.).",
+          "Modern ağlar üç boyutta çalışır ve oluş zamanını da çözer. Örneğin Yellowstone bölgesinde bir bilgisayar, odağa ilişkin bir ilk tahminden başlar, bölgedeki sismik dalga hızlarına ait bir modeli kullanarak her istasyondaki beklenen varış zamanını hesaplar ve hesaplanan zamanlar ölçülenlerle uyuşana kadar konumu ve oluş zamanını ayarlar. Bir depremi kaydeden istasyon sayısı ne kadar fazlaysa konum o kadar doğru olur; yalnızca bir ya da iki istasyonda kaydedilen bir depremin yeri bulunamaz (USGS n.d.d).",
+          "Çözümün kesinleştirilmesi en zor kısmı derinliktir. Genel bir kural olarak güvenilir bir derinlik için merkez üssüne, depremin derinliğinden daha yakın bir istasyon gerekir (USGS n.d.e). Veriler derinliği çözemediğinde katalog onu varsayılan bir değere sabitler; sığ depremler için bu değer bugün 10 kilometredir (USGS n.d.e). Yoğun ağların ortasındaki, yeri en iyi belirlenmiş depremler için konum belirsizliği yatayda yaklaşık 100 metre, düşeyde 300 metredir; küresel verilerle yeri belirlenen depremlerde bu belirsizlik onlarca kilometreye çıkar (USGS n.d.f). USGS, 0 ile 70 kilometre derinlikteki depremleri sığ, 70 ile 300 kilometre arasındakileri orta derinlikte, 300 ile 700 kilometre arasındakileri ise derin olarak sınıflandırır (USGS n.d.c)."
+        ]
+      },
+      {
+        "h": "Deprem büyüklüğü ölçekleri: Richter ölçeğinden moment büyüklüğüne",
+        "p": [
+          "Charles Richter ilk aletsel büyüklük ölçeğini 1935’te güney Kaliforniya depremleri için yayımladı (Richter 1935). Bugün yerel büyüklük anlamında ML olarak gösterilen bu ölçek, bilinen bir uzaklıktaki Wood-Anderson burulma sismografında kaydedilen en büyük genliğe dayanır. Bu aletler artık yaygın olarak kullanılmadığı için ML, modern aletlerden düzeltmelerle hesaplanır. USGS, ölçeğin yararlı aralığını yaklaşık 600 kilometre uzaklığa kadarki istasyonlar için kabaca 2,0 ile 6,5 büyüklük arası olarak verir (USGS n.d.g).",
+          "Ölçek daha sonra dünyanın dört bir yanındaki sismograf istasyonlarından yararlanmak için cisim dalgası büyüklüğüne (mb) ve yüzey dalgası büyüklüğüne (Ms) genişletildi. Her biri belirli bir frekans aralığı ve sismik sinyal türü için geçerlidir (USGS n.d.h). Bu ölçeklerin hepsinin ortak bir zayıflığı vardır: büyük depremlerde ölçülen dalgaların genliği, kırılmanın boyutuyla aynı oranda büyümeyi bırakır. Kanamori (1977), bu doygunluğun en büyük depremlerde açığa çıkan enerjinin hatalı tahmin edilmesine yol açtığını gösterdi.",
+          "Çözüm, kırılmanın fiziksel boyutunu ölçmekti. Sismik moment; kayanın rijitliği, kayan fay alanı ve ortalama kayma mesafesinin çarpımıdır (USGS n.d.i). Thomas Hanks ve Hiroo Kanamori, moment büyüklüğü ölçeğini (Mw) 1979’da sismik momentten tanımladı (Hanks and Kanamori 1979); bu, ölçeğin doygunluğa ulaşmadığını bulan ve 1960 Şili depremine 9,5 büyüklük veren Kanamori’nin 1977 çalışmasına dayanıyordu (Kanamori 1977). Büyüklük, momentin logaritmasının üçte ikisi kadar arttığından ölçekteki her tam basamak yaklaşık 32 kat daha fazla sismik momente karşılık gelir.",
+          "Çok büyük depremlerde boyutun en güvenilir tahminini moment büyüklüğü verir (USGS n.d.h). USGS, dünya genelinde 5,0 ve üzeri büyüklükteki tüm depremler için W fazı moment büyüklüğü (Mww) hesaplar ve mevcut olduğunda bunu esas alır (USGS n.d.g). Farklı yöntemler aynı deprem için çoğu zaman biraz farklı büyüklükler verir; ilk raporların daha fazla veri geldikçe değişebilmesinin nedeni budur (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Büyüklük ve şiddet: Değiştirilmiş Mercalli ölçeği",
+        "p": [
+          "Büyüklük bir depremin kaynağındaki boyutunu tanımlar. Şiddet ise belirli bir yerdeki sarsıntının gücünü tanımlar. Bir depremin tek bir büyüklüğü ama sarsıntısının değerlendirildiği her yer için bir tane olmak üzere pek çok şiddeti vardır (USGS n.d.j).",
+          "ABD’de şiddet, 1931’de Harry Wood ve Frank Neumann tarafından geliştirilen Değiştirilmiş Mercalli Şiddet ölçeğine göre belirlenir (Wood and Neumann 1931). Düzeyleri Roma rakamlarıyla yazılır ve hissedilmeyen sarsıntıdan felaket boyutunda yıkıma kadar yükselir (USGS n.d.k). Ölçek, bir aletten alınan ölçümü kaydetmek yerine gözlenen etkileri derecelendirir (USGS n.d.k).",
+          "Halkın bildirimleri bugün şiddet haritalarını doğrudan besliyor. USGS’nin Did You Feel It? programı, bir depremi hisseden kişilerin anlatımlarını toplar ve bunları topluluk şiddet değerlerine dönüştürür. Hem aletlerin hem de bildirimlerin bulunduğu yerlerde bu değerler, ölçülen yer hareketini ShakeMap üzerinde şiddete çeviren denklemlerin kalibrasyonunda kullanılır (USGS n.d.l)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Dünya’nın katmanları nelerdir?",
+        "a": "Dünya’nın kayalık bir kabuğu, yaklaşık 2.900 kilometre derinliğe kadar uzanan bir mantosu, sıvı bir dış çekirdeği ve katı bir iç çekirdeği vardır. Standart referans modelde iç çekirdeğin yarıçapı yaklaşık 1.220 kilometredir. Bu sınırların hepsi, sismik dalgaların gezegenin içinden nasıl geçtiği incelenerek bulundu."
+      },
+      {
+        "q": "S dalgaları dış çekirdekten neden geçemez?",
+        "a": "S dalgaları kayayı makaslayarak hareket ettirir ve bir sıvının makaslamaya karşı direnci yoktur. Dış çekirdek sıvı olduğu için S dalgaları çekirdek-manto sınırında durur. Bu yüzden bir depremden yaklaşık 104 dereceden daha uzaktaki istasyonlara doğrudan S dalgası ulaşmaz."
+      },
+      {
+        "q": "Sismik gölge zonu nedir?",
+        "a": "P dalgası gölge zonu, bir depremden yaklaşık 104 ile 140 derece arasında kalan ve doğrudan P dalgası almayan kuşaktır. Sıvı dış çekirdek P dalgalarını bu kuşaktan uzağa büker ve S dalgalarını tamamen engeller. Zonun içinde bulunan zayıf P dalgaları, Inge Lehmann’ın 1936’da iç çekirdeği öne sürmesine yol açtı."
+      },
+      {
+        "q": "Merkez üssü ile odak (hiposantr) arasındaki fark nedir?",
+        "a": "Odak (hiposantr), Dünya’nın içinde kırılmanın başladığı noktadır. Merkez üssü, yüzeyde bu noktanın tam üzerindeki noktadır. İkisi arasındaki uzaklık odak derinliğidir."
+      },
+      {
+        "q": "Richter ölçeği hâlâ kullanılıyor mu?",
+        "a": "Richter’in yerel büyüklüğü (ML), küçük ve orta büyüklükteki depremler için modern aletlerle hâlâ hesaplanıyor. Büyük depremlerde bu ölçek ve genliğe dayanan diğer ölçekler doygunluğa ulaşır; bu yüzden sismologlar fayın alanına ve kaymasına dayanan moment büyüklüğünü bildirir."
+      },
+      {
+        "q": "Deprem büyüklüğü ile şiddeti arasındaki fark nedir?",
+        "a": "Büyüklük bir depremin kaynağındaki boyutunu ölçer ve her depremin bir büyüklüğü vardır. Şiddet ise belirli bir yerde yerin ne kadar güçlü sarsıldığını ölçer; bu yüzden bir depremin pek çok şiddeti vardır. ABD’de şiddet, Roma rakamlarıyla Değiştirilmiş Mercalli ölçeğine göre verilir."
+      }
+    ]
+  },
+  "aftershocks-and-hazards": {
+    "title": "Artçı Depremler, Sıvılaşma ve Diğer Deprem Tehlikeleri",
+    "dek": "Büyük bir deprem tek bir olay değil, bir dizinin başlangıcıdır. Artçı depremlerin nasıl davrandığını ve bir depremin verdiği hasarın neden büyüklüğü kadar zemine de bağlı olduğunu burada anlatıyoruz.",
+    "sections": [
+      {
+        "h": "Artçı depremler nedir ve Omori yasası onları nasıl tanımlar",
+        "p": [
+          "Depremler zamanda ve uzayda kümelenir. Bir küme içinde sismologlar en büyük olaya ana şok, ondan öncekilere öncü deprem, sonrakilere ise artçı deprem der (Jones and Reasenberg 1996). Genel bir kural olarak bir deprem, ana şoktan bir ya da iki fay kırılması uzunluğu mesafe içindeyse artçı sayılır. Bu mesafe büyük ölçüde değişir: kırılma 1994 Northridge depreminde yaklaşık 15 kilometre, 1906 San Francisco depreminde ise 430 kilometre uzunluğundaydı (Jones and Reasenberg 1996).",
+          "Japon sismolog Fusakichi Omori, artçı depremlerin azalmasına ilişkin ilk nicel tanımı 1894’te, orta Japonya’daki 1891 Nōbi depreminin artçılarına dayanarak yayımladı. Formülüne göre artçı deprem sıklığı, ana şoktan bu yana geçen sürenin tersiyle kabaca orantılı olarak azalır. Tokuji Utsu daha sonra azalmanın bundan biraz daha hızlı ya da yavaş olmasına izin veren bir p üssü ekledi; Omori’nin makalesinden bir yüzyıl sonra yayımlanan bir derleme, değiştirilmiş formülün artçı deprem etkinliğinin zamanla nasıl değiştiğini genel olarak uygun biçimde tanımladığı sonucuna vardı (Utsu et al. 1995).",
+          "Pratikte ana şoktan sonraki ikinci gün birinci günün yaklaşık yarısı kadar, onuncu gün ise yaklaşık onda biri kadar artçı deprem olur (Jones and Reasenberg 1996). Her boyuttaki artçı deprem aynı oranda azalır; dolayısıyla bir dizide büyük olaylar önce tükenmez (Jones and Reasenberg 1996). Güney Kaliforniya’daki sismologlar, 1992 Landers depreminin artçılarının zamanla küçülmediğini, seyrekleştiğini ve 5 büyüklüğündeki olayların dizinin geç aşamalarında da, yalnızca daha uzun aralıklarla, olabildiğini belirtti (SCEDC 1999)."
+        ]
+      },
+      {
+        "h": "Bir artçı deprem ne kadar büyük olabilir? Båth yasası",
+        "p": [
+          "Daha büyük ana şoklar daha büyük artçılar üretme eğilimindedir (Jones and Reasenberg 1996). İsveçli sismolog Markus Båth bu ilişkiyi bir sayıyla ifade etti. Båth yasasına göre en büyük artçı deprem, ana şokun büyüklüğünden bağımsız olarak, ortalamada ana şoktan yaklaşık 1,2 büyüklük birimi küçüktür (Båth 1965; Helmstetter and Sornette 2003). Bu kurala göre 7,0 büyüklüğünde bir ana şoku tipik olarak 5,8 dolaylarında bir en büyük artçı izler.",
+          "Bu değer pek çok dizinin ortalamasıdır ve tek tek diziler ondan her iki yönde de sapar. Helmstetter and Sornette (2003), yasanın depremlerin iki başka istatistiksel özelliğinden, yani aşağıda anlatılan büyüklük dağılımından ve artçıların yeni artçıları tetikleme biçiminden yeniden üretilebileceğini gösterdi. Yasanın kökeninin ayrı bir fiziksel mekanizmada değil, kısmen ana şokların ve artçıların nasıl tanımlandığında yattığını savundular."
+        ]
+      },
+      {
+        "h": "Gutenberg-Richter yasası ve b değerinin anlamı",
+        "p": [
+          "Küçük depremler büyüklerden çok daha fazladır ve bu oran düzenlidir. Beno Gutenberg ve Charles Richter bu ilişkiyi 1944’te Kaliforniya depremleri üzerine yaptıkları bir çalışmada tanımladı (Gutenberg and Richter 1944). İlişki genellikle log N = a − bM biçiminde yazılır; burada N, M ya da daha büyük büyüklükteki depremlerin sayısıdır, a genel etkinlik düzeyini yansıtır, b ise büyüklük arttıkça sayının ne kadar hızlı azaldığını belirler.",
+          "b değeri çoğu küresel katalogda 1’e yakındır; bu sonuç o kadar sağlam biçimde yerleşmiştir ki 1993 tarihli bir derlemenin alt başlığı “much ado about 1.0” idi (Frohlich and Davis 1993). b 1’e eşit olduğunda büyüklükteki her bir birimlik artış depremlerin sayısını on kat azaltır. Belirli bir dönemde 5 ve üzeri büyüklükte 100 deprem kaydeden bir bölge, ortalamada 6 ve üzeri büyüklükte yaklaşık 10, 7 ve üzeri büyüklükte ise yaklaşık bir deprem kaydeder.",
+          "Bu değer sabit değildir. Küresel kataloglar kabaca 0,72 ile 1,34 arasında b değerleri verir ve bu yayılımın bir kısmı gerçek farklılıklardan değil, algılama, konum ve büyüklük hatalarından kaynaklanır (Frohlich and Davis 1993). Değişkenliğin bir kısmı ise gerçektir. Schorlemmer et al. (2005), b’nin bindirme faylanmasında en düşük, normal faylanmada en yüksek olduğunu buldu ve bu farkı bindirme faylarının daha yüksek gerilim altında çalıştığının bir işareti olarak yorumladı. Kaliforniya’da b, depremler derinleştikçe azalır (Mori and Abercrombie 1997). Daha düşük bir b değeri, büyük depremlerin toplam içinde daha büyük bir pay oluşturduğu anlamına gelir; bu parametrenin tehlike tahminlerinde önemli olmasının nedeni budur."
+        ]
+      },
+      {
+        "h": "Artçı depremler ne kadar sürer?",
+        "p": [
+          "Bir deprem, bölgedeki deprem sıklığı ana şoktan önceki düzeyin üzerinde kaldığı sürece artçı sayılır. Bunun ne kadar süreceği ana şokun büyüklüğüne ve bölgenin önceden ne kadar etkin olduğuna bağlıdır; çünkü artçılar sakin bir arka plana karşı daha uzun süre belirgin kalır (Jones and Reasenberg 1996). 1992 Landers depreminden sekiz buçuk yıl sonra artçılar iyice seyrekleşmişti ama arka plan düzeyinin açıkça üzerinde olmayı sürdürüyordu (SCEDC 2001).",
+          "Toda and Stein (2018), bir dizinin süresinin ana şokun büyüklüğünden çok fayın ne kadar hızlı kaydığına bağlı olduğunu buldu. 2011 Tōhoku-Oki depremini ve Japonya’daki sekiz büyük ana şoku daha inceleyerek en hızlı kayan faylarda yaklaşık bir ay süren diziler buldular ve en yavaş faylardaki dizilerin 2.000 yıldan uzun süreceğini öngördüler. Bu nedenle levha sınırlarından uzak, yavaş deforme olan bölgelerde uzun ömürlü artçı deprem dizileri olağan arka plan etkinliğiyle karıştırılabilir ve bu da gelecekteki tehlikeye ilişkin tahminleri şişirebilir (Toda and Stein 2018)."
+        ]
+      },
+      {
+        "h": "Deprem sarsıntısını hasar verici yapan nedir: uzaklık, derinlik, zemin ve süre",
+        "p": [
+          "Büyüklük, belirli bir yerdeki sarsıntıyı değil, depremin kaynağının boyutunu ölçer. ABD Jeolojik Araştırmalar Kurumu (USGS), insanların ne hissedeceğini belirleyen etkenler arasında bina yapımının yanı sıra depremin türünü, derinliğini, fay kırılmasına olan uzaklığı ve yumuşak topraktan ana kayaya kadar zemin malzemesini sayar (USGS n.d.a). Sarsıntı genellikle kırılan fayın yakınında en güçlüdür ve uzaklıkla birlikte zayıflar. Derin bir deprem, bu uzaklığı kaynak ile yüzeyde hemen üzerinde bulunan her şey arasına koyar.",
+          "Yerel zemin koşulları uzaklıktan daha belirleyici olabilir. Güney Kaliforniya Deprem Merkezi (SCEC) ve USGS’nin araştırması, tek bir depremde bir noktadaki sarsıntının, faya aynı uzaklıktaki komşu bir noktadakinden kolayca on kat güçlü olabileceğini buldu. En önemli yerel etkenler yüzeye yakın kaya ya da toprağın yumuşaklığı ve sert ana kayanın üzerindeki tortulların kalınlığıydı (SCEC n.d.; Field et al. 2000).",
+          "1985’teki Meksiko bunun standart örneğidir. 19 Eylül 1985’teki 8,0 büyüklüğündeki deprem, başkentten kabaca 350 ila 400 kilometre uzakta, Michoacán’ın Pasifik kıyısı açıklarında oldu (Furumura and Kennett 1998). Merkez üssü bölgesindeki en büyük yer ivmeleri düşüktü, ama Meksiko’daki hasar ağırdı (Anderson et al. 1986). Kentin merkezî kesimleri, eski bir gölde çökelmiş, suya doymuş yumuşak kil üzerinde durur. Kentin tepelik bölgesindeki bir noktayla karşılaştırıldığında göl tabanındaki noktalar, doğal periyotlarında yer hareketini 8 ila 56 kat büyüttü (Singh et al. 1988). Süre de etkiyi artırdı: göl tabanı bölgesindeki güçlü sarsıntı üç dakikadan uzun sürdü (Furumura and Kennett 1998). Ölü sayısına ilişkin tahminler büyük ölçüde farklılık gösterir; USGS’ye atfedilen rakam en az 9.500’dür, diğer tahminler ise çok daha yüksektir (Live Science n.d.)."
+        ]
+      },
+      {
+        "h": "Sıvılaşma ve depremin tetiklediği heyelanlar",
+        "p": [
+          "Sıvılaşma, güçlü sarsıntı suya doymuş gevşek kum ve silti etkilediğinde ve katı zemin bir sıvı gibi davranmaya başladığında olur (USGS n.d.b). Sarsıntı, taneler arasındaki su basıncını taneler birbiriyle temasını yitirene kadar yükseltir. Bunun ardından zemin binaları taşıma yeteneğini yitirebilir, hafif eğimli yamaçlarda bile akabilir ve yüzeyde kum kaynamaları olarak fışkırabilir (USGS n.d.c).",
+          "16 Haziran 1964’teki 7,5 büyüklüğündeki Niigata depremi, kumlu zeminin sıvılaşması yoluyla mühendislik yapılarına büyük hasar verdi (Seed and Idriss 1967). Shinano Nehri yakınındaki Kawagishi-cho’da apartman binaları taşıma gücü yenilmesine uğradı ve yapısal olarak neredeyse sağlam kalırken ağır biçimde yan yattı (University of Washington n.d.). Seed and Idriss (1967) tarafından depremden sonra yayımlanan analiz, modern sıvılaşma değerlendirmesinin temellerinden biri oldu.",
+          "Yeni Zelanda’daki 2010–2011 Canterbury deprem dizisi, aynı dersi modern bir kentte yineledi. 22 Şubat 2011’deki 6,2 büyüklüğündeki deprem 185 kişinin ölümüne yol açtı (Canterbury Earthquakes Royal Commission n.d.). Doğal zeminlerdeki sıvılaşma, Eylül 2010’daki 7,1 büyüklüğündeki Darfield depremine göre hem yaygınlık hem de şiddet bakımından daha büyüktü. Sıvılaşma, merkezî iş bölgesinin doğusundaki konut alanlarında en şiddetliydi; burada fayın yakınındaki güçlü sarsıntı, yüzeyin yaklaşık bir metre altındaki yeraltı suyu seviyesi ve sıvılaşmaya çok yatkın zeminler bir araya geldi. Kent merkezinde sıvılaşma binaların oturmasına ve yan yatmasına neden oldu (Cubrinovski et al. 2011).",
+          "Heyelanlar da yaygın bir ikincil tehlikedir. 40 tarihsel deprem üzerine yapılan bir çalışma, kaya düşmelerinin, dağılmış toprak kaymalarının ve kaya kaymalarının en yaygın türler olduğunu ve en zayıf sarsıntıyla tetiklendiğini buldu. Etkilenmesi olası en büyük alan, yaklaşık 4,0 büyüklükte neredeyse sıfırdan 9,2 büyüklükte 500.000 kilometrekare dolaylarına kadar büyür (Keefer 1984). Çin’de 12 Mayıs 2008’deki 7,9 büyüklüğündeki Wenchuan depremi 60.000’den fazla heyelanı tetikledi (Zhang et al. 2016). Bu heyelanların yol açtığı ölümlere ilişkin tahminler yaklaşık 20.000 (Yin et al. 2009) ile 25.000–30.000 (Zhang et al. 2016) arasında değişir.",
+          "Tsunamiler, büyük depremler sırasında sığ faylar kayıp deniz tabanını hızla düşey yönde yerinden ettiğinde, en sık da dalma-batma zonlarında oluşur (USGS n.d.d). Nasıl ilerlediklerini ve ne yapılması gerektiğini Bilim bölümündeki Tsunamiler rehberi anlatıyor."
+        ]
+      },
+      {
+        "h": "İnsan kaynaklı depremler: Oklahoma’da atık su enjeksiyonu",
+        "p": [
+          "İnsan etkinlikleri de depremleri tetikleyebilir. Yerin derinliklerine sıvı basmak faylardaki sıvı basıncını yükseltir ve bu da gerilim altındaki bir fayın kaymasına olanak tanıyabilir (Ellsworth 2013). Hidrolik çatlatma (fracking), hissedilen insan kaynaklı depremlerin yalnızca küçük bir yüzdesine doğrudan yol açar. Atık suyun derin kuyulara bertaraf edilmesi ise daha uzun süreler boyunca daha büyük hacimler enjekte ettiği için daha yüksek risk taşır (Ellsworth 2013; Rubinstein and Mahani 2015). Kuyuların çoğu hissedilen depreme yol açmaz: ABD’deki yaklaşık 35.000 aktif atık su bertaraf kuyusu ile on binlerce başka enjeksiyon ve çatlatma kuyusundan yalnızca birkaç düzinesinin hissedilen deprem tetiklediği biliniyordu; insan kaynaklı depremsellik enjeksiyon noktasından 10 kilometre ya da daha uzakta da ortaya çıkabilir (Rubinstein and Mahani 2015).",
+          "En açık örnek Oklahoma oldu. USGS’ye göre eyaletteki depremlerin çoğuna atık su bertarafı yol açıyor ve enjekte edilen atık suyun yüzde 90’ından fazlası kullanılmış çatlatma sıvısı değil, petrol çıkarımının yan ürünü. 2014’ten 2017’ye kadar eyaletteki 3 ve üzeri büyüklükteki depremlerin sıklığı Kaliforniya’nınkini aştı (USGS n.d.e). Oklahoma Jeoloji Araştırmaları Kurumu, 1976–2007 arasında yılda yaklaşık bir tane bu tür deprem, 2015’te ise rekor düzeyde 903 deprem saydı. Eyalet düzenleyicileri 2015 ortasından itibaren bazı kuyuların kapatılmasını ve diğerlerinde enjeksiyon hacimlerinin azaltılmasını emrettikten sonra sayı 2016’da 623’e, 2017’de 302’ye ve 2018’de 196’ya düştü (Associated Press 2019).",
+          "Oklahoma’da kaydedilen en büyük deprem 3 Eylül 2016’da Pawnee yakınlarında oldu. 5,8 büyüklüğündeki bu deprem, kristalin temel kayadaki daha önce haritalanmamış bir fayı kırdı. Yeck et al. (2017), deprem insan kaynaklıysa sıvı enjeksiyonunun tetiklediği bilinen en büyük deprem olacağını ve hacim azaltımları başladıktan sonra meydana geldiğini belirtti. Enjekte edilen sıvının kaya içinde yayılmasının uzun süreli etkileri nedeniyle insan kaynaklı tehlikenin hızla azaltılmasının güç olduğu sonucuna vardılar (Yeck et al. 2017)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Büyük bir depremden sonra artçılar ne kadar sürer?",
+        "a": "Artçı depremler, bölgedeki deprem sıklığı ana şoktan önceki düzeyin üzerinde kaldığı sürece devam eder. Hızlı kayan faylarda bir dizi yaklaşık bir ay içinde sönümlenebilir; levha sınırlarından uzak, yavaş kayan faylarda ise yüzyıllar ya da daha uzun sürebilir. Sıklık başta hızla düşer: onuncu gün genellikle birinci günün yaklaşık onda biri kadar artçı olur."
+      },
+      {
+        "q": "Artçı deprem ana depremden büyük olabilir mi?",
+        "a": "Tanım gereği hayır. Ana şok bir kümedeki en büyük depremdir; dolayısıyla sonraki bir deprem daha büyükse ilki öncü deprem olarak yeniden sınıflandırılır. Ortalamada en büyük artçı, ana şoktan yaklaşık 1,2 büyüklük birimi küçüktür; bu kurala Båth yasası denir."
+      },
+      {
+        "q": "Gutenberg-Richter yasası nedir?",
+        "a": "Bu yasa, büyüklük arttıkça deprem sayısının nasıl azaldığını tanımlar. b değeri denen eğim çoğu küresel katalogda 1’e yakındır; bu da 5 büyüklüğündeki depremlerin 6 büyüklüğündekilerden yaklaşık on kat fazla olduğu anlamına gelir. b değeri faylanma türüne ve derinliğe göre değişir."
+      },
+      {
+        "q": "1985 Meksiko depreminde merkez üssü uzakta olduğu hâlde kent neden bu kadar ağır hasar gördü?",
+        "a": "Meksiko’nun merkezi, eski bir gölden kalma, suya doymuş yumuşak kil üzerine kuruludur. Merkez üssü kabaca 350 ila 400 kilometre uzakta olmasına rağmen bu tortullar sarsıntıyı kentin tepelerindeki daha sağlam zemine göre 8 ila 56 kat büyüttü ve güçlü yer hareketi üç dakikadan uzun sürdü."
+      },
+      {
+        "q": "Depremde zemin sıvılaşması nedir?",
+        "a": "Sıvılaşma, sarsıntı gevşek ve suya doymuş kum ya da siltteki su basıncını taneler temasını yitirene kadar yükselttiğinde ve zemin bir sıvı gibi davrandığında olur. 1964’te Niigata’da ve 2011’de Christchurch’te olduğu gibi binalar batabilir ya da yan yatabilir."
+      },
+      {
+        "q": "Oklahoma’daki depremlere fracking mi neden oluyor?",
+        "a": "Çoğunlukla hayır. USGS, Oklahoma’daki depremlerin çoğunu atık suyun derin kuyulara bertaraf edilmesine bağlıyor; bu suyun büyük kısmı çatlatma sıvısı değil, petrol çıkarımının yan ürünü. Hidrolik çatlatma, hissedilen insan kaynaklı depremlerin yalnızca küçük bir yüzdesine doğrudan yol açar."
+      }
+    ]
+  }
+}
