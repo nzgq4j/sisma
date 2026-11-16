@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>图表会显示过去 30 天内有多少次地震会触发该提醒，方便你调整。</li>
       </ul>
       <p>过去 30 天内收到的提醒列在<em>提醒记录</em>中。</p>
-      <Callout kind="note"><p><strong>iPhone 和 iPad：</strong>只有将 sisma 添加到主屏幕（分享 → 添加到主屏幕）并从主屏幕打开后，网页通知才能使用。</p></Callout>
+      <Callout kind="note"><p><strong>iPhone 和 iPad：</strong>只有将 sisma 添加到主屏幕（分享 → 添加到主屏幕）并从主屏幕打开后，网页通知才能使用。 在 iPhone 或 iPad 的浏览器中首次打开 sisma 时，会弹出窗口显示这些步骤；点按<Ui>以后再说</Ui>会在两周后再次显示，点按<Ui>知道了</Ui>则不再显示。</p></Callout>
       </>
     ),
   },

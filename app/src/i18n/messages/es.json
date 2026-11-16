@@ -691,5 +691,14 @@
     "all": "Todos los artículos En profundidad",
     "next": "Siguiente en En profundidad",
     "count": "{n} artículos"
+  },
+  "install": {
+    "title": "Recibe alertas de terremotos en tu teléfono",
+    "body": "Añade sisma a la pantalla de inicio para recibir alertas push de los terremotos que elijas.",
+    "step1": "Toca Compartir en la barra del navegador",
+    "step2": "Elige «Añadir a pantalla de inicio»",
+    "step3": "Abre sisma desde la pantalla de inicio y activa {push} en {me}",
+    "not_now": "Ahora no",
+    "got_it": "Entendido"
   }
 }

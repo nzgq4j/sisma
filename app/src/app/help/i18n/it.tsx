@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>Un grafico mostra quanti terremoti degli ultimi 30 giorni avrebbero attivato l’avviso, così puoi regolarlo.</li>
       </ul>
       <p>Gli avvisi ricevuti negli ultimi 30 giorni sono elencati in <em>Cronologia avvisi</em>.</p>
-      <Callout kind="note"><p><strong>iPhone e iPad:</strong> le notifiche web funzionano solo dopo aver aggiunto sisma alla schermata Home (Condividi → Aggiungi alla schermata Home) e averlo aperto da lì.</p></Callout>
+      <Callout kind="note"><p><strong>iPhone e iPad:</strong> le notifiche web funzionano solo dopo aver aggiunto sisma alla schermata Home (Condividi → Aggiungi alla schermata Home) e averlo aperto da lì. La prima volta che apri sisma nel browser di un iPhone o iPad, una finestra mostra questi passaggi; tocca <Ui>Non ora</Ui> per rivederla tra due settimane o <Ui>Ho capito</Ui> per nasconderla.</p></Callout>
       </>
     ),
   },

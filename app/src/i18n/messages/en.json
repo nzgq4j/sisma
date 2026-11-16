@@ -691,5 +691,14 @@
     "all": "All In Depth articles",
     "next": "Next in In Depth",
     "count": "{n} articles"
+  },
+  "install": {
+    "title": "Get earthquake alerts on your phone",
+    "body": "Add sisma to your Home Screen to get push alerts for the earthquakes you choose.",
+    "step1": "Tap Share in the browser toolbar",
+    "step2": "Choose “Add to Home Screen”",
+    "step3": "Open sisma from your Home Screen and switch on {push} in {me}",
+    "not_now": "Not now",
+    "got_it": "Got it"
   }
 }

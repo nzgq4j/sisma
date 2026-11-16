@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>Um gráfico mostra quantos terremotos dos últimos 30 dias teriam acionado o alerta, para você ajustá-lo.</li>
       </ul>
       <p>Os alertas que você recebeu nos últimos 30 dias aparecem em <em>Histórico de alertas</em>.</p>
-      <Callout kind="note"><p><strong>iPhone e iPad:</strong> as notificações da web só funcionam depois que você adiciona o sisma à Tela de Início (Compartilhar → Adicionar à Tela de Início) e o abre por lá.</p></Callout>
+      <Callout kind="note"><p><strong>iPhone e iPad:</strong> as notificações da web só funcionam depois que você adiciona o sisma à Tela de Início (Compartilhar → Adicionar à Tela de Início) e o abre por lá. Na primeira vez que você abre o sisma no navegador de um iPhone ou iPad, uma janela mostra estas etapas; toque em <Ui>Agora não</Ui> para vê-la de novo em duas semanas ou em <Ui>Entendi</Ui> para ocultá-la.</p></Callout>
       </>
     ),
   },

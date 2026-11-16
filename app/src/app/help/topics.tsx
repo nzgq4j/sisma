@@ -385,7 +385,7 @@ export const TOPICS: Topic[] = [
         <li>A chart shows how many earthquakes in the last 30 days would have triggered the alert, so you can tune it.</li>
       </ul>
       <p>Alerts you received in the last 30 days are listed under <em>Alert history</em>.</p>
-      <Callout kind="note"><p><strong>iPhone and iPad:</strong> web notifications only work after you add sisma to the Home Screen (Share → Add to Home Screen) and open it from there.</p></Callout>
+      <Callout kind="note"><p><strong>iPhone and iPad:</strong> web notifications only work after you add sisma to the Home Screen (Share → Add to Home Screen) and open it from there. The first time you open sisma in the browser on an iPhone or iPad, a pop-up shows these steps; tap <Ui>Not now</Ui> to see it again in two weeks or <Ui>Got it</Ui> to hide it.</p></Callout>
       </>
     ),
   },

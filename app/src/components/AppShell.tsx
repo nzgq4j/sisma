@@ -11,11 +11,13 @@ import { AccountProvider } from '@/components/Account';
 import { PaywallSheet } from '@/components/Paywall';
 import { Onboarding } from '@/components/onboarding/Onboarding';
 import { PushSync } from '@/components/PushDevice';
+import { InstallPrompt } from '@/components/InstallPrompt';
 import styles from '@/components/dash/dash.module.css';
 
 // App shell for /app/* (rendered by app/app/layout.tsx, which carries the page metadata). Phone (< 1024px): top app bar + bottom nav, content column up to 520px, edge-to-edge on Android.
 // Desktop (>= 1024px): side navigation; the dashboard, Map, Globe and Me (account dashboard) use the full width,
 // Science a centred column. Onboarding (first run) sits under the splash; the paywall sheet is shared by every tab.
+// On iPhone / iPad in the browser, InstallPrompt explains Add to Home Screen once (needed for web push on iOS).
 const FULL_WIDTH = ['/app', '/app/map', '/app/globe', '/app/me'];
 const BLEED = ['/app/map', '/app/globe']; // edge to edge on phones and tablets too
 
@@ -34,6 +36,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <div className={styles.mobileOnly}><BottomNav /></div>
         <PaywallSheet />
         <PushSync />
+        <InstallPrompt />
         <Onboarding />
         <Splash />
       </FeltReportProvider>

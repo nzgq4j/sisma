@@ -1,0 +1,13 @@
+/* iOS "Add to Home Screen" prompt (components/InstallPrompt.tsx) */
+.wrap { display: flex; flex-direction: column; gap: 16px; padding: 4px 0 8px; }
+.head { display: flex; align-items: flex-start; gap: 14px; }
+.head > svg { border-radius: 20px; }
+.title { margin: 0 0 4px; font-size: 19px; font-weight: 800; line-height: 1.25; color: var(--ink); }
+.body { margin: 0; font-size: 15px; line-height: 1.4; color: var(--ink2); }
+.steps { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 1.4; color: var(--ink); }
+.share { font-size: 20px; vertical-align: -4px; margin-left: 4px; color: var(--violet-text); }
+.note { margin: 0; font-size: 13px; color: var(--ink2); }
+.actions { display: flex; justify-content: flex-end; gap: 10px; }
+.primary, .secondary { min-height: 48px; padding: 0 22px; border-radius: 24px; font: 800 15px var(--font-figtree), sans-serif; cursor: pointer; }
+.primary { border: 0; background: var(--violet); color: var(--on-violet); }
+.secondary { border: 1px solid var(--line); background: transparent; color: var(--ink); }

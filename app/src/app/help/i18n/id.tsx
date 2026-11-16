@@ -372,7 +372,7 @@ export const TOPICS: Topic[] = [
         <li>Sebuah grafik menunjukkan berapa banyak gempa dalam 30 hari terakhir yang akan memicu peringatan itu, sehingga Anda bisa menyesuaikannya.</li>
       </ul>
       <p>Peringatan yang Anda terima dalam 30 hari terakhir tercantum di <em>Riwayat peringatan</em>.</p>
-      <Callout kind="note"><p><strong>iPhone dan iPad:</strong> notifikasi web hanya berfungsi setelah Anda menambahkan sisma ke Layar Utama (Bagikan → Tambah ke Layar Utama) dan membukanya dari sana.</p></Callout>
+      <Callout kind="note"><p><strong>iPhone dan iPad:</strong> notifikasi web hanya berfungsi setelah Anda menambahkan sisma ke Layar Utama (Bagikan → Tambah ke Layar Utama) dan membukanya dari sana. Saat pertama kali membuka sisma di browser iPhone atau iPad, jendela pop-up menampilkan langkah-langkah ini; ketuk <Ui>Nanti saja</Ui> untuk melihatnya lagi dalam dua minggu atau <Ui>Mengerti</Ui> untuk menyembunyikannya.</p></Callout>
       </>
     ),
   },
