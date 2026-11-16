@@ -107,6 +107,8 @@
 
 /* In Depth library (long-form articles) */
 .longform { display: flex; flex-direction: column; gap: 16px; }
+/* Long compound words (German titles) break at syllables, per the text's lang, instead of running off the screen. */
+.longform .h1, .longform h2, .topicTitle { hyphens: auto; overflow-wrap: break-word; }
 .dateline { margin: -6px 0 0; font-size: 13px; font-weight: 700; color: var(--ink2); }
 .faq { margin: 0; display: flex; flex-direction: column; gap: 12px; }
 .faq > div { background: var(--surface); border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
