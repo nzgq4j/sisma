@@ -671,7 +671,16 @@
     "err_failed": "No se pudo conectar. Inténtalo de nuevo.",
     "err_bad_service": "El servidor debe ser una dirección https://.",
     "err_missing": "Escribe el usuario y la contraseña de aplicación.",
-    "preview_failed": "No se pudo cargar este evento. Cierra esto y vuelve a intentarlo en un minuto."
+    "preview_failed": "No se pudo cargar este evento. Cierra esto y vuelve a intentarlo en un minuto.",
+    "library_h": "En profundidad en Bluesky",
+    "library_p": "Publica un artículo con su tarjeta. Antes puedes editar el texto y el texto alternativo.",
+    "library_post": "Publicar en Bluesky",
+    "library_hint": "Se publica en inglés. Los enlaces y los #hashtags del texto se vuelven clicables.",
+    "alt_chars": "{n} / 2000 caracteres",
+    "reset": "Restablecer",
+    "err_empty": "Escribe primero el texto de la publicación.",
+    "err_too_long": "El texto supera los 300 caracteres.",
+    "err_alt_too_long": "El texto alternativo supera los 2000 caracteres."
   },
   "library": {
     "title": "En profundidad",

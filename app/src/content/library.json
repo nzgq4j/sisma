@@ -9,6 +9,8 @@
     "published": "2026-11-16",
     "updated": "2026-11-16",
     "mins": 7,
+    "hashtags": ["earthquake", "seismology", "science"],
+    "cardImage": "the app's magnitude widget at M6.0, with circles for M4.0, M5.0 and M6.0 whose areas show the energy released (each step about 32 times more), an estimated energy of about 15 kilotons of TNT and about 158 such earthquakes a year worldwide",
     "sections": [
       {
         "h": "Defining the Terms",
@@ -180,6 +182,8 @@
     "published": "2026-11-16",
     "updated": "2026-11-16",
     "mins": 7,
+    "hashtags": ["PlateTectonics", "subduction", "earthquake"],
+    "cardImage": "a cross-section of a convergent plate boundary: an oceanic plate bends down beneath a continental plate, with a volcano on the continent above the sinking slab",
     "sections": [
       {
         "h": "How and Why Tectonic Plates Move",
@@ -374,6 +378,8 @@
     "published": "2026-11-16",
     "updated": "2026-11-16",
     "mins": 9,
+    "hashtags": ["geology", "faults", "earthquake"],
+    "cardImage": "a cross-section of a normal fault: layered rock cut by a dashed fault line, arrows pulling the two sides apart and the hanging wall sliding down past the footwall",
     "sections": [
       {
         "h": "Elastic Rebound Theory and the 1906 San Francisco Earthquake",
@@ -555,6 +561,8 @@
     "published": "2026-11-16",
     "updated": "2026-11-16",
     "mins": 7,
+    "hashtags": ["seismology", "geophysics", "EarthScience"],
+    "cardImage": "a grid of particles showing a P wave: the rock compresses and stretches along the direction of travel, with one column of particles highlighted",
     "sections": [
       {
         "h": "Earth’s Layers: Crust, Mantle, Outer Core and Inner Core",
@@ -765,6 +773,8 @@
     "published": "2026-11-16",
     "updated": "2026-11-16",
     "mins": 8,
+    "hashtags": ["aftershocks", "earthquake", "geology"],
+    "cardImage": "two charts: recent earthquakes grouped by depth (shallow, intermediate and deep, most of them shallow) and the number of aftershocks per day after a mainshock, falling quickly over ten days as Omori's law describes",
     "sections": [
       {
         "h": "What Aftershocks Are and How Omori’s Law Describes Them",

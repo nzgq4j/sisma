@@ -671,7 +671,16 @@
     "err_failed": "Connexion impossible. Réessayez.",
     "err_bad_service": "Le serveur doit être une adresse https://.",
     "err_missing": "Saisissez l’identifiant et le mot de passe d’application.",
-    "preview_failed": "Impossible de charger cet événement. Fermez et réessayez dans une minute."
+    "preview_failed": "Impossible de charger cet événement. Fermez et réessayez dans une minute.",
+    "library_h": "En profondeur sur Bluesky",
+    "library_p": "Publiez un article avec sa carte de partage. Vous pouvez d’abord modifier le texte et le texte alternatif.",
+    "library_post": "Publier sur Bluesky",
+    "library_hint": "Publié en anglais. Les liens et les #hashtags du texte deviennent cliquables.",
+    "alt_chars": "{n} / 2 000 caractères",
+    "reset": "Rétablir",
+    "err_empty": "Rédigez d’abord le texte de la publication.",
+    "err_too_long": "Le texte dépasse 300 caractères.",
+    "err_alt_too_long": "Le texte alternatif dépasse 2 000 caractères."
   },
   "library": {
     "title": "En profondeur",

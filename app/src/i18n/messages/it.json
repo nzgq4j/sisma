@@ -671,7 +671,16 @@
     "err_failed": "Impossibile collegarsi. Riprova.",
     "err_bad_service": "Il server deve essere un indirizzo https://.",
     "err_missing": "Inserisci l’handle e la password per app.",
-    "preview_failed": "Impossibile caricare questo evento. Chiudi e riprova tra un minuto."
+    "preview_failed": "Impossibile caricare questo evento. Chiudi e riprova tra un minuto.",
+    "library_h": "Approfondimenti su Bluesky",
+    "library_p": "Pubblica un articolo con la sua scheda di condivisione. Prima puoi modificare il testo e il testo alternativo.",
+    "library_post": "Pubblica su Bluesky",
+    "library_hint": "Pubblicato in inglese. I link e gli #hashtag nel testo diventano cliccabili.",
+    "alt_chars": "{n} / 2000 caratteri",
+    "reset": "Ripristina",
+    "err_empty": "Scrivi prima il testo del post.",
+    "err_too_long": "Il testo supera i 300 caratteri.",
+    "err_alt_too_long": "Il testo alternativo supera i 2000 caratteri."
   },
   "library": {
     "title": "Approfondimenti",

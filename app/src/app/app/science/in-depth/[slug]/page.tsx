@@ -1,7 +1,7 @@
 'use client';
 // In Depth article (lib/library.ts): header with reading time and Share, title, standfirst, updated date, sections,
 // frequently asked questions, references (English, as published) and the next article. Text in the reader's
-// language once its file has loaded; English is what the server renders and what search engines index.
+// language once its file has loaded (administrators also see a Bluesky button to post it); English is what the server renders and what search engines index.
 import Link from 'next/link';
 import { use } from 'react';
 import { notFound } from 'next/navigation';
@@ -9,6 +9,7 @@ import { useT } from '@/i18n/I18nProvider';
 import { LIBRARY, LIBRARY_PATH, libraryHref, localLibrary } from '@/lib/library';
 import { formatDay, useLibraryTranslation } from '@/components/science/Library';
 import { ShareArticle } from '@/components/science/ShareArticle';
+import { LibraryBlueskyButton } from '@/components/admin/LibraryBluesky';
 import styles from '@/components/science/science.module.css';
 
 export default function LibraryArticlePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,6 +30,7 @@ function ArticleView({ i }: { i: number }) {
         <span className={`${styles.tile} ${styles.tileSm} ${styles[a.tone as 'violet' | 'mint' | 'warm']}`}><span className="ms" aria-hidden="true">{a.icon}</span></span>
         <span className={styles.muted}>{m.library.title} · {t('min_read', { n: a.mins })}</span>
         <ShareArticle id={a.id} title={a.title} intro={a.dek} path={libraryHref(a.id)} image={`library-${a.id}`} />
+        <LibraryBlueskyButton id={a.id} title={LIBRARY[i].title} />
       </div>
       <div lang={a.lang} className={styles.longform}>
         <h1 className={styles.h1}>{a.title}</h1>

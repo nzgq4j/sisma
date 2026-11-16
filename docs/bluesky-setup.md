@@ -33,6 +33,32 @@ sisma can post significant earthquakes to its Bluesky account on its own. Admini
 - **Post now** (Me → Administration → an event from the last 24 hours → Preview) posts any event by hand. The preview
   shows the exact image, text and alt text first.
 
+## In Depth articles (posted by hand)
+
+Administrators can post any In Depth article: **Me → Administration → In Depth on Bluesky**, or the **Bluesky** button
+next to Share on an article (shown to administrators only). The sheet shows:
+
+- **Image:** the article's share card, `public/og/library-<id>.jpg` (1200×630 JPEG, made by `scripts/og-cards.mjs`).
+- **Text** (editable, at most 300 characters, English): the title, as much of the standfirst as fits, the link and the
+  article's hashtags (`hashtags` in `content/library.json`):
+
+  ```
+  Faults and Stress: Why Earthquakes Happen
+
+  An earthquake is the sudden release of stress that a fault has stored for decades or centuries.
+
+  Read: https://sisma.io/app/science/in-depth/faults-and-stress
+
+  #geology #faults #earthquake
+  ```
+- **Alt text** (editable, at most 2,000 characters): what the card shows, built from the title and the article's
+  `cardImage` description in `content/library.json`. Update `cardImage` when a card's picture changes.
+
+Links and #hashtags in the text as posted (also after editing) become clickable facets. `GET /api/admin/bluesky/library?id=`
+returns the suggestion; `POST /api/admin/bluesky/library { id, text, alt }` posts it (both check `profiles.is_admin`).
+Article posts are not recorded in `bluesky_posts` (that table is for earthquakes), so posting the same article twice
+makes two posts.
+
 ## Setup (once)
 
 Do not send the password to Claude.

@@ -12,6 +12,8 @@ export interface LibraryFaq { q: string; a: string }
 export interface LibraryArticle {
   id: string; icon: string; tone: string; title: string; description: string; dek: string;
   published: string; updated: string; mins: number;
+  /** Bluesky / social: hashtags without '#', and what the share card's picture shows (for its alt text). English. */
+  hashtags: string[]; cardImage: string;
   sections: LibrarySection[]; faq: LibraryFaq[]; refs: { text: string; url: string | null }[];
 }
 export interface LibraryText { title: string; dek: string; sections: LibrarySection[]; faq: LibraryFaq[] }
