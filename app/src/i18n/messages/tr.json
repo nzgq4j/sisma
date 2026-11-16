@@ -671,7 +671,16 @@
     "err_failed": "Bağlanılamadı. Tekrar deneyin.",
     "err_bad_service": "Sunucu https:// ile başlayan bir adres olmalı.",
     "err_missing": "Kullanıcı adını ve uygulama şifresini girin.",
-    "preview_failed": "Bu deprem yüklenemedi. Bunu kapatıp bir dakika sonra tekrar dene."
+    "preview_failed": "Bu deprem yüklenemedi. Bunu kapatıp bir dakika sonra tekrar dene.",
+    "library_h": "Bluesky'de Derinlemesine",
+    "library_p": "Bir makaleyi paylaşım kartıyla paylaşın. Metni ve alternatif metni önce düzenleyebilirsiniz.",
+    "library_post": "Bluesky'de paylaş",
+    "library_hint": "İngilizce paylaşılır. Metindeki bağlantılar ve #etiketler tıklanabilir olur.",
+    "alt_chars": "{n} / 2.000 karakter",
+    "reset": "Sıfırla",
+    "err_empty": "Önce gönderinin metnini yazın.",
+    "err_too_long": "Metin 300 karakterden uzun.",
+    "err_alt_too_long": "Alternatif metin 2.000 karakterden uzun."
   },
   "library": {
     "title": "Derinlemesine",

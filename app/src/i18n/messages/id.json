@@ -671,7 +671,16 @@
     "err_failed": "Tidak dapat terhubung. Coba lagi.",
     "err_bad_service": "Server harus berupa alamat https://.",
     "err_missing": "Masukkan handle dan kata sandi aplikasi.",
-    "preview_failed": "Tidak dapat memuat kejadian ini. Tutup ini dan coba lagi dalam satu menit."
+    "preview_failed": "Tidak dapat memuat kejadian ini. Tutup ini dan coba lagi dalam satu menit.",
+    "library_h": "Mendalam di Bluesky",
+    "library_p": "Posting artikel beserta kartu bagikannya. Teks dan teks alternatif dapat diedit terlebih dahulu.",
+    "library_post": "Posting ke Bluesky",
+    "library_hint": "Diposting dalam bahasa Inggris. Tautan dan #tagar di teks dapat diklik.",
+    "alt_chars": "{n} / 2.000 karakter",
+    "reset": "Atur ulang",
+    "err_empty": "Tulis teks postingan terlebih dahulu.",
+    "err_too_long": "Teks lebih dari 300 karakter.",
+    "err_alt_too_long": "Teks alternatif lebih dari 2.000 karakter."
   },
   "library": {
     "title": "Mendalam",

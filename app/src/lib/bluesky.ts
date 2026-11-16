@@ -11,6 +11,7 @@ import { countryAt } from './country';
 import { distanceKm, formatDms } from './geo';
 import { KM_PER_MI } from './units';
 import { SITE } from './site';
+import { libraryHref, type LibraryArticle } from './library';
 
 export const BLUESKY_MAX_GRAPHEMES = 300;
 /** Blobs above this are not attached (the lexicon allows 2 MB; staying well under it). */
@@ -25,7 +26,7 @@ const SAME_EVENT_MS = 90_000, SAME_EVENT_KM = 100;
 
 export const eventUrl = (q: Pick<Quake, 'id'>) => `${SITE.url}/app/map?focus=${encodeURIComponent(q.id)}`;
 
-const graphemes = (s: string) => [...new Intl.Segmenter('en', { granularity: 'grapheme' }).segment(s)].length;
+export const graphemes = (s: string) => [...new Intl.Segmenter('en', { granularity: 'grapheme' }).segment(s)].length;
 const bytes = (s: string) => Buffer.byteLength(s, 'utf8');
 const countryName = (code: string | null) => {
   if (!code) return null;
@@ -213,23 +214,107 @@ export async function card(q: Quake, known: Quake[] = []): Promise<Uint8Array | 
   }
 }
 
-/** Publishes the post; returns its at:// uri and its bsky.app link. `png`: the card if already made (null: none). */
-export async function publish(db: SupabaseClient, q: Quake, draft: PostDraft, png?: Uint8Array | null): Promise<{ uri: string; url: string; image: boolean }> {
+/** An image attached to a post: its bytes, type and size in pixels (Bluesky shows it at this aspect ratio). */
+export interface PostImage { data: Uint8Array; mime: 'image/png' | 'image/jpeg'; width: number; height: number }
+
+/** Publishes a post (text, facets, optional image with alt text); returns its at:// uri and its bsky.app link. */
+export async function publishPost(db: SupabaseClient, post: { text: string; facets: Facet[]; alt: string }, image: PostImage | null): Promise<{ uri: string; url: string; image: boolean }> {
   const s = await authFor(db);
   const auth = { authorization: `Bearer ${s.accessJwt}` };
-  if (png === undefined) png = await card(q);
   let embed: object | undefined;
-  if (png) {
-    const { blob } = await xrpc<{ blob: object }>(s.service, 'com.atproto.repo.uploadBlob', { method: 'POST', headers: { ...auth, 'content-type': 'image/png' }, body: png as BodyInit });
-    embed = { $type: 'app.bsky.embed.images', images: [{ image: blob, alt: draft.alt, aspectRatio: { width: CARD_W, height: CARD_H } }] };
+  if (image) {
+    const { blob } = await xrpc<{ blob: object }>(s.service, 'com.atproto.repo.uploadBlob', { method: 'POST', headers: { ...auth, 'content-type': image.mime }, body: image.data as BodyInit });
+    embed = { $type: 'app.bsky.embed.images', images: [{ image: blob, alt: post.alt, aspectRatio: { width: image.width, height: image.height } }] };
   }
-  const record = { $type: 'app.bsky.feed.post', text: draft.text, facets: draft.facets, langs: ['en'], createdAt: new Date().toISOString(), ...(embed ? { embed } : {}) };
+  const record = { $type: 'app.bsky.feed.post', text: post.text, facets: post.facets, langs: ['en'], createdAt: new Date().toISOString(), ...(embed ? { embed } : {}) };
   const res = await xrpc<{ uri: string }>(s.service, 'com.atproto.repo.createRecord', {
     method: 'POST', headers: { ...auth, 'content-type': 'application/json' },
     body: JSON.stringify({ repo: s.did, collection: 'app.bsky.feed.post', record }),
   });
   const rkey = res.uri.split('/').pop();
-  return { uri: res.uri, url: `https://bsky.app/profile/${s.handle}/post/${rkey}`, image: !!png };
+  return { uri: res.uri, url: `https://bsky.app/profile/${s.handle}/post/${rkey}`, image: !!image };
+}
+
+/** Publishes an event's post; `png`: the card if already made (null: none; undefined: make it now). */
+export async function publish(db: SupabaseClient, q: Quake, draft: PostDraft, png?: Uint8Array | null) {
+  if (png === undefined) png = await card(q);
+  return publishPost(db, draft, png ? { data: png, mime: 'image/png', width: CARD_W, height: CARD_H } : null);
+}
+
+// --- In Depth articles (posted by hand from Me → Administration or the article page) ---
+/** Share cards of the library articles: public/og/library-<id>.jpg (scripts/og-cards.mjs), 1200 × 630. */
+export const LIBRARY_CARD_W = 1200, LIBRARY_CARD_H = 630;
+/** Bluesky's app limit for alt text. */
+export const BLUESKY_MAX_ALT = 2000;
+export const libraryUrl = (a: Pick<LibraryArticle, 'id'>) => `${SITE.url}${libraryHref(a.id)}`;
+export const libraryCardPath = (a: Pick<LibraryArticle, 'id'>) => `/og/library-${a.id}.jpg`;
+
+/** Whether a post of this text (and alt text) can be published: null, or what is wrong with it. */
+export function postProblem(text: string, alt: string): 'empty' | 'too_long' | 'alt_too_long' | null {
+  if (!text.trim()) return 'empty';
+  if (graphemes(text) > BLUESKY_MAX_GRAPHEMES || bytes(text) > 3000) return 'too_long';
+  if (graphemes(alt) > BLUESKY_MAX_ALT) return 'alt_too_long';
+  return null;
+}
+
+/**
+ * Link and hashtag facets for any text, so a post an administrator has edited still has working links and tags.
+ * Links: http(s) addresses up to the next space, without trailing punctuation. Tags: # at the start or after a space,
+ * letters, digits and _ (not digits only), at most 64 characters; the tag is stored without the #.
+ */
+export function detectFacets(text: string): Facet[] {
+  const out: Facet[] = [];
+  const span = (i: number, len: number) => ({ byteStart: bytes(text.slice(0, i)), byteEnd: bytes(text.slice(0, i + len)) });
+  for (const m of text.matchAll(/https?:\/\/[^\s]+/g)) {
+    const uri = m[0].replace(/[.,;:!?'")\]]+$/, '');
+    if (uri.length > 10) out.push({ index: span(m.index, uri.length), features: [{ $type: 'app.bsky.richtext.facet#link', uri }] });
+  }
+  for (const m of text.matchAll(/(^|\s)#([\p{L}\p{N}_]+)/gu)) {
+    const tag = m[2];
+    if (/^\d+$/.test(tag) || graphemes(tag) > 64) continue;
+    out.push({ index: span(m.index + m[1].length, tag.length + 1), features: [{ $type: 'app.bsky.richtext.facet#tag', tag }] });
+  }
+  return out.sort((a, b) => a.index.byteStart - b.index.byteStart);
+}
+
+/** Cuts a standfirst to at most `max` graphemes: whole sentences if they fit, else whole words and "…"; '' if nothing fits. */
+function fitDek(dek: string, max: number): string {
+  if (graphemes(dek) <= max) return dek;
+  const sentences = dek.match(/[^.!?]+[.!?]+(\s|$)/g) ?? [];
+  let s = '';
+  for (const x of sentences) { if (graphemes(s + x) > max) break; s += x; }
+  if (s.trim()) return s.trim();
+  const words = dek.split(/\s+/);
+  let w = '';
+  for (const x of words) { const next = w ? `${w} ${x}` : x; if (graphemes(next) + 1 > max) break; w = next; }
+  return w.length >= 20 ? w.replace(/[\s,;:.–—-]+$/, '') + '…' : '';
+}
+
+/**
+ * The suggested post for an In Depth article (English, the account's language): title, as much of the standfirst as
+ * fits, the link and the article's hashtags, within 300 graphemes; and alt text describing its share card.
+ */
+export function draftLibraryPost(a: LibraryArticle): { text: string; facets: Facet[]; alt: string; url: string; image: string } {
+  const url = libraryUrl(a);
+  const tags = a.hashtags.map(t => `#${t}`).join(' ');
+  const build = (dek: string) => [a.title, ...(dek ? [dek] : []), `Read: ${url}`, tags].join('\n\n');
+  const room = BLUESKY_MAX_GRAPHEMES - graphemes(build('')) - 2;
+  const text = build(room > 0 ? fitDek(a.dek, room) : '');
+  const alt = `sisma share card. On the left, the sisma logo, the label In Depth, the title "${a.title}", the start of `
+    + `the standfirst and the address sisma.io${libraryHref(a.id)}. On the right, ${a.cardImage}.`;
+  return { text, facets: detectFacets(text), alt, url, image: libraryCardPath(a) };
+}
+
+/** The article's share card, fetched from the site (`origin`), or null if it is missing or too large. */
+export async function libraryCard(a: Pick<LibraryArticle, 'id'>, origin: string): Promise<PostImage | null> {
+  try {
+    const r = await fetch(`${origin.replace(/\/$/, '')}${libraryCardPath(a)}`);
+    if (!r.ok || !r.headers.get('content-type')?.startsWith('image/jpeg')) return null;
+    const data = new Uint8Array(await r.arrayBuffer());
+    return data.byteLength <= BLUESKY_MAX_IMAGE_BYTES ? { data, mime: 'image/jpeg', width: LIBRARY_CARD_W, height: LIBRARY_CARD_H } : null;
+  } catch {
+    return null;
+  }
 }
 
 // --- Posting with the database (service role) ---

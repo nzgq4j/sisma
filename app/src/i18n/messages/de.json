@@ -671,7 +671,16 @@
     "err_failed": "Verbindung fehlgeschlagen. Versuche es erneut.",
     "err_bad_service": "Der Server muss eine https://-Adresse sein.",
     "err_missing": "Gib Handle und App-Passwort ein.",
-    "preview_failed": "Dieses Ereignis konnte nicht geladen werden. Schließe das hier und versuche es in einer Minute erneut."
+    "preview_failed": "Dieses Ereignis konnte nicht geladen werden. Schließe das hier und versuche es in einer Minute erneut.",
+    "library_h": "Im Detail auf Bluesky",
+    "library_p": "Einen Artikel mit seiner Teilen-Karte posten. Text und Alternativtext lassen sich vorher bearbeiten.",
+    "library_post": "Auf Bluesky posten",
+    "library_hint": "Wird auf Englisch gepostet. Links und #Hashtags im Text werden anklickbar.",
+    "alt_chars": "{n} / 2.000 Zeichen",
+    "reset": "Zurücksetzen",
+    "err_empty": "Schreib zuerst den Text des Posts.",
+    "err_too_long": "Der Text ist länger als 300 Zeichen.",
+    "err_alt_too_long": "Der Alternativtext ist länger als 2.000 Zeichen."
   },
   "library": {
     "title": "Im Detail",
