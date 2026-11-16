@@ -16,7 +16,7 @@ describe('draftPost', () => {
       '6 Nov, 03:01 UTC · 35 km (22 mi) deep',
       `Map and details: ${eventUrl(q())}`,
       '#earthquake #Japan',
-      'Automated post · not an official warning service',
+      'Not an official warning service',
     ]);
     // "·" is 2 bytes in UTF-8: the ranges must be byte offsets, not character offsets.
     const [link, t1, t2] = d.facets;

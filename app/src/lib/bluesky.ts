@@ -1,6 +1,6 @@
 // Automatic Bluesky posts for significant earthquakes (administrators turn it on and set the minimum magnitude in
 // Me → Admin). Each post has the event's share card (GET /api/share-card) with alt text, a short text with a link to
-// the event's region view and hashtags, and a line saying it is automated and not an official warning.
+// the event's region view and hashtags, and a line saying it is not an official warning service.
 // Posting uses the AT Protocol XRPC endpoints directly (createSession, uploadBlob, createRecord; formats checked against
 // the app.bsky / com.atproto lexicons). The account is signed in from Me → Administration (session kept in Supabase
 // Vault, never the password); BLUESKY_IDENTIFIER / BLUESKY_APP_PASSWORD (+ optional BLUESKY_SERVICE) in the server env
@@ -54,7 +54,7 @@ export function draftPost(q: Quake): PostDraft {
       ...(q.tsunami ? ['Tsunami information issued: follow official warnings.'] : []),
       `Map and details: ${url}`,
       tags.map(t => `#${t}`).join(' '),
-      'Automated post · not an official warning service',
+      'Not an official warning service',
     ];
     return lines.join('\n');
   };
