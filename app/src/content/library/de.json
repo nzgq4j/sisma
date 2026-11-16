@@ -1,1 +1,446 @@
-{}
+{
+  "earthquake-prediction": {
+    "title": "Warum sich Erdbeben der Vorhersage entziehen – und was die Seismologie stattdessen bietet",
+    "dek": "Eine Vorhersage braucht Datum und Uhrzeit, Ort und Magnitude. Hier steht, warum das bei einem starken Erdbeben noch nie gelungen ist und was die Seismologie stattdessen liefert.",
+    "sections": [
+      {
+        "h": "Die Begriffe klären",
+        "p": [
+          "Der U.S. Geological Survey (USGS) erklärt, dass weder er noch andere Wissenschaftler jemals ein starkes Erdbeben vorhergesagt haben (USGS n.d.a). Die Aussage beruht auf einer strengen Definition. Eine Vorhersage muss Datum und Uhrzeit, den Ort und die Magnitude angeben, und eine Behauptung, der eines dieser drei Elemente fehlt, lässt sich nicht überprüfen (USGS n.d.a).",
+          "Die Seismologie erstellt allerdings drei verwandte Produkte. Langfristige Wahrscheinlichkeiten geben die Chance eines Erdbebens bestimmter Stärke in einer Region über Jahre oder Jahrzehnte an und werden meist aus der durchschnittlichen Rate historischer Ereignisse berechnet. Prognosen wenden ähnliche Überlegungen auf kürzere Zeitfenster an und werden in der Regel für Nachbeben verwendet. Eine Frühwarnung ist ein Alarm, der nach dem Beginn eines Bruchs verschickt wird und Sekunden bis einige zehn Sekunden Vorlauf gibt, bevor die zerstörerischen Wellen eintreffen (USGS n.d.b). Jedes dieser Produkte beantwortet eine andere Frage, und in der öffentlichen Diskussion werden sie oft vermischt.",
+          "Die Definition erklärt auch, warum einzelne Behauptungen erfolgreicher Vorhersagen einer genauen Prüfung selten standhalten. Laut USGS fehlt solchen Behauptungen meist mindestens eines der drei Elemente, und wenn ein Erdbeben der Behauptung ungefähr ähnelt, wertet der Urheber das als Erfolg, auch wenn eines oder mehrere Elemente stark von dem abweichen, was tatsächlich geschah (USGS n.d.a)."
+        ]
+      },
+      {
+        "h": "Zwei wegweisende Tests",
+        "p": [
+          "Das Erdbeben von Haicheng 1975 im Nordosten Chinas ist der meistzitierte Erfolg. Die Behörden ordneten die Evakuierung einer Stadt mit etwa einer Million Einwohnern an, nachdem die Zahl kleiner Erdbeben gestiegen war, die später als Vorbeben erkannt wurden, und aus der ganzen Region ungewöhnliche Erscheinungen gemeldet worden waren. Tage später ereignete sich ein Erdbeben der Magnitude 7,3. Der USGS zitiert eine Schätzung, wonach es ohne die Evakuierung mehr als 150.000 Tote und Verletzte gegeben hätte; verzeichnet wurden 2.041 Tote und 27.538 Verletzte (USGS n.d.c). Eine US-Delegation, die 1976 chinesische Labore besuchte, kam zu dem Schluss, dass die Entscheidung vor allem auf der ausgeprägten Vorbebenserie beruhte, und fand andere Teile der Methode schwer zu beurteilen (USGS n.d.c).",
+          "Im folgenden Jahr traf ein Erdbeben der Magnitude 7,6 Tangshan ohne Vorwarnung. Keines der bei Haicheng beobachteten Vorläuferphänomene trat auf, und die geschätzte Zahl der Todesopfer lag bei 250.000 (USGS n.d.c). Die beiden Ereignisse, nur ein Jahr auseinander, zeigen, dass die Signale, die vor einem Erdbeben verfügbar sind, vor einem anderen fehlen können.",
+          "Die Vereinigten Staaten führten einen eigenen Test in Parkfield, Kalifornien, durch. 1985 gab der USGS eine langfristige Vorhersage heraus, wonach ein Erdbeben der Magnitude 6 diesen Abschnitt der San-Andreas-Verwerfung vor 1993 treffen würde; sie stützte sich auf eine Reihe ähnlicher Erdbeben in recht regelmäßigen Abständen (Bakun et al. 2005). Das Zeitfenster schloss sich ohne Erdbeben. Ein Ereignis der Magnitude 6,0 kam 2004, elf Jahre später. Den Parkfield-Erdbeben von 1934 und 1966 waren 17 Minuten vorher Vorbeben vorausgegangen, doch das Ereignis von 2004 kam ohne offensichtliche Vorläufer, und die Autoren folgerten, dass eine zuverlässige kurzfristige Vorhersage weiterhin außer Reichweite ist (Bakun et al. 2005).",
+          "Die Parkfield-Autoren zogen aus dem Ergebnis eine praktische Schlussfolgerung. Um die Auswirkungen von Erdbeben schon jetzt zu verringern, empfahlen sie, die nächste Generation von Modellen zu entwickeln, die Stärke und Ort schädlicher Bodenerschütterungen abschätzen – ein Ziel, das nicht davon abhängt, zu wissen, wann ein Bruch beginnt (Bakun et al. 2005)."
+        ]
+      },
+      {
+        "h": "Warum Vorläufer unzuverlässig sind",
+        "p": [
+          "Die meisten vorgeschlagenen Vorläufer, darunter ungewöhnliche kleine Erdbeben, treten häufig auf, ohne dass ein stärkeres Erdbeben folgt; ein Signal, das manchen Erdbeben vorausgeht, kann daher für sich allein keine Vorhersage tragen (USGS n.d.a). Geller et al. (1997) ergänzten, dass Tausende angebliche Vorläufer in der Regel erst nach dem Erdbeben als Vorläufer identifiziert wurden.",
+          "Vorbeben veranschaulichen die Schwierigkeit. Sie waren vor weniger als der Hälfte der Hauptbeben dokumentiert worden, doch ein hochaufgelöster Katalog der Hauptbeben ab Magnitude 4 in Südkalifornien von 2008 bis 2017 zeigte, dass 72 Prozent von ihnen Vorbebenaktivität vorausging, die deutlich über der örtlichen Hintergrundrate lag (Trugman and Ross 2019). Dieser Befund blickt in der Zeit zurück. Weltweit liegt die Wahrscheinlichkeit, dass auf ein Erdbeben innerhalb einer Woche in der Nähe ein stärkeres folgt, bei etwa 5 Prozent (USGS n.d.b); rund 95 Prozent der Erdbeben ziehen also nichts Stärkeres nach sich. Die Serien, die anwachsen werden, herauszufinden, während sie noch ablaufen, ist der ungelöste Teil."
+        ]
+      },
+      {
+        "h": "Was die Seismologie liefert",
+        "p": [
+          "Langfristige Wahrscheinlichkeiten haben das größte praktische Gewicht. Sie bilden die Grundlage für Bauvorschriften und erdbebengerechte Planung und sind damit die wichtigsten Prognosewerkzeuge, um Gemeinden vor Erdbebenschäden zu schützen (Jordan et al. 2011). Die dritte Uniform California Earthquake Rupture Forecast (UCERF3) schätzt, dass ein Erdbeben der Magnitude 6,7, so stark wie das Northridge-Beben von 1994, irgendwo im Bundesstaat etwa alle 6,3 Jahre auftritt, gegenüber alle 4,8 Jahre im vorherigen Modell. Sie erhöhte außerdem die 30-Jahres-Wahrscheinlichkeit eines Erdbebens der Magnitude 8 oder stärker von 4,7 Prozent auf 7 Prozent (SCEC n.d.). Das 30-Jahres-Fenster entspricht der Laufzeit einer typischen Hypothek. Prognosen dieser Art beschreiben, wo und wann Erdbeben auftreten können, und gesonderte Bodenbewegungsmodelle beschreiben, wie stark die Erschütterungen zu spüren sein werden (SCEC n.d.).",
+          "Kurzfristige Prognosen konzentrieren sich auf Nachbeben. Das Epidemic-Type Aftershock Sequence-Modell (ETAS) behandelt jedes Erdbeben als fähig, eigene Nachbeben auszulösen, und ein für eine Übersichtsarbeit von 2024 befragtes Gremium von Prognoseexperten nannte es das bevorzugte Standardmodell (Mizrahi 2024). Italien veröffentlicht wöchentlich Prognosen, Neuseeland und die Vereinigten Staaten für bestimmte Bebenserien (Mizrahi 2024). Nur wenige Länder betreiben solche Systeme, und es gibt keine vereinbarten Tests, um zu entscheiden, ob ein Modell geeignet ist (Mizrahi 2024). Richtig eingesetzt haben kurzfristige Prognosen praktischen Wert, etwa um die Nachbeben nach starken Erdbeben vorauszuschätzen (Jordan et al. 2011). Diese Modelle haben eine gemeinsame Grenze: Sie sagen künftige starke Erdbeben nicht mit hoher Wahrscheinlichkeit voraus (Mizrahi 2024). Die International Commission on Earthquake Forecasting stellte fest, dass kurzfristige Wahrscheinlichkeiten um Größenordnungen schwanken können, absolut gesehen aber meist niedrig bleiben, und dass sich starke Erdbeben für bestimmte Regionen über Zeiträume von weniger als Jahrzehnten nicht zuverlässig vorhersagen lassen (Jordan et al. 2011).",
+          "Die Frühwarnung verlagert das Ziel vom Vorhersagen auf das schnelle Erkennen. ShakeAlert, das System an der US-Westküste, funktioniert, weil seine Datenverarbeitung und die Übermittlung der Meldungen schneller sind als die seismischen Wellen selbst. Die Vorwarnzeit hängt von der Entfernung zum Erdbeben, der Verarbeitungsgeschwindigkeit und der für Alarme gewählten Erschütterungsstufe ab. Für ein Ereignis in der Größe des Loma-Prieta-Bebens ergab eine Analyse des USGS Vorwarnzeiten zwischen null und zwanzig Sekunden (USGS 2019)."
+        ]
+      },
+      {
+        "h": "Forschung an der Grenze des Wissens",
+        "p": [
+          "Langsames Gleiten bietet einen Forschungsansatz. In den Wochen vor dem Tōhoku-Oki-Erdbeben der Magnitude 9,0 im Jahr 2011 wanderten zwei Serien kleiner Erdbeben mit 2 bis 10 Kilometern pro Tag auf das spätere Epizentrum zu. Kato et al. (2012) deuteten sie als langsames Gleiten an der Plattengrenze, wobei die zweite Serie wahrscheinlich Spannung hinzufügte, die half, den Hauptbruch auszulösen. Die Studie betrifft ein einziges Erdbeben, und die Autoren stellten den Spannungsbeitrag als Möglichkeit dar. In Cascadia wandten Hulbert et al. (2020) maschinelles Lernen auf kontinuierliche seismische Wellen an und fanden Muster, die dem 14-monatigen Zyklus des langsamen Gleitens folgen; sie sehen darin einen Beleg dafür, dass sich langsames Gleiten vorhersagen lässt. Sie betrachten langsames Gleiten als Fenster zur Nukleation, einem Vorgang, der bei schnellen Erdbeben weiterhin schwer zu fassen ist (Hulbert et al. 2020).",
+          "Maschinelles Lernen hat gemischte Ergebnisse gebracht. Rouet-Leduc et al. (2017) zeigten, dass ein Modell, das mit dem akustischen Signal einer Laborverwerfung gespeist wurde, die verbleibende Zeit bis zum Versagen der Verwerfung abschätzen konnte. Die Schergeschwindigkeiten im Labor übersteigen die realer Verwerfungen um Größenordnungen, und die Forscher bezeichneten sich als vorsichtig, was die Übertragung der Methode auf echte Erdbeben angeht (Physics Today 2017).",
+          "Eine viel beachtete Studie von 2018 trainierte ein neuronales Netz mit mehr als 131.000 Paaren aus Haupt- und Nachbeben, um zu kartieren, wo Nachbeben auftreten (DeVries et al. 2018). Mignan und Broccardo (2019) erreichten dieselbe Leistung mit einer logistischen Regression mit zwei Parametern, gegenüber 13.451 Parametern im ursprünglichen Netz. Brendan Meade, Mitautor der ursprünglichen Studie, entgegnete, dass die Annäherung durch ein einfacheres Modell ein zentrales Ergebnis jener Arbeit gewesen sei (Synced 2019)."
+        ]
+      },
+      {
+        "h": "Kommunikation nach L’Aquila",
+        "p": [
+          "Im April 2009 traf ein Erdbeben der Magnitude 6,3 L’Aquila in Italien und tötete 309 Menschen. 2012 sprach ein Gericht sechs Wissenschaftler und einen Regierungsbeamten der fahrlässigen Tötung schuldig, weil sie die Bewohner nicht vor der Gefahr gewarnt hätten, und verurteilte die Wissenschaftler zu sechs Jahren Haft. Ein Berufungsgericht hob die Urteile gegen die Wissenschaftler 2014 auf (The World 2014).",
+          "Der italienische Zivilschutz berief daraufhin die International Commission on Earthquake Forecasting ein. Ihr Bericht von 2011 empfahl systematische und transparente operative Prognosen und warnte, dass es zu Verwirrung führt, sich allein auf informelle Kommunikation zwischen Wissenschaftlern und Öffentlichkeit zu verlassen (Jordan et al. 2011)."
+        ]
+      },
+      {
+        "h": "Wo die Fachwelt uneins ist",
+        "p": [
+          "Geller et al. (1997) argumentierten, dass Erdbeben grundsätzlich unvorhersagbar sind, weil es von nicht messbaren Einzelheiten der Bedingungen im Erdinneren abhängt, ob ein kleiner Bruch zu einem großen anwächst. Kommentatoren in Science entgegneten, diese Haltung sei gegenüber einem schwierigen Fachgebiet übertrieben negativ, während ein anderer Kommentator einräumte, dass kein Mechanismus für elektromagnetische Vorläufer gut genug bekannt sei, um zuverlässig genutzt zu werden (\"Cannot Earthquakes Be Predicted?\" 1997).",
+          "Der USGS beschreibt seinen eigenen Schwerpunkt als die langfristige Verringerung der Erdbebengefährdung durch sicherere Bauwerke; kurzfristige Vorhersage gehört nicht zu diesen Bemühungen (USGS n.d.a). Die Belege stützen beide Lesarten. Jahrzehnte der Überwachung haben keine validierte Methode für kurzfristige Vorhersagen hervorgebracht, und es gibt keinen Beweis, dass eine solche Methode unmöglich ist. Dichtere Messnetze, kontinuierliche seismische Aufzeichnungen und Beobachtungen langsamen Gleitens erweitern, was Forschende überprüfen können. Jede neue Behauptung muss sich an dem Maßstab messen lassen, der in Parkfield galt: eine bestimmte Zeit, ein bestimmter Ort und eine bestimmte Magnitude, im Voraus angegeben."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Können Wissenschaftler Erdbeben vorhersagen?",
+        "a": "Nein. Der U.S. Geological Survey erklärt, dass weder er noch andere Wissenschaftler jemals ein starkes Erdbeben vorhergesagt haben. Eine Vorhersage muss Datum und Uhrzeit, den Ort und die Magnitude angeben, und eine Behauptung, der eines dieser drei Elemente fehlt, lässt sich nicht überprüfen."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Erdbebenprognose, Wahrscheinlichkeit und Frühwarnung?",
+        "a": "Langfristige Wahrscheinlichkeiten geben die Chance eines Erdbebens bestimmter Stärke in einer Region über Jahre oder Jahrzehnte an. Prognosen wenden ähnliche Überlegungen auf kürzere Zeitfenster an und werden in der Regel für Nachbeben verwendet. Eine Frühwarnung ist ein Alarm, der nach dem Beginn eines Bruchs verschickt wird und Sekunden bis einige zehn Sekunden Vorlauf gibt, bevor die zerstörerischen Wellen eintreffen."
+      },
+      {
+        "q": "Wurde das Erdbeben von Haicheng 1975 vorhergesagt?",
+        "a": "Die Behörden evakuierten Haicheng, nachdem die Zahl kleiner Erdbeben gestiegen war, die später als Vorbeben erkannt wurden, und Tage später ereignete sich ein Erdbeben der Magnitude 7,3. Eine US-Delegation kam zu dem Schluss, dass die Entscheidung vor allem auf der Vorbebenserie beruhte. Im Jahr darauf traf das Tangshan-Erdbeben der Magnitude 7,6 ohne eines dieser Signale ein."
+      },
+      {
+        "q": "Kündigen Vorbeben ein starkes Erdbeben an?",
+        "a": "Nicht zuverlässig. In Südkalifornien ging 72 Prozent der Hauptbeben ab Magnitude 4 von 2008 bis 2017 erhöhte Vorbebenaktivität voraus, doch weltweit folgt nur auf etwa 5 Prozent der Erdbeben innerhalb einer Woche in der Nähe ein stärkeres."
+      },
+      {
+        "q": "Kann maschinelles Lernen Erdbeben vorhersagen?",
+        "a": "Noch nicht. Modelle haben die Zeit bis zum Versagen von Laborverwerfungen abgeschätzt und Muster gefunden, die dem Zyklus des langsamen Gleitens in Cascadia folgen, doch eine viel beachtete Deep-Learning-Studie zu Nachbeben wurde von einer logistischen Regression mit zwei Parametern erreicht."
+      },
+      {
+        "q": "Wie viel Vorwarnzeit gibt eine Erdbebenfrühwarnung?",
+        "a": "Das hängt von der Entfernung zum Erdbeben, der Verarbeitungsgeschwindigkeit und der für Alarme gewählten Erschütterungsstufe ab. Für ein Erdbeben in der Größe des Loma-Prieta-Bebens von 1989 ergab eine Analyse von ShakeAlert durch den USGS Vorwarnzeiten zwischen null und zwanzig Sekunden."
+      }
+    ]
+  },
+  "plate-tectonics-subduction": {
+    "title": "Plattentektonik, Subduktionszonen und Megaüberschiebungsbeben",
+    "dek": "Wo eine Platte unter eine andere abtaucht, kann sich die Grenze über Jahrhunderte verhaken und dann in einem Erdbeben der Magnitude 9 brechen. Hier steht, wie Subduktion funktioniert, was die großen Megaüberschiebungsbeben gezeigt haben und wie Forschende den letzten Bruch in Cascadia auf eine Winternacht im Jahr 1700 datierten.",
+    "sections": [
+      {
+        "h": "Wie und warum sich tektonische Platten bewegen",
+        "p": [
+          "Die äußere Schale der Erde ist in starre Platten zerbrochen, die sich relativ zueinander bewegen. Der U.S. Geological Survey (USGS) beschreibt ihre Geschwindigkeit als ungefähr so schnell, wie Fingernägel wachsen. Jede Platte bewegt sich mit eigener Geschwindigkeit und in eigener Richtung, und GPS misst die Bewegung der Kruste heute auf Bruchteile eines Millimeters pro Jahr genau (USGS n.d.a).",
+          "Die Kräfte hinter dieser Bewegung wurden in einer klassischen Studie von Forsyth und Uyeda (1975) abgewogen. Sie bilanzierten die Drehmomente, die auf einzelne Platten wirken, um die antreibenden mit den bremsenden Kräften zu vergleichen. Ihre Analyse wies auf das Absinken dichter ozeanischer Plattenstücke an Tiefseegräben als wichtigste Antriebskraft hin – ein Effekt, der heute meist Plattenzug (Slab Pull) genannt wird und überwiegend durch den viskosen Widerstand im Mantel ausgeglichen wird (Forsyth and Uyeda 1975). Eine zweite, kleinere Kraft, der Rückendruck (Ridge Push), wirkt dort, wo an mittelozeanischen Rücken neuer Meeresboden entsteht.",
+          "Der Plattenzug rückt Subduktionszonen ins Zentrum der Plattentektonik. Die Orte, an denen alte ozeanische Platten in den Mantel zurücksinken, sind zugleich die Orte, die am meisten Spannung speichern und freisetzen – deshalb ereignen sich dort die stärksten je aufgezeichneten Erdbeben."
+        ]
+      },
+      {
+        "h": "Die drei Arten von Plattengrenzen",
+        "p": [
+          "Platten treffen an drei Hauptarten von Grenzen aufeinander (Kious and Tilling 1996). An divergenten Grenzen bewegen sich Platten auseinander, und aus Magma, das aus dem Mantel aufsteigt, bildet sich neue Kruste. Die mittelozeanischen Rücken sind das wichtigste Beispiel.",
+          "An Transformgrenzen gleiten Platten horizontal aneinander vorbei, und Kruste wird weder gebildet noch vernichtet (Kious and Tilling 1996). Die San-Andreas-Verwerfung in Kalifornien ist das bekannteste Beispiel.",
+          "An konvergenten Grenzen bewegen sich Platten aufeinander zu, und Kruste wird vernichtet, indem eine Platte unter eine andere abtaucht (Kious and Tilling 1996). Wo ozeanische Lithosphäre auf eine andere Platte trifft, sinkt die dichtere ozeanische Platte ab, und die Grenze wird zur Subduktionszone. Kious und Tilling (1996) weisen auch darauf hin, dass manche Plattengrenzen eher breite Deformationszonen als scharfe Linien sind – eine Erinnerung daran, dass die drei Typen eine Idealisierung einer komplizierteren Oberfläche sind."
+        ]
+      },
+      {
+        "h": "Was ist eine Subduktionszone?",
+        "p": [
+          "Eine Subduktionszone ist eine konvergente Grenze, an der eine Platte unter eine andere in den Mantel abtaucht. An der Oberfläche ist sie durch einen tiefen Tiefseegraben gekennzeichnet, und wo eine ozeanische Platte unter einen Kontinent abtaucht, erheben sich landeinwärts Vulkanketten wie die Anden und das Kaskadengebirge (Kious and Tilling 1996).",
+          "Die Kontaktfläche zwischen den beiden Platten ist eine riesige, flach geneigte Verwerfung, die Megaüberschiebung. In geringer Tiefe, weniger als etwa 25 Kilometer, kann die Grenzfläche festsitzen oder verhaken, und entlang ihr baut sich Spannung auf (USGS n.d.b). In den Hunderten Jahren zwischen großen Erdbeben führt das anhaltende Zusammendrücken dazu, dass sich die obere Platte direkt über und landeinwärts der verhakten Zone auf Tausenden Quadratkilometern aufwölbt und hebt (USGS n.d.b).",
+          "Übersteigt die angesammelte Spannung die Festigkeit der Verwerfung, reißt sich der verhakte Abschnitt los und setzt seine gespeicherte Energie als seismische Wellen frei (USGS n.d.b). Die obere Platte federt zurück. Gebiete, die sich aufgewölbt hatten, können plötzlich absinken, während der Meeresboden über dem Bruch nach oben gestoßen wird und das darüberliegende Meerwasser verdrängt. Diese plötzliche vertikale Bewegung des Meeresbodens erzeugt die großen Tsunamis an Subduktionszonen."
+        ]
+      },
+      {
+        "h": "Warum Megaüberschiebungsbeben die stärksten sind",
+        "p": [
+          "Der USGS beschreibt die flache Megaüberschiebungsfläche von Subduktionszonen als Ort der stärksten Erdbeben und als einzigen Verwerfungstyp, der Brüche der Magnitude 9 oder stärker hervorbringen kann (USGS n.d.c). Der Grund liegt darin, wie die Magnitude gemessen wird. Die Momenten-Magnitude wird aus dem seismischen Moment abgeleitet, dem Produkt aus der Steifigkeit des Gesteins, der Fläche der Verwerfung, die geglitten ist, und dem mittleren Versatz.",
+          "Eine Megaüberschiebung bietet eine enorme Verwerfungsfläche. Weil die Grenzfläche flach geneigt ist, kann sich ein Bruch weit in Fallrichtung der Verwerfung erstrecken und zugleich über viele Hundert Kilometer entlang des Grabens. In einer Studie über Erdbeben an Subduktionsgrenzflächen der Magnitude 7,1 bis 9,5 fanden Allen und Hayes (2017), dass die Bruchbreite bei den stärksten Ereignissen bei etwa 200 Kilometern ihre Grenze erreicht. Darüber hinaus wachsen Erdbeben vor allem, indem sie sich entlang des Grabens verlängern und der Versatz zunimmt, und die Autoren folgerten, dass die Größe großer Erdbeben offenbar stärker vom mittleren Versatz über die stärksten Abschnitte der Verwerfung bestimmt wird (Allen and Hayes 2017).",
+          "Kein anderer Verwerfungstyp vereint solche Länge, Breite und solchen Versatz. Die beiden stärksten mit modernen Instrumenten aufgezeichneten Erdbeben ereigneten sich beide an Subduktionszonen: das Chile-Erdbeben der Magnitude 9,5 von 1960 und das Alaska-Erdbeben der Magnitude 9,2 von 1964 (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Chile 1960, Sumatra 2004 und Tōhoku 2011",
+        "p": [
+          "Das Chile-Erdbeben vom 22. Mai 1960 ist mit einer Momenten-Magnitude von 9,5 das stärkste je aufgezeichnete (USGS n.d.d). Erste Berichte nannten eine Oberflächenwellen-Magnitude von 8,6. Die Momenten-Magnitude, ein besseres Maß für die freigesetzte Energie, wurde später auf 9,5 geschätzt (USGS n.d.d). Es brach an der Grenze, an der die Nazca-Platte unter Südamerika abtaucht. Cifuentes (1989) schätzte die Bruchlänge anhand von Nachbeben und Krustenverformung auf 920 ± 100 Kilometer; der Bruch endete nahe der Stelle, an der der Chile-Rücken auf den Peru-Chile-Graben trifft. Der USGS verzeichnet etwa 1.655 Todesopfer im Süden Chiles und rund 2 Millionen Obdachlose. Der Tsunami überquerte den Pazifik und tötete 61 Menschen auf Hawaii, die meisten in Hilo, und 138 in Japan (USGS n.d.d).",
+          "Das Sumatra-Andamanen-Erdbeben vom 26. Dezember 2004 hatte eine Magnitude von 9,1 (USGS n.d.f). Seine Nachbeben zeichneten einen etwa 1.300 Kilometer langen Bruch nach, vom Nordwesten Sumatras bis zu den Andamanen (Lay et al. 2005). Der folgende Tsunami im Indischen Ozean forderte 227.898 Tote und Vermisste, die für tot gehalten werden, und vertrieb etwa 1,7 Millionen Menschen (USGS n.d.g).",
+          "Das Tōhoku-Oki-Erdbeben vom 11. März 2011 ereignete sich am Japangraben, wo die Pazifische Platte unter den Norden Japans abtaucht. Der USGS gibt es mit Magnitude 9,1 an und berichtet, dass sich die Verwerfung auf einer Fläche von etwa 400 Kilometern Länge und 150 Kilometern Breite um bis zu 50 bis 60 Meter verschob (USGS n.d.e). Vermessungen des Meeresbodens weniger als zwei Wochen nach dem Erdbeben zeigten, dass sich der Meeresboden nahe dem Graben um etwa 50 Meter nach Ostsüdost und um 7 bis 10 Meter nach oben bewegt hatte – ein Beleg dafür, dass der Bruch die Grabenachse erreichte (Fujiwara et al. 2011). Die japanische Nationale Polizeibehörde hatte sechs Monate nach der Katastrophe mindestens 15.782 Todesopfer bestätigt (Nippon.com n.d.)."
+        ]
+      },
+      {
+        "h": "Die Cascadia-Subduktionszone und das Erdbeben von 1700",
+        "p": [
+          "Die Cascadia-Subduktionszone verläuft vor der Küste vom Norden der Vancouver-Insel bis Cape Mendocino im Norden Kaliforniens; dort tauchen die Juan-de-Fuca-Platte und ihre Nachbarplatten unter Nordamerika ab (PNSN n.d.). Die Juan-de-Fuca-Platte bewegt sich mit etwa 4 Zentimetern pro Jahr auf Nordamerika zu (PNSN n.d.).",
+          "Das letzte große Cascadia-Erdbeben ereignete sich am 26. Januar 1700, mit einer geschätzten Magnitude zwischen 8,7 und 9,2 (Wirth et al. 2025). Datum und Stärke wurden anhand eines in Japan aufgezeichneten Tsunamis rekonstruiert. Samurai, Kaufleute und Dorfbewohner schrieben im Januar 1700 von Wellen, die ohne ein örtliches Erdbeben eintrafen – spätere Forschende nannten das einen verwaisten Tsunami (Atwater et al. 2005). Satake et al. (1996) schlossen Südamerika, Alaska und Kamtschatka als Quellen aus, weil historische und geologische Aufzeichnungen dort für 1700 kein starkes Erdbeben zeigten, und verorteten das Erdbeben in Cascadia gegen 21:00 Uhr Ortszeit am 26. Januar 1700. Aus den Tsunamihöhen schätzten sie eine Magnitude von etwa 9, was einen Bruch der gesamten Subduktionszone bedeuten würde (Satake et al. 1996).",
+          "Eine spätere Analyse verglich die an sieben Orten in Japan gemeldeten Überflutungen mit Höhen von etwa 1 bis 5 Metern mit Tsunamis, die für sechs mögliche Quellen in Cascadia modelliert wurden. Das wahrscheinlichste Erdbeben hatte eine Momenten-Magnitude von 9,0, mit 19 Metern Versatz auf einer etwa 1.100 Kilometer langen Zone vor der Küste (Satake et al. 2003). Die Bandbreite plausibler Quellen entspricht Magnituden von 8,7 bis 9,2. Kürzere Brüche könnten den japanischen Tsunami nur mit bis zu 40 Metern Versatz vor der Küste erklären, und die Höhenänderungen des Landes, die sie verursachen würden, widersprechen den geologischen Belegen entlang der Küste von Cascadia (Satake et al. 2003)."
+        ]
+      },
+      {
+        "h": "Belege für Cascadia-Erdbeben: Geisterwälder und begrabene Marschen",
+        "p": [
+          "Die geologischen Belege kamen zuerst von der Küste. Atwater (1987) fand, dass Gezeitenschlamm die Küstenniederungen im äußersten Westen Washingtons in etwa 7.000 Jahren sechsmal begraben hatte, jedes Mal wahrscheinlich infolge einer plötzlichen Absenkung um etwa 0,5 bis 2 Meter. Sandschichten auf mindestens drei der begrabenen Oberflächen deuteten auf Tsunamis hin, die mit denselben Ereignissen eintrafen (Atwater 1987). Genau dieses Muster ist zu erwarten, wenn die obere Platte in dem Moment absinkt, in dem eine Megaüberschiebung bricht.",
+          "Dieselbe Absenkung schuf Geisterwälder. Am Copalis River in Washington ragt ein Bestand abgestorbener Riesen-Lebensbäume aus einer brackigen Gezeitenmarsch. Die Bäume starben, als das Land beim jüngsten Cascadia-Erdbeben absank und Salzwasser ihre Wurzeln überflutete (USGS n.d.i). Yamaguchi et al. (1997) datierten ihr Absterben anhand der Jahresringe. Die durch das Erdbeben getöteten Bäume hatten ihr Wachstum 1699 abgeschlossen, im Jahr 1700 aber nicht mehr begonnen; das legte die Absenkung zwischen die Wachstumsperioden 1699 und 1700 und passte zum Datum aus den japanischen Aufzeichnungen (Yamaguchi et al. 1997).",
+          "Sedimente vor der Küste reichen weiter zurück. Turbidite, Ablagerungen unterseeischer Rutschungen, sammeln sich in untermeerischen Rinnen entlang des Kontinentalrands. Goldfinger et al. (2012) verfolgten sie über etwa 500 Kilometer im nördlichen Cascadia und folgerten, dass ihre über 10.000 Jahre gleichzeitige Entstehung am besten durch Auslösung bei großen Erdbeben zu erklären ist. Die Aufzeichnung deutet eher auf Gruppen von zwei bis fünf Erdbeben hin, getrennt durch ungewöhnlich lange Pausen, als auf einen regelmäßigen Zyklus, und die Aufzeichnung vor der Küste stimmt gut mit der kürzeren an Land erhaltenen überein (Goldfinger et al. 2012).",
+          "Der USGS schätzt die Wahrscheinlichkeit eines Cascadia-Erdbebens von etwa Magnitude 9 in den nächsten 50 Jahren heute auf 10 bis 15 Prozent (Wirth et al. 2025). Die Schätzung beruht auf denselben Belegen: schriftlichen Aufzeichnungen aus Japan, abgestorbenen Bäumen und begrabenen Böden an der Pazifikküste und geschichteten Sedimenten auf dem Meeresboden."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Was ist eine Subduktionszone?",
+        "a": "Eine Subduktionszone ist eine konvergente Plattengrenze, an der eine meist ozeanische Platte unter eine andere in den Mantel abtaucht. Sie ist durch einen tiefen Tiefseegraben gekennzeichnet, und die Kontaktfläche zwischen den Platten ist eine große, flach geneigte Verwerfung, die Megaüberschiebung."
+      },
+      {
+        "q": "Was ist ein Megaüberschiebungsbeben?",
+        "a": "Ein Megaüberschiebungsbeben ist ein Bruch der verhakten Grenzfläche zwischen zwei Platten an einer Subduktionszone. Über Jahrhunderte baut sich Spannung auf, während der flache Teil der Grenzfläche festsitzt, und wird dann frei, wenn sich die Verwerfung losreißt. Der USGS beschreibt diese Verwerfungen als die einzigen, die Erdbeben der Magnitude 9 oder stärker hervorbringen können."
+      },
+      {
+        "q": "Warum entstehen an Subduktionszonen die stärksten Erdbeben?",
+        "a": "Die Magnitude eines Erdbebens hängt von der Fläche der Verwerfung ab, die gleitet, und vom Betrag des Versatzes. Eine Megaüberschiebung ist flach geneigt und kann sich über viele Hundert Kilometer entlang eines Grabens erstrecken; ihre Verwerfungsfläche ist dadurch weit größer als bei anderen Verwerfungstypen. Bei den stärksten Ereignissen kommt ein Versatz von mehreren zehn Metern hinzu."
+      },
+      {
+        "q": "Was war das stärkste Erdbeben, das je gemessen wurde?",
+        "a": "Das stärkste instrumentell aufgezeichnete Erdbeben traf am 22. Mai 1960 den Süden Chiles, mit einer Magnitude von 9,5. Sein Tsunami tötete 61 Menschen auf Hawaii und 138 in Japan, zusätzlich zu etwa 1.655 Todesopfern in Chile."
+      },
+      {
+        "q": "Woher weiß man, dass das Cascadia-Erdbeben im Jahr 1700 stattfand?",
+        "a": "Japanische Aufzeichnungen beschreiben einen Tsunami im Januar 1700, der ohne ein örtliches Erdbeben eintraf. Jahresringe von Riesen-Lebensbäumen, die starben, als die Küste im pazifischen Nordwesten absank, zeigen, dass die Bäume zwischen den Wachstumsperioden 1699 und 1700 abstarben. Zusammen datieren diese Belege das Erdbeben auf den 26. Januar 1700."
+      },
+      {
+        "q": "Wie wahrscheinlich ist ein Cascadia-Erdbeben der Magnitude 9?",
+        "a": "Der USGS schätzt die Wahrscheinlichkeit eines Erdbebens von etwa Magnitude 9 an der Cascadia-Subduktionszone in den nächsten 50 Jahren auf 10 bis 15 Prozent. Sedimentaufzeichnungen vor der Küste deuten darauf hin, dass solche Erdbeben in Gruppen auftreten, die durch lange Pausen getrennt sind, statt in einem regelmäßigen Rhythmus."
+      }
+    ]
+  },
+  "faults-and-stress": {
+    "title": "Verwerfungen und Spannung: Warum Erdbeben entstehen",
+    "dek": "Ein Erdbeben ist die plötzliche Freisetzung von Spannung, die eine Verwerfung über Jahrzehnte oder Jahrhunderte gespeichert hat. Hier steht, wie sich diese Spannung aufbaut, wie Verwerfungen nachgeben und wie ein Bruch den nächsten vorbereiten kann.",
+    "sections": [
+      {
+        "h": "Die Theorie des elastischen Rückpralls und das Erdbeben von San Francisco 1906",
+        "p": [
+          "Am 18. April 1906 brach die San-Andreas-Verwerfung auf etwa 477 Kilometern Länge im Norden Kaliforniens, in einem Erdbeben, dessen Magnitude heute auf 7,9 geschätzt wird (USGS n.d.b). Forschungen von Gladys Hansen und Emmet Condon bezifferten die Zahl der Menschen, die direkt oder indirekt ums Leben kamen, auf mehr als 3.000 – ein Mehrfaches der Zahl von etwa 700, die jahrzehntelang genannt wurde (USGS n.d.c).",
+          "Das Erdbeben lieferte auch die erste tragfähige Erklärung dafür, warum Verwerfungen brechen. Harry Fielding Reid, Geologe an der Johns Hopkins University, untersuchte, wie sich die Erdoberfläche während des Erdbebens bewegt hatte, und folgerte, dass der Bruch mit einem elastischen Rückprall zuvor gespeicherter elastischer Spannung verbunden gewesen sein muss (USGS n.d.a). Zäune, Straßen und andere gerade Linien, die die Verwerfung kreuzten, waren versetzt worden; ein von G. K. Gilbert bei Bolinas fotografierter Zaun war entlang der Verwerfungslinie um etwa 8,5 Fuß verschoben (USGS n.d.a).",
+          "Reid legte die Argumentation im zweiten Band des Berichts der staatlichen Kommission dar (Reid 1910). Das Gestein auf beiden Seiten einer Verwerfung wird durch eine langsame, stetige Bewegung mitgeführt, die Verwerfung selbst aber bleibt verhakt. Die Kruste verbiegt sich wie eine Feder und speichert elastische Verformung, bis die Spannung die Festigkeit der Verwerfung übersteigt. Dann gleitet die Verwerfung plötzlich, das verbogene Gestein schnellt in eine unverformte Lage zurück, und die gespeicherte Energie entweicht als seismische Wellen.",
+          "Die Theorie hat eine unmittelbare Folge. Sobald eine Verwerfung geglitten ist, beginnt dieselbe langsame Bewegung, sie erneut zu belasten; Erdbeben an einer bestimmten Verwerfung sind daher wiederkehrend zu erwarten. Der Großteil der modernen Wissenschaft von Verwerfungen und Spannung baut diesen Zyklus aus Belastung und Entlastung weiter aus."
+        ]
+      },
+      {
+        "h": "Verwerfungstypen: Abschiebung, Aufschiebung, Überschiebung und Blattverschiebung",
+        "p": [
+          "Der U.S. Geological Survey definiert eine Verwerfung als Bruch oder Bruchzone zwischen zwei Gesteinsblöcken, an der sich die Blöcke relativ zueinander bewegen können (USGS n.d.d). Verwerfungen werden nach dem Neigungswinkel der Verwerfungsfläche, dem Einfallen, und nach der Bewegungsrichtung entlang dieser Fläche eingeteilt (USGS n.d.d).",
+          "Bei einer Abschiebung bewegt sich der Block über der geneigten Verwerfungsfläche gegenüber dem Block darunter nach unten. Bei einer Aufschiebung bewegt sich der obere Block nach oben und über den unteren, und eine flach einfallende Aufschiebung heißt Überschiebung. Bei einer Blattverschiebung gleiten die Blöcke seitlich aneinander vorbei, und Verwerfungen, die seitliche und vertikale Bewegung verbinden, heißen Schrägverschiebungen (USGS n.d.d). Eine Blattverschiebung wird als rechtsseitig oder linksseitig bezeichnet, je nachdem, in welche Richtung sich die gegenüberliegende Seite zu bewegen scheint, wenn man über die Verwerfung hinweg blickt. Die San-Andreas- und die Nordanatolische Verwerfung sind rechtsseitig; die Ostanatolische Verwerfung ist linksseitig.",
+          "Jeder Typ spiegelt eine andere Anordnung der Spannungen wider. Ernest Masson Anderson (1905) beobachtete, dass an der Erdoberfläche keine Scherspannung wirkt und deshalb eine der drei Hauptspannungen in der oberen Kruste nahezu vertikal ist. Ist die größte Druckspannung vertikal, wie dort, wo die Kruste gedehnt wird, bilden sich Abschiebungen. Ist die kleinste vertikal, wie dort, wo die Kruste zusammengedrückt wird, bilden sich Auf- und Überschiebungen. Ist die mittlere Spannung vertikal, bilden sich Blattverschiebungen. Bei typischer Gesteinsreibung sagt die Theorie Abschiebungen mit etwa 60 Grad Einfallen, Überschiebungen mit etwa 30 Grad und nahezu senkrechte Blattverschiebungen voraus."
+        ]
+      },
+      {
+        "h": "Stick-Slip-Reibung: Wie Verwerfungen Energie speichern und freisetzen",
+        "p": [
+          "Der elastische Rückprall beschreibt die Belastung. Die Reibung erklärt, warum die Freisetzung plötzlich statt allmählich geschieht. In Laborversuchen an Gestein stellten Brace und Byerlee (1966) fest, dass Flächen unter hohem Druck nicht gleichmäßig glitten, sondern haften blieben, abrupt rutschten und wieder haften blieben. Sie schlugen vor, dass flache Erdbeben diese ruckartige Haft-Gleit-Bewegung (Stick-Slip) an Verwerfungen sein könnten, und stellten fest, dass die bei jedem Gleitereignis freigesetzte Spannung nur ein kleiner Teil der Spannung war, die das Gestein trug (Brace and Byerlee 1966).",
+          "Spätere Arbeiten machten aus dieser Beobachtung Gesetze der Gesteinsreibung. Scholz (1998) fasste zusammen, wie das Ergebnis davon abhängt, ob die Reibung zu- oder abnimmt, wenn das Gleiten schneller wird. Wo die Reibung mit der Geschwindigkeit zunimmt, bremst sich jedes Gleiten selbst, und die Verwerfung gleitet stabil. Wo die Reibung mit der Geschwindigkeit abnimmt, kann sich das Gleiten zu einem instabilen Bruch beschleunigen – einem Erdbeben. Scholz argumentierte, dass ein einziges Stoffgesetz dieser Art ein breites Spektrum von Erdbebenverhalten erklärt, darunter, wie viel der Bewegung einer Verwerfung in Erdbeben freigesetzt wird und wie viel ohne sie abläuft (Scholz 1998).",
+          "Die Unterscheidung ist im Maßstab ganzer Verwerfungen wichtig. Ein Abschnitt einer Verwerfung mit geschwindigkeitsschwächender Reibung kann sich verhaken und später heftig brechen. Ein Abschnitt mit geschwindigkeitsverstärkender Reibung neigt zum Kriechen."
+        ]
+      },
+      {
+        "h": "Verhakte und kriechende Abschnitte der San-Andreas-Verwerfung",
+        "p": [
+          "Der größte Teil der San-Andreas-Verwerfung ist verhakt. Zwischen großen Erdbeben bleiben ihre beiden Seiten in der Tiefe verhakt, während sich die Platten weiterbewegen, und im umgebenden Gestein sammelt sich Verformung an, wie Reid es beschrieben hat. Der Abschnitt, der 1906 brach, verhält sich so.",
+          "Zwischen San Juan Bautista und Parkfield in Zentralkalifornien verhält sich die Verwerfung anders. Dort gleiten die beiden Seiten mehr oder weniger kontinuierlich aneinander vorbei, in einem Vorgang namens aseismisches Kriechen, der den Boden bewegt, ohne starke Erdbeben zu erzeugen. Titus et al. (2006) vermaßen sieben Messlinien neu, Reihen von Vermessungspunkten quer über die Verwerfung, und erhielten mittlere Mindestgleitraten von 21 bis 26 Millimetern pro Jahr über 33 bis 36 Jahre. Die Ergebnisse deuten auf ein annähernd gleichmäßiges Kriechen entlang des zentralen Kriechsegments über mindestens 35 Jahre hin (Titus et al. 2006).",
+          "Kriechen ist an der Oberfläche sichtbar. Wo eine kriechende Verwerfung eine Stadt durchquert, werden Bordsteine, Gehwege und Mauern jedes Jahr ein wenig mehr verbogen oder versetzt. Die Stadt Hollister nahe dem nördlichen Ende des Kriechabschnitts ist ein bekanntes Beispiel, auch wenn die Verwerfung, die durch ihre Straßen verläuft, die Calaveras-Verwerfung ist, ein Zweig des San-Andreas-Systems, und nicht die San-Andreas-Verwerfung selbst.",
+          "Ein kriechender Abschnitt speichert Verformung nicht so wie ein verhakter, und er kann auch die Ausbreitung von Brüchen begrenzen. Nach dem Parkfield-Erdbeben der Magnitude 6,0 von 2004, das sich am südlichen Ende des Kriechabschnitts ereignete, zeigten GPS-Stationen entlang des zentralen Kriechsegments während und nach dem Erdbeben kaum Versatz (Titus et al. 2006). Kriechen macht eine Verwerfung nicht harmlos, denn auch kriechende Verwerfungen können mittelstarke Erdbeben hervorbringen, aber es verändert, wie und wo sich Spannung aufbaut."
+        ]
+      },
+      {
+        "h": "Spannungsübertragung und Coulomb-Spannungsänderung",
+        "p": [
+          "Wenn eine Verwerfung gleitet, verschwindet die Spannung, die sie trug, nicht. Ein Teil davon wird auf die umgebende Kruste umverteilt, bringt manche benachbarte Verwerfungen näher an den Bruch und entfernt andere davon. Seismologen messen das mit dem Coulomb-Bruchkriterium, das die Änderung der Scherspannung, die eine Verwerfung zum Gleiten treibt, mit der Änderung der Normalspannung verbindet, die sie zusammenpresst (King et al. 1994). Spannungsänderungen werden üblicherweise in Bar angegeben; ein Bar sind 0,1 Megapascal, ungefähr der Luftdruck auf Meereshöhe.",
+          "Die Änderungen sind klein im Vergleich zur Gesamtspannung in der Kruste, aber sie sind wichtig für Verwerfungen, die schon kurz vor dem Bruch stehen. King et al. (1994) fanden, dass Nachbeben dort zahlreich waren, wo die Coulomb-Spannung auf günstig ausgerichteten Verwerfungen um mehr als etwa ein halbes Bar stieg, und spärlich, wo sie um einen ähnlichen Betrag sank. Gebiete, in denen die Spannung abnahm, heißen Spannungsschatten. Dieselbe Studie berechnete, dass die Erdbeben von Landers und Big Bear 1992 in Südkalifornien die Spannung auf dem San-Bernardino-Abschnitt der San-Andreas-Verwerfung um 2 bis 6 Bar erhöhten – genug, um das nächste starke Erdbeben dort um etwa ein Jahrzehnt vorzuziehen (King et al. 1994).",
+          "Stein (1999) prüfte die Belege und kam zu dem Schluss, dass die seismische Gefährdung, wenn man Spannungsänderungen in Wahrscheinlichkeitsänderungen übersetzt, stark von Wechselwirkungen zwischen Erdbeben beeinflusst wird. Die Wahrscheinlichkeit, dass eine Verwerfung bricht, hängt daher von ihrer eigenen Belastung ab und davon, was ihre Nachbarn kürzlich getan haben."
+        ]
+      },
+      {
+        "h": "Die Nordanatolische Verwerfung: Eine Erdbebenserie seit 1939",
+        "p": [
+          "Die Nordanatolische Verwerfung, eine rechtsseitige Blattverschiebung quer durch den Norden der Türkei, bietet das deutlichste Beispiel für Erdbeben, die an einer Verwerfung entlangwandern. Die Serie begann am 26. Dezember 1939 mit einem Erdbeben der Magnitude 7,8 bei Erzincan im Osten, das 32.700 Menschen tötete (USGS n.d.e).",
+          "In den folgenden Jahrzehnten brachen starke Erdbeben aufeinanderfolgende Abschnitte der Verwerfung auf, überwiegend nach Westen fortschreitend. Stein et al. (1997) untersuchten zehn Erdbeben der Magnitude 6,7 oder stärker, die zwischen 1939 und 1992 zusammen 1.000 Kilometer der Verwerfung aufrissen. Sie berechneten, dass neun der zehn Brüche durch die vorangegangenen Beben näher an den Bruch gebracht worden waren, typischerweise um 1 bis 10 Bar, was 3 bis 30 Jahren gewöhnlicher tektonischer Belastung entspricht. Die Spannungsänderungen bewirkten im Jahrzehnt nach jedem Ereignis im Mittel eine Verdreifachung der Erdbebenwahrscheinlichkeit (Stein et al. 1997).",
+          "Die Autoren nutzten dieselbe Überlegung für einen Blick nach vorn. Für die 30 Jahre ab 1996 schätzten sie die Wahrscheinlichkeit eines Erdbebens der Magnitude 6,7 oder stärker nahe der Hafenstadt Izmit auf 12 Prozent (Stein et al. 1997). Am 17. August 1999 traf ein Erdbeben, nach ersten Schätzungen mit Magnitude 7,4 (USGS 2000) und im Bericht des USGS über das Ereignis mit 7,6 (USGS 1999), genau diesen Abschnitt der Verwerfung. Regierungsschätzungen bezifferten die Verluste auf 17.127 Tote und 43.953 Verletzte, und mehr als 250.000 Menschen wurden vertrieben (USGS 2000). Die Autoren hatten das Erdbeben nicht vorhergesagt; sie hatten den Abschnitt als bruchgefährdeter als die meisten anderen eingestuft.",
+          "Der Bruch von 1999 verlagerte die Spannungskonzentration weiter nach Westen, zu den Verwerfungen unter dem Marmarameer nahe Istanbul. Unter Berücksichtigung des Izmit-Erdbebens berechneten Parsons et al. (2000) eine Wahrscheinlichkeit von 62 ± 15 Prozent für starke Erschütterungen in Istanbul in den nächsten 30 Jahren und von 32 ± 12 Prozent im nächsten Jahrzehnt. Die Berechnung ist eine Wahrscheinlichkeit, keine Vorhersage, und die Verwerfungen unter dem Marmarameer bleiben ein zentrales Anliegen der Gefahrenplanung in der Region."
+        ]
+      },
+      {
+        "h": "Die Erdbeben in der Türkei und Syrien 2023 an der Ostanatolischen Verwerfung",
+        "p": [
+          "Die Ostanatolische Verwerfung bildet die südöstliche Grenze des Anatolischen Blocks und nimmt zusammen mit der Nordanatolischen Verwerfung die Westbewegung der Türkei in Richtung Ägäis auf (USGS n.d.f). Am 6. Februar 2023 war sie die Quelle zweier starker Erdbeben im Abstand von neun Stunden.",
+          "Das Pazarcık-Erdbeben der Magnitude 7,8 riss fast 354 Kilometer der Ostanatolischen Verwerfung auf. Das zweite, ein Erdbeben der Magnitude 7,5 bei Elbistan, riss rund 161 Kilometer der separaten Çardak-Verwerfung weiter nördlich auf (USGS n.d.g). Der USGS berichtete, dass die Zahl der Todesopfer in der Türkei und Syrien bis Ende März 2023 57.000 überstieg (USGS n.d.g).",
+          "Die beiden Erdbeben zeigen die Spannungsübertragung in Aktion – und ihre Grenzen. Coulomb-Berechnungen deuten darauf hin, dass das erste Erdbeben die Spannung auf dem Abschnitt der Çardak-Verwerfung, an dem der zweite Bruch begann, um etwa 1 bis 4 Bar erhöhte, während es sie auf dem Teil dieser Verwerfung, der parallel zur Ostanatolischen Verwerfung verläuft, um etwa 3 bis 10 Bar senkte (Toda and Stein 2024). Eine Spannungszunahme dieser Größe ist klein im Vergleich zu der in einem Erdbeben freigesetzten Spannung, kann aber genügen, um eine Verwerfung auszulösen, die schon kurz vor dem Bruch steht (Stein et al. 2023).",
+          "Dieselben Berechnungen ließen Fragen offen. Einige Abschnitte der Ostanatolischen Verwerfung, die zusätzliche Spannung erhielten, brachen nicht, und ein Teil der Çardak-Verwerfung, der nicht belastet worden war, schloss sich dem Bruch der Magnitude 7,5 an. Dem zweiten Erdbeben gingen zudem trotz der großen und plötzlichen Belastung keine Vorbeben voraus (Stein et al. 2023). Die Spannungsübertragung erklärt vieles darüber, wo sich Erdbeben häufen, sagt aber noch nicht, welche belastete Verwerfung brechen wird oder wann."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Was ist die Theorie des elastischen Rückpralls?",
+        "a": "Nach der Theorie des elastischen Rückpralls verbiegt sich das Gestein auf beiden Seiten einer verhakten Verwerfung langsam, während sich die Kruste bewegt, und speichert elastische Verformung. Übersteigt die Spannung die Festigkeit der Verwerfung, gleitet sie, und das Gestein schnellt zurück und setzt die Energie als Erdbeben frei. Harry Fielding Reid stellte sie auf, nachdem er die Bodenbewegungen beim Erdbeben von San Francisco 1906 untersucht hatte."
+      },
+      {
+        "q": "Welche drei Haupttypen von Verwerfungen gibt es?",
+        "a": "Abschiebungen, bei denen sich der obere Block nach unten bewegt, bilden sich dort, wo die Kruste gedehnt wird. Auf- und Überschiebungen, bei denen sich der obere Block nach oben bewegt, bilden sich dort, wo sie zusammengedrückt wird. Zu den Blattverschiebungen, bei denen die Blöcke seitlich aneinander vorbeigleiten, gehören die San-Andreas- und die Nordanatolische Verwerfung."
+      },
+      {
+        "q": "Was ist eine kriechende Verwerfung?",
+        "a": "Eine kriechende Verwerfung gleitet langsam und mehr oder weniger kontinuierlich, statt verhakt zu bleiben und in starken Erdbeben zu brechen. Die San-Andreas-Verwerfung kriecht zwischen San Juan Bautista und Parkfield in Zentralkalifornien; Vermessungen zeigen dort seit mehr als drei Jahrzehnten ein gleichmäßiges Gleiten von etwa 21 bis 26 Millimetern pro Jahr."
+      },
+      {
+        "q": "Kann ein Erdbeben ein anderes auslösen?",
+        "a": "Ja. Ein Erdbeben verteilt Spannung um, erhöht sie an manchen benachbarten Verwerfungen und senkt sie an anderen. Verwerfungen, die schon kurz vor dem Bruch stehen, können über die Schwelle gedrückt werden – deshalb häufen sich Nachbeben dort, wo die Coulomb-Spannung gestiegen ist, und starke Erdbeben folgen manchmal entlang einer Verwerfung aufeinander."
+      },
+      {
+        "q": "Warum wanderten die Erdbeben an der Nordanatolischen Verwerfung nach Westen?",
+        "a": "Zwischen 1939 und 1992 rissen zehn Erdbeben der Magnitude 6,7 oder stärker etwa 1.000 Kilometer der Verwerfung auf, und neun davon ereigneten sich dort, wo frühere Beben die Spannung erhöht hatten. Das Izmit-Erdbeben von 1999 setzte die Serie nach Westen fort und erhöhte die geschätzte Gefährdung für Istanbul."
+      },
+      {
+        "q": "Welche Verwerfung verursachte das Erdbeben in der Türkei und Syrien 2023?",
+        "a": "Das Erdbeben der Magnitude 7,8 vom 6. Februar 2023 riss fast 354 Kilometer der Ostanatolischen Verwerfung auf. Ein Erdbeben der Magnitude 7,5 etwa neun Stunden später riss rund 161 Kilometer der nahe gelegenen Çardak-Verwerfung auf, die das erste Erdbeben teilweise mit zusätzlicher Spannung belastet hatte."
+      }
+    ]
+  },
+  "earth-interior-seismic-waves": {
+    "title": "Das Erdinnere, seismische Wellen und wie Erdbeben gemessen werden",
+    "dek": "Die Tiefen von Kruste, Mantel und Kern wurden mit seismischen Wellen gemessen, nicht mit Bohrern. Dieselben Wellen dienen heute dazu, jedes Erdbeben zu orten und seine Stärke zu messen.",
+    "sections": [
+      {
+        "h": "Der Schalenbau der Erde: Kruste, Mantel, äußerer und innerer Kern",
+        "p": [
+          "Die Erde hat vier Hauptschichten, festgelegt danach, wie seismische Wellen sie durchlaufen. Die äußerste ist die Kruste. Die kontinentale Kruste ist in ihrer Dicke veränderlicher und im Mittel etwa 30–35 Kilometer dick, während die ozeanische Kruste meist nur bis in etwa 5 Kilometer Tiefe reicht (Kious and Tilling 1996).",
+          "Unter der Kruste liegt der Mantel, eine Schicht aus heißem, dichtem Gestein, die bis zum Kern hinabreicht. Im Preliminary Reference Earth Model (PREM), einem weit verbreiteten Modell der mittleren Eigenschaften des Planeten nach Tiefe, hat der Kern einen Radius von 3.480 Kilometern; die Kern-Mantel-Grenze liegt damit rund 2.900 Kilometer unter der Oberfläche (Dziewonski and Anderson 1981).",
+          "Der Kern besteht aus zwei Teilen. Der äußere Kern ist flüssig, der innere Kern fest, mit einem Radius von 1.221,5 Kilometern im PREM; seine Oberfläche liegt also etwa 5.150 Kilometer tief (Dziewonski and Anderson 1981). Das PREM wurde erstellt, indem etwa 1.000 Perioden der Eigenschwingungen der Erde und 500 zusammengefasste Laufzeitbeobachtungen angepasst wurden, zusammen mit der Masse und dem Trägheitsmoment des Planeten (Dziewonski and Anderson 1981). Keiner dieser Werte stammt aus direkten Proben. Jede Grenze wurde gefunden, weil seismische Wellen dort ihre Geschwindigkeit ändern, gebrochen oder reflektiert werden oder verschwinden."
+        ]
+      },
+      {
+        "h": "P-Wellen, S-Wellen und Oberflächenwellen",
+        "p": [
+          "Ein Erdbeben setzt mehrere Arten seismischer Wellen frei. Raumwellen laufen durch das Erdinnere, Oberflächenwellen entlang der äußeren Schichten. P-Wellen oder Primärwellen sind am schnellsten und kommen als erste an einer Messstation an. Sie stauchen und dehnen das Gestein in ihrer Ausbreitungsrichtung. S-Wellen oder Sekundärwellen scheren das Gestein quer zu ihrer Ausbreitungsrichtung und kommen später an. Im Gestein erreichen S-Wellen meist etwa 60 Prozent der Geschwindigkeit von P-Wellen (USGS n.d.a).",
+          "Oberflächenwellen kommen nach beiden Arten von Raumwellen an. Love-Wellen bewegen den Boden seitlich hin und her, Rayleigh-Wellen lassen ihn in einer elliptischen Bewegung rollen. Rayleigh-Wellen verursachen den Großteil der Erschütterungen, die bei einem Erdbeben an der Erdoberfläche zu spüren sind (USGS n.d.a).",
+          "Der Unterschied zwischen P- und S-Wellen ist der Schlüssel zum tiefen Erdinneren. Eine Flüssigkeit setzt Scherung keinen Widerstand entgegen, deshalb können S-Wellen sie nicht durchqueren. P-Wellen durchlaufen Festkörper wie Flüssigkeiten, auch wenn sie langsamer werden und ihre Richtung ändern, sobald sie in eine flüssige Schicht eintreten (USGS n.d.b)."
+        ]
+      },
+      {
+        "h": "Die Schattenzone und warum S-Wellen den äußeren Kern nicht durchqueren",
+        "p": [
+          "Seismische Stationen auf der einem starken Erdbeben abgewandten Seite des Planeten zeichnen eine charakteristische Lücke auf. Der USGS beschreibt die Schattenzone als den Bereich zwischen 104 und 140 Grad Winkelentfernung vom Erdbeben, in dem keine direkten P-Wellen ankommen (USGS n.d.b). Der flüssige äußere Kern verursacht sie auf zwei Arten: Er hält S-Wellen vollständig auf, und er bricht P-Wellen und lenkt sie von diesem Bereich ab (USGS n.d.b). Direkte S-Wellen fehlen ab etwa 104 Grad nach außen.",
+          "Richard Dixon Oldham wies den Kern 1906 erstmals anhand von Erdbebenaufzeichnungen nach (Oldham 1906; Brush 1980). Dass keine S-Wellen nachgewiesen wurden, die den Kern durchquerten, reichte für sich allein nicht aus, um die Seismologen zu überzeugen, dass der Kern flüssig ist (Brush 1980). Harold Jeffreys lieferte 1926 das stärkere Argument. Anhand der Erdgezeiten und seismischer Beobachtungen zeigte er, dass der Kern eine viel geringere Steifigkeit als der Mantel hat und flüssig sein könnte (Jeffreys 1926; Brush 1980)."
+        ]
+      },
+      {
+        "h": "Mohorovičić, Gutenberg und Lehmann: Die Entdeckung der Moho und des inneren Kerns",
+        "p": [
+          "Am 8. Oktober 1909 traf ein Erdbeben das Kupatal südlich von Zagreb. Andrija Mohorovičić, Seismologe in Zagreb, sammelte die Seismogramme von Stationen in ganz Europa und bemerkte, dass P-Wellen jenseits einer bestimmten Entfernung früher ankamen, als es eine einzige einheitliche Schicht zulassen würde. Er erklärte die frühen Ankünfte als Wellen, die in eine tiefere, schnellere Schicht eingetaucht und wieder zurückgekehrt waren. Aus seinen Daten schätzte er die Dicke der oberen Schicht auf 54 Kilometer (Herak and Herak 2007). Er veröffentlichte die Analyse 1910 (Mohorovičić 1910). Die Grenze zwischen Kruste und Mantel heißt heute Mohorovičić-Diskontinuität oder kurz Moho.",
+          "Beno Gutenberg bestimmte den äußeren Rand des Kerns. In Göttingen nutzte er die Schattenzone in Aufzeichnungen ferner Erdbeben, um die Kern-Mantel-Grenze in eine Tiefe von etwa 2.900 Kilometern zu legen, veröffentlicht 1914 (Gutenberg 1914; Brush 1980). Moderne Modelle verorten sie in fast derselben Tiefe (Dziewonski and Anderson 1981).",
+          "Inge Lehmann, eine dänische Seismologin, entdeckte den inneren Kern. Bei der Untersuchung von Aufzeichnungen eines starken Erdbebens in Neuseeland 1929 betrachtete sie schwache P-Wellen, die innerhalb der Schattenzone ankamen, wo ein vollständig flüssiger Kern keine hätte hinterlassen dürfen. In einem Aufsatz von 1936 mit dem schlichten Titel P′ schlug sie vor, dass die Wellen von einem kleineren inneren Kern im flüssigen äußeren Kern abgelenkt worden waren (Lehmann 1936; Kölbl-Ebert 2001). Der Schluss, dass dieser innere Kern fest ist, kam später. 1971 zeigten Adam Dziewonski und Freeman Gilbert anhand der Eigenschwingungen der Erde, dass kein Modell mit flüssigem innerem Kern die Daten erklären kann (Dziewonski and Gilbert 1971)."
+        ]
+      },
+      {
+        "h": "Wie Seismometer ein Erdbeben orten: Epizentrum, Hypozentrum und Tiefe",
+        "p": [
+          "Ein Erdbeben beginnt im Hypozentrum, auch Herd genannt, dem Punkt im Erdinneren, an dem der Bruch einsetzt. Das Epizentrum ist der Punkt an der Oberfläche direkt darüber, und die Herdtiefe ist der Abstand zwischen beiden (USGS n.d.c).",
+          "Die Ortung eines Erdbebens beginnt mit den Ankunftszeiten. Weil P-Wellen den S-Wellen davonlaufen, wächst der Abstand zwischen ihren Ankünften mit der Entfernung, und Seismologen rechnen ihn mithilfe von Standard-Laufzeitkurven in eine Entfernung um (IRIS n.d.). Eine Station ergibt einen Kreis möglicher Epizentren, zwei Stationen zwei Kreise, die sich in zwei Punkten schneiden, und drei Stationen grenzen die Lösung auf einen einzigen Ort ein. Das Verfahren wird gemeinhin Triangulation genannt (IRIS n.d.).",
+          "Moderne Messnetze arbeiten dreidimensional und bestimmen auch die Herdzeit. In der Yellowstone-Region zum Beispiel geht ein Computer von einer ersten Schätzung des Hypozentrums aus, berechnet mit einem Modell der seismischen Wellengeschwindigkeiten in der Region die erwartete Ankunftszeit an jeder Station und passt Ort und Herdzeit an, bis die berechneten Zeiten zu den gemessenen passen. Je mehr Stationen ein Erdbeben aufzeichnen, desto genauer ist die Ortung, und ein Erdbeben, das nur an einer oder zwei Stationen aufgezeichnet wurde, lässt sich nicht orten (USGS n.d.d).",
+          "Die Tiefe ist der am schwersten zu bestimmende Teil der Lösung. Als Faustregel gilt: Für eine zuverlässige Tiefe braucht es eine Station, die näher am Epizentrum liegt, als das Erdbeben tief ist (USGS n.d.e). Wenn die Daten die Tiefe nicht auflösen können, setzt der Katalog sie auf einen Standardwert fest, derzeit 10 Kilometer für flache Ereignisse (USGS n.d.e). Bei den am besten georteten Erdbeben inmitten dichter Messnetze beträgt die Ortungsunsicherheit etwa 100 Meter horizontal und 300 Meter vertikal; bei Ereignissen, die mit globalen Daten geortet werden, wächst sie auf mehrere zehn Kilometer (USGS n.d.f). Der USGS stuft Erdbeben zwischen 0 und 70 Kilometern Tiefe als flach ein, solche zwischen 70 und 300 Kilometern als mitteltief und solche zwischen 300 und 700 Kilometern als tief (USGS n.d.c)."
+        ]
+      },
+      {
+        "h": "Magnitudenskalen: Von der Richterskala zur Momenten-Magnitude",
+        "p": [
+          "Charles Richter veröffentlichte 1935 die erste instrumentelle Magnitudenskala, für Erdbeben in Südkalifornien (Richter 1935). Heute als ML für Lokalmagnitude bezeichnet, beruht sie auf der maximalen Amplitude, die ein Wood-Anderson-Torsionsseismograph in bekannter Entfernung aufzeichnet. Diese Instrumente sind kaum noch im Einsatz, daher wird ML mit Korrekturen aus modernen Instrumenten berechnet. Der USGS gibt ihren sinnvollen Bereich mit etwa Magnitude 2,0 bis 6,5 an, für Stationen bis etwa 600 Kilometer Entfernung (USGS n.d.g).",
+          "Die Skala wurde später zur Raumwellen-Magnitude (mb) und zur Oberflächenwellen-Magnitude (Ms) erweitert, um seismographische Stationen in aller Welt nutzen zu können. Jede gilt für einen bestimmten Frequenzbereich und eine bestimmte Art von seismischem Signal (USGS n.d.h). Alle diese Skalen teilen eine Schwäche: Bei sehr starken Erdbeben wächst die Amplitude der gemessenen Wellen nicht mehr im gleichen Maß mit der Größe des Bruchs. Kanamori (1977) zeigte, dass diese Sättigung bei den stärksten Ereignissen zu ungenauen Schätzungen der freigesetzten Energie führt.",
+          "Die Abhilfe bestand darin, die physikalische Größe des Bruchs zu messen. Das seismische Moment ist das Produkt aus der Steifigkeit des Gesteins, der Fläche der Verwerfung, die geglitten ist, und der mittleren Strecke, um die sie geglitten ist (USGS n.d.i). Thomas Hanks und Hiroo Kanamori definierten 1979 die Momenten-Magnitudenskala Mw aus dem seismischen Moment (Hanks and Kanamori 1979), aufbauend auf Kanamoris Arbeit von 1977, die zeigte, dass die Skala nicht sättigt, und dem Chile-Erdbeben von 1960 eine Magnitude von 9,5 zuwies (Kanamori 1977). Weil die Magnitude um zwei Drittel des Logarithmus des Moments steigt, entspricht jede ganze Stufe der Skala einem etwa 32-mal größeren seismischen Moment.",
+          "Bei sehr starken Erdbeben liefert die Momenten-Magnitude die zuverlässigste Schätzung der Stärke (USGS n.d.h). Der USGS berechnet für alle Erdbeben ab Magnitude 5,0 weltweit eine W-Phasen-Momenten-Magnitude, Mww, und betrachtet sie, wenn verfügbar, als maßgeblich (USGS n.d.g). Verschiedene Verfahren ergeben für dasselbe Erdbeben oft leicht unterschiedliche Magnituden; deshalb können sich erste Meldungen ändern, wenn mehr Daten eintreffen (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Magnitude und Intensität: Die modifizierte Mercalli-Skala",
+        "p": [
+          "Die Magnitude beschreibt die Stärke eines Erdbebens an seinem Ursprung. Die Intensität beschreibt die Stärke der Erschütterung an einem bestimmten Ort. Ein Erdbeben hat eine Magnitude, aber viele Intensitäten, eine für jeden Ort, an dem seine Erschütterungen bewertet werden (USGS n.d.j).",
+          "In den Vereinigten Staaten wird die Intensität auf der modifizierten Mercalli-Intensitätsskala angegeben, die Harry Wood und Frank Neumann 1931 entwickelten (Wood and Neumann 1931). Ihre Stufen werden in römischen Ziffern geschrieben und reichen von nicht wahrnehmbaren Erschütterungen bis zu katastrophaler Zerstörung (USGS n.d.k). Die Skala stuft beobachtete Auswirkungen ein, statt einen Messwert eines Instruments festzuhalten (USGS n.d.k).",
+          "Meldungen aus der Bevölkerung fließen heute direkt in Intensitätskarten ein. Das USGS-Programm Did You Feel It? sammelt Berichte von Menschen, die ein Erdbeben gespürt haben, und wandelt sie in Intensitätswerte für Gemeinden um. Wo sowohl Instrumente als auch Meldungen verfügbar sind, werden diese Werte genutzt, um die Gleichungen zu kalibrieren, mit denen ShakeMap gemessene Bodenbewegungen in Intensität umrechnet (USGS n.d.l)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Aus welchen Schichten besteht die Erde?",
+        "a": "Die Erde hat eine Gesteinskruste, einen Mantel, der bis in etwa 2.900 Kilometer Tiefe reicht, einen flüssigen äußeren Kern und einen festen inneren Kern. Im Standard-Referenzmodell hat der innere Kern einen Radius von etwa 1.220 Kilometern. Alle diese Grenzen wurden gefunden, indem man untersuchte, wie seismische Wellen den Planeten durchlaufen."
+      },
+      {
+        "q": "Warum können S-Wellen den äußeren Kern nicht durchqueren?",
+        "a": "S-Wellen bewegen das Gestein, indem sie es scheren, und eine Flüssigkeit setzt Scherung keinen Widerstand entgegen. Der äußere Kern ist flüssig, daher enden S-Wellen an der Kern-Mantel-Grenze. An Stationen, die mehr als etwa 104 Grad von einem Erdbeben entfernt sind, kommen deshalb keine direkten S-Wellen an."
+      },
+      {
+        "q": "Was ist die seismische Schattenzone?",
+        "a": "Die Schattenzone der P-Wellen ist der Bereich zwischen etwa 104 und 140 Grad Entfernung von einem Erdbeben, in dem keine direkten P-Wellen ankommen. Der flüssige äußere Kern lenkt P-Wellen von diesem Bereich ab und hält S-Wellen vollständig auf. Schwache P-Wellen innerhalb dieser Zone brachten Inge Lehmann 1936 dazu, den inneren Kern vorzuschlagen."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Epizentrum und Hypozentrum?",
+        "a": "Das Hypozentrum ist der Punkt im Erdinneren, an dem der Bruch beginnt. Das Epizentrum ist der Punkt an der Oberfläche direkt darüber. Der Abstand zwischen beiden ist die Herdtiefe."
+      },
+      {
+        "q": "Wird die Richterskala noch verwendet?",
+        "a": "Richters Lokalmagnitude ML wird für schwache und mittelstarke Erdbeben weiterhin mit modernen Instrumenten berechnet. Bei starken Erdbeben sättigen sie und andere amplitudenbasierte Skalen, deshalb geben Seismologen die Momenten-Magnitude an, die auf Fläche und Versatz der Verwerfung beruht."
+      },
+      {
+        "q": "Was ist der Unterschied zwischen Magnitude und Intensität?",
+        "a": "Die Magnitude misst die Stärke eines Erdbebens an seinem Ursprung, und jedes Erdbeben hat genau eine. Die Intensität misst, wie stark der Boden an einem bestimmten Ort gebebt hat, deshalb hat ein Erdbeben viele Intensitäten. In den Vereinigten Staaten wird die Intensität auf der modifizierten Mercalli-Skala in römischen Ziffern angegeben."
+      }
+    ]
+  },
+  "aftershocks-and-hazards": {
+    "title": "Nachbeben, Bodenverflüssigung und andere Erdbebengefahren erklärt",
+    "dek": "Ein starkes Erdbeben ist der Beginn einer Serie, kein einzelnes Ereignis. Hier steht, wie sich Nachbeben verhalten und warum der Schaden, den ein Beben anrichtet, ebenso vom Untergrund abhängt wie von seiner Magnitude.",
+    "sections": [
+      {
+        "h": "Was Nachbeben sind und wie das Omori-Gesetz sie beschreibt",
+        "p": [
+          "Erdbeben häufen sich in Zeit und Raum. Innerhalb einer solchen Häufung nennen Seismologen das stärkste Ereignis Hauptbeben, die Erdbeben davor Vorbeben und die danach Nachbeben (Jones and Reasenberg 1996). Als Faustregel gilt ein Erdbeben als Nachbeben, wenn es innerhalb von ein oder zwei Bruchlängen vom Hauptbeben entfernt liegt. Diese Entfernung schwankt stark: Beim Northridge-Erdbeben 1994 war der Bruch etwa 15 Kilometer lang, beim Erdbeben von San Francisco 1906 430 Kilometer (Jones and Reasenberg 1996).",
+          "Der japanische Seismologe Fusakichi Omori veröffentlichte 1894 die erste quantitative Beschreibung des Abklingens von Nachbeben, gestützt auf die Nachbeben des Nōbi-Erdbebens von 1891 in Zentraljapan. Seine Formel besagt, dass die Nachbebenrate ungefähr im umgekehrten Verhältnis zur seit dem Hauptbeben vergangenen Zeit abnimmt. Tokuji Utsu fügte später einen Exponenten p hinzu, mit dem das Abklingen etwas schneller oder langsamer verlaufen kann, und eine ein Jahrhundert nach Omoris Arbeit veröffentlichte Übersicht kam zu dem Schluss, dass die modifizierte Formel im Allgemeinen angemessen beschreibt, wie sich die Nachbebenaktivität mit der Zeit verändert (Utsu et al. 1995).",
+          "Praktisch bedeutet das: Der zweite Tag nach einem Hauptbeben bringt etwa halb so viele Nachbeben wie der erste, der zehnte Tag etwa ein Zehntel (Jones and Reasenberg 1996). Nachbeben aller Stärken nehmen mit derselben Rate ab, einer Serie gehen also nicht zuerst die starken Ereignisse aus (Jones and Reasenberg 1996). Seismologen in Südkalifornien stellten fest, dass die Nachbeben des Landers-Erdbebens von 1992 mit der Zeit seltener statt schwächer wurden und dass Ereignisse der Magnitude 5 auch spät in der Serie noch auftreten konnten, nur in größeren Abständen (SCEDC 1999)."
+        ]
+      },
+      {
+        "h": "Wie stark kann ein Nachbeben sein? Das Båth-Gesetz",
+        "p": [
+          "Stärkere Hauptbeben ziehen in der Regel stärkere Nachbeben nach sich (Jones and Reasenberg 1996). Der schwedische Seismologe Markus Båth gab diesem Zusammenhang eine Zahl. Nach dem Båth-Gesetz ist das stärkste Nachbeben im Mittel etwa 1,2 Magnitudeneinheiten schwächer als das Hauptbeben, unabhängig von dessen Magnitude (Båth 1965; Helmstetter and Sornette 2003). Nach dieser Regel würde auf ein Hauptbeben der Magnitude 7,0 typischerweise ein stärkstes Nachbeben von etwa Magnitude 5,8 folgen.",
+          "Der Wert ist ein Mittel über viele Serien, und einzelne Serien weichen in beide Richtungen davon ab. Helmstetter und Sornette (2003) zeigten, dass sich das Gesetz aus zwei anderen statistischen Eigenschaften von Erdbeben ableiten lässt: der unten beschriebenen Magnitudenverteilung und der Art, wie Nachbeben weitere Nachbeben auslösen. Sie argumentierten, dass sein Ursprung teilweise darin liegt, wie Haupt- und Nachbeben definiert werden, und nicht in einem eigenen physikalischen Mechanismus."
+        ]
+      },
+      {
+        "h": "Das Gutenberg-Richter-Gesetz und was der b-Wert bedeutet",
+        "p": [
+          "Schwache Erdbeben sind weit zahlreicher als starke, und das Verhältnis ist regelmäßig. Beno Gutenberg und Charles Richter beschrieben den Zusammenhang 1944 in einer Studie über kalifornische Erdbeben (Gutenberg and Richter 1944). Er wird meist als log N = a − bM geschrieben, wobei N die Zahl der Erdbeben mit Magnitude M oder größer ist, a das allgemeine Aktivitätsniveau widerspiegelt und b bestimmt, wie schnell die Zahl mit steigender Magnitude abnimmt.",
+          "Der b-Wert liegt in den meisten globalen Katalogen nahe 1 – ein so gut belegtes Ergebnis, dass eine Übersicht von 1993 den Untertitel „much ado about 1.0“ trug (Frohlich and Davis 1993). Bei b gleich 1 verringert jede Stufe um eine Magnitudeneinheit die Zahl der Erdbeben um den Faktor zehn. Eine Region, die in einem bestimmten Zeitraum 100 Erdbeben der Magnitude 5 oder stärker verzeichnet, würde im Mittel etwa 10 der Magnitude 6 oder stärker und etwa eines der Magnitude 7 oder stärker verzeichnen.",
+          "Der Wert ist nicht fest. Globale Kataloge ergeben b-Werte von etwa 0,72 bis 1,34, und ein Teil dieser Streuung spiegelt Fehler bei Erfassung, Ortung und Magnitude wider statt echter Unterschiede (Frohlich and Davis 1993). Manche Schwankungen sind echt. Schorlemmer et al. (2005) fanden, dass b bei Überschiebungen am niedrigsten und bei Abschiebungen am höchsten ist, und deuteten den Unterschied als Zeichen dafür, dass Überschiebungen unter höherer Spannung stehen. In Kalifornien nimmt b mit zunehmender Tiefe der Erdbeben ab (Mori and Abercrombie 1997). Ein niedrigerer b-Wert bedeutet, dass starke Erdbeben einen größeren Anteil an der Gesamtzahl ausmachen – deshalb ist der Parameter für Gefährdungsabschätzungen wichtig."
+        ]
+      },
+      {
+        "h": "Wie lange dauern Nachbeben?",
+        "p": [
+          "Ein Erdbeben gilt so lange als Nachbeben, wie die Erdbebenrate in der Gegend über der Rate vor dem Hauptbeben liegt. Wie lange das dauert, hängt von der Stärke des Hauptbebens ab und davon, wie aktiv die Region vorher war, denn vor einem ruhigen Hintergrund heben sich Nachbeben länger ab (Jones and Reasenberg 1996). Achteinhalb Jahre nach dem Landers-Erdbeben von 1992 waren Nachbeben selten geworden, traten aber noch deutlich über der Hintergrundrate auf (SCEDC 2001).",
+          "Toda und Stein (2018) fanden, dass die Dauer einer Serie weniger von der Stärke des Hauptbebens abhängt als davon, wie schnell die Verwerfung gleitet. Bei der Untersuchung des Tōhoku-Oki-Erdbebens von 2011 und acht weiterer starker japanischer Hauptbeben fanden sie Serien, die an den am schnellsten gleitenden Verwerfungen etwa einen Monat dauerten, und schätzten, dass Serien an den langsamsten Verwerfungen mehr als 2.000 Jahre anhalten würden. In sich langsam verformenden Regionen fern von Plattengrenzen können langlebige Nachbebenserien daher mit gewöhnlicher Hintergrundaktivität verwechselt werden, was die Schätzungen künftiger Gefährdung aufblähen kann (Toda and Stein 2018)."
+        ]
+      },
+      {
+        "h": "Was Erschütterungen zerstörerisch macht: Entfernung, Tiefe, Boden und Dauer",
+        "p": [
+          "Die Magnitude misst die Größe der Erdbebenquelle, nicht die Erschütterung an einem bestimmten Ort. Der U.S. Geological Survey (USGS) nennt die Art des Erdbebens, seine Tiefe, die Entfernung zum Bruch und das Untergrundmaterial, von weichem Boden bis Festgestein, als Faktoren, die bestimmen, was Menschen spüren, neben der Bauweise der Gebäude (USGS n.d.a). Die Erschütterungen sind in der Regel nahe der brechenden Verwerfung am stärksten und werden mit der Entfernung schwächer. Bei einem tiefen Erdbeben liegt diese Entfernung zwischen der Quelle und allem, was sich an der Oberfläche darüber befindet.",
+          "Die örtlichen Bodenverhältnisse können schwerer wiegen als die Entfernung. Forschungen des Southern California Earthquake Center (SCEC) und des USGS ergaben, dass die Erschütterung bei ein und demselben Erdbeben an einem Ort leicht zehnmal stärker sein kann als an einem benachbarten Ort in gleicher Entfernung von der Verwerfung. Die wichtigsten örtlichen Faktoren waren die Weichheit des Gesteins oder Bodens nahe der Oberfläche und die Mächtigkeit der Sedimente über hartem Festgestein (SCEC n.d.; Field et al. 2000).",
+          "Mexiko-Stadt 1985 ist das klassische Beispiel. Das Erdbeben der Magnitude 8,0 vom 19. September 1985 ereignete sich vor der Pazifikküste von Michoacán, etwa 350 bis 400 Kilometer von der Hauptstadt entfernt (Furumura and Kennett 1998). Die maximalen Bodenbeschleunigungen im Epizentralgebiet waren gering, doch die Schäden in Mexiko-Stadt waren schwer (Anderson et al. 1986). Zentrale Teile der Stadt stehen auf weichem, wassergesättigtem Ton, der in einem ehemaligen See abgelagert wurde. Im Vergleich zu einem Messpunkt in der Hügelzone der Stadt verstärkten die Standorte auf dem Seeboden die Bodenbewegung bei ihren Eigenperioden um den Faktor 8 bis 56 (Singh et al. 1988). Die Dauer verstärkte die Wirkung: Die starken Erschütterungen in der Seebodenzone dauerten mehr als drei Minuten (Furumura and Kennett 1998). Die Schätzungen der Zahl der Todesopfer gehen weit auseinander; die dem USGS zugeschriebene Zahl liegt bei mindestens 9.500, andere Schätzungen liegen deutlich höher (Live Science n.d.)."
+        ]
+      },
+      {
+        "h": "Bodenverflüssigung und durch Erdbeben ausgelöste Hangrutschungen",
+        "p": [
+          "Bodenverflüssigung tritt auf, wenn starke Erschütterungen lockeren, wassergesättigten Sand und Schluff treffen und der feste Boden sich wie eine Flüssigkeit zu verhalten beginnt (USGS n.d.b). Die Erschütterung erhöht den Wasserdruck zwischen den Körnern, bis sie den Kontakt zueinander verlieren. Der Boden kann dann seine Tragfähigkeit für Gebäude verlieren, selbst an sanften Hängen abfließen und an der Oberfläche als Sandvulkane austreten (USGS n.d.c).",
+          "Das Niigata-Erdbeben der Magnitude 7,5 vom 16. Juni 1964 verursachte durch die Verflüssigung sandigen Bodens umfangreiche Schäden an Bauwerken (Seed and Idriss 1967). In Kawagishi-chō nahe dem Fluss Shinano erlitten Wohnblöcke Grundbrüche und neigten sich stark, während sie baulich fast unversehrt blieben (University of Washington n.d.). Die Analyse, die Seed und Idriss (1967) nach dem Erdbeben veröffentlichten, wurde zu einer Grundlage der modernen Bewertung von Bodenverflüssigung.",
+          "Die Canterbury-Erdbebenserie 2010–2011 in Neuseeland wiederholte die Lektion in einer modernen Stadt. Das Erdbeben der Magnitude 6,2 vom 22. Februar 2011 tötete 185 Menschen (Canterbury Earthquakes Royal Commission n.d.). Die Bodenverflüssigung in natürlichen Böden war sowohl in Ausdehnung als auch in Schwere größer als beim Darfield-Erdbeben der Magnitude 7,1 im September 2010. Am schwersten war sie in Wohngebieten östlich des zentralen Geschäftsviertels, wo starke Erschütterungen nahe der Verwerfung, ein Grundwasserspiegel etwa einen Meter unter der Oberfläche und sehr anfällige Böden zusammenkamen. Im Stadtzentrum ließ die Bodenverflüssigung Gebäude absacken und sich neigen (Cubrinovski et al. 2011).",
+          "Hangrutschungen sind eine weitere häufige Folgegefahr. Eine Studie von 40 historischen Erdbeben ergab, dass Steinschlag, zerfallende Bodenrutschungen und Felsrutschungen die häufigsten Arten waren und schon durch die schwächsten Erschütterungen ausgelöst wurden. Die größte wahrscheinlich betroffene Fläche wächst von praktisch null bei etwa Magnitude 4,0 auf rund 500.000 Quadratkilometer bei Magnitude 9,2 (Keefer 1984). Das Wenchuan-Erdbeben der Magnitude 7,9 in China am 12. Mai 2008 löste mehr als 60.000 Hangrutschungen aus (Zhang et al. 2016). Die Schätzungen der durch sie verursachten Todesopfer reichen von etwa 20.000 (Yin et al. 2009) bis 25.000–30.000 (Zhang et al. 2016).",
+          "Tsunamis entstehen, wenn flache Verwerfungen bei starken Erdbeben gleiten und den Meeresboden schlagartig vertikal verschieben, meist an Subduktionszonen (USGS n.d.d). Wie sie sich ausbreiten und was zu tun ist, erklärt der Leitfaden „Tsunamis“ im Bereich Wissen."
+        ]
+      },
+      {
+        "h": "Induzierte Erdbeben: Abwasserverpressung in Oklahoma",
+        "p": [
+          "Auch menschliche Aktivitäten können Erdbeben auslösen. Wird Flüssigkeit tief in den Untergrund gepumpt, steigt der Flüssigkeitsdruck in Verwerfungen, wodurch eine unter Spannung stehende Verwerfung gleiten kann (Ellsworth 2013). Hydraulic Fracturing, kurz Fracking, verursacht direkt nur einen kleinen Prozentsatz der spürbaren induzierten Erdbeben. Die Entsorgung von Abwasser in tiefen Bohrlöchern birgt ein höheres Risiko, weil dabei größere Mengen über längere Zeiträume verpresst werden (Ellsworth 2013; Rubinstein and Mahani 2015). Die meisten Bohrungen verursachen keine spürbaren Erdbeben: Von rund 35.000 aktiven Bohrungen zur Abwasserentsorgung und Zehntausenden weiteren Injektions- und Frackingbohrungen in den Vereinigten Staaten war nur von einigen Dutzend bekannt, dass sie spürbare Erdbeben ausgelöst hatten, und induzierte Seismizität kann 10 Kilometer oder mehr vom Injektionspunkt entfernt auftreten (Rubinstein and Mahani 2015).",
+          "Oklahoma wurde zum deutlichsten Fall. Laut USGS werden die meisten Erdbeben des Bundesstaates durch Abwasserentsorgung verursacht, und mehr als 90 Prozent des verpressten Abwassers sind ein Nebenprodukt der Ölförderung und keine verbrauchte Fracking-Flüssigkeit. Von 2014 bis 2017 übertraf die Rate der Erdbeben ab Magnitude 3 im Bundesstaat die Kaliforniens (USGS n.d.e). Der Oklahoma Geological Survey zählte von 1976 bis 2007 etwa ein solches Erdbeben pro Jahr und 2015 den Rekord von 903. Nachdem die Aufsichtsbehörden des Bundesstaates ab Mitte 2015 die Schließung einiger Bohrungen und die Verringerung der Injektionsmengen in anderen angeordnet hatten, sank die Zahl auf 623 im Jahr 2016, 302 im Jahr 2017 und 196 im Jahr 2018 (Associated Press 2019).",
+          "Das stärkste in Oklahoma aufgezeichnete Erdbeben ereignete sich am 3. September 2016 bei Pawnee. Das Ereignis der Magnitude 5,8 brach an einer zuvor nicht kartierten Verwerfung im kristallinen Grundgebirge. Yeck et al. (2017) merkten an, dass es, falls es induziert war, das stärkste bekannte durch Flüssigkeitsinjektion induzierte Erdbeben wäre und dass es sich ereignete, nachdem die Mengenverringerungen bereits begonnen hatten. Sie folgerten, dass die lang anhaltenden Auswirkungen der sich im Gestein ausbreitenden verpressten Flüssigkeit es schwer machen, die induzierte Gefährdung schnell zu verringern (Yeck et al. 2017)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Wie lange dauern Nachbeben nach einem starken Erdbeben?",
+        "a": "Nachbeben halten an, solange die Erdbebenrate in der Gegend über ihrem Niveau vor dem Hauptbeben liegt. An schnell gleitenden Verwerfungen kann eine Serie innerhalb von etwa einem Monat abklingen, an langsam gleitenden Verwerfungen fern von Plattengrenzen kann sie Jahrhunderte oder länger anhalten. Die Rate sinkt anfangs schnell: Der zehnte Tag bringt meist etwa ein Zehntel so viele Nachbeben wie der erste."
+      },
+      {
+        "q": "Kann ein Nachbeben stärker sein als das Hauptbeben?",
+        "a": "Per Definition nicht. Das Hauptbeben ist das stärkste Erdbeben einer Häufung; ist ein späteres Erdbeben stärker, wird das erste als Vorbeben neu eingestuft. Im Mittel ist das stärkste Nachbeben etwa 1,2 Magnitudeneinheiten schwächer als das Hauptbeben – eine Regel, die als Båth-Gesetz bekannt ist."
+      },
+      {
+        "q": "Was ist das Gutenberg-Richter-Gesetz?",
+        "a": "Es beschreibt, wie die Zahl der Erdbeben mit steigender Magnitude abnimmt. Die Steigung, der sogenannte b-Wert, liegt in den meisten globalen Katalogen nahe 1; das bedeutet etwa zehnmal so viele Erdbeben der Magnitude 5 wie der Magnitude 6. Der b-Wert schwankt mit dem Verwerfungstyp und der Tiefe."
+      },
+      {
+        "q": "Warum wurde Mexiko-Stadt 1985 so schwer beschädigt, obwohl das Epizentrum weit entfernt lag?",
+        "a": "Das Zentrum von Mexiko-Stadt ist auf weichem, wassergesättigtem Ton eines ehemaligen Sees gebaut. Diese Sedimente verstärkten die Erschütterungen im Vergleich zu festerem Boden in den Hügeln der Stadt um den Faktor 8 bis 56, und die starke Bodenbewegung dauerte mehr als drei Minuten, obwohl das Epizentrum etwa 350 bis 400 Kilometer entfernt lag."
+      },
+      {
+        "q": "Was ist Bodenverflüssigung bei einem Erdbeben?",
+        "a": "Bodenverflüssigung tritt auf, wenn Erschütterungen den Wasserdruck in lockerem, wassergesättigtem Sand oder Schluff erhöhen, bis die Körner den Kontakt verlieren und sich der Boden wie eine Flüssigkeit verhält. Gebäude können absinken oder sich neigen, wie 1964 in Niigata und 2011 in Christchurch."
+      },
+      {
+        "q": "Verursacht Fracking Erdbeben in Oklahoma?",
+        "a": "Meist nicht. Der USGS führt die meisten Erdbeben in Oklahoma auf die tiefe Entsorgung von Abwasser zurück, das größtenteils ein Nebenprodukt der Ölförderung ist und keine Fracking-Flüssigkeit. Hydraulic Fracturing verursacht direkt nur einen kleinen Prozentsatz der spürbaren induzierten Erdbeben."
+      }
+    ]
+  }
+}
