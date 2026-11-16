@@ -680,7 +680,9 @@
     "reset": "Zurücksetzen",
     "err_empty": "Schreib zuerst den Text des Posts.",
     "err_too_long": "Der Text ist länger als 300 Zeichen.",
-    "err_alt_too_long": "Der Alternativtext ist länger als 2.000 Zeichen."
+    "err_alt_too_long": "Der Alternativtext ist länger als 2.000 Zeichen.",
+    "library_article": "Artikel",
+    "library_choose": "Artikel auswählen"
   },
   "library": {
     "title": "Im Detail",

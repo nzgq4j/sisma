@@ -680,7 +680,9 @@
     "reset": "Rétablir",
     "err_empty": "Rédigez d’abord le texte de la publication.",
     "err_too_long": "Le texte dépasse 300 caractères.",
-    "err_alt_too_long": "Le texte alternatif dépasse 2 000 caractères."
+    "err_alt_too_long": "Le texte alternatif dépasse 2 000 caractères.",
+    "library_article": "Article",
+    "library_choose": "Choisissez un article"
   },
   "library": {
     "title": "En profondeur",

@@ -680,7 +680,9 @@
     "reset": "Reset",
     "err_empty": "Write the text of the post first.",
     "err_too_long": "The text is longer than 300 characters.",
-    "err_alt_too_long": "The alt text is longer than 2,000 characters."
+    "err_alt_too_long": "The alt text is longer than 2,000 characters.",
+    "library_article": "Article",
+    "library_choose": "Choose an article"
   },
   "library": {
     "title": "In Depth",

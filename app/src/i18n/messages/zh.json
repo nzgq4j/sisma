@@ -680,7 +680,9 @@
     "reset": "重置",
     "err_empty": "请先填写帖子正文。",
     "err_too_long": "正文超过 300 个字符。",
-    "err_alt_too_long": "替代文本超过 2,000 个字符。"
+    "err_alt_too_long": "替代文本超过 2,000 个字符。",
+    "library_article": "文章",
+    "library_choose": "选择文章"
   },
   "library": {
     "title": "深度阅读",

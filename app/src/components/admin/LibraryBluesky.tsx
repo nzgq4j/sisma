@@ -1,8 +1,8 @@
 'use client';
 // Posting an In Depth article to Bluesky by hand (administrators only; /api/admin/bluesky/library re-checks): a sheet
 // with the article's share card, the suggested text (title, standfirst, link, hashtags) and alt text, both editable,
-// with their character counts, and Post. Opened from Me → Administration and from the Bluesky button that
-// administrators see on each article. Posts are in English, the account's language.
+// with their character counts, and Post. In Me → Administration under an article selector (a list in a sheet), and
+// in a sheet from the Bluesky button that administrators see on each article. Posts are in English, the account's language.
 import { useCallback, useEffect, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useAccount } from '@/components/Account';
@@ -41,8 +41,8 @@ export function useAdminApi() {
 
 interface Draft { text: string; alt: string; url: string; image: string }
 
-/** The post sheet for one article (`id`; null: closed). */
-export function LibraryBlueskySheet({ id, title, onClose }: { id: string | null; title?: string; onClose: () => void }) {
+/** The post editor for one article: card, editable text and alt text with counts, Post and Reset. */
+export function LibraryBlueskyComposer({ id, title }: { id: string; title?: string }) {
   const { m, nf } = useT();
   const k = m.admin;
   const api = useAdminApi();
@@ -51,7 +51,6 @@ export function LibraryBlueskySheet({ id, title, onClose }: { id: string | null;
   const [alt, setAlt] = useState('');
   const [st, setSt] = useState<{ kind: 'idle' | 'busy' | 'done' | 'failed'; url?: string; error?: string }>({ kind: 'idle' });
   useEffect(() => {
-    if (!id) return;
     let alive = true;
     void Promise.resolve().then(() => { setDraft(null); setSt({ kind: 'idle' }); });
     void api(`/api/admin/bluesky/library?id=${encodeURIComponent(id)}`).then(r => (r.ok ? r.json() : 'failed')).catch(() => 'failed')
@@ -61,12 +60,8 @@ export function LibraryBlueskySheet({ id, title, onClose }: { id: string | null;
 
   const n = count(text), na = count(alt);
   const tooLong = n > MAX_TEXT || na > MAX_ALT;
-  const err = (code?: string) => {
-    const known = (k as Record<string, string>)[`err_${code}`];
-    return known ?? k.post_failed.replace('{error}', code ?? '');
-  };
+  const err = (code?: string) => (k as Record<string, string>)[`err_${code}`] ?? k.post_failed.replace('{error}', code ?? '');
   const post = async () => {
-    if (!id) return;
     setSt({ kind: 'busy' });
     const r = await api('/api/admin/bluesky/library', { method: 'POST', body: JSON.stringify({ id, text, alt }) }).catch(() => null);
     const j = (await r?.json().catch(() => ({}))) as { url?: string; error?: string };
@@ -74,31 +69,39 @@ export function LibraryBlueskySheet({ id, title, onClose }: { id: string | null;
   };
   const reset = () => { if (draft && draft !== 'failed') { setText(draft.text); setAlt(draft.alt); setSt({ kind: 'idle' }); } };
 
+  if (!draft) return <p className={me.hint}>{k.loading}</p>;
+  if (draft === 'failed') return <p className={me.errLine} role="alert">{k.error}</p>;
   return (
-    <Sheet open={!!id} onClose={onClose} title={k.library_post}>
-      {!draft ? <p className={me.hint}>{k.loading}</p> : draft === 'failed' ? <p className={me.errLine} role="alert">{k.error}</p> : (
-        <div className={styles.preview}>
-          {title && <p className={styles.libTitle} lang="en">{title}</p>}
-          {/* eslint-disable-next-line @next/next/no-img-element -- static share card */}
-          <img src={draft.image} alt={alt} className={`${styles.card} ${styles.cardWide}`} width={1200} height={630} />
-          <label className={styles.field}><span>{k.text_h}</span>
-            <textarea className={styles.textarea} value={text} onChange={e => setText(e.target.value)} rows={9} lang="en" spellCheck />
-            <em className={n > MAX_TEXT ? styles.over : undefined}>{k.chars.replace('{n}', nf.format(n))}</em></label>
-          <label className={styles.field}><span>{k.alt_h}</span>
-            <textarea className={styles.textarea} value={alt} onChange={e => setAlt(e.target.value)} rows={6} lang="en" spellCheck />
-            <em className={na > MAX_ALT ? styles.over : undefined}>{k.alt_chars.replace('{n}', nf.format(na))}</em></label>
-          <p className={me.hint}>{k.library_hint}</p>
-          {st.kind === 'done'
-            ? <p className={styles.done} role="status">{k.posted_ok} {st.url && <a href={st.url} target="_blank" rel="noopener noreferrer">{k.open_post}</a>}</p>
-            : <>
-                <button type="button" className={sub.primary} onClick={() => void post()} disabled={st.kind === 'busy' || tooLong || !text.trim()}>
-                  <span className="ms" aria-hidden="true">send</span>{st.kind === 'busy' ? k.posting : k.post_now}
-                </button>
-                <button type="button" className={styles.secondary} onClick={reset} disabled={st.kind === 'busy' || (text === draft.text && alt === draft.alt)}>{k.reset}</button>
-              </>}
-          {st.kind === 'failed' && <p className={me.errLine} role="alert">{st.error}</p>}
-        </div>
-      )}
+    <div className={styles.preview}>
+      {title && <p className={styles.libTitle} lang="en">{title}</p>}
+      {/* eslint-disable-next-line @next/next/no-img-element -- static share card */}
+      <img src={draft.image} alt={alt} className={`${styles.card} ${styles.cardWide}`} width={1200} height={630} />
+      <label className={styles.field}><span>{k.text_h}</span>
+        <textarea className={styles.textarea} value={text} onChange={e => setText(e.target.value)} rows={9} lang="en" spellCheck />
+        <em className={n > MAX_TEXT ? styles.over : undefined}>{k.chars.replace('{n}', nf.format(n))}</em></label>
+      <label className={styles.field}><span>{k.alt_h}</span>
+        <textarea className={styles.textarea} value={alt} onChange={e => setAlt(e.target.value)} rows={6} lang="en" spellCheck />
+        <em className={na > MAX_ALT ? styles.over : undefined}>{k.alt_chars.replace('{n}', nf.format(na))}</em></label>
+      <p className={me.hint}>{k.library_hint}</p>
+      {st.kind === 'done'
+        ? <p className={styles.done} role="status">{k.posted_ok} {st.url && <a href={st.url} target="_blank" rel="noopener noreferrer">{k.open_post}</a>}</p>
+        : <>
+            <button type="button" className={sub.primary} onClick={() => void post()} disabled={st.kind === 'busy' || tooLong || !text.trim()}>
+              <span className="ms" aria-hidden="true">send</span>{st.kind === 'busy' ? k.posting : k.post_now}
+            </button>
+            <button type="button" className={styles.secondary} onClick={reset} disabled={st.kind === 'busy' || (text === draft.text && alt === draft.alt)}>{k.reset}</button>
+          </>}
+      {st.kind === 'failed' && <p className={me.errLine} role="alert">{st.error}</p>}
+    </div>
+  );
+}
+
+/** The post editor in a sheet (`id`; null: closed), opened from an article. */
+export function LibraryBlueskySheet({ id, title, onClose }: { id: string | null; title?: string; onClose: () => void }) {
+  const { m } = useT();
+  return (
+    <Sheet open={!!id} onClose={onClose} title={m.admin.library_post}>
+      {id && <LibraryBlueskyComposer key={id} id={id} title={title} />}
     </Sheet>
   );
 }

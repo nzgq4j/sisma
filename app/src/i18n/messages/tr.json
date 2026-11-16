@@ -680,7 +680,9 @@
     "reset": "Sıfırla",
     "err_empty": "Önce gönderinin metnini yazın.",
     "err_too_long": "Metin 300 karakterden uzun.",
-    "err_alt_too_long": "Alternatif metin 2.000 karakterden uzun."
+    "err_alt_too_long": "Alternatif metin 2.000 karakterden uzun.",
+    "library_article": "Makale",
+    "library_choose": "Makale seçin"
   },
   "library": {
     "title": "Derinlemesine",

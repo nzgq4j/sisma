@@ -680,7 +680,9 @@
     "reset": "Ripristina",
     "err_empty": "Scrivi prima il testo del post.",
     "err_too_long": "Il testo supera i 300 caratteri.",
-    "err_alt_too_long": "Il testo alternativo supera i 2000 caratteri."
+    "err_alt_too_long": "Il testo alternativo supera i 2000 caratteri.",
+    "library_article": "Articolo",
+    "library_choose": "Scegli un articolo"
   },
   "library": {
     "title": "Approfondimenti",
