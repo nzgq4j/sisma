@@ -680,7 +680,9 @@
     "reset": "元に戻す",
     "err_empty": "先に投稿の本文を入力してください。",
     "err_too_long": "本文が300文字を超えています。",
-    "err_alt_too_long": "代替テキストが2,000文字を超えています。"
+    "err_alt_too_long": "代替テキストが2,000文字を超えています。",
+    "library_article": "記事",
+    "library_choose": "記事を選択"
   },
   "library": {
     "title": "詳しく学ぶ",

@@ -680,7 +680,9 @@
     "reset": "Atur ulang",
     "err_empty": "Tulis teks postingan terlebih dahulu.",
     "err_too_long": "Teks lebih dari 300 karakter.",
-    "err_alt_too_long": "Teks alternatif lebih dari 2.000 karakter."
+    "err_alt_too_long": "Teks alternatif lebih dari 2.000 karakter.",
+    "library_article": "Artikel",
+    "library_choose": "Pilih artikel"
   },
   "library": {
     "title": "Mendalam",

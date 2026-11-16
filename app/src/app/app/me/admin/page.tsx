@@ -9,7 +9,7 @@ import { useT } from '@/i18n/I18nProvider';
 import { useAccount } from '@/components/Account';
 import { MagBadge } from '@/components/MagBadge';
 import { Sheet, SheetOptions } from '@/components/Sheet';
-import { LibraryBlueskySheet } from '@/components/admin/LibraryBluesky';
+import { LibraryBlueskyComposer } from '@/components/admin/LibraryBluesky';
 import { useLibraryTranslation } from '@/components/science/Library';
 import { LIBRARY, localLibrary } from '@/lib/library';
 import me from '../me.module.css';
@@ -31,6 +31,7 @@ export default function AdminPage() {
   const [magOpen, setMagOpen] = useState(false);
   const [sel, setSel] = useState<Recent | null>(null);
   const [article, setArticle] = useState<string | null>(null);
+  const [pickOpen, setPickOpen] = useState(false);
   const libTr = useLibraryTranslation();
   const nf1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const when = new Intl.DateTimeFormat(locale, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
@@ -101,18 +102,19 @@ export default function AdminPage() {
 
       <div className={styles.head}><span>{k.library_h}</span></div>
       <p className={me.hint}>{k.library_p}</p>
-      <div className={styles.list}>
-        {LIBRARY.map(src => {
-          const a = localLibrary(src, libTr, locale);
-          return (
-            <button key={a.id} type="button" className={styles.item} onClick={() => setArticle(a.id)} aria-haspopup="dialog">
-              <span className={styles.tile}><span className="ms" aria-hidden="true">{a.icon}</span></span>
-              <span className={styles.itemText}><strong lang={a.lang}>{a.title}</strong><span>#{src.hashtags.join(' #')}</span></span>
-              <span className="ms" aria-hidden="true">chevron_right</span>
+      {(() => {
+        const chosen = article ? localLibrary(LIBRARY.find(a => a.id === article)!, libTr, locale) : null;
+        return (
+          <div className={me.card}>
+            <button type="button" className={me.row} aria-haspopup="dialog" onClick={() => setPickOpen(true)}>
+              <span className="ms" aria-hidden="true">{chosen?.icon ?? 'menu_book'}</span>
+              <span className={me.grow}><span className={styles.pickLabel}>{k.library_article}</span><span lang={chosen?.lang}>{chosen?.title ?? k.library_choose}</span></span>
+              <span className={`ms ${me.chev}`} aria-hidden="true">expand_more</span>
             </button>
-          );
-        })}
-      </div>
+            {article && <div className={styles.composer}><LibraryBlueskyComposer key={article} id={article} /></div>}
+          </div>
+        );
+      })()}
 
       <div className={styles.head}><span>{k.log}</span></div>
       {data.posts.length === 0 ? <p className={me.hint}>{k.log_none}</p> : (
@@ -136,7 +138,10 @@ export default function AdminPage() {
         <SheetOptions value={String(s.minMagnitude)} onPick={v => { setMagOpen(false); void save({ minMagnitude: Number(v) }); }}
           options={data.mags.map(v => ({ value: String(v), label: `M${nf1.format(v)}+` }))} />
       </Sheet>
-      <LibraryBlueskySheet id={article} title={LIBRARY.find(a => a.id === article)?.title} onClose={() => setArticle(null)} />
+      <Sheet open={pickOpen} onClose={() => setPickOpen(false)} title={k.library_article}>
+        <SheetOptions value={article ?? undefined} onPick={v => { setPickOpen(false); setArticle(v); }}
+          options={LIBRARY.map(src => { const a = localLibrary(src, libTr, locale); return { value: a.id, label: <span className={styles.wrapLabel}>{a.title}</span>, lang: a.lang, lead: <span className="ms" aria-hidden="true">{a.icon}</span> }; })} />
+      </Sheet>
       <PreviewSheet q={sel} configured={data.configured} api={api} onClose={() => setSel(null)} onPosted={() => void load()} />
     </div>
   );

@@ -35,7 +35,8 @@ sisma can post significant earthquakes to its Bluesky account on its own. Admini
 
 ## In Depth articles (posted by hand)
 
-Administrators can post any In Depth article: **Me → Administration → In Depth on Bluesky**, or the **Bluesky** button
+Administrators can post any In Depth article: **Me → Administration → In Depth on Bluesky** (pick the article from the
+**Article** selector; the editor opens below it), or the **Bluesky** button
 next to Share on an article (shown to administrators only). The sheet shows:
 
 - **Image:** the article's share card, `public/og/library-<id>.jpg` (1200×630 JPEG, made by `scripts/og-cards.mjs`).
