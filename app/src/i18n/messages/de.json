@@ -672,5 +672,15 @@
     "err_bad_service": "Der Server muss eine https://-Adresse sein.",
     "err_missing": "Gib Handle und App-Passwort ein.",
     "preview_failed": "Dieses Ereignis konnte nicht geladen werden. Schließe das hier und versuche es in einer Minute erneut."
+  },
+  "library": {
+    "title": "Im Detail",
+    "sub": "Ausführliche Artikel über Erdbeben, Geologie und Tektonik, mit Quellen.",
+    "refs": "Quellen",
+    "faq": "Häufige Fragen",
+    "updated": "Aktualisiert am {d}",
+    "all": "Alle Artikel aus „Im Detail“",
+    "next": "Weiter in „Im Detail“",
+    "count": "{n} Artikel"
   }
 }

@@ -3,7 +3,8 @@
 // no ratings or reviews. Check a page with Google's Rich Results Test or validator.schema.org. docs/search-setup.md
 import en from '@/i18n/messages/en.json';
 import science from '@/content/science.json';
-import { SITE_URL, articleCard } from './seo';
+import { CARDS, SITE_URL, articleCard, libraryCard } from './seo';
+import { LIBRARY, LIBRARY_PATH, libraryArticle, libraryHref } from './library';
 import { PRICES, type Billing } from './entitlements';
 import { SITE } from './site';
 
@@ -48,6 +49,34 @@ export function articleGraph(id: string): Thing[] {
       image: `${SITE_URL}/og/${card.image}.jpg`, url: SITE_URL + card.path, mainEntityOfPage: SITE_URL + card.path,
       author: { '@id': ORG_ID }, publisher: { '@id': ORG_ID }, isPartOf: { '@id': SITE_ID } },
     crumbs([['Science', '/app/science'], [en.sci_t[i], card.path]]),
+  ];
+}
+
+/** The In Depth library: a collection of its articles, with breadcrumbs Science › In Depth. */
+export function libraryHubGraph(): Thing[] {
+  const c = CARDS.library, url = SITE_URL + LIBRARY_PATH;
+  return [
+    { '@type': 'CollectionPage', '@id': `${url}#page`, name: 'In Depth', description: c.description, inLanguage: 'en', url,
+      isPartOf: { '@id': SITE_ID }, publisher: { '@id': ORG_ID },
+      mainEntity: { '@type': 'ItemList', itemListElement: LIBRARY.map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: SITE_URL + libraryHref(a.id), name: a.title })) } },
+    crumbs([['Science', '/app/science'], ['In Depth', LIBRARY_PATH]]),
+  ];
+}
+
+/** An In Depth article (dates, length, sources), its questions and answers, and breadcrumbs Science › In Depth › article. */
+export function libraryGraph(id: string): Thing[] {
+  const a = libraryArticle(id), card = libraryCard(id);
+  if (!a || !card) return [];
+  const url = SITE_URL + card.path;
+  const words = a.sections.reduce((n, s) => n + s.p.reduce((m, p) => m + p.split(/\s+/).length, 0), 0);
+  return [
+    { '@type': 'Article', '@id': `${url}#article`, headline: a.title, description: a.description, inLanguage: 'en',
+      image: `${SITE_URL}/og/${card.image}.jpg`, url, mainEntityOfPage: url, datePublished: a.published, dateModified: a.updated,
+      wordCount: words, articleSection: 'Science', author: { '@id': ORG_ID }, publisher: { '@id': ORG_ID }, isPartOf: { '@id': SITE_ID },
+      citation: a.refs.map(r => r.text) },
+    { '@type': 'FAQPage', '@id': `${url}#faq`, url, inLanguage: 'en',
+      mainEntity: a.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
+    crumbs([['Science', '/app/science'], ['In Depth', LIBRARY_PATH], [a.title, card.path]]),
   ];
 }
 

@@ -1,0 +1,446 @@
+{
+  "earthquake-prediction": {
+    "title": "Mengapa Gempa Bumi Sulit Diramalkan, dan Apa yang Ditawarkan Seismologi sebagai Gantinya",
+    "dek": "Sebuah ramalan memerlukan tanggal dan waktu, tempat, serta magnitudo. Inilah alasan hal itu belum pernah berhasil dilakukan untuk gempa besar, dan apa yang dihasilkan seismologi sebagai gantinya.",
+    "sections": [
+      {
+        "h": "Mendefinisikan Istilah",
+        "p": [
+          "Survei Geologi Amerika Serikat (USGS) melaporkan bahwa baik USGS maupun ilmuwan lain mana pun belum pernah meramalkan gempa besar (USGS n.d.a). Pernyataan ini bertumpu pada definisi yang ketat. Sebuah ramalan harus menyebutkan tanggal dan waktu, lokasi, serta magnitudo, dan klaim yang menghilangkan salah satu dari ketiganya tidak dapat diuji (USGS n.d.a).",
+          "Seismologi memang menghasilkan tiga produk yang berkaitan. Peluang jangka panjang menyatakan kemungkinan terjadinya gempa berukuran tertentu di suatu wilayah selama bertahun-tahun atau berpuluh-puluh tahun, biasanya dihitung dari laju rata-rata kejadian historis. Prakiraan menerapkan penalaran serupa pada rentang waktu yang lebih pendek dan umumnya digunakan untuk gempa susulan. Peringatan dini adalah peringatan yang dikirim setelah patahan mulai terjadi, memberikan waktu beberapa detik hingga puluhan detik sebelum gelombang yang merusak tiba (USGS n.d.b). Setiap produk menjawab pertanyaan yang berbeda, dan dalam pembicaraan publik ketiganya sering dicampuradukkan.",
+          "Definisi ini juga menjelaskan mengapa klaim keberhasilan ramalan perorangan jarang bertahan setelah diteliti. Menurut USGS, klaim semacam itu biasanya menghilangkan setidaknya satu dari ketiga unsur tersebut, dan ketika sebuah gempa terjadi yang secara longgar menyerupai klaimnya, pembuat klaim menganggapnya sebagai keberhasilan meskipun satu unsur atau lebih sangat berbeda dari kenyataan (USGS n.d.a)."
+        ]
+      },
+      {
+        "h": "Dua Uji Penting",
+        "p": [
+          "Gempa Haicheng 1975 di timur laut Tiongkok adalah keberhasilan yang paling sering dikutip. Pejabat memerintahkan evakuasi sebuah kota berpenduduk sekitar satu juta orang setelah jumlah gempa kecil terus meningkat, yang kemudian diketahui sebagai gempa pendahuluan, dan setelah adanya laporan fenomena tidak biasa di seluruh wilayah itu. Gempa bermagnitudo 7,3 terjadi beberapa hari kemudian. USGS mengutip perkiraan bahwa korban tewas dan luka-luka akan melebihi 150.000 orang tanpa evakuasi; korban yang tercatat adalah 2.041 orang tewas dan 27.538 orang luka-luka (USGS n.d.c). Sebuah delegasi Amerika Serikat yang mengunjungi laboratorium-laboratorium Tiongkok pada 1976 menyimpulkan bahwa keputusan itu terutama didasarkan pada rangkaian gempa pendahuluan yang mencolok, dan mendapati bagian lain dari metode tersebut sulit dinilai (USGS n.d.c).",
+          "Tahun berikutnya, gempa bermagnitudo 7,6 melanda Tangshan tanpa peringatan. Tidak satu pun tanda awal yang terlihat di dekat Haicheng muncul, dan jumlah korban tewas diperkirakan mencapai 250.000 orang (USGS n.d.c). Kedua peristiwa yang hanya berselang satu tahun ini menunjukkan bahwa sinyal yang tersedia sebelum satu gempa bisa saja tidak ada sebelum gempa lainnya.",
+          "Amerika Serikat menjalankan ujinya sendiri di Parkfield, California. Pada 1985, USGS mengeluarkan ramalan jangka panjang bahwa gempa bermagnitudo 6 akan melanda segmen Sesar San Andreas itu sebelum 1993, berdasarkan catatan gempa-gempa serupa yang terjadi dengan selang waktu yang cukup teratur (Bakun et al. 2005). Rentang waktu itu berakhir tanpa gempa. Gempa bermagnitudo 6,0 baru terjadi pada 2004, sebelas tahun kemudian. Gempa pendahuluan mendahului gempa Parkfield 1934 dan 1966 dengan selang 17 menit, tetapi gempa 2004 datang tanpa tanda awal yang jelas, dan para penulis menyimpulkan bahwa ramalan jangka pendek yang andal masih belum dapat dicapai (Bakun et al. 2005).",
+          "Para penulis studi Parkfield menarik kesimpulan praktis dari hasil tersebut. Untuk mengurangi dampak gempa saat ini, mereka menyarankan pengembangan generasi berikutnya dari model yang memperkirakan kekuatan dan lokasi guncangan tanah yang merusak, sebuah tujuan yang tidak bergantung pada pengetahuan tentang kapan patahan akan dimulai (Bakun et al. 2005)."
+        ]
+      },
+      {
+        "h": "Mengapa Tanda Awal Tidak Dapat Diandalkan",
+        "p": [
+          "Sebagian besar tanda awal yang diajukan, termasuk gempa-gempa kecil yang tidak biasa, sering terjadi tanpa diikuti gempa yang lebih besar, sehingga sinyal yang mendahului sebagian gempa tidak dapat dengan sendirinya menjadi dasar ramalan (USGS n.d.a). Geller et al. (1997) menambahkan bahwa ribuan tanda awal yang diklaim umumnya baru diidentifikasi sebagai tanda awal setelah gempa terjadi.",
+          "Gempa pendahuluan menggambarkan kesulitan ini. Gempa pendahuluan telah terdokumentasi sebelum kurang dari separuh gempa utama, tetapi katalog beresolusi tinggi atas gempa utama bermagnitudo 4 ke atas di California selatan dari 2008 hingga 2017 menunjukkan bahwa 72 persen di antaranya didahului aktivitas gempa pendahuluan yang jauh di atas laju latar setempat (Trugman and Ross 2019). Temuan itu melihat ke belakang. Di seluruh dunia, peluang sebuah gempa diikuti oleh gempa yang lebih besar di dekatnya dalam waktu satu minggu adalah sekitar 5 persen (USGS n.d.b), sehingga kira-kira 95 persen gempa tidak berlanjut menjadi gempa yang lebih besar. Memilah rangkaian yang akan membesar, selagi rangkaian itu masih berlangsung, adalah bagian yang belum terpecahkan."
+        ]
+      },
+      {
+        "h": "Apa yang Dihasilkan Seismologi",
+        "p": [
+          "Peluang jangka panjang memiliki bobot operasional terbesar. Peluang ini menjadi pedoman peraturan bangunan dan desain tahan gempa, sehingga menjadikannya alat prakiraan terpenting untuk melindungi masyarakat dari kerusakan akibat gempa (Jordan et al. 2011). Prakiraan Patahan Gempa Seragam California ketiga (UCERF3) memperkirakan bahwa gempa bermagnitudo 6,7, sebesar gempa Northridge 1994, terjadi di suatu tempat di negara bagian itu kira-kira setiap 6,3 tahun, dibandingkan setiap 4,8 tahun dalam model sebelumnya. Prakiraan itu juga menaikkan peluang 30 tahun untuk gempa bermagnitudo 8 atau lebih dari 4,7 persen menjadi 7 persen (SCEC n.d.). Rentang 30 tahun ini sama dengan jangka waktu kredit pemilikan rumah pada umumnya. Prakiraan semacam ini menggambarkan di mana dan kapan gempa dapat terjadi, sedangkan model gerakan tanah yang terpisah menggambarkan seberapa kuat guncangan akan terasa (SCEC n.d.).",
+          "Prakiraan jangka pendek berfokus pada gempa susulan. Model Epidemic-Type Aftershock Sequence (ETAS) memperlakukan setiap gempa sebagai gempa yang mampu memicu gempa susulannya sendiri, dan sebuah panel pakar prakiraan yang disurvei untuk sebuah tinjauan tahun 2024 menyebutnya sebagai model bawaan yang paling disukai (Mizrahi 2024). Italia mengeluarkan prakiraan setiap minggu, sedangkan Selandia Baru dan Amerika Serikat mengeluarkannya untuk rangkaian gempa tertentu (Mizrahi 2024). Hanya sedikit negara yang mengoperasikan sistem semacam itu, dan belum ada uji yang disepakati untuk menentukan apakah suatu model layak digunakan (Mizrahi 2024). Jika diterapkan dengan benar, prakiraan jangka pendek memiliki nilai operasional, misalnya dalam mengantisipasi gempa susulan setelah gempa besar (Jordan et al. 2011). Model-model ini memiliki keterbatasan yang sama: model tersebut gagal memprakirakan gempa besar di masa depan dengan peluang tinggi (Mizrahi 2024). Komisi Internasional untuk Prakiraan Gempa mencatat bahwa peluang jangka pendek dapat berubah hingga beberapa orde besaran, tetapi biasanya tetap rendah secara mutlak, dan bahwa gempa besar tidak dapat diramalkan secara andal untuk wilayah tertentu dalam skala waktu yang lebih pendek dari puluhan tahun (Jordan et al. 2011).",
+          "Peringatan dini menggeser tujuan dari meramalkan menjadi mendeteksi dengan cepat. ShakeAlert, sistem di Pantai Barat Amerika Serikat, dapat bekerja karena pengolahan data dan pengiriman pesannya lebih cepat daripada gelombang seismik itu sendiri. Waktu peringatan bergantung pada jarak dari gempa, kecepatan pengolahan, dan tingkat guncangan yang dipilih untuk memicu peringatan. Untuk gempa sebesar gempa Loma Prieta, analisis USGS menemukan waktu peringatan yang berkisar dari nol hingga dua puluh detik (USGS 2019)."
+        ]
+      },
+      {
+        "h": "Riset di Garis Depan",
+        "p": [
+          "Gelinciran lambat (slow slip) menawarkan salah satu jalur penelitian. Dalam minggu-minggu menjelang gempa Tohoku-Oki bermagnitudo 9,0 pada 2011, dua rangkaian gempa kecil bermigrasi dengan kecepatan 2 hingga 10 kilometer per hari ke arah episentrum gempa utama yang kemudian terjadi. Kato et al. (2012) menafsirkannya sebagai gelinciran lambat pada batas lempeng, dengan rangkaian kedua kemungkinan menambah tegangan yang membantu memulai patahan utama. Studi ini hanya mencakup satu gempa, dan para penulis menyajikan sumbangan tegangan itu sebagai sebuah kemungkinan. Di Cascadia, Hulbert et al. (2020) menerapkan pembelajaran mesin pada gelombang seismik yang direkam terus-menerus dan menemukan pola yang mengikuti siklus gelinciran lambat 14 bulanan, yang mereka sajikan sebagai bukti bahwa gelinciran lambat dapat diramalkan. Mereka memandang gelinciran lambat sebagai jendela untuk mengamati nukleasi, sebuah proses yang masih sulit dipahami pada gempa cepat (Hulbert et al. 2020).",
+          "Pembelajaran mesin memberikan hasil yang beragam. Rouet-Leduc et al. (2017) menunjukkan bahwa model yang diberi sinyal akustik dari sesar laboratorium dapat memperkirakan sisa waktu sebelum sesar itu gagal. Laju geser di laboratorium beberapa orde besaran lebih tinggi daripada laju geser sesar sungguhan, dan para peneliti menyatakan diri berhati-hati dalam memperluas metode itu ke gempa sungguhan (Physics Today 2017).",
+          "Sebuah studi tahun 2018 yang banyak diberitakan melatih jaringan saraf tiruan dengan lebih dari 131.000 pasangan gempa utama dan gempa susulan untuk memetakan tempat terjadinya gempa susulan (DeVries et al. 2018). Mignan dan Broccardo (2019) memperoleh kinerja yang sama dengan regresi logistik dua parameter, dibandingkan 13.451 parameter pada jaringan aslinya. Brendan Meade, salah satu penulis studi asli, menanggapi bahwa pendekatan dengan model yang lebih sederhana merupakan salah satu hasil inti makalah tersebut (Synced 2019)."
+        ]
+      },
+      {
+        "h": "Komunikasi Setelah L’Aquila",
+        "p": [
+          "Gempa bermagnitudo 6,3 melanda L’Aquila, Italia, pada April 2009 dan menewaskan 309 orang. Pada 2012, sebuah pengadilan menyatakan enam ilmuwan dan seorang pejabat pemerintah bersalah atas pembunuhan tidak berencana karena tidak memperingatkan penduduk tentang risikonya, dan menjatuhkan hukuman enam tahun penjara kepada para ilmuwan itu. Pengadilan banding membatalkan putusan bersalah para ilmuwan tersebut pada 2014 (The World 2014).",
+          "Departemen Perlindungan Sipil Italia kemudian membentuk Komisi Internasional untuk Prakiraan Gempa. Laporan komisi tahun 2011 merekomendasikan prakiraan operasional yang sistematis dan transparan, serta memperingatkan bahwa hanya mengandalkan komunikasi informal antara ilmuwan dan masyarakat akan menimbulkan kebingungan (Jordan et al. 2011)."
+        ]
+      },
+      {
+        "h": "Di Mana Para Ilmuwan Berbeda Pendapat",
+        "p": [
+          "Geller et al. (1997) berpendapat bahwa gempa bumi pada dasarnya tidak dapat diramalkan, karena apakah sebuah patahan kecil akan membesar menjadi patahan besar bergantung pada rincian kondisi di dalam Bumi yang tidak dapat diukur. Para penanggap di jurnal Science membalas bahwa sikap ini terlalu negatif terhadap bidang yang sulit, sementara penanggap lain mengakui bahwa belum ada mekanisme tanda awal elektromagnetik yang cukup dipahami untuk digunakan secara andal (\"Cannot Earthquakes Be Predicted?\" 1997).",
+          "USGS menyatakan bahwa fokusnya sendiri adalah pengurangan bahaya gempa jangka panjang melalui bangunan yang lebih aman, dengan ramalan jangka pendek berada di luar upaya tersebut (USGS n.d.a). Bukti yang ada mendukung kedua tafsiran. Pemantauan selama puluhan tahun belum menghasilkan metode jangka pendek yang tervalidasi, dan belum ada bukti bahwa metode semacam itu mustahil. Instrumen yang lebih rapat, rekaman seismik yang terus-menerus, dan pengamatan gelinciran lambat memperluas apa yang dapat diuji para peneliti. Setiap klaim baru menghadapi standar yang diterapkan di Parkfield: waktu, tempat, dan magnitudo yang ditentukan, dinyatakan sebelumnya."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apakah ilmuwan bisa meramalkan gempa bumi?",
+        "a": "Tidak. Survei Geologi Amerika Serikat melaporkan bahwa baik USGS maupun ilmuwan lain mana pun belum pernah meramalkan gempa besar. Sebuah ramalan harus menyebutkan tanggal dan waktu, lokasi, serta magnitudo, dan klaim yang menghilangkan salah satu dari ketiganya tidak dapat diuji."
+      },
+      {
+        "q": "Apa perbedaan prakiraan gempa, peluang gempa, dan peringatan dini?",
+        "a": "Peluang jangka panjang menyatakan kemungkinan terjadinya gempa berukuran tertentu di suatu wilayah selama bertahun-tahun atau berpuluh-puluh tahun. Prakiraan menerapkan penalaran serupa pada rentang waktu yang lebih pendek dan umumnya digunakan untuk gempa susulan. Peringatan dini adalah peringatan yang dikirim setelah patahan mulai terjadi, memberikan waktu beberapa detik hingga puluhan detik sebelum gelombang yang merusak tiba."
+      },
+      {
+        "q": "Apakah gempa Haicheng 1975 berhasil diramalkan?",
+        "a": "Pejabat mengevakuasi Haicheng setelah jumlah gempa kecil terus meningkat, yang kemudian diketahui sebagai gempa pendahuluan, dan gempa bermagnitudo 7,3 terjadi beberapa hari kemudian. Sebuah delegasi Amerika Serikat menyimpulkan bahwa keputusan itu terutama didasarkan pada rangkaian gempa pendahuluan. Tahun berikutnya, gempa Tangshan bermagnitudo 7,6 terjadi tanpa satu pun sinyal tersebut."
+      },
+      {
+        "q": "Apakah gempa pendahuluan merupakan tanda akan terjadi gempa besar?",
+        "a": "Tidak secara andal. Di California selatan, 72 persen gempa utama bermagnitudo 4 ke atas dari 2008 hingga 2017 didahului aktivitas gempa pendahuluan yang meningkat, tetapi di seluruh dunia hanya sekitar 5 persen gempa yang diikuti gempa lebih besar di dekatnya dalam waktu satu minggu."
+      },
+      {
+        "q": "Apakah pembelajaran mesin bisa meramalkan gempa?",
+        "a": "Belum. Model-model telah memperkirakan waktu menuju kegagalan sesar laboratorium dan menemukan pola yang mengikuti siklus gelinciran lambat di Cascadia, tetapi sebuah studi gempa susulan berbasis pembelajaran mendalam yang banyak diberitakan dapat disamai oleh regresi logistik dua parameter."
+      },
+      {
+        "q": "Berapa lama waktu peringatan yang diberikan peringatan dini gempa?",
+        "a": "Hal itu bergantung pada jarak dari gempa, kecepatan pengolahan, dan tingkat guncangan yang dipilih untuk memicu peringatan. Untuk gempa sebesar gempa Loma Prieta 1989, analisis USGS terhadap ShakeAlert menemukan waktu peringatan yang berkisar dari nol hingga dua puluh detik."
+      }
+    ]
+  },
+  "plate-tectonics-subduction": {
+    "title": "Tektonik Lempeng, Zona Subduksi, dan Gempa Megathrust",
+    "dek": "Di tempat satu lempeng tenggelam ke bawah lempeng lain, batasnya dapat terkunci selama berabad-abad lalu gagal dalam gempa bermagnitudo 9. Inilah cara kerja subduksi, apa yang ditunjukkan gempa-gempa megathrust besar, dan bagaimana para ilmuwan menentukan bahwa patahan terakhir Cascadia terjadi pada suatu malam musim dingin tahun 1700.",
+    "sections": [
+      {
+        "h": "Bagaimana dan Mengapa Lempeng Tektonik Bergerak",
+        "p": [
+          "Kulit terluar Bumi terpecah menjadi lempeng-lempeng kaku yang bergerak relatif satu terhadap yang lain. Survei Geologi Amerika Serikat (USGS) menggambarkan kecepatannya kira-kira sama dengan laju pertumbuhan kuku. Setiap lempeng bergerak dengan kecepatan dan arahnya sendiri, dan GPS kini mengukur gerakan kerak bumi hingga ketelitian sepersekian milimeter per tahun (USGS n.d.a).",
+          "Gaya-gaya di balik gerakan itu ditimbang dalam sebuah studi klasik oleh Forsyth dan Uyeda (1975). Mereka menyeimbangkan torsi yang bekerja pada masing-masing lempeng untuk membandingkan gaya yang menggerakkannya dengan gaya yang menahannya. Analisis mereka menunjukkan bahwa tenggelamnya lempengan samudra yang rapat di palung laut dalam merupakan gaya penggerak utama, sebuah efek yang kini biasa disebut tarikan lempengan (slab pull), yang sebagian besar diimbangi oleh hambatan kental di mantel (Forsyth and Uyeda 1975). Gaya kedua yang lebih kecil, dorongan punggungan (ridge push), bekerja di tempat dasar laut baru terbentuk di punggungan tengah samudra.",
+          "Tarikan lempengan menempatkan zona subduksi di pusat tektonik lempeng. Tempat-tempat lempeng samudra tua tenggelam kembali ke dalam mantel juga merupakan tempat-tempat yang menyimpan dan melepaskan regangan dalam jumlah terbesar, dan itulah sebabnya di sanalah terjadi gempa-gempa terbesar yang pernah tercatat."
+        ]
+      },
+      {
+        "h": "Tiga Jenis Batas Lempeng",
+        "p": [
+          "Lempeng-lempeng berinteraksi di tiga jenis batas utama (Kious and Tilling 1996). Di batas divergen, lempeng saling menjauh dan kerak baru terbentuk dari magma yang naik dari mantel. Punggungan tengah samudra adalah contoh utamanya.",
+          "Di batas transform, lempeng bergeser mendatar satu terhadap yang lain dan kerak tidak tercipta maupun musnah (Kious and Tilling 1996). Sesar San Andreas di California adalah contoh yang paling terkenal.",
+          "Di batas konvergen, lempeng bergerak saling mendekat dan kerak musnah ketika satu lempeng turun ke bawah lempeng lain (Kious and Tilling 1996). Di tempat litosfer samudra bertemu dengan lempeng lain, lempeng samudra yang lebih rapat tenggelam, dan batas itu menjadi zona subduksi. Kious dan Tilling (1996) juga mencatat bahwa sebagian batas lempeng berupa zona deformasi yang lebar, bukan garis yang tegas, sebuah pengingat bahwa ketiga jenis itu merupakan penyederhanaan dari permukaan yang lebih rumit."
+        ]
+      },
+      {
+        "h": "Apa Itu Zona Subduksi?",
+        "p": [
+          "Zona subduksi adalah batas konvergen tempat satu lempeng menukik ke bawah lempeng lain menuju mantel. Di permukaan, zona ini ditandai oleh palung laut dalam, dan di tempat lempeng samudra turun ke bawah benua, deretan gunung api seperti Andes dan Cascade menjulang di daratan (Kious and Tilling 1996).",
+          "Bidang kontak antara kedua lempeng adalah sesar raksasa yang landai yang disebut megathrust. Pada kedalaman dangkal, kurang dari sekitar 25 kilometer, bidang kontak itu dapat macet, atau terkunci, dan tegangan menumpuk di sepanjangnya (USGS n.d.b). Dalam ratusan tahun di antara gempa-gempa besar, tekanan yang terus berlangsung menyebabkan lempeng atas menggembung dan terangkat tepat di atas dan di sisi darat wilayah yang terkunci, meliputi ribuan kilometer persegi (USGS n.d.b).",
+          "Ketika tegangan yang terkumpul melampaui kekuatan sesar, bagian yang terkunci terlepas dan melepaskan energi yang tersimpan sebagai gelombang seismik (USGS n.d.b). Lempeng atas melenting kembali. Wilayah yang tadinya menggembung ke atas dapat turun secara tiba-tiba, sementara dasar laut di atas patahan terdorong ke atas dan memindahkan air laut di atasnya. Gerakan vertikal dasar laut yang tiba-tiba itulah yang membangkitkan tsunami-tsunami besar dari zona subduksi."
+        ]
+      },
+      {
+        "h": "Mengapa Gempa Megathrust Paling Besar",
+        "p": [
+          "USGS menggambarkan bidang kontak megathrust dangkal di zona subduksi sebagai tempat terjadinya gempa-gempa terbesar dan sebagai satu-satunya jenis sesar yang mampu menghasilkan patahan bermagnitudo 9 atau lebih (USGS n.d.c). Alasannya terletak pada cara magnitudo diukur. Magnitudo momen diturunkan dari momen seismik, yaitu hasil kali kekakuan batuan, luas bidang sesar yang tergelincir, dan rata-rata besarnya gelinciran.",
+          "Megathrust menawarkan bidang sesar yang sangat luas. Karena bidang kontaknya miring dengan sudut landai, patahan dapat meluas jauh ke bawah mengikuti kemiringan sesar sekaligus sepanjang ratusan kilometer di sepanjang palung. Dalam sebuah studi tentang gempa bidang kontak subduksi bermagnitudo 7,1 hingga 9,5, Allen dan Hayes (2017) menemukan bahwa lebar patahan mencapai batas sekitar 200 kilometer untuk gempa-gempa terbesar. Melewati titik itu, gempa membesar terutama dengan memanjang di sepanjang palung dan dengan gelinciran yang lebih besar, dan para penulis menyimpulkan bahwa ukuran gempa-gempa besar tampaknya lebih kuat dikendalikan oleh rata-rata gelinciran di bagian-bagian sesar yang paling kuat (Allen and Hayes 2017).",
+          "Tidak ada jenis sesar lain yang memadukan panjang, lebar, dan gelinciran sebesar itu. Dua gempa terbesar yang tercatat dengan instrumen modern sama-sama terjadi di zona subduksi: gempa Chili bermagnitudo 9,5 pada 1960 dan gempa Alaska bermagnitudo 9,2 pada 1964 (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Chili 1960, Sumatra 2004, dan Tōhoku 2011",
+        "p": [
+          "Gempa Chili pada 22 Mei 1960 adalah gempa terbesar yang pernah tercatat, dengan magnitudo momen 9,5 (USGS n.d.d). Laporan awal menyebutkan magnitudo gelombang permukaan 8,6. Magnitudo momen, ukuran yang lebih baik untuk energi yang dilepaskan, kemudian diperkirakan sebesar 9,5 (USGS n.d.d). Gempa ini mematahkan batas tempat Lempeng Nazca turun ke bawah Amerika Selatan. Cifuentes (1989) memperkirakan panjang patahan dari gempa susulan dan deformasi kerak sebesar 920 ± 100 kilometer, berakhir di dekat titik pertemuan Punggungan Chili dengan Palung Peru–Chili. USGS mencatat sekitar 1.655 korban tewas di Chili selatan dan sekitar 2 juta orang kehilangan tempat tinggal. Tsunaminya melintasi Pasifik, menewaskan 61 orang di Hawaii, sebagian besar di Hilo, dan 138 orang di Jepang (USGS n.d.d).",
+          "Gempa Sumatra–Andaman pada 26 Desember 2004 bermagnitudo 9,1 (USGS n.d.f). Gempa-gempa susulannya menggambarkan patahan sepanjang sekitar 1.300 kilometer, dari Sumatra bagian barat laut hingga Kepulauan Andaman (Lay et al. 2005). Tsunami Samudra Hindia yang menyusul menyebabkan 227.898 orang tewas atau hilang dan diduga tewas, serta sekitar 1,7 juta orang mengungsi (USGS n.d.g).",
+          "Gempa Tōhoku-Oki pada 11 Maret 2011 terjadi di Palung Jepang, tempat Lempeng Pasifik turun ke bawah Jepang bagian utara. USGS menetapkan magnitudonya 9,1 dan melaporkan bahwa sesar bergeser hingga 50 sampai 60 meter pada area sepanjang sekitar 400 kilometer dan selebar 150 kilometer (USGS n.d.e). Survei dasar laut yang dilakukan kurang dari dua minggu setelah gempa menunjukkan bahwa dasar laut di dekat palung bergeser sekitar 50 meter ke arah timur-tenggara dan 7 hingga 10 meter ke atas, bukti bahwa patahan mencapai poros palung (Fujiwara et al. 2011). Badan Kepolisian Nasional Jepang telah mengonfirmasi sedikitnya 15.782 korban tewas enam bulan setelah bencana (Nippon.com n.d.)."
+        ]
+      },
+      {
+        "h": "Zona Subduksi Cascadia dan Gempa 1700",
+        "p": [
+          "Zona Subduksi Cascadia membentang di lepas pantai dari Pulau Vancouver bagian utara hingga Tanjung Mendocino di California utara, tempat Lempeng Juan de Fuca dan lempeng-lempeng tetangganya turun ke bawah Amerika Utara (PNSN n.d.). Lempeng Juan de Fuca bergerak ke arah Amerika Utara dengan kecepatan sekitar 4 sentimeter per tahun (PNSN n.d.).",
+          "Gempa besar Cascadia terakhir terjadi pada 26 Januari 1700, dengan perkiraan magnitudo antara 8,7 dan 9,2 (Wirth et al. 2025). Tanggal dan ukurannya direkonstruksi dari tsunami yang tercatat di Jepang. Para samurai, pedagang, dan penduduk desa menulis tentang gelombang pada Januari 1700 yang datang tanpa didahului gempa setempat, yang kemudian disebut para peneliti sebagai tsunami yatim (orphan tsunami) (Atwater et al. 2005). Satake et al. (1996) mengesampingkan Amerika Selatan, Alaska, dan Kamchatka sebagai sumbernya, karena catatan sejarah dan geologi tidak menunjukkan adanya gempa besar di sana pada 1700, dan menempatkan gempa itu di Cascadia sekitar pukul 21.00 waktu setempat pada 26 Januari 1700. Dari ketinggian tsunami, mereka memperkirakan magnitudonya sekitar 9, yang berarti patahan terjadi di sepanjang seluruh zona subduksi (Satake et al. 1996).",
+          "Analisis selanjutnya membandingkan banjir yang dilaporkan di tujuh lokasi di Jepang, dengan ketinggian kira-kira 1 hingga 5 meter, dengan tsunami yang dimodelkan dari enam kemungkinan sumber di Cascadia. Gempa yang paling mungkin memiliki magnitudo momen 9,0, dengan gelinciran 19 meter pada zona lepas pantai sepanjang sekitar 1.100 kilometer (Satake et al. 2003). Rentang sumber yang masuk akal setara dengan magnitudo 8,7 hingga 9,2. Patahan yang lebih pendek hanya dapat menyamai tsunami di Jepang dengan gelinciran lepas pantai hingga 40 meter, dan perubahan ketinggian daratan yang akan ditimbulkannya bertentangan dengan bukti geologi di sepanjang pantai Cascadia (Satake et al. 2003)."
+        ]
+      },
+      {
+        "h": "Bukti Gempa Cascadia: Hutan Hantu dan Rawa yang Terkubur",
+        "p": [
+          "Bukti geologi pertama kali datang dari pantai. Atwater (1987) menemukan bahwa lumpur pasang surut telah mengubur dataran rendah pesisir di Washington bagian paling barat sebanyak enam kali dalam kurun sekitar 7.000 tahun, masing-masing kemungkinan disebabkan oleh penurunan tanah secara tiba-tiba sekitar 0,5 hingga 2 meter. Lapisan pasir di atas sedikitnya tiga permukaan yang terkubur menunjukkan adanya tsunami yang datang bersamaan dengan peristiwa yang sama (Atwater 1987). Inilah pola yang diharapkan ketika lempeng atas turun pada saat megathrust gagal.",
+          "Penurunan tanah yang sama menciptakan hutan hantu. Di sepanjang Sungai Copalis di Washington, sekelompok pohon cedar merah barat yang mati menjulang dari rawa pasang surut yang payau. Pohon-pohon itu mati ketika daratan turun saat gempa Cascadia terakhir dan air asin membanjiri akarnya (USGS n.d.i). Yamaguchi et al. (1997) menggunakan lingkaran tahun pohon untuk menentukan waktu kematiannya. Pohon-pohon yang mati akibat gempa telah menyelesaikan pertumbuhan pada 1699 tetapi tidak memulai pertumbuhan pada 1700, sehingga penurunan tanah itu terjadi di antara musim tumbuh 1699 dan 1700, sesuai dengan tanggal dari catatan Jepang (Yamaguchi et al. 1997).",
+          "Endapan lepas pantai memperpanjang catatan itu lebih jauh ke masa lalu. Turbidit, endapan yang ditinggalkan oleh longsoran bawah laut, menumpuk di saluran-saluran bawah laut di sepanjang tepi benua. Goldfinger et al. (2012) menelusurinya di sepanjang sekitar 500 kilometer Cascadia bagian utara dan menyimpulkan bahwa waktu terjadinya yang serempak selama 10.000 tahun paling baik dijelaskan oleh pemicuan dalam gempa-gempa besar. Catatan itu menunjukkan adanya kelompok-kelompok dua hingga lima gempa yang dipisahkan oleh selang waktu yang luar biasa panjang, bukan siklus yang teratur, dan catatan lepas pantai itu sangat sesuai dengan catatan lebih pendek yang terawetkan di daratan (Goldfinger et al. 2012).",
+          "USGS kini memperkirakan peluang 10 hingga 15 persen terjadinya gempa Cascadia bermagnitudo sekitar 9 dalam 50 tahun ke depan (Wirth et al. 2025). Perkiraan ini bertumpu pada bukti yang sama: catatan tertulis dari Jepang, pohon-pohon mati dan tanah yang terkubur di pantai Pasifik, serta lapisan-lapisan endapan di dasar laut."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apa itu zona subduksi?",
+        "a": "Zona subduksi adalah batas lempeng konvergen tempat satu lempeng, biasanya lempeng samudra, turun ke bawah lempeng lain menuju mantel. Zona ini ditandai oleh palung laut dalam, dan bidang kontak antara kedua lempeng adalah sesar besar yang landai yang disebut megathrust."
+      },
+      {
+        "q": "Apa itu gempa megathrust?",
+        "a": "Gempa megathrust adalah patahnya bidang kontak yang terkunci antara dua lempeng di zona subduksi. Tegangan menumpuk selama berabad-abad selagi bagian dangkal bidang kontak itu macet, lalu terlepas ketika sesar itu patah. USGS menggambarkan sesar-sesar ini sebagai satu-satunya sesar yang mampu menghasilkan gempa bermagnitudo 9 atau lebih."
+      },
+      {
+        "q": "Mengapa zona subduksi menghasilkan gempa paling besar?",
+        "a": "Magnitudo gempa bergantung pada luas bidang sesar yang tergelincir dan besarnya gelinciran. Megathrust miring dengan sudut landai dan dapat membentang sepanjang ratusan kilometer di sepanjang palung, sehingga bidang sesarnya jauh lebih luas daripada jenis sesar lain. Gempa-gempa terbesar juga melibatkan gelinciran puluhan meter."
+      },
+      {
+        "q": "Gempa apa yang terbesar yang pernah tercatat?",
+        "a": "Gempa terbesar yang tercatat dengan instrumen melanda Chili selatan pada 22 Mei 1960, dengan magnitudo 9,5. Tsunaminya menewaskan 61 orang di Hawaii dan 138 orang di Jepang, selain sekitar 1.655 korban tewas di Chili."
+      },
+      {
+        "q": "Bagaimana kita tahu gempa Cascadia terjadi pada tahun 1700?",
+        "a": "Catatan Jepang menggambarkan tsunami pada Januari 1700 yang datang tanpa didahului gempa setempat. Lingkaran tahun pohon cedar yang mati ketika pantai Pasifik Barat Laut turun menunjukkan bahwa pohon-pohon itu mati di antara musim tumbuh 1699 dan 1700. Bersama-sama, bukti ini menempatkan gempa itu pada 26 Januari 1700."
+      },
+      {
+        "q": "Seberapa besar kemungkinan terjadinya gempa Cascadia bermagnitudo 9?",
+        "a": "USGS memperkirakan peluang 10 hingga 15 persen terjadinya gempa bermagnitudo sekitar 9 di Zona Subduksi Cascadia dalam 50 tahun ke depan. Catatan endapan lepas pantai menunjukkan bahwa gempa semacam itu datang dalam kelompok-kelompok yang dipisahkan oleh selang waktu panjang, bukan menurut jadwal yang teratur."
+      }
+    ]
+  },
+  "faults-and-stress": {
+    "title": "Sesar dan Tegangan: Mengapa Gempa Bumi Terjadi",
+    "dek": "Gempa bumi adalah pelepasan tiba-tiba tegangan yang telah disimpan sebuah sesar selama puluhan atau ratusan tahun. Inilah cara tegangan itu menumpuk, bagaimana sesar akhirnya menyerah, dan bagaimana satu patahan dapat menyiapkan patahan berikutnya.",
+    "sections": [
+      {
+        "h": "Teori Pantulan Elastis dan Gempa San Francisco 1906",
+        "p": [
+          "Pada 18 April 1906, Sesar San Andreas patah sepanjang sekitar 477 kilometer di California utara, dalam gempa yang kini diperkirakan bermagnitudo 7,9 (USGS n.d.b). Penelitian Gladys Hansen dan Emmet Condon menempatkan jumlah orang yang tewas secara langsung maupun tidak langsung pada lebih dari 3.000 orang, beberapa kali lipat angka sekitar 700 yang dikutip selama puluhan tahun (USGS n.d.c).",
+          "Gempa itu juga menghasilkan penjelasan pertama yang dapat dipakai tentang mengapa sesar gagal. Harry Fielding Reid, seorang ahli geologi di Johns Hopkins University, memeriksa bagaimana permukaan tanah bergeser selama gempa dan menyimpulkan bahwa patahan itu pasti melibatkan pantulan elastis dari tegangan elastis yang sebelumnya tersimpan (USGS n.d.a). Pagar, jalan, dan garis-garis lurus lain yang melintasi sesar telah tergeser; sebuah pagar yang difoto oleh G. K. Gilbert di dekat Bolinas bergeser sekitar 8,5 kaki di sepanjang jejak sesar (USGS n.d.a).",
+          "Reid memaparkan argumennya dalam jilid kedua laporan komisi negara bagian (Reid 1910). Batuan di kedua sisi sesar terbawa oleh gerakan yang lambat dan tetap, tetapi sesar itu sendiri tetap macet. Kerak bumi melentur seperti pegas, menyimpan regangan elastis, sampai tegangan melampaui kekuatan sesar. Sesar itu kemudian tergelincir secara tiba-tiba, batuan yang melentur melenting kembali ke bentuk tanpa regangan, dan energi yang tersimpan terlepas sebagai gelombang seismik.",
+          "Teori ini memiliki konsekuensi langsung. Setelah sebuah sesar tergelincir, gerakan lambat yang sama mulai membebaninya lagi, sehingga gempa pada sesar tertentu diperkirakan akan berulang. Sebagian besar ilmu modern tentang sesar dan tegangan merupakan penjabaran dari siklus pembebanan dan pelepasan itu."
+        ]
+      },
+      {
+        "h": "Jenis-Jenis Sesar: Normal, Naik, Sungkup, dan Geser",
+        "p": [
+          "Survei Geologi Amerika Serikat mendefinisikan sesar sebagai rekahan atau zona rekahan di antara dua blok batuan yang memungkinkan blok-blok itu bergerak relatif satu terhadap yang lain (USGS n.d.d). Sesar diklasifikasikan menurut sudut bidang sesar, yang disebut kemiringan (dip), dan menurut arah gelinciran di sepanjangnya (USGS n.d.d).",
+          "Pada sesar normal, blok di atas bidang sesar yang miring bergerak turun relatif terhadap blok di bawahnya. Pada sesar naik, blok atas bergerak naik dan menumpang di atas blok bawah, dan sesar naik dengan kemiringan landai disebut sesar sungkup (thrust). Pada sesar geser, blok-blok bergeser ke samping satu terhadap yang lain, dan sesar yang memadukan gerakan ke samping dan vertikal disebut sesar miring (oblique-slip) (USGS n.d.d). Sesar geser disebut menganan atau mengiri menurut arah gerak sisi seberang jika dilihat dari seberang sesar. Sesar San Andreas dan Sesar Anatolia Utara bersifat menganan; Sesar Anatolia Timur bersifat mengiri.",
+          "Setiap jenis mencerminkan susunan tegangan yang berbeda. Ernest Masson Anderson (1905) mengamati bahwa karena permukaan tanah tidak menanggung tegangan geser, salah satu dari tiga tegangan utama di kerak dangkal hampir tegak. Jika tegangan tekan terbesar tegak, seperti di tempat kerak sedang ditarik, terbentuklah sesar normal. Jika tegangan terkecil yang tegak, seperti di tempat kerak sedang ditekan, terbentuklah sesar naik dan sesar sungkup. Jika tegangan menengah yang tegak, terbentuklah sesar geser. Dengan gesekan batuan yang umum, teori ini meramalkan sesar normal dengan kemiringan sekitar 60 derajat, sesar sungkup sekitar 30 derajat, dan sesar geser yang hampir tegak."
+        ]
+      },
+      {
+        "h": "Gesekan Tempel-Gelincir: Bagaimana Sesar Menyimpan dan Melepaskan Energi",
+        "p": [
+          "Pantulan elastis menggambarkan pembebanan. Gesekan menjelaskan mengapa pelepasannya terjadi tiba-tiba, bukan berangsur-angsur. Dalam percobaan laboratorium pada batuan, Brace dan Byerlee (1966) menemukan bahwa permukaan di bawah tekanan tinggi tidak bergeser dengan mulus, tetapi menempel, tergelincir secara mendadak, lalu menempel lagi. Mereka mengusulkan bahwa gempa dangkal mungkin merupakan gerakan tempel-gelincir (stick-slip) semacam ini pada sesar, dan mencatat bahwa tegangan yang dilepaskan dalam setiap peristiwa gelinciran hanyalah sebagian kecil dari tegangan yang ditanggung batuan itu (Brace and Byerlee 1966).",
+          "Penelitian selanjutnya mengubah pengamatan ini menjadi hukum-hukum gesekan batuan. Scholz (1998) merangkum bagaimana hasilnya bergantung pada apakah gesekan naik atau turun ketika gerak geser bertambah cepat. Di tempat gesekan menguat seiring kecepatan, setiap gelinciran memperlambat dirinya sendiri dan sesar bergeser secara stabil. Di tempat gesekan melemah seiring kecepatan, gelinciran dapat berakselerasi menjadi patahan yang tidak stabil, yaitu gempa bumi. Scholz berpendapat bahwa satu hukum konstitutif semacam ini menjelaskan berbagai perilaku gempa, termasuk berapa banyak gerakan sebuah sesar yang dilepaskan dalam gempa dan berapa banyak yang berlalu tanpa gempa (Scholz 1998).",
+          "Perbedaan ini penting pada skala sesar secara keseluruhan. Bagian sesar dengan gesekan yang melemah seiring kecepatan dapat terkunci lalu gagal secara hebat. Bagian dengan gesekan yang menguat seiring kecepatan cenderung merayap."
+        ]
+      },
+      {
+        "h": "Sesar Terkunci dan Sesar Merayap di San Andreas",
+        "p": [
+          "Sebagian besar Sesar San Andreas terkunci. Di antara gempa-gempa besar, kedua sisinya tetap macet di kedalaman sementara lempeng-lempeng terus bergerak, dan regangan terkumpul di batuan sekitarnya seperti yang digambarkan Reid. Segmen yang patah pada 1906 berperilaku seperti ini.",
+          "Di antara San Juan Bautista dan Parkfield di California tengah, sesar itu berperilaku lain. Di sana kedua sisinya bergeser satu terhadap yang lain secara kurang lebih terus-menerus dalam proses yang disebut rayapan aseismik, yang menggerakkan tanah tanpa menghasilkan gempa besar. Titus et al. (2006) mengukur ulang tujuh deret penjajaran, yaitu barisan patok survei yang dipasang melintasi sesar, dan memperoleh laju gelinciran minimum rata-rata 21 hingga 26 milimeter per tahun selama 33 hingga 36 tahun. Hasilnya menunjukkan rayapan yang kira-kira tetap di sepanjang segmen merayap tengah selama sedikitnya 35 tahun (Titus et al. 2006).",
+          "Rayapan dapat terlihat di permukaan. Di tempat sesar merayap melintasi sebuah kota, tepi jalan, trotoar, dan tembok melengkung atau tergeser sedikit lebih jauh setiap tahun. Kota Hollister, di dekat ujung utara segmen merayap, adalah contoh yang terkenal, meskipun sesar yang melintasi jalan-jalannya adalah Sesar Calaveras, cabang dari sistem San Andreas, bukan San Andreas itu sendiri.",
+          "Segmen yang merayap tidak menyimpan regangan seperti segmen yang terkunci, dan juga dapat membatasi penjalaran patahan. Setelah gempa Parkfield bermagnitudo 6,0 pada 2004, yang terjadi di ujung selatan segmen merayap, stasiun-stasiun GPS menunjukkan sedikit gelinciran selama maupun setelah gempa di sepanjang segmen merayap tengah (Titus et al. 2006). Rayapan tidak membuat sesar menjadi tidak berbahaya, karena sesar yang merayap masih dapat menghasilkan gempa sedang, tetapi rayapan mengubah bagaimana dan di mana tegangan menumpuk."
+        ]
+      },
+      {
+        "h": "Perpindahan Tegangan dan Perubahan Tegangan Coulomb",
+        "p": [
+          "Ketika sebuah sesar tergelincir, tegangan yang ditanggungnya tidak lenyap. Sebagian di antaranya didistribusikan kembali ke kerak di sekitarnya, mendorong sebagian sesar di dekatnya lebih dekat ke ambang kegagalan dan menjauhkan sesar lainnya. Para seismolog mengukurnya dengan kriteria kegagalan Coulomb, yang menggabungkan perubahan tegangan geser yang mendorong sesar tergelincir dengan perubahan tegangan jepit yang menahannya tetap tertutup (King et al. 1994). Perubahan tegangan biasanya dinyatakan dalam bar; satu bar sama dengan 0,1 megapascal, kira-kira tekanan atmosfer di permukaan laut.",
+          "Perubahan itu kecil dibandingkan tegangan total di kerak, tetapi penting bagi sesar yang sudah mendekati ambang kegagalan. King et al. (1994) menemukan bahwa gempa susulan berlimpah di tempat tegangan Coulomb pada sesar yang berorientasi menguntungkan naik lebih dari sekitar setengah bar, dan jarang di tempat tegangan itu turun dengan besar yang serupa. Wilayah tempat tegangan turun disebut bayangan tegangan (stress shadow). Studi yang sama menghitung bahwa gempa Landers dan Big Bear 1992 di California selatan menaikkan tegangan pada segmen San Bernardino dari Sesar San Andreas sebesar 2 hingga 6 bar, cukup untuk memajukan gempa besar berikutnya di sana sekitar satu dekade (King et al. 1994).",
+          "Stein (1999) meninjau bukti-bukti yang ada dan menyimpulkan bahwa ketika perubahan tegangan diterjemahkan menjadi perubahan peluang, bahaya seismik sangat dipengaruhi oleh interaksi antargempa. Karena itu, peluang sebuah sesar untuk patah bergantung pada pembebanannya sendiri dan pada apa yang baru saja terjadi pada sesar-sesar tetangganya."
+        ]
+      },
+      {
+        "h": "Sesar Anatolia Utara: Rangkaian Gempa Sejak 1939",
+        "p": [
+          "Sesar Anatolia Utara, sesar geser menganan yang membentang di Turki bagian utara, memberikan contoh paling jelas tentang gempa-gempa yang berbaris di sepanjang sebuah sesar. Rangkaian ini dimulai pada 26 Desember 1939 dengan gempa bermagnitudo 7,8 di dekat Erzincan di sebelah timur, yang menewaskan 32.700 orang (USGS n.d.e).",
+          "Selama beberapa dekade berikutnya, gempa-gempa besar mematahkan bentangan-bentangan sesar secara berturut-turut, sebagian besar bergerak ke arah barat. Stein et al. (1997) mempelajari sepuluh gempa bermagnitudo 6,7 atau lebih yang bersama-sama mematahkan 1.000 kilometer sesar itu antara 1939 dan 1992. Mereka menghitung bahwa sembilan dari sepuluh patahan itu telah didorong lebih dekat ke ambang kegagalan oleh guncangan-guncangan sebelumnya, biasanya sebesar 1 hingga 10 bar, setara dengan 3 hingga 30 tahun pembebanan tektonik biasa. Perubahan tegangan itu menghasilkan kenaikan rata-rata tiga kali lipat dalam peluang terjadinya gempa selama dekade setelah setiap peristiwa (Stein et al. 1997).",
+          "Para penulis menggunakan penalaran yang sama untuk melihat ke depan. Untuk 30 tahun sejak 1996, mereka memperkirakan peluang 12 persen terjadinya gempa bermagnitudo 6,7 atau lebih di dekat kota pelabuhan Izmit (Stein et al. 1997). Pada 17 Agustus 1999, gempa bermagnitudo 7,4 menurut perkiraan awal (USGS 2000), dan 7,6 dalam laporan USGS tentang peristiwa itu (USGS 1999), melanda bentangan sesar tersebut. Perkiraan pemerintah menyebutkan kerugian berupa 17.127 korban tewas dan 43.953 korban luka-luka, dan lebih dari 250.000 orang mengungsi (USGS 2000). Para penulis tidak meramalkan gempa itu; mereka telah mengidentifikasi segmen itu sebagai segmen yang lebih mungkin gagal dibandingkan sebagian besar segmen lain.",
+          "Patahan 1999 memindahkan pemusatan tegangan lebih jauh ke barat, ke arah sesar-sesar di bawah Laut Marmara di dekat Istanbul. Dengan memperhitungkan gempa Izmit, Parsons et al. (2000) menghitung peluang 62 ± 15 persen terjadinya guncangan kuat di Istanbul dalam 30 tahun berikutnya dan 32 ± 12 persen dalam dekade berikutnya. Perhitungan itu adalah peluang, bukan ramalan, dan sesar-sesar di bawah Laut Marmara tetap menjadi perhatian utama dalam perencanaan bahaya di wilayah tersebut."
+        ]
+      },
+      {
+        "h": "Gempa Turki–Suriah 2023 di Sesar Anatolia Timur",
+        "p": [
+          "Sesar Anatolia Timur membentuk batas tenggara blok Anatolia dan, bersama Sesar Anatolia Utara, mengakomodasi pergerakan Turki ke arah barat menuju Laut Aegea (USGS n.d.f). Pada 6 Februari 2023, sesar ini menjadi sumber dua gempa besar yang berselang sembilan jam.",
+          "Gempa Pazarcık bermagnitudo 7,8 mematahkan hampir 354 kilometer Sesar Anatolia Timur. Gempa kedua, bermagnitudo 7,5 di dekat Elbistan, mematahkan sekitar 161 kilometer Sesar Çardak yang terpisah di sebelah utara (USGS n.d.g). USGS melaporkan bahwa jumlah korban tewas di Turki dan Suriah melampaui 57.000 orang pada akhir Maret 2023 (USGS n.d.g).",
+          "Kedua gempa itu menunjukkan perpindahan tegangan yang sedang bekerja, sekaligus batas-batasnya. Perhitungan Coulomb menunjukkan bahwa gempa pertama menaikkan tegangan sekitar 1 hingga 4 bar pada segmen Sesar Çardak tempat patahan kedua dimulai, sekaligus menurunkannya sekitar 3 hingga 10 bar pada bagian sesar itu yang sejajar dengan Sesar Anatolia Timur (Toda and Stein 2024). Kenaikan tegangan sebesar ini kecil dibandingkan tegangan yang dilepaskan dalam sebuah gempa, tetapi dapat cukup untuk memicu sesar yang sudah mendekati ambang kegagalan (Stein et al. 2023).",
+          "Perhitungan yang sama menyisakan pertanyaan terbuka. Beberapa segmen Sesar Anatolia Timur yang menerima kenaikan tegangan tidak patah, dan sebagian Sesar Çardak yang tidak mendapat tambahan tegangan ikut serta dalam patahan bermagnitudo 7,5. Gempa kedua juga tidak didahului gempa pendahuluan, meskipun pembebanannya besar dan tiba-tiba (Stein et al. 2023). Perpindahan tegangan menjelaskan banyak hal tentang di mana gempa-gempa mengelompok, tetapi belum dapat mengatakan sesar terbebani mana yang akan gagal, atau kapan."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apa itu teori pantulan elastis?",
+        "a": "Teori pantulan elastis menyatakan bahwa batuan di kedua sisi sesar yang terkunci perlahan melentur ketika kerak bumi bergerak, sehingga menyimpan regangan elastis. Ketika tegangan melampaui kekuatan sesar, sesar itu tergelincir dan batuan melenting kembali, melepaskan energinya sebagai gempa bumi. Harry Fielding Reid mengusulkannya setelah mempelajari pergeseran tanah dalam gempa San Francisco 1906."
+      },
+      {
+        "q": "Apa saja tiga jenis utama sesar?",
+        "a": "Sesar normal, tempat blok atas bergerak turun, terbentuk di tempat kerak ditarik. Sesar naik dan sesar sungkup, tempat blok atas bergerak naik, terbentuk di tempat kerak ditekan. Sesar geser, tempat blok-blok bergeser ke samping satu terhadap yang lain, mencakup Sesar San Andreas dan Sesar Anatolia Utara."
+      },
+      {
+        "q": "Apa itu sesar merayap?",
+        "a": "Sesar merayap bergeser perlahan dan kurang lebih terus-menerus, alih-alih tetap terkunci lalu gagal dalam gempa besar. Sesar San Andreas merayap di antara San Juan Bautista dan Parkfield di California tengah, tempat survei menunjukkan gelinciran tetap sekitar 21 hingga 26 milimeter per tahun selama lebih dari tiga dekade."
+      },
+      {
+        "q": "Apakah satu gempa bisa memicu gempa lain?",
+        "a": "Ya. Gempa mendistribusikan kembali tegangan, menaikkannya pada sebagian sesar di dekatnya dan menurunkannya pada sesar lain. Sesar yang sudah mendekati ambang kegagalan dapat terdorong melewati batas, dan itulah sebabnya gempa susulan mengelompok di tempat tegangan Coulomb meningkat dan gempa-gempa besar terkadang terjadi berurutan di sepanjang sebuah sesar."
+      },
+      {
+        "q": "Mengapa gempa bergerak ke barat di sepanjang Sesar Anatolia Utara?",
+        "a": "Antara 1939 dan 1992, sepuluh gempa bermagnitudo 6,7 atau lebih mematahkan sekitar 1.000 kilometer sesar itu, dan sembilan di antaranya terjadi di tempat guncangan-guncangan sebelumnya telah menaikkan tegangan. Gempa Izmit 1999 melanjutkan rangkaian itu ke arah barat, sehingga menaikkan perkiraan bahaya bagi Istanbul."
+      },
+      {
+        "q": "Sesar apa yang menyebabkan gempa Turki–Suriah 2023?",
+        "a": "Gempa bermagnitudo 7,8 pada 6 Februari 2023 mematahkan hampir 354 kilometer Sesar Anatolia Timur. Gempa bermagnitudo 7,5 sekitar sembilan jam kemudian mematahkan sekitar 161 kilometer Sesar Çardak di dekatnya, yang sebagian telah dibebani tegangan tambahan oleh gempa pertama."
+      }
+    ]
+  },
+  "earth-interior-seismic-waves": {
+    "title": "Bagian Dalam Bumi, Gelombang Seismik, dan Cara Mengukur Gempa Bumi",
+    "dek": "Kedalaman kerak, mantel, dan inti Bumi diukur dengan gelombang seismik, bukan dengan pengeboran. Gelombang yang sama kini digunakan untuk menentukan lokasi setiap gempa dan mengukur besarnya.",
+    "sections": [
+      {
+        "h": "Lapisan-Lapisan Bumi: Kerak, Mantel, Inti Luar, dan Inti Dalam",
+        "p": [
+          "Bumi memiliki empat lapisan utama, yang ditentukan oleh cara gelombang seismik merambat melaluinya. Lapisan terluar adalah kerak. Kerak benua memiliki ketebalan yang lebih bervariasi dengan rata-rata sekitar 30–35 kilometer, sedangkan kerak samudra umumnya hanya mencapai sekitar 5 kilometer (Kious and Tilling 1996).",
+          "Di bawah kerak terdapat mantel, lapisan batuan panas dan rapat yang menjangkau hingga ke inti. Dalam Preliminary Reference Earth Model (PREM), model yang banyak digunakan untuk sifat rata-rata planet menurut kedalaman, inti memiliki jari-jari 3.480 kilometer, sehingga batas inti–mantel berada kira-kira 2.900 kilometer di bawah permukaan (Dziewonski and Anderson 1981).",
+          "Inti terdiri atas dua bagian. Inti luar berwujud cair, dan inti dalam berwujud padat, dengan jari-jari 1.221,5 kilometer dalam PREM, sehingga permukaannya berada sekitar 5.150 kilometer di bawah permukaan (Dziewonski and Anderson 1981). PREM disusun dengan mencocokkan sekitar 1.000 periode osilasi bebas Bumi dan 500 rangkuman pengamatan waktu tempuh, bersama dengan massa dan momen inersia planet ini (Dziewonski and Anderson 1981). Tidak satu pun angka ini berasal dari pengambilan sampel langsung. Setiap batas ditemukan karena gelombang seismik berubah kecepatan, membelok, memantul, atau menghilang di sana."
+        ]
+      },
+      {
+        "h": "Gelombang P, Gelombang S, dan Gelombang Permukaan",
+        "p": [
+          "Gempa bumi melepaskan beberapa jenis gelombang seismik. Gelombang badan merambat melalui bagian dalam Bumi, dan gelombang permukaan merambat di sepanjang lapisan luarnya. Gelombang P, atau gelombang primer, adalah yang tercepat dan tiba pertama kali di stasiun perekam. Gelombang ini memampatkan dan meregangkan batuan searah rambatannya. Gelombang S, atau gelombang sekunder, menggeser batuan tegak lurus arah rambatannya dan tiba belakangan. Di dalam batuan, gelombang S umumnya merambat dengan kecepatan sekitar 60 persen kecepatan gelombang P (USGS n.d.a).",
+          "Gelombang permukaan tiba setelah kedua jenis gelombang badan. Gelombang Love menggerakkan tanah ke kiri dan ke kanan, dan gelombang Rayleigh menggulungnya dalam gerakan elips. Gelombang Rayleigh menghasilkan sebagian besar guncangan yang terasa di permukaan tanah selama gempa (USGS n.d.a).",
+          "Perbedaan antara gelombang P dan S memegang kunci untuk memahami bagian dalam Bumi. Zat cair tidak memiliki ketahanan terhadap geseran, sehingga gelombang S tidak dapat melewatinya. Gelombang P dapat merambat melalui zat padat maupun cair, meskipun gelombang ini melambat dan berubah arah ketika memasuki lapisan cair (USGS n.d.b)."
+        ]
+      },
+      {
+        "h": "Zona Bayangan dan Mengapa Gelombang S Tidak Menembus Inti Luar",
+        "p": [
+          "Stasiun-stasiun seismik di sisi planet yang berseberangan dengan sebuah gempa besar merekam celah yang khas. USGS menggambarkan zona bayangan sebagai wilayah di antara jarak sudut 104 dan 140 derajat dari gempa yang tidak menerima gelombang P langsung (USGS n.d.b). Inti luar yang cair menyebabkannya dengan dua cara: inti luar menghentikan gelombang S sepenuhnya, dan membiaskan gelombang P sehingga membelokkannya menjauhi pita itu (USGS n.d.b). Gelombang S langsung tidak ada mulai dari sekitar 104 derajat ke arah luar.",
+          "Richard Dixon Oldham pertama kali mengidentifikasi inti dari rekaman gempa pada 1906 (Oldham 1906; Brush 1980). Tidak terdeteksinya gelombang S yang menembus inti belum cukup, dengan sendirinya, untuk meyakinkan para seismolog bahwa inti itu berupa fluida (Brush 1980). Harold Jeffreys mengajukan argumen yang lebih kuat pada 1926. Dengan menggunakan pasang surut Bumi dan pengamatan seismik, ia menunjukkan bahwa inti memiliki kekakuan yang jauh lebih rendah daripada mantel dan mungkin berwujud cair (Jeffreys 1926; Brush 1980)."
+        ]
+      },
+      {
+        "h": "Mohorovičić, Gutenberg, dan Lehmann: Penemuan Moho dan Inti Dalam",
+        "p": [
+          "Pada 8 Oktober 1909, gempa melanda Lembah Kupa di selatan Zagreb. Andrija Mohorovičić, seorang seismolog di Zagreb, mengumpulkan seismogramnya dari stasiun-stasiun di seluruh Eropa dan memperhatikan bahwa melewati jarak tertentu, gelombang P tiba lebih awal daripada yang dimungkinkan oleh satu lapisan seragam. Ia menjelaskan kedatangan lebih awal itu sebagai gelombang yang menukik ke lapisan yang lebih dalam dan lebih cepat lalu kembali. Dari datanya, ia memperkirakan lapisan atas setebal 54 kilometer (Herak and Herak 2007). Ia menerbitkan analisis itu pada 1910 (Mohorovičić 1910). Batas antara kerak dan mantel kini disebut diskontinuitas Mohorovičić, atau Moho.",
+          "Beno Gutenberg menentukan letak tepi luar inti. Saat bekerja di Göttingen, ia menggunakan zona bayangan dalam rekaman gempa-gempa jauh untuk menempatkan batas inti–mantel pada kedalaman sekitar 2.900 kilometer, yang diterbitkan pada 1914 (Gutenberg 1914; Brush 1980). Model-model modern menempatkannya pada kedalaman yang hampir sama (Dziewonski and Anderson 1981).",
+          "Inge Lehmann, seorang seismolog Denmark, menemukan inti dalam. Saat mempelajari rekaman gempa besar tahun 1929 di Selandia Baru, ia meneliti gelombang P lemah yang tiba di dalam zona bayangan, tempat inti yang sepenuhnya cair seharusnya tidak menyisakan gelombang apa pun. Dalam makalah tahun 1936 yang berjudul singkat P′, ia mengusulkan bahwa gelombang-gelombang itu telah dibelokkan oleh inti dalam yang lebih kecil di dalam inti luar yang cair (Lehmann 1936; Kölbl-Ebert 2001). Kesimpulan bahwa inti dalam ini berwujud padat baru muncul kemudian. Pada 1971, Adam Dziewonski dan Freeman Gilbert menunjukkan dari osilasi bebas Bumi bahwa tidak ada model dengan inti dalam yang cair yang dapat memenuhi data (Dziewonski and Gilbert 1971)."
+        ]
+      },
+      {
+        "h": "Cara Seismometer Menentukan Lokasi Gempa: Episentrum, Hiposentrum, dan Kedalaman",
+        "p": [
+          "Gempa bumi bermula di hiposentrum, yang juga disebut fokus, yaitu titik di dalam Bumi tempat patahan dimulai. Episentrum adalah titik di permukaan tepat di atasnya, dan kedalaman fokus adalah jarak antara keduanya (USGS n.d.c).",
+          "Penentuan lokasi gempa dimulai dengan waktu kedatangan. Karena gelombang P lebih cepat daripada gelombang S, selisih waktu kedatangannya bertambah seiring jarak, dan para seismolog mengubahnya menjadi jarak dengan menggunakan kurva waktu tempuh standar (IRIS n.d.). Satu stasiun memberikan satu lingkaran kemungkinan episentrum, dua stasiun memberikan dua lingkaran yang berpotongan di dua titik, dan tiga stasiun mempersempit penyelesaiannya menjadi satu lokasi. Metode ini umumnya disebut triangulasi (IRIS n.d.).",
+          "Jaringan modern bekerja dalam tiga dimensi dan juga menghitung waktu asal gempa. Di wilayah Yellowstone, misalnya, komputer memulai dari tebakan awal hiposentrum, menggunakan model kecepatan gelombang seismik di wilayah itu untuk menghitung waktu kedatangan yang diharapkan di setiap stasiun, lalu menyesuaikan lokasi dan waktu asal sampai waktu hasil perhitungan cocok dengan waktu yang terukur. Makin banyak stasiun yang merekam sebuah gempa, makin akurat lokasinya, dan gempa yang hanya terekam oleh satu atau dua stasiun tidak dapat ditentukan lokasinya (USGS n.d.d).",
+          "Kedalaman adalah bagian penyelesaian yang paling sulit dipastikan. Sebagai patokan umum, kedalaman yang andal memerlukan stasiun yang jaraknya ke episentrum lebih dekat daripada kedalaman gempa itu (USGS n.d.e). Ketika data tidak dapat menentukan kedalaman, katalog menetapkannya pada nilai bawaan, kini 10 kilometer untuk gempa dangkal (USGS n.d.e). Untuk gempa yang lokasinya paling baik ditentukan, di tengah jaringan yang rapat, ketidakpastian lokasinya sekitar 100 meter secara horizontal dan 300 meter secara vertikal; untuk gempa yang lokasinya ditentukan dengan data global, ketidakpastiannya membesar hingga puluhan kilometer (USGS n.d.f). USGS menggolongkan gempa pada kedalaman 0 hingga 70 kilometer sebagai gempa dangkal, 70 hingga 300 kilometer sebagai gempa menengah, dan 300 hingga 700 kilometer sebagai gempa dalam (USGS n.d.c)."
+        ]
+      },
+      {
+        "h": "Skala Magnitudo Gempa: Dari Skala Richter hingga Magnitudo Momen",
+        "p": [
+          "Charles Richter menerbitkan skala magnitudo instrumental pertama pada 1935, untuk gempa-gempa di California selatan (Richter 1935). Kini diberi label ML, untuk magnitudo lokal, skala ini didasarkan pada amplitudo maksimum yang terekam pada seismograf torsi Wood-Anderson pada jarak yang diketahui. Instrumen-instrumen itu kini tidak lagi banyak digunakan, sehingga ML dihitung dari instrumen modern dengan penyesuaian. USGS mencantumkan rentang kegunaannya kira-kira magnitudo 2,0 hingga 6,5, untuk stasiun hingga sekitar 600 kilometer jauhnya (USGS n.d.g).",
+          "Skala itu kemudian diperluas menjadi magnitudo gelombang badan (mb) dan magnitudo gelombang permukaan (Ms) agar dapat memanfaatkan stasiun-stasiun seismograf di seluruh dunia. Masing-masing berlaku untuk rentang frekuensi dan jenis sinyal seismik tertentu (USGS n.d.h). Semua skala ini memiliki kelemahan yang sama: untuk gempa-gempa besar, amplitudo gelombang yang diukur berhenti bertambah seiring dengan ukuran patahan. Kanamori (1977) menunjukkan bahwa kejenuhan ini menyebabkan perkiraan yang tidak akurat atas energi yang dilepaskan dalam gempa-gempa terbesar.",
+          "Jalan keluarnya adalah mengukur ukuran fisik patahan. Momen seismik adalah hasil kali kekakuan batuan, luas bidang sesar yang tergelincir, dan rata-rata jarak gelincirannya (USGS n.d.i). Thomas Hanks dan Hiroo Kanamori mendefinisikan skala magnitudo momen, Mw, dari momen seismik pada 1979 (Hanks and Kanamori 1979), berdasarkan karya Kanamori tahun 1977, yang menemukan bahwa skala ini tidak jenuh dan memberikan magnitudo 9,5 untuk gempa Chili 1960 (Kanamori 1977). Karena magnitudo naik sebesar dua pertiga logaritma momen, setiap kenaikan satu angka bulat pada skala ini setara dengan momen seismik sekitar 32 kali lebih besar.",
+          "Untuk gempa yang sangat besar, magnitudo momen memberikan perkiraan ukuran yang paling andal (USGS n.d.h). USGS menghitung magnitudo momen fase W, Mww, untuk semua gempa bermagnitudo 5,0 ke atas di seluruh dunia dan menjadikannya acuan resmi bila tersedia (USGS n.d.g). Prosedur yang berbeda sering memberikan magnitudo yang sedikit berbeda untuk gempa yang sama, dan itulah sebabnya laporan awal dapat berubah seiring masuknya lebih banyak data (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Magnitudo dan Intensitas: Skala Mercalli yang Dimodifikasi",
+        "p": [
+          "Magnitudo menggambarkan ukuran gempa di sumbernya. Intensitas menggambarkan kekuatan guncangan di suatu tempat tertentu. Sebuah gempa memiliki satu magnitudo tetapi banyak intensitas, satu untuk setiap tempat yang guncangannya dinilai (USGS n.d.j).",
+          "Di Amerika Serikat, intensitas ditetapkan dengan Skala Intensitas Mercalli yang Dimodifikasi, yang dikembangkan oleh Harry Wood dan Frank Neumann pada 1931 (Wood and Neumann 1931). Tingkatannya ditulis dalam angka Romawi dan naik dari guncangan yang tidak terasa hingga kehancuran dahsyat (USGS n.d.k). Skala ini memeringkat dampak yang teramati, bukan mencatat hasil pengukuran instrumen (USGS n.d.k).",
+          "Laporan masyarakat kini langsung mengisi peta intensitas. Program Did You Feel It? dari USGS mengumpulkan kesaksian orang-orang yang merasakan gempa dan mengubahnya menjadi nilai intensitas komunitas. Di tempat tersedia data instrumen maupun laporan, nilai-nilai itu digunakan untuk mengkalibrasi persamaan yang mengubah gerakan tanah terukur menjadi intensitas pada ShakeMap (USGS n.d.l)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apa saja lapisan-lapisan Bumi?",
+        "a": "Bumi memiliki kerak berbatu, mantel yang menjangkau hingga kedalaman sekitar 2.900 kilometer, inti luar yang cair, dan inti dalam yang padat. Dalam model acuan standar, inti dalam memiliki jari-jari sekitar 1.220 kilometer. Semua batas ini ditemukan dengan mempelajari cara gelombang seismik merambat melalui planet ini."
+      },
+      {
+        "q": "Mengapa gelombang S tidak bisa melewati inti luar?",
+        "a": "Gelombang S menggerakkan batuan dengan cara menggesernya, dan zat cair tidak memiliki ketahanan terhadap geseran. Inti luar berwujud cair, sehingga gelombang S berhenti di batas inti–mantel. Akibatnya, tidak ada gelombang S langsung di stasiun-stasiun yang berjarak lebih dari sekitar 104 derajat dari gempa."
+      },
+      {
+        "q": "Apa itu zona bayangan seismik?",
+        "a": "Zona bayangan gelombang P adalah pita di antara sekitar 104 dan 140 derajat dari sebuah gempa yang tidak menerima gelombang P langsung. Inti luar yang cair membelokkan gelombang P menjauhi pita itu dan menghalangi gelombang S sepenuhnya. Gelombang P lemah yang ditemukan di dalam zona itu membuat Inge Lehmann mengusulkan keberadaan inti dalam pada 1936."
+      },
+      {
+        "q": "Apa perbedaan episentrum dan hiposentrum?",
+        "a": "Hiposentrum adalah titik di dalam Bumi tempat patahan dimulai. Episentrum adalah titik di permukaan tepat di atasnya. Jarak antara keduanya adalah kedalaman fokus."
+      },
+      {
+        "q": "Apakah skala Richter masih digunakan?",
+        "a": "Magnitudo lokal Richter, ML, masih dihitung untuk gempa kecil dan sedang dengan instrumen modern. Untuk gempa besar, skala ini dan skala-skala berbasis amplitudo lainnya menjadi jenuh, sehingga para seismolog melaporkan magnitudo momen, yang didasarkan pada luas dan gelinciran sesar."
+      },
+      {
+        "q": "Apa perbedaan magnitudo dan intensitas gempa?",
+        "a": "Magnitudo mengukur ukuran gempa di sumbernya, dan setiap gempa memiliki satu magnitudo. Intensitas mengukur seberapa kuat tanah berguncang di suatu tempat tertentu, sehingga satu gempa memiliki banyak intensitas. Di Amerika Serikat, intensitas dinyatakan dengan skala Mercalli yang Dimodifikasi dalam angka Romawi."
+      }
+    ]
+  },
+  "aftershocks-and-hazards": {
+    "title": "Penjelasan tentang Gempa Susulan, Likuefaksi, dan Bahaya Gempa Lainnya",
+    "dek": "Gempa besar adalah awal sebuah rangkaian, bukan satu peristiwa tunggal. Inilah perilaku gempa susulan, dan mengapa kerusakan yang ditimbulkan gempa sama bergantungnya pada kondisi tanah seperti pada magnitudonya.",
+    "sections": [
+      {
+        "h": "Apa Itu Gempa Susulan dan Bagaimana Hukum Omori Menggambarkannya",
+        "p": [
+          "Gempa bumi mengelompok dalam ruang dan waktu. Dalam sebuah kelompok, para seismolog menyebut peristiwa terbesar sebagai gempa utama, gempa-gempa sebelumnya sebagai gempa pendahuluan, dan gempa-gempa sesudahnya sebagai gempa susulan (Jones and Reasenberg 1996). Sebagai patokan umum, sebuah gempa tergolong gempa susulan jika terletak dalam jarak satu atau dua kali panjang patahan sesar dari gempa utama. Jarak itu sangat bervariasi: patahan gempa Northridge 1994 panjangnya sekitar 15 kilometer, sedangkan patahan gempa San Francisco 1906 panjangnya 430 kilometer (Jones and Reasenberg 1996).",
+          "Seismolog Jepang Fusakichi Omori menerbitkan gambaran kuantitatif pertama tentang peluruhan gempa susulan pada 1894, berdasarkan gempa-gempa susulan dari gempa Nōbi 1891 di Jepang tengah. Rumusnya menyatakan bahwa laju gempa susulan turun kira-kira sebanding dengan kebalikan waktu sejak gempa utama. Tokuji Utsu kemudian menambahkan sebuah eksponen, p, yang memungkinkan peluruhan berlangsung sedikit lebih cepat atau lebih lambat dari itu, dan sebuah tinjauan yang terbit seabad setelah makalah Omori menyimpulkan bahwa rumus yang dimodifikasi itu umumnya memberikan gambaran yang tepat tentang bagaimana aktivitas gempa susulan berubah seiring waktu (Utsu et al. 1995).",
+          "Dalam praktiknya, hari kedua setelah gempa utama membawa kira-kira separuh jumlah gempa susulan hari pertama, dan hari kesepuluh kira-kira sepersepuluhnya (Jones and Reasenberg 1996). Gempa susulan dari semua ukuran menurun dengan laju yang sama, sehingga sebuah rangkaian tidak kehabisan gempa besar lebih dulu (Jones and Reasenberg 1996). Para seismolog di California selatan mencatat bahwa gempa-gempa susulan dari gempa Landers 1992 makin jarang seiring waktu, bukan makin kecil, dan bahwa gempa bermagnitudo 5 masih dapat terjadi pada tahap akhir rangkaian, hanya dengan selang yang lebih jauh (SCEDC 1999)."
+        ]
+      },
+      {
+        "h": "Seberapa Besar Gempa Susulan Bisa Terjadi? Hukum Båth",
+        "p": [
+          "Gempa utama yang lebih besar cenderung menghasilkan gempa susulan yang lebih besar (Jones and Reasenberg 1996). Seismolog Swedia Markus Båth memberikan angka pada hubungan ini. Hukum Båth menyatakan bahwa gempa susulan terbesar rata-rata sekitar 1,2 satuan magnitudo lebih kecil daripada gempa utama, tidak bergantung pada magnitudo gempa utama (Båth 1965; Helmstetter and Sornette 2003). Menurut aturan itu, gempa utama bermagnitudo 7,0 biasanya akan diikuti gempa susulan terbesar sekitar magnitudo 5,8.",
+          "Nilai itu adalah rata-rata dari banyak rangkaian, dan masing-masing rangkaian dapat menyimpang darinya ke dua arah. Helmstetter dan Sornette (2003) menunjukkan bahwa hukum ini dapat diturunkan dari dua sifat statistik lain dari gempa bumi, yaitu sebaran magnitudo yang dijelaskan di bawah ini dan cara gempa susulan memicu gempa susulan berikutnya. Mereka berpendapat bahwa asal-usulnya sebagian terletak pada cara gempa utama dan gempa susulan didefinisikan, bukan pada mekanisme fisik tersendiri."
+        ]
+      },
+      {
+        "h": "Hukum Gutenberg–Richter dan Arti Nilai b",
+        "p": [
+          "Jumlah gempa kecil jauh melampaui jumlah gempa besar, dan perbandingannya teratur. Beno Gutenberg dan Charles Richter menggambarkan hubungan ini dalam studi tahun 1944 tentang gempa-gempa California (Gutenberg and Richter 1944). Hubungan ini biasanya ditulis log N = a − bM, dengan N adalah jumlah gempa bermagnitudo M atau lebih, a mencerminkan tingkat aktivitas secara keseluruhan, dan b menentukan seberapa cepat jumlahnya turun seiring kenaikan magnitudo.",
+          "Nilai b mendekati 1 di sebagian besar katalog global, sebuah hasil yang sudah begitu mapan sehingga sebuah tinjauan tahun 1993 diberi anak judul “much ado about 1.0” (Frohlich and Davis 1993). Dengan b sama dengan 1, setiap kenaikan satu satuan magnitudo memangkas jumlah gempa sepuluh kali lipat. Wilayah yang mencatat 100 gempa bermagnitudo 5 atau lebih dalam suatu periode rata-rata akan mencatat sekitar 10 gempa bermagnitudo 6 atau lebih dan sekitar satu gempa bermagnitudo 7 atau lebih.",
+          "Nilai itu tidak tetap. Katalog global memberikan nilai b dari sekitar 0,72 hingga 1,34, dan sebagian sebaran itu mencerminkan kesalahan dalam deteksi, penentuan lokasi, dan magnitudo, bukan perbedaan yang nyata (Frohlich and Davis 1993). Sebagian variasi memang nyata. Schorlemmer et al. (2005) menemukan bahwa nilai b paling rendah untuk sesar sungkup dan paling tinggi untuk sesar normal, dan menafsirkan perbedaan itu sebagai tanda bahwa sesar sungkup bekerja di bawah tegangan yang lebih tinggi. Di California, nilai b menurun seiring bertambahnya kedalaman gempa (Mori and Abercrombie 1997). Nilai b yang lebih rendah berarti gempa besar mengisi porsi yang lebih besar dari keseluruhan, dan itulah sebabnya parameter ini penting dalam perkiraan bahaya."
+        ]
+      },
+      {
+        "h": "Berapa Lama Gempa Susulan Berlangsung?",
+        "p": [
+          "Sebuah gempa tergolong gempa susulan selama laju gempa di wilayah itu tetap di atas laju sebelum gempa utama. Berapa lama hal itu berlangsung bergantung pada ukuran gempa utama dan pada seberapa aktif wilayah itu sebelumnya, karena gempa susulan tampak menonjol lebih lama di tengah latar yang tenang (Jones and Reasenberg 1996). Delapan setengah tahun setelah gempa Landers 1992, gempa susulan sudah sangat jarang tetapi masih terjadi jelas di atas laju latar (SCEDC 2001).",
+          "Toda dan Stein (2018) menemukan bahwa lamanya sebuah rangkaian lebih sedikit bergantung pada ukuran gempa utama daripada pada seberapa cepat sesar tergelincir. Dengan mempelajari gempa Tohoku-Oki 2011 dan delapan gempa utama besar lainnya di Jepang, mereka menemukan rangkaian yang berlangsung sekitar satu bulan pada sesar dengan gelinciran tercepat dan memproyeksikan bahwa rangkaian pada sesar paling lambat akan bertahan lebih dari 2.000 tahun. Karena itu, di wilayah yang berdeformasi lambat dan jauh dari batas lempeng, rangkaian gempa susulan yang berumur panjang dapat dikira sebagai aktivitas latar biasa, sehingga dapat membesar-besarkan perkiraan bahaya di masa depan (Toda and Stein 2018)."
+        ]
+      },
+      {
+        "h": "Apa yang Membuat Guncangan Gempa Merusak: Jarak, Kedalaman, Tanah, dan Durasi",
+        "p": [
+          "Magnitudo mengukur ukuran sumber gempa, bukan guncangan di suatu tempat tertentu. Survei Geologi Amerika Serikat (USGS) mencantumkan jenis gempa, kedalamannya, jarak dari patahan sesar, dan material tanah, dari tanah lunak hingga batuan dasar, di antara faktor-faktor yang menentukan apa yang dirasakan orang, bersama dengan konstruksi bangunan (USGS n.d.a). Guncangan umumnya paling kuat di dekat sesar yang patah dan melemah seiring jarak. Gempa dalam menempatkan jarak itu di antara sumber dan segala sesuatu di permukaan di atasnya.",
+          "Kondisi tanah setempat dapat lebih berpengaruh daripada jarak. Penelitian Southern California Earthquake Center (SCEC) dan USGS menemukan bahwa dalam satu gempa yang sama, guncangan di satu lokasi dapat dengan mudah sepuluh kali lebih kuat daripada di lokasi tetangganya yang berjarak sama dari sesar. Faktor setempat yang paling penting adalah kelunakan batuan atau tanah di dekat permukaan dan ketebalan endapan di atas batuan dasar yang keras (SCEC n.d.; Field et al. 2000).",
+          "Kota Meksiko pada 1985 adalah contoh bakunya. Gempa bermagnitudo 8,0 pada 19 September 1985 terjadi di lepas pantai Pasifik Michoacán, kira-kira 350 hingga 400 kilometer dari ibu kota (Furumura and Kennett 1998). Percepatan tanah puncak di wilayah episentrum rendah, tetapi kerusakan di Kota Meksiko parah (Anderson et al. 1986). Bagian tengah kota berdiri di atas lempung lunak jenuh air yang diendapkan di bekas danau. Dibandingkan dengan sebuah lokasi di zona perbukitan kota, lokasi-lokasi di dasar danau memperkuat gerakan tanah 8 hingga 56 kali lipat pada periode alaminya (Singh et al. 1988). Durasi menambah dampaknya: guncangan kuat di zona dasar danau berlangsung lebih dari tiga menit (Furumura and Kennett 1998). Perkiraan jumlah korban tewas sangat bervariasi; angka yang dikaitkan dengan USGS adalah sedikitnya 9.500 orang, dan perkiraan lain jauh lebih tinggi (Live Science n.d.)."
+        ]
+      },
+      {
+        "h": "Likuefaksi dan Longsor Akibat Gempa",
+        "p": [
+          "Likuefaksi terjadi ketika guncangan kuat melanda pasir dan lanau lepas yang jenuh air, dan tanah padat mulai berperilaku seperti zat cair (USGS n.d.b). Guncangan menaikkan tekanan air di antara butiran sampai butiran-butiran itu kehilangan kontak satu sama lain. Tanah kemudian dapat kehilangan kemampuannya untuk menopang bangunan, mengalir menuruni lereng yang landai sekalipun, dan menyembur ke permukaan sebagai semburan pasir (sand boil) (USGS n.d.c).",
+          "Gempa Niigata bermagnitudo 7,5 pada 16 Juni 1964 menyebabkan kerusakan luas pada bangunan rekayasa melalui likuefaksi tanah berpasir (Seed and Idriss 1967). Di Kawagishi-cho, di dekat Sungai Shinano, gedung-gedung apartemen mengalami kegagalan daya dukung dan miring parah sementara strukturnya tetap hampir utuh (University of Washington n.d.). Analisis yang diterbitkan Seed dan Idriss (1967) setelah gempa itu menjadi landasan penilaian likuefaksi modern.",
+          "Rangkaian gempa Canterbury 2010–2011 di Selandia Baru mengulang pelajaran itu di sebuah kota modern. Gempa bermagnitudo 6,2 pada 22 Februari 2011 menewaskan 185 orang (Canterbury Earthquakes Royal Commission n.d.). Likuefaksi pada tanah asli lebih luas sekaligus lebih parah dibandingkan pada gempa Darfield bermagnitudo 7,1 pada September 2010. Likuefaksi paling parah terjadi di kawasan permukiman di sebelah timur pusat bisnis kota, tempat guncangan kuat di dekat sesar, muka air tanah sekitar satu meter di bawah permukaan, dan tanah yang sangat rentan berpadu. Di pusat kota, likuefaksi menyebabkan bangunan-bangunan amblas dan miring (Cubrinovski et al. 2011).",
+          "Longsor adalah bahaya sekunder lain yang umum. Sebuah studi atas 40 gempa historis menemukan bahwa jatuhan batuan, longsoran tanah yang terganggu, dan longsoran batuan adalah jenis yang paling banyak dan dipicu oleh guncangan yang paling lemah. Luas maksimum yang kemungkinan terdampak bertambah dari praktis nol pada sekitar magnitudo 4,0 hingga sekitar 500.000 kilometer persegi pada magnitudo 9,2 (Keefer 1984). Gempa Wenchuan bermagnitudo 7,9 di Tiongkok pada 12 Mei 2008 memicu lebih dari 60.000 longsor (Zhang et al. 2016). Perkiraan jumlah korban tewas akibat longsor-longsor itu berkisar dari sekitar 20.000 (Yin et al. 2009) hingga 25.000–30.000 orang (Zhang et al. 2016).",
+          "Tsunami terbentuk ketika sesar dangkal tergelincir dalam gempa besar dan dengan cepat memindahkan dasar laut secara vertikal, paling sering di zona subduksi (USGS n.d.d). Cara tsunami merambat dan apa yang harus dilakukan dijelaskan dalam panduan Tsunami di bagian Sains."
+        ]
+      },
+      {
+        "h": "Gempa Induksi: Injeksi Air Limbah di Oklahoma",
+        "p": [
+          "Aktivitas manusia juga dapat memicu gempa. Memompa fluida jauh ke bawah tanah menaikkan tekanan fluida di dalam sesar, yang dapat memungkinkan sesar yang tertekan untuk tergelincir (Ellsworth 2013). Rekahan hidraulik, atau fracking, secara langsung hanya menyebabkan sebagian kecil persentase gempa induksi yang terasa. Pembuangan air limbah ke sumur dalam memiliki risiko lebih tinggi, karena menginjeksikan volume yang lebih besar dalam jangka waktu yang lebih lama (Ellsworth 2013; Rubinstein and Mahani 2015). Sebagian besar sumur tidak menyebabkan gempa yang terasa: dari sekitar 35.000 sumur pembuangan air limbah yang aktif dan puluhan ribu sumur injeksi dan fracking lainnya di Amerika Serikat, hanya beberapa lusin yang diketahui telah menginduksi gempa yang terasa, dan seismisitas induksi dapat terjadi 10 kilometer atau lebih dari titik injeksi (Rubinstein and Mahani 2015).",
+          "Oklahoma menjadi kasus yang paling jelas. Menurut USGS, sebagian besar gempa di negara bagian itu disebabkan oleh pembuangan air limbah, dan lebih dari 90 persen air limbah yang diinjeksikan merupakan hasil sampingan ekstraksi minyak, bukan sisa fluida fracking. Dari 2014 hingga 2017, laju gempa bermagnitudo 3 ke atas di negara bagian itu melampaui laju di California (USGS n.d.e). Survei Geologi Oklahoma mencatat sekitar satu gempa semacam itu per tahun dari 1976 hingga 2007 dan rekor 903 gempa pada 2015. Setelah regulator negara bagian memerintahkan penutupan sebagian sumur dan pengurangan volume injeksi di sumur lainnya sejak pertengahan 2015, jumlahnya turun menjadi 623 pada 2016, 302 pada 2017, dan 196 pada 2018 (Associated Press 2019).",
+          "Gempa terbesar yang tercatat di Oklahoma terjadi di dekat Pawnee pada 3 September 2016. Gempa bermagnitudo 5,8 itu mematahkan sesar yang sebelumnya tidak terpetakan di batuan dasar kristalin. Yeck et al. (2017) mencatat bahwa jika gempa itu terinduksi, gempa itu akan menjadi gempa terbesar yang diketahui pernah diinduksi oleh injeksi fluida, dan bahwa gempa itu terjadi setelah pengurangan volume dimulai. Mereka menyimpulkan bahwa dampak jangka panjang dari fluida injeksi yang menyebar melalui batuan membuat bahaya induksi sulit dikurangi dengan cepat (Yeck et al. 2017)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Berapa lama gempa susulan berlangsung setelah gempa besar?",
+        "a": "Gempa susulan berlanjut selama laju gempa di wilayah itu tetap di atas tingkatnya sebelum gempa utama. Pada sesar dengan gelinciran cepat, sebuah rangkaian dapat mereda dalam waktu sekitar satu bulan, sedangkan pada sesar dengan gelinciran lambat yang jauh dari batas lempeng, rangkaian itu dapat bertahan selama berabad-abad atau lebih. Lajunya turun cepat pada awalnya: hari kesepuluh biasanya membawa sekitar sepersepuluh jumlah gempa susulan hari pertama."
+      },
+      {
+        "q": "Apakah gempa susulan bisa lebih besar dari gempa utama?",
+        "a": "Menurut definisinya, tidak. Gempa utama adalah gempa terbesar dalam sebuah kelompok, sehingga jika gempa yang datang kemudian lebih besar, gempa pertama digolongkan ulang sebagai gempa pendahuluan. Rata-rata, gempa susulan terbesar sekitar 1,2 satuan magnitudo lebih kecil daripada gempa utama, sebuah aturan yang dikenal sebagai hukum Båth."
+      },
+      {
+        "q": "Apa itu hukum Gutenberg–Richter?",
+        "a": "Hukum ini menggambarkan bagaimana jumlah gempa turun seiring kenaikan magnitudo. Kemiringannya, yang disebut nilai b, mendekati 1 di sebagian besar katalog global, yang berarti jumlah gempa bermagnitudo 5 kira-kira sepuluh kali jumlah gempa bermagnitudo 6. Nilai b bervariasi menurut jenis sesar dan kedalaman."
+      },
+      {
+        "q": "Mengapa Kota Meksiko rusak parah pada 1985 padahal episentrumnya jauh?",
+        "a": "Bagian tengah Kota Meksiko dibangun di atas lempung lunak jenuh air dari bekas danau. Endapan itu memperkuat guncangan 8 hingga 56 kali lipat dibandingkan tanah yang lebih padat di perbukitan kota, dan gerakan kuat berlangsung lebih dari tiga menit, meskipun episentrumnya berjarak kira-kira 350 hingga 400 kilometer."
+      },
+      {
+        "q": "Apa itu likuefaksi saat gempa?",
+        "a": "Likuefaksi terjadi ketika guncangan menaikkan tekanan air di dalam pasir atau lanau lepas yang jenuh air sampai butiran-butirannya kehilangan kontak dan tanah berperilaku seperti zat cair. Bangunan dapat amblas atau miring, seperti yang terjadi di Niigata pada 1964 dan Christchurch pada 2011."
+      },
+      {
+        "q": "Apakah fracking menyebabkan gempa di Oklahoma?",
+        "a": "Sebagian besar tidak. USGS mengaitkan sebagian besar gempa di Oklahoma dengan pembuangan air limbah ke lapisan dalam, yang sebagian besar merupakan hasil sampingan ekstraksi minyak, bukan fluida fracking. Rekahan hidraulik secara langsung hanya menyebabkan sebagian kecil persentase gempa induksi yang terasa."
+      }
+    ]
+  }
+}

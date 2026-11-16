@@ -1,0 +1,446 @@
+{
+  "earthquake-prediction": {
+    "title": "Perché i terremoti sfuggono alla previsione, e che cosa offre invece la sismologia",
+    "dek": "Una previsione richiede data e ora, luogo e magnitudo. Ecco perché non è mai stato fatto per un grande terremoto, e che cosa fornisce invece la sismologia.",
+    "sections": [
+      {
+        "h": "Definire i termini",
+        "p": [
+          "Lo U.S. Geological Survey (USGS) afferma che né l’ente né altri scienziati hanno mai previsto un grande terremoto (USGS n.d.a). L’affermazione poggia su una definizione rigorosa. Una previsione deve indicare data e ora, luogo e magnitudo, e un’affermazione che ometta uno dei tre elementi non può essere verificata (USGS n.d.a).",
+          "La sismologia produce comunque tre prodotti affini. Le probabilità a lungo termine indicano la probabilità che in una regione avvenga un terremoto di una certa magnitudo nell’arco di anni o decenni, calcolata di solito a partire dal tasso medio degli eventi storici. Le previsioni probabilistiche applicano un ragionamento simile a finestre più brevi e si usano in genere per le repliche. L’allerta precoce è un avviso inviato dopo l’inizio di una rottura, che concede da pochi secondi ad alcune decine di secondi di preavviso prima dell’arrivo delle onde dannose (USGS n.d.b). Ciascun prodotto risponde a una domanda diversa, e nel dibattito pubblico spesso vengono confusi.",
+          "La definizione spiega anche perché le singole rivendicazioni di previsioni riuscite raramente reggono a un esame attento. Secondo lo USGS, tali rivendicazioni omettono di solito almeno uno dei tre elementi, e quando un terremoto somiglia vagamente a quanto annunciato, chi lo ha annunciato lo considera un successo anche se uno o più elementi differiscono di molto da ciò che è accaduto (USGS n.d.a)."
+        ]
+      },
+      {
+        "h": "Due prove storiche",
+        "p": [
+          "Il terremoto di Haicheng del 1975, nella Cina nord-orientale, è il successo più citato. Le autorità ordinarono l’evacuazione di una città di circa un milione di abitanti dopo un numero crescente di piccoli terremoti, riconosciuti in seguito come scosse premonitrici, e segnalazioni di fenomeni insoliti in tutta la regione. Alcuni giorni dopo colpì un terremoto di magnitudo 7,3. Lo USGS cita una stima secondo cui, senza l’evacuazione, morti e feriti avrebbero superato i 150.000; il bilancio registrato fu di 2.041 morti e 27.538 feriti (USGS n.d.c). Una delegazione statunitense che visitò i laboratori cinesi nel 1976 concluse che la decisione si era basata soprattutto sulla marcata sequenza di scosse premonitrici e ritenne difficili da valutare altre parti del metodo (USGS n.d.c).",
+          "L’anno seguente un terremoto di magnitudo 7,6 colpì Tangshan senza alcun preavviso. Nessuno dei precursori osservati vicino a Haicheng si presentò, e il bilancio stimato fu di 250.000 morti (USGS n.d.c). I due eventi, a un solo anno di distanza, mostrano che i segnali disponibili prima di un terremoto possono mancare prima di un altro.",
+          "Gli Stati Uniti condussero una propria prova a Parkfield, in California. Nel 1985 lo USGS emise una previsione a lungo termine secondo cui un terremoto di magnitudo 6 avrebbe colpito quel tratto della Faglia di Sant’Andrea prima del 1993, sulla base di una serie di terremoti simili avvenuti a intervalli piuttosto regolari (Bakun et al. 2005). La finestra si chiuse senza alcun terremoto. Un evento di magnitudo 6,0 arrivò nel 2004, undici anni dopo. Scosse premonitrici avevano preceduto di 17 minuti i terremoti di Parkfield del 1934 e del 1966, ma l’evento del 2004 avvenne senza precursori evidenti, e gli autori conclusero che una previsione affidabile a breve termine resta fuori portata (Bakun et al. 2005).",
+          "Gli autori dello studio su Parkfield trassero dal risultato una conclusione pratica. Per ridurre fin da ora gli effetti dei terremoti, raccomandarono di sviluppare la prossima generazione di modelli che stimano l’intensità e la localizzazione dello scuotimento dannoso del suolo, un obiettivo che non dipende dal sapere quando inizierà una rottura (Bakun et al. 2005)."
+        ]
+      },
+      {
+        "h": "Perché i precursori si rivelano inaffidabili",
+        "p": [
+          "La maggior parte dei precursori proposti, compresi piccoli terremoti insoliti, si presenta spesso senza che segua un terremoto più forte, quindi un segnale che precede alcuni terremoti non può da solo sostenere una previsione (USGS n.d.a). Geller et al. (1997) aggiunsero che migliaia di presunti precursori erano stati in genere identificati come tali solo dopo che il terremoto era avvenuto.",
+          "Le scosse premonitrici illustrano la difficoltà. Erano state documentate prima di meno della metà delle scosse principali, ma un catalogo ad alta risoluzione delle scosse principali di magnitudo 4 e superiore nella California meridionale dal 2008 al 2017 ha mostrato che il 72 per cento era stato preceduto da un’attività premonitrice significativamente superiore al tasso di fondo locale (Trugman and Ross 2019). Quel risultato guarda all’indietro nel tempo. A livello mondiale, la probabilità che un terremoto sia seguito entro una settimana da uno più forte nelle vicinanze è di circa il 5 per cento (USGS n.d.b), quindi circa il 95 per cento dei terremoti non porta a nulla di più forte. Individuare le sequenze che cresceranno, mentre sono ancora in corso, è la parte irrisolta."
+        ]
+      },
+      {
+        "h": "Che cosa fornisce la sismologia",
+        "p": [
+          "Le probabilità a lungo termine hanno il maggior peso operativo. Orientano le norme edilizie e la progettazione antisismica, il che le rende gli strumenti previsionali più importanti per proteggere le comunità dai danni dei terremoti (Jordan et al. 2011). Il terzo Uniform California Earthquake Rupture Forecast (UCERF3) stima che un terremoto di magnitudo 6,7, pari a quello di Northridge del 1994, avvenga in qualche punto dello stato circa ogni 6,3 anni, contro i 4,8 anni del modello precedente. Ha inoltre portato la probabilità a 30 anni di un terremoto di magnitudo 8 o superiore dal 4,7 al 7 per cento (SCEC n.d.). La finestra di 30 anni corrisponde alla durata di un tipico mutuo. Previsioni di questo tipo descrivono dove e quando possono avvenire i terremoti, mentre modelli distinti del moto del suolo descrivono con quanta forza verrà avvertito lo scuotimento (SCEC n.d.).",
+          "La previsione a breve termine si concentra sulle repliche. Il modello Epidemic-Type Aftershock Sequence (ETAS) tratta ogni terremoto come capace di innescare a sua volta repliche, e un gruppo di esperti di previsione interpellato per una rassegna del 2024 lo ha indicato come modello predefinito preferito (Mizrahi 2024). L’Italia emette previsioni ogni settimana, mentre la Nuova Zelanda e gli Stati Uniti le emettono per sequenze specifiche (Mizrahi 2024). Pochi paesi gestiscono sistemi di questo tipo, e non esistono test condivisi per stabilire se un modello sia adeguato (Mizrahi 2024). Applicate correttamente, le previsioni a breve termine hanno valore operativo, per esempio per anticipare le repliche che seguono i grandi terremoti (Jordan et al. 2011). Questi modelli hanno un limite comune: non riescono a prevedere con alta probabilità i futuri grandi terremoti (Mizrahi 2024). La Commissione internazionale sulla previsione dei terremoti ha osservato che le probabilità a breve termine possono variare di ordini di grandezza, ma di solito restano basse in termini assoluti, e che i grandi terremoti non possono essere previsti in modo affidabile per regioni specifiche su scale temporali inferiori ai decenni (Jordan et al. 2011).",
+          "L’allerta precoce sposta l’obiettivo dal predire al rilevare rapidamente. ShakeAlert, il sistema della costa occidentale degli Stati Uniti, funziona perché l’elaborazione dei dati e l’invio dei messaggi sono più veloci delle onde sismiche stesse. Il tempo di preavviso dipende dalla distanza dal terremoto, dalla velocità di elaborazione e dal livello di scuotimento scelto per gli avvisi. Per un evento delle dimensioni di quello di Loma Prieta, un’analisi dello USGS ha rilevato tempi di preavviso compresi tra zero e venti secondi (USGS 2019)."
+        ]
+      },
+      {
+        "h": "Ricerca di frontiera",
+        "p": [
+          "Lo scorrimento lento offre una linea di indagine. Nelle settimane precedenti il terremoto di Tōhoku-Oki di magnitudo 9,0 del 2011, due sequenze di piccoli terremoti migrarono a 2–10 chilometri al giorno verso quello che sarebbe stato l’epicentro. Kato et al. (2012) le interpretarono come scorrimento lento sul margine di placca, con la seconda sequenza che probabilmente aggiunse uno sforzo che contribuì ad avviare la rottura principale. Lo studio riguarda un solo terremoto, e gli autori presentarono il contributo allo sforzo come una possibilità. In Cascadia, Hulbert et al. (2020) applicarono l’apprendimento automatico alle onde sismiche continue e trovarono schemi che seguono il ciclo di scorrimento lento di 14 mesi, che presentano come prova che lo scorrimento lento può essere previsto. Considerano lo scorrimento lento come una finestra sulla nucleazione, un processo che resta sfuggente per i terremoti rapidi (Hulbert et al. 2020).",
+          "L’apprendimento automatico ha dato risultati contrastanti. Rouet-Leduc et al. (2017) mostrarono che un modello alimentato con il segnale acustico di una faglia di laboratorio poteva stimare il tempo rimanente prima della rottura della faglia. Le velocità di taglio in laboratorio superano di ordini di grandezza quelle delle faglie reali, e i ricercatori si dissero cauti nell’estendere il metodo ai terremoti reali (Physics Today 2017).",
+          "Uno studio del 2018, molto pubblicizzato, addestrò una rete neurale su oltre 131.000 coppie di scosse principali e repliche per mappare dove avvengono le repliche (DeVries et al. 2018). Mignan e Broccardo (2019) riprodussero le prestazioni con una regressione logistica a due parametri, contro i 13.451 parametri della rete originale. Brendan Meade, coautore dello studio originale, rispose che l’approssimazione con un modello più semplice era un risultato centrale di quell’articolo (Synced 2019)."
+        ]
+      },
+      {
+        "h": "La comunicazione dopo L’Aquila",
+        "p": [
+          "Nell’aprile 2009 un terremoto di magnitudo 6,3 colpì L’Aquila e causò 309 morti. Nel 2012 un tribunale dichiarò sei scienziati e un funzionario pubblico colpevoli di omicidio colposo per non aver avvertito i residenti del rischio, e condannò gli scienziati a sei anni di reclusione. Nel 2014 una corte d’appello annullò le condanne degli scienziati (The World 2014).",
+          "Il Dipartimento della Protezione Civile nominò quindi la Commissione internazionale sulla previsione dei terremoti. Il suo rapporto del 2011 raccomandò una previsione operativa sistematica e trasparente e avvertì che affidarsi soltanto a una comunicazione informale tra scienziati e pubblico genera confusione (Jordan et al. 2011)."
+        ]
+      },
+      {
+        "h": "Dove gli scienziati non sono d’accordo",
+        "p": [
+          "Geller et al. (1997) sostennero che i terremoti sono intrinsecamente imprevedibili, perché il fatto che una piccola rottura cresca fino a diventarne una grande dipende da dettagli delle condizioni all’interno della Terra che non possono essere misurati. Alcuni commentatori su Science replicarono che questa posizione era eccessivamente negativa nei confronti di un campo difficile, mentre un altro commentatore ammise che nessun meccanismo dei precursori elettromagnetici è noto abbastanza bene da poter essere usato in modo affidabile (\"Cannot Earthquakes Be Predicted?\" 1997).",
+          "Lo USGS descrive il proprio obiettivo come la riduzione a lungo termine della pericolosità sismica tramite strutture più sicure, con la previsione a breve termine esclusa da questo impegno (USGS n.d.a). Le prove sostengono entrambe le letture. Decenni di monitoraggio non hanno prodotto alcun metodo a breve termine convalidato, e non esiste alcuna prova che un tale metodo sia impossibile. Strumenti più fitti, registrazioni sismiche continue e osservazioni dello scorrimento lento ampliano ciò che i ricercatori possono verificare. Ogni nuova rivendicazione deve rispettare il criterio applicato a Parkfield: tempo, luogo e magnitudo specificati, dichiarati in anticipo."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Gli scienziati possono prevedere i terremoti?",
+        "a": "No. Lo U.S. Geological Survey afferma che né l’ente né altri scienziati hanno mai previsto un grande terremoto. Una previsione deve indicare data e ora, luogo e magnitudo, e un’affermazione che ometta uno dei tre elementi non può essere verificata."
+      },
+      {
+        "q": "Che differenza c’è tra previsione probabilistica, probabilità di un terremoto e allerta precoce?",
+        "a": "Le probabilità a lungo termine indicano la probabilità che in una regione avvenga un terremoto di una certa magnitudo nell’arco di anni o decenni. Le previsioni probabilistiche applicano un ragionamento simile a finestre più brevi e si usano in genere per le repliche. L’allerta precoce è un avviso inviato dopo l’inizio di una rottura, che concede da pochi secondi ad alcune decine di secondi di preavviso prima dell’arrivo delle onde dannose."
+      },
+      {
+        "q": "Il terremoto di Haicheng del 1975 fu previsto?",
+        "a": "Le autorità evacuarono Haicheng dopo un numero crescente di piccoli terremoti, riconosciuti in seguito come scosse premonitrici, e alcuni giorni dopo colpì un terremoto di magnitudo 7,3. Una delegazione statunitense concluse che la decisione si era basata soprattutto sulla sequenza di scosse premonitrici. L’anno seguente il terremoto di Tangshan, di magnitudo 7,6, colpì senza nessuno di quei segnali."
+      },
+      {
+        "q": "Le scosse premonitrici annunciano un forte terremoto?",
+        "a": "Non in modo affidabile. Nella California meridionale il 72 per cento delle scosse principali di magnitudo 4 e superiore dal 2008 al 2017 era stato preceduto da un’attività premonitrice elevata, ma a livello mondiale solo circa il 5 per cento dei terremoti è seguito entro una settimana da uno più forte nelle vicinanze."
+      },
+      {
+        "q": "L’intelligenza artificiale può prevedere i terremoti?",
+        "a": "Non ancora. Alcuni modelli di apprendimento automatico hanno stimato il tempo alla rottura di faglie di laboratorio e trovato schemi che seguono il ciclo di scorrimento lento in Cascadia, ma un molto pubblicizzato studio di deep learning sulle repliche è stato eguagliato da una regressione logistica a due parametri."
+      },
+      {
+        "q": "Quanto preavviso dà l’allerta precoce per i terremoti?",
+        "a": "Dipende dalla distanza dal terremoto, dalla velocità di elaborazione e dal livello di scuotimento scelto per gli avvisi. Per un terremoto delle dimensioni di quello di Loma Prieta del 1989, un’analisi dello USGS su ShakeAlert ha rilevato tempi di preavviso compresi tra zero e venti secondi."
+      }
+    ]
+  },
+  "plate-tectonics-subduction": {
+    "title": "Tettonica a placche, zone di subduzione e terremoti di megasovrascorrimento",
+    "dek": "Dove una placca sprofonda sotto un’altra, il margine può restare bloccato per secoli e poi cedere con un terremoto di magnitudo 9. Ecco come funziona la subduzione, che cosa hanno mostrato i grandi terremoti di megasovrascorrimento e come gli scienziati hanno datato l’ultima rottura della Cascadia a una notte d’inverno del 1700.",
+    "sections": [
+      {
+        "h": "Come e perché si muovono le placche tettoniche",
+        "p": [
+          "Il guscio esterno della Terra è suddiviso in placche rigide che si muovono l’una rispetto all’altra. Lo U.S. Geological Survey (USGS) descrive la loro velocità come all’incirca quella con cui crescono le unghie. Ogni placca si muove con una propria velocità e in una propria direzione, e oggi il GPS misura il movimento della crosta con una precisione di una frazione di millimetro l’anno (USGS n.d.a).",
+          "Le forze alla base di questo movimento furono valutate in uno studio classico di Forsyth e Uyeda (1975). Gli autori bilanciarono i momenti torcenti che agiscono sulle singole placche per confrontare le forze che le spingono con quelle che le frenano. La loro analisi indicò come principale forza motrice lo sprofondamento di dense lastre oceaniche nelle fosse oceaniche profonde, un effetto oggi chiamato di solito trazione della lastra (slab pull), bilanciato soprattutto dalla resistenza viscosa del mantello (Forsyth and Uyeda 1975). Una seconda forza, minore, la spinta della dorsale (ridge push), agisce dove si forma nuovo fondale oceanico lungo le dorsali medio-oceaniche.",
+          "La trazione della lastra mette le zone di subduzione al centro della tettonica a placche. I luoghi in cui le vecchie placche oceaniche sprofondano di nuovo nel mantello sono anche quelli che accumulano e liberano le maggiori quantità di deformazione, ed è per questo che ospitano i terremoti più forti mai registrati."
+        ]
+      },
+      {
+        "h": "I tre tipi di margine di placca",
+        "p": [
+          "Le placche interagiscono lungo tre tipi principali di margine (Kious and Tilling 1996). Ai margini divergenti le placche si allontanano e si forma nuova crosta dal magma che risale dal mantello. Le dorsali medio-oceaniche ne sono l’esempio principale.",
+          "Ai margini trasformi le placche scorrono orizzontalmente l’una accanto all’altra e la crosta non viene né creata né distrutta (Kious and Tilling 1996). La Faglia di Sant’Andrea, in California, ne è l’esempio più noto.",
+          "Ai margini convergenti le placche si muovono l’una verso l’altra e la crosta viene distrutta mentre una placca scende sotto un’altra (Kious and Tilling 1996). Dove la litosfera oceanica incontra un’altra placca, la placca oceanica, più densa, sprofonda e il margine diventa una zona di subduzione. Kious e Tilling (1996) osservano anche che alcuni margini di placca sono ampie zone di deformazione anziché linee nette, a ricordare che i tre tipi sono un’idealizzazione di una superficie più complessa."
+        ]
+      },
+      {
+        "h": "Che cos’è una zona di subduzione?",
+        "p": [
+          "Una zona di subduzione è un margine convergente in cui una placca si immerge sotto un’altra fin dentro il mantello. In superficie è segnata da una fossa oceanica profonda, e dove una placca oceanica scende sotto un continente, nell’entroterra si innalzano catene di vulcani come le Ande e la Catena delle Cascate (Kious and Tilling 1996).",
+          "Il contatto tra le due placche è un’enorme faglia a debole inclinazione chiamata megasovrascorrimento. A profondità ridotte, inferiori a circa 25 chilometri, l’interfaccia può incepparsi, cioè restare bloccata, e lungo di essa si accumula lo sforzo (USGS n.d.b). Nelle centinaia di anni che separano i grandi terremoti, la compressione continua fa inarcare e sollevare la placca superiore appena sopra la regione bloccata e verso l’interno, su migliaia di chilometri quadrati (USGS n.d.b).",
+          "Quando lo sforzo accumulato supera la resistenza della faglia, il tratto bloccato si sblocca e libera l’energia immagazzinata sotto forma di onde sismiche (USGS n.d.b). La placca superiore scatta indietro. Le aree che si erano inarcate verso l’alto possono abbassarsi all’improvviso, mentre il fondale marino sopra la rottura viene spinto verso l’alto e sposta l’oceano sovrastante. È questo improvviso movimento verticale del fondale a generare i grandi tsunami delle zone di subduzione."
+        ]
+      },
+      {
+        "h": "Perché i terremoti di megasovrascorrimento sono i più forti",
+        "p": [
+          "Lo USGS descrive l’interfaccia superficiale di megasovrascorrimento delle zone di subduzione come sede dei terremoti più forti e come l’unico tipo di faglia capace di rotture di magnitudo 9 o superiore (USGS n.d.c). La ragione sta nel modo in cui si misura la magnitudo. La magnitudo momento deriva dal momento sismico, che è il prodotto della rigidità della roccia, dell’area della faglia che è scivolata e dello scorrimento medio.",
+          "Un megasovrascorrimento offre un’area di faglia enorme. Poiché l’interfaccia si immerge con un angolo ridotto, una rottura può estendersi molto lungo l’immersione della faglia oltre che per molte centinaia di chilometri lungo la fossa. In uno studio sui terremoti dell’interfaccia di subduzione di magnitudo da 7,1 a 9,5, Allen e Hayes (2017) hanno rilevato che la larghezza della rottura si stabilizza a circa 200 chilometri per gli eventi più forti. Oltre quel punto i terremoti crescono soprattutto allungandosi lungo la fossa e con uno scorrimento maggiore, e gli autori hanno concluso che le dimensioni dei grandi terremoti sembrano essere controllate più fortemente dallo scorrimento medio sulle porzioni più resistenti della faglia (Allen and Hayes 2017).",
+          "Nessun altro tipo di faglia combina lunghezza, larghezza e scorrimento di questa entità. I due terremoti più forti registrati con strumenti moderni hanno colpito entrambi zone di subduzione: il terremoto del Cile del 1960, di magnitudo 9,5, e quello dell’Alaska del 1964, di magnitudo 9,2 (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Cile 1960, Sumatra 2004 e Tōhoku 2011",
+        "p": [
+          "Il terremoto del Cile del 22 maggio 1960 è il più forte mai registrato, con una magnitudo momento di 9,5 (USGS n.d.d). I primi rapporti indicarono una magnitudo delle onde superficiali di 8,6. La magnitudo momento, una misura migliore dell’energia liberata, fu stimata in seguito a 9,5 (USGS n.d.d). Il terremoto ruppe il margine in cui la placca di Nazca scende sotto il Sud America. Cifuentes (1989) stimò dalle repliche e dalla deformazione della crosta una lunghezza di rottura di 920 ± 100 chilometri, che terminava vicino al punto in cui la Dorsale del Cile incontra la Fossa del Perù-Cile. Lo USGS registra circa 1.655 morti nel Cile meridionale e circa 2 milioni di persone rimaste senza casa. Lo tsunami attraversò il Pacifico e causò 61 morti alle Hawaii, soprattutto a Hilo, e 138 in Giappone (USGS n.d.d).",
+          "Il terremoto di Sumatra-Andamane del 26 dicembre 2004 ebbe una magnitudo di 9,1 (USGS n.d.f). Le sue repliche delinearono una rottura lunga circa 1.300 chilometri, dal nord-ovest di Sumatra alle Isole Andamane (Lay et al. 2005). Lo tsunami dell’Oceano Indiano che seguì lasciò 227.898 persone morte o disperse e presunte morte, e circa 1,7 milioni di sfollati (USGS n.d.g).",
+          "Il terremoto di Tōhoku-Oki dell’11 marzo 2011 colpì la Fossa del Giappone, dove la placca pacifica scende sotto il Giappone settentrionale. Lo USGS lo classifica di magnitudo 9,1 e riferisce che la faglia si spostò fino a 50–60 metri su un’area lunga circa 400 chilometri e larga 150 chilometri (USGS n.d.e). Rilievi del fondale eseguiti meno di due settimane dopo il terremoto indicarono che il fondale vicino alla fossa si era spostato di circa 50 metri verso est-sud-est e di 7–10 metri verso l’alto, segno che la rottura aveva raggiunto l’asse della fossa (Fujiwara et al. 2011). Sei mesi dopo il disastro, l’Agenzia nazionale di polizia del Giappone aveva confermato almeno 15.782 morti (Nippon.com n.d.)."
+        ]
+      },
+      {
+        "h": "La zona di subduzione della Cascadia e il terremoto del 1700",
+        "p": [
+          "La zona di subduzione della Cascadia corre al largo, dal nord dell’Isola di Vancouver fino a Capo Mendocino, nella California settentrionale, dove la placca di Juan de Fuca e le placche vicine scendono sotto il Nord America (PNSN n.d.). La placca di Juan de Fuca si muove verso il Nord America a circa 4 centimetri l’anno (PNSN n.d.).",
+          "L’ultimo grande terremoto della Cascadia avvenne il 26 gennaio 1700, con una magnitudo stimata tra 8,7 e 9,2 (Wirth et al. 2025). Data e dimensioni furono ricostruite a partire da uno tsunami registrato in Giappone. Samurai, mercanti e abitanti dei villaggi scrissero di onde arrivate nel gennaio 1700 senza alcun terremoto locale, che i ricercatori in seguito chiamarono uno tsunami orfano (Atwater et al. 2005). Satake et al. (1996) esclusero come sorgenti il Sud America, l’Alaska e la Kamčatka, perché le fonti storiche e geologiche non mostravano lì alcun grande terremoto nel 1700, e collocarono il terremoto in Cascadia verso le 21:00 ora locale del 26 gennaio 1700. Dalle altezze dello tsunami stimarono una magnitudo di circa 9, il che significherebbe una rottura dell’intera zona di subduzione (Satake et al. 1996).",
+          "Un’analisi successiva confrontò le inondazioni riportate in sette località del Giappone, con altezze di circa 1–5 metri, con tsunami modellati a partire da sei possibili sorgenti in Cascadia. Il terremoto più probabile aveva una magnitudo momento di 9,0, con 19 metri di scorrimento su una zona al largo lunga circa 1.100 chilometri (Satake et al. 2003). La gamma di sorgenti plausibili corrisponde a magnitudo da 8,7 a 9,2. Rotture più brevi potrebbero riprodurre lo tsunami giapponese solo con fino a 40 metri di scorrimento al largo, e le variazioni del livello del suolo che provocherebbero contrastano con le prove geologiche lungo la costa della Cascadia (Satake et al. 2003)."
+        ]
+      },
+      {
+        "h": "Le prove dei terremoti della Cascadia: foreste fantasma e paludi sepolte",
+        "p": [
+          "Le prove geologiche arrivarono dapprima dalla costa. Atwater (1987) scoprì che il fango di marea aveva sepolto le pianure costiere nell’estremo ovest dello stato di Washington sei volte in circa 7.000 anni, ogni volta probabilmente a causa di un abbassamento improvviso del suolo di circa 0,5–2 metri. Strati di sabbia su almeno tre delle superfici sepolte indicavano tsunami arrivati con gli stessi eventi (Atwater 1987). È lo schema atteso quando la placca superiore si abbassa nel momento in cui un megasovrascorrimento cede.",
+          "Lo stesso abbassamento creò foreste fantasma. Lungo il fiume Copalis, nello stato di Washington, un gruppo di tuie giganti morte si erge da una palude di marea salmastra. Gli alberi morirono quando il suolo si abbassò durante il più recente terremoto della Cascadia e l’acqua salata ne invase le radici (USGS n.d.i). Yamaguchi et al. (1997) usarono gli anelli degli alberi per datarne la morte. Gli alberi uccisi dal terremoto avevano completato la crescita del 1699 ma non avevano iniziato quella del 1700, il che collocava l’abbassamento tra le stagioni di crescita del 1699 e del 1700 e corrispondeva alla data ricavata dalle fonti giapponesi (Yamaguchi et al. 1997).",
+          "I sedimenti al largo estendono la documentazione ancora più indietro. Le torbiditi, depositi lasciati da frane sottomarine, si accumulano nei canali sottomarini lungo il margine. Goldfinger et al. (2012) le seguirono per circa 500 chilometri nella Cascadia settentrionale e conclusero che la loro sincronia nell’arco di 10.000 anni si spiega meglio con l’innesco da parte di grandi terremoti. La documentazione suggerisce gruppi di due-cinque terremoti separati da intervalli insolitamente lunghi, anziché un ciclo regolare, e la documentazione al largo concorda bene con quella più breve conservata sulla terraferma (Goldfinger et al. 2012).",
+          "Oggi lo USGS stima una probabilità del 10–15 per cento di un terremoto della Cascadia di magnitudo circa 9 nei prossimi 50 anni (Wirth et al. 2025). La stima si basa sulle stesse prove: documenti scritti dal Giappone, alberi morti e suoli sepolti sulla costa del Pacifico e sedimenti stratificati sul fondale marino."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Che cos’è una zona di subduzione?",
+        "a": "Una zona di subduzione è un margine di placca convergente in cui una placca, di solito oceanica, scende sotto un’altra fin dentro il mantello. È segnata da una fossa oceanica profonda, e il contatto tra le placche è una grande faglia a debole inclinazione chiamata megasovrascorrimento."
+      },
+      {
+        "q": "Che cos’è un terremoto di megasovrascorrimento?",
+        "a": "Un terremoto di megasovrascorrimento è la rottura dell’interfaccia bloccata tra due placche in una zona di subduzione. Lo sforzo si accumula per secoli mentre la parte superficiale dell’interfaccia resta bloccata, poi si libera quando la faglia si sblocca. Lo USGS descrive queste faglie come le uniche capaci di terremoti di magnitudo 9 o superiore."
+      },
+      {
+        "q": "Perché le zone di subduzione producono i terremoti più forti?",
+        "a": "La magnitudo di un terremoto dipende dall’area di faglia che scivola e dall’entità dello scorrimento. Un megasovrascorrimento si immerge con un angolo ridotto e può estendersi per molte centinaia di chilometri lungo una fossa, il che gli dà un’area di faglia molto più grande di quella degli altri tipi di faglia. Gli eventi più forti comportano anche decine di metri di scorrimento."
+      },
+      {
+        "q": "Qual è stato il terremoto più forte mai registrato?",
+        "a": "Il terremoto più forte registrato con strumenti colpì il Cile meridionale il 22 maggio 1960, con una magnitudo di 9,5. Il suo tsunami causò 61 morti alle Hawaii e 138 in Giappone, oltre a circa 1.655 morti in Cile."
+      },
+      {
+        "q": "Come sappiamo che il terremoto della Cascadia è avvenuto nel 1700?",
+        "a": "Documenti giapponesi descrivono uno tsunami nel gennaio 1700 arrivato senza alcun terremoto locale. Gli anelli delle tuie uccise quando la costa del Pacifico nord-occidentale si abbassò mostrano che gli alberi morirono tra le stagioni di crescita del 1699 e del 1700. Insieme, questi elementi collocano il terremoto al 26 gennaio 1700."
+      },
+      {
+        "q": "Quanto è probabile un terremoto di magnitudo 9 in Cascadia?",
+        "a": "Lo USGS stima una probabilità del 10–15 per cento di un terremoto di magnitudo circa 9 sulla zona di subduzione della Cascadia nei prossimi 50 anni. Le sequenze di sedimenti al largo suggeriscono che questi terremoti arrivino a gruppi separati da lunghi intervalli, anziché con una cadenza regolare."
+      }
+    ]
+  },
+  "faults-and-stress": {
+    "title": "Faglie e sforzi: perché avvengono i terremoti",
+    "dek": "Un terremoto è il rilascio improvviso dello sforzo che una faglia ha accumulato per decenni o secoli. Ecco come si accumula quello sforzo, come cedono le faglie e come una rottura può preparare la successiva.",
+    "sections": [
+      {
+        "h": "La teoria del rimbalzo elastico e il terremoto di San Francisco del 1906",
+        "p": [
+          "Il 18 aprile 1906 la Faglia di Sant’Andrea si ruppe per circa 477 chilometri nella California settentrionale, in un terremoto oggi stimato di magnitudo 7,9 (USGS n.d.b). Le ricerche di Gladys Hansen ed Emmet Condon hanno portato il numero delle persone morte direttamente o indirettamente a oltre 3.000, diverse volte la cifra di circa 700 citata per decenni (USGS n.d.c).",
+          "Il terremoto fornì anche la prima spiegazione funzionante del perché le faglie cedono. Harry Fielding Reid, geologo della Johns Hopkins University, esaminò come si era mossa la superficie del suolo durante il terremoto e concluse che la rottura doveva aver comportato un rimbalzo elastico di uno sforzo elastico accumulato in precedenza (USGS n.d.a). Recinzioni, strade e altre linee rette che attraversavano la faglia erano state dislocate; una recinzione fotografata da G. K. Gilbert vicino a Bolinas era stata spostata di circa 8,5 piedi lungo la traccia della faglia (USGS n.d.a).",
+          "Reid espose il ragionamento nel secondo volume del rapporto della commissione statale (Reid 1910). La roccia ai due lati di una faglia viene trascinata da un movimento lento e costante, ma la faglia stessa resta bloccata. La crosta si flette come una molla, accumulando deformazione elastica, finché lo sforzo non supera la resistenza della faglia. A quel punto la faglia scivola all’improvviso, la roccia flessa scatta indietro verso una forma non deformata e l’energia accumulata si propaga sotto forma di onde sismiche.",
+          "La teoria ha una conseguenza diretta. Una volta che una faglia è scivolata, lo stesso movimento lento ricomincia a caricarla, quindi ci si aspetta che i terremoti su una data faglia si ripetano. Gran parte della scienza moderna delle faglie e degli sforzi approfondisce questo ciclo di carico e rilascio."
+        ]
+      },
+      {
+        "h": "Tipi di faglie: dirette, inverse, sovrascorrimenti e trascorrenti",
+        "p": [
+          "Lo U.S. Geological Survey definisce una faglia come una frattura o una zona di fratture tra due blocchi di roccia che permette ai blocchi di muoversi l’uno rispetto all’altro (USGS n.d.d). Le faglie si classificano in base all’angolo della superficie di faglia, detto immersione, e alla direzione dello scorrimento lungo di essa (USGS n.d.d).",
+          "In una faglia diretta, il blocco sopra la superficie di faglia inclinata si sposta verso il basso rispetto al blocco sottostante. In una faglia inversa il blocco superiore si sposta verso l’alto e sopra quello inferiore, e una faglia inversa a basso angolo di immersione si chiama sovrascorrimento. In una faglia trascorrente i blocchi scorrono lateralmente l’uno accanto all’altro, e le faglie che combinano movimento laterale e verticale si chiamano faglie a scorrimento obliquo (USGS n.d.d). Una faglia trascorrente si definisce destra o sinistra a seconda della direzione in cui sembra muoversi il lato opposto, osservato dall’altra parte della faglia. La Faglia di Sant’Andrea e la Faglia Nord-anatolica sono destre; la Faglia Est-anatolica è sinistra.",
+          "Ogni tipo riflette una diversa disposizione degli sforzi. Ernest Masson Anderson (1905) osservò che, poiché la superficie del suolo non sopporta sforzi di taglio, uno dei tre sforzi principali nella crosta superficiale è prossimo alla verticale. Se lo sforzo di compressione maggiore è verticale, come dove la crosta viene stirata, si formano faglie dirette. Se è verticale il minore, come dove la crosta viene compressa, si formano faglie inverse e sovrascorrimenti. Se è verticale lo sforzo intermedio, si formano faglie trascorrenti. Con l’attrito tipico delle rocce, la teoria prevede faglie dirette inclinate di circa 60 gradi, sovrascorrimenti di circa 30 gradi e faglie trascorrenti quasi verticali."
+        ]
+      },
+      {
+        "h": "L’attrito stick-slip: come le faglie accumulano e liberano energia",
+        "p": [
+          "Il rimbalzo elastico descrive il carico. L’attrito spiega perché il rilascio è improvviso anziché graduale. In esperimenti di laboratorio sulle rocce, Brace e Byerlee (1966) scoprirono che superfici sottoposte ad alta pressione non scivolavano in modo regolare, ma si bloccavano, scivolavano bruscamente e si bloccavano di nuovo. Proposero che i terremoti superficiali potessero essere questo moto stick-slip (a scatti) sulle faglie, e osservarono che lo sforzo liberato in ogni evento di scivolamento era solo una piccola parte dello sforzo che la roccia sopportava (Brace and Byerlee 1966).",
+          "Lavori successivi trasformarono questa osservazione in leggi dell’attrito delle rocce. Scholz (1998) riassunse come il risultato dipenda dal fatto che l’attrito aumenti o diminuisca all’aumentare della velocità di scorrimento. Dove l’attrito si rafforza con la velocità, ogni scorrimento rallenta da sé e la faglia scorre in modo stabile. Dove l’attrito si indebolisce con la velocità, lo scorrimento può accelerare fino a una rottura instabile, cioè un terremoto. Scholz sostenne che un’unica legge costitutiva di questo tipo spiega un’ampia gamma di comportamenti sismici, compresa la quota del movimento di una faglia che viene liberata nei terremoti e quella che avviene senza di essi (Scholz 1998).",
+          "La distinzione conta alla scala di intere faglie. Una porzione di faglia con attrito che si indebolisce con la velocità può bloccarsi e poi cedere violentemente. Una porzione con attrito che si rafforza con la velocità tende a scorrere lentamente per creep."
+        ]
+      },
+      {
+        "h": "Faglie bloccate e faglie in creep sulla Faglia di Sant’Andrea",
+        "p": [
+          "La maggior parte della Faglia di Sant’Andrea è bloccata. Tra un grande terremoto e l’altro i suoi due lati restano bloccati in profondità mentre le placche continuano a muoversi, e la deformazione si accumula nella roccia circostante, come aveva descritto Reid. Il tratto che si ruppe nel 1906 si comporta in questo modo.",
+          "Tra San Juan Bautista e Parkfield, nella California centrale, la faglia si comporta diversamente. Lì i due lati scorrono l’uno accanto all’altro in modo più o meno continuo, con un processo chiamato creep asismico, che sposta il suolo senza produrre grandi terremoti. Titus et al. (2006) ripeterono i rilievi di sette allineamenti di capisaldi, file di punti di misura posti attraverso la faglia, e ottennero velocità di scorrimento minime medie di 21–26 millimetri l’anno su 33–36 anni. I risultati indicano un creep approssimativamente costante lungo il segmento centrale in creep per almeno 35 anni (Titus et al. 2006).",
+          "Il creep è visibile in superficie. Dove una faglia in creep attraversa un centro abitato, cordoli, marciapiedi e muri si piegano o si dislocano un po’ di più ogni anno. La città di Hollister, vicino all’estremità settentrionale del tratto in creep, è un esempio ben noto, anche se la faglia che ne attraversa le strade è la Faglia di Calaveras, una diramazione del sistema di Sant’Andrea, e non la Faglia di Sant’Andrea vera e propria.",
+          "Un tratto in creep non accumula deformazione come uno bloccato, e può anche limitare la propagazione delle rotture. Dopo il terremoto di Parkfield del 2004, di magnitudo 6,0, avvenuto all’estremità meridionale del tratto in creep, le stazioni GPS mostrarono uno scorrimento ridotto durante e dopo il terremoto lungo il segmento centrale in creep (Titus et al. 2006). Il creep non rende innocua una faglia, poiché le faglie in creep possono comunque ospitare terremoti moderati, ma cambia come e dove si accumula lo sforzo."
+        ]
+      },
+      {
+        "h": "Trasferimento degli sforzi e variazione dello sforzo di Coulomb",
+        "p": [
+          "Quando una faglia scivola, lo sforzo che sopportava non scompare. In parte viene redistribuito alla crosta circostante, avvicinando alcune faglie vicine alla rottura e allontanandone altre. I sismologi lo misurano con il criterio di rottura di Coulomb, che combina la variazione dello sforzo di taglio che spinge una faglia a scivolare con la variazione dello sforzo di serraggio che la tiene chiusa (King et al. 1994). Le variazioni di sforzo si esprimono comunemente in bar; un bar equivale a 0,1 megapascal, all’incirca la pressione atmosferica al livello del mare.",
+          "Le variazioni sono piccole rispetto allo sforzo totale nella crosta, ma contano per le faglie già vicine alla rottura. King et al. (1994) rilevarono che le repliche erano abbondanti dove lo sforzo di Coulomb sulle faglie orientate favorevolmente era aumentato di più di circa mezzo bar, e scarse dove era diminuito di una quantità simile. Le regioni in cui lo sforzo è diminuito si chiamano ombre di sforzo. Lo stesso studio calcolò che i terremoti di Landers e Big Bear del 1992, nella California meridionale, avevano aumentato lo sforzo sul tratto di San Bernardino della Faglia di Sant’Andrea di 2–6 bar, abbastanza da anticipare di circa un decennio il successivo grande terremoto in quel tratto (King et al. 1994).",
+          "Stein (1999) esaminò le prove e concluse che, quando le variazioni di sforzo vengono tradotte in variazioni di probabilità, la pericolosità sismica è fortemente influenzata dalle interazioni tra i terremoti. La probabilità che una faglia si rompa dipende quindi dal suo carico e da ciò che hanno fatto di recente le faglie vicine."
+        ]
+      },
+      {
+        "h": "La Faglia Nord-anatolica: una sequenza di terremoti dal 1939",
+        "p": [
+          "La Faglia Nord-anatolica, una faglia trascorrente destra che attraversa la Turchia settentrionale, offre l’esempio più chiaro di terremoti che avanzano lungo una faglia. La sequenza iniziò il 26 dicembre 1939 con un terremoto di magnitudo 7,8 vicino a Erzincan, nell’est del paese, che causò 32.700 morti (USGS n.d.e).",
+          "Nei decenni successivi, forti terremoti ruppero tratti successivi della faglia, procedendo per lo più verso ovest. Stein et al. (1997) studiarono dieci terremoti di magnitudo 6,7 o superiore che, nel complesso, ruppero 1.000 chilometri della faglia tra il 1939 e il 1992. Calcolarono che nove delle dieci rotture erano state avvicinate al punto di rottura dalle scosse precedenti, in genere di 1–10 bar, pari a 3–30 anni di normale carico tettonico. Le variazioni di sforzo produssero in media una triplicazione della probabilità di un terremoto nel decennio successivo a ciascun evento (Stein et al. 1997).",
+          "Gli autori usarono lo stesso ragionamento per guardare avanti. Per i 30 anni a partire dal 1996 stimarono una probabilità del 12 per cento di un terremoto di magnitudo 6,7 o superiore vicino alla città portuale di Izmit (Stein et al. 1997). Il 17 agosto 1999 un terremoto di magnitudo 7,4 secondo le prime stime (USGS 2000), e 7,6 nel rapporto dello USGS sull’evento (USGS 1999), colpì quel tratto della faglia. Le stime del governo indicarono 17.127 morti e 43.953 feriti, e più di 250.000 persone furono sfollate (USGS 2000). Gli autori non avevano previsto il terremoto; avevano individuato il segmento come più probabile di altri a cedere.",
+          "La rottura del 1999 spostò la concentrazione degli sforzi più a ovest, verso le faglie sotto il Mar di Marmara, vicino a Istanbul. Tenendo conto del terremoto di Izmit, Parsons et al. (2000) calcolarono una probabilità del 62 ± 15 per cento di forte scuotimento a Istanbul nei 30 anni successivi e del 32 ± 12 per cento nel decennio successivo. Il calcolo è una probabilità, non una previsione, e le faglie sotto il Mar di Marmara restano una preoccupazione centrale per la pianificazione della pericolosità nella regione."
+        ]
+      },
+      {
+        "h": "I terremoti del 2023 in Turchia e Siria sulla Faglia Est-anatolica",
+        "p": [
+          "La Faglia Est-anatolica forma il margine sud-orientale del blocco anatolico e, insieme alla Faglia Nord-anatolica, accomoda lo spostamento verso ovest della Turchia in direzione del Mar Egeo (USGS n.d.f). Il 6 febbraio 2023 fu la sorgente di due forti terremoti a nove ore di distanza.",
+          "Il terremoto di Pazarcık, di magnitudo 7,8, ruppe quasi 354 chilometri della Faglia Est-anatolica. Il secondo, un terremoto di magnitudo 7,5 vicino a Elbistan, ruppe circa 161 chilometri della distinta Faglia di Çardak, più a nord (USGS n.d.g). Lo USGS riferì che alla fine di marzo 2023 il bilancio delle vittime in Turchia e Siria superava i 57.000 morti (USGS n.d.g).",
+          "I due terremoti mostrano il trasferimento degli sforzi all’opera, e i suoi limiti. I calcoli di Coulomb indicano che il primo terremoto aumentò lo sforzo di circa 1–4 bar sul tratto della Faglia di Çardak in cui iniziò la seconda rottura, mentre lo ridusse di circa 3–10 bar sulla parte di quella faglia parallela alla Faglia Est-anatolica (Toda and Stein 2024). Un aumento di sforzo di questa entità è piccolo rispetto allo sforzo liberato in un terremoto, ma può bastare a innescare una faglia già vicina alla rottura (Stein et al. 2023).",
+          "Gli stessi calcoli lasciarono domande aperte. Alcuni tratti della Faglia Est-anatolica che avevano ricevuto un aumento di sforzo non si ruppero, e una parte della Faglia di Çardak che non era stata sollecitata partecipò alla rottura di magnitudo 7,5. Il secondo terremoto, inoltre, non fu preceduto da scosse premonitrici, nonostante il carico grande e improvviso (Stein et al. 2023). Il trasferimento degli sforzi spiega molto di dove si raggruppano i terremoti, ma non dice ancora quale faglia caricata cederà, né quando."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Che cos’è la teoria del rimbalzo elastico?",
+        "a": "Secondo la teoria del rimbalzo elastico, la roccia ai due lati di una faglia bloccata si flette lentamente mentre la crosta si muove, accumulando deformazione elastica. Quando lo sforzo supera la resistenza della faglia, questa scivola e la roccia scatta indietro, liberando l’energia sotto forma di terremoto. La propose Harry Fielding Reid dopo aver studiato i movimenti del suolo nel terremoto di San Francisco del 1906."
+      },
+      {
+        "q": "Quali sono i tre tipi principali di faglie?",
+        "a": "Le faglie dirette, in cui il blocco superiore si sposta verso il basso, si formano dove la crosta viene stirata. Le faglie inverse e i sovrascorrimenti, in cui il blocco superiore si sposta verso l’alto, si formano dove viene compressa. Le faglie trascorrenti, in cui i blocchi scorrono lateralmente l’uno accanto all’altro, comprendono la Faglia di Sant’Andrea e la Faglia Nord-anatolica."
+      },
+      {
+        "q": "Che cos’è una faglia in creep?",
+        "a": "Una faglia in creep scorre lentamente e in modo più o meno continuo, invece di restare bloccata e cedere con forti terremoti. La Faglia di Sant’Andrea è in creep tra San Juan Bautista e Parkfield, nella California centrale, dove i rilievi mostrano uno scorrimento costante di circa 21–26 millimetri l’anno da oltre tre decenni."
+      },
+      {
+        "q": "Un terremoto può innescarne un altro?",
+        "a": "Sì. Un terremoto redistribuisce gli sforzi, aumentandoli su alcune faglie vicine e riducendoli su altre. Le faglie già vicine alla rottura possono essere spinte oltre il limite, ed è per questo che le repliche si concentrano dove lo sforzo di Coulomb è aumentato e che a volte forti terremoti si susseguono lungo una faglia."
+      },
+      {
+        "q": "Perché i terremoti si sono spostati verso ovest lungo la Faglia Nord-anatolica?",
+        "a": "Tra il 1939 e il 1992 dieci terremoti di magnitudo 6,7 o superiore ruppero circa 1.000 chilometri della faglia, e nove di essi colpirono dove le scosse precedenti avevano aumentato lo sforzo. Il terremoto di Izmit del 1999 proseguì la sequenza verso ovest, aumentando la pericolosità stimata per Istanbul."
+      },
+      {
+        "q": "Quale faglia ha causato il terremoto del 2023 in Turchia e Siria?",
+        "a": "Il terremoto di magnitudo 7,8 del 6 febbraio 2023 ruppe quasi 354 chilometri della Faglia Est-anatolica. Un terremoto di magnitudo 7,5 circa nove ore dopo ruppe circa 161 chilometri della vicina Faglia di Çardak, che il primo terremoto aveva in parte caricato di uno sforzo aggiuntivo."
+      }
+    ]
+  },
+  "earth-interior-seismic-waves": {
+    "title": "L’interno della Terra, le onde sismiche e come si misurano i terremoti",
+    "dek": "Le profondità di crosta, mantello e nucleo sono state misurate con le onde sismiche, non con le trivelle. Le stesse onde servono oggi a localizzare ogni terremoto e a misurarne le dimensioni.",
+    "sections": [
+      {
+        "h": "Gli strati della Terra: crosta, mantello, nucleo esterno e nucleo interno",
+        "p": [
+          "La Terra ha quattro strati principali, definiti dal modo in cui le onde sismiche li attraversano. Il più esterno è la crosta. La crosta continentale ha uno spessore più variabile, in media di circa 30–35 chilometri, mentre la crosta oceanica in genere si estende solo fino a circa 5 chilometri (Kious and Tilling 1996).",
+          "Sotto la crosta si trova il mantello, uno strato di roccia calda e densa che scende fino al nucleo. Nel Preliminary Reference Earth Model (PREM), un modello molto usato delle proprietà medie del pianeta in funzione della profondità, il nucleo ha un raggio di 3.480 chilometri, il che colloca il confine tra nucleo e mantello a circa 2.900 chilometri sotto la superficie (Dziewonski and Anderson 1981).",
+          "Il nucleo ha due parti. Il nucleo esterno è liquido, mentre il nucleo interno è solido, con un raggio di 1.221,5 chilometri nel PREM, per cui la sua superficie si trova a circa 5.150 chilometri di profondità (Dziewonski and Anderson 1981). Il PREM fu costruito adattando circa 1.000 periodi delle oscillazioni libere della Terra e 500 osservazioni riassuntive dei tempi di percorrenza, insieme alla massa e al momento d’inerzia del pianeta (Dziewonski and Anderson 1981). Nessuna di queste cifre deriva da un campionamento diretto. Ogni confine è stato individuato perché lì le onde sismiche cambiano velocità, si piegano, si riflettono o scompaiono."
+        ]
+      },
+      {
+        "h": "Onde P, onde S e onde superficiali",
+        "p": [
+          "Un terremoto libera diversi tipi di onde sismiche. Le onde di volume attraversano l’interno della Terra, mentre le onde superficiali viaggiano lungo i suoi strati esterni. Le onde P, o onde primarie, sono le più veloci e arrivano per prime a una stazione di registrazione. Comprimono e dilatano la roccia nella direzione di propagazione. Le onde S, o onde secondarie, sollecitano la roccia a taglio perpendicolarmente alla direzione di propagazione e arrivano dopo. Nella roccia, le onde S viaggiano in genere a circa il 60 per cento della velocità delle onde P (USGS n.d.a).",
+          "Le onde superficiali arrivano dopo entrambi i tipi di onde di volume. Le onde di Love muovono il suolo da un lato all’altro, mentre le onde di Rayleigh lo fanno rotolare con un moto ellittico. Le onde di Rayleigh producono la maggior parte dello scuotimento avvertito in superficie durante un terremoto (USGS n.d.a).",
+          "La differenza tra onde P e onde S è la chiave per conoscere le profondità della Terra. Un liquido non oppone resistenza al taglio, quindi le onde S non possono attraversarlo. Le onde P possono viaggiare sia nei solidi sia nei liquidi, anche se rallentano e cambiano direzione quando entrano in uno strato liquido (USGS n.d.b)."
+        ]
+      },
+      {
+        "h": "La zona d’ombra e perché le onde S non attraversano il nucleo esterno",
+        "p": [
+          "Le stazioni sismiche dalla parte opposta del pianeta rispetto a un forte terremoto registrano una lacuna caratteristica. Lo USGS descrive la zona d’ombra come l’area compresa tra 104 e 140 gradi di distanza angolare dal terremoto che non riceve onde P dirette (USGS n.d.b). Il nucleo esterno liquido la provoca in due modi: blocca completamente le onde S e rifrange le onde P, deviandole da quella fascia (USGS n.d.b). Le onde S dirette sono assenti da circa 104 gradi in poi.",
+          "Richard Dixon Oldham identificò per primo il nucleo dalle registrazioni dei terremoti nel 1906 (Oldham 1906; Brush 1980). Il mancato rilevamento di onde S che attraversassero il nucleo non bastò, da solo, a convincere i sismologi che il nucleo fosse fluido (Brush 1980). Harold Jeffreys portò argomenti più solidi nel 1926. Usando le maree terrestri e le osservazioni sismiche, mostrò che il nucleo ha una rigidità molto inferiore a quella del mantello e potrebbe essere liquido (Jeffreys 1926; Brush 1980)."
+        ]
+      },
+      {
+        "h": "Mohorovičić, Gutenberg e Lehmann: la scoperta della Moho e del nucleo interno",
+        "p": [
+          "L’8 ottobre 1909 un terremoto colpì la valle della Kupa, a sud di Zagabria. Andrija Mohorovičić, sismologo a Zagabria, raccolse i sismogrammi delle stazioni di tutta Europa e notò che oltre una certa distanza le onde P arrivavano prima di quanto consentirebbe un unico strato uniforme. Spiegò questi arrivi anticipati come onde che erano scese in uno strato più profondo e più veloce ed erano risalite. Dai suoi dati stimò che lo strato superiore avesse uno spessore di 54 chilometri (Herak and Herak 2007). Pubblicò l’analisi nel 1910 (Mohorovičić 1910). Il confine tra crosta e mantello si chiama oggi discontinuità di Mohorovičić, o Moho.",
+          "Beno Gutenberg individuò il limite esterno del nucleo. Lavorando a Gottinga, usò la zona d’ombra nelle registrazioni di terremoti lontani per collocare il confine tra nucleo e mantello a una profondità di circa 2.900 chilometri, in un lavoro pubblicato nel 1914 (Gutenberg 1914; Brush 1980). I modelli moderni lo collocano quasi alla stessa profondità (Dziewonski and Anderson 1981).",
+          "Inge Lehmann, sismologa danese, scoprì il nucleo interno. Studiando le registrazioni di un forte terremoto del 1929 in Nuova Zelanda, esaminò deboli onde P arrivate all’interno della zona d’ombra, dove un nucleo interamente liquido non ne avrebbe dovuto lasciare nessuna. In un articolo del 1936 intitolato semplicemente P′, propose che le onde fossero state deviate da un nucleo interno più piccolo, situato all’interno del nucleo esterno liquido (Lehmann 1936; Kölbl-Ebert 2001). La deduzione che questo nucleo interno sia solido arrivò più tardi. Nel 1971 Adam Dziewonski e Freeman Gilbert mostrarono, a partire dalle oscillazioni libere della Terra, che nessun modello con un nucleo interno liquido poteva soddisfare i dati (Dziewonski and Gilbert 1971)."
+        ]
+      },
+      {
+        "h": "Come i sismometri localizzano un terremoto: epicentro, ipocentro e profondità",
+        "p": [
+          "Un terremoto inizia nell’ipocentro, detto anche fuoco, il punto all’interno della Terra in cui parte la rottura. L’epicentro è il punto della superficie situato direttamente sopra di esso, e la profondità ipocentrale è la distanza tra i due (USGS n.d.c).",
+          "La localizzazione di un terremoto parte dai tempi di arrivo. Poiché le onde P sono più veloci delle onde S, l’intervallo tra i loro arrivi cresce con la distanza, e i sismologi lo convertono in una distanza usando curve standard dei tempi di percorrenza (IRIS n.d.). Una stazione fornisce un cerchio di possibili epicentri, due stazioni danno due cerchi che si intersecano in due punti, e tre stazioni restringono la soluzione a un unico luogo. Il metodo è comunemente chiamato triangolazione (IRIS n.d.).",
+          "Le reti moderne lavorano in tre dimensioni e calcolano anche il tempo origine. Nella regione di Yellowstone, per esempio, un computer parte da una stima iniziale dell’ipocentro, usa un modello delle velocità delle onde sismiche nella regione per calcolare il tempo di arrivo atteso a ogni stazione e corregge la posizione e il tempo origine finché i tempi calcolati non corrispondono a quelli misurati. Più stazioni registrano un terremoto, più precisa è la localizzazione, e un terremoto registrato da una o due stazioni soltanto non può essere localizzato (USGS n.d.d).",
+          "La profondità è la parte della soluzione più difficile da determinare. Come regola pratica, una profondità affidabile richiede una stazione più vicina all’epicentro di quanto il terremoto sia profondo (USGS n.d.e). Quando i dati non consentono di risolvere la profondità, il catalogo la fissa a un valore predefinito, oggi 10 chilometri per gli eventi superficiali (USGS n.d.e). Per i terremoti localizzati meglio, al centro di reti fitte, l’incertezza sulla posizione è di circa 100 metri in orizzontale e 300 metri in verticale; per gli eventi localizzati con dati globali arriva a decine di chilometri (USGS n.d.f). Lo USGS classifica come superficiali i terremoti tra 0 e 70 chilometri di profondità, come intermedi quelli tra 70 e 300 chilometri e come profondi quelli tra 300 e 700 chilometri (USGS n.d.c)."
+        ]
+      },
+      {
+        "h": "Le scale di magnitudo: dalla scala Richter alla magnitudo momento",
+        "p": [
+          "Charles Richter pubblicò la prima scala di magnitudo strumentale nel 1935, per i terremoti della California meridionale (Richter 1935). Oggi indicata come ML, magnitudo locale, si basa sull’ampiezza massima registrata da un sismografo a torsione Wood-Anderson a una distanza nota. Quegli strumenti non sono più molto usati, quindi la ML viene calcolata da strumenti moderni con opportune correzioni. Lo USGS indica come intervallo utile all’incirca le magnitudo da 2,0 a 6,5, per stazioni fino a circa 600 chilometri di distanza (USGS n.d.g).",
+          "La scala fu poi estesa alla magnitudo delle onde di volume (mb) e alla magnitudo delle onde superficiali (Ms) per sfruttare le stazioni sismografiche di tutto il mondo. Ciascuna è valida per un determinato intervallo di frequenze e tipo di segnale sismico (USGS n.d.h). Tutte queste scale hanno un punto debole comune: per i grandi terremoti, l’ampiezza delle onde misurate smette di crescere di pari passo con le dimensioni della rottura. Kanamori (1977) mostrò che questa saturazione porta a stime inesatte dell’energia liberata negli eventi più forti.",
+          "Il rimedio fu misurare le dimensioni fisiche della rottura. Il momento sismico è il prodotto della rigidità della roccia, dell’area della faglia che è scivolata e della distanza media di scorrimento (USGS n.d.i). Thomas Hanks e Hiroo Kanamori definirono nel 1979 la scala della magnitudo momento, Mw, a partire dal momento sismico (Hanks and Kanamori 1979), basandosi sul lavoro di Kanamori del 1977, che aveva rilevato che la scala non satura e aveva attribuito al terremoto del Cile del 1960 una magnitudo di 9,5 (Kanamori 1977). Poiché la magnitudo aumenta di due terzi del logaritmo del momento, ogni gradino intero della scala corrisponde a circa 32 volte più momento sismico.",
+          "Per i terremoti molto forti, la magnitudo momento fornisce la stima più affidabile delle dimensioni (USGS n.d.h). Lo USGS calcola una magnitudo momento da fase W, Mww, per tutti i terremoti di magnitudo 5,0 e superiore in tutto il mondo e la considera di riferimento quando disponibile (USGS n.d.g). Procedure diverse danno spesso magnitudo leggermente diverse per lo stesso terremoto, ed è per questo che i primi rapporti possono cambiare man mano che arrivano altri dati (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Magnitudo e intensità: la scala Mercalli modificata",
+        "p": [
+          "La magnitudo descrive le dimensioni di un terremoto alla sorgente. L’intensità descrive la forza dello scuotimento in un determinato luogo. Un terremoto ha una sola magnitudo ma molte intensità, una per ogni luogo in cui ne viene valutato lo scuotimento (USGS n.d.j).",
+          "Negli Stati Uniti l’intensità si assegna sulla scala Mercalli modificata (Modified Mercalli Intensity), sviluppata da Harry Wood e Frank Neumann nel 1931 (Wood and Neumann 1931). I suoi gradi si scrivono in numeri romani e vanno da uno scuotimento impercettibile a una distruzione catastrofica (USGS n.d.k). La scala classifica gli effetti osservati anziché registrare una misura strumentale (USGS n.d.k).",
+          "Oggi le segnalazioni del pubblico alimentano direttamente le mappe di intensità. Il programma Did You Feel It? dello USGS raccoglie le testimonianze delle persone che hanno avvertito un terremoto e le converte in valori di intensità per comunità. Dove sono disponibili sia strumenti sia segnalazioni, questi valori servono a calibrare le equazioni che convertono il moto del suolo misurato in intensità su ShakeMap (USGS n.d.l)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quali sono gli strati della Terra?",
+        "a": "La Terra ha una crosta rocciosa, un mantello che si estende fino a circa 2.900 chilometri di profondità, un nucleo esterno liquido e un nucleo interno solido. Nel modello di riferimento standard, il nucleo interno ha un raggio di circa 1.220 chilometri. Tutti questi confini sono stati individuati studiando come le onde sismiche attraversano il pianeta."
+      },
+      {
+        "q": "Perché le onde S non attraversano il nucleo esterno?",
+        "a": "Le onde S muovono la roccia sollecitandola a taglio, e un liquido non oppone resistenza al taglio. Il nucleo esterno è liquido, quindi le onde S si fermano al confine tra nucleo e mantello. Per questo nelle stazioni a più di circa 104 gradi da un terremoto non arrivano onde S dirette."
+      },
+      {
+        "q": "Che cos’è la zona d’ombra sismica?",
+        "a": "La zona d’ombra delle onde P è la fascia compresa tra circa 104 e 140 gradi da un terremoto che non riceve onde P dirette. Il nucleo esterno liquido devia le onde P da quella fascia e blocca completamente le onde S. Le deboli onde P trovate all’interno della zona portarono Inge Lehmann a proporre l’esistenza del nucleo interno nel 1936."
+      },
+      {
+        "q": "Che differenza c’è tra epicentro e ipocentro?",
+        "a": "L’ipocentro è il punto all’interno della Terra in cui inizia la rottura. L’epicentro è il punto della superficie situato direttamente sopra di esso. La distanza tra i due è la profondità ipocentrale."
+      },
+      {
+        "q": "La scala Richter si usa ancora?",
+        "a": "La magnitudo locale di Richter, ML, viene ancora calcolata con strumenti moderni per i terremoti piccoli e moderati. Per i terremoti forti, questa e altre scale basate sull’ampiezza saturano, quindi i sismologi indicano la magnitudo momento, che si basa sull’area e sullo scorrimento della faglia."
+      },
+      {
+        "q": "Che differenza c’è tra magnitudo e intensità?",
+        "a": "La magnitudo misura le dimensioni di un terremoto alla sorgente, e ogni terremoto ne ha una sola. L’intensità misura con quanta forza ha tremato il suolo in un determinato luogo, quindi un terremoto ha molte intensità. Negli Stati Uniti l’intensità si esprime sulla scala Mercalli modificata, in numeri romani."
+      }
+    ]
+  },
+  "aftershocks-and-hazards": {
+    "title": "Repliche, liquefazione e altri pericoli dei terremoti spiegati",
+    "dek": "Un forte terremoto è l’inizio di una sequenza, non un evento isolato. Ecco come si comportano le repliche, e perché i danni di un terremoto dipendono dal terreno tanto quanto dalla sua magnitudo.",
+    "sections": [
+      {
+        "h": "Che cosa sono le repliche e come le descrive la legge di Omori",
+        "p": [
+          "I terremoti si raggruppano nel tempo e nello spazio. All’interno di un gruppo, i sismologi chiamano scossa principale l’evento più forte, scosse premonitrici i terremoti che la precedono e repliche quelli che la seguono (Jones and Reasenberg 1996). Come regola pratica, un terremoto si considera una replica se si trova entro una o due lunghezze di rottura della faglia dalla scossa principale. Questa distanza varia molto: la rottura era lunga circa 15 chilometri nel terremoto di Northridge del 1994 e 430 chilometri in quello di San Francisco del 1906 (Jones and Reasenberg 1996).",
+          "Il sismologo giapponese Fusakichi Omori pubblicò la prima descrizione quantitativa della diminuzione delle repliche nel 1894, basandosi sulle repliche del terremoto di Nōbi del 1891, nel Giappone centrale. La sua formula afferma che la frequenza delle repliche diminuisce all’incirca in proporzione all’inverso del tempo trascorso dalla scossa principale. Tokuji Utsu aggiunse in seguito un esponente, p, che permette alla diminuzione di procedere un po’ più velocemente o più lentamente, e una rassegna pubblicata un secolo dopo l’articolo di Omori concluse che la formula modificata fornisce in genere una descrizione adeguata di come l’attività delle repliche cambia nel tempo (Utsu et al. 1995).",
+          "In termini pratici, il secondo giorno dopo una scossa principale porta circa la metà delle repliche del primo, e il decimo giorno circa un decimo (Jones and Reasenberg 1996). Le repliche di ogni dimensione diminuiscono allo stesso ritmo, quindi una sequenza non esaurisce per primi gli eventi forti (Jones and Reasenberg 1996). I sismologi della California meridionale osservarono che le repliche del terremoto di Landers del 1992 diventavano col tempo meno frequenti anziché più piccole, e che eventi di magnitudo 5 potevano ancora verificarsi in una fase avanzata della sequenza, solo più distanziati (SCEDC 1999)."
+        ]
+      },
+      {
+        "h": "Quanto può essere forte una replica? La legge di Båth",
+        "p": [
+          "Le scosse principali più forti tendono a produrre repliche più forti (Jones and Reasenberg 1996). Il sismologo svedese Markus Båth diede un valore numerico a questa relazione. Secondo la legge di Båth, la replica più forte è in media di circa 1,2 unità di magnitudo inferiore alla scossa principale, indipendentemente dalla magnitudo di quest’ultima (Båth 1965; Helmstetter and Sornette 2003). In base a questa regola, una scossa principale di magnitudo 7,0 sarebbe di solito seguita da una replica più forte di magnitudo vicina a 5,8.",
+          "Il valore è una media su molte sequenze, e le singole sequenze se ne discostano in entrambe le direzioni. Helmstetter e Sornette (2003) mostrarono che la legge può essere riprodotta a partire da altre due proprietà statistiche dei terremoti: la distribuzione delle magnitudo descritta più sotto e il modo in cui le repliche innescano ulteriori repliche. Sostennero che la sua origine sta in parte nel modo in cui si definiscono scosse principali e repliche, più che in un meccanismo fisico a sé."
+        ]
+      },
+      {
+        "h": "La legge di Gutenberg-Richter e il significato del valore b",
+        "p": [
+          "I piccoli terremoti sono molto più numerosi di quelli forti, e il rapporto è regolare. Beno Gutenberg e Charles Richter descrissero la relazione in uno studio del 1944 sui terremoti della California (Gutenberg and Richter 1944). Si scrive di solito log N = a − bM, dove N è il numero di terremoti di magnitudo M o superiore, a riflette il livello complessivo di attività e b stabilisce quanto rapidamente il numero diminuisce al crescere della magnitudo.",
+          "Il valore b è vicino a 1 nella maggior parte dei cataloghi globali, un risultato così consolidato che una rassegna del 1993 ebbe come sottotitolo «much ado about 1.0» (Frohlich and Davis 1993). Con b uguale a 1, ogni gradino di un’unità di magnitudo riduce di un fattore dieci il numero di terremoti. Una regione che registra 100 terremoti di magnitudo 5 o superiore in un dato periodo ne registrerebbe in media circa 10 di magnitudo 6 o superiore e circa uno di magnitudo 7 o superiore.",
+          "Il valore non è fisso. I cataloghi globali danno valori di b da circa 0,72 a 1,34, e parte di questa dispersione riflette errori di rilevamento, localizzazione e magnitudo più che differenze reali (Frohlich and Davis 1993). Una parte della variazione è però reale. Schorlemmer et al. (2005) rilevarono che b è più basso per le faglie inverse e più alto per le faglie dirette, e interpretarono la differenza come segno che le faglie inverse operano sotto sforzi maggiori. In California, b diminuisce all’aumentare della profondità dei terremoti (Mori and Abercrombie 1997). Un valore b più basso significa che i terremoti forti costituiscono una quota maggiore del totale, ed è per questo che il parametro conta nelle stime di pericolosità."
+        ]
+      },
+      {
+        "h": "Quanto durano le repliche?",
+        "p": [
+          "Un terremoto si considera una replica finché la frequenza dei terremoti nella zona resta superiore a quella precedente la scossa principale. Quanto tempo occorra dipende dalle dimensioni della scossa principale e da quanto fosse attiva la regione in precedenza, perché le repliche si distinguono più a lungo su uno sfondo tranquillo (Jones and Reasenberg 1996). Otto anni e mezzo dopo il terremoto di Landers del 1992, le repliche erano diventate rare ma si verificavano ancora chiaramente al di sopra del tasso di fondo (SCEDC 2001).",
+          "Toda e Stein (2018) rilevarono che la durata di una sequenza dipende meno dalle dimensioni della scossa principale che dalla velocità di scorrimento della faglia. Studiando il terremoto di Tōhoku-Oki del 2011 e altre otto forti scosse principali giapponesi, trovarono sequenze durate circa un mese sulle faglie a scorrimento più rapido e stimarono che le sequenze sulle faglie più lente sarebbero durate più di 2.000 anni. Nelle regioni a deformazione lenta lontane dai margini di placca, sequenze di repliche di lunga durata possono quindi essere scambiate per normale attività di fondo, il che può gonfiare le stime della pericolosità futura (Toda and Stein 2018)."
+        ]
+      },
+      {
+        "h": "Che cosa rende dannoso lo scuotimento: distanza, profondità, terreno e durata",
+        "p": [
+          "La magnitudo misura le dimensioni della sorgente del terremoto, non lo scuotimento in un determinato luogo. Lo U.S. Geological Survey (USGS) elenca il tipo di terremoto, la sua profondità, la distanza dalla rottura della faglia e il materiale del suolo, dal terreno soffice alla roccia di base, tra i fattori che determinano ciò che le persone avvertono, insieme al modo in cui sono costruiti gli edifici (USGS n.d.a). Lo scuotimento è in genere più forte vicino alla faglia che si rompe e si attenua con la distanza. Un terremoto profondo pone quella distanza tra la sorgente e tutto ciò che si trova in superficie sopra di essa.",
+          "Le condizioni locali del terreno possono contare più della distanza. Le ricerche del Southern California Earthquake Center (SCEC) e dello USGS hanno rilevato che, in uno stesso terremoto, lo scuotimento in un sito può facilmente essere dieci volte più forte che in un sito vicino posto alla stessa distanza dalla faglia. I fattori locali più importanti erano la cedevolezza della roccia o del terreno vicino alla superficie e lo spessore dei sedimenti sopra la roccia di base compatta (SCEC n.d.; Field et al. 2000).",
+          "Città del Messico nel 1985 è l’esempio classico. Il terremoto di magnitudo 8,0 del 19 settembre 1985 colpì al largo della costa pacifica del Michoacán, a circa 350–400 chilometri dalla capitale (Furumura and Kennett 1998). Le accelerazioni di picco del suolo nella regione epicentrale furono basse, eppure i danni a Città del Messico furono gravi (Anderson et al. 1986). Le zone centrali della città sorgono su argille soffici e sature d’acqua depositate in un antico lago. Rispetto a un sito nella zona collinare della città, i siti sul fondo dell’antico lago amplificarono il moto del suolo di un fattore da 8 a 56 ai loro periodi propri (Singh et al. 1988). La durata aggravò l’effetto: lo scuotimento forte nella zona dell’antico lago durò più di tre minuti (Furumura and Kennett 1998). Le stime del numero di morti variano molto; la cifra attribuita allo USGS è di almeno 9.500, e altre stime sono considerevolmente più alte (Live Science n.d.)."
+        ]
+      },
+      {
+        "h": "Liquefazione e frane innescate dai terremoti",
+        "p": [
+          "La liquefazione si verifica quando uno scuotimento forte colpisce sabbie e limi sciolti saturi d’acqua e il terreno solido comincia a comportarsi come un liquido (USGS n.d.b). Lo scuotimento aumenta la pressione dell’acqua tra i granuli finché questi perdono il contatto tra loro. Il terreno può allora perdere la capacità di sostenere gli edifici, scorrere anche lungo pendii poco inclinati ed eruttare in superficie formando vulcanelli di sabbia (USGS n.d.c).",
+          "Il terremoto di Niigata del 16 giugno 1964, di magnitudo 7,5, causò ingenti danni alle opere di ingegneria a causa della liquefazione dei terreni sabbiosi (Seed and Idriss 1967). A Kawagishi-cho, vicino al fiume Shinano, alcuni condomini subirono rotture per perdita di capacità portante e si inclinarono fortemente, pur restando strutturalmente quasi intatti (University of Washington n.d.). L’analisi che Seed e Idriss (1967) pubblicarono dopo il terremoto divenne una base della moderna valutazione della liquefazione.",
+          "La sequenza sismica di Canterbury del 2010–2011, in Nuova Zelanda, ripeté la lezione in una città moderna. Il terremoto di magnitudo 6,2 del 22 febbraio 2011 causò 185 morti (Canterbury Earthquakes Royal Commission n.d.). La liquefazione nei terreni naturali fu maggiore, sia per estensione sia per gravità, rispetto al terremoto di Darfield del settembre 2010, di magnitudo 7,1. Fu più grave nelle zone residenziali a est del centro direzionale, dove si combinarono uno scuotimento forte vicino alla faglia, una falda a circa un metro sotto la superficie e terreni altamente suscettibili. Nel centro città la liquefazione fece cedere e inclinare gli edifici (Cubrinovski et al. 2011).",
+          "Le frane sono un altro pericolo secondario frequente. Uno studio su 40 terremoti storici ha rilevato che crolli di roccia, scivolamenti di terreno disarticolati e scivolamenti di roccia erano i tipi più numerosi ed erano innescati dallo scuotimento più debole. L’area massima che può essere interessata cresce da praticamente zero a circa magnitudo 4,0 fino a circa 500.000 chilometri quadrati a magnitudo 9,2 (Keefer 1984). Il terremoto del Wenchuan, in Cina, del 12 maggio 2008, di magnitudo 7,9, innescò più di 60.000 frane (Zhang et al. 2016). Le stime dei morti da esse causati vanno da circa 20.000 (Yin et al. 2009) a 25.000–30.000 (Zhang et al. 2016).",
+          "Gli tsunami si formano quando faglie superficiali scivolano durante forti terremoti e spostano rapidamente in verticale il fondale marino, il più delle volte nelle zone di subduzione (USGS n.d.d). Come si propagano e che cosa fare è spiegato nella guida sugli tsunami nella sezione Scienza."
+        ]
+      },
+      {
+        "h": "Terremoti indotti: l’iniezione di acque reflue in Oklahoma",
+        "p": [
+          "Anche le attività umane possono innescare terremoti. Pompare fluidi in profondità nel sottosuolo aumenta la pressione dei fluidi all’interno delle faglie, il che può permettere a una faglia sotto sforzo di scivolare (Ellsworth 2013). La fratturazione idraulica, o fracking, causa direttamente solo una piccola percentuale dei terremoti indotti avvertiti. Lo smaltimento delle acque reflue in pozzi profondi comporta un rischio maggiore, perché inietta volumi più grandi per periodi più lunghi (Ellsworth 2013; Rubinstein and Mahani 2015). La maggior parte dei pozzi non causa terremoti avvertiti: dei circa 35.000 pozzi attivi di smaltimento delle acque reflue e delle decine di migliaia di altri pozzi di iniezione e di fracking negli Stati Uniti, solo poche decine risultavano aver indotto terremoti avvertiti, e la sismicità indotta può verificarsi a 10 chilometri o più dal punto di iniezione (Rubinstein and Mahani 2015).",
+          "L’Oklahoma è diventato il caso più evidente. Secondo lo USGS, la maggior parte dei terremoti dello stato è causata dallo smaltimento delle acque reflue, e oltre il 90 per cento delle acque reflue iniettate è un sottoprodotto dell’estrazione del petrolio anziché fluido di fracking esausto. Dal 2014 al 2017 la frequenza dei terremoti di magnitudo 3 e superiore nello stato superò quella della California (USGS n.d.e). L’Oklahoma Geological Survey contò circa un terremoto di questo tipo l’anno dal 1976 al 2007 e un record di 903 nel 2015. Dopo che, da metà 2015, le autorità di regolamentazione statali ordinarono la chiusura di alcuni pozzi e la riduzione dei volumi iniettati in altri, il numero scese a 623 nel 2016, 302 nel 2017 e 196 nel 2018 (Associated Press 2019).",
+          "Il terremoto più forte registrato in Oklahoma colpì vicino a Pawnee il 3 settembre 2016. L’evento di magnitudo 5,8 ruppe una faglia non cartografata in precedenza nel basamento cristallino. Yeck et al. (2017) osservarono che, se fosse stato indotto, sarebbe stato il terremoto più forte noto indotto dall’iniezione di fluidi, e che era avvenuto dopo l’inizio delle riduzioni dei volumi. Conclusero che gli effetti di lunga durata dei fluidi iniettati che si diffondono nella roccia rendono difficile ridurre rapidamente la pericolosità indotta (Yeck et al. 2017)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quanto durano le repliche dopo un forte terremoto?",
+        "a": "Le repliche continuano finché la frequenza dei terremoti nella zona resta superiore al livello precedente la scossa principale. Sulle faglie a scorrimento rapido una sequenza può esaurirsi in circa un mese, mentre sulle faglie a scorrimento lento lontane dai margini di placca può durare secoli o più. La frequenza diminuisce rapidamente all’inizio: il decimo giorno porta di solito circa un decimo delle repliche del primo."
+      },
+      {
+        "q": "Una replica può essere più forte della scossa principale?",
+        "a": "Per definizione, no. La scossa principale è il terremoto più forte di un gruppo, quindi se un terremoto successivo è più forte, il primo viene riclassificato come scossa premonitrice. In media la replica più forte è di circa 1,2 unità di magnitudo inferiore alla scossa principale, una regola nota come legge di Båth."
+      },
+      {
+        "q": "Che cos’è la legge di Gutenberg-Richter?",
+        "a": "Descrive come il numero di terremoti diminuisce al crescere della magnitudo. La pendenza, detta valore b, è vicina a 1 nella maggior parte dei cataloghi globali, il che significa circa dieci volte più terremoti di magnitudo 5 che di magnitudo 6. Il valore b varia con il tipo di fagliazione e con la profondità."
+      },
+      {
+        "q": "Perché nel 1985 Città del Messico subì danni così gravi se l’epicentro era lontano?",
+        "a": "Il centro di Città del Messico è costruito su argille soffici e sature d’acqua di un antico lago. Quei sedimenti amplificarono lo scuotimento di un fattore da 8 a 56 rispetto al terreno più compatto delle colline della città, e il moto forte durò più di tre minuti, benché l’epicentro si trovasse a circa 350–400 chilometri di distanza."
+      },
+      {
+        "q": "Che cos’è la liquefazione durante un terremoto?",
+        "a": "La liquefazione si verifica quando lo scuotimento aumenta la pressione dell’acqua in sabbie o limi sciolti e saturi d’acqua finché i granuli perdono il contatto e il terreno si comporta come un liquido. Gli edifici possono sprofondare o inclinarsi, come accadde a Niigata nel 1964 e a Christchurch nel 2011."
+      },
+      {
+        "q": "Il fracking causa terremoti in Oklahoma?",
+        "a": "Per lo più no. Lo USGS attribuisce la maggior parte dei terremoti dell’Oklahoma allo smaltimento in profondità delle acque reflue, che sono per lo più un sottoprodotto dell’estrazione del petrolio anziché fluido di fracking. La fratturazione idraulica causa direttamente solo una piccola percentuale dei terremoti indotti avvertiti."
+      }
+    ]
+  }
+}

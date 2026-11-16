@@ -672,5 +672,15 @@
     "err_bad_service": "El servidor debe ser una dirección https://.",
     "err_missing": "Escribe el usuario y la contraseña de aplicación.",
     "preview_failed": "No se pudo cargar este evento. Cierra esto y vuelve a intentarlo en un minuto."
+  },
+  "library": {
+    "title": "En profundidad",
+    "sub": "Lecturas extensas sobre terremotos, geología y tectónica, con fuentes.",
+    "refs": "Referencias",
+    "faq": "Preguntas frecuentes",
+    "updated": "Actualizado el {d}",
+    "all": "Todos los artículos En profundidad",
+    "next": "Siguiente en En profundidad",
+    "count": "{n} artículos"
   }
 }

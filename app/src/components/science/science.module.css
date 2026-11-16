@@ -104,3 +104,19 @@
   border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
 .shareBtn :global(.ms) { font-size: 20px; color: var(--violet-text); }
 .shareBtn:hover { border-color: var(--violet); }
+
+/* In Depth library (long-form articles) */
+.longform { display: flex; flex-direction: column; gap: 16px; }
+/* Long compound words (German titles) break at syllables, per the text's lang, instead of running off the screen. */
+.longform .h1, .longform h2, .topicTitle { hyphens: auto; overflow-wrap: break-word; }
+.dateline { margin: -6px 0 0; font-size: 13px; font-weight: 700; color: var(--ink2); }
+.faq { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.faq > div { background: var(--surface); border-radius: 18px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.faq dt { font-size: 15px; font-weight: 750; }
+.faq dd { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink); opacity: .86; text-wrap: pretty; }
+.refs { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.5; color: var(--ink2); overflow-wrap: anywhere; }
+.refs a { color: var(--violet-text); }
+.allLink { align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-size: 15px; font-weight: 700; color: var(--violet-text); }
+.libraryHead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 16px 4px 0; }
+.libraryHead h2 { margin: 0; font-size: 21px; font-weight: 800; letter-spacing: -.015em; }
+.libraryHead a { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; font-weight: 700; color: var(--violet-text); white-space: nowrap; }

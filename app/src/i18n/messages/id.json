@@ -672,5 +672,15 @@
     "err_bad_service": "Server harus berupa alamat https://.",
     "err_missing": "Masukkan handle dan kata sandi aplikasi.",
     "preview_failed": "Tidak dapat memuat kejadian ini. Tutup ini dan coba lagi dalam satu menit."
+  },
+  "library": {
+    "title": "Mendalam",
+    "sub": "Bacaan panjang tentang gempa bumi, geologi, dan tektonik, lengkap dengan sumber.",
+    "refs": "Referensi",
+    "faq": "Pertanyaan umum",
+    "updated": "Diperbarui {d}",
+    "all": "Semua artikel Mendalam",
+    "next": "Berikutnya di Mendalam",
+    "count": "{n} artikel"
   }
 }
