@@ -1,1 +1,446 @@
-{}
+{
+  "earthquake-prediction": {
+    "title": "Por que os terremotos resistem à previsão, e o que a sismologia oferece em vez disso",
+    "dek": "Uma previsão precisa de data e hora, local e magnitude. Veja por que isso nunca foi feito para um grande terremoto e o que a sismologia oferece em vez disso.",
+    "sections": [
+      {
+        "h": "Definindo os termos",
+        "p": [
+          "O Serviço Geológico dos Estados Unidos (USGS) informa que nem ele nem quaisquer outros cientistas jamais previram um grande terremoto (USGS n.d.a). A afirmação se apoia numa definição rigorosa. Uma previsão precisa indicar a data e a hora, o local e a magnitude, e uma alegação que omita um desses três elementos não pode ser testada (USGS n.d.a).",
+          "A sismologia produz, sim, três produtos relacionados. As probabilidades de longo prazo indicam a chance de um terremoto de determinado tamanho numa região ao longo de anos ou décadas, geralmente calculada a partir da taxa média de eventos históricos. As estimativas de curto prazo aplicam um raciocínio semelhante a janelas mais curtas e costumam ser usadas para réplicas. O alerta antecipado é um aviso enviado depois que uma ruptura já começou, dando de segundos a dezenas de segundos de antecedência antes da chegada das ondas destrutivas (USGS n.d.b). Cada produto responde a uma pergunta diferente, e o debate público muitas vezes os confunde.",
+          "A definição também explica por que as alegações individuais de previsões bem-sucedidas raramente resistem a um exame atento. Segundo o USGS, essas alegações costumam deixar de fora pelo menos um dos três elementos e, quando um terremoto se parece vagamente com o que foi alegado, o autor o conta como um acerto, embora um ou mais elementos difiram muito do que aconteceu (USGS n.d.a)."
+        ]
+      },
+      {
+        "h": "Dois testes marcantes",
+        "p": [
+          "O terremoto de Haicheng, no nordeste da China, em 1975, é o sucesso mais citado. As autoridades ordenaram a evacuação de uma cidade de cerca de um milhão de habitantes depois de um número crescente de pequenos terremotos, mais tarde reconhecidos como tremores precursores, e de relatos de fenômenos incomuns em toda a região. Um terremoto de magnitude 7,3 ocorreu dias depois. O USGS cita uma estimativa de que os mortos e feridos teriam passado de 150.000 sem a evacuação; o saldo registrado foi de 2.041 mortos e 27.538 feridos (USGS n.d.c). Uma delegação dos Estados Unidos que visitou laboratórios chineses em 1976 concluiu que a decisão se baseou principalmente na sequência marcante de tremores precursores e considerou difícil avaliar outras partes do método (USGS n.d.c).",
+          "No ano seguinte, um terremoto de magnitude 7,6 atingiu Tangshan sem aviso. Nenhum dos precursores observados perto de Haicheng apareceu, e o número estimado de mortos foi de 250.000 (USGS n.d.c). Os dois eventos, com apenas um ano de diferença, mostram que os sinais disponíveis antes de um terremoto podem estar ausentes antes de outro.",
+          "Os Estados Unidos realizaram seu próprio teste em Parkfield, na Califórnia. Em 1985, o USGS emitiu uma previsão de longo prazo de que um terremoto de magnitude 6 atingiria aquele trecho da Falha de San Andreas antes de 1993, com base num histórico de terremotos semelhantes em intervalos razoavelmente regulares (Bakun et al. 2005). O prazo terminou sem nenhum terremoto. Um evento de magnitude 6,0 chegou em 2004, onze anos depois. Tremores precursores haviam antecedido em 17 minutos os terremotos de Parkfield de 1934 e 1966, mas o evento de 2004 veio sem precursores evidentes, e os autores concluíram que uma previsão de curto prazo confiável continua fora de alcance (Bakun et al. 2005).",
+          "Os autores do estudo de Parkfield tiraram uma conclusão prática do resultado. Para reduzir desde já os efeitos dos terremotos, recomendaram desenvolver a próxima geração de modelos que estimam a intensidade e a localização do tremor de solo destrutivo, um objetivo que não depende de saber quando uma ruptura vai começar (Bakun et al. 2005)."
+        ]
+      },
+      {
+        "h": "Por que os precursores não são confiáveis",
+        "p": [
+          "A maioria dos precursores propostos, incluindo pequenos terremotos incomuns, ocorre com frequência sem que um terremoto maior venha em seguida; por isso, um sinal que antecede alguns terremotos não basta, sozinho, para sustentar uma previsão (USGS n.d.a). Geller et al. (1997) acrescentaram que milhares de supostos precursores em geral só foram identificados como precursores depois que o terremoto ocorreu.",
+          "Os tremores precursores ilustram a dificuldade. Eles haviam sido documentados antes de menos da metade dos tremores principais, mas um catálogo de alta resolução dos tremores principais de magnitude 4 ou maior no sul da Califórnia entre 2008 e 2017 mostrou que 72 por cento foram antecedidos por uma atividade precursora significativamente acima da taxa de fundo local (Trugman and Ross 2019). Essa constatação olha para trás no tempo. No mundo todo, a chance de um terremoto ser seguido, em até uma semana, por outro maior nas proximidades é de cerca de 5 por cento (USGS n.d.b), de modo que aproximadamente 95 por cento dos terremotos não levam a nada maior. Identificar as sequências que vão crescer, enquanto ainda estão em andamento, é a parte não resolvida."
+        ]
+      },
+      {
+        "h": "O que a sismologia oferece",
+        "p": [
+          "As probabilidades de longo prazo são as que têm mais peso prático. Elas orientam as normas de construção e o projeto sísmico, o que as torna as ferramentas de estimativa mais importantes para proteger as comunidades dos danos causados por terremotos (Jordan et al. 2011). A terceira Previsão Uniforme de Ruptura Sísmica da Califórnia (UCERF3) estima que um terremoto de magnitude 6,7, do tamanho do evento de Northridge de 1994, ocorre em algum lugar do estado a cada 6,3 anos, em comparação com a cada 4,8 anos no modelo anterior. Ela também elevou a chance, em 30 anos, de um terremoto de magnitude 8 ou maior de 4,7 por cento para 7 por cento (SCEC n.d.). A janela de 30 anos corresponde à duração de um financiamento imobiliário típico. Estimativas desse tipo descrevem onde e quando os terremotos podem ocorrer, e modelos separados de movimento do solo descrevem com que força o tremor será sentido (SCEC n.d.).",
+          "As estimativas de curto prazo se concentram nas réplicas. O modelo ETAS (Epidemic-Type Aftershock Sequence, sequência de réplicas do tipo epidêmico) trata cada terremoto como capaz de desencadear suas próprias réplicas, e um painel de especialistas em estimativas consultado para uma revisão de 2024 o apontou como o modelo padrão preferido (Mizrahi 2024). A Itália emite estimativas semanalmente, enquanto a Nova Zelândia e os Estados Unidos as emitem para sequências específicas (Mizrahi 2024). Poucos países operam esses sistemas, e não existem testes consensuais para decidir se um modelo é adequado (Mizrahi 2024). Quando bem aplicadas, as estimativas de curto prazo têm valor prático, por exemplo para antecipar as réplicas que se seguem a grandes terremotos (Jordan et al. 2011). Esses modelos compartilham uma limitação: não conseguem prever futuros grandes terremotos com alta probabilidade (Mizrahi 2024). A Comissão Internacional de Previsão de Terremotos observou que as probabilidades de curto prazo podem variar em ordens de grandeza, mas costumam continuar baixas em termos absolutos, e que grandes terremotos não podem ser previstos de forma confiável para regiões específicas em escalas de tempo inferiores a décadas (Jordan et al. 2011).",
+          "O alerta antecipado troca o objetivo de prever pelo de detectar rapidamente. O ShakeAlert, o sistema da Costa Oeste dos Estados Unidos, funciona porque o processamento dos dados e a entrega das mensagens são mais rápidos do que as próprias ondas sísmicas. O tempo de aviso depende da distância até o terremoto, da velocidade de processamento e do nível de tremor escolhido para os alertas. Para um evento do tamanho do de Loma Prieta, uma análise do USGS encontrou tempos de aviso que vão de zero a vinte segundos (USGS 2019)."
+        ]
+      },
+      {
+        "h": "Pesquisa de fronteira",
+        "p": [
+          "O deslizamento lento oferece uma linha de investigação. Nas semanas anteriores ao terremoto de Tohoku-Oki de magnitude 9,0, em 2011, duas sequências de pequenos terremotos migraram a 2 a 10 quilômetros por dia em direção ao futuro epicentro. Kato et al. (2012) as interpretaram como deslizamento lento no limite entre as placas, com a segunda sequência provavelmente acrescentando tensão que ajudou a iniciar a ruptura principal. O estudo abrange um único terremoto, e os autores apresentaram a contribuição da tensão como uma possibilidade. Em Cascádia, Hulbert et al. (2020) aplicaram aprendizado de máquina a ondas sísmicas contínuas e encontraram padrões que acompanham o ciclo de deslizamento lento de 14 meses, que eles apresentam como evidência de que o deslizamento lento pode ser previsto. Eles tratam o deslizamento lento como uma janela para a nucleação, um processo que continua difícil de captar nos terremotos rápidos (Hulbert et al. 2020).",
+          "O aprendizado de máquina produziu resultados mistos. Rouet-Leduc et al. (2017) mostraram que um modelo alimentado com o sinal acústico de uma falha de laboratório conseguia estimar o tempo restante até a falha se romper. As taxas de cisalhamento em laboratório superam as das falhas reais em ordens de grandeza, e os pesquisadores se disseram cautelosos quanto a estender o método a terremotos reais (Physics Today 2017).",
+          "Um estudo de 2018 amplamente divulgado treinou uma rede neural com mais de 131.000 pares de tremor principal e réplica para mapear onde as réplicas ocorrem (DeVries et al. 2018). Mignan and Broccardo (2019) reproduziram o desempenho com uma regressão logística de dois parâmetros, contra 13.451 parâmetros da rede original. Brendan Meade, coautor do estudo original, respondeu que a aproximação por um modelo mais simples era um resultado central daquele artigo (Synced 2019)."
+        ]
+      },
+      {
+        "h": "A comunicação depois de L’Aquila",
+        "p": [
+          "Um terremoto de magnitude 6,3 atingiu L’Aquila, na Itália, em abril de 2009 e matou 309 pessoas. Em 2012, um tribunal declarou seis cientistas e um funcionário do governo culpados de homicídio culposo por não terem alertado os moradores sobre o risco, e condenou os cientistas a seis anos de prisão. Um tribunal de apelação anulou as condenações dos cientistas em 2014 (The World 2014).",
+          "O Departamento de Proteção Civil da Itália nomeou então a Comissão Internacional de Previsão de Terremotos. Seu relatório de 2011 recomendou estimativas operacionais sistemáticas e transparentes e advertiu que depender apenas da comunicação informal entre cientistas e o público abre caminho para a confusão (Jordan et al. 2011)."
+        ]
+      },
+      {
+        "h": "Onde os cientistas discordam",
+        "p": [
+          "Geller et al. (1997) argumentaram que os terremotos são intrinsecamente imprevisíveis, porque o crescimento ou não de uma pequena ruptura até se tornar uma grande depende de detalhes das condições no interior da Terra que não podem ser medidos. Comentaristas na Science responderam que essa posição era excessivamente negativa em relação a um campo difícil, enquanto outro comentarista admitiu que nenhum mecanismo para precursores eletromagnéticos é conhecido o suficiente para uso confiável (\"Cannot Earthquakes Be Predicted?\" 1997).",
+          "O USGS descreve seu próprio foco como a redução, a longo prazo, do risco sísmico por meio de estruturas mais seguras, deixando a previsão de curto prazo fora desse esforço (USGS n.d.a). As evidências sustentam as duas leituras. Décadas de monitoramento não produziram nenhum método de curto prazo validado, e não há prova de que tal método seja impossível. Instrumentos mais densos, registros sísmicos contínuos e observações de deslizamento lento ampliam o que os pesquisadores podem testar. Qualquer nova alegação enfrenta o padrão aplicado em Parkfield: um momento, um local e uma magnitude especificados, declarados com antecedência."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Os cientistas conseguem prever terremotos?",
+        "a": "Não. O Serviço Geológico dos Estados Unidos informa que nem ele nem quaisquer outros cientistas jamais previram um grande terremoto. Uma previsão precisa indicar a data e a hora, o local e a magnitude, e uma alegação que omita um desses três elementos não pode ser testada."
+      },
+      {
+        "q": "Qual a diferença entre estimativa, probabilidade e alerta antecipado de terremotos?",
+        "a": "As probabilidades de longo prazo indicam a chance de um terremoto de determinado tamanho numa região ao longo de anos ou décadas. As estimativas de curto prazo aplicam um raciocínio semelhante a janelas mais curtas e costumam ser usadas para réplicas. O alerta antecipado é um aviso enviado depois que uma ruptura já começou, dando de segundos a dezenas de segundos de antecedência antes da chegada das ondas destrutivas."
+      },
+      {
+        "q": "O terremoto de Haicheng de 1975 foi previsto?",
+        "a": "As autoridades evacuaram Haicheng depois de um número crescente de pequenos terremotos, mais tarde reconhecidos como tremores precursores, e um terremoto de magnitude 7,3 ocorreu dias depois. Uma delegação dos Estados Unidos concluiu que a decisão se baseou principalmente na sequência de tremores precursores. No ano seguinte, o terremoto de Tangshan, de magnitude 7,6, ocorreu sem nenhum desses sinais."
+      },
+      {
+        "q": "Tremores precursores avisam que vem um grande terremoto?",
+        "a": "Não de forma confiável. No sul da Califórnia, 72 por cento dos tremores principais de magnitude 4 ou maior entre 2008 e 2017 foram antecedidos por atividade precursora elevada, mas, no mundo todo, apenas cerca de 5 por cento dos terremotos são seguidos, em até uma semana, por outro maior nas proximidades."
+      },
+      {
+        "q": "A inteligência artificial consegue prever terremotos?",
+        "a": "Ainda não. Modelos de aprendizado de máquina estimaram o tempo até a ruptura de falhas de laboratório e encontraram padrões que acompanham o ciclo de deslizamento lento em Cascádia, mas um estudo de réplicas com aprendizado profundo amplamente divulgado foi igualado por uma regressão logística de dois parâmetros."
+      },
+      {
+        "q": "Quanto tempo de aviso o alerta antecipado de terremotos dá?",
+        "a": "Depende da distância até o terremoto, da velocidade de processamento e do nível de tremor escolhido para os alertas. Para um terremoto do tamanho do de Loma Prieta, em 1989, uma análise do ShakeAlert feita pelo USGS encontrou tempos de aviso que vão de zero a vinte segundos."
+      }
+    ]
+  },
+  "plate-tectonics-subduction": {
+    "title": "Tectônica de placas, zonas de subducção e terremotos de megaempurrão",
+    "dek": "Onde uma placa afunda sob outra, o limite pode ficar travado por séculos e depois se romper num terremoto de magnitude 9. Veja como funciona a subducção, o que os grandes terremotos de megaempurrão mostraram e como os cientistas dataram a última ruptura de Cascádia numa noite de inverno de 1700.",
+    "sections": [
+      {
+        "h": "Como e por que as placas tectônicas se movem",
+        "p": [
+          "A camada externa da Terra é dividida em placas rígidas que se movem umas em relação às outras. O Serviço Geológico dos Estados Unidos (USGS) descreve sua velocidade como aproximadamente a mesma com que as unhas crescem. Cada placa se move com velocidade e direção próprias, e hoje o GPS mede o movimento da crosta com precisão de uma fração de milímetro por ano (USGS n.d.a).",
+          "As forças por trás desse movimento foram avaliadas num estudo clássico de Forsyth and Uyeda (1975). Eles equilibraram os torques que atuam sobre cada placa para comparar as forças que as impulsionam com as que resistem a elas. Sua análise apontou o afundamento de placas oceânicas densas nas fossas oceânicas profundas como a principal força motriz, um efeito hoje geralmente chamado de tração da placa (slab pull), equilibrado sobretudo pela resistência viscosa do manto (Forsyth and Uyeda 1975). Uma segunda força, menor, o empurrão da dorsal (ridge push), atua onde se forma novo fundo oceânico, nas dorsais meso-oceânicas.",
+          "A tração da placa coloca as zonas de subducção no centro da tectônica de placas. Os lugares onde as placas oceânicas antigas voltam a afundar no manto são também os que acumulam e liberam as maiores quantidades de deformação, e é por isso que abrigam os maiores terremotos já registrados."
+        ]
+      },
+      {
+        "h": "Os três tipos de limite de placas",
+        "p": [
+          "As placas interagem em três tipos principais de limite (Kious and Tilling 1996). Nos limites divergentes, as placas se afastam e nova crosta se forma a partir do magma que sobe do manto. As dorsais meso-oceânicas são o principal exemplo.",
+          "Nos limites transformantes, as placas deslizam horizontalmente uma ao lado da outra, e a crosta não é criada nem destruída (Kious and Tilling 1996). A Falha de San Andreas, na Califórnia, é o exemplo mais conhecido.",
+          "Nos limites convergentes, as placas se movem uma em direção à outra e a crosta é destruída à medida que uma placa desce sob a outra (Kious and Tilling 1996). Onde a litosfera oceânica encontra outra placa, a placa oceânica, mais densa, afunda, e o limite se torna uma zona de subducção. Kious and Tilling (1996) também observam que alguns limites de placas são zonas amplas de deformação, e não linhas nítidas, o que lembra que os três tipos são uma idealização de uma superfície mais complicada."
+        ]
+      },
+      {
+        "h": "O que é uma zona de subducção?",
+        "p": [
+          "Uma zona de subducção é um limite convergente onde uma placa mergulha sob outra em direção ao manto. Na superfície, ela é marcada por uma fossa oceânica profunda e, onde uma placa oceânica desce sob um continente, cadeias de vulcões como os Andes e a Cordilheira das Cascatas se erguem no interior (Kious and Tilling 1996).",
+          "O contato entre as duas placas é uma falha imensa, de inclinação suave, chamada megaempurrão. Em profundidades rasas, a menos de cerca de 25 quilômetros, a interface pode ficar presa, ou travada, e a tensão se acumula ao longo dela (USGS n.d.b). Nas centenas de anos entre grandes terremotos, a compressão contínua faz a placa superior se arquear e se elevar logo acima e no lado interno da região travada, ao longo de milhares de quilômetros quadrados (USGS n.d.b).",
+          "Quando a tensão acumulada supera a resistência da falha, o trecho travado se solta e libera a energia armazenada em forma de ondas sísmicas (USGS n.d.b). A placa superior volta bruscamente à posição. Áreas que vinham se arqueando para cima podem afundar de repente, enquanto o fundo do mar acima da ruptura é empurrado para cima e desloca o oceano que está sobre ele. É esse movimento vertical repentino do fundo do mar que gera os grandes tsunamis das zonas de subducção."
+        ]
+      },
+      {
+        "h": "Por que os terremotos de megaempurrão são os maiores",
+        "p": [
+          "O USGS descreve a interface rasa de megaempurrão das zonas de subducção como palco dos maiores terremotos e como o único tipo de falha capaz de rupturas de magnitude 9 ou maior (USGS n.d.c). A razão está na forma como a magnitude é medida. A magnitude de momento é derivada do momento sísmico, que é o produto da rigidez da rocha, da área da falha que deslizou e do deslizamento médio.",
+          "Um megaempurrão oferece uma área de falha enorme. Como a interface tem inclinação suave, uma ruptura pode se estender por uma longa distância no sentido do mergulho da falha, além de muitas centenas de quilômetros ao longo da fossa. Num estudo de terremotos de interface de subducção de magnitude 7,1 a 9,5, Allen and Hayes (2017) constataram que a largura da ruptura se estabiliza em cerca de 200 quilômetros nos maiores eventos. A partir desse ponto, os terremotos crescem principalmente pelo alongamento ao longo da fossa e por um deslizamento maior, e os autores concluíram que o tamanho dos grandes terremotos parece ser controlado mais fortemente pelo deslizamento médio nos trechos mais resistentes da falha (Allen and Hayes 2017).",
+          "Nenhum outro tipo de falha combina tal comprimento, largura e deslizamento. Os dois maiores terremotos registrados com instrumentos modernos ocorreram em zonas de subducção: o terremoto do Chile de 1960, de magnitude 9,5, e o do Alasca de 1964, de magnitude 9,2 (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Chile 1960, Sumatra 2004 e Tōhoku 2011",
+        "p": [
+          "O terremoto do Chile de 22 de maio de 1960 é o maior já registrado, com magnitude de momento 9,5 (USGS n.d.d). Os primeiros relatos indicaram uma magnitude de ondas superficiais de 8,6. A magnitude de momento, uma medida melhor da energia liberada, foi estimada mais tarde em 9,5 (USGS n.d.d). Ele rompeu o limite onde a placa de Nazca desce sob a América do Sul. Cifuentes (1989) estimou o comprimento da ruptura, a partir das réplicas e da deformação da crosta, em 920 ± 100 quilômetros, terminando perto do ponto em que a Dorsal do Chile encontra a Fossa Peru–Chile. O USGS registra cerca de 1.655 mortos no sul do Chile e cerca de 2 milhões de desabrigados. O tsunami atravessou o Pacífico, matando 61 pessoas no Havaí, a maioria em Hilo, e 138 no Japão (USGS n.d.d).",
+          "O terremoto de Sumatra–Andamão de 26 de dezembro de 2004 teve magnitude 9,1 (USGS n.d.f). Suas réplicas delinearam uma ruptura de cerca de 1.300 quilômetros de comprimento, do noroeste de Sumatra às Ilhas Andamão (Lay et al. 2005). O tsunami do oceano Índico que se seguiu deixou 227.898 pessoas mortas ou desaparecidas e presumivelmente mortas, e cerca de 1,7 milhão de deslocados (USGS n.d.g).",
+          "O terremoto de Tōhoku-Oki de 11 de março de 2011 atingiu a Fossa do Japão, onde a placa do Pacífico desce sob o norte do Japão. O USGS o classifica com magnitude 9,1 e informa que a falha se deslocou até 50 a 60 metros numa área de cerca de 400 quilômetros de comprimento por 150 quilômetros de largura (USGS n.d.e). Levantamentos do fundo do mar feitos menos de duas semanas após o terremoto indicaram que o fundo oceânico perto da fossa havia se deslocado cerca de 50 metros para lés-sudeste e de 7 a 10 metros para cima, evidência de que a ruptura alcançou o eixo da fossa (Fujiwara et al. 2011). A Agência Nacional de Polícia do Japão havia confirmado pelo menos 15.782 mortes seis meses após o desastre (Nippon.com n.d.)."
+        ]
+      },
+      {
+        "h": "A zona de subducção de Cascádia e o terremoto de 1700",
+        "p": [
+          "A zona de subducção de Cascádia se estende ao largo da costa, do norte da Ilha de Vancouver até o Cabo Mendocino, no norte da Califórnia, onde a placa de Juan de Fuca e suas vizinhas descem sob a América do Norte (PNSN n.d.). A placa de Juan de Fuca se move em direção à América do Norte a cerca de 4 centímetros por ano (PNSN n.d.).",
+          "O último grande terremoto de Cascádia ocorreu em 26 de janeiro de 1700, com magnitude estimada entre 8,7 e 9,2 (Wirth et al. 2025). Sua data e seu tamanho foram reconstituídos a partir de um tsunami registrado no Japão. Samurais, comerciantes e aldeões escreveram sobre ondas em janeiro de 1700 que chegaram sem nenhum terremoto local, o que pesquisadores posteriores chamaram de tsunami órfão (Atwater et al. 2005). Satake et al. (1996) descartaram a América do Sul, o Alasca e Kamchatka como origens, porque os registros históricos e geológicos não mostravam nenhum grande terremoto nesses lugares em 1700, e situaram o terremoto em Cascádia por volta das 21h, hora local, de 26 de janeiro de 1700. A partir das alturas do tsunami, estimaram uma magnitude de cerca de 9, o que significaria a ruptura de toda a zona de subducção (Satake et al. 1996).",
+          "Uma análise posterior comparou as inundações relatadas em sete localidades do Japão, com alturas de aproximadamente 1 a 5 metros, com tsunamis modelados a partir de seis possíveis origens em Cascádia. O terremoto mais provável teve magnitude de momento 9,0, com 19 metros de deslizamento numa zona ao largo da costa de cerca de 1.100 quilômetros de comprimento (Satake et al. 2003). A faixa de origens plausíveis corresponde a magnitudes de 8,7 a 9,2. Rupturas mais curtas só poderiam reproduzir o tsunami japonês com até 40 metros de deslizamento ao largo, e as mudanças no nível do terreno que elas causariam entram em conflito com as evidências geológicas ao longo da costa de Cascádia (Satake et al. 2003)."
+        ]
+      },
+      {
+        "h": "Evidências de terremotos em Cascádia: florestas fantasmas e pântanos soterrados",
+        "p": [
+          "As evidências geológicas vieram primeiro da costa. Atwater (1987) descobriu que lama de maré havia soterrado as planícies costeiras do extremo oeste de Washington seis vezes em cerca de 7.000 anos, cada soterramento provavelmente causado por uma subsidência repentina de aproximadamente 0,5 a 2 metros. Camadas de areia em pelo menos três das superfícies soterradas indicavam tsunamis chegando junto com esses mesmos eventos (Atwater 1987). Esse é o padrão esperado quando a placa superior afunda no momento em que um megaempurrão se rompe.",
+          "A mesma subsidência criou florestas fantasmas. Ao longo do rio Copalis, em Washington, um grupo de cedros-vermelhos-do-oeste mortos se ergue de um pântano de maré salobro. As árvores morreram quando o terreno afundou durante o terremoto mais recente de Cascádia e a água salgada inundou suas raízes (USGS n.d.i). Yamaguchi et al. (1997) usaram os anéis das árvores para datar as mortes. As árvores mortas pelo terremoto haviam completado seu crescimento em 1699, mas não iniciaram o crescimento em 1700, o que situou a subsidência entre as estações de crescimento de 1699 e 1700 e coincidiu com a data dos registros japoneses (Yamaguchi et al. 1997).",
+          "Os sedimentos marinhos estendem o registro ainda mais para trás. Turbiditos, depósitos deixados por deslizamentos submarinos, se acumulam em canais submarinos ao longo da margem. Goldfinger et al. (2012) os rastrearam por cerca de 500 quilômetros do norte de Cascádia e concluíram que sua ocorrência sincronizada ao longo de 10.000 anos é mais bem explicada por terem sido desencadeados por grandes terremotos. O registro sugere agrupamentos de dois a cinco terremotos separados por intervalos excepcionalmente longos, em vez de um ciclo regular, e o registro marinho tem boa correlação com o registro mais curto preservado em terra (Goldfinger et al. 2012).",
+          "O USGS estima hoje uma chance de 10 a 15 por cento de um terremoto de magnitude aproximada 9 em Cascádia nos próximos 50 anos (Wirth et al. 2025). A estimativa se baseia nas mesmas evidências: registros escritos do Japão, árvores mortas e solos soterrados na costa do Pacífico e sedimentos em camadas no fundo do mar."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "O que é uma zona de subducção?",
+        "a": "Uma zona de subducção é um limite convergente de placas onde uma placa, geralmente oceânica, desce sob outra em direção ao manto. Ela é marcada por uma fossa oceânica profunda, e o contato entre as placas é uma grande falha de inclinação suave chamada megaempurrão."
+      },
+      {
+        "q": "O que é um terremoto de megaempurrão?",
+        "a": "Um terremoto de megaempurrão é a ruptura da interface travada entre duas placas numa zona de subducção. A tensão se acumula por séculos enquanto a parte rasa da interface fica presa e é liberada quando a falha se solta. O USGS descreve essas falhas como as únicas capazes de produzir terremotos de magnitude 9 ou maior."
+      },
+      {
+        "q": "Por que as zonas de subducção produzem os maiores terremotos?",
+        "a": "A magnitude de um terremoto depende da área da falha que desliza e do quanto ela desliza. Um megaempurrão tem inclinação suave e pode se estender por muitas centenas de quilômetros ao longo de uma fossa, o que lhe dá uma área de falha muito maior do que a de outros tipos de falha. Os maiores eventos também envolvem dezenas de metros de deslizamento."
+      },
+      {
+        "q": "Qual foi o maior terremoto já registrado?",
+        "a": "O maior terremoto registrado com instrumentos atingiu o sul do Chile em 22 de maio de 1960, com magnitude 9,5. Seu tsunami matou 61 pessoas no Havaí e 138 no Japão, além de cerca de 1.655 mortos no Chile."
+      },
+      {
+        "q": "Como se sabe que o terremoto de Cascádia aconteceu em 1700?",
+        "a": "Registros japoneses descrevem um tsunami em janeiro de 1700 que chegou sem nenhum terremoto local. Os anéis de cedros mortos quando a costa do Noroeste Pacífico afundou mostram que as árvores morreram entre as estações de crescimento de 1699 e 1700. Juntos, esses dados situam o terremoto em 26 de janeiro de 1700."
+      },
+      {
+        "q": "Qual a chance de um terremoto de magnitude 9 em Cascádia?",
+        "a": "O USGS estima uma chance de 10 a 15 por cento de um terremoto de magnitude aproximada 9 na zona de subducção de Cascádia nos próximos 50 anos. Os registros de sedimentos marinhos sugerem que esses terremotos vêm em agrupamentos separados por longos intervalos, e não num calendário regular."
+      }
+    ]
+  },
+  "faults-and-stress": {
+    "title": "Falhas e tensão: por que os terremotos acontecem",
+    "dek": "Um terremoto é a liberação repentina da tensão que uma falha acumulou durante décadas ou séculos. Veja como essa tensão se acumula, como as falhas cedem e como uma ruptura pode preparar a seguinte.",
+    "sections": [
+      {
+        "h": "A teoria do rebote elástico e o terremoto de São Francisco de 1906",
+        "p": [
+          "Em 18 de abril de 1906, a Falha de San Andreas se rompeu ao longo de cerca de 477 quilômetros do norte da Califórnia, num terremoto hoje estimado em magnitude 7,9 (USGS n.d.b). Pesquisas de Gladys Hansen e Emmet Condon calcularam o número de mortos, direta ou indiretamente, em mais de 3.000, várias vezes o número de cerca de 700 citado durante décadas (USGS n.d.c).",
+          "O terremoto também produziu a primeira explicação funcional de por que as falhas se rompem. Harry Fielding Reid, geólogo da Universidade Johns Hopkins, examinou como a superfície do terreno havia se deslocado durante o terremoto e concluiu que a ruptura devia ter envolvido um rebote elástico de uma tensão elástica acumulada anteriormente (USGS n.d.a). Cercas, estradas e outras linhas retas que cruzavam a falha haviam sido deslocadas; uma cerca fotografada por G. K. Gilbert perto de Bolinas foi deslocada cerca de 8,5 pés ao longo do traço da falha (USGS n.d.a).",
+          "Reid expôs o argumento no segundo volume do relatório da comissão estadual (Reid 1910). As rochas de cada lado de uma falha são arrastadas por um movimento lento e constante, mas a própria falha permanece presa. A crosta se curva como uma mola, acumulando deformação elástica, até que a tensão supere a resistência da falha. A falha então desliza de repente, a rocha curvada volta bruscamente a uma forma sem deformação e a energia acumulada sai em forma de ondas sísmicas.",
+          "A teoria tem uma consequência direta. Depois que uma falha desliza, o mesmo movimento lento começa a carregá-la de novo, de modo que se espera que os terremotos numa determinada falha se repitam. A maior parte da ciência moderna sobre falhas e tensão desenvolve esse ciclo de carga e liberação."
+        ]
+      },
+      {
+        "h": "Tipos de falha: normal, inversa, de empurrão e transcorrente",
+        "p": [
+          "O Serviço Geológico dos Estados Unidos define uma falha como uma fratura ou zona de fraturas entre dois blocos de rocha que permite que os blocos se movam um em relação ao outro (USGS n.d.d). As falhas são classificadas pelo ângulo da superfície da falha, chamado mergulho, e pela direção do deslizamento ao longo dela (USGS n.d.d).",
+          "Numa falha normal, o bloco acima da superfície inclinada da falha desce em relação ao bloco abaixo. Numa falha inversa, o bloco superior sobe e avança sobre o inferior, e uma falha inversa de mergulho baixo é chamada de falha de empurrão. Numa falha transcorrente, os blocos deslizam lateralmente um ao lado do outro, e as falhas que combinam movimento lateral e vertical são chamadas de falhas oblíquas (USGS n.d.d). Uma falha transcorrente é descrita como dextral ou sinistral conforme o sentido em que o lado oposto parece se mover quando visto do outro lado da falha. As falhas de San Andreas e do Norte da Anatólia são dextrais; a Falha do Leste da Anatólia é sinistral.",
+          "Cada tipo reflete uma disposição diferente das tensões. Ernest Masson Anderson (1905) observou que, como a superfície do terreno não suporta tensão de cisalhamento, uma das três tensões principais na crosta rasa é quase vertical. Se a maior tensão de compressão é vertical, como onde a crosta está sendo esticada, formam-se falhas normais. Se a menor é vertical, como onde a crosta está sendo comprimida, formam-se falhas inversas e de empurrão. Se a tensão intermediária é vertical, formam-se falhas transcorrentes. Com o atrito típico das rochas, a teoria prevê falhas normais com mergulho de cerca de 60 graus, falhas de empurrão de cerca de 30 graus e falhas transcorrentes quase verticais."
+        ]
+      },
+      {
+        "h": "Atrito de stick-slip: como as falhas acumulam e liberam energia",
+        "p": [
+          "O rebote elástico descreve a carga. O atrito explica por que a liberação é repentina, e não gradual. Em experimentos de laboratório com rochas, Brace and Byerlee (1966) constataram que superfícies sob alta pressão não deslizavam suavemente, mas ficavam presas, deslizavam bruscamente e voltavam a ficar presas. Eles propuseram que os terremotos rasos podem ser esse movimento de stick-slip (prende-desliza) nas falhas e observaram que a tensão liberada em cada evento de deslizamento era apenas uma pequena parte da tensão que a rocha suportava (Brace and Byerlee 1966).",
+          "Trabalhos posteriores transformaram essa observação em leis de atrito das rochas. Scholz (1998) resumiu como o resultado depende de o atrito aumentar ou diminuir à medida que o deslizamento se acelera. Onde o atrito aumenta com a velocidade, qualquer deslizamento freia a si mesmo e a falha desliza de forma estável. Onde o atrito diminui com a velocidade, o deslizamento pode se acelerar até uma ruptura instável, que é um terremoto. Scholz argumentou que uma única lei constitutiva desse tipo explica uma ampla gama de comportamentos sísmicos, incluindo quanto do movimento de uma falha é liberado em terremotos e quanto ocorre sem eles (Scholz 1998).",
+          "A distinção importa na escala de falhas inteiras. Um trecho de falha com atrito que enfraquece com a velocidade pode travar e mais tarde se romper violentamente. Um trecho com atrito que se fortalece com a velocidade tende a rastejar."
+        ]
+      },
+      {
+        "h": "Trechos travados e trechos em rastejamento na Falha de San Andreas",
+        "p": [
+          "A maior parte da Falha de San Andreas está travada. Entre grandes terremotos, seus dois lados permanecem presos em profundidade enquanto as placas continuam se movendo, e a deformação se acumula na rocha ao redor, como Reid descreveu. O trecho que se rompeu em 1906 se comporta dessa forma.",
+          "Entre San Juan Bautista e Parkfield, no centro da Califórnia, a falha se comporta de maneira diferente. Ali, os dois lados deslizam um ao lado do outro de forma mais ou menos contínua, num processo chamado rastejamento assísmico (creep), que move o terreno sem produzir grandes terremotos. Titus et al. (2006) voltaram a medir sete linhas de alinhamento, fileiras de marcos topográficos instalados atravessando a falha, e obtiveram taxas médias mínimas de deslizamento de 21 a 26 milímetros por ano ao longo de 33 a 36 anos. Os resultados indicam um rastejamento aproximadamente constante ao longo do segmento central em rastejamento por pelo menos 35 anos (Titus et al. 2006).",
+          "O rastejamento é visível na superfície. Onde uma falha em rastejamento atravessa uma cidade, meios-fios, calçadas e muros ficam curvados ou deslocados um pouco mais a cada ano. A cidade de Hollister, perto da extremidade norte do trecho em rastejamento, é um exemplo bem conhecido, embora a falha que passa por suas ruas seja a Falha de Calaveras, um ramo do sistema de San Andreas, e não a própria San Andreas.",
+          "Um trecho em rastejamento não acumula deformação da mesma forma que um trecho travado, e também pode limitar a propagação das rupturas. Após o terremoto de Parkfield de 2004, de magnitude 6,0, que ocorreu na extremidade sul do trecho em rastejamento, estações de GPS mostraram pouco deslizamento durante ou depois do terremoto ao longo do segmento central em rastejamento (Titus et al. 2006). O rastejamento não torna uma falha inofensiva, já que falhas em rastejamento ainda podem produzir terremotos moderados, mas muda como e onde a tensão se acumula."
+        ]
+      },
+      {
+        "h": "Transferência de tensão e variação da tensão de Coulomb",
+        "p": [
+          "Quando uma falha desliza, a tensão que ela suportava não desaparece. Parte dela é redistribuída para a crosta ao redor, aproximando algumas falhas vizinhas da ruptura e afastando outras. Os sismólogos medem isso com o critério de ruptura de Coulomb, que combina a variação da tensão de cisalhamento que leva uma falha a deslizar com a variação da tensão normal que a mantém fechada (King et al. 1994). As variações de tensão costumam ser expressas em bars; um bar equivale a 0,1 megapascal, aproximadamente a pressão atmosférica ao nível do mar.",
+          "As variações são pequenas em comparação com a tensão total na crosta, mas importam para falhas que já estão perto da ruptura. King et al. (1994) constataram que as réplicas eram abundantes onde a tensão de Coulomb em falhas com orientação favorável aumentou mais de cerca de meio bar, e escassas onde diminuiu numa quantidade semelhante. As regiões onde a tensão caiu são chamadas de sombras de tensão. O mesmo estudo calculou que os terremotos de Landers e Big Bear de 1992, no sul da Califórnia, aumentaram a tensão no trecho de San Bernardino da Falha de San Andreas em 2 a 6 bars, o suficiente para antecipar o próximo grande terremoto ali em cerca de uma década (King et al. 1994).",
+          "Stein (1999) revisou as evidências e concluiu que, quando as variações de tensão são convertidas em variações de probabilidade, o risco sísmico é fortemente influenciado pelas interações entre terremotos. A chance de ruptura de uma falha depende, portanto, da sua própria carga e do que suas vizinhas fizeram recentemente."
+        ]
+      },
+      {
+        "h": "A Falha do Norte da Anatólia: uma sequência de terremotos desde 1939",
+        "p": [
+          "A Falha do Norte da Anatólia, uma falha transcorrente dextral que atravessa o norte da Turquia, oferece o exemplo mais claro de terremotos que avançam ao longo de uma falha. A sequência começou em 26 de dezembro de 1939 com um terremoto de magnitude 7,8 perto de Erzincan, no leste, que matou 32.700 pessoas (USGS n.d.e).",
+          "Nas décadas seguintes, grandes terremotos romperam trechos sucessivos da falha, avançando na maioria das vezes para oeste. Stein et al. (1997) estudaram dez terremotos de magnitude 6,7 ou maior que, juntos, romperam 1.000 quilômetros da falha entre 1939 e 1992. Eles calcularam que nove das dez rupturas haviam sido aproximadas da ruptura pelos tremores anteriores, tipicamente em 1 a 10 bars, o equivalente a 3 a 30 anos de carga tectônica normal. As variações de tensão produziram, em média, um aumento de três vezes na probabilidade de um terremoto durante a década seguinte a cada evento (Stein et al. 1997).",
+          "Os autores usaram o mesmo raciocínio para olhar adiante. Para os 30 anos a partir de 1996, estimaram uma chance de 12 por cento de um terremoto de magnitude 6,7 ou maior perto da cidade portuária de Izmit (Stein et al. 1997). Em 17 de agosto de 1999, um terremoto de magnitude 7,4 segundo as primeiras estimativas (USGS 2000), e 7,6 no relatório do USGS sobre o evento (USGS 1999), atingiu esse trecho da falha. Estimativas do governo apontaram 17.127 mortos e 43.953 feridos, e mais de 250.000 pessoas foram deslocadas (USGS 2000). Os autores não haviam previsto o terremoto; tinham identificado o segmento como mais propenso a se romper do que a maioria.",
+          "A ruptura de 1999 deslocou a concentração de tensão mais para oeste, em direção às falhas sob o Mar de Mármara, perto de Istambul. Levando em conta o terremoto de Izmit, Parsons et al. (2000) calcularam uma probabilidade de 62 ± 15 por cento de tremor forte em Istambul nos 30 anos seguintes e de 32 ± 12 por cento na década seguinte. O cálculo é uma probabilidade, não uma previsão, e as falhas sob o Mar de Mármara continuam sendo uma preocupação central no planejamento de riscos da região."
+        ]
+      },
+      {
+        "h": "Os terremotos de 2023 na Turquia e na Síria, na Falha do Leste da Anatólia",
+        "p": [
+          "A Falha do Leste da Anatólia forma o limite sudeste do bloco da Anatólia e, junto com a Falha do Norte da Anatólia, acomoda o movimento da Turquia para oeste, em direção ao Mar Egeu (USGS n.d.f). Em 6 de fevereiro de 2023, ela foi a origem de dois grandes terremotos com nove horas de intervalo.",
+          "O terremoto de Pazarcık, de magnitude 7,8, rompeu quase 354 quilômetros da Falha do Leste da Anatólia. O segundo, um terremoto de magnitude 7,5 perto de Elbistan, rompeu cerca de 161 quilômetros da Falha de Çardak, separada, mais ao norte (USGS n.d.g). O USGS informou que o número de mortos na Turquia e na Síria passou de 57.000 até o fim de março de 2023 (USGS n.d.g).",
+          "Os dois terremotos mostram a transferência de tensão em ação, e também seus limites. Cálculos de Coulomb indicam que o primeiro terremoto aumentou a tensão em cerca de 1 a 4 bars no trecho da Falha de Çardak onde a segunda ruptura começou, enquanto a reduziu em cerca de 3 a 10 bars na parte dessa falha paralela à Falha do Leste da Anatólia (Toda and Stein 2024). Um aumento de tensão desse tamanho é pequeno em comparação com a tensão liberada num terremoto, mas pode bastar para desencadear uma falha que já está perto da ruptura (Stein et al. 2023).",
+          "Os mesmos cálculos deixaram perguntas em aberto. Alguns trechos da Falha do Leste da Anatólia que receberam mais tensão não se romperam, e parte da Falha de Çardak que não havia sido carregada participou da ruptura de magnitude 7,5. O segundo terremoto também não foi antecedido por tremores precursores, apesar da carga grande e repentina (Stein et al. 2023). A transferência de tensão explica boa parte de onde os terremotos se agrupam, mas ainda não diz qual falha carregada vai se romper, nem quando."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "O que é a teoria do rebote elástico?",
+        "a": "A teoria do rebote elástico afirma que as rochas de cada lado de uma falha travada se curvam lentamente à medida que a crosta se move, acumulando deformação elástica. Quando a tensão supera a resistência da falha, a falha desliza e a rocha volta bruscamente à posição, liberando a energia na forma de um terremoto. Harry Fielding Reid a propôs depois de estudar o movimento do terreno no terremoto de São Francisco de 1906."
+      },
+      {
+        "q": "Quais são os três principais tipos de falha?",
+        "a": "As falhas normais, em que o bloco superior desce, se formam onde a crosta é esticada. As falhas inversas e de empurrão, em que o bloco superior sobe, se formam onde ela é comprimida. As falhas transcorrentes, em que os blocos deslizam lateralmente um ao lado do outro, incluem as falhas de San Andreas e do Norte da Anatólia."
+      },
+      {
+        "q": "O que é uma falha em rastejamento?",
+        "a": "Uma falha em rastejamento desliza devagar e de forma mais ou menos contínua, em vez de ficar travada e se romper em grandes terremotos. A Falha de San Andreas rasteja entre San Juan Bautista e Parkfield, no centro da Califórnia, onde medições mostram um deslizamento constante de aproximadamente 21 a 26 milímetros por ano por mais de três décadas."
+      },
+      {
+        "q": "Um terremoto pode desencadear outro?",
+        "a": "Sim. Um terremoto redistribui a tensão, aumentando-a em algumas falhas vizinhas e reduzindo-a em outras. Falhas que já estão perto da ruptura podem ser levadas ao limite, e é por isso que as réplicas se agrupam onde a tensão de Coulomb aumentou e grandes terremotos às vezes se sucedem ao longo de uma falha."
+      },
+      {
+        "q": "Por que os terremotos avançaram para oeste na Falha do Norte da Anatólia?",
+        "a": "Entre 1939 e 1992, dez terremotos de magnitude 6,7 ou maior romperam cerca de 1.000 quilômetros da falha, e nove deles ocorreram onde tremores anteriores haviam aumentado a tensão. O terremoto de Izmit de 1999 continuou a sequência para oeste, aumentando o risco estimado para Istambul."
+      },
+      {
+        "q": "Qual falha causou o terremoto de 2023 na Turquia e na Síria?",
+        "a": "O terremoto de magnitude 7,8 de 6 de fevereiro de 2023 rompeu quase 354 quilômetros da Falha do Leste da Anatólia. Um terremoto de magnitude 7,5 cerca de nove horas depois rompeu aproximadamente 161 quilômetros da vizinha Falha de Çardak, que o primeiro terremoto havia carregado em parte com tensão adicional."
+      }
+    ]
+  },
+  "earth-interior-seismic-waves": {
+    "title": "O interior da Terra, as ondas sísmicas e como os terremotos são medidos",
+    "dek": "As profundidades da crosta, do manto e do núcleo foram medidas com ondas sísmicas, não com perfurações. As mesmas ondas são usadas hoje para localizar cada terremoto e medir o seu tamanho.",
+    "sections": [
+      {
+        "h": "As camadas da Terra: crosta, manto, núcleo externo e núcleo interno",
+        "p": [
+          "A Terra tem quatro camadas principais, definidas pela forma como as ondas sísmicas se propagam através delas. A mais externa é a crosta. A crosta continental tem espessura mais variável, com média de cerca de 30–35 quilômetros, enquanto a crosta oceânica geralmente chega a apenas cerca de 5 quilômetros (Kious and Tilling 1996).",
+          "Abaixo da crosta fica o manto, uma camada de rocha quente e densa que desce até o núcleo. No Modelo Preliminar de Referência da Terra (PREM), um modelo amplamente usado das propriedades médias do planeta por profundidade, o núcleo tem raio de 3.480 quilômetros, o que situa o limite entre o núcleo e o manto a cerca de 2.900 quilômetros abaixo da superfície (Dziewonski and Anderson 1981).",
+          "O núcleo tem duas partes. O núcleo externo é líquido e o núcleo interno é sólido, com raio de 1.221,5 quilômetros no PREM, de modo que sua superfície fica a cerca de 5.150 quilômetros de profundidade (Dziewonski and Anderson 1981). O PREM foi construído ajustando cerca de 1.000 períodos das oscilações livres da Terra e 500 observações resumidas de tempos de percurso, junto com a massa e o momento de inércia do planeta (Dziewonski and Anderson 1981). Nenhum desses números vem de amostragem direta. Cada limite foi encontrado porque ali as ondas sísmicas mudam de velocidade, se curvam, se refletem ou desaparecem."
+        ]
+      },
+      {
+        "h": "Ondas P, ondas S e ondas superficiais",
+        "p": [
+          "Um terremoto libera vários tipos de ondas sísmicas. As ondas de corpo atravessam o interior da Terra, e as ondas superficiais se propagam ao longo das suas camadas externas. As ondas P, ou ondas primárias, são as mais rápidas e as primeiras a chegar a uma estação de registro. Elas comprimem e esticam a rocha na direção em que se propagam. As ondas S, ou ondas secundárias, cisalham a rocha perpendicularmente à direção de propagação e chegam depois. Na rocha, as ondas S geralmente viajam a cerca de 60 por cento da velocidade das ondas P (USGS n.d.a).",
+          "As ondas superficiais chegam depois dos dois tipos de ondas de corpo. As ondas Love movem o solo de um lado para o outro, e as ondas Rayleigh o fazem rolar num movimento elíptico. As ondas Rayleigh produzem a maior parte do tremor sentido na superfície durante um terremoto (USGS n.d.a).",
+          "A diferença entre as ondas P e S é a chave para o interior profundo da Terra. Um líquido não oferece resistência ao cisalhamento, por isso as ondas S não conseguem atravessá-lo. As ondas P se propagam tanto em sólidos quanto em líquidos, embora desacelerem e mudem de direção ao entrar numa camada líquida (USGS n.d.b)."
+        ]
+      },
+      {
+        "h": "A zona de sombra e por que as ondas S não atravessam o núcleo externo",
+        "p": [
+          "As estações sismográficas do lado oposto do planeta em relação a um grande terremoto registram uma lacuna característica. O USGS descreve a zona de sombra como a área entre as distâncias angulares de 104 e 140 graus a partir do terremoto que não recebe ondas P diretas (USGS n.d.b). O núcleo externo líquido a causa de duas maneiras: detém completamente as ondas S e refrata as ondas P, desviando-as dessa faixa (USGS n.d.b). As ondas S diretas estão ausentes a partir de cerca de 104 graus.",
+          "Richard Dixon Oldham identificou o núcleo pela primeira vez a partir de registros de terremotos em 1906 (Oldham 1906; Brush 1980). O fato de não se detectarem ondas S atravessando o núcleo não bastou, por si só, para convencer os sismólogos de que o núcleo é fluido (Brush 1980). Harold Jeffreys apresentou um argumento mais forte em 1926. Usando as marés terrestres e observações sísmicas, ele mostrou que o núcleo tem rigidez muito menor que a do manto e poderia ser líquido (Jeffreys 1926; Brush 1980)."
+        ]
+      },
+      {
+        "h": "Mohorovičić, Gutenberg e Lehmann: a descoberta da Moho e do núcleo interno",
+        "p": [
+          "Em 8 de outubro de 1909, um terremoto atingiu o vale do Kupa, ao sul de Zagreb. Andrija Mohorovičić, sismólogo em Zagreb, reuniu os sismogramas de estações de toda a Europa e percebeu que, além de certa distância, as ondas P chegavam mais cedo do que uma única camada uniforme permitiria. Ele explicou essas chegadas antecipadas como ondas que haviam mergulhado numa camada mais profunda e mais rápida e voltado. A partir de seus dados, estimou que a camada superior tinha 54 quilômetros de espessura (Herak and Herak 2007). Ele publicou a análise em 1910 (Mohorovičić 1910). O limite entre a crosta e o manto é hoje chamado de descontinuidade de Mohorovičić, ou Moho.",
+          "Beno Gutenberg localizou a borda externa do núcleo. Trabalhando em Göttingen, usou a zona de sombra nos registros de terremotos distantes para situar o limite entre o núcleo e o manto a uma profundidade de cerca de 2.900 quilômetros, resultado publicado em 1914 (Gutenberg 1914; Brush 1980). Os modelos modernos o situam praticamente à mesma profundidade (Dziewonski and Anderson 1981).",
+          "Inge Lehmann, sismóloga dinamarquesa, descobriu o núcleo interno. Estudando os registros de um grande terremoto de 1929 na Nova Zelândia, ela examinou ondas P fracas que chegavam dentro da zona de sombra, onde um núcleo totalmente líquido não deveria ter deixado nenhuma. Num artigo de 1936 intitulado simplesmente P′, ela propôs que as ondas haviam sido desviadas por um núcleo interno menor, dentro do núcleo externo líquido (Lehmann 1936; Kölbl-Ebert 2001). A conclusão de que esse núcleo interno é sólido veio depois. Em 1971, Adam Dziewonski e Freeman Gilbert mostraram, a partir das oscilações livres da Terra, que nenhum modelo com núcleo interno líquido conseguia satisfazer os dados (Dziewonski and Gilbert 1971)."
+        ]
+      },
+      {
+        "h": "Como os sismômetros localizam um terremoto: epicentro, hipocentro e profundidade",
+        "p": [
+          "Um terremoto começa no hipocentro, também chamado de foco, o ponto no interior da Terra onde a ruptura se inicia. O epicentro é o ponto na superfície logo acima dele, e a profundidade focal é a distância entre os dois (USGS n.d.c).",
+          "A localização de um terremoto começa pelos tempos de chegada. Como as ondas P são mais rápidas que as ondas S, o intervalo entre suas chegadas aumenta com a distância, e os sismólogos o convertem em distância usando curvas padrão de tempo de percurso (IRIS n.d.). Uma estação fornece um círculo de epicentros possíveis, duas estações fornecem dois círculos que se cruzam em dois pontos, e três estações reduzem a solução a um único local. O método costuma ser chamado de triangulação (IRIS n.d.).",
+          "As redes modernas trabalham em três dimensões e também calculam o tempo de origem. Na região de Yellowstone, por exemplo, um computador parte de uma estimativa inicial do hipocentro, usa um modelo das velocidades das ondas sísmicas na região para calcular o tempo de chegada esperado em cada estação e ajusta o local e o tempo de origem até que os tempos calculados se ajustem aos medidos. Quanto mais estações registram um terremoto, mais precisa é a localização, e um terremoto registrado em apenas uma ou duas estações não pode ser localizado (USGS n.d.d).",
+          "A profundidade é a parte da solução mais difícil de determinar. Como regra prática, uma profundidade confiável exige uma estação mais próxima do epicentro do que a profundidade do terremoto (USGS n.d.e). Quando os dados não permitem determinar a profundidade, o catálogo a fixa num valor padrão, hoje 10 quilômetros para eventos rasos (USGS n.d.e). Para os terremotos mais bem localizados, no meio de redes densas, a incerteza da localização é de cerca de 100 metros na horizontal e 300 metros na vertical; para eventos localizados com dados globais, ela chega a dezenas de quilômetros (USGS n.d.f). O USGS classifica os terremotos entre 0 e 70 quilômetros de profundidade como rasos, os entre 70 e 300 quilômetros como intermediários e os entre 300 e 700 quilômetros como profundos (USGS n.d.c)."
+        ]
+      },
+      {
+        "h": "Escalas de magnitude: da escala Richter à magnitude de momento",
+        "p": [
+          "Charles Richter publicou a primeira escala instrumental de magnitude em 1935, para terremotos no sul da Califórnia (Richter 1935). Hoje designada ML, de magnitude local, ela se baseia na amplitude máxima registrada num sismógrafo de torção Wood-Anderson a uma distância conhecida. Esses instrumentos já não são muito usados, por isso a ML é calculada a partir de instrumentos modernos, com ajustes. O USGS indica sua faixa útil como aproximadamente magnitude 2,0 a 6,5, para estações a até cerca de 600 quilômetros de distância (USGS n.d.g).",
+          "A escala foi depois ampliada para a magnitude de ondas de corpo (mb) e a magnitude de ondas superficiais (Ms), para aproveitar as estações sismográficas de todo o mundo. Cada uma é válida para uma determinada faixa de frequência e um determinado tipo de sinal sísmico (USGS n.d.h). Todas essas escalas compartilham uma fraqueza: nos grandes terremotos, a amplitude das ondas medidas deixa de crescer na mesma proporção que o tamanho da ruptura. Kanamori (1977) mostrou que essa saturação leva a estimativas imprecisas da energia liberada nos maiores eventos.",
+          "A solução foi medir o tamanho físico da ruptura. O momento sísmico é o produto da rigidez da rocha, da área da falha que deslizou e da distância média do deslizamento (USGS n.d.i). Thomas Hanks e Hiroo Kanamori definiram a escala de magnitude de momento, Mw, a partir do momento sísmico em 1979 (Hanks and Kanamori 1979), com base no trabalho de Kanamori de 1977, que constatou que a escala não satura e atribuiu ao terremoto do Chile de 1960 a magnitude 9,5 (Kanamori 1977). Como a magnitude aumenta em dois terços do logaritmo do momento, cada grau inteiro na escala corresponde a cerca de 32 vezes mais momento sísmico.",
+          "Para terremotos muito grandes, a magnitude de momento fornece a estimativa de tamanho mais confiável (USGS n.d.h). O USGS calcula uma magnitude de momento de fase W, Mww, para todos os terremotos de magnitude 5,0 ou maior no mundo e a considera a referência quando disponível (USGS n.d.g). Procedimentos diferentes costumam dar magnitudes ligeiramente diferentes para o mesmo terremoto, e é por isso que os primeiros relatos podem mudar à medida que chegam mais dados (USGS n.d.h)."
+        ]
+      },
+      {
+        "h": "Magnitude e intensidade: a escala de Mercalli Modificada",
+        "p": [
+          "A magnitude descreve o tamanho de um terremoto na sua origem. A intensidade descreve a força do tremor num lugar específico. Um terremoto tem uma única magnitude, mas muitas intensidades, uma para cada lugar onde o tremor é avaliado (USGS n.d.j).",
+          "Nos Estados Unidos, a intensidade é atribuída na escala de Intensidade de Mercalli Modificada, desenvolvida por Harry Wood e Frank Neumann em 1931 (Wood and Neumann 1931). Seus níveis são escritos em algarismos romanos e vão de um tremor imperceptível à destruição catastrófica (USGS n.d.k). A escala classifica os efeitos observados, em vez de registrar uma medição feita por um instrumento (USGS n.d.k).",
+          "Os relatos do público hoje alimentam diretamente os mapas de intensidade. O programa Did You Feel It? (Você sentiu?) do USGS reúne relatos de pessoas que sentiram um terremoto e os converte em valores de intensidade comunitária. Onde há tanto instrumentos quanto relatos, esses valores são usados para calibrar as equações que convertem o movimento do solo medido em intensidade no ShakeMap (USGS n.d.l)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quais são as camadas da Terra?",
+        "a": "A Terra tem uma crosta rochosa, um manto que se estende até cerca de 2.900 quilômetros de profundidade, um núcleo externo líquido e um núcleo interno sólido. No modelo de referência padrão, o núcleo interno tem raio de cerca de 1.220 quilômetros. Todos esses limites foram descobertos estudando como as ondas sísmicas atravessam o planeta."
+      },
+      {
+        "q": "Por que as ondas S não atravessam o núcleo externo?",
+        "a": "As ondas S movem a rocha cisalhando-a, e um líquido não oferece resistência ao cisalhamento. O núcleo externo é líquido, então as ondas S param no limite entre o núcleo e o manto. Por isso, não chegam ondas S diretas a estações a mais de cerca de 104 graus de um terremoto."
+      },
+      {
+        "q": "O que é a zona de sombra sísmica?",
+        "a": "A zona de sombra das ondas P é a faixa entre cerca de 104 e 140 graus a partir de um terremoto que não recebe ondas P diretas. O núcleo externo líquido desvia as ondas P dessa faixa e bloqueia completamente as ondas S. Ondas P fracas encontradas dentro da zona levaram Inge Lehmann a propor a existência do núcleo interno em 1936."
+      },
+      {
+        "q": "Qual a diferença entre epicentro e hipocentro?",
+        "a": "O hipocentro é o ponto no interior da Terra onde a ruptura começa. O epicentro é o ponto na superfície logo acima dele. A distância entre os dois é a profundidade focal."
+      },
+      {
+        "q": "A escala Richter ainda é usada?",
+        "a": "A magnitude local de Richter, ML, ainda é calculada para terremotos pequenos e moderados com instrumentos modernos. Nos grandes terremotos, ela e outras escalas baseadas em amplitude saturam, por isso os sismólogos informam a magnitude de momento, que se baseia na área e no deslizamento da falha."
+      },
+      {
+        "q": "Qual a diferença entre magnitude e intensidade de um terremoto?",
+        "a": "A magnitude mede o tamanho de um terremoto na sua origem, e cada terremoto tem uma só. A intensidade mede com que força o solo tremeu num lugar específico, então um terremoto tem muitas intensidades. Nos Estados Unidos, a intensidade é dada na escala de Mercalli Modificada, em algarismos romanos."
+      }
+    ]
+  },
+  "aftershocks-and-hazards": {
+    "title": "Réplicas, liquefação e outros perigos dos terremotos explicados",
+    "dek": "Um grande terremoto é o início de uma sequência, não um evento isolado. Veja como as réplicas se comportam e por que os danos de um terremoto dependem tanto do solo quanto da sua magnitude.",
+    "sections": [
+      {
+        "h": "O que são réplicas e como a lei de Omori as descreve",
+        "p": [
+          "Os terremotos se agrupam no tempo e no espaço. Dentro de um agrupamento, os sismólogos chamam o maior evento de tremor principal, os terremotos anteriores a ele de tremores precursores e os posteriores de réplicas (Jones and Reasenberg 1996). Como regra prática, um terremoto é considerado réplica se estiver a até uma ou duas vezes o comprimento da ruptura da falha em relação ao tremor principal. Essa distância varia muito: a ruptura teve cerca de 15 quilômetros de comprimento no terremoto de Northridge de 1994 e 430 quilômetros no terremoto de São Francisco de 1906 (Jones and Reasenberg 1996).",
+          "O sismólogo japonês Fusakichi Omori publicou a primeira descrição quantitativa do decaimento das réplicas em 1894, com base nas réplicas do terremoto de Nōbi de 1891, no centro do Japão. Sua fórmula afirma que a taxa de réplicas cai aproximadamente na proporção do inverso do tempo decorrido desde o tremor principal. Tokuji Utsu acrescentou depois um expoente, p, que permite que o decaimento seja um pouco mais rápido ou mais lento do que isso, e uma revisão publicada um século após o artigo de Omori concluiu que a fórmula modificada geralmente oferece uma descrição adequada de como a atividade de réplicas muda ao longo do tempo (Utsu et al. 1995).",
+          "Na prática, o segundo dia após um tremor principal traz cerca da metade das réplicas do primeiro, e o décimo dia, cerca de um décimo (Jones and Reasenberg 1996). Réplicas de todos os tamanhos diminuem no mesmo ritmo, então uma sequência não esgota primeiro os eventos grandes (Jones and Reasenberg 1996). Sismólogos do sul da Califórnia observaram que as réplicas do terremoto de Landers de 1992 foram ficando menos frequentes com o tempo, e não menores, e que eventos de magnitude 5 ainda podiam ocorrer em fases avançadas da sequência, apenas mais espaçados (SCEDC 1999)."
+        ]
+      },
+      {
+        "h": "Qual o tamanho máximo de uma réplica? A lei de Båth",
+        "p": [
+          "Tremores principais maiores tendem a produzir réplicas maiores (Jones and Reasenberg 1996). O sismólogo sueco Markus Båth deu um número a essa relação. A lei de Båth afirma que a maior réplica é, em média, cerca de 1,2 unidade de magnitude menor que o tremor principal, independentemente da magnitude do tremor principal (Båth 1965; Helmstetter and Sornette 2003). Por essa regra, um tremor principal de magnitude 7,0 seria normalmente seguido por uma maior réplica de magnitude próxima de 5,8.",
+          "O valor é uma média de muitas sequências, e sequências individuais se afastam dele nos dois sentidos. Helmstetter and Sornette (2003) mostraram que a lei pode ser reproduzida a partir de duas outras propriedades estatísticas dos terremotos: a distribuição de magnitudes descrita abaixo e a forma como as réplicas desencadeiam novas réplicas. Eles argumentaram que sua origem está em parte na forma como os tremores principais e as réplicas são definidos, e não num mecanismo físico separado."
+        ]
+      },
+      {
+        "h": "A lei de Gutenberg–Richter e o que significa o valor b",
+        "p": [
+          "Os terremotos pequenos são muito mais numerosos que os grandes, e essa proporção é regular. Beno Gutenberg e Charles Richter descreveram a relação num estudo de 1944 sobre terremotos na Califórnia (Gutenberg and Richter 1944). Ela costuma ser escrita como log N = a − bM, em que N é o número de terremotos de magnitude M ou maior, a reflete o nível geral de atividade e b define a rapidez com que a contagem cai à medida que a magnitude aumenta.",
+          "O valor b é próximo de 1 na maioria dos catálogos globais, um resultado tão bem estabelecido que uma revisão de 1993 recebeu o subtítulo “much ado about 1.0” (Frohlich and Davis 1993). Com b igual a 1, cada aumento de uma unidade de magnitude reduz o número de terremotos por um fator de dez. Uma região que registra 100 terremotos de magnitude 5 ou maior num determinado período registraria, em média, cerca de 10 de magnitude 6 ou maior e cerca de um de magnitude 7 ou maior.",
+          "O valor não é fixo. Os catálogos globais dão valores b de aproximadamente 0,72 a 1,34, e parte dessa dispersão reflete erros de detecção, localização e magnitude, e não diferenças reais (Frohlich and Davis 1993). Parte da variação é genuína. Schorlemmer et al. (2005) constataram que b é menor nas falhas de empurrão e maior nas falhas normais e interpretaram a diferença como sinal de que as falhas de empurrão operam sob tensão mais alta. Na Califórnia, b diminui à medida que os terremotos ficam mais profundos (Mori and Abercrombie 1997). Um valor b mais baixo significa que os grandes terremotos representam uma parcela maior do total, e é por isso que o parâmetro importa nas estimativas de risco."
+        ]
+      },
+      {
+        "h": "Quanto tempo duram as réplicas?",
+        "p": [
+          "Um terremoto é considerado réplica enquanto a taxa de terremotos na área continuar acima da taxa anterior ao tremor principal. O tempo que isso leva depende do tamanho do tremor principal e de quão ativa a região era antes, já que as réplicas se destacam por mais tempo contra um fundo tranquilo (Jones and Reasenberg 1996). Oito anos e meio após o terremoto de Landers de 1992, as réplicas haviam se tornado raras e espaçadas, mas ainda ocorriam claramente acima da taxa de fundo (SCEDC 2001).",
+          "Toda and Stein (2018) constataram que a duração de uma sequência depende menos do tamanho do tremor principal do que da velocidade com que a falha desliza. Estudando o terremoto de Tohoku-Oki de 2011 e outros oito grandes tremores principais no Japão, encontraram sequências que duraram cerca de um mês nas falhas de deslizamento mais rápido e projetaram que as sequências nas falhas mais lentas persistiriam por mais de 2.000 anos. Em regiões de deformação lenta, longe dos limites de placas, sequências de réplicas de longa duração podem, portanto, ser confundidas com a atividade de fundo normal, o que pode inflar as estimativas de risco futuro (Toda and Stein 2018)."
+        ]
+      },
+      {
+        "h": "O que torna destrutivo o tremor de um terremoto: distância, profundidade, solo e duração",
+        "p": [
+          "A magnitude mede o tamanho da fonte do terremoto, e não o tremor num lugar específico. O Serviço Geológico dos Estados Unidos (USGS) inclui o tipo de terremoto, sua profundidade, a distância até a ruptura da falha e o material do terreno, do solo mole à rocha firme, entre os fatores que determinam o que as pessoas sentem, junto com o tipo de construção dos edifícios (USGS n.d.a). O tremor geralmente é mais forte perto da falha que se rompe e enfraquece com a distância. Um terremoto profundo coloca essa distância entre a fonte e tudo o que está na superfície acima dela.",
+          "As condições locais do terreno podem pesar mais que a distância. Pesquisas do Centro de Terremotos do Sul da Califórnia (SCEC) e do USGS constataram que, num mesmo terremoto, o tremor num local pode facilmente ser dez vezes mais forte do que num local vizinho à mesma distância da falha. Os fatores locais mais importantes foram a moleza da rocha ou do solo perto da superfície e a espessura dos sedimentos sobre a rocha firme (SCEC n.d.; Field et al. 2000).",
+          "A Cidade do México em 1985 é o exemplo clássico. O terremoto de magnitude 8,0 de 19 de setembro de 1985 ocorreu ao largo da costa do Pacífico, em Michoacán, a aproximadamente 350 a 400 quilômetros da capital (Furumura and Kennett 1998). As acelerações máximas do solo na região epicentral foram baixas, mas os danos na Cidade do México foram graves (Anderson et al. 1986). As partes centrais da cidade ficam sobre argila mole e saturada de água, depositada num antigo lago. Em comparação com um local na zona de morros da cidade, os locais do antigo leito do lago amplificaram o movimento do solo por fatores de 8 a 56 em seus períodos naturais (Singh et al. 1988). A duração aumentou o efeito: o tremor forte na zona do leito do lago durou mais de três minutos (Furumura and Kennett 1998). As estimativas do número de mortos variam muito; o número atribuído ao USGS é de pelo menos 9.500, e outras estimativas são consideravelmente mais altas (Live Science n.d.)."
+        ]
+      },
+      {
+        "h": "Liquefação e deslizamentos de terra desencadeados por terremotos",
+        "p": [
+          "A liquefação ocorre quando um tremor forte atinge areia e silte soltos e saturados de água, e o solo firme começa a se comportar como um líquido (USGS n.d.b). O tremor aumenta a pressão da água entre os grãos até que eles percam o contato entre si. O terreno pode então perder a capacidade de sustentar edifícios, escorrer até mesmo por encostas suaves e irromper na superfície como vulcões de areia (USGS n.d.c).",
+          "O terremoto de Niigata, de magnitude 7,5, em 16 de junho de 1964, causou grandes danos a estruturas de engenharia por meio da liquefação do solo arenoso (Seed and Idriss 1967). Em Kawagishi-cho, perto do rio Shinano, prédios de apartamentos sofreram ruptura da capacidade de suporte do solo e se inclinaram fortemente, embora permanecessem estruturalmente quase intactos (University of Washington n.d.). A análise que Seed and Idriss (1967) publicaram após o terremoto se tornou uma das bases da avaliação moderna da liquefação.",
+          "A sequência de terremotos de Canterbury de 2010–2011, na Nova Zelândia, repetiu a lição numa cidade moderna. O terremoto de magnitude 6,2 de 22 de fevereiro de 2011 matou 185 pessoas (Canterbury Earthquakes Royal Commission n.d.). A liquefação nos solos naturais foi maior, tanto em extensão quanto em gravidade, do que no terremoto de Darfield, de magnitude 7,1, em setembro de 2010. Foi mais grave nas áreas residenciais a leste do centro comercial, onde se combinaram o tremor forte perto da falha, um lençol freático a cerca de um metro abaixo da superfície e solos altamente suscetíveis. No centro da cidade, a liquefação fez edifícios afundarem e se inclinarem (Cubrinovski et al. 2011).",
+          "Os deslizamentos de terra são outro perigo secundário comum. Um estudo de 40 terremotos históricos constatou que quedas de rochas, deslizamentos de solo desagregado e deslizamentos de rocha foram os tipos mais abundantes e os desencadeados pelo tremor mais fraco. A área máxima que pode ser afetada cresce de praticamente zero, por volta da magnitude 4,0, até cerca de 500.000 quilômetros quadrados na magnitude 9,2 (Keefer 1984). O terremoto de Wenchuan, de magnitude 7,9, na China, em 12 de maio de 2008, desencadeou mais de 60.000 deslizamentos de terra (Zhang et al. 2016). As estimativas das mortes que eles causaram vão de cerca de 20.000 (Yin et al. 2009) a 25.000–30.000 (Zhang et al. 2016).",
+          "Os tsunamis se formam quando falhas rasas deslizam durante grandes terremotos e deslocam rapidamente o fundo do mar na vertical, na maioria das vezes em zonas de subducção (USGS n.d.d). Como eles se propagam e o que fazer é explicado no guia Tsunamis, na seção Ciência."
+        ]
+      },
+      {
+        "h": "Terremotos induzidos: a injeção de águas residuais em Oklahoma",
+        "p": [
+          "A atividade humana também pode desencadear terremotos. Bombear fluidos para as profundezas aumenta a pressão dos fluidos dentro das falhas, o que pode permitir que uma falha sob tensão deslize (Ellsworth 2013). O fraturamento hidráulico, ou fracking, causa diretamente apenas uma pequena porcentagem dos terremotos induzidos que são sentidos. O descarte de águas residuais em poços profundos traz um risco maior, porque injeta volumes maiores por períodos mais longos (Ellsworth 2013; Rubinstein and Mahani 2015). A maioria dos poços não causa terremotos sentidos: de cerca de 35.000 poços ativos de descarte de águas residuais e dezenas de milhares de outros poços de injeção e de fracking nos Estados Unidos, sabia-se que apenas algumas dezenas haviam induzido terremotos sentidos, e a sismicidade induzida pode ocorrer a 10 quilômetros ou mais do ponto de injeção (Rubinstein and Mahani 2015).",
+          "Oklahoma se tornou o caso mais claro. Segundo o USGS, a maioria dos terremotos do estado é causada pelo descarte de águas residuais, e mais de 90 por cento das águas residuais injetadas são um subproduto da extração de petróleo, e não fluido de fracking usado. De 2014 a 2017, a taxa de terremotos de magnitude 3 ou maior no estado superou a da Califórnia (USGS n.d.e). O Serviço Geológico de Oklahoma contou cerca de um terremoto desse tipo por ano de 1976 a 2007 e um recorde de 903 em 2015. Depois que os órgãos reguladores estaduais ordenaram o fechamento de alguns poços e a redução dos volumes de injeção em outros a partir de meados de 2015, a contagem caiu para 623 em 2016, 302 em 2017 e 196 em 2018 (Associated Press 2019).",
+          "O maior terremoto registrado em Oklahoma ocorreu perto de Pawnee em 3 de setembro de 2016. O evento de magnitude 5,8 rompeu uma falha até então não mapeada na rocha cristalina do embasamento. Yeck et al. (2017) observaram que, se tiver sido induzido, ele seria o maior terremoto conhecido induzido por injeção de fluidos, e que ocorreu depois que as reduções de volume já haviam começado. Eles concluíram que os efeitos duradouros do fluido injetado que se espalha pela rocha tornam difícil reduzir rapidamente o risco induzido (Yeck et al. 2017)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Quanto tempo duram as réplicas depois de um grande terremoto?",
+        "a": "As réplicas continuam enquanto a taxa de terremotos na área permanecer acima do nível anterior ao tremor principal. Em falhas de deslizamento rápido, uma sequência pode se dissipar em cerca de um mês, enquanto em falhas de deslizamento lento, longe dos limites de placas, pode persistir por séculos ou mais. A taxa cai rapidamente no início: o décimo dia costuma trazer cerca de um décimo das réplicas do primeiro."
+      },
+      {
+        "q": "Uma réplica pode ser maior que o terremoto principal?",
+        "a": "Por definição, não. O tremor principal é o maior terremoto de um agrupamento; se um terremoto posterior for maior, o primeiro é reclassificado como tremor precursor. Em média, a maior réplica é cerca de 1,2 unidade de magnitude menor que o tremor principal, uma regra conhecida como lei de Båth."
+      },
+      {
+        "q": "O que é a lei de Gutenberg–Richter?",
+        "a": "Ela descreve como o número de terremotos cai à medida que a magnitude aumenta. A inclinação, chamada valor b, é próxima de 1 na maioria dos catálogos globais, o que significa cerca de dez vezes mais terremotos de magnitude 5 do que de magnitude 6. O valor b varia com o tipo de falhamento e com a profundidade."
+      },
+      {
+        "q": "Por que a Cidade do México foi tão atingida em 1985 se o epicentro estava longe?",
+        "a": "O centro da Cidade do México foi construído sobre argila mole e saturada de água de um antigo lago. Esses sedimentos amplificaram o tremor por fatores de 8 a 56 em comparação com o terreno mais firme dos morros da cidade, e o movimento forte durou mais de três minutos, embora o epicentro estivesse a aproximadamente 350 a 400 quilômetros de distância."
+      },
+      {
+        "q": "O que é liquefação do solo num terremoto?",
+        "a": "A liquefação acontece quando o tremor aumenta a pressão da água em areia ou silte soltos e saturados de água até que os grãos percam o contato e o solo se comporte como um líquido. Os edifícios podem afundar ou se inclinar, como aconteceu em Niigata em 1964 e em Christchurch em 2011."
+      },
+      {
+        "q": "O fracking causa terremotos em Oklahoma?",
+        "a": "Na maior parte, não. O USGS atribui a maioria dos terremotos de Oklahoma ao descarte de águas residuais em poços profundos, que em grande parte são um subproduto da extração de petróleo, e não fluido de fracking. O fraturamento hidráulico causa diretamente apenas uma pequena porcentagem dos terremotos induzidos que são sentidos."
+      }
+    ]
+  }
+}
