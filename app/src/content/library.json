@@ -1156,5 +1156,164 @@
         "url": "https://earthquake.usgs.gov/scenarios/related/seattle.php"
       }
     ]
+  },
+  {
+    "id": "magnitude-scales",
+    "icon": "speed",
+    "tone": "violet",
+    "title": "From Richter to Moment Magnitude: Why the Number Changes After an Earthquake",
+    "description": "Why earthquake magnitudes are revised: Richter's local scale, saturation, moment magnitude, W phase and the Tohoku 7.9-to-9.0 update, and why agencies differ.",
+    "dek": "The first magnitude is a fast estimate, and it is meant to change. Here is how Richter's scale gave way to moment magnitude, and what each revision tells you.",
+    "published": "2026-11-17",
+    "updated": "2026-11-17",
+    "mins": 9,
+    "hashtags": ["earthquake", "seismology", "magnitude"],
+    "cardImage": "the app's magnitude widget at M6.0, with circles for M4.0, M5.0 and M6.0 whose areas show the energy released (each step about 32 times more), an estimated energy of about 15 kilotons of TNT and about 158 such earthquakes a year worldwide",
+    "sections": [
+      {
+        "h": "The Number Behind the Headline",
+        "p": [
+          "Within minutes of a significant earthquake, one number appears on phones, news feeds, and tracking sites: the magnitude. An hour later it may read differently, and a few days later it may change again. These revisions often prompt the question of whether seismologists made an error. In most cases the revision reflects a planned sequence of estimates, in which the first figure is a fast calculation from the earliest data and later figures use more data and a better-suited method.",
+          "Magnitude scales are logarithmic. According to the U.S. Geological Survey (USGS), a ten-fold drop in wave amplitude lowers the magnitude by one unit (USGS n.d.a). Each unit also corresponds to about 32 times more energy released (USGS n.d.e). A change of 0.1 or 0.2 therefore has a small physical meaning, while a change of a full unit or more indicates that the first estimate described a very different earthquake.",
+          "The popular name for the scale, the Richter scale, remains in everyday use even though most agencies no longer rely on it for large events. The USGS describes Richter magnitude as a well-known but poorly understood concept (USGS n.d.a). The history of how it was replaced explains most of what happens after an earthquake."
+        ]
+      },
+      {
+        "h": "What Richter Built in 1935",
+        "p": [
+          "Charles Richter developed the first logarithmic magnitude scale in the 1930s to measure earthquakes in southern California, using relatively high-frequency data from nearby seismograph stations. The scale was labeled ML, with the L standing for local, and this is the quantity that became known as the Richter magnitude (USGS n.d.a).",
+          "ML works by reading the maximum shaking amplitude recorded at a station and correcting for the distance to the source. Each station gives its own estimate, and an average across stations produces the reported value (Gardine 2019). The method suited its original setting: a dense regional network, moderate earthquakes, and short distances. Modern seismologists still compute it. The Alaska Earthquake Center reports that its local magnitude works well, with the caveat that it applies only to events below about magnitude 6 (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Why Larger Earthquakes Outgrew the Method",
+        "p": [
+          "As more seismograph stations were installed around the world, it became apparent that Richter's procedure was strictly valid only for certain frequency and distance ranges (USGS n.d.a). Seismologists extended the idea to body-wave magnitude (mb) and surface-wave magnitude (Ms), each valid for a particular frequency range and type of seismic signal. In its range of validity, each is equivalent to the Richter magnitude (USGS n.d.a).",
+          "All three scales share a deeper limitation, which Hanks and Kanamori (1979) described as saturation. They argued that ML, Ms, and mb saturate for the same physical reason: for large enough earthquakes, these narrow-band amplitude measurements stop measuring the overall faulting process and register only a limited part of the signal. The practical result was visible in the catalogs of the time, where the maximum reported mb was about 7 and the maximum reported Ms about 8.3 (Hanks and Kanamori 1979).",
+          "In simplified terms, a great earthquake radiates energy across a wide range of frequencies, but an amplitude measured in one frequency band records only part of that signal. Two earthquakes of very different size can then produce similar amplitudes on the chosen instrument. The measurement reaches a ceiling while the earthquake keeps growing."
+        ]
+      },
+      {
+        "h": "Moment Magnitude: A Measure of the Source",
+        "p": [
+          "Hanks and Kanamori (1979) proposed a scale built on the seismic moment, a physical property of the source that does not depend on the frequency band of an instrument. The USGS describes seismic moment as proportional to the fault slip multiplied by the area of fault surface that slips, and as related to the total energy released (USGS n.d.a). Seismologists can estimate it from seismograms or from geodetic measurements and convert it to a magnitude with a standard formula.",
+          "The formula in the 1979 paper is M = (2/3) log M0 minus 10.7, with the seismic moment M0 in dyne-centimeters. The constants were chosen so that the new scale agrees with the older ones where they were reliable. The authors reported that the relations are uniformly valid for ML between 3 and 7, for Ms between 5 and 7.5, and for moment magnitude of 7.5 and above (Hanks and Kanamori 1979). Moment magnitude (Mw) therefore matches Richter's numbers for moderate earthquakes and continues to grow with the largest ones. The USGS states that it is valid over the complete range of magnitudes, which the older scales lacked (USGS n.d.a).",
+          "Agencies apply this in practice by switching scales with size. The Alaska Earthquake Center computes a local magnitude for all earthquakes, and uses moment magnitude as soon as it is available for events of about magnitude 5.5 and above, and always for events of 6.5 or greater. It considers Mw the best current measure because it reflects the energy released directly (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Why the First Number Is Provisional",
+        "p": [
+          "The speed of the first report limits its accuracy. For large earthquakes outside the United States, the USGS releases an initial magnitude and location within about 20 minutes, using real-time data from the nearest seismic stations (USGS n.d.b). Some of the seismic waves used in magnitude analysis take more than an hour to travel around the Earth to distant stations, so that energy cannot be included in the first release. Some data from contributing networks arrive several minutes late, and some arrive days afterward (USGS n.d.b).",
+          "The USGS identifies two typical update points. The first comes within a few hours, when most real-time data have reached stations worldwide and more sophisticated processing is complete. The second comes within days to weeks, when the event is reanalyzed for the archival catalog using most available seismograms and magnitude estimates from other agencies. In California, Utah, Alaska, and the Pacific Northwest, updates can occur within minutes, particularly when a rapid magnitude is released without human review (USGS n.d.b).",
+          "Two further causes appear in routine practice. The first is a change in magnitude type. The Alaska Earthquake Center explains that its first value is usually a local magnitude, and that a larger event later receives a moment magnitude (Gardine 2019). The second is analyst review. An analyst computes a distance-weighted average across stations and can remove stations whose values differ notably from the average. Location errors matter because distance drives the calculation. An automated depth of 100 kilometers, where the true depth is 5 kilometers, makes every station appear farther away and inflates the magnitude (Gardine 2019). In one example from the center, the magnitude rose from 4.77 using 5 stations to 5.01 using 90 stations (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "The Tohoku Earthquake: A Case Study in Saturation",
+        "p": [
+          "The 11 March 2011 Tohoku earthquake in Japan is the most studied example. The Japan Meteorological Agency first announced a magnitude of 7.9, and the USGS initially announced the same value (Guilhem et al. 2013). The Pacific Tsunami Warning Center's first bulletin also gave 7.9, and the European-Mediterranean Seismological Centre's rapid determination yielded 8.0 (Duputel et al. 2011). Guilhem et al. (2013) attribute such underestimates to saturation: for events of this size, measurements at frequencies above the corner frequency of the rupture cannot register the full seismic moment.",
+          "The correction came from a different type of signal. W phase inversion uses a low-frequency seismic signal to estimate the moment tensor, and with it the seismic moment. Duputel et al. (2011) report that the first W phase results at the USGS and the Pacific Tsunami Warning Center gave moment magnitudes between 8.8 and 9.0. Within the hour, as more data became available, the solutions converged on a common result of about 9.0. Guilhem et al. (2013) describe a moment tensor method that determined the moment magnitude within 8 minutes of the origin time.",
+          "The Incorporated Research Institutions for Seismology (IRIS) describes the same sequence as three steps: a first estimate of 7.9 from limited data within minutes, an intermediate revision as waves reached distant stations, and a final analysis using very low frequency recordings from many stations that raised the estimate to 9.0. After that point the value in the USGS catalog generally remains fixed (IRIS n.d.). Since magnitudes are logarithmic, the step from 7.9 to 9.0 corresponds to about 45 times more energy by the same approximation noted earlier."
+        ]
+      },
+      {
+        "h": "Revisions in the Other Direction",
+        "p": [
+          "Revisions do not always raise the number. After the 22 November 2016 earthquake in Japan, the Japan Meteorological Agency first reported a magnitude of 7.3 and later revised it to 7.4. The USGS also first reported 7.3 and later revised it down to 6.9 (AIR Worldwide 2016). The catastrophe-modeling firm that documented the case explains the difference as a product of the amount of data involved and of the continuing analysis that follows an event.",
+          "Small changes also occur long after the first week. The USGS updated the 2011 Prague, Oklahoma earthquake from Mw 5.6 to 5.7 when a re-analysis was prompted by questions about its size relative to the 2016 Pawnee earthquake. Gavin Hayes of the USGS said the difference in size between the two events is less than 0.1 magnitude units (USGS n.d.d). In Alaska, the 30 November 2018 earthquake moved from 7.0 to 7.1 after three months of review by multiple agencies and academic groups. State seismologist Michael West wrote that most of the data tilted toward 7.1, and seismologist Natalia Ruppert attributed the change to differences in how institutions measure earthquakes (Anchorage Daily News 2019)."
+        ]
+      },
+      {
+        "h": "Where Agencies Differ",
+        "p": [
+          "Two agencies can publish different magnitudes for the same earthquake, and both can be correct for their method. The USGS National Earthquake Information Center routinely calculates as many as a dozen magnitude types, because no single method accurately estimates the size of all earthquakes. Different techniques often measure different physical processes, and the USGS acknowledges that discrepancies between magnitude types for the same event can be large (USGS n.d.c).",
+          "No single scale settles every case. Mw is regarded as the best general measure (Gardine 2019). A local magnitude from a regional network and a moment magnitude from global stations answer slightly different questions. In the Oklahoma example above, the revision was a single tenth of a magnitude unit, and the USGS described the two events it compared as differing in size by less than that (USGS n.d.d)."
+        ]
+      },
+      {
+        "h": "Reading the Number",
+        "p": [
+          "A revised magnitude does not imply that the earthquake did less or more damage than first thought. IRIS notes that large earthquakes are often a cascading sequence of breaks along a long fault rupture, which complicates the first estimate (IRIS n.d.). Magnitude describes the size of the source. The shaking at a particular location also depends on distance, depth, and the local ground.",
+          "For a reader following an evolving event, the sequence is predictable. The first figure is a fast estimate, often a local magnitude. For large events a moment magnitude follows within the first hour as long-period data arrive, and the catalog value can still change slightly over the following days. A shift of a tenth or two reflects added stations and review. A shift of a full unit or more, as in the Tohoku case, reflects a change in the method used to measure the largest earthquakes."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why does an earthquake's magnitude change after the first report?",
+        "a": "The first figure is a fast estimate from the nearest stations, often a local magnitude. As seismic waves reach more distant stations and analysts review the data, agencies refine the value, and for large earthquakes they switch to moment magnitude, which describes the size of the source more completely."
+      },
+      {
+        "q": "Is the Richter scale still used?",
+        "a": "Local magnitude, the scale Charles Richter developed in the 1930s, is still calculated by regional networks for earthquakes below about magnitude 6. For larger earthquakes agencies use moment magnitude (Mw), because Richter's method and the scales that extended it stop growing for the biggest events."
+      },
+      {
+        "q": "What is moment magnitude?",
+        "a": "Moment magnitude, proposed by Thomas Hanks and Hiroo Kanamori in 1979, is calculated from the seismic moment, which depends on how far the fault slipped and over what area. It matches the older scales for moderate earthquakes and keeps growing for the largest ones."
+      },
+      {
+        "q": "What does magnitude saturation mean?",
+        "a": "Older scales measure wave amplitude in a narrow frequency band. For very large earthquakes that band captures only part of the signal, so the measured value reaches a ceiling: in the catalogs Hanks and Kanamori examined, body-wave magnitudes topped out near 7 and surface-wave magnitudes near 8.3."
+      },
+      {
+        "q": "Why was the 2011 Tohoku earthquake first reported as magnitude 7.9?",
+        "a": "The first estimates used methods that saturate for very large earthquakes. Within the hour, W phase inversions using long-period waves gave moment magnitudes of 8.8 to 9.0 and converged on about 9.0."
+      },
+      {
+        "q": "Why do two agencies sometimes report different magnitudes?",
+        "a": "They may use different magnitude types, stations and amounts of data. The USGS calculates as many as a dozen magnitude types because no single method suits every earthquake, and discrepancies between types for the same event can be large."
+      }
+    ],
+    "refs": [
+      {
+        "text": "AIR Worldwide. 2016. \"How Can the Same Earthquake Be M7.4 and M6.9?\" Blog post, December 2016. https://www.air-worldwide.com/Blog/posts/2016/12/How-Can-the-Same-Earthquake-Be-M7-4-and-M6-9/.",
+        "url": "https://www.air-worldwide.com/Blog/posts/2016/12/How-Can-the-Same-Earthquake-Be-M7-4-and-M6-9/"
+      },
+      {
+        "text": "Anchorage Daily News. 2019. \"Correction: Turns Out Alaska's Nov. 30 Earthquake Was Actually 7.1, Not 7.0, Seismologists Say.\" March 8, 2019. https://adn.com/alaska-news/science/2019/03/08/correction-turns-out-alaskas-nov-30-earthquake-was-actually-71-not-70-seismologists-say.",
+        "url": "https://adn.com/alaska-news/science/2019/03/08/correction-turns-out-alaskas-nov-30-earthquake-was-actually-71-not-70-seismologists-say"
+      },
+      {
+        "text": "Duputel, Zacharie, Luis Rivera, Hiroo Kanamori, Gavin P. Hayes, Barry Hirshorn, and Stuart Weinstein. 2011. \"Real-Time W Phase Inversion during the 2011 off the Pacific Coast of Tohoku Earthquake.\" Earth, Planets and Space 63: 535–39. https://doi.org/10.5047/eps.2011.05.032.",
+        "url": "https://doi.org/10.5047/eps.2011.05.032"
+      },
+      {
+        "text": "Gardine, Matt. 2019. \"Why Magnitudes Evolve in the Minutes after an Earthquake.\" Alaska Earthquake Center, February 25, 2019. https://earthquake.alaska.edu/why-magnitudes-evolve-minutes-after-earthquake.",
+        "url": "https://earthquake.alaska.edu/why-magnitudes-evolve-minutes-after-earthquake"
+      },
+      {
+        "text": "Guilhem, A., et al. 2013. \"Moment Tensors for Rapid Characterization of Megathrust Earthquakes: The Example of the 2011 M 9 Tohoku-oki, Japan Earthquake.\" Geophysical Journal International 192: 759–72. https://doi.org/10.1093/gji/ggs045.",
+        "url": "https://doi.org/10.1093/gji/ggs045"
+      },
+      {
+        "text": "Hanks, Thomas C., and Hiroo Kanamori. 1979. \"A Moment Magnitude Scale.\" Journal of Geophysical Research 84 (B5): 2348–50. https://doi.org/10.1029/JB084iB05p02348.",
+        "url": "https://doi.org/10.1029/JB084iB05p02348"
+      },
+      {
+        "text": "IRIS (Incorporated Research Institutions for Seismology). n.d. \"Why Did the Magnitude of a Recent Major Earthquake in the Pacific Change from the Initial Reports?\" FAQ. https://www.iris.edu/hq/faq/changing_magnitudes.",
+        "url": "https://www.iris.edu/hq/faq/changing_magnitudes"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. \"Moment Magnitude, Richter Scale: What Are the Different Magnitude Scales, and Why Are There So Many?\" FAQ. https://www.usgs.gov/faqs/moment-magnitude-richter-scale-what-are-different-magnitude-scales-and-why-are-there-so-many.",
+        "url": "https://www.usgs.gov/faqs/moment-magnitude-richter-scale-what-are-different-magnitude-scales-and-why-are-there-so-many"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.b. \"Why/When Does the USGS Update the Magnitude of an Earthquake?\" FAQ. https://www.usgs.gov/faqs/whywhen-does-usgs-update-magnitude-earthquake.",
+        "url": "https://www.usgs.gov/faqs/whywhen-does-usgs-update-magnitude-earthquake"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.c. \"Why Do USGS Earthquake Magnitudes Differ from Those Published by Other Agencies?\" FAQ. https://usgs.gov/faqs/why-do-usgs-earthquake-magnitudes-differ-those-published-other-agencies.",
+        "url": "https://usgs.gov/faqs/why-do-usgs-earthquake-magnitudes-differ-those-published-other-agencies"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.d. \"Magnitudes of Oklahoma Earthquakes Shift Upward.\" News release. https://www.usgs.gov/news/magnitudes-oklahoma-earthquakes-shift-upward.",
+        "url": "https://www.usgs.gov/news/magnitudes-oklahoma-earthquakes-shift-upward"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.e. \"Earthquake Magnitude, Energy Release, and Shaking Intensity.\" Earthquake Hazards Program. https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity.",
+        "url": "https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity"
+      }
+    ]
   }
 ]
