@@ -538,5 +538,105 @@
         "a": "Lo ShakeMap dello USGS mostra con quanta forza ha tremato il suolo in una regione, invece di indicare soltanto magnitudo ed epicentro. Di norma viene pubblicato entro alcuni minuti da un terremoto moderato o forte."
       }
     ]
+  },
+  "magnitude-scales": {
+    "title": "Da Richter alla magnitudo momento: perché il numero cambia dopo un terremoto",
+    "dek": "La prima magnitudo è una stima rapida, ed è fatta per cambiare. Ecco come la scala di Richter ha lasciato il posto alla magnitudo momento, e che cosa indica ciascuna revisione.",
+    "sections": [
+      {
+        "h": "Il numero dietro il titolo",
+        "p": [
+          "Pochi minuti dopo un terremoto significativo, un numero compare su telefoni, notiziari e siti di monitoraggio: la magnitudo. Un’ora dopo può essere diverso, e qualche giorno più tardi può cambiare ancora. Queste revisioni spingono spesso a chiedersi se i sismologi abbiano commesso un errore. Nella maggior parte dei casi la revisione riflette una sequenza prevista di stime, in cui il primo valore è un calcolo rapido basato sui primi dati e i valori successivi usano più dati e un metodo più adatto.",
+          "Le scale di magnitudo sono logaritmiche. Secondo lo U.S. Geological Survey (USGS), una diminuzione di dieci volte dell’ampiezza delle onde abbassa la magnitudo di un’unità (USGS n.d.a). Ogni unità corrisponde inoltre a circa 32 volte più energia liberata (USGS n.d.e). Una variazione di 0,1 o 0,2 ha quindi un significato fisico modesto, mentre una variazione di un’unità intera o più indica che la prima stima descriveva un terremoto molto diverso.",
+          "Il nome popolare della scala, scala Richter, resta nell’uso quotidiano anche se la maggior parte degli enti non vi fa più affidamento per i grandi eventi. Lo USGS descrive la magnitudo Richter come un concetto molto noto ma poco compreso (USGS n.d.a). La storia di come è stata sostituita spiega gran parte di ciò che accade dopo un terremoto."
+        ]
+      },
+      {
+        "h": "Che cosa costruì Richter nel 1935",
+        "p": [
+          "Negli anni Trenta Charles Richter sviluppò la prima scala logaritmica di magnitudo per misurare i terremoti della California meridionale, usando dati a frequenza relativamente alta provenienti da stazioni sismografiche vicine. La scala fu indicata come ML, dove la L sta per locale, ed è questa la grandezza che divenne nota come magnitudo Richter (USGS n.d.a).",
+          "La ML si ottiene leggendo l’ampiezza massima dello scuotimento registrata in una stazione e correggendola per la distanza dalla sorgente. Ogni stazione fornisce una propria stima, e la media tra le stazioni produce il valore comunicato (Gardine 2019). Il metodo era adatto al contesto originario: una rete regionale fitta, terremoti moderati e distanze brevi. I sismologi moderni la calcolano ancora. L’Alaska Earthquake Center riferisce che la sua magnitudo locale funziona bene, con la riserva che si applica solo agli eventi al di sotto di circa magnitudo 6 (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Perché i terremoti più grandi superarono il metodo",
+        "p": [
+          "Con l’installazione di un numero crescente di stazioni sismografiche nel mondo, divenne evidente che la procedura di Richter era rigorosamente valida solo per determinati intervalli di frequenza e di distanza (USGS n.d.a). I sismologi estesero l’idea alla magnitudo delle onde di volume (mb) e alla magnitudo delle onde superficiali (Ms), ciascuna valida per un particolare intervallo di frequenza e tipo di segnale sismico. Nel proprio intervallo di validità, ciascuna equivale alla magnitudo Richter (USGS n.d.a).",
+          "Tutte e tre le scale condividono un limite più profondo, che Hanks e Kanamori (1979) descrissero come saturazione. Sostennero che ML, Ms e mb saturano per la stessa ragione fisica: per terremoti abbastanza grandi, queste misure di ampiezza in banda stretta smettono di misurare il processo di fagliazione nel suo complesso e registrano solo una parte limitata del segnale. Il risultato pratico era visibile nei cataloghi dell’epoca, in cui la mb massima riportata era di circa 7 e la Ms massima riportata di circa 8,3 (Hanks and Kanamori 1979).",
+          "In termini semplificati, un grande terremoto irradia energia su un ampio intervallo di frequenze, ma un’ampiezza misurata in una sola banda di frequenza registra solo una parte di quel segnale. Due terremoti di dimensioni molto diverse possono allora produrre ampiezze simili sullo strumento scelto. La misura raggiunge un tetto mentre il terremoto continua a crescere."
+        ]
+      },
+      {
+        "h": "La magnitudo momento: una misura della sorgente",
+        "p": [
+          "Hanks e Kanamori (1979) proposero una scala fondata sul momento sismico, una proprietà fisica della sorgente che non dipende dalla banda di frequenza di uno strumento. Lo USGS descrive il momento sismico come proporzionale allo scorrimento della faglia moltiplicato per l’area della superficie di faglia che scorre, e come legato all’energia totale liberata (USGS n.d.a). I sismologi possono stimarlo dai sismogrammi o da misure geodetiche e convertirlo in magnitudo con una formula standard.",
+          "La formula dell’articolo del 1979 è M = (2/3) log M0 meno 10.7, con il momento sismico M0 espresso in dine-centimetri. Le costanti furono scelte in modo che la nuova scala concordasse con quelle precedenti dove queste erano affidabili. Gli autori riferirono che le relazioni sono uniformemente valide per ML tra 3 e 7, per Ms tra 5 e 7,5 e per magnitudo momento pari o superiori a 7,5 (Hanks and Kanamori 1979). La magnitudo momento (Mw) coincide quindi con i valori di Richter per i terremoti moderati e continua a crescere per quelli più grandi. Lo USGS afferma che è valida sull’intero intervallo di magnitudo, cosa che mancava alle scale precedenti (USGS n.d.a).",
+          "Nella pratica gli enti applicano questo principio cambiando scala in base alle dimensioni. L’Alaska Earthquake Center calcola una magnitudo locale per tutti i terremoti, e usa la magnitudo momento non appena è disponibile per gli eventi di circa magnitudo 5,5 e superiore, e sempre per quelli di 6,5 o più. Considera la Mw la migliore misura attuale perché riflette direttamente l’energia liberata (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Perché il primo numero è provvisorio",
+        "p": [
+          "La rapidità del primo comunicato ne limita l’accuratezza. Per i grandi terremoti al di fuori degli Stati Uniti, lo USGS diffonde una magnitudo e una localizzazione iniziali entro circa 20 minuti, usando dati in tempo reale dalle stazioni sismiche più vicine (USGS n.d.b). Alcune delle onde sismiche usate nell’analisi della magnitudo impiegano più di un’ora per percorrere la Terra fino alle stazioni lontane, quindi quell’energia non può rientrare nel primo comunicato. Alcuni dati delle reti che collaborano arrivano con diversi minuti di ritardo, e alcuni giorni dopo (USGS n.d.b).",
+          "Lo USGS individua due momenti tipici di aggiornamento. Il primo arriva entro poche ore, quando la maggior parte dei dati in tempo reale ha raggiunto le stazioni di tutto il mondo e un’elaborazione più sofisticata è completata. Il secondo arriva nel giro di giorni o settimane, quando l’evento viene rianalizzato per il catalogo d’archivio usando la maggior parte dei sismogrammi disponibili e le stime di magnitudo di altri enti. In California, Utah, Alaska e nel Pacifico nord-occidentale, gli aggiornamenti possono avvenire nel giro di minuti, in particolare quando una magnitudo rapida viene diffusa senza revisione umana (USGS n.d.b).",
+          "Nella prassi ordinaria compaiono altre due cause. La prima è un cambio del tipo di magnitudo. L’Alaska Earthquake Center spiega che il suo primo valore è di solito una magnitudo locale, e che un evento più grande riceve in seguito una magnitudo momento (Gardine 2019). La seconda è la revisione da parte di un analista. Un analista calcola una media ponderata per la distanza tra le stazioni e può escludere le stazioni i cui valori si discostano nettamente dalla media. Gli errori di localizzazione contano perché la distanza determina il calcolo. Una profondità automatica di 100 chilometri, quando quella reale è di 5 chilometri, fa apparire ogni stazione più lontana e gonfia la magnitudo (Gardine 2019). In un esempio del centro, la magnitudo salì da 4,77 con 5 stazioni a 5,01 con 90 stazioni (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Il terremoto di Tohoku: un caso di studio sulla saturazione",
+        "p": [
+          "Il terremoto di Tohoku dell’11 marzo 2011 in Giappone è l’esempio più studiato. L’Agenzia meteorologica giapponese annunciò inizialmente una magnitudo di 7,9, e lo USGS annunciò in un primo momento lo stesso valore (Guilhem et al. 2013). Anche il primo bollettino del Pacific Tsunami Warning Center indicava 7,9, e la determinazione rapida del Centro sismologico euro-mediterraneo diede 8,0 (Duputel et al. 2011). Guilhem et al. (2013) attribuiscono queste sottostime alla saturazione: per eventi di queste dimensioni, le misure a frequenze superiori alla frequenza d’angolo della rottura non riescono a registrare l’intero momento sismico.",
+          "La correzione venne da un tipo diverso di segnale. L’inversione della fase W usa un segnale sismico a bassa frequenza per stimare il tensore momento, e con esso il momento sismico. Duputel et al. (2011) riferiscono che i primi risultati della fase W allo USGS e al Pacific Tsunami Warning Center diedero magnitudo momento comprese tra 8,8 e 9,0. Entro l’ora, man mano che si rendevano disponibili più dati, le soluzioni convergevano su un risultato comune di circa 9,0. Guilhem et al. (2013) descrivono un metodo basato sul tensore momento che determinò la magnitudo momento entro 8 minuti dal tempo origine.",
+          "L’Incorporated Research Institutions for Seismology (IRIS) descrive la stessa sequenza in tre fasi: una prima stima di 7,9 da dati limitati nel giro di minuti, una revisione intermedia quando le onde raggiunsero le stazioni lontane, e un’analisi finale basata su registrazioni a frequenza molto bassa da molte stazioni che portò la stima a 9,0. Da quel momento il valore nel catalogo dello USGS rimane in genere invariato (IRIS n.d.). Poiché le magnitudo sono logaritmiche, il passaggio da 7,9 a 9,0 corrisponde a circa 45 volte più energia, secondo la stessa approssimazione citata in precedenza."
+        ]
+      },
+      {
+        "h": "Revisioni nella direzione opposta",
+        "p": [
+          "Le revisioni non fanno sempre salire il numero. Dopo il terremoto del 22 novembre 2016 in Giappone, l’Agenzia meteorologica giapponese comunicò inizialmente una magnitudo di 7,3 e la rivide poi a 7,4. Anche lo USGS comunicò in un primo momento 7,3 e la rivide poi al ribasso a 6,9 (AIR Worldwide 2016). La società di modellazione delle catastrofi che documentò il caso spiega la differenza come effetto della quantità di dati coinvolti e dell’analisi che prosegue dopo un evento.",
+          "Piccole variazioni avvengono anche molto dopo la prima settimana. Lo USGS aggiornò il terremoto di Prague, in Oklahoma, del 2011 da Mw 5,6 a 5,7 quando una nuova analisi fu sollecitata da domande sulle sue dimensioni rispetto al terremoto di Pawnee del 2016. Gavin Hayes dello USGS dichiarò che la differenza di dimensioni tra i due eventi è inferiore a 0,1 unità di magnitudo (USGS n.d.d). In Alaska, il terremoto del 30 novembre 2018 passò da 7,0 a 7,1 dopo tre mesi di revisione da parte di più enti e gruppi accademici. Il sismologo di Stato Michael West scrisse che la maggior parte dei dati propendeva per 7,1, e la sismologa Natalia Ruppert attribuì il cambiamento alle differenze nel modo in cui le istituzioni misurano i terremoti (Anchorage Daily News 2019)."
+        ]
+      },
+      {
+        "h": "Dove gli enti divergono",
+        "p": [
+          "Due enti possono pubblicare magnitudo diverse per lo stesso terremoto, ed entrambe possono essere corrette per il rispettivo metodo. Il National Earthquake Information Center dello USGS calcola abitualmente fino a una dozzina di tipi di magnitudo, perché nessun metodo singolo stima con precisione le dimensioni di tutti i terremoti. Tecniche diverse misurano spesso processi fisici diversi, e lo USGS riconosce che le discrepanze tra tipi di magnitudo per lo stesso evento possono essere grandi (USGS n.d.c).",
+          "Nessuna scala singola risolve ogni caso. La Mw è considerata la migliore misura generale (Gardine 2019). Una magnitudo locale ottenuta da una rete regionale e una magnitudo momento ottenuta da stazioni globali rispondono a domande leggermente diverse. Nell’esempio dell’Oklahoma citato sopra, la revisione fu di un solo decimo di unità di magnitudo, e lo USGS descrisse i due eventi messi a confronto come diversi per dimensioni di meno di tale valore (USGS n.d.d)."
+        ]
+      },
+      {
+        "h": "Leggere il numero",
+        "p": [
+          "Una magnitudo rivista non implica che il terremoto abbia causato meno o più danni di quanto si pensasse inizialmente. IRIS osserva che i grandi terremoti sono spesso una sequenza a cascata di rotture lungo una lunga rottura di faglia, il che complica la prima stima (IRIS n.d.). La magnitudo descrive le dimensioni della sorgente. Lo scuotimento in un determinato luogo dipende anche dalla distanza, dalla profondità e dal terreno locale.",
+          "Per chi segue un evento in evoluzione, la sequenza è prevedibile. Il primo valore è una stima rapida, spesso una magnitudo locale. Per i grandi eventi una magnitudo momento segue entro la prima ora, man mano che arrivano i dati di lungo periodo, e il valore di catalogo può ancora cambiare leggermente nei giorni successivi. Uno scarto di uno o due decimi riflette l’aggiunta di stazioni e la revisione. Uno scarto di un’unità intera o più, come nel caso di Tohoku, riflette un cambio del metodo usato per misurare i terremoti più grandi."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Perché la magnitudo di un terremoto cambia dopo il primo comunicato?",
+        "a": "Il primo valore è una stima rapida basata sulle stazioni più vicine, spesso una magnitudo locale. Man mano che le onde sismiche raggiungono stazioni più lontane e gli analisti esaminano i dati, gli enti affinano il valore, e per i grandi terremoti passano alla magnitudo momento, che descrive in modo più completo le dimensioni della sorgente."
+      },
+      {
+        "q": "La scala Richter si usa ancora?",
+        "a": "La magnitudo locale, la scala sviluppata da Charles Richter negli anni Trenta, è ancora calcolata dalle reti regionali per i terremoti al di sotto di circa magnitudo 6. Per i terremoti più grandi gli enti usano la magnitudo momento (Mw), perché il metodo di Richter e le scale che lo hanno esteso smettono di crescere per gli eventi più forti."
+      },
+      {
+        "q": "Che cos’è la magnitudo momento?",
+        "a": "La magnitudo momento, proposta da Thomas Hanks e Hiroo Kanamori nel 1979, si calcola a partire dal momento sismico, che dipende da quanto è scorsa la faglia e su quale area. Coincide con le scale precedenti per i terremoti moderati e continua a crescere per quelli più grandi."
+      },
+      {
+        "q": "Che cosa significa saturazione della magnitudo?",
+        "a": "Le scale precedenti misurano l’ampiezza delle onde in una banda di frequenza stretta. Per terremoti molto grandi quella banda cattura solo una parte del segnale, quindi il valore misurato raggiunge un tetto: nei cataloghi esaminati da Hanks e Kanamori, le magnitudo delle onde di volume si fermavano intorno a 7 e quelle delle onde superficiali intorno a 8,3."
+      },
+      {
+        "q": "Perché il terremoto di Tohoku del 2011 fu inizialmente indicato di magnitudo 7,9?",
+        "a": "Le prime stime usavano metodi che saturano per i terremoti molto grandi. Entro l’ora, le inversioni della fase W basate su onde di lungo periodo diedero magnitudo momento da 8,8 a 9,0, per poi convergere su circa 9,0."
+      },
+      {
+        "q": "Perché due enti a volte comunicano magnitudo diverse?",
+        "a": "Possono usare tipi di magnitudo, stazioni e quantità di dati diversi. Lo USGS calcola fino a una dozzina di tipi di magnitudo perché nessun metodo singolo è adatto a ogni terremoto, e le discrepanze tra tipi per lo stesso evento possono essere grandi."
+      }
+    ]
   }
 }
