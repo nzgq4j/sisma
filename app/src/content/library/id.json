@@ -538,5 +538,105 @@
         "a": "USGS ShakeMap menampilkan seberapa kuat tanah berguncang di seluruh suatu wilayah, bukan hanya magnitudo dan episentrum. Peta ini biasanya diterbitkan dalam beberapa menit setelah gempa sedang atau besar."
       }
     ]
+  },
+  "magnitude-scales": {
+    "title": "Dari Richter ke Magnitudo Momen: Mengapa Angkanya Berubah Setelah Gempa Bumi",
+    "dek": "Magnitudo pertama adalah perkiraan cepat, dan memang dimaksudkan untuk berubah. Inilah cara skala Richter digantikan oleh magnitudo momen, dan apa yang disampaikan setiap revisi kepada Anda.",
+    "sections": [
+      {
+        "h": "Angka di Balik Berita Utama",
+        "p": [
+          "Dalam hitungan menit setelah gempa bumi yang signifikan, satu angka muncul di ponsel, umpan berita, dan situs pemantauan: magnitudo. Sejam kemudian angkanya mungkin berbeda, dan beberapa hari kemudian mungkin berubah lagi. Revisi semacam ini sering memunculkan pertanyaan apakah para seismolog telah membuat kesalahan. Dalam kebanyakan kasus, revisi tersebut mencerminkan urutan perkiraan yang direncanakan, dengan angka pertama berupa perhitungan cepat dari data paling awal dan angka-angka berikutnya menggunakan lebih banyak data serta metode yang lebih sesuai.",
+          "Skala magnitudo bersifat logaritmik. Menurut Survei Geologi Amerika Serikat (USGS), penurunan amplitudo gelombang sebesar sepuluh kali lipat menurunkan magnitudo sebesar satu satuan (USGS n.d.a). Setiap satuan juga setara dengan energi yang dilepaskan sekitar 32 kali lebih besar (USGS n.d.e). Dengan demikian, perubahan sebesar 0,1 atau 0,2 memiliki makna fisik yang kecil, sedangkan perubahan sebesar satu satuan penuh atau lebih menunjukkan bahwa perkiraan pertama menggambarkan gempa yang sangat berbeda.",
+          "Nama populer skala ini, skala Richter, masih digunakan sehari-hari meskipun sebagian besar lembaga tidak lagi mengandalkannya untuk peristiwa besar. USGS menggambarkan magnitudo Richter sebagai konsep yang terkenal tetapi kurang dipahami (USGS n.d.a). Sejarah penggantiannya menjelaskan sebagian besar hal yang terjadi setelah gempa bumi."
+        ]
+      },
+      {
+        "h": "Apa yang Dibangun Richter pada 1935",
+        "p": [
+          "Charles Richter mengembangkan skala magnitudo logaritmik pertama pada tahun 1930-an untuk mengukur gempa bumi di California selatan, menggunakan data berfrekuensi relatif tinggi dari stasiun seismograf terdekat. Skala ini diberi label ML, dengan L yang berarti lokal (local), dan besaran inilah yang kemudian dikenal sebagai magnitudo Richter (USGS n.d.a).",
+          "ML bekerja dengan membaca amplitudo guncangan maksimum yang tercatat di sebuah stasiun dan mengoreksinya berdasarkan jarak ke sumber. Setiap stasiun memberikan perkiraannya sendiri, dan rata-rata dari seluruh stasiun menghasilkan nilai yang dilaporkan (Gardine 2019). Metode ini cocok untuk kondisi asalnya: jaringan regional yang rapat, gempa sedang, dan jarak yang pendek. Seismolog modern masih menghitungnya. Alaska Earthquake Center melaporkan bahwa magnitudo lokalnya berfungsi dengan baik, dengan catatan bahwa magnitudo ini hanya berlaku untuk peristiwa di bawah sekitar magnitudo 6 (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Mengapa Gempa yang Lebih Besar Melampaui Metode Ini",
+        "p": [
+          "Seiring makin banyaknya stasiun seismograf yang dipasang di seluruh dunia, menjadi jelas bahwa prosedur Richter hanya berlaku secara ketat untuk rentang frekuensi dan jarak tertentu (USGS n.d.a). Para seismolog memperluas gagasan tersebut menjadi magnitudo gelombang badan (mb) dan magnitudo gelombang permukaan (Ms), yang masing-masing berlaku untuk rentang frekuensi dan jenis sinyal seismik tertentu. Dalam rentang keberlakuannya, masing-masing setara dengan magnitudo Richter (USGS n.d.a).",
+          "Ketiga skala tersebut memiliki keterbatasan yang lebih mendasar, yang oleh Hanks and Kanamori (1979) disebut saturasi. Mereka berpendapat bahwa ML, Ms, dan mb mengalami saturasi karena alasan fisik yang sama: untuk gempa yang cukup besar, pengukuran amplitudo berpita sempit ini berhenti mengukur proses pensesaran secara keseluruhan dan hanya merekam sebagian terbatas dari sinyal. Akibat praktisnya terlihat dalam katalog pada masa itu, dengan mb maksimum yang dilaporkan sekitar 7 dan Ms maksimum yang dilaporkan sekitar 8,3 (Hanks and Kanamori 1979).",
+          "Secara sederhana, gempa yang sangat besar memancarkan energi pada rentang frekuensi yang lebar, tetapi amplitudo yang diukur pada satu pita frekuensi hanya merekam sebagian dari sinyal tersebut. Dua gempa yang ukurannya sangat berbeda pun dapat menghasilkan amplitudo yang serupa pada instrumen yang dipilih. Pengukurannya mencapai batas atas, sementara gempanya terus membesar."
+        ]
+      },
+      {
+        "h": "Magnitudo Momen: Ukuran Sumber Gempa",
+        "p": [
+          "Hanks and Kanamori (1979) mengusulkan skala yang dibangun berdasarkan momen seismik, yaitu sifat fisik sumber gempa yang tidak bergantung pada pita frekuensi suatu instrumen. USGS menggambarkan momen seismik sebagai besaran yang sebanding dengan pergeseran sesar dikalikan dengan luas bidang sesar yang bergeser, dan berkaitan dengan total energi yang dilepaskan (USGS n.d.a). Para seismolog dapat memperkirakannya dari seismogram atau dari pengukuran geodetik, lalu mengubahnya menjadi magnitudo dengan rumus standar.",
+          "Rumus dalam makalah tahun 1979 tersebut adalah M = (2/3) log M0 dikurangi 10,7, dengan momen seismik M0 dalam dyne-sentimeter. Konstantanya dipilih agar skala baru sesuai dengan skala-skala lama pada rentang yang andal. Para penulis melaporkan bahwa hubungan tersebut berlaku secara seragam untuk ML antara 3 dan 7, untuk Ms antara 5 dan 7,5, dan untuk magnitudo momen 7,5 ke atas (Hanks and Kanamori 1979). Karena itu, magnitudo momen (Mw) sesuai dengan angka-angka Richter untuk gempa sedang dan terus bertambah untuk gempa-gempa terbesar. USGS menyatakan bahwa magnitudo ini berlaku untuk seluruh rentang magnitudo, sesuatu yang tidak dimiliki skala-skala lama (USGS n.d.a).",
+          "Dalam praktiknya, lembaga-lembaga menerapkan hal ini dengan berganti skala sesuai ukuran gempa. Alaska Earthquake Center menghitung magnitudo lokal untuk semua gempa, dan menggunakan magnitudo momen segera setelah tersedia untuk peristiwa sekitar magnitudo 5,5 ke atas, serta selalu untuk peristiwa bermagnitudo 6,5 atau lebih. Lembaga ini menganggap Mw sebagai ukuran terbaik saat ini karena mencerminkan energi yang dilepaskan secara langsung (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Mengapa Angka Pertama Bersifat Sementara",
+        "p": [
+          "Kecepatan laporan pertama membatasi akurasinya. Untuk gempa besar di luar Amerika Serikat, USGS merilis magnitudo dan lokasi awal dalam waktu sekitar 20 menit, menggunakan data waktu nyata dari stasiun seismik terdekat (USGS n.d.b). Sebagian gelombang seismik yang digunakan dalam analisis magnitudo memerlukan lebih dari satu jam untuk merambat mengelilingi Bumi hingga ke stasiun yang jauh, sehingga energi tersebut tidak dapat dimasukkan dalam rilis pertama. Sebagian data dari jaringan mitra tiba terlambat beberapa menit, dan sebagian lagi tiba beberapa hari kemudian (USGS n.d.b).",
+          "USGS mengidentifikasi dua titik pembaruan yang umum. Yang pertama terjadi dalam beberapa jam, ketika sebagian besar data waktu nyata telah mencapai stasiun-stasiun di seluruh dunia dan pemrosesan yang lebih canggih telah selesai. Yang kedua terjadi dalam beberapa hari hingga beberapa minggu, ketika peristiwa tersebut dianalisis ulang untuk katalog arsip dengan menggunakan sebagian besar seismogram yang tersedia dan perkiraan magnitudo dari lembaga lain. Di California, Utah, Alaska, dan Pacific Northwest, pembaruan dapat terjadi dalam hitungan menit, terutama ketika magnitudo cepat dirilis tanpa tinjauan manusia (USGS n.d.b).",
+          "Dua penyebab lain muncul dalam praktik rutin. Yang pertama adalah perubahan jenis magnitudo. Alaska Earthquake Center menjelaskan bahwa nilai pertamanya biasanya berupa magnitudo lokal, dan bahwa peristiwa yang lebih besar kemudian mendapatkan magnitudo momen (Gardine 2019). Yang kedua adalah tinjauan analis. Seorang analis menghitung rata-rata berbobot jarak dari seluruh stasiun dan dapat menghapus stasiun yang nilainya berbeda cukup jauh dari rata-rata. Kesalahan lokasi berpengaruh karena jarak menentukan perhitungan. Kedalaman otomatis 100 kilometer, padahal kedalaman sebenarnya 5 kilometer, membuat setiap stasiun tampak lebih jauh dan membesarkan magnitudo (Gardine 2019). Dalam satu contoh dari pusat tersebut, magnitudo naik dari 4,77 dengan 5 stasiun menjadi 5,01 dengan 90 stasiun (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Gempa Tohoku: Studi Kasus Saturasi",
+        "p": [
+          "Gempa Tohoku 11 Maret 2011 di Jepang adalah contoh yang paling banyak diteliti. Badan Meteorologi Jepang pertama kali mengumumkan magnitudo 7,9, dan USGS awalnya mengumumkan nilai yang sama (Guilhem et al. 2013). Buletin pertama Pacific Tsunami Warning Center juga menyebutkan 7,9, dan penentuan cepat European-Mediterranean Seismological Centre menghasilkan 8,0 (Duputel et al. 2011). Guilhem et al. (2013) menghubungkan perkiraan yang terlalu rendah seperti itu dengan saturasi: untuk peristiwa sebesar ini, pengukuran pada frekuensi di atas frekuensi sudut (corner frequency) patahan tidak dapat merekam momen seismik secara penuh.",
+          "Koreksinya datang dari jenis sinyal yang berbeda. Inversi fase W menggunakan sinyal seismik berfrekuensi rendah untuk memperkirakan tensor momen, dan bersamanya momen seismik. Duputel et al. (2011) melaporkan bahwa hasil fase W pertama di USGS dan Pacific Tsunami Warning Center memberikan magnitudo momen antara 8,8 dan 9,0. Dalam satu jam, seiring makin banyaknya data yang tersedia, solusi-solusi tersebut mengerucut pada hasil yang sama, yaitu sekitar 9,0. Guilhem et al. (2013) menjelaskan metode tensor momen yang menentukan magnitudo momen dalam 8 menit setelah waktu asal gempa.",
+          "Incorporated Research Institutions for Seismology (IRIS) menggambarkan urutan yang sama dalam tiga langkah: perkiraan pertama 7,9 dari data terbatas dalam hitungan menit, revisi antara ketika gelombang mencapai stasiun-stasiun yang jauh, dan analisis akhir menggunakan rekaman berfrekuensi sangat rendah dari banyak stasiun yang menaikkan perkiraan menjadi 9,0. Setelah titik itu, nilai dalam katalog USGS umumnya tetap (IRIS n.d.). Karena magnitudo bersifat logaritmik, kenaikan dari 7,9 ke 9,0 setara dengan energi sekitar 45 kali lebih besar menurut pendekatan yang sama seperti yang disebutkan sebelumnya."
+        ]
+      },
+      {
+        "h": "Revisi ke Arah Sebaliknya",
+        "p": [
+          "Revisi tidak selalu menaikkan angka. Setelah gempa 22 November 2016 di Jepang, Badan Meteorologi Jepang pertama kali melaporkan magnitudo 7,3 dan kemudian merevisinya menjadi 7,4. USGS juga pertama kali melaporkan 7,3 dan kemudian merevisinya turun menjadi 6,9 (AIR Worldwide 2016). Perusahaan pemodelan bencana yang mendokumentasikan kasus ini menjelaskan perbedaan tersebut sebagai akibat dari jumlah data yang terlibat dan analisis lanjutan yang menyusul suatu peristiwa.",
+          "Perubahan kecil juga terjadi lama setelah minggu pertama. USGS memperbarui gempa Prague, Oklahoma tahun 2011 dari Mw 5,6 menjadi 5,7 ketika analisis ulang dipicu oleh pertanyaan tentang ukurannya dibandingkan dengan gempa Pawnee tahun 2016. Gavin Hayes dari USGS mengatakan bahwa perbedaan ukuran antara kedua peristiwa tersebut kurang dari 0,1 satuan magnitudo (USGS n.d.d). Di Alaska, gempa 30 November 2018 bergeser dari 7,0 menjadi 7,1 setelah tiga bulan ditinjau oleh berbagai lembaga dan kelompok akademis. Seismolog negara bagian Michael West menulis bahwa sebagian besar data condong ke 7,1, dan seismolog Natalia Ruppert menghubungkan perubahan tersebut dengan perbedaan cara lembaga-lembaga mengukur gempa (Anchorage Daily News 2019)."
+        ]
+      },
+      {
+        "h": "Di Mana Lembaga-Lembaga Berbeda",
+        "p": [
+          "Dua lembaga dapat menerbitkan magnitudo yang berbeda untuk gempa yang sama, dan keduanya dapat benar menurut metodenya masing-masing. National Earthquake Information Center USGS secara rutin menghitung hingga selusin jenis magnitudo, karena tidak ada satu metode pun yang dapat memperkirakan ukuran semua gempa secara akurat. Teknik yang berbeda sering mengukur proses fisik yang berbeda, dan USGS mengakui bahwa selisih antarjenis magnitudo untuk peristiwa yang sama bisa besar (USGS n.d.c).",
+          "Tidak ada satu skala pun yang dapat menyelesaikan setiap kasus. Mw dianggap sebagai ukuran umum terbaik (Gardine 2019). Magnitudo lokal dari jaringan regional dan magnitudo momen dari stasiun global menjawab pertanyaan yang sedikit berbeda. Dalam contoh Oklahoma di atas, revisinya hanya sepersepuluh satuan magnitudo, dan USGS menggambarkan kedua peristiwa yang dibandingkannya berbeda ukuran kurang dari itu (USGS n.d.d)."
+        ]
+      },
+      {
+        "h": "Membaca Angkanya",
+        "p": [
+          "Magnitudo yang direvisi tidak berarti bahwa gempa tersebut menimbulkan kerusakan lebih kecil atau lebih besar daripada yang semula diperkirakan. IRIS mencatat bahwa gempa besar sering kali merupakan rangkaian patahan beruntun di sepanjang rekahan sesar yang panjang, sehingga menyulitkan perkiraan pertama (IRIS n.d.). Magnitudo menggambarkan ukuran sumber gempa. Guncangan di lokasi tertentu juga bergantung pada jarak, kedalaman, dan kondisi tanah setempat.",
+          "Bagi pembaca yang mengikuti peristiwa yang terus berkembang, urutannya dapat diperkirakan. Angka pertama adalah perkiraan cepat, sering kali berupa magnitudo lokal. Untuk peristiwa besar, magnitudo momen menyusul dalam satu jam pertama seiring tibanya data periode panjang, dan nilai katalog masih dapat sedikit berubah dalam beberapa hari berikutnya. Pergeseran sebesar sepersepuluh atau dua persepuluh mencerminkan tambahan stasiun dan tinjauan. Pergeseran sebesar satu satuan penuh atau lebih, seperti pada kasus Tohoku, mencerminkan perubahan metode yang digunakan untuk mengukur gempa-gempa terbesar."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Mengapa magnitudo gempa berubah setelah laporan pertama?",
+        "a": "Angka pertama adalah perkiraan cepat dari stasiun terdekat, sering kali berupa magnitudo lokal. Seiring gelombang seismik mencapai stasiun yang lebih jauh dan analis meninjau data, lembaga-lembaga memperhalus nilainya, dan untuk gempa besar mereka beralih ke magnitudo momen, yang menggambarkan ukuran sumber gempa secara lebih lengkap."
+      },
+      {
+        "q": "Apakah skala Richter masih digunakan?",
+        "a": "Magnitudo lokal, skala yang dikembangkan Charles Richter pada tahun 1930-an, masih dihitung oleh jaringan regional untuk gempa di bawah sekitar magnitudo 6. Untuk gempa yang lebih besar, lembaga-lembaga menggunakan magnitudo momen (Mw), karena metode Richter dan skala-skala yang memperluasnya berhenti bertambah untuk peristiwa terbesar."
+      },
+      {
+        "q": "Apa itu magnitudo momen?",
+        "a": "Magnitudo momen, yang diusulkan oleh Thomas Hanks dan Hiroo Kanamori pada tahun 1979, dihitung dari momen seismik, yang bergantung pada seberapa jauh sesar bergeser dan pada luas bidang yang bergeser. Magnitudo ini sesuai dengan skala-skala lama untuk gempa sedang dan terus bertambah untuk gempa-gempa terbesar."
+      },
+      {
+        "q": "Apa arti saturasi magnitudo?",
+        "a": "Skala-skala lama mengukur amplitudo gelombang pada pita frekuensi yang sempit. Untuk gempa yang sangat besar, pita tersebut hanya menangkap sebagian sinyal, sehingga nilai yang terukur mencapai batas atas: dalam katalog yang diteliti Hanks and Kanamori, magnitudo gelombang badan mentok di dekat 7 dan magnitudo gelombang permukaan di dekat 8,3."
+      },
+      {
+        "q": "Mengapa gempa Tohoku 2011 pertama kali dilaporkan bermagnitudo 7,9?",
+        "a": "Perkiraan pertama menggunakan metode yang mengalami saturasi untuk gempa yang sangat besar. Dalam satu jam, inversi fase W yang menggunakan gelombang periode panjang memberikan magnitudo momen 8,8 hingga 9,0 dan mengerucut pada sekitar 9,0."
+      },
+      {
+        "q": "Mengapa dua lembaga terkadang melaporkan magnitudo yang berbeda?",
+        "a": "Lembaga-lembaga tersebut mungkin menggunakan jenis magnitudo, stasiun, dan jumlah data yang berbeda. USGS menghitung hingga selusin jenis magnitudo karena tidak ada satu metode pun yang cocok untuk setiap gempa, dan selisih antarjenis magnitudo untuk peristiwa yang sama bisa besar."
+      }
+    ]
   }
 }
