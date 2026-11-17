@@ -1,0 +1,90 @@
+<en-US>
+• In Depth: long-form, sourced articles on how earthquakes work
+• Science guides in 10 languages, including the Ring of Fire with a live Pacific map
+• My location button on the map and globe
+• Alerts can now watch whole countries and regions
+• Help centre in 10 languages
+• sisma+: one yearly plan with a 3-day free trial
+• New map colours in the light theme
+</en-US>
+<es-ES>
+• En profundidad: artículos extensos y con fuentes sobre cómo funcionan los terremotos
+• Guías científicas en 10 idiomas, incluido el Anillo de Fuego con un mapa del Pacífico en directo
+• Botón Mi ubicación en el mapa y el globo
+• Las alertas ahora pueden vigilar países y regiones enteros
+• Centro de ayuda en 10 idiomas
+• sisma+: un único plan anual con 3 días de prueba gratis
+• Nuevos colores del mapa en el tema claro
+</es-ES>
+<ja-JP>
+• 詳しく学ぶ：地震のしくみを出典つきで解説する長編記事
+• 環太平洋火山帯（太平洋のライブ地図つき）を含む科学ガイドを10言語で
+• 地図と地球儀に現在地ボタン
+• アラートで国や地域全体を指定可能に
+• ヘルプセンターを10言語で
+• sisma+：3日間の無料トライアルつき年間プラン
+• ライトテーマの新しい地図の配色
+</ja-JP>
+<id>
+• Mendalam: artikel panjang bersumber tentang cara kerja gempa bumi
+• Panduan sains dalam 10 bahasa, termasuk Cincin Api Pasifik dengan peta langsung
+• Tombol Lokasi saya di peta dan globe
+• Peringatan kini dapat memantau seluruh negara dan wilayah
+• Pusat bantuan dalam 10 bahasa
+• sisma+: satu paket tahunan dengan uji coba gratis 3 hari
+• Warna peta baru di tema terang
+</id>
+<tr-TR>
+• Derinlemesine: depremlerin nasıl oluştuğunu kaynaklarıyla anlatan uzun makaleler
+• Canlı haritalı Pasifik Ateş Çemberi dahil 10 dilde bilim rehberleri
+• Harita ve kürede Konumum düğmesi
+• Uyarılar artık ülkelerin ve bölgelerin tamamını izleyebiliyor
+• 10 dilde yardım merkezi
+• sisma+: 3 günlük ücretsiz denemeli tek yıllık plan
+• Açık temada yeni harita renkleri
+</tr-TR>
+<it-IT>
+• Approfondimenti: articoli lunghi e documentati su come funzionano i terremoti
+• Guide scientifiche in 10 lingue, compreso l’Anello di Fuoco con una mappa del Pacifico in tempo reale
+• Pulsante La mia posizione su mappa e globo
+• Gli avvisi ora possono seguire interi paesi e regioni
+• Centro assistenza in 10 lingue
+• sisma+: un unico piano annuale con 3 giorni di prova gratuita
+• Nuovi colori della mappa nel tema chiaro
+</it-IT>
+<pt-BR>
+• Em profundidade: artigos longos e com fontes sobre como os terremotos funcionam
+• Guias de ciência em 10 idiomas, incluindo o Círculo de Fogo com um mapa do Pacífico ao vivo
+• Botão Minha localização no mapa e no globo
+• Os alertas agora podem acompanhar países e regiões inteiros
+• Central de ajuda em 10 idiomas
+• sisma+: um único plano anual com 3 dias de teste grátis
+• Novas cores do mapa no tema claro
+</pt-BR>
+<zh-CN>
+• 深度阅读：有出处的长文，讲解地震如何发生
+• 10 种语言的科普指南，包括附太平洋实时地图的环太平洋火山地震带
+• 地图和地球仪新增“我的位置”按钮
+• 提醒现在可以关注整个国家和地区
+• 10 种语言的帮助中心
+• sisma+：单一年度方案，含 3 天免费试用
+• 浅色主题采用新的地图配色
+</zh-CN>
+<fr-FR>
+• En profondeur : des articles détaillés et sourcés sur le fonctionnement des séismes
+• Guides scientifiques en 10 langues, dont la Ceinture de feu avec une carte du Pacifique en direct
+• Bouton Ma position sur la carte et le globe
+• Les alertes peuvent désormais suivre des pays et des régions entiers
+• Centre d’aide en 10 langues
+• sisma+ : une seule formule annuelle avec 3 jours d’essai gratuit
+• Nouvelles couleurs de carte en thème clair
+</fr-FR>
+<de-DE>
+• Im Detail: ausführliche Artikel mit Quellen darüber, wie Erdbeben entstehen
+• Wissensseiten in 10 Sprachen, darunter der Pazifische Feuerring mit Live-Karte
+• Mein-Standort-Taste auf Karte und Globus
+• Warnungen können jetzt ganze Länder und Regionen beobachten
+• Hilfecenter in 10 Sprachen
+• sisma+: ein Jahresabo mit 3 Tagen kostenlosem Test
+• Neue Kartenfarben im hellen Design
+</de-DE>
