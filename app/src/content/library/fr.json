@@ -442,5 +442,101 @@
         "a": "Pour l’essentiel, non. L’USGS attribue la plupart des séismes de l’Oklahoma à l’évacuation des eaux usées en profondeur, dont la majeure partie est un sous-produit de l’extraction pétrolière plutôt que du fluide de fracturation. La fracturation hydraulique ne cause directement qu’un faible pourcentage des séismes induits ressentis."
       }
     ]
+  },
+  "surface-waves-and-damage": {
+    "title": "Pourquoi un quartier s’effondre quand le voisin reste debout",
+    "dek": "Un séisme n’a qu’une magnitude, et pourtant un site peut trembler dix fois plus fort que son voisin. Voici comment les ondes de surface, les sols meubles, les bassins et la hauteur des bâtiments décident de l’endroit où frappent les dégâts.",
+    "sections": [
+      {
+        "h": "Un séisme, de multiples effets",
+        "p": [
+          "Un séisme n’a qu’une seule magnitude et un seul épicentre, et pourtant il produit des secousses très variées dans la région qui l’entoure. L’Institut d’études géologiques des États-Unis (USGS) explique que les secousses en un site donné dépendent de la distance au séisme, de la roche et du sol sous ce site, et de la complexité de la propagation des ondes sismiques dans la croûte (USGS n.d.a). Le Southern California Earthquake Center (SCEC) indique que, lors d’un même séisme, les secousses en un site peuvent facilement être dix fois plus fortes que sur un site voisin, même lorsque les deux se trouvent à la même distance de la faille rompue (SCEC n.d.).",
+          "Cette variation explique la répartition inégale des dégâts observée après les grands séismes. Un quartier d’immeubles effondrés peut se trouver à faible distance d’un quartier où les cheminées restent intactes. La cause tient généralement au sol sous chaque îlot, à la manière dont les ondes qui se propagent le long de la surface interagissent avec ce sol, et à la conception des bâtiments eux-mêmes. Les sections qui suivent accompagnent les ondes de la faille jusqu’aux fondations."
+        ]
+      },
+      {
+        "h": "Des ondes qui se propagent le long de la surface",
+        "p": [
+          "Les séismes émettent deux familles d’ondes. Les ondes de volume, les ondes P et S, traversent l’intérieur de la planète. Les ondes de surface se forment là où cette énergie atteint le sommet de la croûte, et elles se propagent le long de la surface du sol. Les ondes de Love déplacent le sol horizontalement, d’un côté à l’autre, et les ondes de Rayleigh lui impriment un mouvement de roulis elliptique. Les ondes de surface arrivent après les ondes S et s’atténuent plus progressivement avec la distance que les ondes de volume : elles produisent donc souvent les secousses les plus fortes et les plus longues loin de la faille.",
+          "Une simulation numérique de l’USGS d’un séisme de magnitude 6,5 sur la faille de Seattle illustre cette succession. Les impulsions tardives qui suivent l’onde S initiale correspondent à l’énergie des ondes de surface, et elles dominent le mouvement à longue période dans la partie nord de la zone simulée (USGS n.d.b). Joyner (2000) a analysé les mouvements forts produits par les ondes de surface dans les bassins sédimentaires profonds, qui sont les contextes où cette énergie compte le plus."
+        ]
+      },
+      {
+        "h": "Les sols meubles amplifient les secousses",
+        "p": [
+          "Le premier facteur local des dégâts est la rigidité du sol. Le SCEC désigne deux facteurs géologiques comme les plus importants dans le sud de la Californie : la souplesse de la roche ou du sol près de la surface et l’épaisseur totale des sédiments au-dessus du socle rocheux dur (SCEC n.d.). Les modèles d’aléa représentent cette souplesse par un seul nombre, Vs30, la vitesse moyenne des ondes de cisaillement dans les 30 premiers mètres du sol. Gallahue et al. (2022) indiquent qu’aux longues périodes de 1 à 5 secondes qui affectent les immeubles de grande hauteur, ces termes de site augmentent l’aléa cartographié d’un facteur de 1 à 3 sur de nombreux sites, par rapport à une condition de référence standard de roche ferme avec un Vs30 de 760 mètres par seconde.",
+          "Le séisme de Loma Prieta de 1989 en a donné un exemple clair. Les sols meubles ont amplifié les fortes secousses d’un facteur d’environ deux et causé des dégâts jusqu’à 100 kilomètres de l’épicentre (Holzer 1992). Dans le Marina District de San Francisco, construit sur une anse remblayée progressivement entre la fin des années 1860 et 1912, l’essentiel des tassements, de la liquéfaction et des dégâts aux canalisations et aux fondations s’est produit dans les zones de remblai artificiel (Bonilla 1991). La liquéfaction, phénomène par lequel un sol sableux saturé perd temporairement sa résistance, s’est produite en 134 endroits lors du séisme et a représenté 99,2 millions de dollars sur une perte totale de 5,9 milliards de dollars (Holzer 1992). La liquéfaction a donc concentré les dégâts en des endroits précis, et l’essentiel des pertes est venu d’autres causes.",
+          "L’amplification a ses limites. Gallahue et al. (2022) notent que la désamplification non linéaire augmente à mesure que les secousses s’intensifient et peut, pour des secousses très fortes, l’emporter sur l’amplification linéaire. Un sol meuble augmente donc les secousses lors des événements modérés et peut les réduire lors des plus forts."
+        ]
+      },
+      {
+        "h": "Les bassins piègent et prolongent les ondes",
+        "p": [
+          "D’épaisses couches de sédiments dans un bassin agissent comme un réceptacle pour les ondes de surface. Dans la simulation de Seattle, les ondes de surface sont piégées par les dépôts relativement peu consolidés situés dans les 2 premiers kilomètres environ du bassin, et les secousses à longue période durent environ 25 secondes à Seattle (USGS n.d.b). Il en résulte une amplitude plus élevée et une durée plus longue que sur un site rocheux situé à la même distance.",
+          "Le séisme de Gorkha de 2015 au Népal en a fourni un exemple mesuré dans la vallée de Katmandou. Les enregistrements sur des sites sédimentaires ont montré des oscillations de longue durée et de longue période attribuées à la réponse de la vallée, avec une amplification horizontale d’environ 10 (Takai et al. 2016). La période prédominante et l’enveloppe des oscillations différaient d’un site à l’autre, ce que les auteurs ont interprété comme le signe d’une structure de bassin complexe. Leurs spectres de réponse en vitesse indiquaient un pouvoir destructeur suffisant pour endommager des immeubles de grande hauteur dont les périodes propres sont de 3 à 5 secondes (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "Quand le sol et le bâtiment vibrent ensemble",
+        "p": [
+          "Toute structure possède une période propre, le temps qu’il lui faut pour osciller sur un cycle complet, et les bâtiments plus hauts ont généralement des périodes plus longues. Lorsque le mouvement du sol se répète à une période proche de celle du bâtiment, chaque cycle s’ajoute au précédent et la réponse s’amplifie. C’est la résonance.",
+          "Mexico en 1985 en est le cas de référence. Le séisme s’est produit à plus de 350 kilomètres (Dalziel and Nassirpour 2025). Martinez-Romero (1987) rapporte des accélérations maximales de 0,15 g dans la zone épicentrale et comprises entre 0,01 g et 0,19 g à Mexico, selon les conditions de sol de chaque site. Le mouvement du sol dans la zone endommagée avait une période d’environ 2 secondes, au moins vingt cycles forts ont été enregistrés, et les fortes secousses ont duré environ une minute. Martinez-Romero attribue ces mouvements à longue période au sous-sol unique de la zone de l’ancien lit du lac et estime qu’environ 400 bâtiments se sont effondrés. Suzuki and Kiremidjian (1986) ont constaté que les bâtiments à ossature en béton armé de 6 à 15 étages représentaient l’essentiel des dégâts dans la zone de sols meubles, et décrivent la longue période et la longue durée, environ trois minutes, comme les caractéristiques déterminantes du mouvement du sol.",
+          "La correspondance entre la hauteur du bâtiment et la période du sol est une simplification, car la rigidité, l’état et la qualité de construction modifient tous la période réelle et la résistance d’un bâtiment. La résonance explique la répartition des dégâts selon la hauteur, et les ingénieurs la traitent comme un facteur parmi d’autres."
+        ]
+      },
+      {
+        "h": "La distance protège moins qu’on ne le pense",
+        "p": [
+          "Le séisme de Mandalay de Mw 7,7 au Myanmar, le 28 mars 2025, a étendu la même leçon à une distance bien plus grande. À plus de 1 000 kilomètres de là, à Bangkok, une tour de 30 étages en construction s’est effondrée, faisant au moins 96 morts (Dalziel and Nassirpour 2025). Une équipe de reconnaissance néo-zélandaise qui a examiné dix bâtiments de Bangkok a rapporté que le séisme a produit des secousses étendues dans un bassin sédimentaire profond, et que les éléments non structuraux, tels que les murs de remplissage, les plafonds et les éléments de façade, ont subi les dégâts les plus répandus (naturalhazards.govt.nz 2026).",
+          "Le séisme de Tōhoku de 2011 a produit un effet comparable. Des ondes à longue période ont parcouru plus de 370 kilomètres et fait osciller pendant plusieurs minutes des immeubles de grande hauteur à Tokyo et à Osaka, avec des dégâts non structuraux (Dalziel and Nassirpour 2025). Les longues périodes s’atténuent lentement et correspondent aux périodes propres des immeubles de grande hauteur : le danger pour ces immeubles peut donc s’étendre bien au-delà des distances auxquelles les constructions basses sont endommagées."
+        ]
+      },
+      {
+        "h": "Direction de la rupture et topographie locale",
+        "p": [
+          "Harold Tobin, directeur du Pacific Northwest Seismic Network, cite les effets de bassin et la direction de la rupture comme deux complications majeures au-delà de la simple distance (KING 5 n.d.). Lorsqu’une rupture de faille progresse vers un site, l’énergie provenant de parties successives de la faille arrive en même temps et se concentre en une forte impulsion. Un site situé du côté opposé de la rupture reçoit un signal plus faible et plus long. Deux villes situées à égale distance de l’épicentre peuvent donc subir des secousses différentes.",
+          "Les crêtes et les sommets de collines peuvent apporter une contribution supplémentaire. Après le séisme de 2010 en Haïti, des dégâts d’une gravité inhabituelle se sont produits près de l’hôtel Montana, sur une crête de Pétion-Ville. Hough et al. (2010) ont conclu que la mauvaise qualité des constructions était la principale responsable de l’ampleur des dégâts en Haïti, mais que l’amplification topographique avait contribué de façon significative à Pétion-Ville. Leurs enregistrements de répliques montraient un mouvement du sol amplifié sur la crête par rapport aux stations des vallées voisines et à un site de référence sur roche dure, ce que l’amplification par les sédiments ne pouvait expliquer à elle seule."
+        ]
+      },
+      {
+        "h": "Là où les scientifiques divergent",
+        "p": [
+          "Le cas de Pétion-Ville reste débattu. Assimaki and Jeong (2013) ont confronté la topographie aux conditions de sol. Leurs simulations ont montré que ni la forme de la crête seule ni le sol seul n’expliquaient les enregistrements, tandis qu’un modèle comportant une couche de sol meuble sur le socle rocheux sous la crête y correspondait bien. Ils ont conclu que l’amplification enregistrée est très probablement attribuable à des effets de site et topographiques couplés. La question de savoir si une colline donnée accroît les secousses par son relief, par son sol stratifié ou par les deux varie d’un cas à l’autre.",
+          "Les données du Marina District comportent une ambiguïté du même ordre. Bonilla (1991) note que les enregistrements et les dégâts aux bâtiments en 1989 indiquent un mouvement amplifié aussi bien sur les terrains naturels que sur les terrains artificiels, ce qui suggère que la surface du socle rocheux et l’épaisseur des dépôts d’argile et de sable sous le remblai ont influé sur les secousses. Les ruptures de sol, en revanche, se sont concentrées dans le remblai."
+        ]
+      },
+      {
+        "h": "Comment les ingénieurs exploitent ces constats",
+        "p": [
+          "La cartographie des conditions de site transforme ces résultats en outils pratiques. Le SCEC a combiné la souplesse du sol en surface et l’épaisseur des sédiments pour prédire où l’amplification sera la plus forte, et il désigne les zones de plus forte amplification attendue comme des points chauds (SCEC n.d.). La ShakeMap de l’USGS, publiée normalement dans les quelques minutes qui suivent un séisme modéré ou fort, montre les secousses du sol elles-mêmes et non les paramètres de la source que sont la magnitude et l’épicentre (USGS n.d.a). La magnitude et l’épicentre annoncés décrivent la source d’un séisme. Le sol sous une rue donnée, avec les bâtiments qui la bordent, détermine ce que vit cette rue."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi les secousses peuvent-elles autant différer d’un quartier à l’autre lors d’un même séisme ?",
+        "a": "Les secousses en un site dépendent de sa distance au séisme, de la roche et du sol qui se trouvent en dessous, et de la propagation des ondes sismiques dans la croûte. Le Southern California Earthquake Center indique qu’un site peut trembler environ dix fois plus fort qu’un site voisin situé à la même distance de la faille."
+      },
+      {
+        "q": "Que sont les ondes de surface ?",
+        "a": "Les ondes de surface se forment lorsque l’énergie d’un séisme atteint le sommet de la croûte et se propage le long du sol. Les ondes de Love déplacent le sol d’un côté à l’autre, et les ondes de Rayleigh lui impriment un mouvement de roulis. Elles arrivent après les ondes P et S et s’atténuent plus lentement avec la distance : elles causent donc souvent les secousses les plus fortes et les plus longues loin de la faille."
+      },
+      {
+        "q": "Un sol meuble aggrave-t-il toujours les secousses ?",
+        "a": "Généralement, mais pas toujours. Les sols meubles et les sédiments épais amplifient les secousses modérées ; lors du séisme de Loma Prieta de 1989, les sols meubles les ont à peu près doublées. Lors de secousses très fortes, un sol meuble se comporte de manière non linéaire et peut au contraire les réduire."
+      },
+      {
+        "q": "Pourquoi des bâtiments se sont-ils effondrés à Mexico en 1985, si loin du séisme ?",
+        "a": "L’ancien lit du lac sous Mexico a vibré à une période d’environ 2 secondes pendant longtemps. Les bâtiments d’environ 6 à 15 étages ont des périodes propres proches de cette valeur : ils sont donc entrés en résonance, et les ossatures en béton armé de cette hauteur ont représenté l’essentiel des dégâts dans la zone de sols meubles."
+      },
+      {
+        "q": "Un séisme peut-il endommager des bâtiments à plus de 1 000 kilomètres ?",
+        "a": "Oui. Le séisme de Mandalay de Mw 7,7 au Myanmar en 2025 a fait s’effondrer une tour de 30 étages en construction à Bangkok, à plus de 1 000 kilomètres. Les ondes à longue période s’atténuent lentement avec la distance, et Bangkok repose sur un bassin sédimentaire profond."
+      },
+      {
+        "q": "Que montre la ShakeMap ?",
+        "a": "La ShakeMap de l’USGS montre l’intensité des secousses du sol dans une région, plutôt que seulement la magnitude et l’épicentre. Elle est normalement publiée dans les quelques minutes qui suivent un séisme modéré ou fort."
+      }
+    ]
   }
 }

@@ -442,5 +442,101 @@
         "a": "Çoğunlukla hayır. USGS, Oklahoma’daki depremlerin çoğunu atık suyun derin kuyulara bertaraf edilmesine bağlıyor; bu suyun büyük kısmı çatlatma sıvısı değil, petrol çıkarımının yan ürünü. Hidrolik çatlatma, hissedilen insan kaynaklı depremlerin yalnızca küçük bir yüzdesine doğrudan yol açar."
       }
     ]
+  },
+  "surface-waves-and-damage": {
+    "title": "Bir Mahalle Neden Yıkılırken Hemen Yanındaki Ayakta Kalır",
+    "dek": "Bir depremin tek bir büyüklüğü vardır, yine de bir yer komşusundan on kat daha şiddetli sarsılabilir. Hasarın nereye düşeceğini yüzey dalgalarının, yumuşak zeminin, havzaların ve bina yüksekliğinin nasıl belirlediğini burada anlatıyoruz.",
+    "sections": [
+      {
+        "h": "Tek deprem, birçok sonuç",
+        "p": [
+          "Bir depremin tek bir büyüklüğü ve tek bir merkez üssü vardır, ama çevresindeki bölgede çok farklı düzeylerde sarsıntı üretir. ABD Jeolojik Araştırmalar Kurumu (USGS), herhangi bir yerdeki sarsıntının depreme olan uzaklığa, o yerin altındaki kaya ve zemine ve sismik dalgaların yer kabuğu içinde ilerleyişindeki karmaşıklıklara bağlı olduğunu açıklar (USGS n.d.a). Güney Kaliforniya Deprem Merkezi (SCEC), aynı depremde bir yerdeki sarsıntının, her ikisi de kırılan faya aynı uzaklıkta olsa bile, komşu bir yerdekinden kolayca on kat daha güçlü olabileceğini bildirir (SCEC n.d.).",
+          "Bu farklılık, büyük depremlerden sonra görülen dengesiz hasarı açıklar. Çökmüş apartman bloklarının bulunduğu bir semt, bacaların bile sağlam kaldığı bir semtten kısa bir mesafede olabilir. Nedeni genellikle her bloğun altındaki zemini, yüzey boyunca ilerleyen dalgaların bu zeminle etkileşimini ve binaların kendi tasarımını kapsar. Aşağıdaki bölümler dalgaları faydan temele kadar izliyor."
+        ]
+      },
+      {
+        "h": "Yüzey boyunca ilerleyen dalgalar",
+        "p": [
+          "Depremler iki dalga ailesi yayar. Cisim dalgaları, yani P ve S dalgaları, gezegenin içinden geçer. Yüzey dalgaları bu enerji yer kabuğunun üst kısmına ulaştığında oluşur ve yer yüzeyi boyunca ilerler. Love dalgaları yeri yatay olarak, bir yandan öbür yana hareket ettirir; Rayleigh dalgaları ise yeri yuvarlanan, eliptik bir hareketle oynatır. Yüzey dalgaları S dalgalarından sonra ulaşır ve uzaklıkla cisim dalgalarından daha yavaş söner; bu yüzden faydan uzakta çoğu zaman en güçlü ve en uzun sarsıntıyı onlar üretir.",
+          "Seattle Fayı üzerinde 6,5 büyüklüğünde bir depremin USGS bilgisayar benzetimi bu sırayı gösterir. İlk S dalgasını izleyen sonraki atımlar yüzey dalgası enerjisidir ve benzetim alanının kuzey kesiminde uzun periyotlu harekete egemen olurlar (USGS n.d.b). Joyner (2000), bu enerjinin en çok önem taşıdığı ortamlar olan derin tortul havzalarda yüzey dalgalarının ürettiği kuvvetli yer hareketini inceledi."
+        ]
+      },
+      {
+        "h": "Yumuşak zemin sarsıntıyı büyütür",
+        "p": [
+          "Hasarı belirleyen ilk yerel etken zeminin rijitliğidir. SCEC, Güney Kaliforniya’da en önemli iki jeolojik etkeni yüzeye yakın kaya ya da zeminin yumuşaklığı ve sert ana kayanın üzerindeki tortulların toplam kalınlığı olarak belirler (SCEC n.d.). Tehlike modelleri yumuşaklığı tek bir sayıyla, zeminin üst 30 metresindeki ortalama kayma dalgası hızı olan Vs30 ile temsil eder. Gallahue et al. (2022), yüksek binaları etkileyen 1 ile 5 saniyelik uzun periyotlarda bu zemin terimlerinin, Vs30 değeri saniyede 760 metre olan sağlam kaya şeklindeki standart referans koşuluna göre, birçok yerde haritalanan tehlikeyi 1 ile 3 kat arasında artırdığını bildirir.",
+          "1989 Loma Prieta depremi açık bir örnek sundu. Yumuşak zeminler kuvvetli sarsıntıyı yaklaşık iki kat büyüttü ve merkez üssünden 100 kilometreye varan uzaklıklarda hasara yol açtı (Holzer 1992). 1860’ların sonundan 1912’ye kadar kademeli olarak doldurulan bir koyun üzerine kurulmuş San Francisco’daki Marina District’te oturmanın, sıvılaşmanın ve boru hatları ile temellerdeki hasarın büyük kısmı yapay dolgu alanlarında meydana geldi (Bonilla 1991). Suya doymuş kumlu zeminin geçici olarak dayanımını yitirdiği sıvılaşma, deprem sırasında 134 noktada görüldü ve 5,9 milyar dolarlık toplam kaybın 99,2 milyon dolarını oluşturdu (Holzer 1992). Dolayısıyla sıvılaşma hasarı belirli yerlerde yoğunlaştırdı; kaybın çoğu ise başka nedenlerden kaynaklandı.",
+          "Büyütmenin sınırları vardır. Gallahue et al. (2022), doğrusal olmayan küçültmenin sarsıntı şiddetlendikçe arttığını ve çok kuvvetli sarsıntıda doğrusal büyütmeyi aşabildiğini belirtir. Bu nedenle yumuşak zemin orta büyüklükteki olaylarda sarsıntıyı artırır, en güçlü olaylarda ise azaltabilir."
+        ]
+      },
+      {
+        "h": "Havzalar dalgaları hapseder ve uzatır",
+        "p": [
+          "Bir havzadaki kalın tortul katmanlar yüzey dalgaları için bir kap işlevi görür. Seattle benzetiminde yüzey dalgaları havzanın kabaca üst 2 kilometresindeki görece pekişmemiş çökeller tarafından hapsedilir ve Seattle’da uzun periyotlu sarsıntı yaklaşık 25 saniye sürer (USGS n.d.b). Sonuç, aynı uzaklıktaki bir kaya sahasının yaşayacağından daha yüksek genlik ve daha uzun süredir.",
+          "Nepal’deki 2015 Gorkha depremi, Katmandu Vadisi’nde ölçülmüş bir örnek ortaya koydu. Tortul sahalardaki kayıtlar, vadi tepkisine bağlanan uzun süreli, uzun periyotlu salınımlar ve yaklaşık 10 kat yatay büyütme gösterdi (Takai et al. 2016). Baskın periyot ve salınımların zarfı sahadan sahaya değişiyordu; yazarlar bunu karmaşık bir havza yapısının kanıtı olarak yorumladı. Hız tepki spektrumları, doğal periyotları 3 ile 5 saniye arasında olan yüksek binalara hasar verecek kadar yıkıcı güç bulunduğuna işaret ediyordu (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "Zemin ve bina birlikte titreştiğinde",
+        "p": [
+          "Her yapının bir doğal periyodu, yani tam bir salınım döngüsünü tamamlaması için geçen süre vardır ve daha yüksek binaların periyotları genellikle daha uzundur. Yer hareketi bir binanın kendi periyoduna yakın bir periyotla tekrarlandığında her döngü bir öncekinin üzerine eklenir ve tepki büyür. Buna rezonans denir.",
+          "1985’teki Meksiko bunun standart örneğidir. Deprem 350 kilometreden daha uzakta oldu (Dalziel and Nassirpour 2025). Martinez-Romero (1987), merkez üssü bölgesinde 0,15 g, Meksiko’da ise her sahadaki zemin koşullarına bağlı olarak 0,01 g ile 0,19 g arasında en büyük ivmeler bildirir. Hasar bölgesindeki yer hareketinin periyodu yaklaşık 2 saniyeydi, en az yirmi güçlü döngü kaydedildi ve kuvvetli sarsıntı kabaca bir dakika sürdü. Martinez-Romero bu uzun periyotlu hareketleri göl yatağı bölgesinin kendine özgü alt zeminine bağlar ve yaklaşık 400 binanın çöktüğünü tahmin eder. Suzuki and Kiremidjian (1986), yumuşak zemin bölgesindeki hasarın çoğunu 6 ile 15 katlı betonarme çerçeve binaların oluşturduğunu buldu ve uzun periyot ile yaklaşık üç dakikalık uzun süreyi yer hareketinin belirleyici özellikleri olarak tanımlar.",
+          "Bina yüksekliği ile zemin periyodu arasındaki eşleşme bir basitleştirmedir, çünkü rijitlik, binanın durumu ve yapım kalitesi bir binanın gerçek periyodunu ve dayanımını değiştirir. Rezonans hasarın yüksekliğe göre dağılımını açıklar ve mühendisler onu birkaç etkenden biri olarak ele alır."
+        ]
+      },
+      {
+        "h": "Uzaklık beklenenden daha az koruma sağlar",
+        "p": [
+          "28 Mart 2025’te Myanmar’da meydana gelen Mw 7,7 Mandalay depremi aynı dersi çok daha geniş bir mesafeye taşıdı. 1.000 kilometreden daha uzaktaki Bangkok’ta inşa hâlindeki 30 katlı bir kule çöktü ve en az 96 kişi hayatını kaybetti (Dalziel and Nassirpour 2025). Bangkok’taki on binayı inceleyen bir Yeni Zelanda keşif ekibi, depremin derin bir tortul havzada yaygın sarsıntı ürettiğini ve en yaygın hasarın dolgu duvarlar, tavanlar ve cephe bileşenleri gibi yapısal olmayan elemanlarda görüldüğünü bildirdi (naturalhazards.govt.nz 2026).",
+          "2011 Tohoku depremi bununla ilişkili bir etki üretti. Uzun periyotlu dalgalar 370 kilometreden fazla yol aldı ve Tokyo ile Osaka’daki yüksek binaların dakikalarca salınmasına yol açarak yapısal olmayan hasara neden oldu (Dalziel and Nassirpour 2025). Uzun periyotlar yavaş söner ve yüksek binaların doğal periyotlarıyla örtüşür; bu yüzden bu binalar için tehlike, az katlı yapılara hasar veren uzaklıkların çok ötesine uzanabilir."
+        ]
+      },
+      {
+        "h": "Kırılma yönü ve yerel topografya",
+        "p": [
+          "Pasifik Kuzeybatı Sismik Ağı’nın direktörü Harold Tobin, basit uzaklığın ötesindeki iki büyük karmaşıklık olarak havza etkilerini ve kırılma yönünü sayar (KING 5 n.d.). Bir fay kırılması bir sahaya doğru ilerlediğinde, fayın art arda gelen kesimlerinden çıkan enerji aynı anda ulaşır ve güçlü bir atımda yoğunlaşır. Kırılmanın öbür tarafındaki bir saha ise daha zayıf ve daha uzun bir sinyal alır. Bu nedenle merkez üssüne eşit uzaklıktaki iki kasaba farklı sarsıntılar yaşayabilir.",
+          "Sırtlar ve tepeler de olası bir katkı ekler. 2010 Haiti depreminden sonra, Pétion-Ville’de bir sırt üzerindeki Hotel Montana yakınlarında alışılmadık derecede ağır hasar meydana geldi. Hough et al. (2010), Haiti’deki hasarın boyutundan başlıca kötü yapım kalitesinin sorumlu olduğu, ancak Pétion-Ville’de topografik büyütmenin önemli bir katkı yaptığı sonucuna vardı. Artçı deprem kayıtları, sırttaki yer hareketinin komşu vadi istasyonlarına ve bir sert kaya referans sahasına göre büyüdüğünü gösterdi; bu durum yalnızca tortul büyütmesiyle açıklanamıyordu."
+        ]
+      },
+      {
+        "h": "Bilim insanlarının görüş ayrılığına düştüğü noktalar",
+        "p": [
+          "Pétion-Ville örneği hâlâ tartışmalıdır. Assimaki and Jeong (2013), topografyayı zemin koşullarına karşı sınadı. Benzetimleri, ne tek başına sırtın biçiminin ne de tek başına zeminin kayıtları açıkladığını; sırtın altında ana kaya üzerinde yumuşak bir zemin katmanı bulunan bir modelin ise kayıtlarla iyi örtüştüğünü gösterdi. Kaydedilen büyütmenin büyük olasılıkla birleşik zemin ve topografya etkilerine bağlanabileceği sonucuna vardılar. Belirli bir tepenin sarsıntıyı rölyefi yoluyla mı, katmanlı zemini yoluyla mı yoksa her ikisiyle mi artırdığı vakadan vakaya değişir.",
+          "Marina District’e ait kanıtlar da benzer bir belirsizlik içerir. Bonilla (1991), 1989’daki kayıtların ve bina hasarının hem doğal hem de yapay zeminde büyümüş harekete işaret ettiğini belirtir; bu da ana kaya yüzeyinin ve dolgunun altındaki kil ve kum çökellerinin kalınlığının sarsıntıyı etkilediğini düşündürür. Zemin yenilmesi ise dolguda yoğunlaştı."
+        ]
+      },
+      {
+        "h": "Mühendisler bu örüntüyü nasıl kullanır",
+        "p": [
+          "Saha koşullarının haritalanması bu bulguları pratik araçlara dönüştürür. SCEC, büyütmenin en yüksek olacağı yerleri öngörmek için yüzey yumuşaklığını tortul kalınlığıyla birleştirdi ve beklenen büyütmenin en fazla olduğu alanları sıcak noktalar olarak belirler (SCEC n.d.). Orta büyüklükte ya da büyük bir depremden sonra normalde birkaç dakika içinde yayımlanan USGS ShakeMap, büyüklük ve merkez üssü gibi kaynak parametrelerini değil, yer sarsıntısının kendisini gösterir (USGS n.d.a). Bildirilen büyüklük ve merkez üssü bir depremin kaynağını tanımlar. Belirli bir sokağın ne yaşayacağını ise o sokağın altındaki zemin ve üzerindeki binalar birlikte belirler."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Aynı depremde sarsıntı mahalleler arasında neden bu kadar farklı olabilir?",
+        "a": "Bir sahadaki sarsıntı, depreme olan uzaklığına, altındaki kaya ve zemine ve sismik dalgaların yer kabuğu içinde nasıl ilerlediğine bağlıdır. Güney Kaliforniya Deprem Merkezi, bir sahanın faya aynı uzaklıktaki komşu bir sahadan yaklaşık on kat daha güçlü sarsılabileceğini bildirir."
+      },
+      {
+        "q": "Yüzey dalgaları nedir?",
+        "a": "Yüzey dalgaları, deprem enerjisi yer kabuğunun üst kısmına ulaşıp zemin boyunca ilerlediğinde oluşur. Love dalgaları yeri bir yandan öbür yana, Rayleigh dalgaları ise yuvarlanan bir hareketle oynatır. P ve S dalgalarından sonra ulaşırlar ve uzaklıkla daha yavaş sönerler; bu yüzden faydan uzakta çoğu zaman en güçlü ve en uzun sarsıntıya onlar yol açar."
+      },
+      {
+        "q": "Yumuşak zemin sarsıntıyı her zaman kötüleştirir mi?",
+        "a": "Genellikle evet, ama her zaman değil. Yumuşak zemin ve kalın tortullar orta şiddetteki sarsıntıyı büyütür; 1989 Loma Prieta depreminde yumuşak zeminler sarsıntıyı kabaca iki katına çıkardı. Çok kuvvetli sarsıntıda ise yumuşak zemin doğrusal olmayan biçimde davranır ve sarsıntıyı tersine azaltabilir."
+      },
+      {
+        "q": "1985’te Meksiko’daki binalar depremden bu kadar uzakta neden çöktü?",
+        "a": "Meksiko’nun altındaki eski göl yatağı uzun süre boyunca yaklaşık 2 saniyelik bir periyotla sarsıldı. Kabaca 6 ile 15 katlı binaların doğal periyotları buna yakındır; bu yüzden rezonansa girdiler ve yumuşak zemin bölgesindeki hasarın çoğunu bu yükseklikteki betonarme çerçeve binalar oluşturdu."
+      },
+      {
+        "q": "Bir deprem 1.000 kilometreden daha uzaktaki binalara hasar verebilir mi?",
+        "a": "Evet. 2025’te Myanmar’daki Mw 7,7 Mandalay depremi, 1.000 kilometreden daha uzaktaki Bangkok’ta inşa hâlindeki 30 katlı bir kuleyi yıktı. Uzun periyotlu dalgalar uzaklıkla yavaş söner ve Bangkok derin bir tortul havzanın üzerinde yer alır."
+      },
+      {
+        "q": "ShakeMap neyi gösterir?",
+        "a": "USGS ShakeMap, yalnızca büyüklüğü ve merkez üssünü değil, bir bölge genelinde yerin ne kadar güçlü sarsıldığını gösterir. Orta büyüklükte ya da büyük bir depremden sonra normalde birkaç dakika içinde yayımlanır."
+      }
+    ]
   }
 }

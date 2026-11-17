@@ -442,5 +442,101 @@
         "a": "Per lo più no. Lo USGS attribuisce la maggior parte dei terremoti dell’Oklahoma allo smaltimento in profondità delle acque reflue, che sono per lo più un sottoprodotto dell’estrazione del petrolio anziché fluido di fracking. La fratturazione idraulica causa direttamente solo una piccola percentuale dei terremoti indotti avvertiti."
       }
     ]
+  },
+  "surface-waves-and-damage": {
+    "title": "Perché un quartiere crolla mentre quello accanto resta in piedi",
+    "dek": "Un terremoto ha una sola magnitudo, eppure un sito può tremare dieci volte più forte di quello vicino. Ecco come onde superficiali, terreni soffici, bacini e altezza degli edifici decidono dove si concentrano i danni.",
+    "sections": [
+      {
+        "h": "Un terremoto, molti esiti",
+        "p": [
+          "Un terremoto ha una sola magnitudo e un solo epicentro, eppure produce uno scuotimento molto variabile nella regione circostante. Lo U.S. Geological Survey (USGS) spiega che lo scuotimento in un sito dipende dalla distanza dal terremoto, dalla roccia e dal suolo sotto il sito e dalle complessità del modo in cui le onde sismiche viaggiano attraverso la crosta (USGS n.d.a). Il Southern California Earthquake Center (SCEC) riferisce che in uno stesso terremoto lo scuotimento in un sito può facilmente essere dieci volte più forte che in un sito vicino, anche quando entrambi si trovano alla stessa distanza dalla faglia che si è rotta (SCEC n.d.).",
+          "Questa variabilità spiega la distribuzione irregolare dei danni dopo i grandi terremoti. Un quartiere di condomini crollati può trovarsi a breve distanza da un quartiere in cui i comignoli restano intatti. La causa riguarda di solito il terreno sotto ciascun isolato, il modo in cui le onde che viaggiano lungo la superficie interagiscono con quel terreno e la progettazione degli edifici stessi. Le sezioni che seguono accompagnano le onde dalla faglia alle fondazioni."
+        ]
+      },
+      {
+        "h": "Onde che viaggiano lungo la superficie",
+        "p": [
+          "I terremoti irradiano due famiglie di onde. Le onde di volume, cioè le onde P e le onde S, attraversano l’interno del pianeta. Le onde superficiali si formano dove quell’energia raggiunge la parte alta della crosta e viaggiano lungo la superficie del suolo. Le onde di Love muovono il suolo orizzontalmente, da un lato all’altro, e le onde di Rayleigh lo muovono con un moto rotolante ed ellittico. Le onde superficiali arrivano dopo le onde S e si attenuano con la distanza più gradualmente delle onde di volume, per cui spesso producono lo scuotimento più forte e più lungo lontano dalla faglia.",
+          "Una simulazione al computer dello USGS di un terremoto di magnitudo 6,5 sulla faglia di Seattle illustra la sequenza. Gli impulsi successivi che seguono l’onda S iniziale sono energia di onde superficiali e dominano il moto di lungo periodo nella parte settentrionale dell’area simulata (USGS n.d.b). Joyner (2000) ha analizzato il moto forte prodotto dalle onde superficiali nei bacini sedimentari profondi, che sono i contesti in cui questa energia conta di più."
+        ]
+      },
+      {
+        "h": "I terreni soffici amplificano lo scuotimento",
+        "p": [
+          "Il primo fattore locale che controlla i danni è la rigidezza del terreno. Lo SCEC individua due fattori geologici come i più importanti nella California meridionale: la sofficità della roccia o del suolo vicino alla superficie e lo spessore totale dei sedimenti sopra la roccia dura di base (SCEC n.d.). I modelli di pericolosità rappresentano la sofficità con un solo numero, il Vs30, la velocità media delle onde di taglio nei primi 30 metri di terreno. Gallahue et al. (2022) riferiscono che ai periodi lunghi da 1 a 5 secondi, quelli che interessano gli edifici alti, questi termini di sito aumentano la pericolosità cartografata di un fattore da 1 a 3 in molti siti, rispetto a una condizione di riferimento standard di roccia compatta con un Vs30 di 760 metri al secondo.",
+          "Il terremoto di Loma Prieta del 1989 ne ha dato un esempio chiaro. I suoli soffici amplificarono lo scuotimento forte di un fattore di circa due e causarono danni fino a 100 chilometri dall’epicentro (Holzer 1992). Nel Marina District di San Francisco, costruito su un’insenatura colmata gradualmente dalla fine degli anni Sessanta dell’Ottocento al 1912, la maggior parte degli assestamenti, della liquefazione e dei danni a tubazioni e fondazioni si verificò nelle aree di riporto artificiale (Bonilla 1991). La liquefazione, in cui un terreno sabbioso saturo perde temporaneamente la propria resistenza, si verificò in 134 località durante il terremoto e rappresentò 99,2 milioni di dollari della perdita totale di 5,9 miliardi di dollari (Holzer 1992). La liquefazione concentrò quindi i danni in luoghi specifici, mentre la maggior parte delle perdite ebbe altre cause.",
+          "L’amplificazione ha dei limiti. Gallahue et al. (2022) osservano che la deamplificazione non lineare cresce con l’intensità dello scuotimento e, per scuotimenti molto forti, può prevalere sull’amplificazione lineare. Il suolo soffice aumenta quindi lo scuotimento negli eventi moderati e può ridurlo in quelli più forti."
+        ]
+      },
+      {
+        "h": "I bacini intrappolano e prolungano le onde",
+        "p": [
+          "Gli spessi strati di sedimenti di un bacino fungono da contenitore per le onde superficiali. Nella simulazione di Seattle, le onde superficiali restano intrappolate nei depositi relativamente poco consolidati compresi all’incirca nei primi 2 chilometri del bacino, e lo scuotimento di lungo periodo a Seattle dura circa 25 secondi (USGS n.d.b). Il risultato è un’ampiezza maggiore e una durata più lunga di quelle che subirebbe un sito su roccia alla stessa distanza.",
+          "Il terremoto di Gorkha del 2015 in Nepal ha prodotto un esempio misurato nella valle di Kathmandu. Le registrazioni nei siti sedimentari mostrarono oscillazioni di lunga durata e di lungo periodo attribuite alla risposta della valle, con un’amplificazione orizzontale di circa 10 (Takai et al. 2016). Il periodo predominante e l’inviluppo delle oscillazioni variavano da sito a sito, cosa che gli autori interpretano come indizio di una struttura del bacino complessa. I loro spettri di risposta in velocità indicavano una capacità distruttiva sufficiente a danneggiare edifici alti con periodi propri da 3 a 5 secondi (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "Quando terreno ed edificio vibrano insieme",
+        "p": [
+          "Ogni struttura ha un periodo proprio, il tempo che impiega a oscillare per un ciclo completo, e gli edifici più alti hanno in genere periodi più lunghi. Quando il moto del suolo si ripete con un periodo vicino a quello dell’edificio, ogni ciclo si somma al precedente e la risposta cresce. È la risonanza.",
+          "Città del Messico nel 1985 è il caso di riferimento. Il terremoto colpì a più di 350 chilometri di distanza (Dalziel and Nassirpour 2025). Martinez-Romero (1987) riporta accelerazioni di picco di 0,15 g nell’area epicentrale e tra 0,01 g e 0,19 g a Città del Messico, a seconda delle condizioni del terreno in ciascun sito. Il moto del suolo nell’area dei danni aveva un periodo di circa 2 secondi, furono registrati almeno venti cicli forti e lo scuotimento forte durò circa un minuto. Martinez-Romero attribuisce questi moti di lungo periodo al sottosuolo unico della zona dell’antico letto lacustre e stima che siano crollati circa 400 edifici. Suzuki e Kiremidjian (1986) rilevarono che gli edifici con telaio in cemento armato da 6 a 15 piani rappresentavano la maggior parte dei danni nell’area a suolo soffice, e descrivono il lungo periodo e la lunga durata, circa tre minuti, come le caratteristiche distintive del moto del suolo.",
+          "La corrispondenza tra altezza dell’edificio e periodo del suolo è una semplificazione, perché rigidezza, stato di conservazione e qualità costruttiva modificano tutti il periodo e la resistenza effettivi di un edificio. La risonanza spiega la distribuzione dei danni in base all’altezza, e gli ingegneri la considerano un fattore tra diversi."
+        ]
+      },
+      {
+        "h": "La distanza protegge meno del previsto",
+        "p": [
+          "Il terremoto di Mandalay di Mw 7,7, in Myanmar, del 28 marzo 2025 ha esteso la stessa lezione a distanze molto maggiori. A più di 1.000 chilometri, a Bangkok, una torre di 30 piani in costruzione crollò, con almeno 96 vittime (Dalziel and Nassirpour 2025). Una squadra di ricognizione neozelandese che esaminò dieci edifici di Bangkok riferì che il terremoto produsse uno scuotimento esteso in un bacino sedimentario profondo e che gli elementi non strutturali, come tamponamenti, controsoffitti e componenti di facciata, subirono i danni più diffusi (naturalhazards.govt.nz 2026).",
+          "Il terremoto di Tohoku del 2011 produsse un effetto analogo. Le onde di lungo periodo percorsero più di 370 chilometri e fecero oscillare per minuti gli edifici alti di Tokyo e Osaka, con danni non strutturali (Dalziel and Nassirpour 2025). I periodi lunghi si attenuano lentamente e corrispondono ai periodi propri degli edifici alti, per cui il pericolo per questi edifici può estendersi ben oltre le distanze alle quali vengono danneggiate le costruzioni basse."
+        ]
+      },
+      {
+        "h": "Direzione della rottura e topografia locale",
+        "p": [
+          "Harold Tobin, direttore del Pacific Northwest Seismic Network, indica gli effetti di bacino e la direzione della rottura come due importanti complicazioni oltre alla semplice distanza (KING 5 n.d.). Quando la rottura di una faglia avanza verso un sito, l’energia proveniente da parti successive della faglia arriva insieme e si concentra in un impulso forte. Un sito dalla parte opposta della rottura riceve un segnale più debole e più lungo. Due città alla stessa distanza dall’epicentro possono quindi subire scuotimenti diversi.",
+          "Creste e sommità delle colline possono dare un ulteriore contributo. Dopo il terremoto di Haiti del 2010, danni insolitamente gravi si verificarono vicino all’Hotel Montana, su una cresta a Pétion-Ville. Hough et al. (2010) conclusero che la scarsa qualità costruttiva fu la causa principale dell’entità dei danni ad Haiti, ma che l’amplificazione topografica contribuì in modo significativo a Pétion-Ville. Le loro registrazioni delle repliche mostrarono un moto del suolo sulla cresta amplificato rispetto alle stazioni della valle adiacente e a un sito di riferimento su roccia dura, che l’amplificazione dovuta ai sedimenti da sola non poteva spiegare."
+        ]
+      },
+      {
+        "h": "Dove gli scienziati non sono d’accordo",
+        "p": [
+          "Il caso di Pétion-Ville resta controverso. Assimaki e Jeong (2013) misero a confronto topografia e condizioni del suolo. Le loro simulazioni mostrarono che né la forma della cresta da sola né il suolo da solo spiegavano le registrazioni, mentre un modello con uno strato di suolo soffice sopra la roccia di base sotto la cresta le riproduceva bene. Conclusero che l’amplificazione registrata è con ogni probabilità attribuibile a effetti combinati di sito e topografici. Se una data collina aumenti lo scuotimento per il suo rilievo, per il suo suolo stratificato o per entrambi varia da caso a caso.",
+          "Anche i dati del Marina District contengono un’ambiguità analoga. Bonilla (1991) osserva che le registrazioni e i danni agli edifici del 1989 indicano un moto amplificato sia sul terreno naturale sia su quello artificiale, il che suggerisce che la superficie della roccia di base e lo spessore dei depositi di argilla e sabbia sotto il riporto abbiano influito sullo scuotimento. I cedimenti del terreno, invece, si concentrarono nel riporto."
+        ]
+      },
+      {
+        "h": "Come gli ingegneri usano questo schema",
+        "p": [
+          "La mappatura delle condizioni di sito trasforma questi risultati in strumenti pratici. Lo SCEC ha combinato la sofficità superficiale con lo spessore dei sedimenti per prevedere dove l’amplificazione sarà maggiore, e indica le aree con l’amplificazione attesa più alta come punti critici (SCEC n.d.). Lo ShakeMap dello USGS, pubblicato di norma entro alcuni minuti da un terremoto moderato o forte, mostra lo scuotimento del suolo in sé e non i parametri della sorgente, cioè magnitudo ed epicentro (USGS n.d.a). La magnitudo e l’epicentro comunicati descrivono la sorgente di un terremoto. Il terreno sotto una data strada, insieme agli edifici che vi sorgono, determina ciò che quella strada vive."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Perché lo scuotimento può essere così diverso tra quartieri nello stesso terremoto?",
+        "a": "Lo scuotimento in un sito dipende dalla sua distanza dal terremoto, dalla roccia e dal suolo sottostanti e dal modo in cui le onde sismiche viaggiano attraverso la crosta. Il Southern California Earthquake Center riferisce che un sito può tremare circa dieci volte più forte di un sito vicino alla stessa distanza dalla faglia."
+      },
+      {
+        "q": "Che cosa sono le onde superficiali?",
+        "a": "Le onde superficiali si formano quando l’energia del terremoto raggiunge la parte alta della crosta e viaggia lungo il suolo. Le onde di Love muovono il suolo da un lato all’altro, e le onde di Rayleigh lo muovono con un moto rotolante. Arrivano dopo le onde P e S e si attenuano più lentamente con la distanza, per cui spesso causano lo scuotimento più forte e più lungo lontano dalla faglia."
+      },
+      {
+        "q": "Il terreno soffice peggiora sempre lo scuotimento?",
+        "a": "Di solito sì, ma non sempre. Il suolo soffice e i sedimenti spessi amplificano lo scuotimento moderato; nel terremoto di Loma Prieta del 1989 i suoli soffici lo raddoppiarono all’incirca. Con uno scuotimento molto forte, il suolo soffice si comporta in modo non lineare e può invece ridurre lo scuotimento."
+      },
+      {
+        "q": "Perché nel 1985 gli edifici di Città del Messico crollarono così lontano dal terremoto?",
+        "a": "L’antico letto lacustre sotto Città del Messico oscillò a lungo con un periodo di circa 2 secondi. Gli edifici di circa 6–15 piani hanno periodi propri vicini a quel valore, quindi entrarono in risonanza, e i telai in cemento armato di quell’altezza rappresentarono la maggior parte dei danni nella zona a suolo soffice."
+      },
+      {
+        "q": "Un terremoto può danneggiare edifici a più di 1.000 chilometri di distanza?",
+        "a": "Sì. Il terremoto di Mandalay di Mw 7,7 in Myanmar del 2025 fece crollare a Bangkok, a più di 1.000 chilometri di distanza, una torre di 30 piani in costruzione. Le onde di lungo periodo si attenuano lentamente con la distanza, e Bangkok sorge su un bacino sedimentario profondo."
+      },
+      {
+        "q": "Che cosa mostra lo ShakeMap?",
+        "a": "Lo ShakeMap dello USGS mostra con quanta forza ha tremato il suolo in una regione, invece di indicare soltanto magnitudo ed epicentro. Di norma viene pubblicato entro alcuni minuti da un terremoto moderato o forte."
+      }
+    ]
   }
 }

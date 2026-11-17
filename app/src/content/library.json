@@ -989,5 +989,172 @@
         "url": "https://doi.org/10.1038/srep36154"
       }
     ]
+  },
+  {
+    "id": "surface-waves-and-damage",
+    "icon": "waves",
+    "tone": "mint",
+    "title": "Why One Neighborhood Collapses While the Next Stays Standing",
+    "description": "Why earthquake shaking varies street by street: surface waves, soft soil, sedimentary basins, resonance, rupture direction and ridges, from Loma Prieta to Bangkok.",
+    "dek": "One earthquake has one magnitude, yet one site can shake ten times harder than its neighbor. Here is how surface waves, soft ground, basins and building height decide where the damage falls.",
+    "published": "2026-11-17",
+    "updated": "2026-11-17",
+    "mins": 8,
+    "hashtags": ["earthquake", "seismology", "EarthquakeEngineering"],
+    "cardImage": "the app's seismic wave widget on the Surface tab: a grid of particles moving in a rolling wave along the direction of travel",
+    "sections": [
+      {
+        "h": "One Earthquake, Many Outcomes",
+        "p": [
+          "An earthquake has a single magnitude and a single epicenter, yet it produces a wide range of shaking across the region around it. The U.S. Geological Survey (USGS) explains that shaking at any site depends on the distance from the earthquake, on the rock and soil beneath the site, and on complexities in how seismic waves travel through the crust (USGS n.d.a). The Southern California Earthquake Center (SCEC) reports that in a single earthquake the shaking at one site can easily be ten times stronger than at a neighboring site, even when both lie the same distance from the ruptured fault (SCEC n.d.).",
+          "That variation accounts for the uneven damage seen after large earthquakes. A district of collapsed apartment blocks can lie a short distance from a district where chimneys remain intact. The cause usually involves the ground beneath each block, the way waves travelling along the surface interact with that ground, and the design of the buildings themselves. The sections below follow the waves from the fault to the foundation."
+        ]
+      },
+      {
+        "h": "Waves That Travel Along the Surface",
+        "p": [
+          "Earthquakes radiate two families of waves. Body waves, the P and S waves, pass through the planet's interior. Surface waves form where that energy reaches the top of the crust, and they travel along the ground surface. Love waves move the ground horizontally, side to side, and Rayleigh waves move it in a rolling, elliptical motion. Surface waves arrive after the S waves and fade with distance more gradually than body waves do, so they often produce the strongest and longest shaking far from the fault.",
+          "A USGS computer simulation of a magnitude 6.5 earthquake on the Seattle Fault illustrates the sequence. The later pulses that follow the initial S wave are surface-wave energy, and they dominate the long-period motion across the northern part of the simulated area (USGS n.d.b). Joyner (2000) analyzed the strong motion produced by surface waves in deep sedimentary basins, which are the settings where this energy matters most."
+        ]
+      },
+      {
+        "h": "Soft Ground Amplifies Shaking",
+        "p": [
+          "The first local control on damage is the stiffness of the ground. SCEC identifies two geologic factors as most important in southern California: the softness of the rock or soil near the surface and the total thickness of the sediments above hard bedrock (SCEC n.d.). Hazard models represent softness with a single number, Vs30, the average shear-wave velocity in the top 30 meters of ground. Gallahue et al. (2022) report that at the long periods of 1 to 5 seconds that affect tall buildings, these site terms raise mapped hazard by factors of 1 to 3 at many sites, relative to a standard reference condition of firm rock with a Vs30 of 760 meters per second.",
+          "The 1989 Loma Prieta earthquake gave a clear example. Soft soils amplified the strong shaking by a factor of about two and caused damage at distances up to 100 kilometers from the epicenter (Holzer 1992). In San Francisco's Marina District, which was built on a cove filled in gradually from the late 1860s to 1912, most of the settlement, liquefaction, and damage to pipelines and foundations occurred in areas of artificial fill (Bonilla 1991). Liquefaction, in which saturated sandy ground temporarily loses its strength, occurred at 134 locations during the earthquake and accounted for $99.2 million of the total loss of $5.9 billion (Holzer 1992). Liquefaction therefore concentrated damage in specific places, and most of the loss came from other causes.",
+          "Amplification has limits. Gallahue et al. (2022) note that nonlinear deamplification grows as shaking intensifies and, for very strong shaking, can overcome the linear amplification. Soft soil therefore raises shaking in moderate events and can reduce it in the strongest ones."
+        ]
+      },
+      {
+        "h": "Basins Trap and Prolong the Waves",
+        "p": [
+          "Thick sediment layers in a basin act as a container for surface waves. In the Seattle simulation, surface waves are trapped by the relatively unconsolidated deposits within roughly the top 2 kilometers of the basin, and long-period shaking in Seattle lasts about 25 seconds (USGS n.d.b). The result is higher amplitude and longer duration than a rock site at the same distance would experience.",
+          "The 2015 Gorkha earthquake in Nepal produced a measured example in the Kathmandu Valley. Recordings at sedimentary sites showed long-duration, long-period oscillations attributed to the valley response, with horizontal amplification of about 10 (Takai et al. 2016). The predominant period and the envelope of the oscillations differed from site to site, which the authors read as evidence of a complicated basin structure. Their velocity response spectra indicated enough destructive power to damage high-rise buildings with natural periods of 3 to 5 seconds (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "When Ground and Building Vibrate Together",
+        "p": [
+          "Every structure has a natural period, the time it takes to sway through one full cycle, and taller buildings generally have longer periods. When ground motion repeats at a period close to a building's own, each cycle adds to the last and the response grows. This is resonance.",
+          "Mexico City in 1985 is the standard case. The earthquake struck more than 350 kilometers away (Dalziel and Nassirpour 2025). Martinez-Romero (1987) reports peak accelerations of 0.15 g in the epicentral area and between 0.01 g and 0.19 g in Mexico City, depending on the ground conditions at each site. Ground motion in the damage area had a period of about 2 seconds, at least twenty strong cycles were recorded, and strong shaking lasted roughly one minute. Martinez-Romero attributes these long-period motions to the unique subsoil of the lake bed zone and estimates that about 400 buildings collapsed. Suzuki and Kiremidjian (1986) found that reinforced concrete frame buildings of 6 to 15 stories accounted for most of the damage in the soft-soil area, and they describe the long period and long duration, about three minutes, as the defining characteristics of the ground motion.",
+          "The match between building height and ground period is a simplification, because stiffness, condition, and construction quality all alter a building's actual period and strength. Resonance accounts for the pattern of damage by height, and engineers treat it as one factor among several."
+        ]
+      },
+      {
+        "h": "Distance Offers Less Protection Than Expected",
+        "p": [
+          "The Mw 7.7 Mandalay earthquake in Myanmar on 28 March 2025 extended the same lesson to a far greater range. More than 1,000 kilometers away in Bangkok, a 30-story tower under construction collapsed, with at least 96 fatalities (Dalziel and Nassirpour 2025). A New Zealand reconnaissance team that examined ten Bangkok buildings reported that the earthquake produced widespread shaking in a deep sedimentary basin, and that non-structural elements such as infill walls, ceilings, and facade components sustained the most widespread damage (naturalhazards.govt.nz 2026).",
+          "The 2011 Tohoku earthquake produced a related effect. Long-period waves traveled more than 370 kilometers and caused high-rise buildings in Tokyo and Osaka to sway for minutes, with non-structural damage (Dalziel and Nassirpour 2025). Long periods decay slowly and match the natural periods of tall buildings, so the hazard to those buildings can extend well beyond the distances that damage low-rise construction."
+        ]
+      },
+      {
+        "h": "Rupture Direction and Local Topography",
+        "p": [
+          "Harold Tobin, director of the Pacific Northwest Seismic Network, names basin effects and rupture direction as two major complications beyond simple distance (KING 5 n.d.). When a fault rupture travels toward a site, energy from successive parts of the fault arrives together and concentrates into a strong pulse. A site on the far side of the rupture receives a weaker, longer signal. Two towns at equal distance from the epicenter can therefore receive different shaking.",
+          "Ridges and hilltops add another possible contribution. After the 2010 Haiti earthquake, unusually severe damage occurred near Hotel Montana on a ridge in Petionville. Hough et al. (2010) concluded that poor construction was primarily responsible for the extent of damage in Haiti, but that topographic amplification contributed significantly in Petionville. Their aftershock recordings showed ground motion on the ridge amplified relative to adjacent valley stations and to a hard-rock reference site, which sediment amplification alone could not explain."
+        ]
+      },
+      {
+        "h": "Where Scientists Disagree",
+        "p": [
+          "The Petionville case remains contested. Assimaki and Jeong (2013) tested topography against soil conditions. Their simulations showed that neither the shape of the ridge alone nor the soil alone explained the recordings, while a model with a layer of soft soil over bedrock beneath the ridge matched them well. They concluded that the recorded amplification is most likely attributable to coupled site and topographic effects. Whether a given hill adds shaking through its relief, through its layered soil, or through both varies from case to case.",
+          "The Marina District evidence contains a related ambiguity. Bonilla (1991) notes that recordings and building damage in 1989 indicate amplified motion on both natural and artificial ground, which suggests that the bedrock surface and the thickness of the clay and sand deposits beneath the fill influenced the shaking. Ground failure, by contrast, concentrated in the fill."
+        ]
+      },
+      {
+        "h": "How Engineers Use the Pattern",
+        "p": [
+          "Mapping site conditions turns these findings into practical tools. SCEC combined surface softness with sediment thickness to predict where amplification will be highest, and it identifies the areas of greatest expected amplification as hotspots (SCEC n.d.). USGS ShakeMap, posted normally within several minutes of a moderate or large earthquake, shows ground shaking itself and not the source parameters of magnitude and epicenter (USGS n.d.a). The reported magnitude and epicenter describe the source of an earthquake. The ground beneath a given street, together with the buildings on it, determines what that street experiences."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why can shaking differ so much between neighborhoods in the same earthquake?",
+        "a": "Shaking at a site depends on its distance from the earthquake, the rock and soil beneath it, and how seismic waves travel through the crust. The Southern California Earthquake Center reports that one site can shake about ten times more strongly than a neighboring site at the same distance from the fault."
+      },
+      {
+        "q": "What are surface waves?",
+        "a": "Surface waves form when earthquake energy reaches the top of the crust and travels along the ground. Love waves move the ground side to side, and Rayleigh waves move it in a rolling motion. They arrive after the P and S waves and fade more slowly with distance, so they often cause the strongest and longest shaking far from the fault."
+      },
+      {
+        "q": "Does soft ground always make shaking worse?",
+        "a": "Usually, but not always. Soft soil and thick sediments amplify moderate shaking; in the 1989 Loma Prieta earthquake soft soils roughly doubled it. In very strong shaking, soft soil behaves nonlinearly and can reduce the shaking instead."
+      },
+      {
+        "q": "Why did buildings in Mexico City collapse in 1985 so far from the earthquake?",
+        "a": "The old lake bed under Mexico City shook at a period of about 2 seconds for a long time. Buildings of roughly 6 to 15 stories have natural periods close to that, so they resonated, and reinforced concrete frames of that height accounted for most of the damage in the soft-soil zone."
+      },
+      {
+        "q": "Can an earthquake damage buildings more than 1,000 kilometers away?",
+        "a": "Yes. The Mw 7.7 Mandalay earthquake in Myanmar in 2025 brought down a 30-story tower under construction in Bangkok, more than 1,000 kilometers away. Long-period waves decay slowly with distance, and Bangkok sits on a deep sedimentary basin."
+      },
+      {
+        "q": "What does ShakeMap show?",
+        "a": "USGS ShakeMap shows how strongly the ground shook across a region, rather than only the magnitude and epicenter. It is normally posted within several minutes of a moderate or large earthquake."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Assimaki, Dominic, and Seokho Jeong. 2013. \"Ground-Motion Observations at Hotel Montana during the M 7.0 2010 Haiti Earthquake: Topography or Soil Amplification?\" Bulletin of the Seismological Society of America 103 (5): 2577–90. https://doi.org/10.1785/0120120242.",
+        "url": "https://doi.org/10.1785/0120120242"
+      },
+      {
+        "text": "Bonilla, M. G. 1991. \"The Marina District, San Francisco, California: Geology, History, and Earthquake Effects.\" Bulletin of the Seismological Society of America 81 (5): 1958–79. https://doi.org/10.1785/BSSA0810051958.",
+        "url": "https://doi.org/10.1785/BSSA0810051958"
+      },
+      {
+        "text": "Dalziel, James, and Arash Nassirpour. 2025. \"Long Waves and Tall Buildings: Site Effect Considerations in Catastrophe Models Following the Myanmar Earthquake.\" WTW, August 27, 2025. https://www.wtwco.com/en-sg/insights/2025/08/long-waves-and-tall-buildings.",
+        "url": "https://www.wtwco.com/en-sg/insights/2025/08/long-waves-and-tall-buildings"
+      },
+      {
+        "text": "Gallahue, Molly M., Leah Marschall Salditch, Madeleine C. Lucas, James S. Neely, Seth Stein, Norman A. Abrahamson, Tessa Williams, and Susan E. Hough. 2022. \"A Study of the Effect of Site Response on California Seismic Hazard Map Assessment.\" Frontiers in Earth Science 10. https://doi.org/10.3389/feart.2022.931340.",
+        "url": "https://doi.org/10.3389/feart.2022.931340"
+      },
+      {
+        "text": "Holzer, Thomas L., coord. 1992. The Loma Prieta, California, Earthquake of October 17, 1989: Strong Ground Motion and Ground Failure. U.S. Geological Survey Professional Paper 1551. https://doi.org/10.3133/pp1551.",
+        "url": "https://doi.org/10.3133/pp1551"
+      },
+      {
+        "text": "Hough, Susan E., J. R. Altidor, D. Anglade, D. Given, M. G. Janvier, J. Z. Maharrey, M. Meremonte, B. S. Mildor, C. Prepetit, and A. Yong. 2010. \"Localized Damage Caused by Topographic Amplification during the 2010 M 7.0 Haiti Earthquake.\" Nature Geoscience 3: 778–82. https://doi.org/10.1038/ngeo988.",
+        "url": "https://doi.org/10.1038/ngeo988"
+      },
+      {
+        "text": "Joyner, W. B. 2000. \"Strong Motion from Surface Waves in Deep Sedimentary Basins.\" Bulletin of the Seismological Society of America 90 (6B): S95–S112.",
+        "url": null
+      },
+      {
+        "text": "KING 5 News. n.d. \"Why Is Earthquake Shaking Stronger in Some Places?\" https://www.king5.com/article/news/why-is-earthquake-shaking-stronger-in-some-places/281-3ab40713-a097-4ff2-a42b-e818c1fe9471.",
+        "url": "https://www.king5.com/article/news/why-is-earthquake-shaking-stronger-in-some-places/281-3ab40713-a097-4ff2-a42b-e818c1fe9471"
+      },
+      {
+        "text": "Martinez-Romero, Enrique. 1987. \"The Behaviour, Overview of Damage and Retrofit of Steel Buildings after the Earthquakes of September 1985.\" Bulletin of the New Zealand Society for Earthquake Engineering 20 (1): 30–41. First presented at the Pacific Structural Steel Conference, Auckland, August 1986. https://doi.org/10.5459/bnzsee.20.1.30-41.",
+        "url": "https://doi.org/10.5459/bnzsee.20.1.30-41"
+      },
+      {
+        "text": "naturalhazards.govt.nz. 2026. \"Earthquake Reconnaissance in Bangkok, Thailand, following the 28 March 2025 Mandalay Earthquake.\" Published June 24, 2026. https://www.naturalhazards.govt.nz/resilience-and-research/research/search-all-research-reports/earthquake-reconnaissance-in-bangkok-thailand-following-the-28-march-2025-mandalay-earthquake/.",
+        "url": "https://www.naturalhazards.govt.nz/resilience-and-research/research/search-all-research-reports/earthquake-reconnaissance-in-bangkok-thailand-following-the-28-march-2025-mandalay-earthquake/"
+      },
+      {
+        "text": "SCEC (Southern California Earthquake Center). n.d. \"Earthquake Shaking: Finding the Hotspots.\" Phase 3 fact sheet. https://ceo.scec.org/phase3/factsheet.html.",
+        "url": "https://ceo.scec.org/phase3/factsheet.html"
+      },
+      {
+        "text": "Suzuki, S., and A. S. Kiremidjian. 1986. The Mexico Earthquake of September 1985, A Preliminary Report. Stanford Digital Repository. http://purl.stanford.edu/dj796hw6704.",
+        "url": "http://purl.stanford.edu/dj796hw6704"
+      },
+      {
+        "text": "Takai, Nobuo, Michiko Shigefuji, Sudhir Rajaure, Subeg Bijukchhen, Masayoshi Ichiyanagi, Megh Raj Dhital, and Tsutomu Sasatani. 2016. \"Strong Ground Motion in the Kathmandu Valley during the 2015 Gorkha, Nepal, Earthquake.\" Earth, Planets and Space 68: 10. https://doi.org/10.1186/s40623-016-0383-7.",
+        "url": "https://doi.org/10.1186/s40623-016-0383-7"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. \"ShakeMap: Introduction.\" Earthquake Hazards Program. Archived at https://webarchive.library.unt.edu/web/20121007005011/http://earthquake.usgs.gov/research/shakemap.",
+        "url": "https://webarchive.library.unt.edu/web/20121007005011/http://earthquake.usgs.gov/research/shakemap"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.b. \"Computer Simulation of a Magnitude 6.5 Earthquake on the Seattle Fault.\" https://earthquake.usgs.gov/scenarios/related/seattle.php.",
+        "url": "https://earthquake.usgs.gov/scenarios/related/seattle.php"
+      }
+    ]
   }
 ]

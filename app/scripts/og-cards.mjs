@@ -74,10 +74,14 @@ const visuals = {
 const LIBRARY_VISUAL = {
   'earthquake-prediction': 'mag', 'plate-tectonics-subduction': 'plates', 'faults-and-stress': 'faults',
   'earth-interior-seismic-waves': 'waves', 'aftershocks-and-hazards': 'depth',
+  // "article:Tab" picks a tab of the illustration first (English tab label).
+  'surface-waves-and-damage': 'waves:Surface',
 };
 /** The article's illustration (canvas or widget): the block after the intro. */
-async function articleVisual(id) {
+async function articleVisual(spec) {
+  const [id, tab] = spec.split(':');
   const p = await appPage('/app/science/' + id, { width: 412, height: 900 });
+  if (tab) await p.locator('article').getByRole('button', { name: tab, exact: true }).first().click();
   await p.waitForTimeout(1500);
   const src = png(await p.locator('article > *').nth(3).screenshot());
   await p.context().close(); return { src };

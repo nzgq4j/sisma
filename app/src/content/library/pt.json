@@ -442,5 +442,101 @@
         "a": "Na maior parte, não. O USGS atribui a maioria dos terremotos de Oklahoma ao descarte de águas residuais em poços profundos, que em grande parte são um subproduto da extração de petróleo, e não fluido de fracking. O fraturamento hidráulico causa diretamente apenas uma pequena porcentagem dos terremotos induzidos que são sentidos."
       }
     ]
+  },
+  "surface-waves-and-damage": {
+    "title": "Por que um bairro desaba enquanto o vizinho continua de pé",
+    "dek": "Um terremoto tem uma só magnitude, mas um local pode tremer dez vezes mais forte que o vizinho. Veja como as ondas superficiais, o solo mole, as bacias e a altura dos edifícios decidem onde caem os danos.",
+    "sections": [
+      {
+        "h": "Um terremoto, muitos desfechos",
+        "p": [
+          "Um terremoto tem uma única magnitude e um único epicentro, mas produz uma ampla gama de tremores na região ao seu redor. O Serviço Geológico dos Estados Unidos (USGS) explica que o tremor em qualquer local depende da distância até o terremoto, da rocha e do solo sob o local e das complexidades na forma como as ondas sísmicas se propagam pela crosta (USGS n.d.a). O Centro de Terremotos do Sul da Califórnia (SCEC) relata que, num único terremoto, o tremor em um local pode facilmente ser dez vezes mais forte que num local vizinho, mesmo quando ambos estão à mesma distância da falha rompida (SCEC n.d.).",
+          "Essa variação explica os danos desiguais observados após grandes terremotos. Um bairro de prédios residenciais desabados pode ficar a pouca distância de um bairro onde as chaminés continuam intactas. A causa geralmente envolve o solo sob cada quarteirão, a forma como as ondas que se propagam ao longo da superfície interagem com esse solo e o projeto dos próprios edifícios. As seções a seguir acompanham as ondas da falha até a fundação."
+        ]
+      },
+      {
+        "h": "Ondas que se propagam ao longo da superfície",
+        "p": [
+          "Os terremotos irradiam duas famílias de ondas. As ondas de corpo, as ondas P e S, atravessam o interior do planeta. As ondas superficiais se formam quando essa energia chega ao topo da crosta, e se propagam ao longo da superfície do solo. As ondas Love movem o solo horizontalmente, de um lado para o outro, e as ondas Rayleigh o movem num movimento ondulante e elíptico. As ondas superficiais chegam depois das ondas S e se atenuam com a distância de forma mais gradual que as ondas de corpo, por isso muitas vezes produzem o tremor mais forte e mais longo longe da falha.",
+          "Uma simulação computacional do USGS de um terremoto de magnitude 6,5 na Falha de Seattle ilustra a sequência. Os pulsos posteriores que seguem a onda S inicial são energia de ondas superficiais e dominam o movimento de longo período em toda a parte norte da área simulada (USGS n.d.b). Joyner (2000) analisou o movimento forte produzido por ondas superficiais em bacias sedimentares profundas, que são os cenários em que essa energia mais importa."
+        ]
+      },
+      {
+        "h": "O solo mole amplifica o tremor",
+        "p": [
+          "O primeiro fator local que controla os danos é a rigidez do solo. O SCEC identifica dois fatores geológicos como os mais importantes no sul da Califórnia: a moleza da rocha ou do solo perto da superfície e a espessura total dos sedimentos acima da rocha dura do embasamento (SCEC n.d.). Os modelos de risco representam a moleza com um único número, o Vs30, a velocidade média das ondas de cisalhamento nos 30 metros superiores do solo. Gallahue et al. (2022) relatam que, nos períodos longos de 1 a 5 segundos que afetam edifícios altos, esses termos de local elevam o risco mapeado por fatores de 1 a 3 em muitos locais, em relação a uma condição de referência padrão de rocha firme com Vs30 de 760 metros por segundo.",
+          "O terremoto de Loma Prieta, em 1989, deu um exemplo claro. Os solos moles amplificaram o tremor forte por um fator de cerca de dois e causaram danos a distâncias de até 100 quilômetros do epicentro (Holzer 1992). No Marina District de San Francisco, construído sobre uma enseada aterrada gradualmente do fim da década de 1860 até 1912, a maior parte dos recalques, da liquefação e dos danos a tubulações e fundações ocorreu em áreas de aterro artificial (Bonilla 1991). A liquefação, em que o solo arenoso saturado perde temporariamente a sua resistência, ocorreu em 134 locais durante o terremoto e respondeu por US$ 99,2 milhões do prejuízo total de US$ 5,9 bilhões (Holzer 1992). A liquefação, portanto, concentrou danos em lugares específicos, e a maior parte do prejuízo veio de outras causas.",
+          "A amplificação tem limites. Gallahue et al. (2022) observam que a desamplificação não linear cresce à medida que o tremor se intensifica e, em tremores muito fortes, pode superar a amplificação linear. O solo mole, portanto, aumenta o tremor em eventos moderados e pode reduzi-lo nos mais fortes."
+        ]
+      },
+      {
+        "h": "As bacias aprisionam e prolongam as ondas",
+        "p": [
+          "Camadas espessas de sedimentos numa bacia funcionam como um recipiente para as ondas superficiais. Na simulação de Seattle, as ondas superficiais ficam aprisionadas pelos depósitos relativamente não consolidados dentro dos cerca de 2 quilômetros superiores da bacia, e o tremor de longo período em Seattle dura cerca de 25 segundos (USGS n.d.b). O resultado é uma amplitude maior e uma duração mais longa do que um local em rocha à mesma distância sofreria.",
+          "O terremoto de Gorkha de 2015, no Nepal, produziu um exemplo medido no Vale de Katmandu. Os registros em locais sedimentares mostraram oscilações de longa duração e longo período atribuídas à resposta do vale, com amplificação horizontal de cerca de 10 (Takai et al. 2016). O período predominante e a envoltória das oscilações variaram de um local para outro, o que os autores interpretaram como evidência de uma estrutura de bacia complexa. Seus espectros de resposta de velocidade indicaram poder destrutivo suficiente para danificar edifícios altos com períodos naturais de 3 a 5 segundos (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "Quando o solo e o edifício vibram juntos",
+        "p": [
+          "Toda estrutura tem um período natural, o tempo que leva para oscilar um ciclo completo, e edifícios mais altos geralmente têm períodos mais longos. Quando o movimento do solo se repete num período próximo ao do próprio edifício, cada ciclo se soma ao anterior e a resposta cresce. Isso é ressonância.",
+          "A Cidade do México em 1985 é o caso clássico. O terremoto ocorreu a mais de 350 quilômetros de distância (Dalziel and Nassirpour 2025). Martinez-Romero (1987) relata acelerações de pico de 0,15 g na área epicentral e entre 0,01 g e 0,19 g na Cidade do México, dependendo das condições do solo em cada local. O movimento do solo na área dos danos teve período de cerca de 2 segundos, foram registrados pelo menos vinte ciclos fortes, e o tremor forte durou cerca de um minuto. Martinez-Romero atribui esses movimentos de longo período ao subsolo singular da zona do antigo leito do lago e estima que cerca de 400 edifícios desabaram. Suzuki and Kiremidjian (1986) constataram que edifícios de pórticos de concreto armado de 6 a 15 andares responderam pela maior parte dos danos na área de solo mole, e descrevem o período longo e a longa duração, de cerca de três minutos, como as características definidoras do movimento do solo.",
+          "A correspondência entre a altura do edifício e o período do solo é uma simplificação, porque a rigidez, o estado de conservação e a qualidade da construção alteram o período e a resistência reais de um edifício. A ressonância explica o padrão de danos por altura, e os engenheiros a tratam como um fator entre vários."
+        ]
+      },
+      {
+        "h": "A distância protege menos do que se espera",
+        "p": [
+          "O terremoto de Mandalay, de Mw 7,7, em Mianmar, em 28 de março de 2025, estendeu a mesma lição a um alcance muito maior. A mais de 1.000 quilômetros de distância, em Bangkok, uma torre de 30 andares em construção desabou, com pelo menos 96 mortes (Dalziel and Nassirpour 2025). Uma equipe de reconhecimento da Nova Zelândia que examinou dez edifícios de Bangkok relatou que o terremoto produziu tremores generalizados numa bacia sedimentar profunda, e que elementos não estruturais, como paredes de vedação, forros e componentes de fachada, sofreram os danos mais generalizados (naturalhazards.govt.nz 2026).",
+          "O terremoto de Tohoku de 2011 produziu um efeito semelhante. Ondas de longo período percorreram mais de 370 quilômetros e fizeram edifícios altos em Tóquio e Osaka oscilarem durante minutos, com danos não estruturais (Dalziel and Nassirpour 2025). Os períodos longos decaem lentamente e coincidem com os períodos naturais dos edifícios altos, por isso o risco para esses edifícios pode se estender muito além das distâncias em que construções baixas sofrem danos."
+        ]
+      },
+      {
+        "h": "Direção da ruptura e topografia local",
+        "p": [
+          "Harold Tobin, diretor da Pacific Northwest Seismic Network, aponta os efeitos de bacia e a direção da ruptura como duas complicações importantes além da simples distância (KING 5 n.d.). Quando a ruptura de uma falha avança em direção a um local, a energia de partes sucessivas da falha chega ao mesmo tempo e se concentra num pulso forte. Um local do lado oposto da ruptura recebe um sinal mais fraco e mais longo. Duas cidades à mesma distância do epicentro podem, portanto, receber tremores diferentes.",
+          "Cristas e topos de morros acrescentam outra possível contribuição. Após o terremoto do Haiti de 2010, danos excepcionalmente graves ocorreram perto do Hotel Montana, numa crista em Pétion-Ville. Hough et al. (2010) concluíram que a construção precária foi a principal responsável pela extensão dos danos no Haiti, mas que a amplificação topográfica contribuiu de forma significativa em Pétion-Ville. Seus registros de réplicas mostraram o movimento do solo na crista amplificado em relação às estações dos vales adjacentes e a um local de referência em rocha dura, o que a amplificação por sedimentos, por si só, não conseguia explicar."
+        ]
+      },
+      {
+        "h": "Onde os cientistas discordam",
+        "p": [
+          "O caso de Pétion-Ville continua em debate. Assimaki and Jeong (2013) compararam a topografia com as condições do solo. Suas simulações mostraram que nem a forma da crista sozinha nem o solo sozinho explicavam os registros, enquanto um modelo com uma camada de solo mole sobre a rocha do embasamento sob a crista se ajustava bem a eles. Concluíram que a amplificação registrada se deve, muito provavelmente, a efeitos de local e topográficos combinados. Se um determinado morro aumenta o tremor pelo seu relevo, pelo seu solo em camadas ou por ambos varia de caso para caso.",
+          "As evidências do Marina District contêm uma ambiguidade semelhante. Bonilla (1991) observa que os registros e os danos aos edifícios em 1989 indicam movimento amplificado tanto em terreno natural quanto em terreno artificial, o que sugere que a superfície da rocha do embasamento e a espessura dos depósitos de argila e areia sob o aterro influenciaram o tremor. As rupturas do terreno, por outro lado, se concentraram no aterro."
+        ]
+      },
+      {
+        "h": "Como os engenheiros usam o padrão",
+        "p": [
+          "O mapeamento das condições locais transforma essas constatações em ferramentas práticas. O SCEC combinou a moleza da superfície com a espessura dos sedimentos para prever onde a amplificação será maior, e identifica as áreas de maior amplificação esperada como pontos críticos (SCEC n.d.). O ShakeMap do USGS, normalmente publicado poucos minutos após um terremoto moderado ou grande, mostra o próprio tremor do solo, e não os parâmetros da fonte, a magnitude e o epicentro (USGS n.d.a). A magnitude e o epicentro informados descrevem a fonte de um terremoto. O solo sob uma determinada rua, junto com os edifícios nela, determina o que essa rua vivencia."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Por que o tremor pode variar tanto entre bairros no mesmo terremoto?",
+        "a": "O tremor num local depende da sua distância do terremoto, da rocha e do solo sob ele e da forma como as ondas sísmicas se propagam pela crosta. O Centro de Terremotos do Sul da Califórnia relata que um local pode tremer cerca de dez vezes mais forte que um local vizinho à mesma distância da falha."
+      },
+      {
+        "q": "O que são ondas superficiais?",
+        "a": "As ondas superficiais se formam quando a energia do terremoto chega ao topo da crosta e se propaga ao longo do solo. As ondas Love movem o solo de um lado para o outro, e as ondas Rayleigh o movem num movimento ondulante. Elas chegam depois das ondas P e S e se atenuam mais lentamente com a distância, por isso muitas vezes causam o tremor mais forte e mais longo longe da falha."
+      },
+      {
+        "q": "O solo mole sempre piora o tremor?",
+        "a": "Geralmente, mas nem sempre. O solo mole e os sedimentos espessos amplificam tremores moderados; no terremoto de Loma Prieta de 1989, os solos moles praticamente o dobraram. Em tremores muito fortes, o solo mole se comporta de forma não linear e pode, em vez disso, reduzir o tremor."
+      },
+      {
+        "q": "Por que edifícios na Cidade do México desabaram em 1985 tão longe do terremoto?",
+        "a": "O antigo leito do lago sob a Cidade do México tremeu com período de cerca de 2 segundos durante muito tempo. Edifícios de cerca de 6 a 15 andares têm períodos naturais próximos a esse, por isso entraram em ressonância, e os pórticos de concreto armado dessa altura responderam pela maior parte dos danos na zona de solo mole."
+      },
+      {
+        "q": "Um terremoto pode danificar edifícios a mais de 1.000 quilômetros de distância?",
+        "a": "Sim. O terremoto de Mandalay, de Mw 7,7, em Mianmar, em 2025, derrubou uma torre de 30 andares em construção em Bangkok, a mais de 1.000 quilômetros de distância. As ondas de longo período decaem lentamente com a distância, e Bangkok fica sobre uma bacia sedimentar profunda."
+      },
+      {
+        "q": "O que o ShakeMap mostra?",
+        "a": "O ShakeMap do USGS mostra com que intensidade o solo tremeu em toda uma região, e não apenas a magnitude e o epicentro. Normalmente é publicado poucos minutos após um terremoto moderado ou grande."
+      }
+    ]
   }
 }
