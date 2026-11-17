@@ -442,5 +442,101 @@
         "a": "Sebagian besar tidak. USGS mengaitkan sebagian besar gempa di Oklahoma dengan pembuangan air limbah ke lapisan dalam, yang sebagian besar merupakan hasil sampingan ekstraksi minyak, bukan fluida fracking. Rekahan hidraulik secara langsung hanya menyebabkan sebagian kecil persentase gempa induksi yang terasa."
       }
     ]
+  },
+  "surface-waves-and-damage": {
+    "title": "Mengapa Satu Lingkungan Runtuh sementara Lingkungan Sebelahnya Tetap Berdiri",
+    "dek": "Satu gempa bumi hanya memiliki satu magnitudo, tetapi satu lokasi dapat berguncang sepuluh kali lebih kuat daripada lokasi di sebelahnya. Inilah cara gelombang permukaan, tanah lunak, cekungan, dan tinggi bangunan menentukan di mana kerusakan terjadi.",
+    "sections": [
+      {
+        "h": "Satu Gempa, Banyak Akibat",
+        "p": [
+          "Sebuah gempa bumi memiliki satu magnitudo dan satu episentrum, tetapi menghasilkan guncangan yang sangat beragam di seluruh wilayah di sekitarnya. Survei Geologi Amerika Serikat (USGS) menjelaskan bahwa guncangan di suatu lokasi bergantung pada jaraknya dari gempa, pada batuan dan tanah di bawah lokasi itu, dan pada kerumitan cara gelombang seismik merambat melalui kerak bumi (USGS n.d.a). Southern California Earthquake Center (SCEC) melaporkan bahwa dalam satu gempa, guncangan di satu lokasi dengan mudah dapat sepuluh kali lebih kuat daripada di lokasi tetangganya, bahkan ketika keduanya berada pada jarak yang sama dari sesar yang patah (SCEC n.d.).",
+          "Variasi itulah yang menjelaskan kerusakan yang tidak merata setelah gempa-gempa besar. Sebuah kawasan dengan blok-blok apartemen yang runtuh dapat terletak tidak jauh dari kawasan lain yang cerobong asapnya tetap utuh. Penyebabnya biasanya melibatkan tanah di bawah setiap blok, cara gelombang yang merambat di sepanjang permukaan berinteraksi dengan tanah itu, dan rancangan bangunan itu sendiri. Bagian-bagian berikut menelusuri gelombang dari sesar hingga ke fondasi."
+        ]
+      },
+      {
+        "h": "Gelombang yang Merambat di Sepanjang Permukaan",
+        "p": [
+          "Gempa bumi memancarkan dua kelompok gelombang. Gelombang badan, yaitu gelombang P dan S, melewati bagian dalam planet. Gelombang permukaan terbentuk ketika energi itu mencapai bagian atas kerak, dan gelombang ini merambat di sepanjang permukaan tanah. Gelombang Love menggerakkan tanah secara horizontal, ke kiri dan ke kanan, dan gelombang Rayleigh menggerakkannya dalam gerakan menggulung yang berbentuk elips. Gelombang permukaan tiba setelah gelombang S dan melemah seiring jarak secara lebih bertahap daripada gelombang badan, sehingga gelombang ini sering menghasilkan guncangan terkuat dan terlama di tempat yang jauh dari sesar.",
+          "Simulasi komputer USGS tentang gempa bermagnitudo 6,5 di Sesar Seattle menggambarkan urutan ini. Denyut-denyut yang datang belakangan setelah gelombang S awal adalah energi gelombang permukaan, dan denyut-denyut ini mendominasi gerakan berperiode panjang di seluruh bagian utara wilayah simulasi (USGS n.d.b). Joyner (2000) menganalisis gerakan tanah kuat yang dihasilkan oleh gelombang permukaan di cekungan sedimen yang dalam, yaitu lingkungan tempat energi ini paling berpengaruh."
+        ]
+      },
+      {
+        "h": "Tanah Lunak Memperkuat Guncangan",
+        "p": [
+          "Faktor lokal pertama yang mengendalikan kerusakan adalah kekakuan tanah. SCEC menyebut dua faktor geologi sebagai yang paling penting di California selatan: kelunakan batuan atau tanah di dekat permukaan dan ketebalan total sedimen di atas batuan dasar yang keras (SCEC n.d.). Model bahaya menyatakan kelunakan dengan satu angka, Vs30, yaitu kecepatan rata-rata gelombang geser pada 30 meter teratas lapisan tanah. Gallahue et al. (2022) melaporkan bahwa pada periode panjang 1 hingga 5 detik yang memengaruhi bangunan tinggi, faktor-faktor lokasi ini menaikkan bahaya yang dipetakan dengan faktor 1 hingga 3 di banyak lokasi, dibandingkan dengan kondisi acuan standar berupa batuan keras dengan Vs30 sebesar 760 meter per detik.",
+          "Gempa Loma Prieta 1989 memberikan contoh yang jelas. Tanah lunak memperkuat guncangan kuat dengan faktor sekitar dua dan menyebabkan kerusakan hingga jarak 100 kilometer dari episentrum (Holzer 1992). Di Distrik Marina, San Francisco, yang dibangun di atas sebuah teluk kecil yang ditimbun secara bertahap dari akhir 1860-an hingga 1912, sebagian besar penurunan tanah, likuefaksi, serta kerusakan pipa dan fondasi terjadi di area tanah urukan buatan (Bonilla 1991). Likuefaksi, yaitu ketika tanah berpasir yang jenuh air untuk sementara kehilangan kekuatannya, terjadi di 134 lokasi selama gempa itu dan menyumbang 99,2 juta dolar AS dari total kerugian sebesar 5,9 miliar dolar AS (Holzer 1992). Dengan demikian, likuefaksi memusatkan kerusakan di tempat-tempat tertentu, dan sebagian besar kerugian berasal dari penyebab lain.",
+          "Penguatan ini memiliki batas. Gallahue et al. (2022) mencatat bahwa deamplifikasi nonlinear meningkat seiring makin kuatnya guncangan dan, pada guncangan yang sangat kuat, dapat mengalahkan penguatan linear. Karena itu, tanah lunak memperkuat guncangan pada gempa sedang dan dapat menguranginya pada gempa yang paling kuat."
+        ]
+      },
+      {
+        "h": "Cekungan Memerangkap dan Memperpanjang Gelombang",
+        "p": [
+          "Lapisan sedimen tebal di sebuah cekungan berfungsi sebagai wadah bagi gelombang permukaan. Dalam simulasi Seattle, gelombang permukaan terperangkap oleh endapan yang relatif belum terkonsolidasi di dalam kira-kira 2 kilometer teratas cekungan, dan guncangan berperiode panjang di Seattle berlangsung sekitar 25 detik (USGS n.d.b). Akibatnya, amplitudo lebih tinggi dan durasi lebih lama daripada yang akan dialami lokasi batuan pada jarak yang sama.",
+          "Gempa Gorkha 2015 di Nepal menghasilkan contoh terukur di Lembah Kathmandu. Rekaman di lokasi-lokasi sedimen menunjukkan osilasi berperiode panjang dan berdurasi panjang yang dikaitkan dengan respons lembah, dengan penguatan horizontal sekitar 10 (Takai et al. 2016). Periode dominan dan selubung osilasinya berbeda dari satu lokasi ke lokasi lain, yang dibaca para penulis sebagai bukti adanya struktur cekungan yang rumit. Spektrum respons kecepatan mereka menunjukkan daya rusak yang cukup untuk merusak bangunan bertingkat tinggi dengan periode alami 3 hingga 5 detik (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "Ketika Tanah dan Bangunan Bergetar Bersama",
+        "p": [
+          "Setiap struktur memiliki periode alami, yaitu waktu yang diperlukan untuk bergoyang melalui satu siklus penuh, dan bangunan yang lebih tinggi umumnya memiliki periode yang lebih panjang. Ketika gerakan tanah berulang dengan periode yang mendekati periode bangunan itu sendiri, setiap siklus menambah siklus sebelumnya dan responsnya membesar. Inilah resonansi.",
+          "Kota Meksiko pada 1985 adalah contoh bakunya. Gempa itu terjadi lebih dari 350 kilometer jauhnya (Dalziel and Nassirpour 2025). Martinez-Romero (1987) melaporkan percepatan puncak sebesar 0,15 g di area episentrum dan antara 0,01 g dan 0,19 g di Kota Meksiko, bergantung pada kondisi tanah di setiap lokasi. Gerakan tanah di area kerusakan memiliki periode sekitar 2 detik, setidaknya dua puluh siklus kuat terekam, dan guncangan kuat berlangsung kira-kira satu menit. Martinez-Romero mengaitkan gerakan berperiode panjang ini dengan tanah bawah permukaan yang khas di zona dasar danau dan memperkirakan sekitar 400 bangunan runtuh. Suzuki and Kiremidjian (1986) mendapati bahwa bangunan rangka beton bertulang setinggi 6 hingga 15 lantai menyumbang sebagian besar kerusakan di area tanah lunak, dan mereka menggambarkan periode yang panjang dan durasi yang panjang, sekitar tiga menit, sebagai ciri utama gerakan tanah tersebut.",
+          "Kecocokan antara tinggi bangunan dan periode tanah merupakan penyederhanaan, karena kekakuan, kondisi, dan mutu konstruksi semuanya mengubah periode dan kekuatan sebenarnya dari sebuah bangunan. Resonansi menjelaskan pola kerusakan berdasarkan ketinggian, dan para insinyur memperlakukannya sebagai salah satu dari beberapa faktor."
+        ]
+      },
+      {
+        "h": "Jarak Memberikan Perlindungan yang Lebih Kecil daripada yang Diperkirakan",
+        "p": [
+          "Gempa Mandalay Mw 7,7 di Myanmar pada 28 Maret 2025 memperluas pelajaran yang sama ke jangkauan yang jauh lebih besar. Lebih dari 1.000 kilometer jauhnya di Bangkok, sebuah menara 30 lantai yang sedang dibangun runtuh, dengan sedikitnya 96 korban jiwa (Dalziel and Nassirpour 2025). Sebuah tim survei lapangan Selandia Baru yang memeriksa sepuluh bangunan di Bangkok melaporkan bahwa gempa itu menghasilkan guncangan yang meluas di sebuah cekungan sedimen yang dalam, dan bahwa elemen nonstruktural seperti dinding pengisi, plafon, dan komponen fasad mengalami kerusakan yang paling meluas (naturalhazards.govt.nz 2026).",
+          "Gempa Tohoku 2011 menghasilkan efek yang serupa. Gelombang berperiode panjang merambat lebih dari 370 kilometer dan menyebabkan gedung-gedung bertingkat tinggi di Tokyo dan Osaka bergoyang selama beberapa menit, disertai kerusakan nonstruktural (Dalziel and Nassirpour 2025). Gelombang berperiode panjang meluruh secara lambat dan cocok dengan periode alami bangunan tinggi, sehingga bahaya bagi bangunan-bangunan itu dapat menjangkau jauh melampaui jarak yang merusak bangunan bertingkat rendah."
+        ]
+      },
+      {
+        "h": "Arah Patahan dan Topografi Setempat",
+        "p": [
+          "Harold Tobin, direktur Pacific Northwest Seismic Network, menyebut efek cekungan dan arah patahan sebagai dua kerumitan utama di luar sekadar jarak (KING 5 n.d.). Ketika patahan sesar merambat ke arah suatu lokasi, energi dari bagian-bagian sesar yang berurutan tiba bersamaan dan terpusat menjadi satu denyut yang kuat. Lokasi di sisi yang berlawanan dengan arah patahan menerima sinyal yang lebih lemah dan lebih panjang. Karena itu, dua kota yang berjarak sama dari episentrum dapat menerima guncangan yang berbeda.",
+          "Punggungan dan puncak bukit dapat memberikan kontribusi lain. Setelah gempa Haiti 2010, kerusakan yang luar biasa parah terjadi di dekat Hotel Montana di sebuah punggungan di Pétion-Ville. Hough et al. (2010) menyimpulkan bahwa konstruksi yang buruk merupakan penyebab utama luasnya kerusakan di Haiti, tetapi penguatan topografis memberikan kontribusi yang signifikan di Pétion-Ville. Rekaman gempa susulan mereka menunjukkan gerakan tanah di punggungan itu menguat dibandingkan dengan stasiun-stasiun di lembah yang berdekatan dan dengan lokasi acuan berbatuan keras, yang tidak dapat dijelaskan oleh penguatan sedimen saja."
+        ]
+      },
+      {
+        "h": "Hal yang Masih Diperdebatkan Para Ilmuwan",
+        "p": [
+          "Kasus Pétion-Ville masih diperdebatkan. Assimaki and Jeong (2013) menguji topografi terhadap kondisi tanah. Simulasi mereka menunjukkan bahwa baik bentuk punggungan saja maupun tanahnya saja tidak dapat menjelaskan rekaman tersebut, sedangkan model dengan lapisan tanah lunak di atas batuan dasar di bawah punggungan cocok dengan rekaman itu. Mereka menyimpulkan bahwa penguatan yang terekam kemungkinan besar disebabkan oleh gabungan efek lokasi dan efek topografis. Apakah sebuah bukit menambah guncangan melalui reliefnya, melalui tanahnya yang berlapis, atau melalui keduanya berbeda dari satu kasus ke kasus lain.",
+          "Bukti dari Distrik Marina mengandung ketidakjelasan yang serupa. Bonilla (1991) mencatat bahwa rekaman dan kerusakan bangunan pada 1989 menunjukkan gerakan yang menguat baik di tanah alami maupun di tanah buatan, yang menandakan bahwa permukaan batuan dasar serta ketebalan endapan lempung dan pasir di bawah urukan memengaruhi guncangan. Sebaliknya, kegagalan tanah terpusat di area urukan."
+        ]
+      },
+      {
+        "h": "Bagaimana Para Insinyur Memanfaatkan Pola Ini",
+        "p": [
+          "Pemetaan kondisi lokasi mengubah temuan-temuan ini menjadi alat yang praktis. SCEC menggabungkan kelunakan permukaan dengan ketebalan sedimen untuk memprediksi di mana penguatan akan paling tinggi, dan menyebut area dengan penguatan terbesar yang diperkirakan sebagai titik rawan (hotspot) (SCEC n.d.). USGS ShakeMap, yang biasanya diterbitkan dalam beberapa menit setelah gempa sedang atau besar, menampilkan guncangan tanah itu sendiri, bukan parameter sumber berupa magnitudo dan episentrum (USGS n.d.a). Magnitudo dan episentrum yang dilaporkan menggambarkan sumber sebuah gempa. Tanah di bawah suatu jalan, bersama bangunan-bangunan di atasnya, menentukan apa yang dialami jalan tersebut."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Mengapa guncangan bisa sangat berbeda antara satu lingkungan dan lingkungan lain dalam gempa yang sama?",
+        "a": "Guncangan di suatu lokasi bergantung pada jaraknya dari gempa, batuan dan tanah di bawahnya, serta cara gelombang seismik merambat melalui kerak bumi. Southern California Earthquake Center melaporkan bahwa satu lokasi dapat berguncang sekitar sepuluh kali lebih kuat daripada lokasi tetangganya yang berjarak sama dari sesar."
+      },
+      {
+        "q": "Apa itu gelombang permukaan?",
+        "a": "Gelombang permukaan terbentuk ketika energi gempa mencapai bagian atas kerak dan merambat di sepanjang tanah. Gelombang Love menggerakkan tanah ke kiri dan ke kanan, dan gelombang Rayleigh menggerakkannya dalam gerakan menggulung. Gelombang ini tiba setelah gelombang P dan S serta melemah lebih lambat seiring jarak, sehingga sering menyebabkan guncangan terkuat dan terlama di tempat yang jauh dari sesar."
+      },
+      {
+        "q": "Apakah tanah lunak selalu memperparah guncangan?",
+        "a": "Biasanya, tetapi tidak selalu. Tanah lunak dan sedimen tebal memperkuat guncangan sedang; dalam gempa Loma Prieta 1989, tanah lunak kira-kira melipatgandakannya menjadi dua kali. Pada guncangan yang sangat kuat, tanah lunak berperilaku nonlinear dan justru dapat mengurangi guncangan."
+      },
+      {
+        "q": "Mengapa bangunan di Kota Meksiko runtuh pada 1985 padahal begitu jauh dari gempa?",
+        "a": "Bekas dasar danau di bawah Kota Meksiko berguncang dengan periode sekitar 2 detik dalam waktu yang lama. Bangunan setinggi kira-kira 6 hingga 15 lantai memiliki periode alami yang mendekati angka itu, sehingga bangunan-bangunan tersebut beresonansi, dan bangunan rangka beton bertulang setinggi itu menyumbang sebagian besar kerusakan di zona tanah lunak."
+      },
+      {
+        "q": "Dapatkah gempa merusak bangunan yang berjarak lebih dari 1.000 kilometer?",
+        "a": "Ya. Gempa Mandalay Mw 7,7 di Myanmar pada 2025 merobohkan sebuah menara 30 lantai yang sedang dibangun di Bangkok, lebih dari 1.000 kilometer jauhnya. Gelombang berperiode panjang meluruh secara lambat seiring jarak, dan Bangkok terletak di atas cekungan sedimen yang dalam."
+      },
+      {
+        "q": "Apa yang ditampilkan ShakeMap?",
+        "a": "USGS ShakeMap menampilkan seberapa kuat tanah berguncang di seluruh suatu wilayah, bukan hanya magnitudo dan episentrum. Peta ini biasanya diterbitkan dalam beberapa menit setelah gempa sedang atau besar."
+      }
+    ]
   }
 }

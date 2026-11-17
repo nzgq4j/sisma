@@ -442,5 +442,101 @@
         "a": "Meist nicht. Der USGS führt die meisten Erdbeben in Oklahoma auf die tiefe Entsorgung von Abwasser zurück, das größtenteils ein Nebenprodukt der Ölförderung ist und keine Fracking-Flüssigkeit. Hydraulic Fracturing verursacht direkt nur einen kleinen Prozentsatz der spürbaren induzierten Erdbeben."
       }
     ]
+  },
+  "surface-waves-and-damage": {
+    "title": "Warum ein Viertel einstürzt, während das nächste stehen bleibt",
+    "dek": "Ein Erdbeben hat eine einzige Magnitude, und doch kann ein Standort zehnmal stärker beben als der Nachbarort. Hier steht, wie Oberflächenwellen, weicher Untergrund, Becken und Gebäudehöhe darüber entscheiden, wo die Schäden auftreten.",
+    "sections": [
+      {
+        "h": "Ein Erdbeben, viele Folgen",
+        "p": [
+          "Ein Erdbeben hat eine einzige Magnitude und ein einziges Epizentrum, erzeugt in der umliegenden Region aber sehr unterschiedliche Erschütterungen. Der U.S. Geological Survey (USGS) erklärt, dass die Erschütterung an einem Standort von der Entfernung zum Erdbeben, vom Gestein und Boden unter dem Standort und von Besonderheiten bei der Ausbreitung der seismischen Wellen durch die Erdkruste abhängt (USGS n.d.a). Das Southern California Earthquake Center (SCEC) berichtet, dass bei ein und demselben Erdbeben die Erschütterung an einem Standort leicht zehnmal stärker sein kann als an einem benachbarten, selbst wenn beide gleich weit von der gebrochenen Verwerfung entfernt liegen (SCEC n.d.).",
+          "Diese Unterschiede erklären die ungleich verteilten Schäden nach starken Erdbeben. Ein Viertel mit eingestürzten Wohnblöcken kann nur ein kurzes Stück von einem Viertel entfernt liegen, in dem die Schornsteine unversehrt geblieben sind. Die Ursache liegt meist im Untergrund unter jedem Block, in der Art, wie die entlang der Oberfläche laufenden Wellen mit diesem Untergrund wechselwirken, und in der Bauweise der Gebäude selbst. Die folgenden Abschnitte verfolgen die Wellen von der Verwerfung bis zum Fundament."
+        ]
+      },
+      {
+        "h": "Wellen, die entlang der Oberfläche laufen",
+        "p": [
+          "Erdbeben strahlen zwei Familien von Wellen ab. Raumwellen, also P- und S-Wellen, laufen durch das Erdinnere. Oberflächenwellen entstehen dort, wo diese Energie die Oberseite der Erdkruste erreicht, und laufen entlang der Erdoberfläche. Love-Wellen bewegen den Boden horizontal seitlich hin und her, Rayleigh-Wellen lassen ihn in einer rollenden, elliptischen Bewegung schwingen. Oberflächenwellen treffen nach den S-Wellen ein und klingen mit der Entfernung langsamer ab als Raumwellen. Deshalb verursachen sie fernab der Verwerfung oft die stärksten und längsten Erschütterungen.",
+          "Eine Computersimulation des USGS für ein Erdbeben der Magnitude 6,5 an der Seattle-Verwerfung veranschaulicht diesen Ablauf. Die späteren Impulse, die auf die erste S-Welle folgen, sind Energie von Oberflächenwellen, und sie beherrschen die langperiodische Bewegung im nördlichen Teil des simulierten Gebiets (USGS n.d.b). Joyner (2000) analysierte die starken Bodenbewegungen, die Oberflächenwellen in tiefen Sedimentbecken erzeugen, also in den Umgebungen, in denen diese Energie am meisten zählt."
+        ]
+      },
+      {
+        "h": "Weicher Untergrund verstärkt die Erschütterung",
+        "p": [
+          "Der erste örtliche Faktor für Schäden ist die Steifigkeit des Untergrunds. SCEC nennt für Südkalifornien zwei geologische Faktoren als die wichtigsten: die Weichheit des Gesteins oder Bodens nahe der Oberfläche und die Gesamtmächtigkeit der Sedimente über dem harten Grundgebirge (SCEC n.d.). Gefährdungsmodelle bilden die Weichheit mit einer einzigen Zahl ab, Vs30, der mittleren Scherwellengeschwindigkeit in den obersten 30 Metern des Untergrunds. Gallahue et al. (2022) berichten, dass diese Standortterme bei den langen Perioden von 1 bis 5 Sekunden, die hohe Gebäude betreffen, die kartierte Gefährdung an vielen Standorten um den Faktor 1 bis 3 erhöhen, verglichen mit einer Standard-Referenzbedingung aus festem Fels mit einer Vs30 von 760 Metern pro Sekunde.",
+          "Das Loma-Prieta-Erdbeben von 1989 lieferte ein deutliches Beispiel. Weiche Böden verstärkten die starken Erschütterungen etwa um den Faktor zwei und verursachten Schäden in bis zu 100 Kilometern Entfernung vom Epizentrum (Holzer 1992). Im Marina District von San Francisco, der auf einer Bucht errichtet wurde, die von den späten 1860er-Jahren bis 1912 nach und nach aufgeschüttet worden war, traten die meisten Setzungen, die Bodenverflüssigung und die Schäden an Leitungen und Fundamenten in Bereichen mit künstlicher Aufschüttung auf (Bonilla 1991). Bodenverflüssigung, bei der wassergesättigter sandiger Boden vorübergehend seine Festigkeit verliert, trat während des Erdbebens an 134 Stellen auf und machte 99,2 Millionen US-Dollar des Gesamtschadens von 5,9 Milliarden US-Dollar aus (Holzer 1992). Die Bodenverflüssigung konzentrierte die Schäden also auf bestimmte Orte, während der größte Teil des Schadens andere Ursachen hatte.",
+          "Die Verstärkung hat Grenzen. Gallahue et al. (2022) weisen darauf hin, dass die nichtlineare Abschwächung mit zunehmender Erschütterung wächst und bei sehr starken Erschütterungen die lineare Verstärkung übertreffen kann. Weicher Boden verstärkt die Erschütterung daher bei mittelstarken Ereignissen und kann sie bei den stärksten verringern."
+        ]
+      },
+      {
+        "h": "Becken halten die Wellen fest und verlängern sie",
+        "p": [
+          "Mächtige Sedimentschichten in einem Becken wirken wie ein Behälter für Oberflächenwellen. In der Seattle-Simulation werden Oberflächenwellen von den relativ unverfestigten Ablagerungen in ungefähr den obersten 2 Kilometern des Beckens eingefangen, und die langperiodische Erschütterung in Seattle dauert etwa 25 Sekunden (USGS n.d.b). Das Ergebnis sind größere Amplituden und eine längere Dauer, als ein Felsstandort in gleicher Entfernung erleben würde.",
+          "Das Gorkha-Erdbeben 2015 in Nepal lieferte im Kathmandutal ein gemessenes Beispiel. Aufzeichnungen an Sedimentstandorten zeigten lang andauernde, langperiodische Schwingungen, die dem Verhalten des Tals zugeschrieben wurden, mit einer horizontalen Verstärkung von etwa 10 (Takai et al. 2016). Die vorherrschende Periode und die Einhüllende der Schwingungen unterschieden sich von Standort zu Standort, was die Autoren als Hinweis auf eine komplizierte Beckenstruktur werteten. Ihre Geschwindigkeits-Antwortspektren deuteten auf genug Zerstörungskraft hin, um Hochhäuser mit Eigenperioden von 3 bis 5 Sekunden zu beschädigen (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "Wenn Boden und Gebäude im Gleichtakt schwingen",
+        "p": [
+          "Jedes Bauwerk hat eine Eigenperiode, also die Zeit, die es für eine volle Schwingung braucht, und höhere Gebäude haben in der Regel längere Perioden. Wiederholt sich die Bodenbewegung mit einer Periode nahe der Eigenperiode eines Gebäudes, verstärkt jeder Zyklus den vorherigen, und die Antwort des Gebäudes wächst. Das ist Resonanz.",
+          "Mexiko-Stadt 1985 ist das klassische Beispiel. Das Erdbeben ereignete sich mehr als 350 Kilometer entfernt (Dalziel and Nassirpour 2025). Martinez-Romero (1987) berichtet von maximalen Beschleunigungen von 0,15 g im Epizentralgebiet und zwischen 0,01 g und 0,19 g in Mexiko-Stadt, je nach Untergrundverhältnissen am jeweiligen Standort. Die Bodenbewegung im Schadensgebiet hatte eine Periode von etwa 2 Sekunden, mindestens zwanzig starke Zyklen wurden aufgezeichnet, und die starken Erschütterungen dauerten ungefähr eine Minute. Martinez-Romero führt diese langperiodischen Bewegungen auf den einzigartigen Untergrund der Seebodenzone zurück und schätzt, dass etwa 400 Gebäude einstürzten. Suzuki und Kiremidjian (1986) stellten fest, dass Stahlbeton-Rahmenbauten mit 6 bis 15 Stockwerken den Großteil der Schäden im Gebiet mit weichem Boden ausmachten, und beschreiben die lange Periode und die lange Dauer von etwa drei Minuten als die bestimmenden Merkmale der Bodenbewegung.",
+          "Die Übereinstimmung zwischen Gebäudehöhe und Bodenperiode ist eine Vereinfachung, denn Steifigkeit, Zustand und Bauqualität verändern die tatsächliche Periode und Festigkeit eines Gebäudes. Resonanz erklärt das Schadensmuster nach Gebäudehöhe, und Ingenieure behandeln sie als einen Faktor unter mehreren."
+        ]
+      },
+      {
+        "h": "Entfernung schützt weniger als erwartet",
+        "p": [
+          "Das Mandalay-Erdbeben der Stärke Mw 7,7 in Myanmar am 28. März 2025 übertrug dieselbe Lehre auf eine weit größere Entfernung. Mehr als 1.000 Kilometer entfernt in Bangkok stürzte ein im Bau befindliches Hochhaus mit 30 Stockwerken ein, mit mindestens 96 Todesopfern (Dalziel and Nassirpour 2025). Ein neuseeländisches Erkundungsteam, das zehn Gebäude in Bangkok untersuchte, berichtete, dass das Erdbeben in einem tiefen Sedimentbecken großflächige Erschütterungen verursachte und dass nichttragende Bauteile wie Ausfachungswände, Decken und Fassadenelemente die am weitesten verbreiteten Schäden erlitten (naturalhazards.govt.nz 2026).",
+          "Das Tōhoku-Erdbeben von 2011 erzeugte einen verwandten Effekt. Langperiodische Wellen legten mehr als 370 Kilometer zurück und brachten Hochhäuser in Tokio und Osaka minutenlang zum Schwanken, mit Schäden an nichttragenden Bauteilen (Dalziel and Nassirpour 2025). Lange Perioden klingen langsam ab und entsprechen den Eigenperioden hoher Gebäude, sodass die Gefahr für diese Gebäude weit über die Entfernungen hinausreichen kann, in denen niedrige Bauten beschädigt werden."
+        ]
+      },
+      {
+        "h": "Bruchrichtung und örtliche Topografie",
+        "p": [
+          "Harold Tobin, Direktor des Pacific Northwest Seismic Network, nennt Beckeneffekte und die Bruchrichtung als zwei wesentliche Faktoren, die über die bloße Entfernung hinaus die Lage verkomplizieren (KING 5 n.d.). Läuft ein Verwerfungsbruch auf einen Standort zu, trifft die Energie aus aufeinanderfolgenden Abschnitten der Verwerfung gleichzeitig ein und bündelt sich zu einem starken Impuls. Ein Standort auf der abgewandten Seite des Bruchs empfängt ein schwächeres, längeres Signal. Zwei Orte in gleicher Entfernung vom Epizentrum können daher unterschiedlich stark erschüttert werden.",
+          "Höhenzüge und Hügelkuppen können einen weiteren Beitrag leisten. Nach dem Erdbeben in Haiti 2010 traten in der Nähe des Hotel Montana auf einem Höhenrücken in Pétion-Ville ungewöhnlich schwere Schäden auf. Hough et al. (2010) kamen zu dem Schluss, dass vor allem schlechte Bauweise für das Ausmaß der Schäden in Haiti verantwortlich war, dass aber topografische Verstärkung in Pétion-Ville erheblich beitrug. Ihre Nachbebenaufzeichnungen zeigten auf dem Höhenrücken eine verstärkte Bodenbewegung im Vergleich zu benachbarten Talstationen und zu einem Referenzstandort auf hartem Fels, die sich durch Sedimentverstärkung allein nicht erklären ließ."
+        ]
+      },
+      {
+        "h": "Wo die Fachleute uneins sind",
+        "p": [
+          "Der Fall Pétion-Ville bleibt umstritten. Assimaki und Jeong (2013) prüften die Topografie gegen die Bodenverhältnisse. Ihre Simulationen zeigten, dass weder die Form des Höhenrückens allein noch der Boden allein die Aufzeichnungen erklärte, während ein Modell mit einer Schicht weichen Bodens über dem Fels unter dem Höhenrücken gut zu ihnen passte. Sie folgerten, dass die gemessene Verstärkung höchstwahrscheinlich auf gekoppelte Standort- und Topografieeffekte zurückgeht. Ob ein bestimmter Hügel die Erschütterung durch sein Relief, durch seinen geschichteten Boden oder durch beides verstärkt, ist von Fall zu Fall verschieden.",
+          "Auch die Befunde aus dem Marina District enthalten eine ähnliche Unklarheit. Bonilla (1991) merkt an, dass Aufzeichnungen und Gebäudeschäden von 1989 auf verstärkte Bewegungen sowohl auf natürlichem als auch auf künstlichem Untergrund hindeuten. Das spricht dafür, dass die Oberfläche des Grundgebirges und die Mächtigkeit der Ton- und Sandablagerungen unter der Aufschüttung die Erschütterung beeinflussten. Bodenversagen konzentrierte sich dagegen auf die Aufschüttung."
+        ]
+      },
+      {
+        "h": "Wie Ingenieure das Muster nutzen",
+        "p": [
+          "Die Kartierung der Standortbedingungen macht aus diesen Erkenntnissen praktische Werkzeuge. SCEC kombinierte die Weichheit an der Oberfläche mit der Sedimentmächtigkeit, um vorherzusagen, wo die Verstärkung am größten sein wird, und bezeichnet die Gebiete mit der größten erwarteten Verstärkung als Hotspots (SCEC n.d.). Die ShakeMap des USGS, die normalerweise innerhalb weniger Minuten nach einem mittelstarken oder starken Erdbeben veröffentlicht wird, zeigt die Bodenerschütterung selbst und nicht die Herdparameter Magnitude und Epizentrum (USGS n.d.a). Die gemeldete Magnitude und das Epizentrum beschreiben die Quelle eines Erdbebens. Was eine bestimmte Straße erlebt, bestimmen der Untergrund darunter und die Gebäude, die dort stehen."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Warum können sich die Erschütterungen bei demselben Erdbeben zwischen Vierteln so stark unterscheiden?",
+        "a": "Die Erschütterung an einem Standort hängt von seiner Entfernung zum Erdbeben, vom Gestein und Boden darunter und von der Ausbreitung der seismischen Wellen durch die Erdkruste ab. Das Southern California Earthquake Center berichtet, dass ein Standort etwa zehnmal stärker beben kann als ein benachbarter Standort in gleicher Entfernung von der Verwerfung."
+      },
+      {
+        "q": "Was sind Oberflächenwellen?",
+        "a": "Oberflächenwellen entstehen, wenn Erdbebenenergie die Oberseite der Erdkruste erreicht und sich entlang des Bodens ausbreitet. Love-Wellen bewegen den Boden seitlich hin und her, Rayleigh-Wellen lassen ihn rollend schwingen. Sie treffen nach den P- und S-Wellen ein und klingen mit der Entfernung langsamer ab, deshalb verursachen sie fernab der Verwerfung oft die stärksten und längsten Erschütterungen."
+      },
+      {
+        "q": "Macht weicher Untergrund die Erschütterung immer stärker?",
+        "a": "Meistens, aber nicht immer. Weicher Boden und mächtige Sedimente verstärken mittelstarke Erschütterungen; beim Loma-Prieta-Erdbeben 1989 verdoppelten weiche Böden sie ungefähr. Bei sehr starken Erschütterungen verhält sich weicher Boden nichtlinear und kann die Erschütterung stattdessen verringern."
+      },
+      {
+        "q": "Warum stürzten 1985 in Mexiko-Stadt so weit vom Erdbeben entfernt Gebäude ein?",
+        "a": "Der alte Seeboden unter Mexiko-Stadt schwang lange Zeit mit einer Periode von etwa 2 Sekunden. Gebäude mit ungefähr 6 bis 15 Stockwerken haben Eigenperioden in dieser Größenordnung, sodass sie in Resonanz gerieten, und Stahlbeton-Rahmenbauten dieser Höhe machten den Großteil der Schäden in der Zone mit weichem Boden aus."
+      },
+      {
+        "q": "Kann ein Erdbeben Gebäude in mehr als 1.000 Kilometern Entfernung beschädigen?",
+        "a": "Ja. Das Mandalay-Erdbeben der Stärke Mw 7,7 in Myanmar 2025 brachte in Bangkok, mehr als 1.000 Kilometer entfernt, ein im Bau befindliches Hochhaus mit 30 Stockwerken zum Einsturz. Langperiodische Wellen klingen mit der Entfernung langsam ab, und Bangkok liegt auf einem tiefen Sedimentbecken."
+      },
+      {
+        "q": "Was zeigt die ShakeMap?",
+        "a": "Die ShakeMap des USGS zeigt, wie stark der Boden in einer Region gebebt hat, statt nur Magnitude und Epizentrum anzugeben. Sie wird normalerweise innerhalb weniger Minuten nach einem mittelstarken oder starken Erdbeben veröffentlicht."
+      }
+    ]
   }
 }

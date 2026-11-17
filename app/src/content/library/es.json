@@ -442,5 +442,101 @@
         "a": "En su mayoría, no. El USGS atribuye la mayor parte de los terremotos de Oklahoma a la eliminación de aguas residuales en pozos profundos, en su mayoría un subproducto de la extracción de petróleo y no fluido de fracking. La fracturación hidráulica causa directamente solo un pequeño porcentaje de los terremotos inducidos que se sienten."
       }
     ]
+  },
+  "surface-waves-and-damage": {
+    "title": "Por qué un barrio se derrumba mientras el de al lado sigue en pie",
+    "dek": "Un terremoto tiene una sola magnitud, pero un lugar puede temblar diez veces más fuerte que el de al lado. Así es como las ondas superficiales, los suelos blandos, las cuencas y la altura de los edificios deciden dónde se producen los daños.",
+    "sections": [
+      {
+        "h": "Un terremoto, muchos resultados",
+        "p": [
+          "Un terremoto tiene una sola magnitud y un solo epicentro, pero produce una gran variedad de sacudidas en la región que lo rodea. El Servicio Geológico de Estados Unidos (USGS) explica que la sacudida en cualquier lugar depende de la distancia al terremoto, de la roca y el suelo que hay debajo y de las complejidades del modo en que las ondas sísmicas viajan a través de la corteza (USGS n.d.a). El Centro de Terremotos del Sur de California (SCEC) señala que, en un mismo terremoto, la sacudida en un lugar puede ser fácilmente diez veces más fuerte que en un lugar vecino, aunque ambos se encuentren a la misma distancia de la falla que se rompió (SCEC n.d.).",
+          "Esa variación explica el reparto desigual de los daños que se observa tras los grandes terremotos. Un distrito de bloques de viviendas derrumbados puede estar a poca distancia de otro donde las chimeneas siguen intactas. La causa suele estar en el suelo bajo cada manzana, en la forma en que las ondas que viajan por la superficie interactúan con ese suelo y en el diseño de los propios edificios. Los apartados siguientes siguen a las ondas desde la falla hasta los cimientos."
+        ]
+      },
+      {
+        "h": "Ondas que viajan por la superficie",
+        "p": [
+          "Los terremotos irradian dos familias de ondas. Las ondas internas, las ondas P y S, atraviesan el interior del planeta. Las ondas superficiales se forman cuando esa energía llega a la parte superior de la corteza y viajan a lo largo de la superficie del terreno. Las ondas Love mueven el suelo horizontalmente, de lado a lado, y las ondas Rayleigh lo mueven con un movimiento ondulante y elíptico. Las ondas superficiales llegan después de las ondas S y se atenúan con la distancia de forma más gradual que las ondas internas, por lo que a menudo producen la sacudida más fuerte y más larga lejos de la falla.",
+          "Una simulación por ordenador del USGS de un terremoto de magnitud 6,5 en la Falla de Seattle ilustra la secuencia. Los pulsos posteriores que siguen a la onda S inicial son energía de ondas superficiales, y dominan el movimiento de periodo largo en la parte norte de la zona simulada (USGS n.d.b). Joyner (2000) analizó el movimiento fuerte producido por las ondas superficiales en cuencas sedimentarias profundas, que son los entornos donde esta energía tiene más importancia."
+        ]
+      },
+      {
+        "h": "El suelo blando amplifica la sacudida",
+        "p": [
+          "El primer factor local que controla los daños es la rigidez del terreno. El SCEC identifica dos factores geológicos como los más importantes en el sur de California: la blandura de la roca o del suelo cerca de la superficie y el espesor total de los sedimentos que hay sobre el lecho de roca dura (SCEC n.d.). Los modelos de peligrosidad representan la blandura con un solo número, Vs30, la velocidad media de las ondas de cizalla en los 30 metros superiores del terreno. Gallahue et al. (2022) indican que, en los periodos largos de 1 a 5 segundos que afectan a los edificios altos, estos términos de sitio elevan la peligrosidad cartografiada en factores de 1 a 3 en muchos lugares, en comparación con una condición de referencia estándar de roca firme con un Vs30 de 760 metros por segundo.",
+          "El terremoto de Loma Prieta de 1989 ofreció un ejemplo claro. Los suelos blandos amplificaron la sacudida fuerte en un factor de aproximadamente dos y causaron daños a distancias de hasta 100 kilómetros del epicentro (Holzer 1992). En el distrito de la Marina de San Francisco, construido sobre una ensenada que se fue rellenando poco a poco desde finales de la década de 1860 hasta 1912, la mayor parte de los asentamientos, de la licuefacción y de los daños en tuberías y cimientos se produjo en zonas de relleno artificial (Bonilla 1991). La licuefacción, en la que un terreno arenoso saturado pierde temporalmente su resistencia, se produjo en 134 lugares durante el terremoto y supuso 99,2 millones de dólares de las pérdidas totales de 5900 millones de dólares (Holzer 1992). Por tanto, la licuefacción concentró los daños en lugares concretos, y la mayor parte de las pérdidas se debió a otras causas.",
+          "La amplificación tiene límites. Gallahue et al. (2022) señalan que la desamplificación no lineal aumenta a medida que la sacudida se intensifica y que, con sacudidas muy fuertes, puede superar a la amplificación lineal. Así, el suelo blando aumenta la sacudida en los eventos moderados y puede reducirla en los más fuertes."
+        ]
+      },
+      {
+        "h": "Las cuencas atrapan y prolongan las ondas",
+        "p": [
+          "Las capas gruesas de sedimentos de una cuenca actúan como un recipiente para las ondas superficiales. En la simulación de Seattle, las ondas superficiales quedan atrapadas por los depósitos relativamente poco consolidados de aproximadamente los 2 kilómetros superiores de la cuenca, y la sacudida de periodo largo en Seattle dura unos 25 segundos (USGS n.d.b). El resultado es una amplitud mayor y una duración más larga que las que experimentaría un sitio de roca a la misma distancia.",
+          "El terremoto de Gorkha de 2015, en Nepal, dio un ejemplo medido en el valle de Katmandú. Los registros en sitios sedimentarios mostraron oscilaciones de larga duración y periodo largo atribuidas a la respuesta del valle, con una amplificación horizontal de aproximadamente 10 (Takai et al. 2016). El periodo predominante y la envolvente de las oscilaciones variaban de un sitio a otro, lo que los autores interpretan como prueba de una estructura de cuenca complicada. Sus espectros de respuesta en velocidad indicaban un poder destructivo suficiente para dañar edificios altos con periodos naturales de 3 a 5 segundos (Takai et al. 2016)."
+        ]
+      },
+      {
+        "h": "Cuando el suelo y el edificio vibran juntos",
+        "p": [
+          "Toda estructura tiene un periodo natural, el tiempo que tarda en oscilar un ciclo completo, y los edificios más altos tienen en general periodos más largos. Cuando el movimiento del suelo se repite con un periodo cercano al del propio edificio, cada ciclo se suma al anterior y la respuesta crece. Esto es la resonancia.",
+          "Ciudad de México en 1985 es el caso clásico. El terremoto se produjo a más de 350 kilómetros de distancia (Dalziel and Nassirpour 2025). Martinez-Romero (1987) registra aceleraciones máximas de 0,15 g en la zona epicentral y de entre 0,01 g y 0,19 g en Ciudad de México, según las condiciones del suelo en cada sitio. El movimiento del suelo en la zona de daños tuvo un periodo de unos 2 segundos, se registraron al menos veinte ciclos fuertes y la sacudida fuerte duró aproximadamente un minuto. Martinez-Romero atribuye estos movimientos de periodo largo al subsuelo singular de la zona del antiguo lecho lacustre y estima que se derrumbaron unos 400 edificios. Suzuki and Kiremidjian (1986) observaron que los edificios de pórticos de hormigón armado de 6 a 15 plantas concentraron la mayor parte de los daños en la zona de suelo blando, y describen el periodo largo y la larga duración, de unos tres minutos, como las características definitorias del movimiento del suelo.",
+          "La coincidencia entre la altura del edificio y el periodo del suelo es una simplificación, porque la rigidez, el estado y la calidad de construcción alteran el periodo real y la resistencia de un edificio. La resonancia explica el patrón de daños según la altura, y los ingenieros la tratan como un factor entre varios."
+        ]
+      },
+      {
+        "h": "La distancia protege menos de lo que se cree",
+        "p": [
+          "El terremoto de Mandalay, de Mw 7,7, ocurrido en Myanmar el 28 de marzo de 2025, extendió la misma lección a un alcance mucho mayor. A más de 1000 kilómetros de distancia, en Bangkok, se derrumbó una torre de 30 plantas en construcción, con al menos 96 víctimas mortales (Dalziel and Nassirpour 2025). Un equipo de reconocimiento de Nueva Zelanda que examinó diez edificios de Bangkok informó de que el terremoto produjo una sacudida generalizada en una cuenca sedimentaria profunda y de que los elementos no estructurales, como los muros de relleno, los techos y los componentes de fachada, sufrieron los daños más extendidos (naturalhazards.govt.nz 2026).",
+          "El terremoto de Tohoku de 2011 produjo un efecto relacionado. Las ondas de periodo largo recorrieron más de 370 kilómetros e hicieron que los edificios altos de Tokio y Osaka oscilaran durante minutos, con daños no estructurales (Dalziel and Nassirpour 2025). Los periodos largos se atenúan lentamente y coinciden con los periodos naturales de los edificios altos, por lo que el peligro para esos edificios puede extenderse mucho más allá de las distancias a las que sufren daños las construcciones bajas."
+        ]
+      },
+      {
+        "h": "Dirección de la ruptura y topografía local",
+        "p": [
+          "Harold Tobin, director de la Red Sísmica del Noroeste del Pacífico, señala los efectos de cuenca y la dirección de la ruptura como dos complicaciones importantes más allá de la simple distancia (KING 5 n.d.). Cuando la ruptura de una falla avanza hacia un lugar, la energía de las sucesivas partes de la falla llega a la vez y se concentra en un pulso fuerte. Un lugar situado en el lado opuesto de la ruptura recibe una señal más débil y más larga. Por eso, dos poblaciones a la misma distancia del epicentro pueden recibir sacudidas distintas.",
+          "Las crestas y las cimas de las colinas pueden añadir otra contribución. Tras el terremoto de Haití de 2010, se produjeron daños inusualmente graves cerca del Hotel Montana, en una cresta de Pétion-Ville. Hough et al. (2010) concluyeron que la mala construcción fue la principal responsable de la magnitud de los daños en Haití, pero que la amplificación topográfica contribuyó de forma significativa en Pétion-Ville. Sus registros de réplicas mostraron que el movimiento del suelo en la cresta estaba amplificado en comparación con las estaciones del valle adyacente y con un sitio de referencia de roca dura, algo que la amplificación por sedimentos por sí sola no podía explicar."
+        ]
+      },
+      {
+        "h": "Donde los científicos discrepan",
+        "p": [
+          "El caso de Pétion-Ville sigue siendo objeto de debate. Assimaki and Jeong (2013) compararon la topografía con las condiciones del suelo. Sus simulaciones mostraron que ni la forma de la cresta por sí sola ni el suelo por sí solo explicaban los registros, mientras que un modelo con una capa de suelo blando sobre el lecho de roca bajo la cresta se ajustaba bien a ellos. Concluyeron que la amplificación registrada se debe muy probablemente a efectos de sitio y topográficos combinados. Si una colina concreta aumenta la sacudida por su relieve, por su suelo estratificado o por ambos varía de un caso a otro.",
+          "Los datos del distrito de la Marina encierran una ambigüedad parecida. Bonilla (1991) señala que los registros y los daños en los edificios en 1989 indican un movimiento amplificado tanto en terreno natural como en terreno artificial, lo que sugiere que la superficie del lecho de roca y el espesor de los depósitos de arcilla y arena bajo el relleno influyeron en la sacudida. Las roturas del terreno, en cambio, se concentraron en el relleno."
+        ]
+      },
+      {
+        "h": "Cómo usan los ingenieros este patrón",
+        "p": [
+          "Cartografiar las condiciones del sitio convierte estos hallazgos en herramientas prácticas. El SCEC combinó la blandura superficial con el espesor de los sedimentos para predecir dónde será mayor la amplificación, e identifica las zonas de mayor amplificación esperada como puntos críticos (SCEC n.d.). ShakeMap del USGS, que normalmente se publica a los pocos minutos de un terremoto moderado o grande, muestra la propia sacudida del suelo y no los parámetros de la fuente, la magnitud y el epicentro (USGS n.d.a). La magnitud y el epicentro que se comunican describen la fuente de un terremoto. El suelo bajo una calle concreta, junto con los edificios que hay en ella, determina lo que vive esa calle."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué la sacudida puede variar tanto entre barrios en un mismo terremoto?",
+        "a": "La sacudida en un lugar depende de su distancia al terremoto, de la roca y el suelo que hay debajo y de cómo viajan las ondas sísmicas a través de la corteza. El Centro de Terremotos del Sur de California señala que un lugar puede temblar unas diez veces más fuerte que un lugar vecino situado a la misma distancia de la falla."
+      },
+      {
+        "q": "¿Qué son las ondas superficiales?",
+        "a": "Las ondas superficiales se forman cuando la energía del terremoto llega a la parte superior de la corteza y viaja a lo largo del terreno. Las ondas Love mueven el suelo de lado a lado, y las ondas Rayleigh lo mueven con un movimiento ondulante. Llegan después de las ondas P y S y se atenúan más lentamente con la distancia, por lo que a menudo causan la sacudida más fuerte y más larga lejos de la falla."
+      },
+      {
+        "q": "¿El suelo blando siempre empeora la sacudida?",
+        "a": "Normalmente sí, pero no siempre. El suelo blando y los sedimentos gruesos amplifican la sacudida moderada; en el terremoto de Loma Prieta de 1989, los suelos blandos aproximadamente la duplicaron. Con sacudidas muy fuertes, el suelo blando se comporta de forma no lineal y puede, en cambio, reducir la sacudida."
+      },
+      {
+        "q": "¿Por qué se derrumbaron edificios en Ciudad de México en 1985 tan lejos del terremoto?",
+        "a": "El antiguo lecho lacustre bajo Ciudad de México osciló con un periodo de unos 2 segundos durante mucho tiempo. Los edificios de aproximadamente 6 a 15 plantas tienen periodos naturales cercanos a ese valor, así que entraron en resonancia, y los pórticos de hormigón armado de esa altura concentraron la mayor parte de los daños en la zona de suelo blando."
+      },
+      {
+        "q": "¿Puede un terremoto dañar edificios a más de 1000 kilómetros de distancia?",
+        "a": "Sí. El terremoto de Mandalay, de Mw 7,7, ocurrido en Myanmar en 2025 derribó una torre de 30 plantas en construcción en Bangkok, a más de 1000 kilómetros de distancia. Las ondas de periodo largo se atenúan lentamente con la distancia, y Bangkok se asienta sobre una cuenca sedimentaria profunda."
+      },
+      {
+        "q": "¿Qué muestra ShakeMap?",
+        "a": "ShakeMap del USGS muestra con qué intensidad tembló el suelo en toda una región, en lugar de solo la magnitud y el epicentro. Normalmente se publica a los pocos minutos de un terremoto moderado o grande."
+      }
+    ]
   }
 }
