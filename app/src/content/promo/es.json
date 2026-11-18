@@ -1,0 +1,85 @@
+{
+  "feed": {
+    "text": "¿Sentiste un temblor? sisma te muestra qué acaba de temblar, dónde y con qué fuerza, con datos en vivo de USGS, EMSC, GeoNet y JMA. Gratis en Android.",
+    "tags": [
+      "sismo",
+      "terremoto",
+      "Sismología"
+    ],
+    "alt": "sisma en Google Play, titular \"Terremotos en tiempo real\": un teléfono con la lista en vivo de los sismos recientes, cada uno con su indicador de magnitud, lugar, hora y distancia."
+  },
+  "detail": {
+    "text": "Magnitud, profundidad, hora y distancia hasta ti de cada sismo, y si una agencia ya lo revisó. Todo de un vistazo en sisma.",
+    "tags": [
+      "sismo",
+      "terremoto"
+    ],
+    "alt": "sisma en Google Play, titular \"Cada detalle de un vistazo\": un teléfono con los detalles de un sismo: magnitud, profundidad, fecha, hora, distancia, país, coordenadas, estado de revisión y fuente."
+  },
+  "map": {
+    "text": "Todo el mundo en un solo mapa: sismos en vivo y los límites de las placas tectónicas, del planeta entero hasta el nivel de la calle. Gratis en Android.",
+    "tags": [
+      "sismo",
+      "mapa",
+      "PlacasTectónicas"
+    ],
+    "alt": "sisma en Google Play, titular \"Todo el mundo en un mapa\": un teléfono con un mapamundi en el que los sismos recientes aparecen como marcadores de colores."
+  },
+  "region": {
+    "text": "Acércate a cualquier sismo para ver los demás de la zona y seguir las réplicas a medida que llegan. Luego compártelo como imagen con mapa.",
+    "tags": [
+      "sismo",
+      "réplicas"
+    ],
+    "alt": "sisma en Google Play, titular \"Acércate a cualquier sismo\": un teléfono con un mapa ampliado alrededor de un sismo y su tarjeta de resumen debajo."
+  },
+  "globe": {
+    "text": "Gira un globo 3D en vivo con los sismos del mundo y mira cómo se ilumina el Anillo de Fuego del Pacífico. Gratis en sisma para Android.",
+    "tags": [
+      "sismo",
+      "AnilloDeFuego"
+    ],
+    "alt": "sisma en Google Play, titular \"Gira el globo en vivo\": un teléfono con un globo 3D cubierto de marcadores de sismos alrededor del Pacífico."
+  },
+  "depth": {
+    "text": "Pon el globo en la vista Profundidad y descubre a qué profundidad ocurrió cada sismo, desde la corteza superficial hasta cientos de kilómetros bajo tierra.",
+    "tags": [
+      "sismo",
+      "geología"
+    ],
+    "alt": "sisma en Google Play, titular \"Descubre su profundidad\": un teléfono con el globo 3D en la vista Profundidad y los marcadores de sismos coloreados según su profundidad."
+  },
+  "science": {
+    "text": "¿Cómo se producen los sismos? Guías ilustradas sobre placas, fallas, ondas y magnitud, además de los artículos extensos de En profundidad, en 10 idiomas.",
+    "tags": [
+      "ciencia",
+      "geología",
+      "sismo"
+    ],
+    "alt": "sisma en Google Play, titular \"La ciencia explicada\": un teléfono con la guía ilustrada de tectónica de placas y un diagrama de una placa oceánica que se hunde bajo un continente."
+  },
+  "alerts": {
+    "text": "Alertas push de los sismos que te importan: tus lugares, países, una magnitud mínima y horas de silencio. Prueba sisma+ gratis durante 3 días.",
+    "tags": [
+      "sismo",
+      "alertas"
+    ],
+    "alt": "sisma en Google Play, titular \"Alertas que importan\": un teléfono con una notificación push de un sismo, el ajuste de alertas push y un historial de alertas recientes."
+  },
+  "pulse": {
+    "text": "El pulso de un planeta vivo: cada sismo que reportan cuatro agencias sismológicas, en una lista en vivo, un mapa y un globo 3D. Gratis y sin anuncios.",
+    "tags": [
+      "sismo",
+      "Sismología"
+    ],
+    "alt": "Gráfico destacado de sisma.io: el logotipo de sisma.io y la frase \"El pulso de un planeta vivo\" sobre una textura de roca oscura con brillos rojos y azules."
+  },
+  "felt": {
+    "text": "¿Lo sentiste? Reporta el movimiento en las primeras horas tras un sismo y mira dónde lo sintieron otros, solo como recuentos anónimos por zona.",
+    "tags": [
+      "sismo",
+      "LoSentiste"
+    ],
+    "alt": "Gráfico destacado de sisma.io: el logotipo de sisma.io y la frase \"El pulso de un planeta vivo\" sobre una textura de roca oscura con brillos rojos y azules."
+  }
+}

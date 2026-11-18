@@ -6,6 +6,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { adminClient } from '@/lib/auth';
 import { recentQuakes } from '@/lib/quakes/find';
 import { autoPost } from '@/lib/bluesky';
+import { autoPromo } from '@/lib/promo';
 import { matchRules, type AlertRecipient, type AlertRule, type Delivered, type RuleRecipient } from '@/lib/alerts/match';
 import { alertMessage } from '@/lib/alerts/message';
 import { sendPush } from '@/lib/alerts/send';
@@ -31,8 +32,8 @@ export async function POST(req: NextRequest) {
 
   const now = Date.now();
   const quakes = await recentQuakes(1);
-  // Automatic Bluesky posts (Me → Admin): run alongside the alerts below so they never delay or stop them.
-  const blueskyRun = autoPost(db, quakes, now);
+  // Automatic Bluesky posts (Me → Admin: earthquakes, then the daily Play Store post): run alongside the alerts below so they never delay or stop them.
+  const blueskyRun = autoPost(db, quakes, now).then(async posts => ({ quakes: posts, promo: await autoPromo(db, now) }));
 
   const recipients = await loadRecipients(db);
   if (!recipients) return NextResponse.json({ error: 'recipients', bluesky: await blueskyRun }, { status: 500 });

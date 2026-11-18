@@ -1,0 +1,85 @@
+{
+  "feed": {
+    "text": "Hai sentito una scossa? sisma ti mostra subito cosa ha tremato, dove e con quale forza, con dati in tempo reale di USGS, EMSC, GeoNet e JMA. Gratis su Android.",
+    "tags": [
+      "terremoto",
+      "sismologia",
+      "AppAndroid"
+    ],
+    "alt": "sisma su Google Play, titolo «Terremoti in tempo reale»: un telefono con l’elenco in diretta dei terremoti recenti, ciascuno con il badge della magnitudo, il luogo, l’ora e la distanza."
+  },
+  "detail": {
+    "text": "Magnitudo, profondità, ora e distanza da te per ogni terremoto, e se un’agenzia l’ha già revisionato. Tutto a colpo d’occhio in sisma.",
+    "tags": [
+      "terremoto",
+      "scossa"
+    ],
+    "alt": "sisma su Google Play, titolo «Ogni dettaglio a colpo d’occhio»: un telefono con i dettagli di un terremoto, con magnitudo, profondità, data, ora, distanza, paese, coordinate, stato della revisione e fonte."
+  },
+  "map": {
+    "text": "Tutto il mondo in una mappa: terremoti in tempo reale e confini delle placche tettoniche, dall’intero pianeta fino al livello stradale. Gratis su Android.",
+    "tags": [
+      "terremoto",
+      "mappa",
+      "TettonicaDellePlacche"
+    ],
+    "alt": "sisma su Google Play, titolo «Tutto il mondo in una mappa»: un telefono con una mappa del mondo e i terremoti recenti come segnaposto colorati."
+  },
+  "region": {
+    "text": "Ingrandisci qualsiasi scossa per vedere le altre nei dintorni e seguire le repliche man mano che arrivano, poi condividila come immagine con la mappa.",
+    "tags": [
+      "terremoto",
+      "repliche"
+    ],
+    "alt": "sisma su Google Play, titolo «Ingrandisci ogni scossa»: un telefono con una mappa ravvicinata intorno a un terremoto e la scheda di riepilogo sotto."
+  },
+  "globe": {
+    "text": "Fai girare un globo 3D in diretta con i terremoti del mondo e guarda accendersi l’Anello di Fuoco del Pacifico. Gratis in sisma per Android.",
+    "tags": [
+      "terremoto",
+      "AnelloDiFuoco"
+    ],
+    "alt": "sisma su Google Play, titolo «Fai girare il globo live»: un telefono con un globo 3D coperto di segnaposto dei terremoti intorno al Pacifico."
+  },
+  "depth": {
+    "text": "Passa il globo alla vista Profondità e scopri quanto in profondità ha colpito ogni terremoto, dalla crosta superficiale a centinaia di chilometri sotto.",
+    "tags": [
+      "terremoto",
+      "geologia"
+    ],
+    "alt": "sisma su Google Play, titolo «Scopri la profondità»: un telefono con il globo 3D nella vista Profondità e i segnaposto dei terremoti colorati in base alla profondità."
+  },
+  "science": {
+    "text": "Come funzionano i terremoti? Guide illustrate su placche, faglie, onde e magnitudo, più gli articoli di Approfondimenti, in 10 lingue.",
+    "tags": [
+      "scienza",
+      "geologia",
+      "terremoto"
+    ],
+    "alt": "sisma su Google Play, titolo «La scienza spiegata»: un telefono con la guida illustrata alla tettonica delle placche e un diagramma di una placca oceanica che sprofonda sotto un continente."
+  },
+  "alerts": {
+    "text": "Avvisi push per i terremoti che ti interessano: i tuoi luoghi, i paesi, una magnitudo minima, le ore di silenzio. Prova sisma+ gratis per 3 giorni.",
+    "tags": [
+      "terremoto",
+      "avvisi"
+    ],
+    "alt": "sisma su Google Play, titolo «Avvisi che contano»: un telefono con una notifica push di un terremoto, l’impostazione degli avvisi push e la cronologia degli avvisi recenti."
+  },
+  "pulse": {
+    "text": "Il battito di un pianeta vivo: ogni terremoto segnalato da quattro agenzie sismiche, in un elenco in diretta, una mappa e un globo 3D. Gratis, senza pubblicità.",
+    "tags": [
+      "terremoto",
+      "sismologia"
+    ],
+    "alt": "Grafica in evidenza di sisma.io: il logo di sisma.io e la frase «Il battito di un pianeta vivo» su una texture di roccia scura che brilla di rosso e blu."
+  },
+  "felt": {
+    "text": "L’hai sentito? Segnala la scossa nelle prime ore dopo un terremoto e scopri dove l’hanno avvertita gli altri, mostrato solo come conteggi anonimi per zona.",
+    "tags": [
+      "terremoto",
+      "scossa"
+    ],
+    "alt": "Grafica in evidenza di sisma.io: il logo di sisma.io e la frase «Il battito di un pianeta vivo» su una texture di roccia scura che brilla di rosso e blu."
+  }
+}

@@ -218,7 +218,7 @@ export async function card(q: Quake, known: Quake[] = []): Promise<Uint8Array | 
 export interface PostImage { data: Uint8Array; mime: 'image/png' | 'image/jpeg'; width: number; height: number }
 
 /** Publishes a post (text, facets, optional image with alt text); returns its at:// uri and its bsky.app link. */
-export async function publishPost(db: SupabaseClient, post: { text: string; facets: Facet[]; alt: string }, image: PostImage | null): Promise<{ uri: string; url: string; image: boolean }> {
+export async function publishPost(db: SupabaseClient, post: { text: string; facets: Facet[]; alt: string; langs?: string[] }, image: PostImage | null): Promise<{ uri: string; url: string; image: boolean }> {
   const s = await authFor(db);
   const auth = { authorization: `Bearer ${s.accessJwt}` };
   let embed: object | undefined;
@@ -226,7 +226,7 @@ export async function publishPost(db: SupabaseClient, post: { text: string; face
     const { blob } = await xrpc<{ blob: object }>(s.service, 'com.atproto.repo.uploadBlob', { method: 'POST', headers: { ...auth, 'content-type': image.mime }, body: image.data as BodyInit });
     embed = { $type: 'app.bsky.embed.images', images: [{ image: blob, alt: post.alt, aspectRatio: { width: image.width, height: image.height } }] };
   }
-  const record = { $type: 'app.bsky.feed.post', text: post.text, facets: post.facets, langs: ['en'], createdAt: new Date().toISOString(), ...(embed ? { embed } : {}) };
+  const record = { $type: 'app.bsky.feed.post', text: post.text, facets: post.facets, langs: post.langs ?? ['en'], createdAt: new Date().toISOString(), ...(embed ? { embed } : {}) };
   const res = await xrpc<{ uri: string }>(s.service, 'com.atproto.repo.createRecord', {
     method: 'POST', headers: { ...auth, 'content-type': 'application/json' },
     body: JSON.stringify({ repo: s.did, collection: 'app.bsky.feed.post', record }),
@@ -305,17 +305,20 @@ export function draftLibraryPost(a: LibraryArticle): { text: string; facets: Fac
   return { text, facets: detectFacets(text), alt, url, image: libraryCardPath(a) };
 }
 
-/** The article's share card, fetched from the site (`origin`), or null if it is missing or too large. */
-export async function libraryCard(a: Pick<LibraryArticle, 'id'>, origin: string): Promise<PostImage | null> {
+/** A JPEG from the site (`origin` + `path`), or null if it is missing or too large. */
+export async function siteImage(path: string, origin: string, width: number, height: number): Promise<PostImage | null> {
   try {
-    const r = await fetch(`${origin.replace(/\/$/, '')}${libraryCardPath(a)}`);
+    const r = await fetch(`${origin.replace(/\/$/, '')}${path}`);
     if (!r.ok || !r.headers.get('content-type')?.startsWith('image/jpeg')) return null;
     const data = new Uint8Array(await r.arrayBuffer());
-    return data.byteLength <= BLUESKY_MAX_IMAGE_BYTES ? { data, mime: 'image/jpeg', width: LIBRARY_CARD_W, height: LIBRARY_CARD_H } : null;
+    return data.byteLength <= BLUESKY_MAX_IMAGE_BYTES ? { data, mime: 'image/jpeg', width, height } : null;
   } catch {
     return null;
   }
 }
+
+/** The article's share card, fetched from the site (`origin`), or null if it is missing or too large. */
+export const libraryCard = (a: Pick<LibraryArticle, 'id'>, origin: string) => siteImage(libraryCardPath(a), origin, LIBRARY_CARD_W, LIBRARY_CARD_H);
 
 // --- Posting with the database (service role) ---
 export interface PostRow { quake_id: string; quake_time: string; lat: number; lon: number; mag: number; status: string }

@@ -1,0 +1,85 @@
+{
+  "feed": {
+    "text": "Vous avez senti une secousse ? sisma montre ce qui vient de trembler, où et avec quelle force, avec les données en direct de l’USGS, de l’EMSC, de GeoNet et de la JMA. Gratuit sur Android.",
+    "tags": [
+      "séisme",
+      "Sismologie",
+      "Android"
+    ],
+    "alt": "sisma sur Google Play, titre « Les séismes en direct » : un téléphone affichant la liste en direct des séismes récents, chacun avec son badge de magnitude, son lieu, son heure et sa distance."
+  },
+  "detail": {
+    "text": "Magnitude, profondeur, heure et distance par rapport à vous pour chaque séisme, et si une agence l’a révisé. Tout en un coup d’œil dans sisma.",
+    "tags": [
+      "séisme",
+      "tremblementdeterre"
+    ],
+    "alt": "sisma sur Google Play, titre « Chaque détail en un coup d’œil » : un téléphone affichant les détails d’un séisme, avec magnitude, profondeur, date, heure, distance, pays, coordonnées, statut de révision et source."
+  },
+  "map": {
+    "text": "Le monde entier sur une carte : séismes en direct et limites des plaques tectoniques, de la planète jusqu’au niveau de la rue. Gratuit sur Android.",
+    "tags": [
+      "séisme",
+      "carte",
+      "TectoniqueDesPlaques"
+    ],
+    "alt": "sisma sur Google Play, titre « Le monde entier sur une carte » : un téléphone affichant une carte du monde avec les séismes récents sous forme d’épingles colorées."
+  },
+  "region": {
+    "text": "Zoomez sur n’importe quel séisme pour voir les autres à proximité et suivre les répliques à mesure qu’elles arrivent, puis partagez-le en image avec une carte.",
+    "tags": [
+      "séisme",
+      "répliques"
+    ],
+    "alt": "sisma sur Google Play, titre « Zoomez sur chaque séisme » : un téléphone affichant une carte rapprochée autour d’un séisme, avec sa fiche récapitulative en dessous."
+  },
+  "globe": {
+    "text": "Faites tourner un globe 3D en direct des séismes du monde et regardez s’illuminer la ceinture de feu du Pacifique. Gratuit dans sisma pour Android.",
+    "tags": [
+      "séisme",
+      "CeintureDeFeu"
+    ],
+    "alt": "sisma sur Google Play, titre « Faites tourner le globe en direct » : un téléphone affichant un globe 3D couvert d’épingles de séismes autour du Pacifique."
+  },
+  "depth": {
+    "text": "Passez le globe en vue Profondeur et voyez à quelle profondeur chaque séisme a frappé, de la croûte superficielle jusqu’à des centaines de kilomètres sous terre.",
+    "tags": [
+      "séisme",
+      "géologie"
+    ],
+    "alt": "sisma sur Google Play, titre « Voyez leur profondeur » : un téléphone affichant le globe 3D en vue Profondeur, avec les épingles des séismes colorées selon la profondeur."
+  },
+  "science": {
+    "text": "Comment fonctionnent les séismes ? Des guides illustrés sur les plaques, les failles, les ondes et la magnitude, plus les articles de fond En profondeur, en 10 langues.",
+    "tags": [
+      "science",
+      "géologie",
+      "séisme"
+    ],
+    "alt": "sisma sur Google Play, titre « La science expliquée » : un téléphone affichant le guide illustré de la tectonique des plaques, avec un schéma d’une plaque océanique qui s’enfonce sous un continent."
+  },
+  "alerts": {
+    "text": "Des notifications push pour les séismes qui comptent pour vous : vos lieux, des pays, une magnitude minimale, des heures calmes. Essayez sisma+ gratuitement pendant 3 jours.",
+    "tags": [
+      "séisme",
+      "alertes"
+    ],
+    "alt": "sisma sur Google Play, titre « Des alertes utiles » : un téléphone affichant une notification push de séisme, le réglage des notifications push et un historique des alertes récentes."
+  },
+  "pulse": {
+    "text": "Le pouls d’une planète vivante : chaque séisme signalé par quatre agences sismologiques, dans un fil en direct, une carte et un globe 3D. Gratuit, sans publicité.",
+    "tags": [
+      "séisme",
+      "Sismologie"
+    ],
+    "alt": "Visuel de présentation de sisma.io : le logo sisma.io et la phrase « Le pouls d’une planète vivante » sur une texture de roche sombre aux reflets rouges et bleus."
+  },
+  "felt": {
+    "text": "Vous l’avez ressenti ? Signalez la secousse dans les premières heures après un séisme et voyez où d’autres l’ont ressentie, uniquement sous forme de décomptes anonymes par zone.",
+    "tags": [
+      "séisme",
+      "tremblementdeterre"
+    ],
+    "alt": "Visuel de présentation de sisma.io : le logo sisma.io et la phrase « Le pouls d’une planète vivante » sur une texture de roche sombre aux reflets rouges et bleus."
+  }
+}

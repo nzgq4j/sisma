@@ -43,3 +43,6 @@ button.item:hover { background: color-mix(in srgb, var(--surface) 85%, var(--lin
 .composer { padding: 4px 16px 16px; border-top: 1px solid var(--line); }
 .pickLabel { display: block; font-size: 12px; font-weight: 700; color: var(--ink2); }
 .wrapLabel { display: block; white-space: normal; line-height: 1.3; padding: 6px 0; }
+/* Play Store posts */
+.lang { font-size: 12px; font-weight: 800; color: var(--violet-text); letter-spacing: .04em; }
+.promoImg { max-width: 220px; }

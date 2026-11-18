@@ -1,0 +1,85 @@
+{
+  "feed": {
+    "text": "Felt a tremor? sisma shows what just shook, where and how strong, with live data from USGS, EMSC, GeoNet and JMA. Free on Android.",
+    "tags": [
+      "earthquake",
+      "seismology",
+      "AndroidApp"
+    ],
+    "alt": "sisma on Google Play, headline \"Earthquakes as they happen\": a phone showing the live list of recent earthquakes, each with its magnitude badge, place, time and distance."
+  },
+  "detail": {
+    "text": "Magnitude, depth, time and distance from you for every earthquake, plus whether an agency has reviewed it. Everything at a glance in sisma.",
+    "tags": [
+      "earthquake",
+      "quake"
+    ],
+    "alt": "sisma on Google Play, headline \"Every detail at a glance\": a phone showing one earthquake's details, with magnitude, depth, date, time, distance, country, coordinates, review status and source."
+  },
+  "map": {
+    "text": "The whole world on one map: live earthquakes and tectonic plate boundaries, from the planet down to street level. Free on Android.",
+    "tags": [
+      "earthquake",
+      "map",
+      "PlateTectonics"
+    ],
+    "alt": "sisma on Google Play, headline \"The whole world on one map\": a phone showing a world map with recent earthquakes as coloured pins."
+  },
+  "region": {
+    "text": "Zoom in on any quake to see the others nearby and follow aftershocks as they come in, then share it as a picture with a map.",
+    "tags": [
+      "earthquake",
+      "aftershocks"
+    ],
+    "alt": "sisma on Google Play, headline \"Zoom in on any quake\": a phone showing a close-up map around one earthquake, with its summary card below."
+  },
+  "globe": {
+    "text": "Spin a live 3D globe of the world's earthquakes and watch the Pacific Ring of Fire light up. Free in sisma for Android.",
+    "tags": [
+      "earthquake",
+      "RingOfFire"
+    ],
+    "alt": "sisma on Google Play, headline \"Spin the live 3D globe\": a phone showing a 3D globe covered in earthquake pins around the Pacific."
+  },
+  "depth": {
+    "text": "Switch the globe to depth view and see how deep each earthquake struck, from the shallow crust to hundreds of kilometres down.",
+    "tags": [
+      "earthquake",
+      "geology"
+    ],
+    "alt": "sisma on Google Play, headline \"See how deep they strike\": a phone showing the 3D globe in depth view, with earthquake pins coloured by depth."
+  },
+  "science": {
+    "text": "How do earthquakes work? Illustrated guides on plates, faults, waves and magnitude, plus long-form In Depth articles, in 10 languages.",
+    "tags": [
+      "science",
+      "geology",
+      "earthquake"
+    ],
+    "alt": "sisma on Google Play, headline \"The science made simple\": a phone showing the illustrated plate tectonics guide, with a diagram of an oceanic plate sinking beneath a continent."
+  },
+  "alerts": {
+    "text": "Push alerts for the earthquakes that matter to you: your places, countries, a minimum magnitude, quiet hours. Try sisma+ free for 3 days.",
+    "tags": [
+      "earthquake",
+      "alerts"
+    ],
+    "alt": "sisma on Google Play, headline \"Alerts that matter\": a phone showing an earthquake push notification, the push alerts setting and a history of recent alerts."
+  },
+  "pulse": {
+    "text": "The pulse of a living planet: every earthquake reported by four seismic agencies, in a live feed, map and 3D globe. Free, no ads.",
+    "tags": [
+      "earthquake",
+      "seismology"
+    ],
+    "alt": "sisma.io feature graphic: the sisma.io logo and the line \"The pulse of a living planet\" over a dark rock texture glowing red and blue."
+  },
+  "felt": {
+    "text": "Did you feel it? Report the shaking in the first hours after a quake and see where others felt it, shown only as anonymous counts by area.",
+    "tags": [
+      "earthquake",
+      "DidYouFeelIt"
+    ],
+    "alt": "sisma.io feature graphic: the sisma.io logo and the line \"The pulse of a living planet\" over a dark rock texture glowing red and blue."
+  }
+}

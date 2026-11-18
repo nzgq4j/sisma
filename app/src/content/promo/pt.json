@@ -1,0 +1,85 @@
+{
+  "feed": {
+    "text": "Sentiu um tremor? O sisma mostra o que acabou de tremer, onde e com que força, com dados ao vivo do USGS, EMSC, GeoNet e JMA. Grátis para Android.",
+    "tags": [
+      "terremoto",
+      "sismologia",
+      "Android"
+    ],
+    "alt": "sisma no Google Play, título \"Terremotos em tempo real\": um celular mostrando a lista ao vivo dos terremotos recentes, cada um com o selo de magnitude, o local, o horário e a distância."
+  },
+  "detail": {
+    "text": "Magnitude, profundidade, horário e distância até você de cada terremoto, e ainda se alguma agência já o revisou. Tudo de relance no sisma.",
+    "tags": [
+      "terremoto",
+      "sismo"
+    ],
+    "alt": "sisma no Google Play, título \"Cada detalhe de relance\": um celular mostrando os detalhes de um terremoto, com magnitude, profundidade, data, horário, distância, país, coordenadas, status de revisão e fonte."
+  },
+  "map": {
+    "text": "O mundo todo em um mapa: terremotos ao vivo e limites das placas tectônicas, do planeta inteiro até o nível da rua. Grátis para Android.",
+    "tags": [
+      "terremoto",
+      "mapa",
+      "PlacasTectônicas"
+    ],
+    "alt": "sisma no Google Play, título \"O mundo todo em um mapa\": um celular mostrando um mapa-múndi com os terremotos recentes como marcadores coloridos."
+  },
+  "region": {
+    "text": "Amplie qualquer tremor para ver os outros ao redor e acompanhar as réplicas conforme chegam. Depois, compartilhe tudo como imagem com mapa.",
+    "tags": [
+      "terremoto",
+      "réplicas"
+    ],
+    "alt": "sisma no Google Play, título \"Amplie qualquer tremor\": um celular mostrando um mapa aproximado ao redor de um terremoto, com o cartão de resumo abaixo."
+  },
+  "globe": {
+    "text": "Gire um globo 3D ao vivo com os terremotos do mundo e veja o Círculo de Fogo do Pacífico se acender. Grátis no sisma para Android.",
+    "tags": [
+      "terremoto",
+      "CírculoDeFogo"
+    ],
+    "alt": "sisma no Google Play, título \"Gire o globo ao vivo\": um celular mostrando um globo 3D coberto de marcadores de terremotos ao redor do Pacífico."
+  },
+  "depth": {
+    "text": "Mude o globo para a visão Profundidade e veja a que profundidade cada terremoto ocorreu, da crosta rasa a centenas de quilômetros abaixo.",
+    "tags": [
+      "terremoto",
+      "geologia"
+    ],
+    "alt": "sisma no Google Play, título \"Veja a profundidade\": um celular mostrando o globo 3D na visão de profundidade, com os marcadores dos terremotos coloridos conforme a profundidade."
+  },
+  "science": {
+    "text": "Como funcionam os terremotos? Guias ilustrados sobre placas, falhas, ondas e magnitude, além dos artigos longos de Em profundidade, em 10 idiomas.",
+    "tags": [
+      "ciência",
+      "geologia",
+      "terremoto"
+    ],
+    "alt": "sisma no Google Play, título \"A ciência explicada\": um celular mostrando o guia ilustrado de tectônica de placas, com um diagrama de uma placa oceânica afundando sob um continente."
+  },
+  "alerts": {
+    "text": "Notificações push dos terremotos que importam para você: seus locais, países, magnitude mínima e horário de silêncio. Teste o sisma+ grátis por 3 dias.",
+    "tags": [
+      "terremoto",
+      "alertas"
+    ],
+    "alt": "sisma no Google Play, título \"Alertas que importam\": um celular mostrando uma notificação push de terremoto, a configuração de notificações push e um histórico de alertas recentes."
+  },
+  "pulse": {
+    "text": "O pulso de um planeta vivo: cada terremoto registrado por quatro agências sismológicas, em lista ao vivo, mapa e globo 3D. Grátis e sem anúncios.",
+    "tags": [
+      "terremoto",
+      "sismologia"
+    ],
+    "alt": "Imagem de destaque do sisma.io: o logotipo do sisma.io e a frase \"O pulso de um planeta vivo\" sobre uma textura de rocha escura com brilho vermelho e azul."
+  },
+  "felt": {
+    "text": "Sentiu? Relate o tremor nas primeiras horas após um terremoto e veja onde outras pessoas sentiram, mostrado só como contagens anônimas por área.",
+    "tags": [
+      "terremoto",
+      "tremor"
+    ],
+    "alt": "Imagem de destaque do sisma.io: o logotipo do sisma.io e a frase \"O pulso de um planeta vivo\" sobre uma textura de rocha escura com brilho vermelho e azul."
+  }
+}
