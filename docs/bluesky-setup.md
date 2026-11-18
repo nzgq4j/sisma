@@ -1,6 +1,7 @@
 # Automatic Bluesky posts — how it works and what to set up
 
-sisma can post significant earthquakes to its Bluesky account on its own. Administrators control it in
+sisma can post significant earthquakes to its Bluesky account on its own. Administrators have a short how-to in the app
+at **Me → Administration → Admin guide** (`/app/me/admin/guide`, administrators only, not indexed). Administrators control it in
 **Me → Administration** (shown only to accounts with `profiles.is_admin`).
 
 ## What a post contains

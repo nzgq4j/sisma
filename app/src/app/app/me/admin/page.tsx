@@ -74,6 +74,14 @@ export default function AdminPage() {
       {back}
       <h1 className={sub.h1}>{k.title}</h1>
 
+      <div className={me.card}>
+        <Link href="/app/me/admin/guide" className={me.row}>
+          <span className="ms" aria-hidden="true">menu_book</span>
+          <span className={me.grow}>{k.guide_link}<span className={me.rowHint}>{k.guide_p}</span></span>
+          <span className={`ms ${me.chev}`} aria-hidden="true">chevron_right</span>
+        </Link>
+      </div>
+
       <div className={styles.head}><span>{k.bsky_h}</span><span className={data.configured ? styles.ok : styles.warn}>{data.configured ? k.connected : k.not_connected}</span></div>
       <ConnectionCard c={data.connection} api={api} onChange={() => void load()} />
       <div className={me.card}>

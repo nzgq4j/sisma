@@ -712,7 +712,9 @@
     "promo_p_science": "Guide scientifiche",
     "promo_p_alerts": "Avvisi (sisma+)",
     "promo_p_pulse": "Il battito di un pianeta vivo",
-    "promo_p_felt": "L’hai sentito?"
+    "promo_p_felt": "L’hai sentito?",
+    "guide_link": "Guida per gli amministratori",
+    "guide_p": "Come funzionano le funzioni di amministrazione"
   },
   "library": {
     "title": "Approfondimenti",

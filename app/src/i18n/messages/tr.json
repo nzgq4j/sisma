@@ -712,7 +712,9 @@
     "promo_p_science": "Bilim rehberleri",
     "promo_p_alerts": "Uyarılar (sisma+)",
     "promo_p_pulse": "Yaşayan bir gezegenin nabzı",
-    "promo_p_felt": "Hissettin mi?"
+    "promo_p_felt": "Hissettin mi?",
+    "guide_link": "Yönetici rehberi",
+    "guide_p": "Yönetim özellikleri nasıl çalışır"
   },
   "library": {
     "title": "Derinlemesine",

@@ -712,7 +712,9 @@
     "promo_p_science": "Panduan sains",
     "promo_p_alerts": "Peringatan (sisma+)",
     "promo_p_pulse": "Denyut planet yang hidup",
-    "promo_p_felt": "Apakah Anda merasakannya?"
+    "promo_p_felt": "Apakah Anda merasakannya?",
+    "guide_link": "Panduan admin",
+    "guide_p": "Cara kerja fitur administrasi"
   },
   "library": {
     "title": "Mendalam",

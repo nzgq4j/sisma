@@ -712,7 +712,9 @@
     "promo_p_science": "Guías científicas",
     "promo_p_alerts": "Alertas (sisma+)",
     "promo_p_pulse": "El pulso de un planeta vivo",
-    "promo_p_felt": "¿Lo sentiste?"
+    "promo_p_felt": "¿Lo sentiste?",
+    "guide_link": "Guía de administración",
+    "guide_p": "Cómo funcionan las funciones de administración"
   },
   "library": {
     "title": "En profundidad",

@@ -712,7 +712,9 @@
     "promo_p_science": "科学ガイド",
     "promo_p_alerts": "アラート（sisma+）",
     "promo_p_pulse": "生きている惑星の鼓動",
-    "promo_p_felt": "揺れた？"
+    "promo_p_felt": "揺れた？",
+    "guide_link": "管理者ガイド",
+    "guide_p": "管理機能の使い方"
   },
   "library": {
     "title": "詳しく学ぶ",

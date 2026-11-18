@@ -712,7 +712,9 @@
     "promo_p_science": "科普指南",
     "promo_p_alerts": "提醒（sisma+）",
     "promo_p_pulse": "鲜活星球的脉搏",
-    "promo_p_felt": "你感觉到了吗？"
+    "promo_p_felt": "你感觉到了吗？",
+    "guide_link": "管理指南",
+    "guide_p": "管理功能的使用方法"
   },
   "library": {
     "title": "深度阅读",

@@ -712,7 +712,9 @@
     "promo_p_science": "Wissensseiten",
     "promo_p_alerts": "Warnungen (sisma+)",
     "promo_p_pulse": "Der Puls eines lebendigen Planeten",
-    "promo_p_felt": "Hast du es gespürt?"
+    "promo_p_felt": "Hast du es gespürt?",
+    "guide_link": "Admin-Anleitung",
+    "guide_p": "So funktionieren die Verwaltungsfunktionen"
   },
   "library": {
     "title": "Im Detail",
