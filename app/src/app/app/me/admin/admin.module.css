@@ -46,3 +46,4 @@ button.item:hover { background: color-mix(in srgb, var(--surface) 85%, var(--lin
 /* Play Store posts */
 .lang { font-size: 12px; font-weight: 800; color: var(--violet-text); letter-spacing: .04em; }
 .promoImg { max-width: 220px; }
+.foldHead { margin-top: 10px; }

@@ -12,6 +12,7 @@ import { MagBadge } from '@/components/MagBadge';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import { LibraryBlueskyComposer } from '@/components/admin/LibraryBluesky';
 import { PromoPosts } from '@/components/admin/PromoPosts';
+import { Collapsible } from '@/components/admin/Collapsible';
 import { useLibraryTranslation } from '@/components/science/Library';
 import { LIBRARY, localLibrary } from '@/lib/library';
 import me from '../me.module.css';
@@ -88,7 +89,7 @@ export default function AdminPage() {
       </div>
       {state === 'error' && <p className={me.errLine} role="alert">{k.error}</p>}
 
-      <div className={styles.head}><span>{k.recent}</span></div>
+      <Collapsible icon="history" title={k.recent} count={nf.format(data.recent.length)}>
       {data.recent.length === 0 ? <p className={me.hint}>{k.recent_none}</p> : (
         <div className={styles.list}>
           {data.recent.map(q => (
@@ -101,6 +102,7 @@ export default function AdminPage() {
           ))}
         </div>
       )}
+      </Collapsible>
 
       <div className={styles.head}><span>{k.library_h}</span></div>
       <p className={me.hint}>{k.library_p}</p>
@@ -118,7 +120,7 @@ export default function AdminPage() {
         );
       })()}
 
-      <div className={styles.head}><span>{k.log}</span></div>
+      <Collapsible icon="campaign" title={k.log} count={nf.format(data.posts.length)}>
       {data.posts.length === 0 ? <p className={me.hint}>{k.log_none}</p> : (
         <div className={styles.list}>
           {data.posts.map(p => (
@@ -135,6 +137,7 @@ export default function AdminPage() {
         </div>
       )}
       {(() => { const n = data.posts.filter(p => p.status === 'posted').length; return n > 0 && <p className={me.hint}>{n === 1 ? k.count_1 : k.count.replace('{n}', nf.format(n))}</p>; })()}
+      </Collapsible>
 
       <PromoPosts />
 

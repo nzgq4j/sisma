@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import { useAdminApi } from '@/components/admin/LibraryBluesky';
+import { Collapsible } from '@/components/admin/Collapsible';
 import me from '@/app/app/me/me.module.css';
 import sub from '@/app/app/me/subscription/subscription.module.css';
 import styles from '@/app/app/me/admin/admin.module.css';
@@ -68,7 +69,7 @@ export function PromoPosts() {
       </div>
       {!data.configured && <p className={me.hint}>{k.not_configured}</p>}
 
-      <div className={styles.head}><span>{k.promo_recent}</span></div>
+      <Collapsible icon="history" title={k.promo_recent} count={nf.format(data.recent.length)}>
       {data.recent.length === 0 ? <p className={me.hint}>{k.promo_none}</p> : (
         <div className={styles.list}>
           {data.recent.map(r => (
@@ -84,6 +85,7 @@ export function PromoPosts() {
           ))}
         </div>
       )}
+      </Collapsible>
 
       <PostNowSheet open={open} data={data} title={title} langName={langName} onClose={() => setOpen(false)} onPosted={() => void load()} />
     </>
