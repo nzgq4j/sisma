@@ -60,6 +60,27 @@ returns the suggestion; `POST /api/admin/bluesky/library { id, text, alt }` post
 Article posts are not recorded in `bluesky_posts` (that table is for earthquakes), so posting the same article twice
 makes two posts.
 
+## Play Store posts (daily, automatic or by hand)
+
+Ten posts about the Android app, each written in all 10 languages with its own hashtags and image description
+(`app/src/content/promo/<locale>.json`), with that language's Play Store screenshot or feature graphic
+(`app/public/promo/<locale>/*.jpg`) and a link to the Play listing in that language (`&hl=`). 100 combinations in all.
+
+- **Me → Administration → Play Store posts:** *Post daily* on/off, the time of the next post, progress this round
+  (e.g. 23 of 100) and **Post now** (a random unused post and language, or choose both and see the exact post first).
+  Below it, the recent Play Store posts with links.
+- **Daily:** when on, the every-minute alert job (`lib/promo.ts autoPromo`) posts once a day at a random minute
+  (UTC), choosing a random post and language not yet posted this round. After all 100 have been posted, the next round
+  starts. Switching it on schedules the first post at a random time later the same day.
+- **Post now** counts as that day's post: if the automatic post was still due later today, it moves to tomorrow.
+  Choosing a combination already posted this round posts it again (the sheet says so).
+- A failed post is logged with Bluesky's error; that combination stays unused and can come up again.
+- Database: `promo_settings` (one row: enabled, next_at, cycle) and `promo_posts` (every post), migration
+  `supabase/migrations/20261118000100_promo_posts.sql`. API: `GET/PATCH/POST /api/admin/promo` (administrators only).
+- To change the wording, edit the language files and run the length check in `lib/promo.test.ts` (every post must stay
+  within 300 characters including the link and hashtags). To change pictures, regenerate the store images
+  (`mobile/store/compose-store.mjs`) and copy them to `app/public/promo/` at 720 × 1280 (feature graphic 1024 × 500).
+
 ## Setup (once)
 
 Do not send the password to Claude.

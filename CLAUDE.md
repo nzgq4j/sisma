@@ -94,5 +94,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     Bluesky posts of significant earthquakes with the share card, alt text and link (lib/bluesky.ts, run by the alert job;
     sign in to Bluesky on the page (session in Supabase Vault, password never stored; env is the fallback), on/off,
     minimum magnitude, preview, Post now, log); In Depth articles posted by hand with editable text, hashtags and alt text
-    (components/admin/LibraryBluesky.tsx, /api/admin/bluesky/library; also a Bluesky button on articles for administrators). The card is drawn in-process (lib/share-card.tsx); a new event waits up to
+    (components/admin/LibraryBluesky.tsx, /api/admin/bluesky/library; also a Bluesky button on articles for administrators); daily Play Store posts
+    (lib/promo.ts: 10 posts × 10 languages in content/promo/, store pictures in public/promo/, one a day at a random time, no
+    repeat until all 100 are used; components/admin/PromoPosts.tsx with Post now and recent posts; /api/admin/promo). The card is drawn in-process (lib/share-card.tsx); a new event waits up to
     15 min for its card, then posts as text. docs/bluesky-setup.md
