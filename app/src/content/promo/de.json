@@ -1,0 +1,85 @@
+{
+  "feed": {
+    "text": "Hat’s gerade gewackelt? sisma zeigt dir, was eben gebebt hat, wo und wie stark, mit Live-Daten von USGS, EMSC, GeoNet und JMA. Kostenlos für Android.",
+    "tags": [
+      "Erdbeben",
+      "Seismologie",
+      "AndroidApp"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Erdbeben in Echtzeit“: ein Handy mit der Live-Liste aktueller Erdbeben, jeweils mit Magnitude-Abzeichen, Ort, Uhrzeit und Entfernung."
+  },
+  "detail": {
+    "text": "Magnitude, Tiefe, Uhrzeit und Entfernung zu dir für jedes Erdbeben, dazu, ob eine Behörde es schon geprüft hat. Alles auf einen Blick in sisma.",
+    "tags": [
+      "Erdbeben",
+      "Beben"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Jedes Detail auf einen Blick“: ein Handy mit den Details eines Erdbebens, mit Magnitude, Tiefe, Datum, Uhrzeit, Entfernung, Land, Koordinaten, Prüfstatus und Quelle."
+  },
+  "map": {
+    "text": "Die ganze Welt auf einer Karte: Erdbeben live und die Grenzen der tektonischen Platten, vom ganzen Planeten bis hinunter auf Straßenebene. Kostenlos für Android.",
+    "tags": [
+      "Erdbeben",
+      "Karte",
+      "Plattentektonik"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Die ganze Welt auf einer Karte“: ein Handy mit einer Weltkarte, auf der aktuelle Erdbeben als farbige Pins markiert sind."
+  },
+  "region": {
+    "text": "Zoome in jedes Beben, sieh die anderen in der Nähe und verfolge die Nachbeben, sobald sie eintreffen. Dann teil es als Bild mit Karte.",
+    "tags": [
+      "Erdbeben",
+      "Nachbeben"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Zoome in jedes Beben“: ein Handy mit einer Nahansicht der Karte rund um ein Erdbeben, darunter seine Zusammenfassung."
+  },
+  "globe": {
+    "text": "Dreh einen Live-3D-Globus mit den Erdbeben der Welt und sieh zu, wie der Pazifische Feuerring aufleuchtet. Kostenlos in sisma für Android.",
+    "tags": [
+      "Erdbeben",
+      "Feuerring"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Dreh den Live-Globus“: ein Handy mit einem 3D-Globus voller Erdbeben-Pins rund um den Pazifik."
+  },
+  "depth": {
+    "text": "Schalte den Globus auf „Tiefe“ und sieh, wie tief jedes Erdbeben lag, von der flachen Erdkruste bis Hunderte Kilometer hinab.",
+    "tags": [
+      "Erdbeben",
+      "Geologie"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Sieh die Bebentiefe“: ein Handy mit dem 3D-Globus in der Tiefenansicht, die Erdbeben-Pins nach Tiefe eingefärbt."
+  },
+  "science": {
+    "text": "Wie funktionieren Erdbeben? Illustrierte Leitfäden zu Platten, Verwerfungen, Wellen und Magnitude, dazu ausführliche Artikel in „Im Detail“, in 10 Sprachen.",
+    "tags": [
+      "Wissenschaft",
+      "Geologie",
+      "Erdbeben"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Wissenschaft einfach erklärt“: ein Handy mit dem illustrierten Leitfaden zur Plattentektonik und einem Diagramm, in dem eine ozeanische Platte unter einen Kontinent abtaucht."
+  },
+  "alerts": {
+    "text": "Push-Benachrichtigungen für die Erdbeben, die für dich zählen: deine Orte, Länder, eine Mindestmagnitude, Ruhezeiten. Teste sisma+ 3 Tage kostenlos.",
+    "tags": [
+      "Erdbeben",
+      "Benachrichtigungen"
+    ],
+    "alt": "sisma bei Google Play, Überschrift „Alarme, die zählen“: ein Handy mit einer Push-Benachrichtigung zu einem Erdbeben, der Einstellung für Push-Benachrichtigungen und einem Verlauf der letzten Alarme."
+  },
+  "pulse": {
+    "text": "Der Puls eines lebendigen Planeten: jedes Erdbeben, das vier Erdbebendienste melden, im Live-Feed, auf der Karte und auf dem 3D-Globus. Kostenlos, ohne Werbung.",
+    "tags": [
+      "Erdbeben",
+      "Seismologie"
+    ],
+    "alt": "Feature-Grafik von sisma.io: das Logo von sisma.io und die Zeile „Der Puls eines lebendigen Planeten“ über einer dunklen Gesteinstextur, die rot und blau leuchtet."
+  },
+  "felt": {
+    "text": "Hast du es gespürt? Melde das Beben in den ersten Stunden danach und sieh, wo andere es gespürt haben, nur als anonyme Zahlen pro Gebiet.",
+    "tags": [
+      "Erdbeben",
+      "Beben"
+    ],
+    "alt": "Feature-Grafik von sisma.io: das Logo von sisma.io und die Zeile „Der Puls eines lebendigen Planeten“ über einer dunklen Gesteinstextur, die rot und blau leuchtet."
+  }
+}

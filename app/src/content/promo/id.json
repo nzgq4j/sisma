@@ -1,0 +1,86 @@
+{
+  "feed": {
+    "text": "Barusan terasa getaran? sisma menunjukkan gempa yang baru terjadi, di mana dan seberapa kuat, dengan data langsung dari USGS, EMSC, GeoNet, dan JMA. Gratis di Android.",
+    "tags": [
+      "gempa",
+      "InfoGempa",
+      "AplikasiAndroid"
+    ],
+    "alt": "sisma di Google Play, judul \"Gempa bumi saat terjadi\": ponsel menampilkan daftar langsung gempa terbaru, masing-masing dengan lencana magnitudo, tempat, waktu, dan jarak."
+  },
+  "detail": {
+    "text": "Magnitudo, kedalaman, waktu, dan jarak dari Anda untuk setiap gempa, plus apakah sudah ditinjau oleh lembaga terkait. Semuanya sekilas pandang di sisma.",
+    "tags": [
+      "gempa",
+      "GempaBumi"
+    ],
+    "alt": "sisma di Google Play, judul \"Semua detail sekilas pandang\": ponsel menampilkan detail satu gempa, dengan magnitudo, kedalaman, tanggal, waktu, jarak, negara, koordinat, status tinjauan, dan sumber."
+  },
+  "map": {
+    "text": "Seluruh dunia dalam satu peta: gempa terkini dan batas lempeng tektonik, dari skala planet hingga tingkat jalan. Gratis di Android.",
+    "tags": [
+      "gempa",
+      "PetaGempa",
+      "LempengTektonik"
+    ],
+    "alt": "sisma di Google Play, judul \"Seluruh dunia dalam satu peta\": ponsel menampilkan peta dunia dengan gempa terbaru sebagai penanda berwarna."
+  },
+  "region": {
+    "text": "Perbesar gempa mana pun untuk melihat gempa lain di sekitarnya dan memantau gempa susulan yang masuk, lalu bagikan sebagai gambar lengkap dengan peta.",
+    "tags": [
+      "gempa",
+      "GempaSusulan"
+    ],
+    "alt": "sisma di Google Play, judul \"Perbesar gempa mana pun\": ponsel menampilkan peta dekat di sekitar satu gempa, dengan kartu ringkasannya di bawah."
+  },
+  "globe": {
+    "text": "Putar globe 3D langsung berisi gempa di seluruh dunia dan saksikan Cincin Api Pasifik menyala. Gratis di sisma untuk Android.",
+    "tags": [
+      "gempa",
+      "CincinApi"
+    ],
+    "alt": "sisma di Google Play, judul \"Jelajahi globe 3D\": ponsel menampilkan globe 3D yang dipenuhi penanda gempa di sekitar Pasifik."
+  },
+  "depth": {
+    "text": "Ubah globe ke tampilan Kedalaman dan lihat seberapa dalam setiap gempa terjadi, dari kerak yang dangkal hingga ratusan kilometer di bawah permukaan.",
+    "tags": [
+      "gempa",
+      "geologi"
+    ],
+    "alt": "sisma di Google Play, judul \"Lihat kedalaman setiap gempa\": ponsel menampilkan globe 3D dalam tampilan kedalaman, dengan penanda gempa diwarnai menurut kedalaman."
+  },
+  "science": {
+    "text": "Bagaimana gempa terjadi? Panduan bergambar tentang lempeng, sesar, gelombang, dan magnitudo, plus artikel panjang Mendalam, dalam 10 bahasa.",
+    "tags": [
+      "sains",
+      "geologi",
+      "gempa"
+    ],
+    "alt": "sisma di Google Play, judul \"Sains gempa jadi mudah\": ponsel menampilkan panduan bergambar tentang tektonik lempeng, dengan diagram lempeng samudra yang menunjam ke bawah benua."
+  },
+  "alerts": {
+    "text": "Notifikasi push untuk gempa yang penting bagi Anda: tempat Anda, negara, magnitudo minimum, jam tenang. Coba sisma+ gratis selama 3 hari.",
+    "tags": [
+      "gempa",
+      "InfoGempa",
+      "PeringatanGempa"
+    ],
+    "alt": "sisma di Google Play, judul \"Peringatan yang penting\": ponsel menampilkan notifikasi push gempa, pengaturan notifikasi push, dan riwayat peringatan terbaru."
+  },
+  "pulse": {
+    "text": "Denyut planet yang hidup: setiap gempa yang dilaporkan empat lembaga seismik, dalam daftar langsung, peta, dan globe 3D. Gratis, tanpa iklan.",
+    "tags": [
+      "gempa",
+      "seismologi"
+    ],
+    "alt": "Gambar fitur sisma.io: logo sisma.io dan tulisan \"Denyut planet yang hidup\" di atas tekstur batuan gelap yang berpendar merah dan biru."
+  },
+  "felt": {
+    "text": "Apakah Anda merasakannya? Laporkan guncangan pada jam-jam pertama setelah gempa dan lihat di mana orang lain merasakannya, hanya ditampilkan sebagai jumlah anonim per area.",
+    "tags": [
+      "gempa",
+      "GempaBumi"
+    ],
+    "alt": "Gambar fitur sisma.io: logo sisma.io dan tulisan \"Denyut planet yang hidup\" di atas tekstur batuan gelap yang berpendar merah dan biru."
+  }
+}

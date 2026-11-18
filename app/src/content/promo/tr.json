@@ -1,0 +1,85 @@
+{
+  "feed": {
+    "text": "Bir sarsıntı mı hissettin? sisma, az önce nerenin ve ne kadar güçlü sallandığını USGS, EMSC, GeoNet ve JMA’dan gelen canlı verilerle gösterir. Android’de ücretsiz.",
+    "tags": [
+      "deprem",
+      "sondepremler",
+      "Sismoloji"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Depremler anında\": son depremlerin canlı listesini gösteren bir telefon; her depremin büyüklük rozeti, yeri, saati ve uzaklığı görünüyor."
+  },
+  "detail": {
+    "text": "Her deprem için büyüklük, derinlik, saat ve sana uzaklık; ayrıca bir kurumun depremi inceleyip incelemediği. sisma’da hepsi tek bakışta.",
+    "tags": [
+      "deprem",
+      "sondepremler"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Tüm ayrıntılar tek bakışta\": bir depremin ayrıntılarını gösteren bir telefon; büyüklük, derinlik, tarih, saat, uzaklık, ülke, koordinatlar, inceleme durumu ve kaynak."
+  },
+  "map": {
+    "text": "Tüm dünya tek haritada: canlı depremler ve tektonik levha sınırları, gezegen ölçeğinden sokak düzeyine kadar. Android’de ücretsiz.",
+    "tags": [
+      "deprem",
+      "harita",
+      "LevhaTektoniği"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Tüm dünya tek haritada\": son depremleri renkli iğneler olarak gösteren bir dünya haritasıyla bir telefon."
+  },
+  "region": {
+    "text": "Herhangi bir depreme yakından bak: çevredeki diğer depremleri gör, artçıları geldikçe takip et, sonra haritalı bir görsel olarak paylaş.",
+    "tags": [
+      "deprem",
+      "artçı"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Her depreme yakından bak\": bir depremin çevresini yakından gösteren bir harita ve altında özet kartıyla bir telefon."
+  },
+  "globe": {
+    "text": "Dünyadaki depremlerin canlı 3D küresini çevir, Pasifik Ateş Çemberi’nin nasıl ışıldadığını izle. Android için sisma’da ücretsiz.",
+    "tags": [
+      "deprem",
+      "AteşÇemberi"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Canlı küreyi çevir\": Pasifik çevresinde deprem iğneleriyle kaplı bir 3D küreyi gösteren bir telefon."
+  },
+  "depth": {
+    "text": "Küreyi Derinlik görünümüne al, her depremin ne kadar derinde olduğunu gör: sığ yer kabuğundan yüzlerce kilometre aşağıya kadar.",
+    "tags": [
+      "deprem",
+      "jeoloji"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Depremlerin derinliğini gör\": Derinlik görünümündeki 3D küreyi gösteren bir telefon; deprem iğneleri derinliğe göre renklendirilmiş."
+  },
+  "science": {
+    "text": "Depremler nasıl oluşur? Levhalar, faylar, dalgalar ve büyüklük üzerine resimli rehberler, ayrıca Derinlemesine’de uzun yazılar. 10 dilde.",
+    "tags": [
+      "bilim",
+      "jeoloji",
+      "deprem"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Deprem bilimi kolayca\": resimli levha tektoniği rehberini gösteren bir telefon; bir okyanus levhasının kıtanın altına daldığını gösteren bir şema."
+  },
+  "alerts": {
+    "text": "Senin için önemli depremlerde anlık uyarı: yerlerin, ülkeler, en düşük büyüklük, sessiz saatler. sisma+’ı 3 gün ücretsiz dene.",
+    "tags": [
+      "deprem",
+      "DepremUyarısı"
+    ],
+    "alt": "Google Play’de sisma, başlık \"Önemli olan uyarılar\": bir deprem bildirimi, anlık uyarılar ayarı ve son uyarıların geçmişini gösteren bir telefon."
+  },
+  "pulse": {
+    "text": "Yaşayan bir gezegenin nabzı: dört sismik kurumun bildirdiği her deprem canlı akışta, haritada ve 3D kürede. Ücretsiz, reklamsız.",
+    "tags": [
+      "deprem",
+      "Sismoloji"
+    ],
+    "alt": "sisma.io tanıtım görseli: sisma.io logosu ve \"Yaşayan bir gezegenin nabzı\" yazısı, kırmızı ve mavi parlayan koyu bir kaya dokusu üzerinde."
+  },
+  "felt": {
+    "text": "Hissettin mi? Depremden sonraki ilk saatlerde sarsıntıyı bildir, başkalarının nerede hissettiğini gör; yalnızca bölgelere göre anonim sayılar olarak.",
+    "tags": [
+      "deprem",
+      "HissettinMi"
+    ],
+    "alt": "sisma.io tanıtım görseli: sisma.io logosu ve \"Yaşayan bir gezegenin nabzı\" yazısı, kırmızı ve mavi parlayan koyu bir kaya dokusu üzerinde."
+  }
+}
