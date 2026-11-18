@@ -538,5 +538,105 @@
         "a": "La ShakeMap de l’USGS montre l’intensité des secousses du sol dans une région, plutôt que seulement la magnitude et l’épicentre. Elle est normalement publiée dans les quelques minutes qui suivent un séisme modéré ou fort."
       }
     ]
+  },
+  "magnitude-scales": {
+    "title": "De Richter à la magnitude de moment : pourquoi le chiffre change après un séisme",
+    "dek": "La première magnitude est une estimation rapide, et elle est faite pour évoluer. Voici comment l’échelle de Richter a cédé la place à la magnitude de moment, et ce que chaque révision vous apprend.",
+    "sections": [
+      {
+        "h": "Le chiffre derrière les gros titres",
+        "p": [
+          "Quelques minutes après un séisme important, un chiffre apparaît sur les téléphones, dans les fils d’actualité et sur les sites de suivi : la magnitude. Une heure plus tard, il peut être différent, et quelques jours après, changer encore. Ces révisions amènent souvent à se demander si les sismologues se sont trompés. Dans la plupart des cas, la révision reflète une suite d’estimations prévue d’avance, dans laquelle le premier chiffre est un calcul rapide fondé sur les toutes premières données, et les chiffres suivants s’appuient sur davantage de données et sur une méthode mieux adaptée.",
+          "Les échelles de magnitude sont logarithmiques. Selon l’Institut d’études géologiques des États-Unis (USGS), une amplitude d’onde divisée par dix fait baisser la magnitude d’une unité (USGS n.d.a). Chaque unité correspond aussi à environ 32 fois plus d’énergie libérée (USGS n.d.e). Un écart de 0,1 ou 0,2 a donc une faible portée physique, tandis qu’un écart d’une unité entière ou plus indique que la première estimation décrivait un séisme très différent.",
+          "Le nom courant de l’échelle, l’échelle de Richter, reste d’usage quotidien, même si la plupart des organismes ne s’y fient plus pour les grands événements. L’USGS décrit la magnitude de Richter comme une notion bien connue mais mal comprise (USGS n.d.a). L’histoire de son remplacement explique l’essentiel de ce qui se passe après un séisme."
+        ]
+      },
+      {
+        "h": "Ce que Richter a construit en 1935",
+        "p": [
+          "Charles Richter a mis au point la première échelle logarithmique de magnitude dans les années 1930 pour mesurer les séismes du sud de la Californie, à partir de données de fréquence relativement élevée provenant de stations sismographiques proches. L’échelle a été notée ML, le L signifiant local, et c’est cette grandeur qui est devenue la magnitude de Richter (USGS n.d.a).",
+          "ML se calcule en relevant l’amplitude maximale des secousses enregistrée à une station et en la corrigeant de la distance à la source. Chaque station fournit sa propre estimation, et la moyenne sur l’ensemble des stations donne la valeur publiée (Gardine 2019). La méthode convenait à son cadre d’origine : un réseau régional dense, des séismes modérés et de courtes distances. Les sismologues d’aujourd’hui la calculent toujours. L’Alaska Earthquake Center indique que sa magnitude locale fonctionne bien, à ceci près qu’elle ne s’applique qu’aux événements inférieurs à environ magnitude 6 (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Pourquoi les grands séismes ont dépassé la méthode",
+        "p": [
+          "À mesure que des stations sismographiques étaient installées dans le monde entier, il est apparu que la procédure de Richter n’était strictement valable que pour certaines gammes de fréquences et de distances (USGS n.d.a). Les sismologues ont étendu l’idée à la magnitude des ondes de volume (mb) et à la magnitude des ondes de surface (Ms), chacune valable pour une gamme de fréquences et un type de signal sismique particuliers. Dans son domaine de validité, chacune équivaut à la magnitude de Richter (USGS n.d.a).",
+          "Les trois échelles partagent une limite plus profonde, que Hanks and Kanamori (1979) ont décrite sous le nom de saturation. Ils ont soutenu que ML, Ms et mb saturent pour la même raison physique : pour des séismes suffisamment grands, ces mesures d’amplitude en bande étroite cessent de mesurer l’ensemble du processus de rupture de la faille et n’enregistrent qu’une partie limitée du signal. La conséquence pratique se voyait dans les catalogues de l’époque, où la magnitude mb maximale publiée était d’environ 7 et la magnitude Ms maximale d’environ 8,3 (Hanks and Kanamori 1979).",
+          "Pour simplifier, un très grand séisme rayonne de l’énergie sur une large gamme de fréquences, mais une amplitude mesurée dans une seule bande de fréquences n’enregistre qu’une partie de ce signal. Deux séismes de tailles très différentes peuvent alors produire des amplitudes semblables sur l’instrument choisi. La mesure atteint un plafond alors que le séisme continue de croître."
+        ]
+      },
+      {
+        "h": "La magnitude de moment : une mesure de la source",
+        "p": [
+          "Hanks and Kanamori (1979) ont proposé une échelle fondée sur le moment sismique, une propriété physique de la source qui ne dépend pas de la bande de fréquences d’un instrument. L’USGS décrit le moment sismique comme proportionnel au glissement de la faille multiplié par la surface de faille qui glisse, et comme lié à l’énergie totale libérée (USGS n.d.a). Les sismologues peuvent l’estimer à partir de sismogrammes ou de mesures géodésiques, puis le convertir en magnitude à l’aide d’une formule standard.",
+          "La formule de l’article de 1979 est M = (2/3) log M0 moins 10,7, le moment sismique M0 étant exprimé en dynes-centimètres. Les constantes ont été choisies pour que la nouvelle échelle concorde avec les anciennes là où celles-ci étaient fiables. Les auteurs ont indiqué que les relations sont uniformément valables pour ML entre 3 et 7, pour Ms entre 5 et 7,5, et pour une magnitude de moment de 7,5 et plus (Hanks and Kanamori 1979). La magnitude de moment (Mw) correspond donc aux valeurs de Richter pour les séismes modérés et continue de croître pour les plus grands. L’USGS précise qu’elle est valable sur toute l’étendue des magnitudes, ce qui manquait aux anciennes échelles (USGS n.d.a).",
+          "Dans la pratique, les organismes appliquent ce principe en changeant d’échelle selon la taille. L’Alaska Earthquake Center calcule une magnitude locale pour tous les séismes, et utilise la magnitude de moment dès qu’elle est disponible pour les événements d’environ magnitude 5,5 et plus, et systématiquement pour ceux de 6,5 ou plus. Il considère Mw comme la meilleure mesure actuelle, car elle reflète directement l’énergie libérée (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Pourquoi le premier chiffre est provisoire",
+        "p": [
+          "La rapidité du premier rapport limite sa précision. Pour les grands séismes survenant hors des États-Unis, l’USGS publie une première magnitude et une première localisation dans un délai d’environ 20 minutes, à partir des données en temps réel des stations sismiques les plus proches (USGS n.d.b). Certaines des ondes sismiques utilisées pour l’analyse de la magnitude mettent plus d’une heure à faire le tour de la Terre jusqu’aux stations éloignées, si bien que cette énergie ne peut pas être prise en compte dans la première publication. Certaines données des réseaux contributeurs arrivent avec plusieurs minutes de retard, et d’autres des jours plus tard (USGS n.d.b).",
+          "L’USGS distingue deux moments de mise à jour habituels. Le premier intervient dans les quelques heures, lorsque la plupart des données en temps réel ont atteint les stations du monde entier et qu’un traitement plus élaboré est terminé. Le second intervient dans un délai de quelques jours à quelques semaines, lorsque l’événement est réanalysé pour le catalogue d’archives à l’aide de la plupart des sismogrammes disponibles et des estimations de magnitude d’autres organismes. En Californie, dans l’Utah, en Alaska et dans le Nord-Ouest Pacifique, des mises à jour peuvent avoir lieu en quelques minutes, notamment lorsqu’une magnitude rapide est publiée sans vérification humaine (USGS n.d.b).",
+          "Deux autres causes apparaissent dans la pratique courante. La première est un changement de type de magnitude. L’Alaska Earthquake Center explique que sa première valeur est généralement une magnitude locale, et qu’un événement plus important reçoit ensuite une magnitude de moment (Gardine 2019). La seconde est la vérification par un analyste. Un analyste calcule une moyenne pondérée par la distance sur l’ensemble des stations et peut retirer les stations dont les valeurs diffèrent nettement de la moyenne. Les erreurs de localisation comptent, car la distance détermine le calcul. Une profondeur automatique de 100 kilomètres, alors que la profondeur réelle est de 5 kilomètres, fait paraître chaque station plus éloignée et gonfle la magnitude (Gardine 2019). Dans un exemple fourni par le centre, la magnitude est passée de 4,77 avec 5 stations à 5,01 avec 90 stations (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Le séisme de Tōhoku : un cas d’école de saturation",
+        "p": [
+          "Le séisme de Tōhoku du 11 mars 2011, au Japon, est l’exemple le plus étudié. L’Agence météorologique du Japon a d’abord annoncé une magnitude de 7,9, et l’USGS a initialement annoncé la même valeur (Guilhem et al. 2013). Le premier bulletin du Centre d’alerte aux tsunamis du Pacifique donnait lui aussi 7,9, et la détermination rapide du Centre sismologique euro-méditerranéen a abouti à 8,0 (Duputel et al. 2011). Guilhem et al. (2013) attribuent ces sous-estimations à la saturation : pour des événements de cette taille, les mesures à des fréquences supérieures à la fréquence coin de la rupture ne peuvent pas rendre compte de la totalité du moment sismique.",
+          "La correction est venue d’un autre type de signal. L’inversion de la phase W utilise un signal sismique de basse fréquence pour estimer le tenseur des moments, et avec lui le moment sismique. Duputel et al. (2011) indiquent que les premiers résultats de phase W à l’USGS et au Centre d’alerte aux tsunamis du Pacifique donnaient des magnitudes de moment comprises entre 8,8 et 9,0. Dans l’heure, à mesure que davantage de données devenaient disponibles, les solutions ont convergé vers un résultat commun d’environ 9,0. Guilhem et al. (2013) décrivent une méthode de tenseur des moments qui a déterminé la magnitude de moment dans les 8 minutes suivant l’heure d’origine.",
+          "Les Incorporated Research Institutions for Seismology (IRIS) décrivent la même séquence en trois étapes : une première estimation de 7,9 à partir de données limitées en quelques minutes, une révision intermédiaire à mesure que les ondes atteignaient des stations éloignées, et une analyse finale fondée sur des enregistrements de très basse fréquence provenant de nombreuses stations, qui a porté l’estimation à 9,0. Passé ce stade, la valeur du catalogue de l’USGS reste généralement fixe (IRIS n.d.). Les magnitudes étant logarithmiques, le passage de 7,9 à 9,0 correspond à environ 45 fois plus d’énergie, selon la même approximation que celle mentionnée plus haut."
+        ]
+      },
+      {
+        "h": "Des révisions dans l’autre sens",
+        "p": [
+          "Les révisions ne font pas toujours monter le chiffre. Après le séisme du 22 novembre 2016 au Japon, l’Agence météorologique du Japon a d’abord indiqué une magnitude de 7,3, puis l’a révisée à 7,4. L’USGS a lui aussi d’abord indiqué 7,3, avant de la réviser à la baisse à 6,9 (AIR Worldwide 2016). La société de modélisation des catastrophes qui a documenté ce cas explique l’écart par la quantité de données utilisées et par l’analyse qui se poursuit après un événement.",
+          "De petits changements surviennent aussi bien après la première semaine. L’USGS a fait passer le séisme de Prague (Oklahoma) de 2011 de Mw 5,6 à 5,7 à la suite d’une réanalyse motivée par des questions sur sa taille par rapport au séisme de Pawnee de 2016. Gavin Hayes, de l’USGS, a déclaré que la différence de taille entre les deux événements est inférieure à 0,1 unité de magnitude (USGS n.d.d). En Alaska, le séisme du 30 novembre 2018 est passé de 7,0 à 7,1 après trois mois d’examen par plusieurs organismes et groupes universitaires. Le sismologue de l’État, Michael West, a écrit que la plupart des données penchaient vers 7,1, et la sismologue Natalia Ruppert a attribué ce changement aux différences dans la façon dont les institutions mesurent les séismes (Anchorage Daily News 2019)."
+        ]
+      },
+      {
+        "h": "Là où les organismes divergent",
+        "p": [
+          "Deux organismes peuvent publier des magnitudes différentes pour un même séisme, et les deux peuvent être justes selon leur méthode. Le National Earthquake Information Center de l’USGS calcule couramment jusqu’à une douzaine de types de magnitude, car aucune méthode ne permet à elle seule d’estimer avec précision la taille de tous les séismes. Des techniques différentes mesurent souvent des processus physiques différents, et l’USGS reconnaît que les écarts entre types de magnitude pour un même événement peuvent être importants (USGS n.d.c).",
+          "Aucune échelle ne tranche à elle seule tous les cas. Mw est considérée comme la meilleure mesure générale (Gardine 2019). Une magnitude locale issue d’un réseau régional et une magnitude de moment issue de stations mondiales répondent à des questions légèrement différentes. Dans l’exemple de l’Oklahoma cité plus haut, la révision n’a porté que sur un dixième d’unité de magnitude, et l’USGS a décrit les deux événements comparés comme différant en taille de moins que cela (USGS n.d.d)."
+        ]
+      },
+      {
+        "h": "Lire le chiffre",
+        "p": [
+          "Une magnitude révisée ne signifie pas que le séisme a causé moins ou plus de dégâts qu’on ne le pensait au départ. IRIS note que les grands séismes sont souvent une séquence en cascade de ruptures le long d’une longue rupture de faille, ce qui complique la première estimation (IRIS n.d.). La magnitude décrit la taille de la source. Les secousses en un lieu donné dépendent aussi de la distance, de la profondeur et du sol local.",
+          "Pour qui suit un événement en cours, la séquence est prévisible. Le premier chiffre est une estimation rapide, souvent une magnitude locale. Pour les grands événements, une magnitude de moment suit dans la première heure, à mesure qu’arrivent les données de longue période, et la valeur du catalogue peut encore changer légèrement dans les jours suivants. Un écart d’un ou deux dixièmes reflète l’ajout de stations et la vérification. Un écart d’une unité entière ou plus, comme dans le cas de Tōhoku, reflète un changement de la méthode employée pour mesurer les plus grands séismes."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi la magnitude d’un séisme change-t-elle après le premier rapport ?",
+        "a": "Le premier chiffre est une estimation rapide fondée sur les stations les plus proches, souvent une magnitude locale. À mesure que les ondes sismiques atteignent des stations plus éloignées et que les analystes examinent les données, les organismes affinent la valeur, et pour les grands séismes ils passent à la magnitude de moment, qui décrit plus complètement la taille de la source."
+      },
+      {
+        "q": "L’échelle de Richter est-elle encore utilisée ?",
+        "a": "La magnitude locale, l’échelle mise au point par Charles Richter dans les années 1930, est toujours calculée par les réseaux régionaux pour les séismes inférieurs à environ magnitude 6. Pour les séismes plus importants, les organismes utilisent la magnitude de moment (Mw), car la méthode de Richter et les échelles qui l’ont prolongée cessent de croître pour les plus grands événements."
+      },
+      {
+        "q": "Qu’est-ce que la magnitude de moment ?",
+        "a": "La magnitude de moment, proposée par Thomas Hanks et Hiroo Kanamori en 1979, est calculée à partir du moment sismique, qui dépend de la distance de glissement de la faille et de la surface concernée. Elle concorde avec les anciennes échelles pour les séismes modérés et continue de croître pour les plus grands."
+      },
+      {
+        "q": "Que signifie la saturation de la magnitude ?",
+        "a": "Les anciennes échelles mesurent l’amplitude des ondes dans une bande de fréquences étroite. Pour les très grands séismes, cette bande ne capte qu’une partie du signal, si bien que la valeur mesurée atteint un plafond : dans les catalogues examinés par Hanks et Kanamori, les magnitudes des ondes de volume plafonnaient vers 7 et celles des ondes de surface vers 8,3."
+      },
+      {
+        "q": "Pourquoi le séisme de Tōhoku de 2011 a-t-il d’abord été annoncé avec une magnitude de 7,9 ?",
+        "a": "Les premières estimations reposaient sur des méthodes qui saturent pour les très grands séismes. Dans l’heure, des inversions de la phase W fondées sur les ondes de longue période ont donné des magnitudes de moment de 8,8 à 9,0, qui ont convergé vers environ 9,0."
+      },
+      {
+        "q": "Pourquoi deux organismes publient-ils parfois des magnitudes différentes ?",
+        "a": "Ils peuvent utiliser des types de magnitude, des stations et des quantités de données différents. L’USGS calcule jusqu’à une douzaine de types de magnitude, car aucune méthode ne convient à tous les séismes, et les écarts entre types pour un même événement peuvent être importants."
+      }
+    ]
   }
 }

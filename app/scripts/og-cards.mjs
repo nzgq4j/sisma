@@ -75,7 +75,7 @@ const LIBRARY_VISUAL = {
   'earthquake-prediction': 'mag', 'plate-tectonics-subduction': 'plates', 'faults-and-stress': 'faults',
   'earth-interior-seismic-waves': 'waves', 'aftershocks-and-hazards': 'depth',
   // "article:Tab" picks a tab of the illustration first (English tab label).
-  'surface-waves-and-damage': 'waves:Surface',
+  'surface-waves-and-damage': 'waves:Surface', 'magnitude-scales': 'mag',
 };
 /** The article's illustration (canvas or widget): the block after the intro. */
 async function articleVisual(spec) {

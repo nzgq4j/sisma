@@ -538,5 +538,105 @@
         "a": "Die ShakeMap des USGS zeigt, wie stark der Boden in einer Region gebebt hat, statt nur Magnitude und Epizentrum anzugeben. Sie wird normalerweise innerhalb weniger Minuten nach einem mittelstarken oder starken Erdbeben veröffentlicht."
       }
     ]
+  },
+  "magnitude-scales": {
+    "title": "Von Richter zur Momenten-Magnitude: Warum sich die Zahl nach einem Erdbeben ändert",
+    "dek": "Die erste Magnitude ist eine schnelle Schätzung, und sie soll sich ändern. Hier steht, wie Richters Skala der Momenten-Magnitude wich und was jede Korrektur aussagt.",
+    "sections": [
+      {
+        "h": "Die Zahl hinter der Schlagzeile",
+        "p": [
+          "Wenige Minuten nach einem stärkeren Erdbeben erscheint auf Smartphones, in Nachrichtenfeeds und auf Erdbebenseiten eine Zahl: die Magnitude. Eine Stunde später kann sie anders lauten, und einige Tage danach kann sie sich erneut ändern. Solche Korrekturen werfen oft die Frage auf, ob Seismologen einen Fehler gemacht haben. In den meisten Fällen spiegelt die Korrektur eine geplante Abfolge von Schätzungen wider: Der erste Wert ist eine schnelle Berechnung aus den frühesten Daten, spätere Werte beruhen auf mehr Daten und einer besser geeigneten Methode.",
+          "Magnitudenskalen sind logarithmisch. Laut U.S. Geological Survey (USGS) senkt eine Verringerung der Wellenamplitude um das Zehnfache die Magnitude um eine Einheit (USGS n.d.a). Jede Einheit entspricht außerdem etwa 32-mal mehr freigesetzter Energie (USGS n.d.e). Eine Änderung um 0,1 oder 0,2 hat daher physikalisch geringe Bedeutung, während eine Änderung um eine ganze Einheit oder mehr zeigt, dass die erste Schätzung ein ganz anderes Erdbeben beschrieb.",
+          "Der volkstümliche Name der Skala, Richterskala, ist im Alltag weiterhin gebräuchlich, obwohl sich die meisten Behörden bei starken Ereignissen nicht mehr auf sie stützen. Der USGS beschreibt die Richter-Magnitude als bekannten, aber wenig verstandenen Begriff (USGS n.d.a). Die Geschichte ihrer Ablösung erklärt das meiste von dem, was nach einem Erdbeben geschieht."
+        ]
+      },
+      {
+        "h": "Was Richter 1935 schuf",
+        "p": [
+          "Charles Richter entwickelte in den 1930er-Jahren die erste logarithmische Magnitudenskala, um Erdbeben in Südkalifornien zu messen, und nutzte dafür relativ hochfrequente Daten nahe gelegener Seismographenstationen. Die Skala erhielt die Bezeichnung ML, wobei das L für lokal steht, und diese Größe wurde als Richter-Magnitude bekannt (USGS n.d.a).",
+          "ML beruht darauf, die an einer Station aufgezeichnete maximale Bodenbewegungsamplitude abzulesen und um die Entfernung zur Quelle zu korrigieren. Jede Station liefert ihre eigene Schätzung, und ein Mittelwert über die Stationen ergibt den gemeldeten Wert (Gardine 2019). Die Methode passte zu ihrem ursprünglichen Umfeld: ein dichtes regionales Netz, mittelstarke Erdbeben und kurze Entfernungen. Seismologen berechnen sie noch heute. Das Alaska Earthquake Center berichtet, dass seine Lokalmagnitude gut funktioniert, mit der Einschränkung, dass sie nur für Ereignisse unterhalb von etwa Magnitude 6 gilt (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Warum stärkere Erdbeben der Methode entwuchsen",
+        "p": [
+          "Als weltweit mehr Seismographenstationen installiert wurden, zeigte sich, dass Richters Verfahren streng genommen nur für bestimmte Frequenz- und Entfernungsbereiche gilt (USGS n.d.a). Seismologen erweiterten den Ansatz zur Raumwellen-Magnitude (mb) und zur Oberflächenwellen-Magnitude (Ms), die jeweils für einen bestimmten Frequenzbereich und eine bestimmte Art seismischen Signals gelten. In ihrem Gültigkeitsbereich entspricht jede von ihnen der Richter-Magnitude (USGS n.d.a).",
+          "Alle drei Skalen teilen eine tiefer liegende Beschränkung, die Hanks und Kanamori (1979) als Sättigung beschrieben. Sie argumentierten, dass ML, Ms und mb aus demselben physikalischen Grund sättigen: Bei hinreichend starken Erdbeben erfassen diese schmalbandigen Amplitudenmessungen nicht mehr den gesamten Bruchvorgang, sondern nur noch einen begrenzten Teil des Signals. Die praktische Folge zeigte sich in den Katalogen jener Zeit, in denen die höchste gemeldete mb bei etwa 7 und die höchste gemeldete Ms bei etwa 8,3 lag (Hanks and Kanamori 1979).",
+          "Vereinfacht gesagt strahlt ein sehr starkes Erdbeben Energie über einen breiten Frequenzbereich ab, doch eine in einem Frequenzband gemessene Amplitude erfasst nur einen Teil dieses Signals. Zwei sehr unterschiedlich große Erdbeben können dann auf dem gewählten Instrument ähnliche Amplituden erzeugen. Die Messung stößt an eine Obergrenze, während das Erdbeben weiter wächst."
+        ]
+      },
+      {
+        "h": "Momenten-Magnitude: ein Maß für die Quelle",
+        "p": [
+          "Hanks und Kanamori (1979) schlugen eine Skala auf Grundlage des seismischen Moments vor, einer physikalischen Eigenschaft der Quelle, die nicht vom Frequenzband eines Instruments abhängt. Der USGS beschreibt das seismische Moment als proportional zum Versatz an der Verwerfung multipliziert mit der Fläche der Verwerfung, die sich verschiebt, und als mit der insgesamt freigesetzten Energie verknüpft (USGS n.d.a). Seismologen können es aus Seismogrammen oder aus geodätischen Messungen schätzen und mit einer Standardformel in eine Magnitude umrechnen.",
+          "Die Formel in der Arbeit von 1979 lautet M = (2/3) log M0 minus 10,7, mit dem seismischen Moment M0 in Dyn-Zentimetern. Die Konstanten wurden so gewählt, dass die neue Skala mit den älteren dort übereinstimmt, wo diese zuverlässig waren. Die Autoren berichteten, dass die Beziehungen einheitlich gelten für ML zwischen 3 und 7, für Ms zwischen 5 und 7,5 und für Momenten-Magnituden ab 7,5 (Hanks and Kanamori 1979). Die Momenten-Magnitude (Mw) stimmt daher bei mittelstarken Erdbeben mit Richters Werten überein und wächst bei den stärksten weiter. Der USGS gibt an, dass sie über den gesamten Magnitudenbereich gilt, was den älteren Skalen fehlte (USGS n.d.a).",
+          "In der Praxis wechseln die Behörden die Skala je nach Stärke. Das Alaska Earthquake Center berechnet für alle Erdbeben eine Lokalmagnitude und verwendet die Momenten-Magnitude, sobald sie verfügbar ist, für Ereignisse ab etwa Magnitude 5,5 und immer für Ereignisse ab 6,5. Es betrachtet Mw als derzeit bestes Maß, weil sie die freigesetzte Energie direkt widerspiegelt (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Warum die erste Zahl vorläufig ist",
+        "p": [
+          "Die Geschwindigkeit der ersten Meldung begrenzt ihre Genauigkeit. Bei starken Erdbeben außerhalb der Vereinigten Staaten veröffentlicht der USGS innerhalb von etwa 20 Minuten eine erste Magnitude und einen Ort, gestützt auf Echtzeitdaten der nächstgelegenen seismischen Stationen (USGS n.d.b). Manche der für die Magnitudenanalyse genutzten seismischen Wellen brauchen mehr als eine Stunde, um rund um die Erde zu entfernten Stationen zu gelangen, sodass diese Energie in die erste Veröffentlichung nicht einfließen kann. Manche Daten beteiligter Netze treffen einige Minuten verspätet ein, manche erst Tage danach (USGS n.d.b).",
+          "Der USGS nennt zwei typische Zeitpunkte für Aktualisierungen. Der erste liegt innerhalb weniger Stunden, wenn die meisten Echtzeitdaten Stationen weltweit erreicht haben und eine aufwendigere Auswertung abgeschlossen ist. Der zweite liegt innerhalb von Tagen bis Wochen, wenn das Ereignis für den Archivkatalog mit den meisten verfügbaren Seismogrammen und den Magnitudenschätzungen anderer Behörden neu ausgewertet wird. In Kalifornien, Utah, Alaska und im pazifischen Nordwesten kann es binnen Minuten zu Aktualisierungen kommen, besonders wenn eine schnelle Magnitude ohne menschliche Prüfung veröffentlicht wird (USGS n.d.b).",
+          "Zwei weitere Ursachen kommen in der Routinepraxis vor. Die erste ist ein Wechsel des Magnitudentyps. Das Alaska Earthquake Center erklärt, dass sein erster Wert in der Regel eine Lokalmagnitude ist und ein stärkeres Ereignis später eine Momenten-Magnitude erhält (Gardine 2019). Die zweite ist die Prüfung durch Analysten. Ein Analyst berechnet einen nach Entfernung gewichteten Mittelwert über die Stationen und kann Stationen entfernen, deren Werte deutlich vom Mittel abweichen. Fehler bei der Lokalisierung spielen eine Rolle, weil die Entfernung die Berechnung bestimmt. Eine automatisch bestimmte Tiefe von 100 Kilometern bei einer tatsächlichen Tiefe von 5 Kilometern lässt jede Station weiter entfernt erscheinen und treibt die Magnitude nach oben (Gardine 2019). In einem Beispiel des Zentrums stieg die Magnitude von 4,77 mit 5 Stationen auf 5,01 mit 90 Stationen (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Das Tohoku-Erdbeben: eine Fallstudie zur Sättigung",
+        "p": [
+          "Das Tohoku-Erdbeben vom 11. März 2011 in Japan ist das am gründlichsten untersuchte Beispiel. Die Japan Meteorological Agency gab zunächst eine Magnitude von 7,9 bekannt, und auch der USGS nannte anfangs diesen Wert (Guilhem et al. 2013). Das erste Bulletin des Pacific Tsunami Warning Center nannte ebenfalls 7,9, und die Schnellbestimmung des European-Mediterranean Seismological Centre ergab 8,0 (Duputel et al. 2011). Guilhem et al. (2013) führen solche Unterschätzungen auf Sättigung zurück: Bei Ereignissen dieser Größe können Messungen bei Frequenzen oberhalb der Eckfrequenz des Bruchs nicht das volle seismische Moment erfassen.",
+          "Die Korrektur kam aus einer anderen Art von Signal. Die W-Phasen-Inversion nutzt ein niederfrequentes seismisches Signal, um den Momententensor und damit das seismische Moment zu schätzen. Duputel et al. (2011) berichten, dass die ersten W-Phasen-Ergebnisse beim USGS und beim Pacific Tsunami Warning Center Momenten-Magnituden zwischen 8,8 und 9,0 ergaben. Noch innerhalb der ersten Stunde liefen die Lösungen mit zunehmender Datenmenge auf ein gemeinsames Ergebnis von etwa 9,0 zu. Guilhem et al. (2013) beschreiben eine Momententensor-Methode, die die Momenten-Magnitude innerhalb von 8 Minuten nach der Herdzeit bestimmte.",
+          "Die Incorporated Research Institutions for Seismology (IRIS) beschreiben denselben Ablauf in drei Schritten: eine erste Schätzung von 7,9 aus begrenzten Daten binnen Minuten, eine Zwischenkorrektur, als die Wellen entfernte Stationen erreichten, und eine abschließende Auswertung mit sehr niederfrequenten Aufzeichnungen vieler Stationen, die die Schätzung auf 9,0 anhob. Danach bleibt der Wert im USGS-Katalog in der Regel unverändert (IRIS n.d.). Da Magnituden logarithmisch sind, entspricht der Schritt von 7,9 auf 9,0 nach derselben, oben genannten Näherung etwa 45-mal mehr Energie."
+        ]
+      },
+      {
+        "h": "Korrekturen in die andere Richtung",
+        "p": [
+          "Korrekturen erhöhen den Wert nicht immer. Nach dem Erdbeben vom 22. November 2016 in Japan meldete die Japan Meteorological Agency zunächst eine Magnitude von 7,3 und korrigierte sie später auf 7,4. Auch der USGS meldete zunächst 7,3 und korrigierte den Wert später nach unten auf 6,9 (AIR Worldwide 2016). Das auf Katastrophenmodellierung spezialisierte Unternehmen, das den Fall dokumentierte, erklärt den Unterschied mit der Menge der einbezogenen Daten und mit der fortlaufenden Auswertung, die auf ein Ereignis folgt.",
+          "Kleine Änderungen kommen auch lange nach der ersten Woche vor. Der USGS hob das Erdbeben von Prague in Oklahoma aus dem Jahr 2011 von Mw 5,6 auf 5,7 an, nachdem Fragen zu seiner Größe im Vergleich zum Pawnee-Erdbeben von 2016 eine Neuauswertung angestoßen hatten. Gavin Hayes vom USGS sagte, der Größenunterschied zwischen den beiden Ereignissen betrage weniger als 0,1 Magnitudeneinheiten (USGS n.d.d). In Alaska wurde das Erdbeben vom 30. November 2018 nach drei Monaten Prüfung durch mehrere Behörden und Forschungsgruppen von 7,0 auf 7,1 heraufgesetzt. Der Staatsseismologe Michael West schrieb, die meisten Daten hätten in Richtung 7,1 tendiert, und die Seismologin Natalia Ruppert führte die Änderung auf Unterschiede darin zurück, wie Institutionen Erdbeben messen (Anchorage Daily News 2019)."
+        ]
+      },
+      {
+        "h": "Wo sich Behörden unterscheiden",
+        "p": [
+          "Zwei Behörden können für dasselbe Erdbeben unterschiedliche Magnituden veröffentlichen, und beide können für ihre Methode richtig sein. Das National Earthquake Information Center des USGS berechnet routinemäßig bis zu einem Dutzend Magnitudentypen, weil keine einzelne Methode die Größe aller Erdbeben genau schätzt. Verschiedene Verfahren messen oft unterschiedliche physikalische Vorgänge, und der USGS räumt ein, dass die Abweichungen zwischen Magnitudentypen für dasselbe Ereignis groß sein können (USGS n.d.c).",
+          "Keine einzelne Skala entscheidet jeden Fall. Mw gilt als bestes allgemeines Maß (Gardine 2019). Eine Lokalmagnitude aus einem regionalen Netz und eine Momenten-Magnitude aus weltweiten Stationen beantworten leicht unterschiedliche Fragen. Im obigen Beispiel aus Oklahoma betrug die Korrektur ein einziges Zehntel einer Magnitudeneinheit, und der USGS beschrieb die beiden verglichenen Ereignisse als in ihrer Größe um weniger als das verschieden (USGS n.d.d)."
+        ]
+      },
+      {
+        "h": "Die Zahl richtig lesen",
+        "p": [
+          "Eine korrigierte Magnitude bedeutet nicht, dass das Erdbeben weniger oder mehr Schaden angerichtet hat als zunächst angenommen. IRIS weist darauf hin, dass starke Erdbeben oft eine kaskadenartige Abfolge von Brüchen entlang eines langen Verwerfungsbruchs sind, was die erste Schätzung erschwert (IRIS n.d.). Die Magnitude beschreibt die Größe der Quelle. Die Erschütterung an einem bestimmten Ort hängt außerdem von Entfernung, Tiefe und dem örtlichen Untergrund ab.",
+          "Wer ein sich entwickelndes Ereignis verfolgt, kann den Ablauf vorhersehen. Der erste Wert ist eine schnelle Schätzung, oft eine Lokalmagnitude. Bei starken Ereignissen folgt innerhalb der ersten Stunde eine Momenten-Magnitude, sobald langperiodische Daten eintreffen, und der Katalogwert kann sich in den folgenden Tagen noch geringfügig ändern. Eine Verschiebung um ein oder zwei Zehntel spiegelt hinzugekommene Stationen und die Prüfung wider. Eine Verschiebung um eine ganze Einheit oder mehr, wie im Fall Tohoku, spiegelt einen Wechsel der Methode wider, mit der die stärksten Erdbeben gemessen werden."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Warum ändert sich die Magnitude eines Erdbebens nach der ersten Meldung?",
+        "a": "Der erste Wert ist eine schnelle Schätzung aus den nächstgelegenen Stationen, oft eine Lokalmagnitude. Wenn seismische Wellen weiter entfernte Stationen erreichen und Analysten die Daten prüfen, verfeinern die Behörden den Wert, und bei starken Erdbeben wechseln sie zur Momenten-Magnitude, die die Größe der Quelle vollständiger beschreibt."
+      },
+      {
+        "q": "Wird die Richterskala noch verwendet?",
+        "a": "Die Lokalmagnitude, die Skala, die Charles Richter in den 1930er-Jahren entwickelte, wird von regionalen Netzen für Erdbeben unterhalb von etwa Magnitude 6 weiterhin berechnet. Bei stärkeren Erdbeben verwenden die Behörden die Momenten-Magnitude (Mw), weil Richters Methode und die darauf aufbauenden Skalen bei den stärksten Ereignissen nicht weiter wachsen."
+      },
+      {
+        "q": "Was ist die Momenten-Magnitude?",
+        "a": "Die Momenten-Magnitude, 1979 von Thomas Hanks und Hiroo Kanamori vorgeschlagen, wird aus dem seismischen Moment berechnet, das davon abhängt, wie weit sich die Verwerfung verschoben hat und auf welcher Fläche. Bei mittelstarken Erdbeben stimmt sie mit den älteren Skalen überein, bei den stärksten wächst sie weiter."
+      },
+      {
+        "q": "Was bedeutet Sättigung der Magnitude?",
+        "a": "Ältere Skalen messen die Wellenamplitude in einem schmalen Frequenzband. Bei sehr starken Erdbeben erfasst dieses Band nur einen Teil des Signals, sodass der gemessene Wert an eine Obergrenze stößt: In den Katalogen, die Hanks und Kanamori untersuchten, endeten die Raumwellen-Magnituden bei etwa 7 und die Oberflächenwellen-Magnituden bei etwa 8,3."
+      },
+      {
+        "q": "Warum wurde das Tohoku-Erdbeben von 2011 zunächst mit Magnitude 7,9 gemeldet?",
+        "a": "Die ersten Schätzungen beruhten auf Methoden, die bei sehr starken Erdbeben sättigen. Noch innerhalb der ersten Stunde ergaben W-Phasen-Inversionen mit langperiodischen Wellen Momenten-Magnituden von 8,8 bis 9,0, die auf etwa 9,0 zuliefen."
+      },
+      {
+        "q": "Warum melden zwei Behörden manchmal unterschiedliche Magnituden?",
+        "a": "Sie verwenden unter Umständen unterschiedliche Magnitudentypen, Stationen und Datenmengen. Der USGS berechnet bis zu einem Dutzend Magnitudentypen, weil keine einzelne Methode zu jedem Erdbeben passt, und die Abweichungen zwischen den Typen für dasselbe Ereignis können groß sein."
+      }
+    ]
   }
 }

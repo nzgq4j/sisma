@@ -538,5 +538,105 @@
         "a": "USGS ShakeMap, yalnızca büyüklüğü ve merkez üssünü değil, bir bölge genelinde yerin ne kadar güçlü sarsıldığını gösterir. Orta büyüklükte ya da büyük bir depremden sonra normalde birkaç dakika içinde yayımlanır."
       }
     ]
+  },
+  "magnitude-scales": {
+    "title": "Richter’den Moment Büyüklüğüne: Deprem Sonrasında Sayı Neden Değişir",
+    "dek": "İlk büyüklük hızlı bir kestirimdir ve değişmesi beklenir. Richter ölçeğinin yerini nasıl moment büyüklüğüne bıraktığını ve her düzeltmenin size ne anlattığını burada açıklıyoruz.",
+    "sections": [
+      {
+        "h": "Manşetteki sayının ardında",
+        "p": [
+          "Önemli bir depremden birkaç dakika sonra telefonlarda, haber akışlarında ve deprem izleme sitelerinde tek bir sayı belirir: büyüklük. Bir saat sonra bu sayı farklı olabilir, birkaç gün sonra da yeniden değişebilir. Bu düzeltmeler çoğu zaman sismologların bir hata yapıp yapmadığı sorusunu akla getirir. Çoğu durumda düzeltme, planlı bir kestirimler dizisini yansıtır: ilk rakam en erken verilerden yapılan hızlı bir hesaptır, sonraki rakamlar ise daha fazla veri ve daha uygun bir yöntem kullanır.",
+          "Büyüklük ölçekleri logaritmiktir. ABD Jeolojik Araştırmalar Kurumu’na (USGS) göre dalga genliğindeki on katlık bir düşüş, büyüklüğü bir birim azaltır (USGS n.d.a). Her birim ayrıca açığa çıkan enerjide yaklaşık 32 katlık bir artışa karşılık gelir (USGS n.d.e). Bu nedenle 0,1 ya da 0,2’lik bir değişikliğin fiziksel anlamı küçüktür; tam bir birimlik ya da daha büyük bir değişiklik ise ilk kestirimin çok farklı bir depremi tanımladığını gösterir.",
+          "Ölçeğin yaygın adı olan Richter ölçeği, çoğu kurum büyük olaylar için artık ona dayanmasa da gündelik kullanımda varlığını sürdürür. USGS, Richter büyüklüğünü iyi bilinen ama iyi anlaşılmayan bir kavram olarak tanımlar (USGS n.d.a). Bu ölçeğin yerini nasıl başka ölçeklere bıraktığının tarihi, bir depremden sonra olup bitenlerin çoğunu açıklar."
+        ]
+      },
+      {
+        "h": "Richter’in 1935’te kurduğu ölçek",
+        "p": [
+          "Charles Richter, 1930’larda güney Kaliforniya’daki depremleri ölçmek için yakındaki sismograf istasyonlarından gelen görece yüksek frekanslı verileri kullanarak ilk logaritmik büyüklük ölçeğini geliştirdi. Ölçek ML olarak adlandırıldı; L, “yerel” anlamındaki “local” sözcüğünü temsil eder ve Richter büyüklüğü olarak bilinen nicelik budur (USGS n.d.a).",
+          "ML, bir istasyonda kaydedilen en yüksek sarsıntı genliğini okuyup kaynağa olan uzaklık için düzeltme yaparak çalışır. Her istasyon kendi kestirimini verir ve istasyonlar genelindeki ortalama, bildirilen değeri oluşturur (Gardine 2019). Yöntem özgün koşullarına uygundu: yoğun bir bölgesel ağ, orta büyüklükte depremler ve kısa mesafeler. Günümüz sismologları onu hâlâ hesaplar. Alaska Deprem Merkezi, yerel büyüklüğünün iyi işlediğini, ancak yalnızca yaklaşık 6 büyüklüğün altındaki olaylar için geçerli olduğu kaydıyla bildirir (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Büyük depremler yöntemi neden aştı",
+        "p": [
+          "Dünyanın dört bir yanına daha fazla sismograf istasyonu kuruldukça, Richter’in yönteminin yalnızca belirli frekans ve uzaklık aralıklarında tam olarak geçerli olduğu anlaşıldı (USGS n.d.a). Sismologlar bu fikri cisim dalgası büyüklüğüne (mb) ve yüzey dalgası büyüklüğüne (Ms) genişletti; her biri belirli bir frekans aralığı ve sismik sinyal türü için geçerlidir. Her biri kendi geçerlilik aralığında Richter büyüklüğüne eşdeğerdir (USGS n.d.a).",
+          "Üç ölçeğin de paylaştığı daha derin bir sınırlama vardır; Hanks and Kanamori (1979) bunu doygunluk olarak tanımladı. Yazarlar ML, Ms ve mb’nin aynı fiziksel nedenle doygunluğa ulaştığını savundu: yeterince büyük depremlerde bu dar bantlı genlik ölçümleri faylanma sürecinin bütününü ölçmeyi bırakır ve sinyalin yalnızca sınırlı bir kısmını kaydeder. Pratik sonuç dönemin kataloglarında görülebiliyordu: bildirilen en yüksek mb yaklaşık 7, bildirilen en yüksek Ms ise yaklaşık 8,3’tü (Hanks and Kanamori 1979).",
+          "Basitleştirerek söylersek, çok büyük bir deprem geniş bir frekans aralığında enerji yayar, ancak tek bir frekans bandında ölçülen genlik bu sinyalin yalnızca bir kısmını kaydeder. Bu durumda boyutları çok farklı iki deprem, seçilen alette benzer genlikler üretebilir. Deprem büyümeye devam ederken ölçüm bir tavana ulaşır."
+        ]
+      },
+      {
+        "h": "Moment büyüklüğü: kaynağın bir ölçüsü",
+        "p": [
+          "Hanks and Kanamori (1979), bir aletin frekans bandına bağlı olmayan, kaynağın fiziksel bir özelliği olan sismik momente dayanan bir ölçek önerdi. USGS, sismik momenti fay kaymasıyla kayan fay yüzeyinin alanının çarpımıyla orantılı ve açığa çıkan toplam enerjiyle ilişkili bir büyüklük olarak tanımlar (USGS n.d.a). Sismologlar onu sismogramlardan ya da jeodezik ölçümlerden kestirebilir ve standart bir formülle büyüklüğe dönüştürebilir.",
+          "1979 makalesindeki formül şöyledir: M = (2/3) log M0 eksi 10,7; burada sismik moment M0 dyn-santimetre cinsindendir. Sabitler, yeni ölçeğin eski ölçeklerle onların güvenilir olduğu aralıklarda uyuşacağı biçimde seçildi. Yazarlar bu ilişkilerin 3 ile 7 arasındaki ML, 5 ile 7,5 arasındaki Ms ve 7,5 ve üzerindeki moment büyüklüğü için tutarlı biçimde geçerli olduğunu bildirdi (Hanks and Kanamori 1979). Bu nedenle moment büyüklüğü (Mw), orta büyüklükteki depremlerde Richter’in sayılarıyla örtüşür ve en büyük depremlerde de büyümeyi sürdürür. USGS, onun eski ölçeklerde bulunmayan bir özellik olarak büyüklüklerin tüm aralığında geçerli olduğunu belirtir (USGS n.d.a).",
+          "Kurumlar bunu uygulamada, depremin boyutuna göre ölçek değiştirerek hayata geçirir. Alaska Deprem Merkezi tüm depremler için yerel büyüklük hesaplar; yaklaşık 5,5 ve üzeri büyüklükteki olaylar için moment büyüklüğünü elde edilir edilmez, 6,5 ve üzeri olaylar içinse her zaman kullanır. Merkez, Mw’yi açığa çıkan enerjiyi doğrudan yansıttığı için bugünkü en iyi ölçü olarak görür (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "İlk sayı neden geçicidir",
+        "p": [
+          "İlk raporun hızı, doğruluğunu sınırlar. USGS, Amerika Birleşik Devletleri dışındaki büyük depremler için en yakın sismik istasyonlardan gelen gerçek zamanlı verileri kullanarak ilk büyüklüğü ve konumu yaklaşık 20 dakika içinde yayımlar (USGS n.d.b). Büyüklük analizinde kullanılan sismik dalgaların bir kısmının Dünya’yı dolaşıp uzak istasyonlara ulaşması bir saatten uzun sürer; bu nedenle bu enerji ilk yayına dahil edilemez. Katkı sağlayan ağlardan gelen verilerin bir kısmı birkaç dakika gecikmeyle, bir kısmı ise günler sonra ulaşır (USGS n.d.b).",
+          "USGS iki tipik güncelleme noktası belirtir. Birincisi, gerçek zamanlı verilerin çoğu dünya genelindeki istasyonlara ulaştığında ve daha gelişmiş işlemler tamamlandığında, birkaç saat içinde gelir. İkincisi, olay mevcut sismogramların çoğu ve diğer kurumların büyüklük kestirimleri kullanılarak arşiv kataloğu için yeniden analiz edildiğinde, günler ile haftalar içinde gelir. Kaliforniya, Utah, Alaska ve Pasifik Kuzeybatı’da güncellemeler, özellikle hızlı bir büyüklük insan incelemesi olmadan yayımlandığında, dakikalar içinde olabilir (USGS n.d.b).",
+          "Olağan uygulamada iki neden daha ortaya çıkar. Birincisi büyüklük türündeki değişikliktir. Alaska Deprem Merkezi, ilk değerinin genellikle bir yerel büyüklük olduğunu ve daha büyük bir olayın sonradan moment büyüklüğü aldığını açıklar (Gardine 2019). İkincisi analist incelemesidir. Bir analist, istasyonlar genelinde uzaklığa göre ağırlıklandırılmış bir ortalama hesaplar ve değerleri ortalamadan belirgin biçimde ayrılan istasyonları çıkarabilir. Hesaplamayı uzaklık belirlediği için konum hataları önemlidir. Gerçek derinlik 5 kilometreyken otomatik olarak belirlenen 100 kilometrelik bir derinlik, her istasyonun olduğundan daha uzakta görünmesine yol açar ve büyüklüğü şişirir (Gardine 2019). Merkezin verdiği bir örnekte büyüklük, 5 istasyonla 4,77 iken 90 istasyonla 5,01’e yükseldi (Gardine 2019)."
+        ]
+      },
+      {
+        "h": "Tohoku depremi: doygunluk üzerine bir örnek olay",
+        "p": [
+          "Japonya’daki 11 Mart 2011 Tohoku depremi, en çok incelenen örnektir. Japonya Meteoroloji Ajansı ilk olarak 7,9 büyüklük açıkladı ve USGS de başlangıçta aynı değeri duyurdu (Guilhem et al. 2013). Pasifik Tsunami Uyarı Merkezi’nin ilk bülteni de 7,9 verdi; Avrupa-Akdeniz Sismoloji Merkezi’nin hızlı belirlemesi ise 8,0 sonucunu verdi (Duputel et al. 2011). Guilhem et al. (2013) bu tür eksik kestirimleri doygunluğa bağlar: bu boyuttaki olaylarda kırılmanın köşe frekansının üzerindeki frekanslarda yapılan ölçümler, sismik momentin tamamını kaydedemez.",
+          "Düzeltme farklı bir sinyal türünden geldi. W fazı ters çözümü, moment tensörünü ve onunla birlikte sismik momenti kestirmek için düşük frekanslı bir sismik sinyal kullanır. Duputel et al. (2011), USGS’deki ve Pasifik Tsunami Uyarı Merkezi’ndeki ilk W fazı sonuçlarının 8,8 ile 9,0 arasında moment büyüklükleri verdiğini bildirir. Bir saat içinde, daha fazla veri elde edildikçe çözümler yaklaşık 9,0’lık ortak bir sonuçta birleşti. Guilhem et al. (2013), moment büyüklüğünü oluş zamanından sonraki 8 dakika içinde belirleyen bir moment tensörü yöntemini anlatır.",
+          "Incorporated Research Institutions for Seismology (IRIS) aynı süreci üç adım olarak anlatır: dakikalar içinde sınırlı verilerden elde edilen 7,9’luk ilk kestirim, dalgalar uzak istasyonlara ulaştıkça yapılan ara düzeltme ve birçok istasyondan alınan çok düşük frekanslı kayıtlarla yapılıp kestirimi 9,0’a yükselten son analiz. Bu noktadan sonra USGS kataloğundaki değer genellikle sabit kalır (IRIS n.d.). Büyüklükler logaritmik olduğundan, 7,9’dan 9,0’a geçiş, daha önce değinilen aynı yaklaşıma göre yaklaşık 45 kat daha fazla enerjiye karşılık gelir."
+        ]
+      },
+      {
+        "h": "Ters yöndeki düzeltmeler",
+        "p": [
+          "Düzeltmeler sayıyı her zaman yükseltmez. Japonya’daki 22 Kasım 2016 depreminin ardından Japonya Meteoroloji Ajansı önce 7,3 büyüklük bildirdi, sonra bunu 7,4 olarak düzeltti. USGS de önce 7,3 bildirdi, sonra değeri 6,9’a indirdi (AIR Worldwide 2016). Olayı belgeleyen afet modellemesi şirketi, farkı, işin içindeki veri miktarının ve bir olayın ardından süren analizin bir sonucu olarak açıklar.",
+          "Küçük değişiklikler ilk haftadan çok sonra da olur. USGS, 2011 Prague, Oklahoma depremini, boyutunun 2016 Pawnee depremine göre nasıl olduğuna ilişkin soruların başlattığı bir yeniden analizin ardından Mw 5,6’dan 5,7’ye güncelledi. USGS’den Gavin Hayes, iki olay arasındaki boyut farkının 0,1 büyüklük biriminden az olduğunu söyledi (USGS n.d.d). Alaska’da 30 Kasım 2018 depremi, birden fazla kurum ve akademik grubun üç ay süren incelemesinin ardından 7,0’dan 7,1’e çıktı. Eyalet sismoloğu Michael West, verilerin çoğunun 7,1’e doğru eğilim gösterdiğini yazdı; sismolog Natalia Ruppert ise değişikliği kurumların depremleri ölçme biçimlerindeki farklara bağladı (Anchorage Daily News 2019)."
+        ]
+      },
+      {
+        "h": "Kurumların ayrıştığı noktalar",
+        "p": [
+          "İki kurum aynı deprem için farklı büyüklükler yayımlayabilir ve her ikisi de kendi yöntemine göre doğru olabilir. USGS Ulusal Deprem Bilgi Merkezi, tek bir yöntem tüm depremlerin boyutunu doğru biçimde kestiremediği için rutin olarak bir düzineye varan sayıda büyüklük türü hesaplar. Farklı teknikler çoğu zaman farklı fiziksel süreçleri ölçer ve USGS, aynı olay için büyüklük türleri arasındaki tutarsızlıkların büyük olabileceğini kabul eder (USGS n.d.c).",
+          "Hiçbir ölçek her durumu tek başına çözmez. Mw en iyi genel ölçü olarak kabul edilir (Gardine 2019). Bölgesel bir ağdan gelen yerel büyüklük ile küresel istasyonlardan gelen moment büyüklüğü biraz farklı soruları yanıtlar. Yukarıdaki Oklahoma örneğinde düzeltme, büyüklük biriminin yalnızca onda biri kadardı ve USGS, karşılaştırdığı iki olayın boyutça bundan daha az farklı olduğunu belirtti (USGS n.d.d)."
+        ]
+      },
+      {
+        "h": "Sayıyı okumak",
+        "p": [
+          "Düzeltilmiş bir büyüklük, depremin ilk düşünülenden daha az ya da daha fazla hasar verdiği anlamına gelmez. IRIS, büyük depremlerin çoğu zaman uzun bir fay kırılması boyunca art arda gelen kırılmalardan oluşan bir dizi olduğunu ve bunun ilk kestirimi zorlaştırdığını belirtir (IRIS n.d.). Büyüklük, kaynağın boyutunu tanımlar. Belirli bir yerdeki sarsıntı ise ayrıca uzaklığa, derinliğe ve yerel zemine bağlıdır.",
+          "Gelişmekte olan bir olayı izleyen bir okur için süreç öngörülebilirdir. İlk rakam hızlı bir kestirimdir ve çoğu zaman bir yerel büyüklüktür. Büyük olaylarda uzun periyotlu veriler geldikçe ilk bir saat içinde moment büyüklüğü açıklanır ve katalog değeri sonraki günlerde hâlâ biraz değişebilir. Onda bir ya da iki birimlik bir değişim, eklenen istasyonları ve incelemeyi yansıtır. Tohoku örneğinde olduğu gibi tam bir birimlik ya da daha büyük bir değişim ise en büyük depremleri ölçmek için kullanılan yöntemdeki bir değişikliği yansıtır."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Bir depremin büyüklüğü ilk rapordan sonra neden değişir?",
+        "a": "İlk rakam, en yakın istasyonlardan elde edilen hızlı bir kestirimdir ve çoğu zaman bir yerel büyüklüktür. Sismik dalgalar daha uzak istasyonlara ulaştıkça ve analistler verileri inceledikçe kurumlar değeri iyileştirir; büyük depremlerde ise kaynağın boyutunu daha eksiksiz tanımlayan moment büyüklüğüne geçer."
+      },
+      {
+        "q": "Richter ölçeği hâlâ kullanılıyor mu?",
+        "a": "Charles Richter’in 1930’larda geliştirdiği ölçek olan yerel büyüklük, yaklaşık 6 büyüklüğün altındaki depremler için bölgesel ağlar tarafından hâlâ hesaplanır. Daha büyük depremler için kurumlar moment büyüklüğünü (Mw) kullanır, çünkü Richter’in yöntemi ve onu genişleten ölçekler en büyük olaylarda büyümeyi bırakır."
+      },
+      {
+        "q": "Moment büyüklüğü nedir?",
+        "a": "Thomas Hanks ve Hiroo Kanamori’nin 1979’da önerdiği moment büyüklüğü, fayın ne kadar kaydığına ve kaymanın ne büyüklükte bir alanda gerçekleştiğine bağlı olan sismik momentten hesaplanır. Orta büyüklükteki depremlerde eski ölçeklerle örtüşür ve en büyük depremlerde büyümeyi sürdürür."
+      },
+      {
+        "q": "Büyüklük doygunluğu ne anlama gelir?",
+        "a": "Eski ölçekler dalga genliğini dar bir frekans bandında ölçer. Çok büyük depremlerde bu bant sinyalin yalnızca bir kısmını yakalar, bu yüzden ölçülen değer bir tavana ulaşır: Hanks ve Kanamori’nin incelediği kataloglarda cisim dalgası büyüklükleri 7 dolayında, yüzey dalgası büyüklükleri ise 8,3 dolayında en üst sınırına ulaşıyordu."
+      },
+      {
+        "q": "2011 Tohoku depremi neden ilk olarak 7,9 büyüklüğünde bildirildi?",
+        "a": "İlk kestirimler, çok büyük depremlerde doygunluğa ulaşan yöntemler kullandı. Bir saat içinde, uzun periyotlu dalgaları kullanan W fazı ters çözümleri 8,8 ile 9,0 arasında moment büyüklükleri verdi ve yaklaşık 9,0’da birleşti."
+      },
+      {
+        "q": "İki kurum neden bazen farklı büyüklükler bildirir?",
+        "a": "Farklı büyüklük türleri, istasyonlar ve veri miktarları kullanıyor olabilirler. USGS, tek bir yöntem her depreme uymadığı için bir düzineye varan sayıda büyüklük türü hesaplar ve aynı olay için türler arasındaki tutarsızlıklar büyük olabilir."
+      }
+    ]
   }
 }
