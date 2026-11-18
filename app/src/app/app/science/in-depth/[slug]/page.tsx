@@ -63,7 +63,10 @@ function ArticleView({ i }: { i: number }) {
           <span className="ms" aria-hidden="true">arrow_forward</span>
         </Link>
       )}
-      <Link href={LIBRARY_PATH} className={styles.allLink}>{m.library.all}</Link>
+      <Link href={LIBRARY_PATH} className={styles.next}>
+        <span><strong>{m.library.all}</strong></span>
+        <span className="ms" aria-hidden="true">arrow_forward</span>
+      </Link>
     </article>
   );
 }
