@@ -712,7 +712,9 @@
     "promo_p_science": "Science guides",
     "promo_p_alerts": "Alerts (sisma+)",
     "promo_p_pulse": "The pulse of a living planet",
-    "promo_p_felt": "Did you feel it?"
+    "promo_p_felt": "Did you feel it?",
+    "guide_link": "Admin guide",
+    "guide_p": "How the administration features work"
   },
   "library": {
     "title": "In Depth",

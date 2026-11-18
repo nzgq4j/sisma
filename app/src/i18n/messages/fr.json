@@ -712,7 +712,9 @@
     "promo_p_science": "Guides scientifiques",
     "promo_p_alerts": "Alertes (sisma+)",
     "promo_p_pulse": "Le pouls d’une planète vivante",
-    "promo_p_felt": "Vous l’avez ressenti ?"
+    "promo_p_felt": "Vous l’avez ressenti ?",
+    "guide_link": "Guide d’administration",
+    "guide_p": "Comment fonctionnent les outils d’administration"
   },
   "library": {
     "title": "En profondeur",
