@@ -1,13 +1,15 @@
 'use client';
 // Science → Data: live worldwide charts from GET /api/science/data (lib/seismic-stats.ts), sisma+ only (the API
 // re-checks the plan). Each chart has a short explanation (free to read), a value on tap / hover and a hidden data
-// table for screen readers. Single-series charts in the app's violet; text in the ink tokens.
+// table for screen readers. Values have their own colours (data.module.css): above-average bars and days in coral,
+// magnitudes in the pin colours, depths as in the globe's Depth mode, regions warm on the Ring of Fire; text in the ink tokens.
 import { useEffect, useMemo, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useAccount } from '@/components/Account';
 import { TRIAL_DAYS } from '@/lib/entitlements';
 import { MAG_BINS } from '@/lib/seismic-stats';
+import { depthColor, magVar } from '@/lib/theme';
 import type { WorldRegion } from '@/lib/world-regions';
 import styles from './data.module.css';
 
@@ -17,7 +19,7 @@ export interface DataStats {
   activity: { h24: Series; d7: Series; d30: Series };
   magnitudes: number[];
   depths: { shallow: number; intermediate: number; deep: number };
-  regions: { list: { region: WorldRegion; count: number }[]; ring: number; total: number };
+  regions: { list: { region: WorldRegion; count: number; ring: number }[]; ring: number; total: number };
   energy: { start: number; step: number; cumulative: number[]; total: number; largest: { mag: number; time: number; share: number } | null };
   history: { fromYear: number; counts: number[]; average: number } | null;
 }
@@ -96,13 +98,24 @@ function Section({ title, text, children }: { title: string; text: string; child
   );
 }
 
-/** Vertical bars with a value on tap or hover, a sparse axis and an optional dashed average line. */
+/** Colour key: a swatch (or the dashed average line) per entry. */
+function Keys({ items }: { items: { color?: string; dashed?: boolean; label: string }[] }) {
+  return (
+    <p className={styles.keys}>
+      {items.map(it => (
+        <span key={it.label}>{it.dashed ? <i className={styles.avgKey} aria-hidden="true" /> : <i className={styles.swatch} style={{ background: it.color }} aria-hidden="true" />}{it.label}</span>
+      ))}
+    </p>
+  );
+}
+
+/** Vertical bars with a value on tap or hover, a sparse axis and a dashed average line; bars above the average are coral. */
 function Bars({ values, label, axis, avg, avgLabel, highlightLast }: {
-  values: number[]; label: (i: number) => string; axis: [string, string, string]; avg?: number; avgLabel?: string; highlightLast?: boolean;
+  values: number[]; label: (i: number) => string; axis: [string, string, string]; avg: number; avgLabel: string; highlightLast?: boolean;
 }) {
   const { m, nf } = useT();
   const [sel, setSel] = useState<number | null>(null);
-  const W = 340, H = 140, max = Math.max(1, ...values, avg ?? 0);
+  const W = 340, H = 140, max = Math.max(1, ...values, avg);
   const bw = W / values.length, gap = values.length > 60 ? 0.5 : 2;
   const y = (v: number) => H - (v / max) * H;
   const i = sel ?? values.length - 1;
@@ -119,14 +132,14 @@ function Bars({ values, label, axis, avg, avgLabel, highlightLast }: {
             <g key={j} onPointerEnter={() => setSel(j)} onClick={() => setSel(j)}>
               <rect x={j * bw} y={0} width={bw} height={H + 2} fill="transparent" />
               <rect x={j * bw + gap / 2} y={H - h} width={Math.max(0.5, bw - gap)} height={h} rx={Math.min(4, (bw - gap) / 2)}
-                className={j === i ? styles.barOn : highlightLast && j === values.length - 1 ? styles.barMuted : styles.bar} />
+                className={[v > avg ? styles.hot : styles.bar, highlightLast && j === values.length - 1 ? styles.barMuted : '', j === i ? styles.barOn : ''].join(' ')} />
             </g>
           );
         })}
-        {avg != null && <line x1={0} x2={W} y1={y(avg)} y2={y(avg)} className={styles.avg} />}
+        <line x1={0} x2={W} y1={y(avg)} y2={y(avg)} className={styles.avg} />
       </svg>
       <div className={styles.axis}><span>{axis[0]}</span><span>{axis[1]}</span><span>{axis[2]}</span></div>
-      {avgLabel && <p className={styles.legendLine}><i className={styles.avgKey} aria-hidden="true" />{avgLabel}</p>}
+      <Keys items={[{ color: 'var(--chart-hot)', label: m.data.above_avg }, { color: 'var(--chart)', label: m.data.below_avg }, { dashed: true, label: avgLabel }]} />
       <table className="sr-only">
         <caption>{m.data.table}</caption>
         <tbody>{values.map((v, j) => <tr key={j}><th scope="row">{label(j)}</th><td>{v}</td></tr>)}</tbody>
@@ -136,7 +149,7 @@ function Bars({ values, label, axis, avg, avgLabel, highlightLast }: {
 }
 
 /** Horizontal bars: label, bar and value on one row each. */
-function HBars({ rows }: { rows: { label: string; value: number; note?: string }[] }) {
+function HBars({ rows }: { rows: { label: string; value: number; note?: string; color?: string }[] }) {
   const { nf } = useT();
   const max = Math.max(1, ...rows.map(r => r.value));
   return (
@@ -144,7 +157,7 @@ function HBars({ rows }: { rows: { label: string; value: number; note?: string }
       {rows.map(r => (
         <div key={r.label} className={styles.hrow}>
           <span className={styles.hlabel}>{r.label}</span>
-          <span className={styles.htrack}><i style={{ width: `${(r.value / max) * 100}%` }} /></span>
+          <span className={styles.htrack}><i style={{ width: `${(r.value / max) * 100}%`, background: r.color }} /></span>
           <span className={styles.hvalue}>{nf.format(r.value)}{r.note && <small> · {r.note}</small>}</span>
         </div>
       ))}
@@ -162,6 +175,8 @@ function Activity({ d }: { d: DataStats }) {
     : new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' }), [range, locale]);
   const at = (i: number) => fmt.format(s.start + i * s.step);
   const total = s.counts.reduce((a, b) => a + b, 0);
+  const avg = total / Math.max(1, s.counts.length);
+  const avgText = (range === 'h24' ? k.avg_hour : k.avg_day).replace('{n}', new Intl.NumberFormat(locale, { maximumFractionDigits: 1 }).format(avg));
   return (
     <>
       <div className={styles.seg} role="tablist">
@@ -171,7 +186,7 @@ function Activity({ d }: { d: DataStats }) {
       </div>
       <p className={styles.big}>{total === 1 ? k.total_1 : k.total_n.replace('{n}', new Intl.NumberFormat(locale).format(total))}</p>
       <Bars values={s.counts} label={i => `${range === 'h24' ? k.per_hour : k.per_day} · ${at(i)}`}
-        axis={[at(0), at(Math.floor(s.counts.length / 2)), at(s.counts.length - 1)]} />
+        axis={[at(0), at(Math.floor(s.counts.length / 2)), at(s.counts.length - 1)]} avg={avg} avgLabel={avgText} />
     </>
   );
 }
@@ -180,17 +195,23 @@ function Magnitudes({ d }: { d: DataStats }) {
   const { nf, locale } = useT();
   const f = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const bin = (i: number) => (i === MAG_BINS.length - 1 ? `M${nf.format(MAG_BINS[i])}+` : `M${f.format(MAG_BINS[i])}–${f.format(MAG_BINS[i] + 0.4)}`);
-  return <HBars rows={d.magnitudes.map((v, i) => ({ label: bin(i), value: v }))} />;
+  return <HBars rows={d.magnitudes.map((v, i) => ({ label: bin(i), value: v, color: magVar(MAG_BINS[i]) }))} />;
 }
+
+/** A depth inside each class, for the globe's Depth mode colours (lib/theme.ts depthColor). */
+const DEPTH_KM = { shallow: 10, intermediate: 150, deep: 400 } as const;
 
 function Depths({ d }: { d: DataStats }) {
   const { m } = useT();
   const total = d.depths.shallow + d.depths.intermediate + d.depths.deep || 1;
   const pct = (v: number) => `${Math.round((v / total) * 100)}%`;
   return (
-    <HBars rows={(['shallow', 'intermediate', 'deep'] as const).map(c => ({ label: m.sci.depth[c], value: d.depths[c], note: pct(d.depths[c]) }))} />
+    <HBars rows={(['shallow', 'intermediate', 'deep'] as const).map(c => ({ label: m.sci.depth[c], value: d.depths[c], note: pct(d.depths[c]), color: depthColor(DEPTH_KM[c]) }))} />
   );
 }
+
+/** As in the Ring of Fire widget: warm on the Ring, muted elsewhere. A region takes the Ring colour when most of its events are on it. */
+const RING_ON = 'var(--mag-2)', RING_OFF = 'var(--ink2)';
 
 function Regions({ d }: { d: DataStats }) {
   const { m, nf } = useT();
@@ -198,7 +219,8 @@ function Regions({ d }: { d: DataStats }) {
   return (
     <>
       <p className={styles.big}>{m.data.ring.replace('{pct}', nf.format(pct))}</p>
-      <HBars rows={d.regions.list.map(r => ({ label: (m.wr as Record<string, string>)[r.region] ?? r.region, value: r.count }))} />
+      <HBars rows={d.regions.list.map(r => ({ label: (m.wr as Record<string, string>)[r.region] ?? r.region, value: r.count, color: r.ring * 2 > r.count ? RING_ON : RING_OFF }))} />
+      <Keys items={[{ color: RING_ON, label: m.data.ring_on }, { color: RING_OFF, label: m.data.ring_off }]} />
     </>
   );
 }
@@ -214,6 +236,9 @@ function Energy({ d }: { d: DataStats }) {
   const at = (i: number) => fmt.format(e.start + i * e.step);
   const i = sel ?? n - 1;
   const line = pts.map(([x, y], j) => `${j ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`).join('');
+  // Days that released more than the average daily energy, drawn over the line in coral.
+  const daily = e.cumulative.map((v, j) => v - (j ? e.cumulative[j - 1] : 0)), mean = e.total / Math.max(1, n);
+  const hot = pts.map(([x, y], j) => (j && daily[j] > mean ? `M${pts[j - 1][0].toFixed(1)},${pts[j - 1][1].toFixed(1)}L${x.toFixed(1)},${y.toFixed(1)}` : '')).join('');
   return (
     <>
       {e.largest && <p className={styles.big}>{k.energy_top.replace('{mag}', nf.format(e.largest.mag)).replace('{pct}', nf.format(Math.round(e.largest.share * 100)))}</p>}
@@ -226,10 +251,12 @@ function Energy({ d }: { d: DataStats }) {
           <line x1={0} x2={W} y1={H / 2} y2={H / 2} className={styles.grid} />
           <path d={`${line}L${W},${H}L0,${H}Z`} className={styles.area} />
           <path d={line} className={styles.line} />
+          {hot && <path d={hot} className={styles.lineHot} />}
           <line x1={pts[i][0]} x2={pts[i][0]} y1={0} y2={H} className={styles.cross} />
           <circle cx={pts[i][0]} cy={pts[i][1]} r={4} className={styles.dot} />
         </svg>
         <div className={styles.axis}><span>{at(0)}</span><span>{at(Math.floor(n / 2))}</span><span>{at(n - 1)}</span></div>
+        <Keys items={[{ color: 'var(--chart-hot)', label: k.energy_hot }, { color: 'var(--chart)', label: k.energy_other }]} />
         <table className="sr-only">
           <caption>{k.table}</caption>
           <tbody>{share.map((v, j) => <tr key={j}><th scope="row">{at(j)}</th><td>{Math.round(v * 100)}%</td></tr>)}</tbody>

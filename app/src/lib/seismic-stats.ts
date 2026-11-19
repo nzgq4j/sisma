@@ -47,14 +47,16 @@ export function depths(evs: Ev[]) {
 
 /** Events per world region (largest first, empty regions left out) and how many are on the Ring of Fire. */
 export function regions(evs: Ev[]) {
-  const m = new Map<WorldRegion, number>();
+  const m = new Map<WorldRegion, { count: number; ring: number }>();
   let ring = 0;
   for (const e of evs) {
-    const r = worldRegion(e.lat, e.lon);
-    m.set(r, (m.get(r) ?? 0) + 1);
-    if (onRingOfFire(e.lat, e.lon)) ring++;
+    const r = worldRegion(e.lat, e.lon), on = onRingOfFire(e.lat, e.lon);
+    const c = m.get(r) ?? { count: 0, ring: 0 };
+    c.count++; if (on) { c.ring++; ring++; }
+    m.set(r, c);
   }
-  const list = WORLD_REGIONS.map(r => ({ region: r, count: m.get(r) ?? 0 })).filter(x => x.count > 0).sort((a, b) => b.count - a.count);
+  const list = WORLD_REGIONS.map(r => ({ region: r, count: m.get(r)?.count ?? 0, ring: m.get(r)?.ring ?? 0 }))
+    .filter(x => x.count > 0).sort((a, b) => b.count - a.count);
   return { list, ring, total: evs.length };
 }
 

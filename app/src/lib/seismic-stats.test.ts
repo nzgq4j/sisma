@@ -24,10 +24,10 @@ describe('seismic stats', () => {
 
   it('groups by world region and counts the Ring of Fire', () => {
     const r = regions([ev(1, 5, 10, 35.7, 139.7), ev(1, 5, 10, 36, 140), ev(1, 5, 10, 38, 23)]);
-    expect(r.list[0]).toEqual({ region: 'east_asia', count: 2 });
-    expect(r.list.find(x => x.region === 'europe')?.count).toBe(1);
+    expect(r.list[0]).toEqual({ region: 'east_asia', count: 2, ring: 2 });
+    expect(r.list.find(x => x.region === 'europe')).toEqual({ region: 'europe', count: 1, ring: 0 });
     expect(r.total).toBe(3);
-    expect(r.ring).toBeGreaterThanOrEqual(2);
+    expect(r.ring).toBe(2);
   });
 
   it('estimates energy: about 32 times per magnitude step, cumulative, with the largest share', () => {

@@ -78,6 +78,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    7 d / 30 d, magnitudes, depth classes, world regions + Ring of Fire share, cumulative energy) and M7+ per year since 1900
    (USGS FDSN CSV), each with a short explanation; aggregation in lib/seismic-stats.ts (tested), GET /api/science/data
    re-checks the plan (403 plus_required); charts in components/science/DataCharts.tsx (SVG, tap readout, sr-only tables)
+   Colours: time charts mint (--chart), above the average coral (--chart-hot) with the dashed average line; magnitudes --mag-N;
+   depths depthColor (globe Depth mode); regions --mag-2 when most of their events are on the Ring of Fire, else --ink2
 7. Me / account dashboard (skeleton done: app/app/me): email + password (sign-in, sign-up, reset, change; no email-link sign-in) and Google sign-in (components/Account.tsx, lib/oauth.ts;
    Google button shows when the provider is on in Supabase; Android: in-app account picker via @capgo/capacitor-social-login →
    signInWithIdToken with a nonce; Android OAuth clients per signing key, docs/android-setup.md §4), profile + plan, alerts saved to
