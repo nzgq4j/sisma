@@ -40,9 +40,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    per 0.1° cell; automatic felt map areas without a report = grey FELT_NEUTRAL "intensity unknown") with an intensity-only
    legend: sisma reports, USGS "Did You Feel It?" (GET /api/dyfi → lib/quakes/dyfi.ts: dyfi_geo_10km.geojson, else
    cdi_geo.txt), EMSC felt reports (GET /api/emsc-felt → lib/quakes/emsc-felt.ts: testimonies-ws zip grouped into 0.1° cells
-   on the server, never individual positions; CC BY 4.0: credited on Me with the other data sources)
-   Layers sheet (done): button beside "Back to world map": one Felt maps switch, plus plate boundaries (localStorage
-   sisma.feltMaps); "How felt maps work" is in the sheet
+   on the server, never individual positions; CC BY 4.0: credited in the data line, web.footer: Me and site footers)
+   Layers sheet (done): button beside "Back to world map": one Felt maps switch (localStorage sisma.feltMaps); plate
+   boundaries stay in the world map's pull-up panel; "How felt maps work" is in the sheet
    Share card felt cells (done): lib/share-felt.ts loads the sources on the server (4 s limit each), lib/share-map.ts draws the
    same grid; legend = intensity steps (+ grey); X-Felt-Layers (intensity, unknown) → alt text
    Todo: rate limiting, show felt_summary
