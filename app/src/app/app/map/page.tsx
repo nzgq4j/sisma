@@ -7,16 +7,16 @@
 // event there opens a callout on the map; tapping the callout makes that event the focus. The Layers button beside
 // "Back to world map" shows or hides each felt layer and the plate boundaries (remembered on the device).
 // The My location button (under the zoom buttons) zooms to the device position; the location chosen in Me stays as it is.
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { useQuakeData } from '@/components/QuakeData';
 import { useFeltCells } from '@/components/FeltReport';
 import { FeltMapInfoSheet, useFeltMap } from '@/components/FeltMap';
-import { dyfiPage, useDyfi } from '@/components/Dyfi';
+import { useDyfi } from '@/components/Dyfi';
 import { useEmscFelt } from '@/components/EmscFelt';
-import { emscEventPage, emscUnid } from '@/lib/quakes/emsc-felt';
+import { emscUnid } from '@/lib/quakes/emsc-felt';
 import { usgsEventId } from '@/lib/quakes/dyfi';
 import { regionHref } from '@/components/QuakeDetail';
 import { WorldMap } from '@/components/dash/WorldMap';
@@ -143,6 +143,22 @@ function MapView() {
     if (q) setPicked(q.id); else clear();
   };
 
+  // The combined felt legend: reports from sisma, USGS and EMSC (total and highest intensity), and the automatic map.
+  const legend = (() => {
+    const items: { key: 'reports' | 'dyfi' | 'emsc' | 'auto'; label: string; on: boolean }[] = [];
+    const maxes: number[] = [];
+    let total = 0;
+    if (!felt.loading && felt.total > 0) { items.push({ key: 'reports', label: `sisma ${nf.format(felt.total)}`, on: shown.reports }); total += felt.total; if (felt.range) maxes.push(felt.range.max); }
+    if (dyfi.data && dyfi.data.cells.length > 0) { items.push({ key: 'dyfi', label: `USGS ${nf.format(dyfi.data.responses)}`, on: shown.dyfi }); total += dyfi.data.responses; if (dyfi.data.maxCdi != null) maxes.push(dyfi.data.maxCdi); }
+    if (emsc.data && emsc.data.cells.length > 0) { items.push({ key: 'emsc', label: `EMSC ${nf.format(emsc.data.reports)}`, on: shown.emsc }); total += emsc.data.reports; if (emsc.data.maxMmi != null) maxes.push(emsc.data.maxMmi); }
+    if (!auto.loading && auto.map && auto.map.cells.length > 0) items.push({ key: 'auto', label: t('legend_auto'), on: shown.auto });
+    const top = maxes.length ? ROMAN[Math.min(10, Math.max(1, Math.round(Math.max(...maxes)))) - 1] : null;
+    const summary = total > 0
+      ? `${total === 1 ? t('felt_total_1') : t('felt_total_n', { n: nf.format(total) })}${top ? ` · ${t('dyfi_max', { mmi: top })}` : ''}`
+      : auto.map ? (auto.map.cells.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(auto.map.cells.length))) : '';
+    return { items, summary, mmi: total > 0 };
+  })();
+
   return (
     <div className={styles.stage} ref={stageRef}>
       <WorldMap quakes={list.some(q => q.id === focusQuake?.id) || !focusQuake ? list : [...list, focusQuake]}
@@ -165,56 +181,23 @@ function MapView() {
               <span className="ms" aria-hidden="true">layers</span>
             </button>
           </div>
-          {/* Each line (with its colour scale) only appears once there is something to show. */}
-          {focusQuake && !felt.loading && felt.total > 0 && (
-            <span className={`${styles.feltLine}${shown.reports ? '' : ` ${styles.lineOff}`}`}>
-              <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} style={{ background: c }} />)}</span>
-              {/* Count on the first line; intensity range (all reports) and, when some have no location, how many are mapped. */}
-              <span className={styles.feltText}>
-                <FitLine min={9}>{felt.total === 1 ? t('felt_reports_1') : t('felt_reports_n', { n: nf.format(felt.total) })}</FitLine>
-                {felt.range && (
-                  <FitLine min={9} className={styles.feltSub}>
-                    MMI {felt.range.min === felt.range.max ? ROMAN[felt.range.min - 1] : `${ROMAN[felt.range.min - 1]}–${ROMAN[felt.range.max - 1]}`}
-                    {felt.mapped < felt.total && ` · ${felt.mapped === 0 ? t('felt_on_map_0') : t('felt_on_map', { n: nf.format(felt.mapped) })}`}
-                  </FitLine>
-                )}
+          {/* One legend for all felt layers: totals, the intensity scale and each source's symbol (dimmed when hidden). */}
+          {focusQuake && legend.items.length > 0 && (
+            <div className={styles.feltLegend}>
+              <FitLine min={9} className={styles.feltLegendSum}>{legend.summary}</FitLine>
+              {legend.mmi && (
+                <span className={styles.feltLegendScale} aria-hidden="true">
+                  <span>MMI I</span><i style={{ background: `linear-gradient(90deg, ${MMI_COLORS.join(', ')})` }} /><span>X</span>
+                </span>
+              )}
+              <span className={styles.feltLegendItems}>
+                {legend.items.map(it => (
+                  <span key={it.key} className={`${styles.feltLegendItem}${it.on ? '' : ` ${styles.lineOff}`}`}>
+                    <i className={`${styles.sw} ${styles[`sw_${it.key}`]}`} style={{ '--c': it.key === 'auto' ? HEAT_COLORS[2] : MMI_COLORS[4] } as CSSProperties} aria-hidden="true" />{it.label}
+                  </span>
+                ))}
               </span>
-            </span>
-          )}
-          {focusQuake && usgsId && dyfi.data && dyfi.data.cells.length > 0 && (
-            <span className={`${styles.feltLine}${shown.dyfi ? '' : ` ${styles.lineOff}`}`}>
-              <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} className={styles.square} style={{ background: c }} />)}</span>
-              <span className={styles.feltText}>
-                <FitLine min={9}>{dyfi.data.responses === 1 ? t('dyfi_line_1') : t('dyfi_line', { n: nf.format(dyfi.data.responses) })}</FitLine>
-                <FitLine min={9} className={styles.feltSub}>USGS · {dyfi.data.cells.length === 1 ? t('dyfi_sub_1') : t('dyfi_sub', { n: nf.format(dyfi.data.cells.length) })}{dyfi.data.maxCdi != null && ` · ${t('dyfi_max', { mmi: ROMAN[Math.min(10, Math.max(1, Math.round(dyfi.data.maxCdi))) - 1] })}`}</FitLine>
-              </span>
-              <a className={styles.infoBtn} href={dyfiPage(usgsId)} target="_blank" rel="noopener noreferrer" aria-label={t('dyfi_open')}>
-                <span className="ms" aria-hidden="true">open_in_new</span>
-              </a>
-            </span>
-          )}
-          {focusQuake && unid && emsc.data && emsc.data.cells.length > 0 && (
-            <span className={`${styles.feltLine}${shown.emsc ? '' : ` ${styles.lineOff}`}`}>
-              <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} className={styles.dot} style={{ background: c }} />)}</span>
-              <span className={styles.feltText}>
-                <FitLine min={9}>{emsc.data.reports === 1 ? t('emsc_line_1') : t('emsc_line', { n: nf.format(emsc.data.reports) })}</FitLine>
-                <FitLine min={9} className={styles.feltSub}>EMSC · {emsc.data.cells.length === 1 ? t('dyfi_sub_1') : t('dyfi_sub', { n: nf.format(emsc.data.cells.length) })}{emsc.data.maxMmi != null && ` · ${t('dyfi_max', { mmi: ROMAN[Math.min(10, Math.max(1, Math.round(emsc.data.maxMmi))) - 1] })}`}</FitLine>
-              </span>
-              <a className={styles.infoBtn} href={emscEventPage(unid)} target="_blank" rel="noopener noreferrer" aria-label={t('emsc_open')}>
-                <span className="ms" aria-hidden="true">open_in_new</span>
-              </a>
-            </span>
-          )}
-          {focusQuake && !auto.loading && auto.map && auto.map.cells.length > 0 && (
-            <span className={`${styles.feltLine}${shown.auto ? '' : ` ${styles.lineOff}`}`}>
-              <span className={styles.feltScale} aria-hidden="true">{HEAT_COLORS.map(c => <i key={c} style={{ background: c }} />)}</span>
-              <FitLine min={9}>
-                {auto.map.cells.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(auto.map.cells.length))}
-              </FitLine>
-              <button type="button" className={styles.infoBtn} onClick={() => setHowOpen(true)} aria-label={m.feltmap.title}>
-                <span className="ms" aria-hidden="true">info</span>
-              </button>
-            </span>
+            </div>
           )}
         </div>
       )}
@@ -227,6 +210,9 @@ function MapView() {
           <LayerToggle on={shown.auto} onChange={v => setShown('auto', v)} icon="sensors" label={t('layer_auto')} />
           <LayerToggle on={plates} onChange={setPlates} icon="texture" label={t('plates')} />
         </div>
+        <button type="button" className={styles.layerInfo} onClick={() => { setLayersOpen(false); setHowOpen(true); }}>
+          <span className="ms" aria-hidden="true">info</span>{m.feltmap.title}
+        </button>
         <p className={styles.layerHint}>{t('layers_hint')}</p>
       </Sheet>
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}

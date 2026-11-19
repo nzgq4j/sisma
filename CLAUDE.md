@@ -40,7 +40,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    lib/quakes/dyfi.ts: dyfi_geo_10km.geojson, else cdi_geo.txt; components/Dyfi.tsx), card line with responses and a USGS link
    EMSC felt reports layer (done): GET /api/emsc-felt → lib/quakes/emsc-felt.ts (testimonies-ws zip, grouped into 0.1° cells on
    the server, never individual positions; CC BY 4.0, credited), drawn as intensity dots with a card line and EMSC link
-   Layers sheet (done): button beside "Back to world map" shows / hides each felt layer and plate boundaries (localStorage sisma.feltLayers) Todo: rate limiting, show felt_summary
+   Layers sheet (done): button beside "Back to world map" shows / hides each felt layer and plate boundaries (localStorage sisma.feltLayers)
+   One felt legend in the region card (total reports, highest MMI, MMI scale, a symbol + count per source); no source links;
+   "How felt maps work" is in the Layers sheet Todo: rate limiting, show felt_summary
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →
    GET /api/felt-map heatmap in Show region (lib/feltmap.ts; 180 s window, ≥ 3 people per ~10 km cell; Me toggle)
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx
