@@ -18,7 +18,7 @@ import { useAccount } from './Account';
 import { Sheet } from './Sheet';
 import styles from './paywall.module.css';
 
-const ICONS = ['notifications_active', 'bookmark_added', 'history', 'tune'];
+const ICONS = ['notifications_active', 'bookmark_added', 'history', 'tune', 'monitoring'];
 type State = 'idle' | 'busy' | 'soon' | 'error' | 'already' | 'restore_none' | 'other_account' | 'unavailable';
 
 export function PaywallSheet() {

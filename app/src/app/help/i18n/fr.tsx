@@ -308,6 +308,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Lieux enregistrés</td><td>1</td><td>Jusqu’à 10</td></tr>
                 <tr><td>Alertes push avec vos propres règles</td><td>–</td><td>Jusqu’à 5 alertes</td></tr>
                 <tr><td>Filtres de magnitude et de région</td><td>–</td><td>✓</td></tr>
+                <tr><td>Graphiques de données sismiques en direct</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -413,6 +414,7 @@ export const TOPICS: Topic[] = [
           <p>L’onglet <Ui>Science</Ui> propose huit courts guides illustrés, chacun avec un schéma animé ou un graphique en direct : la tectonique des plaques, les types de failles, les ondes sismiques, la magnitude et l’intensité, la profondeur et les répliques, les tsunamis, comment se préparer, et la ceinture de feu, avec une carte en direct du nombre de séismes récents autour du Pacifique.</p>
           <p>Touchez les boutons sous un schéma pour changer de vue, et le bouton pause pour arrêter l’animation. Les guides suivent votre langue, comme le reste de l’app. Touchez <Ui>Partager</Ui> en haut d’un guide pour l’envoyer à quelqu’un, avec son image, un court résumé et le lien.</p>
           <p>Sous les guides, <Ui>En profondeur</Ui> propose des articles plus longs pour aller plus loin : pourquoi on ne peut pas prédire les séismes, la tectonique des plaques et la subduction, les failles et les contraintes, l’intérieur de la Terre et les ondes sismiques, les répliques et les risques sismiques, pourquoi un quartier souffre plus que le quartier voisin, et le fonctionnement des échelles de magnitude et pourquoi le chiffre change après un séisme. Chacun liste ses sources et répond aux questions fréquentes à la fin. Ils sont eux aussi dans votre langue ; la liste des sources reste en anglais.</p>
+          <p>Dans <Ui>Données</Ui>, <Ui>Données sismiques</Ui> (sisma+) présente en graphiques les séismes de M4.5+ des 30 derniers jours dans le monde, d’après l’USGS : leur nombre, leurs magnitudes et profondeurs, les régions touchées, l’énergie libérée et le nombre de séismes de M7+ par an depuis 1900. Chaque graphique est accompagné d’une courte explication ; touchez une barre pour lire sa valeur. Sans sisma+, vous voyez les explications et un bouton pour commencer l’essai gratuit.</p>
         </div>
         <Shot src="science" alt="Article sur les ondes sismiques avec un schéma animé des ondes P" caption="Un guide scientifique" />
       </div>

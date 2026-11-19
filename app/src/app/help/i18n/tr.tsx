@@ -308,6 +308,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Kayıtlı konumlar</td><td>1</td><td>En fazla 10</td></tr>
                 <tr><td>Kendi kurallarınla anlık uyarılar</td><td>–</td><td>En fazla 5 uyarı</td></tr>
                 <tr><td>Büyüklük ve bölge filtreleri</td><td>–</td><td>✓</td></tr>
+                <tr><td>Canlı deprem verisi grafikleri</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -413,6 +414,7 @@ export const TOPICS: Topic[] = [
           <p><Ui>Bilim</Ui> sekmesinde, her biri animasyonlu bir şema veya canlı bir grafik içeren sekiz kısa resimli rehber bulunur: levha tektoniği, fay türleri, sismik dalgalar, büyüklük ve şiddet, derinlik ve artçı sarsıntılar, tsunamiler, nasıl hazırlanılır ve Pasifik çevresinde son zamanlarda kaç deprem olduğunu gösteren canlı haritasıyla Ateş Çemberi.</p>
           <p>Görünümü değiştirmek için şemanın altındaki düğmelere, animasyonu durdurmak için duraklat düğmesine dokun. Rehberler, uygulamanın geri kalanı gibi senin dilinde görünür. Bir rehberi birine göndermek için rehberin üstündeki <Ui>Paylaş</Ui> düğmesine dokun; görseli, kısa bir özeti ve bağlantısıyla gönderilir.</p>
           <p>Rehberlerin altında, <Ui>Derinlemesine</Ui> bölümünde daha ileri gitmek istediğinde okuyabileceğin daha uzun makaleler var: depremler neden önceden tahmin edilemez, levha tektoniği ve dalma-batma, faylar ve gerilme, Dünya’nın içi ve sismik dalgalar, artçı sarsıntılar ve deprem tehlikeleri, bir mahalle yıkılırken yanındakinin neden ayakta kaldığı ve büyüklük ölçeklerinin nasıl çalıştığı ile deprem sonrasında sayının neden değiştiği. Her birinin sonunda kaynakları listelenir ve sık sorulan sorular yanıtlanır. Bunlar da senin dilinde; kaynak listesi İngilizce kalır.</p>
+          <p><Ui>Veriler</Ui> altındaki <Ui>Deprem verileri</Ui> (sisma+), USGS verilerine göre dünya genelinde son 30 günde olan M4.5+ depremleri grafiklerle gösterir: kaç deprem olduğu, büyüklükleri ve derinlikleri, gerçekleştikleri bölgeler, açığa çıkan enerji ve 1900’den bu yana her yıl olan M7+ deprem sayısı. Her grafiğin kısa bir açıklaması vardır; değerini görmek için bir çubuğa dokun. sisma+ olmadan açıklamaları ve ücretsiz denemeyi başlatma düğmesini görürsün.</p>
         </div>
         <Shot src="science" alt="P dalgalarının animasyonlu şemasıyla sismik dalgalar makalesi" caption="Bir bilim rehberi" />
       </div>

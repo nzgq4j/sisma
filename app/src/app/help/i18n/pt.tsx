@@ -308,6 +308,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Locais salvos</td><td>1</td><td>Até 10</td></tr>
                 <tr><td>Alertas push com suas próprias regras</td><td>–</td><td>Até 5 alertas</td></tr>
                 <tr><td>Filtros de magnitude e região</td><td>–</td><td>✓</td></tr>
+                <tr><td>Gráficos de dados sísmicos ao vivo</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -413,6 +414,7 @@ export const TOPICS: Topic[] = [
           <p>A aba <Ui>Ciência</Ui> tem oito guias curtos e ilustrados, cada um com um diagrama animado ou um gráfico ao vivo: tectônica de placas, tipos de falha, ondas sísmicas, magnitude e intensidade, profundidade e réplicas, tsunamis, como se preparar e o Círculo de Fogo, com um mapa ao vivo de quantos terremotos recentes atingiram a região em volta do Pacífico.</p>
           <p>Toque nos botões abaixo de um diagrama para mudar de visualização e no botão de pausa para parar a animação. Os guias seguem o seu idioma, como o resto do app. Toque em <Ui>Compartilhar</Ui> no topo de um guia para enviá-lo a alguém, com a imagem, um breve resumo e o link.</p>
           <p>Abaixo dos guias, <Ui>Em profundidade</Ui> traz artigos mais longos para quando você quiser ir além: por que os terremotos não podem ser previstos, tectônica de placas e subducção, falhas e tensão, o interior da Terra e as ondas sísmicas, réplicas e riscos sísmicos, por que um bairro sofre mais danos que o vizinho, e como funcionam as escalas de magnitude e por que o número muda depois de um terremoto. Cada um lista suas fontes e responde a perguntas comuns no final. Eles também estão no seu idioma; a lista de fontes continua em inglês.</p>
+          <p>Em <Ui>Dados</Ui>, <Ui>Dados sísmicos</Ui> (sisma+) mostra em gráficos os terremotos de M4.5+ dos últimos 30 dias no mundo todo, segundo o USGS: quantos ocorreram, suas magnitudes e profundidades, as regiões atingidas, a energia liberada e o número de terremotos de M7+ por ano desde 1900. Cada gráfico tem uma breve explicação; toque em uma barra para ver o valor. Sem o sisma+, você vê as explicações e um botão para começar o teste gratuito.</p>
         </div>
         <Shot src="science" alt="Artigo sobre ondas sísmicas com um diagrama animado de ondas P" caption="Um guia de ciência" />
       </div>

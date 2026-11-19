@@ -74,6 +74,10 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    content/library/<locale>.json loaded per language (lib/library.ts). Static pages with Article + FAQPage + breadcrumbs
    JSON-LD, sitemap lastModified, share cards public/og/library[-<id>].jpg (og-cards.mjs). The 10-language rule applies;
    references stay English. Facts and citations must be checked before publishing
+   Data (/app/science/data, sisma+, linked from the Science list): live charts of the USGS M4.5+ month feed (activity 24 h /
+   7 d / 30 d, magnitudes, depth classes, world regions + Ring of Fire share, cumulative energy) and M7+ per year since 1900
+   (USGS FDSN CSV), each with a short explanation; aggregation in lib/seismic-stats.ts (tested), GET /api/science/data
+   re-checks the plan (403 plus_required); charts in components/science/DataCharts.tsx (SVG, tap readout, sr-only tables)
 7. Me / account dashboard (skeleton done: app/app/me): email + password (sign-in, sign-up, reset, change; no email-link sign-in) and Google sign-in (components/Account.tsx, lib/oauth.ts;
    Google button shows when the provider is on in Supabase; Android: in-app account picker via @capgo/capacitor-social-login →
    signInWithIdToken with a nonce; Android OAuth clients per signing key, docs/android-setup.md §4), profile + plan, alerts saved to

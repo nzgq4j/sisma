@@ -321,6 +321,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Saved locations</td><td>1</td><td>Up to 10</td></tr>
                 <tr><td>Push alerts with your own rules</td><td>–</td><td>Up to 5 alerts</td></tr>
                 <tr><td>Magnitude and region filters</td><td>–</td><td>✓</td></tr>
+                <tr><td>Live earthquake data charts</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -426,6 +427,7 @@ export const TOPICS: Topic[] = [
           <p>The <Ui>Science</Ui> tab has eight short illustrated guides, each with an animated diagram or a live chart: plate tectonics, fault types, seismic waves, magnitude and intensity, depth and aftershocks, tsunamis, how to prepare, and the Ring of Fire, with a live map of how many recent earthquakes struck around the Pacific.</p>
           <p>Tap the buttons under a diagram to switch views, and the pause button to stop the animation. The guides follow your language, like the rest of the app. Tap <Ui>Share</Ui> at the top of a guide to send it to someone, with its picture, a short summary and the link.</p>
           <p>Below the guides, <Ui>In Depth</Ui> has longer articles for when you want to go further: why earthquakes can’t be predicted, plate tectonics and subduction, faults and stress, Earth’s interior and seismic waves, aftershocks and earthquake hazards, why shaking differs from one neighbourhood to the next, and how magnitude scales work and why the number changes after an earthquake. Each lists its sources and answers common questions at the end. They’re in your language too; the list of sources stays in English.</p>
+          <p>Under <Ui>Data</Ui>, <Ui>Earthquake data</Ui> (sisma+) charts the last 30 days of M4.5+ earthquakes worldwide from the USGS: how many happened, their magnitudes and depths, the regions where they struck, the energy released, and the number of M7+ earthquakes each year since 1900. Each chart has a short explanation; tap a bar to read its value. Without sisma+ you see the explanations and a button to start the free trial.</p>
         </div>
         <Shot src="science" alt="Seismic waves article with an animated diagram of P waves" caption="A science guide" />
       </div>

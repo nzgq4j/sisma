@@ -308,6 +308,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Gespeicherte Orte</td><td>1</td><td>Bis zu 10</td></tr>
                 <tr><td>Push-Benachrichtigungen mit eigenen Regeln</td><td>–</td><td>Bis zu 5 Warnungen</td></tr>
                 <tr><td>Magnituden- und Regionsfilter</td><td>–</td><td>✓</td></tr>
+                <tr><td>Live-Diagramme mit Erdbebendaten</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -413,6 +414,7 @@ export const TOPICS: Topic[] = [
           <p>Der Tab <Ui>Wissen</Ui> enthält acht kurze, illustrierte Anleitungen, jede mit einer animierten Grafik oder einem Live-Diagramm: Plattentektonik, Verwerfungstypen, seismische Wellen, Magnitude und Intensität, Tiefe und Nachbeben, Tsunamis, Vorsorge und der Feuerring, mit einer Live-Karte, wie viele aktuelle Erdbeben rund um den Pazifik aufgetreten sind.</p>
           <p>Tippe auf die Tasten unter einer Grafik, um die Ansicht zu wechseln, und auf die Pausentaste, um die Animation anzuhalten. Die Anleitungen folgen deiner Sprache, wie der Rest der App. Tippe oben in einer Anleitung auf <Ui>Teilen</Ui>, um sie jemandem zu schicken, mit Bild, kurzer Zusammenfassung und Link.</p>
           <p>Unter den Anleitungen findest du in <Ui>Im Detail</Ui> längere Artikel, wenn du tiefer einsteigen willst: warum sich Erdbeben nicht vorhersagen lassen, Plattentektonik und Subduktion, Verwerfungen und Spannung, das Erdinnere und seismische Wellen, Nachbeben und Erdbebengefahren, warum ein Viertel stärker getroffen wird als das nächste, und wie Magnitudenskalen funktionieren und warum sich die Zahl nach einem Erdbeben ändert. Jeder Artikel nennt seine Quellen und beantwortet am Ende häufige Fragen. Auch sie sind in deiner Sprache; die Quellenliste bleibt auf Englisch.</p>
+          <p>Unter <Ui>Daten</Ui> zeigt <Ui>Erdbebendaten</Ui> (sisma+) die Erdbeben ab M4.5 der letzten 30 Tage weltweit nach Daten des USGS: wie viele es gab, ihre Magnituden und Tiefen, die Regionen, in denen sie auftraten, die freigesetzte Energie und die Zahl der Beben ab M7 pro Jahr seit 1900. Zu jedem Diagramm gibt es eine kurze Erklärung; tippe auf einen Balken, um seinen Wert zu sehen. Ohne sisma+ siehst du die Erklärungen und eine Schaltfläche, um die kostenlose Testphase zu starten.</p>
         </div>
         <Shot src="science" alt="Artikel über seismische Wellen mit einer animierten Grafik von P-Wellen" caption="Eine Wissensanleitung" />
       </div>

@@ -308,6 +308,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Lokasi tersimpan</td><td>1</td><td>Hingga 10</td></tr>
                 <tr><td>Notifikasi push dengan aturan Anda sendiri</td><td>–</td><td>Hingga 5 peringatan</td></tr>
                 <tr><td>Filter magnitudo dan wilayah</td><td>–</td><td>✓</td></tr>
+                <tr><td>Grafik data gempa langsung</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -413,6 +414,7 @@ export const TOPICS: Topic[] = [
           <p>Tab <Ui>Sains</Ui> berisi delapan panduan singkat bergambar, masing-masing dengan diagram animasi atau grafik langsung: tektonik lempeng, jenis sesar, gelombang seismik, magnitudo dan intensitas, kedalaman dan gempa susulan, tsunami, cara bersiap, dan Cincin Api, dengan peta langsung yang menunjukkan berapa banyak gempa terbaru yang terjadi di sekitar Pasifik.</p>
           <p>Ketuk tombol di bawah diagram untuk berganti tampilan, dan tombol jeda untuk menghentikan animasi. Panduan mengikuti bahasa Anda, seperti bagian lain aplikasi. Ketuk <Ui>Bagikan</Ui> di bagian atas panduan untuk mengirimkannya kepada seseorang, beserta gambarnya, ringkasan singkat, dan tautannya.</p>
           <p>Di bawah panduan, <Ui>Mendalam</Ui> berisi artikel yang lebih panjang untuk Anda yang ingin tahu lebih jauh: mengapa gempa tidak bisa diprediksi, tektonik lempeng dan subduksi, sesar dan tegangan, bagian dalam Bumi dan gelombang seismik, gempa susulan dan bahaya gempa, mengapa satu lingkungan rusak lebih parah daripada lingkungan sebelahnya, serta cara kerja skala magnitudo dan mengapa angkanya berubah setelah gempa. Setiap artikel mencantumkan sumbernya dan menjawab pertanyaan umum di bagian akhir. Artikel-artikel ini juga tersedia dalam bahasa Anda; daftar sumbernya tetap dalam bahasa Inggris.</p>
+          <p>Di <Ui>Data</Ui>, <Ui>Data gempa</Ui> (sisma+) menampilkan grafik gempa M4.5+ selama 30 hari terakhir di seluruh dunia dari USGS: berapa banyak yang terjadi, magnitudo dan kedalamannya, wilayah tempat terjadinya, energi yang dilepaskan, dan jumlah gempa M7+ per tahun sejak 1900. Setiap grafik disertai penjelasan singkat; ketuk batang untuk melihat nilainya. Tanpa sisma+, Anda melihat penjelasannya dan tombol untuk memulai uji coba gratis.</p>
         </div>
         <Shot src="science" alt="Artikel gelombang seismik dengan diagram animasi gelombang P" caption="Sebuah panduan sains" />
       </div>

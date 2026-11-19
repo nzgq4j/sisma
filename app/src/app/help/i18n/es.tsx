@@ -308,6 +308,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Ubicaciones guardadas</td><td>1</td><td>Hasta 10</td></tr>
                 <tr><td>Alertas push con tus propias reglas</td><td>–</td><td>Hasta 5 alertas</td></tr>
                 <tr><td>Filtros de magnitud y región</td><td>–</td><td>✓</td></tr>
+                <tr><td>Gráficos de datos sísmicos en directo</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -413,6 +414,7 @@ export const TOPICS: Topic[] = [
           <p>La pestaña <Ui>Ciencia</Ui> tiene ocho guías breves e ilustradas, cada una con un diagrama animado o un gráfico en directo: tectónica de placas, tipos de fallas, ondas sísmicas, magnitud e intensidad, profundidad y réplicas, tsunamis, cómo prepararse y el Anillo de Fuego, con un mapa en directo de cuántos sismos recientes ocurrieron alrededor del Pacífico.</p>
           <p>Toca los botones debajo de un diagrama para cambiar de vista, y el botón de pausa para detener la animación. Las guías siguen tu idioma, como el resto de la app. Toca <Ui>Compartir</Ui> en la parte superior de una guía para enviarla a alguien, con su imagen, un breve resumen y el enlace.</p>
           <p>Debajo de las guías, <Ui>En profundidad</Ui> tiene artículos más largos para cuando quieras ir más allá: por qué no se pueden predecir los sismos, tectónica de placas y subducción, fallas y esfuerzos, el interior de la Tierra y las ondas sísmicas, las réplicas y el peligro sísmico, por qué un barrio sufre más daños que el de al lado, y cómo funcionan las escalas de magnitud y por qué cambia la cifra después de un sismo. Cada uno incluye sus fuentes y responde preguntas frecuentes al final. También están en tu idioma; la lista de fuentes se mantiene en inglés.</p>
+          <p>En <Ui>Datos</Ui>, <Ui>Datos sísmicos</Ui> (sisma+) muestra en gráficos los sismos de M4.5+ de los últimos 30 días en todo el mundo, según el USGS: cuántos hubo, sus magnitudes y profundidades, las regiones donde ocurrieron, la energía liberada y el número de sismos de M7+ por año desde 1900. Cada gráfico tiene una breve explicación; toca una barra para ver su valor. Sin sisma+ ves las explicaciones y un botón para empezar la prueba gratuita.</p>
         </div>
         <Shot src="science" alt="Artículo sobre ondas sísmicas con un diagrama animado de ondas P" caption="Una guía de ciencia" />
       </div>
