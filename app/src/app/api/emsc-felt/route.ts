@@ -7,6 +7,17 @@ import { fetchEmscFelt, isEmscUnid } from '@/lib/quakes/emsc-felt';
 export async function GET(req: NextRequest) {
   const unid = req.nextUrl.searchParams.get('unid') ?? '';
   if (!isEmscUnid(unid)) return NextResponse.json({ error: 'invalid' }, { status: 400 });
+  const dbg = req.nextUrl.searchParams.get('debug');
+  if (dbg) { // TEMPORARY diagnostic, removed before merge
+    const urls = [`https://www.seismicportal.eu/testimonies-ws/api/search?unids=[${unid}]&includeTestimonies=true`, `https://www.seismicportal.eu/testimonies-ws/api/search?unids=%5B${unid}%5D&includeTestimonies=true`, `https://www.seismicportal.eu/testimonies-ws/api/search?eventid=${unid}&format=json`, `https://www.seismicportal.eu/testimonies-ws/api/openapi.json`];
+    const out = [];
+    for (const u of urls) {
+      try { const r = await fetch(u, { cache: 'no-store', redirect: 'manual' }); const b = new Uint8Array(await r.arrayBuffer());
+        out.push({ u, status: r.status, type: r.headers.get('content-type'), loc: r.headers.get('location'), len: b.length, head: Buffer.from(b.slice(0, dbg === 'long' ? 6000 : 400)).toString('latin1') });
+      } catch (e) { out.push({ u, error: String(e) }); }
+    }
+    return NextResponse.json(out);
+  }
   try {
     const d = await fetchEmscFelt(unid);
     return NextResponse.json({ unid, ...d }, { headers: { 'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600' } });
