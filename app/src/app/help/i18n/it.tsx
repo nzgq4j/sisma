@@ -170,6 +170,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <p>La tua segnalazione viene salvata <strong>senza il tuo nome né il tuo account</strong>. Sulla mappa, la sua posizione viene arrotondata a circa 10 km.</p>
           <p>Le segnalazioni compaiono nella vista della zona (<Ui>Mostra zona</Ui>) come aree colorate sfumate, un colore per ogni livello di intensità. La scheda in alto indica quante segnalazioni ci sono e il loro intervallo di intensità (MMI), e quante sono sulla mappa quando alcune sono state inviate senza posizione.</p>
+          <p>Per i terremoti registrati dall’USGS, la vista della zona mostra anche le risposte al sondaggio <strong>Did You Feel It?</strong> dell’USGS, come quadrati colorati di circa 10 km, un colore per ogni livello di intensità. La scheda indica il numero di risposte, il numero di aree e l’intensità più alta; il pulsante di apertura mostra la mappa completa sul sito dell’USGS.</p>
           <h3>Mappe del risentimento</h3>
           <p>Quando molte persone aprono sisma subito dopo un terremoto, quell’afflusso mostra dove probabilmente è stato avvertito. sisma lo trasforma in una <strong>mappa del risentimento</strong> anonima nella vista della zona. Le posizioni vengono sfocate sul tuo dispositivo fino a 500 m, non contengono alcun identificativo di account o dispositivo e vengono mostrate solo per aree di circa 10 km con almeno 3 persone. Puoi disattivare questa funzione in <Ui>Profilo</Ui> → <Ui>Aiuta a mappare dove si avvertono i terremoti</Ui>.</p>
         </div>

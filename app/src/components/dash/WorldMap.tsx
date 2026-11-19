@@ -20,6 +20,7 @@ import { useMarkerStyle } from '@/components/MarkerStyle';
 import { HEAT_COLORS, MMI_COLORS, magIndex, magInkVar, magVar } from '@/lib/theme';
 import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
+import type { DyfiCell } from '@/lib/quakes/dyfi';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
 import { BORDERS, COUNTRIES, SPHERE, useDetailedWorld, useLakes, usePlates } from '@/lib/world';
@@ -105,7 +106,7 @@ function TileCredit() {
   );
 }
 
-export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], onReset, onLocate, here = null }: {
+export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], dyfi = [], onReset, onLocate, here = null }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   projection?: 'equalEarth' | 'mercator'; plates?: boolean; pin?: boolean; controls?: boolean; toolsClassName?: string;
   /** Zoom to this point (changing `key` re-applies it). */
@@ -120,6 +121,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   cells?: FeltCell[];
   /** Automatic felt map (lib/feltmap.ts): ~10 km cells weighted 0–1 by the surge of app activity after the quake. */
   heat?: HeatCell[];
+  /** USGS "Did You Feel It?" community intensity in ~10 km boxes (lib/quakes/dyfi.ts), drawn under the other felt layers. */
+  dyfi?: DyfiCell[];
   /** Called when the reset-view button is pressed (e.g. to leave a focused region). */
   onReset?: () => void;
   /** Shows a "My location" button: resolves with the device position (or null), which the map then zooms to. */
@@ -258,6 +261,16 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const a = project(c.lon, c.lat), b = project(c.lon, Math.min(89, c.lat + 0.09));
     return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
   }), [heat, project]);
+  // DYFI boxes in map units: USGS's outline when given, else a ~10 km square around the box centre.
+  const dyfiBoxes = useMemo(() => dyfi.flatMap(c => {
+    const d = 0.045, dl = d / Math.max(0.2, Math.cos((c.lat * Math.PI) / 180));
+    const ring = c.ring ?? [[c.lon - dl, c.lat - d], [c.lon + dl, c.lat - d], [c.lon + dl, c.lat + d], [c.lon - dl, c.lat + d]];
+    const pts = ring.map(([lo, la]) => project(lo, la)).filter((p): p is [number, number] => !!p);
+    const mid = project(c.lon, c.lat);
+    if (pts.length < 3 || !mid) return [];
+    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+    return [{ key: `${c.lat},${c.lon}`, cdi: c.cdi, pts, x: mid[0], y: mid[1], w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys) }];
+  }), [dyfi, project]);
   const overlay = blobs.length > 0 || heatSpots.length > 0;
   // Event markers are drawn in screen pixels (not inside the zoomed group), so they keep the same size at every
   // zoom and stay precise and tappable at street level, where the zoom factor reaches tens of thousands.
@@ -467,6 +480,18 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     <>
       {plates && plateData && (
         <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />
+      )}
+      {dyfiBoxes.length > 0 && (
+        <g aria-hidden="true" pointerEvents="none" opacity={0.6}>
+          {dyfiBoxes.map(b => {
+            const fill = MMI_COLORS[Math.min(10, Math.max(1, Math.round(b.cdi))) - 1];
+            // Kept at least ~8 screen px across so single boxes stay visible in the region view.
+            const min = 8 / k;
+            return b.w < min || b.h < min
+              ? <rect key={b.key} x={b.x - min / 2} y={b.y - min / 2} width={min} height={min} fill={fill} />
+              : <path key={b.key} d={`M${b.pts.map(p => `${p[0]},${p[1]}`).join('L')}Z`} fill={fill} />;
+          })}
+        </g>
       )}
       {heatSpots.length > 0 && (
         <g aria-hidden="true" pointerEvents="none">

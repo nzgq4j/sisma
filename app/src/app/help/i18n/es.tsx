@@ -170,6 +170,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <p>Tu reporte se guarda <strong>sin tu nombre ni tu cuenta</strong>. En el mapa, su posición se redondea a unos 10 km.</p>
           <p>Los reportes aparecen en la vista de región (<Ui>Mostrar región</Ui>) como zonas de color difuminadas, un color por nivel de intensidad. La tarjeta superior muestra cuántos reportes hay y su rango de intensidad (MMI), y cuántos están en el mapa cuando algunos se enviaron sin ubicación.</p>
+          <p>En los sismos registrados por el USGS, la vista de región también muestra las respuestas a la encuesta <strong>Did You Feel It?</strong> del USGS, como cuadrados de color de unos 10 km, un color por nivel de intensidad. La tarjeta indica el número de respuestas, el número de zonas y la intensidad más alta; el botón de abrir muestra el mapa completo en el sitio del USGS.</p>
           <h3>Mapas de percepción</h3>
           <p>Cuando mucha gente abre sisma justo después de un sismo, ese aumento muestra dónde probablemente se sintió. sisma lo convierte en un <strong>mapa de percepción</strong> anónimo en la vista de región. Las posiciones se difuminan en tu dispositivo hasta 500 m, no llevan ningún identificador de cuenta ni de dispositivo, y solo se muestran para zonas de unos 10 km con al menos 3 personas. Puedes desactivarlo en <Ui>Perfil</Ui> → <Ui>Ayudar a mapear dónde se sienten los sismos</Ui>.</p>
         </div>

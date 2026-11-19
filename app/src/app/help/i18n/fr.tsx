@@ -170,6 +170,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <p>Votre témoignage est enregistré <strong>sans votre nom ni votre compte</strong>. Sur la carte, sa position est arrondie à environ 10 km.</p>
           <p>Les témoignages apparaissent dans la vue de la région (<Ui>Afficher la région</Ui>) sous forme de zones colorées estompées, une couleur par niveau d’intensité. La carte en haut indique le nombre de témoignages et leur plage d’intensité (MMI), ainsi que le nombre affiché sur la carte lorsque certains ont été envoyés sans position.</p>
+          <p>Pour les séismes enregistrés par l’USGS, la vue de la région montre aussi les réponses à l’enquête <strong>Did You Feel It?</strong> de l’USGS, sous forme de carrés colorés d’environ 10 km, une couleur par niveau d’intensité. La carte indique le nombre de réponses, le nombre de zones et l’intensité la plus forte ; le bouton d’ouverture affiche la carte complète sur le site de l’USGS.</p>
           <h3>Cartes des ressentis</h3>
           <p>Quand beaucoup de personnes ouvrent sisma juste après un séisme, cet afflux montre où il a probablement été ressenti. sisma en fait une <strong>carte des ressentis</strong> anonyme dans la vue régionale. Les positions sont floutées sur votre appareil jusqu’à 500 m, ne portent aucun identifiant de compte ni d’appareil, et ne sont affichées que pour des zones d’environ 10 km comptant au moins 3 personnes. Vous pouvez désactiver cette fonction dans <Ui>Profil</Ui> → <Ui>Aider à cartographier où les séismes sont ressentis</Ui>.</p>
         </div>

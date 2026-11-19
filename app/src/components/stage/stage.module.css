@@ -64,3 +64,4 @@
 .infoBtn:hover { color: var(--violet-text); }
 .feltText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
 .feltSub { font-weight: 600; color: var(--ink2); }
+.feltScale i.square { border-radius: 2px; filter: none; }
