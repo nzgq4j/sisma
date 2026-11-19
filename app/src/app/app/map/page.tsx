@@ -132,10 +132,16 @@ function MapView() {
           {focusQuake && !felt.loading && felt.total > 0 && (
             <span className={styles.feltLine}>
               <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} style={{ background: c }} />)}</span>
-              <FitLine min={9}>
-                {felt.total === 1 ? t('felt_reports_1') : t('felt_reports_n', { n: nf.format(felt.total) })}
-                {felt.cells.length > 0 && ` · MMI ${ROMAN[Math.round(Math.min(...felt.cells.map(c => c.mmi))) - 1]}–${ROMAN[Math.round(Math.max(...felt.cells.map(c => c.mmi))) - 1]}`}
-              </FitLine>
+              {/* Count on the first line; intensity range (all reports) and, when some have no location, how many are mapped. */}
+              <span className={styles.feltText}>
+                <FitLine min={9}>{felt.total === 1 ? t('felt_reports_1') : t('felt_reports_n', { n: nf.format(felt.total) })}</FitLine>
+                {felt.range && (
+                  <FitLine min={9} className={styles.feltSub}>
+                    MMI {felt.range.min === felt.range.max ? ROMAN[felt.range.min - 1] : `${ROMAN[felt.range.min - 1]}–${ROMAN[felt.range.max - 1]}`}
+                    {felt.mapped < felt.total && ` · ${felt.mapped === 0 ? t('felt_on_map_0') : t('felt_on_map', { n: nf.format(felt.mapped) })}`}
+                  </FitLine>
+                )}
+              </span>
             </span>
           )}
           {focusQuake && !auto.loading && auto.map && auto.map.cells.length > 0 && (

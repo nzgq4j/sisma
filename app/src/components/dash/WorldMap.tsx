@@ -248,7 +248,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const me = pin ? project(center.lon, center.lat) : null;
   // The device position, when it isn't the chosen location itself (more than ~100 m away).
   const away = here && Math.hypot(here.lat - center.lat, here.lon - center.lon) > 0.001 ? project(here.lon, here.lat) : null;
-  // ~10 km radius (0.09° of latitude) in map units, never smaller than ~10 screen px so a cell stays visible.
+  // ~10 km radius (0.09° of latitude) in map units; felt reports get a radius of at least ~30 screen px so they stay
+  // visible in the region view.
   const blobs = useMemo(() => cells.flatMap(c => {
     const a = project(c.lon, c.lat), b = project(c.lon, Math.min(89, c.lat + 0.09));
     return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
@@ -478,7 +479,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {blobs.length > 0 && (
         <g aria-hidden="true" pointerEvents="none">
           {blobs.map(b => (
-            <circle key={`${b.lat},${b.lon}`} cx={b.x} cy={b.y} r={Math.max(b.geoR * 1.6, 18 / k) * (1 + Math.min(1, (b.n - 1) / 10) * 0.5)}
+            <circle key={`${b.lat},${b.lon}`} cx={b.x} cy={b.y} r={Math.max(b.geoR * 1.6, 30 / k) * (1 + Math.min(1, (b.n - 1) / 10) * 0.5)}
               fill={`url(#${gid}felt${Math.min(10, Math.max(1, Math.round(b.mmi)))})`} />
           ))}
         </g>
@@ -505,8 +506,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
               ))}
               {MMI_COLORS.map((c, i) => (
                 <radialGradient key={i} id={`${gid}felt${i + 1}`}>
-                  <stop offset="0%" stopColor={c} stopOpacity={0.75} />
-                  <stop offset="60%" stopColor={c} stopOpacity={0.35} />
+                  <stop offset="0%" stopColor={c} stopOpacity={0.85} />
+                  <stop offset="60%" stopColor={c} stopOpacity={0.45} />
                   <stop offset="100%" stopColor={c} stopOpacity={0} />
                 </radialGradient>
               ))}

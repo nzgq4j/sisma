@@ -165,13 +165,15 @@ export const TOPICS: Topic[] = [
             <li>Depremi aç. Deprem olduktan sonraki <strong>6 saat</strong> boyunca <Ui>Hissettim</Ui> düğmesini görürsün.</li>
             <li>Kaydırıcıyı ne kadar güçlü hissettiğine göre, <em>Hissedilmedi</em> ile <em>Aşırı</em> arasında ayarla. Rozet, karşılık gelen şiddet düzeyini (MMI) gösterir.</li>
             <li>İstersen bir not ekle ya da nerede olduğunu, ne kadar sürdüğünü, nelerin hareket ettiğini ve hasar olup olmadığını eklemek için <Ui>Ayrıntı ekle</Ui> düğmesine dokun.</li>
+            <li><Ui>Haritada göster</Ui> görünürse bildirimini haritaya yerleştirmek için açık bırak ya da yalnızca sayılması için kapat. Cihazının konumu, paylaşmadıysan <Ui>Profil</Ui> bölümünde seçtiğin yer kullanılır; seçenek yalnızca bu yer depreme 3.000 km’den yakınsa görünür.</li>
             <li><Ui>Bildirimi gönder</Ui> düğmesine dokun.</li>
           </ol>
-          <p>Bildirimin <strong>adın veya hesabın olmadan</strong> saklanır ve konumun yaklaşık 10 km’ye yuvarlanır.</p>
+          <p>Bildirimin <strong>adın veya hesabın olmadan</strong> saklanır. Haritada konumu yaklaşık 10 km’ye yuvarlanır.</p>
+          <p>Bildirimler bölge görünümünde (<Ui>Bölgeyi göster</Ui>) her şiddet düzeyi için ayrı renkte yumuşak alanlar olarak görünür. Üstteki kart bildirim sayısını ve şiddet aralığını (MMI), bazıları konumsuz gönderildiyse haritada kaç tane olduğunu gösterir.</p>
           <h3>Hissedilme haritaları</h3>
           <p>Bir depremin hemen ardından birçok kişi sisma’yı açtığında, bu yoğunluk depremin muhtemelen nerede hissedildiğini gösterir. sisma bunu bölge görünümünde anonim bir <strong>hissedilme haritasına</strong> dönüştürür. Konumlar cihazında 500 m’ye kadar bulanıklaştırılır, hiçbir hesap veya cihaz tanımlayıcısı taşımaz ve yalnızca en az 3 kişinin bulunduğu yaklaşık 10 km’lik alanlarda gösterilir. Bunu <Ui>Profil</Ui> → <Ui>Depremin nerede hissedildiğini haritalamaya yardım et</Ui> bölümünden kapatabilirsin.</p>
         </div>
-        <Shot src="felt" alt="Şiddet kaydırıcısı, isteğe bağlı not ve Bildirimi gönder düğmesiyle Ne hissettin? penceresi" caption="Hissettiklerini bildirme" />
+        <Shot src="felt" alt="Şiddet kaydırıcısı, isteğe bağlı not, Haritada göster anahtarı ve Bildirimi gönder düğmesiyle Ne hissettin? penceresi" caption="Hissettiklerini bildirme" />
       </div>
       </>
     ),

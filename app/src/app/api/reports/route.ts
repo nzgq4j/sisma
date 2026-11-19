@@ -49,7 +49,8 @@ export async function POST(req: NextRequest) {
 }
 
 // GET /api/reports?quakeId=…  → felt reports for one quake, grouped into ~10 km cells (0.1°).
-// Only cell centres, counts and mean intensity are returned: never individual reports or exact positions.
+// Only cell centres, counts and mean intensity (plus the overall count and MMI range) are returned: never individual
+// reports or exact positions.
 export async function GET(req: NextRequest) {
   const quakeId = req.nextUrl.searchParams.get('quakeId');
   if (!quakeId) return NextResponse.json({ error: 'invalid' }, { status: 400 });
@@ -65,5 +66,8 @@ export async function GET(req: NextRequest) {
     c.n++; c.sum += r.mmi; cells.set(k, c);
   }
   const out: FeltCell[] = [...cells.values()].map(c => ({ lat: c.lat, lon: c.lon, n: c.n, mmi: Math.round((c.sum / c.n) * 10) / 10 }));
-  return NextResponse.json({ quakeId, total: data?.length ?? 0, cells: out }, { headers: { 'Cache-Control': 'public, s-maxage=60' } });
+  // Every report counts towards the total and the intensity range, including those sent without a location.
+  const mmis = (data ?? []).map(r => r.mmi as number);
+  const range = mmis.length ? { min: Math.min(...mmis), max: Math.max(...mmis) } : null;
+  return NextResponse.json({ quakeId, total: data?.length ?? 0, range, cells: out }, { headers: { 'Cache-Control': 'public, s-maxage=60' } });
 }
