@@ -59,7 +59,7 @@ export function shareMapSvg(opts: {
     .map(({ n, xy }) => `<circle cx="${xy[0].toFixed(1)}" cy="${xy[1].toFixed(1)}" r="${Math.max(7, (n.mag - 1.6) * 5).toFixed(1)}" fill="${MAG_MARKER_LIGHT[magIndex(n.mag)]}" fill-opacity="0.9" stroke="${c.surface}" stroke-width="2"/>`)
     .join('');
 
-  const felt = feltSvg(opts.felt, proj, w, h, c.surface);
+  const felt = feltSvg(opts.felt, proj, w, h, c.ink);
 
   const [fx, fy] = proj([q.lon, q.lat]) ?? [w / 2, h / 2];
   const mc = MAG_MARKER_LIGHT[magIndex(q.mag)]; // the card is light, like the light-mode map
@@ -88,7 +88,7 @@ ${felt}${dots}${marker}${scale}</svg>`;
 const mmiColor = (v: number) => MMI_COLORS[Math.min(10, Math.max(1, Math.round(v))) - 1];
 
 /** The felt layers as SVG, in card pixels (the region view's styles: see components/dash/WorldMap.tsx). */
-function feltSvg(f: ShareFelt | null | undefined, proj: (p: [number, number]) => [number, number] | null, w: number, h: number, surface: string): string {
+function feltSvg(f: ShareFelt | null | undefined, proj: (p: [number, number]) => [number, number] | null, w: number, h: number, ink: string): string {
   if (!f) return '';
   const inside = (p: [number, number] | null): p is [number, number] => !!p && p[0] > -60 && p[0] < w + 60 && p[1] > -60 && p[1] < h + 60;
   // Radius of ~10 km (0.09° of latitude) at a point, in card pixels.
@@ -130,7 +130,8 @@ function feltSvg(f: ShareFelt | null | undefined, proj: (p: [number, number]) =>
 
   const emsc = f.emsc.flatMap(c => {
     const p = proj([c.lon, c.lat]);
-    return inside(p) ? [`<circle cx="${n(p[0])}" cy="${n(p[1])}" r="${n(6 + Math.min(5, Math.sqrt(c.n)))}" fill="${mmiColor(c.mmi)}" fill-opacity="0.85" stroke="${surface}" stroke-width="2"/>`] : [];
+    // Smaller than the event dots, with a thin dark outline, so they don't read as earthquakes.
+    return inside(p) ? [`<circle cx="${n(p[0])}" cy="${n(p[1])}" r="${n(4 + Math.min(3, Math.sqrt(c.n)))}" fill="${mmiColor(c.mmi)}" fill-opacity="0.9" stroke="${ink}" stroke-opacity="0.45" stroke-width="1.5"/>`] : [];
   }).join('');
 
   return `${defs.length ? `<defs>${defs.join('')}</defs>` : ''}${dyfi ? `<g opacity="0.6">${dyfi}</g>` : ''}${heat}${reports}${emsc}`;

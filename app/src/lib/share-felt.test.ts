@@ -27,7 +27,7 @@ describe('share card felt layers', () => {
     expect(s).toMatch(/<radialGradient id="fh\d"/); // automatic felt map glow
     expect(s.match(/<g opacity="0.6"><path d="M/)).not.toBeNull(); // DYFI box outline
     expect(s).toContain('<rect x='); // DYFI box without outline drawn as a square
-    expect((s.match(/fill-opacity="0.85" stroke="#fff"/g) ?? []).length).toBe(1); // one EMSC dot on the map, Italy left out
+    expect((s.match(/fill-opacity="0.9" stroke="#111"/g) ?? []).length).toBe(1); // one EMSC dot on the map, Italy left out
     // Felt layers come before (under) the event marker.
     expect(s.indexOf('fr5')).toBeLessThan(s.indexOf('stroke-opacity="0.35"'));
   });

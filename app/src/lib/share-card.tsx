@@ -135,7 +135,7 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
           <img src={`data:image/svg+xml;base64,${Buffer.from(map).toString('base64')}`} width={MAP_W} height={MAP_H} alt="" />
           <div style={{ position: 'absolute', left: scale.bx, top: scale.by - 38, display: 'flex', fontSize: 22, fontWeight: 700, lineHeight: 1, color: C.ink }}>{nf.format(scale.len)} {units}</div>
           {layers.length > 0 && (
-            <div style={{ position: 'absolute', top: 22, left: 22, display: 'flex', alignItems: 'center', gap: 14, padding: '10px 18px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 22, fontWeight: 700 }}>
+            <div style={{ position: 'absolute', bottom: 22, right: 22, display: 'flex', alignItems: 'center', gap: 14, padding: '10px 18px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 22, fontWeight: 700 }}>
               <div style={{ display: 'flex' }}>{m.sharecard.felt}</div>
               {layers.map(l => (
                 <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 7, color: C.ink }}>
@@ -190,7 +190,7 @@ const LEGEND: Partial<Record<FeltLayer, string>> = { reports: 'sisma', dyfi: 'US
 function FeltSwatch({ layer }: { layer: FeltLayer }) {
   const c = MMI_COLORS[4];
   if (layer === 'dyfi') return <div style={{ display: 'flex', width: 18, height: 18, borderRadius: 3, background: c, opacity: 0.75 }} />;
-  if (layer === 'emsc') return <div style={{ display: 'flex', width: 18, height: 18, borderRadius: 9, background: c, border: '2px solid #fff' }} />;
+  if (layer === 'emsc') return <div style={{ display: 'flex', width: 14, height: 14, borderRadius: 7, background: c, border: `1.5px solid ${C.ink}73` }} />;
   const color = layer === 'auto' ? HEAT_COLORS[Math.floor(HEAT_COLORS.length / 2)] : c;
   return <div style={{ display: 'flex', width: 22, height: 22, borderRadius: 11, backgroundImage: `radial-gradient(circle, ${color} 0%, ${color}99 55%, ${color}00 100%)` }} />;
 }
