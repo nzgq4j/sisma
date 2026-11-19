@@ -1,4 +1,4 @@
-/* Science → Data (components/science/DataCharts.tsx). Single-series marks in --violet, text in the ink tokens,
+/* Science → Data (components/science/DataCharts.tsx). Single-series marks in --chart (mint, set apart from the violet interface; selected: --chart-strong), text in the ink tokens,
    recessive grid; mobile first (360–412 px). */
 .page { padding: 4px 16px 24px; display: flex; flex-direction: column; gap: 12px; }
 .h1 { margin: 0; font-size: 30px; line-height: 1.1; font-weight: 800; letter-spacing: -.025em; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -22,16 +22,16 @@
 .readout { margin: 0; min-height: 20px; font-size: 13px; color: var(--ink2); }
 .readout b { color: var(--ink); font-size: 15px; }
 .svg { width: 100%; height: auto; display: block; touch-action: pan-y; overflow: visible; }
-.bar { fill: var(--violet); opacity: .55; }
-.barMuted { fill: var(--violet); opacity: .3; }
-.barOn { fill: var(--violet); }
+.bar { fill: var(--chart); }
+.barMuted { fill: var(--chart); opacity: .35; }
+.barOn { fill: var(--chart-strong); }
 .base { stroke: var(--line); stroke-width: 1; }
 .grid { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
 .avg { stroke: var(--ink2); stroke-width: 1.5; stroke-dasharray: 5 4; }
-.area { fill: var(--violet); opacity: .12; }
-.line { fill: none; stroke: var(--violet); stroke-width: 2; stroke-linejoin: round; }
+.area { fill: var(--chart); opacity: .16; }
+.line { fill: none; stroke: var(--chart); stroke-width: 2; stroke-linejoin: round; }
 .cross { stroke: var(--ink2); stroke-width: 1; opacity: .5; }
-.dot { fill: var(--violet); stroke: var(--surface); stroke-width: 2; }
+.dot { fill: var(--chart-strong); stroke: var(--surface); stroke-width: 2; }
 .axis { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--ink2); }
 .legendLine { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--ink2); }
 .avgKey { width: 18px; border-top: 1.5px dashed var(--ink2); }
@@ -39,7 +39,7 @@
 .hrow { display: grid; grid-template-columns: minmax(90px, 38%) 1fr auto; align-items: center; gap: 8px; font-size: 13px; }
 .hlabel { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
 .htrack { height: 12px; border-radius: 6px; background: var(--surface2); overflow: hidden; }
-.htrack i { display: block; height: 100%; border-radius: 6px; background: var(--violet); }
+.htrack i { display: block; height: 100%; border-radius: 6px; background: var(--chart); }
 .hvalue { font-weight: 800; color: var(--ink); white-space: nowrap; }
 .hvalue small { font-weight: 600; color: var(--ink2); font-size: 12px; }
 .notes { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.45; color: var(--ink2); }
