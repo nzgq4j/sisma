@@ -5,7 +5,8 @@
 // /app/map?focus=<quake id> ("Show region") zooms to ~7.5° across the shorter side of the view around that quake,
 // marks it as the event in focus (pulsing marker, summary card below) and draws its felt reports. Tapping a nearby
 // event there opens a callout on the map; tapping the callout makes that event the focus. The Layers button beside
-// "Back to world map" shows or hides the felt maps (all felt layers at once) and the plate boundaries (kept on the device).
+// "Back to world map" shows or hides the felt maps (all felt layers at once; kept on the device). Plate boundaries
+// follow the switch in the world map's pull-up panel.
 // The My location button (under the zoom buttons) zooms to the device position; the location chosen in Me stays as it is.
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -199,7 +200,6 @@ function MapView() {
       <Sheet open={layersOpen} onClose={() => setLayersOpen(false)} title={t('region_layers')}>
         <div className={styles.layerList}>
           <LayerToggle on={feltOn} onChange={setFeltOn} icon="vibration" label={t('layer_felt')} />
-          <LayerToggle on={plates} onChange={setPlates} icon="texture" label={t('plates')} />
         </div>
         <button type="button" className={styles.layerInfo} onClick={() => { setLayersOpen(false); setHowOpen(true); }}>
           <span className="ms" aria-hidden="true">info</span>{m.feltmap.title}
