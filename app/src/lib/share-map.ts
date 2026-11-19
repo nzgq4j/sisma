@@ -1,12 +1,14 @@
 // Regional map for the share card (api/share-card), drawn on the server as an SVG string: world-atlas 50m countries,
-// optional plate boundaries and lakes, nearby events as magnitude-coloured dots, the event in focus as a ringed
-// marker, and a scale bar. Mercator centred on the event, `span` degrees of longitude across the width.
+// optional plate boundaries and lakes, felt cells (lib/share-felt.ts, styled as in the region view), nearby events as
+// magnitude-coloured dots, the event in focus as a ringed marker, and a scale bar. Mercator centred on the event, `span` degrees of longitude across the width.
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import type { Topology, GeometryCollection } from 'topojson-specification';
 import type { GeoPermissibleObjects } from 'd3-geo';
 import world from 'world-atlas/countries-50m.json';
 import { MAG_MARKER_LIGHT, magIndex } from './theme';
+import { shareGrid, type ShareFelt } from './share-felt';
+import { FELT_CELL_DEG, feltColor } from './felt-grid';
 import type { Quake } from './quakes/types';
 import { KM_PER_MI, type Units } from './units';
 
@@ -41,6 +43,8 @@ export function shareMapSvg(opts: {
   plates?: GeoPermissibleObjects | null; lakes?: GeoPermissibleObjects | null; font?: string;
   /** false: leave the scale bar's text out (the share card draws it itself with its own font, see shareMapScale). */
   scaleText?: boolean;
+  /** Felt sources, drawn under the events as one grid of intensity-coloured cells. */
+  felt?: ShareFelt | null;
 }): string {
   const { q, nearby, w, h, span, units, colors: c } = opts;
   const s = (w * 180) / (Math.PI * span);
@@ -55,6 +59,8 @@ export function shareMapSvg(opts: {
     .sort((a, b) => a.n.mag - b.n.mag)
     .map(({ n, xy }) => `<circle cx="${xy[0].toFixed(1)}" cy="${xy[1].toFixed(1)}" r="${Math.max(7, (n.mag - 1.6) * 5).toFixed(1)}" fill="${MAG_MARKER_LIGHT[magIndex(n.mag)]}" fill-opacity="0.9" stroke="${c.surface}" stroke-width="2"/>`)
     .join('');
+
+  const felt = feltSvg(opts.felt, proj, w, h);
 
   const [fx, fy] = proj([q.lon, q.lat]) ?? [w / 2, h / 2];
   const mc = MAG_MARKER_LIGHT[magIndex(q.mag)]; // the card is light, like the light-mode map
@@ -77,5 +83,18 @@ ${opts.scaleText === false ? '' : `<text x="${bx}" y="${by - 16}" font-family="$
 ${opts.lakes ? `<path d="${d(opts.lakes)}" fill="${c.sea}" stroke="${c.line}" stroke-width="1.5"/>` : ''}
 <path d="${d(BORDERS)}" fill="none" stroke="${c.line}" stroke-width="2.5" stroke-linejoin="round"/>
 ${opts.plates ? `<path d="${d(opts.plates)}" fill="none" stroke="${c.plate}" stroke-opacity="0.55" stroke-width="3.5" stroke-dasharray="12 9"/>` : ''}
-${dots}${marker}${scale}</svg>`;
+${felt}${dots}${marker}${scale}</svg>`;
+}
+
+/** The felt cells as SVG, in card pixels: all sources merged (lib/felt-grid.ts), one style as in the region view. */
+function feltSvg(f: ShareFelt | null | undefined, proj: (p: [number, number]) => [number, number] | null, w: number, h: number): string {
+  if (!f) return '';
+  const n = (v: number) => v.toFixed(1), d = FELT_CELL_DEG / 2, min = 12;
+  const cells = shareGrid(f).flatMap(c => {
+    const a = proj([c.lon - d, Math.min(89, c.lat + d)]), b = proj([c.lon + d, Math.max(-89, c.lat - d)]), m = proj([c.lon, c.lat]);
+    if (!a || !b || !m || m[0] < -40 || m[0] > w + 40 || m[1] < -40 || m[1] > h + 40) return [];
+    const cw = Math.max(min, Math.abs(b[0] - a[0])), ch = Math.max(min, Math.abs(b[1] - a[1]));
+    return [`<rect x="${n(m[0] - cw / 2)}" y="${n(m[1] - ch / 2)}" width="${n(cw)}" height="${n(ch)}" rx="${n(Math.min(cw, ch) * 0.2)}" fill="${feltColor(c.mmi)}"/>`];
+  });
+  return cells.length ? `<g opacity="0.72">${cells.join('')}</g>` : '';
 }

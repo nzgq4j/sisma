@@ -1,12 +1,14 @@
-// The 1080×1350 PNG share card for an event: regional map (lib/share-map.ts) with the event in focus and other recent
-// events, the main details, sisma branding and the "not an official warning service" line. Drawn for GET
+// The 1080×1350 PNG share card for an event: regional map (lib/share-map.ts) with the event in focus, other recent
+// events and the felt layers (lib/share-felt.ts) with a small legend, the main details, sisma branding and the "not an official warning service" line. Drawn for GET
 // /api/share-card (event looked up by id) and directly by the Bluesky auto-post (lib/bluesky.ts), which already has
 // the event and must not depend on finding it again in the feeds.
 /* eslint-disable @next/next/no-img-element -- Satori renders <img> */
 import { ImageResponse } from 'next/og';
 import type { Quake } from '@/lib/quakes/types';
 import { shareMapScale, shareMapSvg } from '@/lib/share-map';
-import { MAG_INK_LIGHT, MAG_MARKER_LIGHT, THEME, magIndex } from '@/lib/theme';
+import { loadShareFelt, shareGrid, type ShareFelt } from '@/lib/share-felt';
+import { feltMarks } from '@/lib/felt-layers';
+import { FELT_NEUTRAL, MAG_INK_LIGHT, MAG_MARKER_LIGHT, MMI_COLORS, THEME, magIndex } from '@/lib/theme';
 import { countryAt } from '@/lib/country';
 import { formatDms } from '@/lib/geo';
 import { convertKmInText, KM_PER_MI, type Units } from '@/lib/units';
@@ -58,17 +60,24 @@ export interface ShareCardInput {
   tz: string;
   /** Site origin for the bundled map data and flags. */
   origin: string;
+  /** Felt layers, when already loaded; otherwise they are loaded here (lib/share-felt.ts). */
+  felt?: ShareFelt;
 }
 
-export async function shareCardResponse({ q, all, locale, units, tz, origin }: ShareCardInput): Promise<Response> {
-  const [m, plates, lakes] = await Promise.all([
+/** Response header naming what the card's felt cells show (comma-separated FeltMark: intensity, unknown), for the alt text. */
+export const FELT_HEADER = 'X-Felt-Layers';
+
+export async function shareCardResponse({ q, all, locale, units, tz, origin, felt: given }: ShareCardInput): Promise<Response> {
+  const [m, plates, lakes, felt] = await Promise.all([
     messages(locale),
     json<GeoJSON.MultiLineString>(`${origin}/data/plate-boundaries.json`), json<GeoJSON.GeoJsonObject>(`${origin}/data/lakes.json`),
+    given ?? loadShareFelt(q),
   ]);
+  const marks = feltMarks(shareGrid(felt));
   const since = Date.now() - 7 * 864e5;
   const nearby = all.filter(x => x.time >= since && Math.abs(x.lat - q.lat) < SPAN && Math.abs(((x.lon - q.lon + 540) % 360) - 180) < SPAN);
   const map = shareMapSvg({
-    q, nearby, w: MAP_W, h: MAP_H, span: SPAN, units, plates, lakes: lakes as never, font: 'Figtree', scaleText: false,
+    q, nearby, w: MAP_W, h: MAP_H, span: SPAN, units, plates, lakes: lakes as never, font: 'Figtree', scaleText: false, felt,
     colors: { sea: C.mapSea, land: C.mapLand, line: C.mapLine, plate: C.mapPlate, ink: C.ink, surface: C.surface },
   });
   // The scale label is drawn by the card (below), not inside the map image: text inside an embedded SVG is rendered
@@ -97,7 +106,7 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
   const stats: [string, string][] = [[m.depth, depth], [m.coords, formatDms(q.lat, q.lon)], [m.review_status, status], [m.source, source]];
 
   // Every string on the card, so CJK fonts can be fetched as a small subset.
-  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
+  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_unknown, 'IVX', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
   const cjk = locale === 'ja' ? 'Noto Sans JP' : locale === 'zh' ? 'Noto Sans SC' : null;
   const [f500, f700, f800, c500, c700] = await Promise.all([
     googleFont('Figtree', 500), googleFont('Figtree', 700), googleFont('Figtree', 800),
@@ -126,6 +135,29 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
         <div style={{ display: 'flex', position: 'relative', marginTop: 28, width: MAP_W, height: MAP_H, borderRadius: 40, overflow: 'hidden', border: `2px solid ${C.line}` }}>
           <img src={`data:image/svg+xml;base64,${Buffer.from(map).toString('base64')}`} width={MAP_W} height={MAP_H} alt="" />
           <div style={{ position: 'absolute', left: scale.bx, top: scale.by - 38, display: 'flex', fontSize: 22, fontWeight: 700, lineHeight: 1, color: C.ink }}>{nf.format(scale.len)} {units}</div>
+          {marks.length > 0 && (
+            <div style={{ position: 'absolute', bottom: 22, right: 22, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, padding: '10px 16px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 20, fontWeight: 700 }}>
+              <div style={{ display: 'flex', alignItems: 'flex-end', gap: 12 }}>
+                <div style={{ display: 'flex', color: C.ink, fontSize: 22 }}>{m.sharecard.felt}</div>
+                {marks.includes('intensity') && (
+                  <div style={{ display: 'flex', gap: 3 }}>
+                    {MMI_STEPS.map(st => (
+                      <div key={st.label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 3, width: 40 }}>
+                        <div style={{ display: 'flex', width: 40, height: 12, borderRadius: 3, background: MMI_COLORS[st.i], opacity: 0.85 }} />
+                        <div style={{ display: 'flex', fontSize: 16, lineHeight: 1 }}>{st.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {marks.includes('unknown') && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <div style={{ display: 'flex', width: 18, height: 12, borderRadius: 3, background: FELT_NEUTRAL, opacity: 0.85 }} />
+                    <div style={{ display: 'flex', fontSize: 16 }}>{m.sharecard.felt_unknown}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
           {nearby.length > 1 && (
             <div style={{ position: 'absolute', top: 22, right: 22, display: 'flex', padding: '10px 20px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 22, fontWeight: 700 }}>{m.sharecard.nearby}</div>
           )}
@@ -161,6 +193,9 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
         </div>
       </div>
     ),
-    { width: W, height: H, fonts, headers: { 'Cache-Control': 'public, max-age=300, s-maxage=300' } },
+    { width: W, height: H, fonts, headers: { 'Cache-Control': 'public, max-age=300, s-maxage=300', [FELT_HEADER]: marks.join(','), 'Access-Control-Expose-Headers': FELT_HEADER } },
   );
 }
+
+/** The card legend's intensity steps: one per distinct cell colour (MMI_COLORS), labelled with the first MMI it covers. */
+const MMI_STEPS = [{ i: 0, label: 'I' }, { i: 2, label: 'III' }, { i: 4, label: 'V' }, { i: 5, label: 'VI' }, { i: 6, label: 'VII' }, { i: 8, label: 'IX' }];

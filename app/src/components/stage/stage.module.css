@@ -56,13 +56,22 @@
 .exitBtn { display: flex; align-items: center; justify-content: center; gap: 6px; height: 40px; border: 0; border-radius: 12px; background: var(--violet); color: var(--on-violet); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
 .exitBtn:hover { filter: brightness(1.06); }
 .exitBtn :global(.ms) { font-size: 20px; }
-.feltLine { display: flex; align-items: center; gap: 8px; padding: 0 4px 2px; min-width: 0; }
-.feltScale { display: flex; gap: 2px; flex: none; }
-.feltScale i { width: 10px; height: 10px; border-radius: 5px; filter: blur(.5px); }
-.infoBtn { flex: none; width: 44px; height: 44px; margin: -12px -10px -12px auto; border: 0; background: transparent; color: var(--ink2); display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 22px; }
-.infoBtn :global(.ms) { font-size: 18px; }
-.infoBtn:hover { color: var(--violet-text); }
-.feltText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
-.feltSub { font-weight: 600; color: var(--ink2); }
-.feltScale i.square { border-radius: 2px; filter: none; }
-.feltScale i.dot { filter: none; box-shadow: 0 0 0 1px var(--surface); }
+.regionTop { display: flex; gap: 8px; }
+.regionTop .exitBtn { flex: 1; min-width: 0; }
+.layersBtn { flex: none; width: 44px; height: 40px; border: 0; border-radius: 12px; background: var(--surface2); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.layersBtn :global(.ms) { font-size: 22px; }
+.layersBtn:hover { color: var(--violet-text); }
+.lineOff { opacity: .45; }
+.layerList { display: flex; flex-direction: column; }
+.layerHint { margin: 12px 0 0; font-size: 13px; color: var(--ink2); line-height: 1.4; }
+/* Region view: one legend for all felt layers (totals, intensity scale, a symbol per source like the map's). */
+.feltLegend { display: flex; flex-direction: column; gap: 6px; padding: 0 4px 2px; min-width: 0; }
+.feltLegendSum { font-size: 13px; font-weight: 800; }
+.feltLegendScale { display: flex; align-items: flex-start; gap: 2px; flex-wrap: wrap; font-size: 10px; font-weight: 700; color: var(--ink2); }
+.mmiStep { flex: 1; min-width: 26px; display: flex; flex-direction: column; gap: 2px; }
+.mmiStep i, .mmiUnknown i { display: block; height: 8px; border-radius: 2px; opacity: .85; }
+.mmiUnknown { flex: none; display: flex; align-items: center; gap: 4px; margin-left: 8px; }
+.mmiUnknown i { width: 14px; }
+.layerInfo { display: flex; align-items: center; gap: 12px; min-height: 48px; width: 100%; margin-top: 4px; padding: 0 2px; border: 0; background: transparent; color: var(--violet-text); font: inherit; font-size: 15px; font-weight: 700; text-align: left; cursor: pointer; }
+.layerInfo :global(.ms) { font-size: 22px; }
+

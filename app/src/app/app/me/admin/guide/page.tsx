@@ -45,7 +45,7 @@ export default function AdminGuidePage() {
           <li>happened in the last 30 minutes (switching on never posts a backlog);</li>
           <li>hasn’t been posted yet, including the same quake reported by another agency within 90 seconds and 100 km.</li>
         </ul>
-        <p>At most 2 posts go out per minute, largest first. Each post has the earthquake’s map card with an image description, the magnitude and place, time (UTC) and depth, a tsunami line when the agency reports one, a link to the region view, hashtags, and “not an official warning service”. If the card isn’t ready, the post waits up to 15 minutes, then goes out as text only.</p>
+        <p>At most 2 posts go out per minute, largest first. Each post has the earthquake’s map card with an image description (where people felt it, the map also shows the felt layers and the description names them), the magnitude and place, time (UTC) and depth, a tsunami line when the agency reports one, a link to the region view, hashtags, and “not an official warning service”. If the card isn’t ready, the post waits up to 15 minutes, then goes out as text only.</p>
         <p><Ui>Last 24 hours (M4.5+)</Ui> lists recent earthquakes: <Ui>Posted</Ui> marks those already on Bluesky, <Ui>Next to post</Ui> the ones the feed will take. Tap one to see the exact card, text and image description, and <Ui>Post now</Ui> to post it by hand.</p>
         <p><Ui>Posts</Ui> is the log, with each post’s time, whether it was automatic or by hand, its status and a link. A failed post shows Bluesky’s error and is not retried automatically; while the earthquake is still in the 24-hour list above, open it and use <Ui>Post now</Ui> to try again.</p>
 

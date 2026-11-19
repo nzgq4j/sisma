@@ -169,9 +169,10 @@ export const TOPICS: Topic[] = [
             <li>Tocca <Ui>Invia segnalazione</Ui>.</li>
           </ol>
           <p>La tua segnalazione viene salvata <strong>senza il tuo nome né il tuo account</strong>. Sulla mappa, la sua posizione viene arrotondata a circa 10 km.</p>
-          <p>Le segnalazioni compaiono nella vista della zona (<Ui>Mostra zona</Ui>) come aree colorate sfumate, un colore per ogni livello di intensità. La scheda in alto indica quante segnalazioni ci sono e il loro intervallo di intensità (MMI), e quante sono sulla mappa quando alcune sono state inviate senza posizione.</p>
-          <p>Per i terremoti registrati dall’USGS, la vista della zona mostra anche le risposte al sondaggio <strong>Did You Feel It?</strong> dell’USGS, come quadrati colorati di circa 10 km, un colore per ogni livello di intensità. La scheda indica il numero di risposte, il numero di aree e l’intensità più alta; il pulsante di apertura mostra la mappa completa sul sito dell’USGS.</p>
-          <p>Per i terremoti registrati dall’EMSC, mostra anche le segnalazioni inviate tramite i siti dell’EMSC e l’app LastQuake, raggruppate in aree di circa 10 km e disegnate come punti colorati, un colore per ogni livello di intensità. La scheda indica il numero di segnalazioni, il numero di aree e l’intensità più alta; il pulsante di apertura mostra il terremoto sul sito dell’EMSC. I dati dell’EMSC sono condivisi con licenza CC BY 4.0.</p>
+          <p>Le segnalazioni compaiono nella vista della zona (<Ui>Mostra zona</Ui>) come piccoli quadrati di circa 10 km. Insieme alle segnalazioni di USGS ed EMSC descritte sotto, ogni quadrato ha il colore dell’intensità media delle segnalazioni che contiene.</p>
+          <p>Per i terremoti registrati dall’USGS, la vista della zona mostra anche le risposte al sondaggio <strong>Did You Feel It?</strong> dell’USGS, come quadrati colorati di circa 10 km, un colore per ogni livello di intensità.</p>
+          <p>Per i terremoti registrati dall’EMSC, include anche le segnalazioni inviate tramite i siti dell’EMSC e l’app LastQuake, negli stessi quadrati. I dati dell’EMSC sono condivisi con licenza CC BY 4.0.</p>
+          <p>Per mostrare o nascondere tutte le mappe del risentimento insieme, tocca il pulsante <Ui>Livelli</Ui> accanto a <Ui>Torna alla mappa del mondo</Ui> e usa l’interruttore <Ui>Mappe del risentimento</Ui>; i confini delle placche hanno un interruttore a parte. La tua scelta resta su questo dispositivo. La legenda in alto indica il numero totale di segnalazioni e l’intensità più alta, con la scala dei colori dell’intensità. I quadrati grigi sono aree della mappa automatica in cui nessuna segnalazione indica un’intensità.</p>
           <h3>Mappe del risentimento</h3>
           <p>Quando molte persone aprono sisma subito dopo un terremoto, quell’afflusso mostra dove probabilmente è stato avvertito. sisma lo trasforma in una <strong>mappa del risentimento</strong> anonima nella vista della zona. Le posizioni vengono sfocate sul tuo dispositivo fino a 500 m, non contengono alcun identificativo di account o dispositivo e vengono mostrate solo per aree di circa 10 km con almeno 3 persone. Puoi disattivare questa funzione in <Ui>Profilo</Ui> → <Ui>Aiuta a mappare dove si avvertono i terremoti</Ui>.</p>
         </div>
@@ -187,6 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tocca <Ui>Condividi</Ui> su un terremoto per creare una scheda da condividere: un’immagine con la mappa e i dettagli principali.</p>
+          <p>Dove le persone hanno segnalato di averlo avvertito, la mappa della scheda lo mostra anche come nella vista della zona: piccoli quadrati nei colori dell’intensità (grigi se l’intensità è sconosciuta), con la scala dell’intensità in basso a destra. Anche la descrizione dell’immagine proposta lo menziona.</p>
           <ul>
             <li>Il <strong>testo del post</strong> viene compilato per te (magnitudo, luogo, ora, profondità e un hashtag, con il link alla fine), e puoi modificarlo.</li>
             <li>La <strong>descrizione dell’immagine (testo alternativo)</strong> descrive l’immagine per chi usa un lettore di schermo. Viene compilata per te, e puoi modificarla.</li>

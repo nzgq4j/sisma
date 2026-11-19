@@ -169,9 +169,10 @@ export const TOPICS: Topic[] = [
             <li>Tippe auf <Ui>Meldung senden</Ui>.</li>
           </ol>
           <p>Deine Meldung wird <strong>ohne deinen Namen und ohne dein Konto</strong> gespeichert. Auf der Karte wird ihre Position auf etwa 10 km gerundet.</p>
-          <p>Meldungen erscheinen in der Regionsansicht (<Ui>Region zeigen</Ui>) als weiche Farbflächen, eine Farbe pro Intensitätsstufe. Die Karte oben zeigt die Zahl der Meldungen und ihren Intensitätsbereich (MMI) und, wenn einige ohne Standort gesendet wurden, wie viele auf der Karte sind.</p>
-          <p>Bei Erdbeben, die der USGS erfasst, zeigt die Regionsansicht auch die Antworten auf die USGS-Umfrage <strong>Did You Feel It?</strong> als farbige Quadrate von etwa 10 km, eine Farbe pro Intensitätsstufe. Die Karte nennt die Zahl der Antworten, die Zahl der Gebiete und die höchste Intensität; die Öffnen-Schaltfläche zeigt die vollständige Karte auf der USGS-Website.</p>
-          <p>Bei Erdbeben, die das EMSC erfasst, zeigt sie außerdem Meldungen, die über die EMSC-Websites und die App LastQuake gesendet wurden, zusammengefasst in Gebiete von etwa 10 km und als farbige Punkte dargestellt, eine Farbe pro Intensitätsstufe. Die Karte nennt die Zahl der Meldungen, die Zahl der Gebiete und die höchste Intensität; die Öffnen-Schaltfläche zeigt das Erdbeben auf der EMSC-Website. Die Daten des EMSC stehen unter der Lizenz CC BY 4.0.</p>
+          <p>Meldungen erscheinen in der Regionsansicht (<Ui>Region zeigen</Ui>) als kleine Quadrate von etwa 10 km. Zusammen mit den Meldungen von USGS und EMSC (siehe unten) erhält jedes Quadrat die Farbe der mittleren Intensität der Meldungen darin.</p>
+          <p>Bei Erdbeben, die der USGS erfasst, zeigt die Regionsansicht auch die Antworten auf die USGS-Umfrage <strong>Did You Feel It?</strong> als farbige Quadrate von etwa 10 km, eine Farbe pro Intensitätsstufe.</p>
+          <p>Bei Erdbeben, die das EMSC erfasst, fließen außerdem Meldungen über die EMSC-Websites und die App LastQuake in dieselben Quadrate ein. Die Daten des EMSC stehen unter der Lizenz CC BY 4.0.</p>
+          <p>Um alle Spürkarten auf einmal ein- oder auszublenden, tippe auf die Schaltfläche <Ui>Ebenen</Ui> neben <Ui>Zurück zur Weltkarte</Ui> und nutze den Schalter <Ui>Spürkarten</Ui>; die Plattengrenzen haben dort einen eigenen Schalter. Deine Auswahl bleibt auf diesem Gerät gespeichert. Die Legende oben nennt die Gesamtzahl der Meldungen und die höchste Intensität, mit der Farbskala der Intensität. Graue Quadrate sind Gebiete der automatischen Spürkarte, für die keine Meldung eine Intensität angibt.</p>
           <h3>Spürkarten</h3>
           <p>Wenn viele Menschen sisma direkt nach einem Erdbeben öffnen, zeigt dieser Ansturm, wo es wahrscheinlich gespürt wurde. sisma macht daraus eine anonyme <strong>Spürkarte</strong> in der Regionsansicht. Positionen werden auf deinem Gerät um bis zu 500 m verschoben, enthalten keine Konto- oder Gerätekennung und werden nur für Gebiete von etwa 10 km mit mindestens 3 Personen angezeigt. Du kannst das unter <Ui>Profil</Ui> → <Ui>Helfen, Spürkarten zu erstellen</Ui> ausschalten.</p>
         </div>
@@ -187,6 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tippe bei einem Erdbeben auf <Ui>Teilen</Ui>, um eine Teilen-Karte zu erstellen: ein Bild mit der Karte und den wichtigsten Details.</p>
+          <p>Wo Menschen das Erdbeben gemeldet haben, zeigt die Karte im Bild es auch wie in der Regionsansicht: kleine Quadrate in Intensitätsfarben (grau, wenn die Intensität unbekannt ist), mit der Intensitätsskala unten rechts. Die vorgeschlagene Bildbeschreibung erwähnt das ebenfalls.</p>
           <ul>
             <li>Der <strong>Beitragstext</strong> ist schon ausgefüllt (Magnitude, Ort, Zeit, Tiefe und ein Hashtag, der Link am Schluss), und du kannst ihn bearbeiten.</li>
             <li>Die <strong>Bildbeschreibung (Alt-Text)</strong> beschreibt das Bild für Menschen, die einen Screenreader nutzen. Sie ist schon ausgefüllt, und du kannst sie bearbeiten.</li>

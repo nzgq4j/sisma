@@ -182,9 +182,10 @@ export const TOPICS: Topic[] = [
             <li>Tap <Ui>Send report</Ui>.</li>
           </ol>
           <p>Your report is stored <strong>without your name or account</strong>. On the map, its position is rounded to about 10 km.</p>
-          <p>Reports appear in the region view (<Ui>Show region</Ui>) as soft coloured areas, one colour per intensity level. The card at the top shows how many reports there are and their intensity range (MMI), and how many are on the map when some were sent without a location.</p>
-          <p>For earthquakes recorded by the USGS, the region view also shows the answers people gave to the USGS <strong>Did You Feel It?</strong> survey, as coloured squares of about 10 km, one colour per intensity level. The card gives the number of responses, the number of areas and the highest intensity; the open button shows the full map on the USGS website.</p>
-          <p>For earthquakes recorded by the EMSC, it also shows felt reports sent through the EMSC websites and the LastQuake app, grouped into areas of about 10 km and drawn as coloured dots, one colour per intensity level. The card gives the number of reports, the number of areas and the highest intensity; the open button shows the earthquake on the EMSC website. EMSC data is shared under the CC BY 4.0 licence.</p>
+          <p>Reports appear in the region view (<Ui>Show region</Ui>) as small squares of about 10 km. Together with the USGS and EMSC reports below, each square is coloured by the average intensity of the reports in it.</p>
+          <p>For earthquakes recorded by the USGS, the region view also shows the answers people gave to the USGS <strong>Did You Feel It?</strong> survey, as coloured squares of about 10 km, one colour per intensity level.</p>
+          <p>For earthquakes recorded by the EMSC, it also includes felt reports sent through the EMSC websites and the LastQuake app, in the same squares. EMSC data is shared under the CC BY 4.0 licence.</p>
+          <p>To show or hide all felt maps at once, tap the <Ui>Layers</Ui> button next to <Ui>Back to world map</Ui> and use the <Ui>Felt maps</Ui> switch; plate boundaries have their own switch there. Your choice is kept on this device. The legend at the top gives the total number of reports and the highest intensity, with the intensity colour scale. Grey squares are areas from the automatic felt map where no report gives an intensity.</p>
           <h3>Felt maps</h3>
           <p>When many people open sisma right after an earthquake, that rush shows where it was probably felt. sisma turns it into an anonymous <strong>felt map</strong> in the region view. Positions are blurred on your device by up to 500 m, carry no account or device identifier, and are only shown for areas of about 10 km with at least 3 people. You can turn this off in <Ui>Me</Ui> → <Ui>Help map where quakes are felt</Ui>.</p>
         </div>
@@ -200,6 +201,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tap <Ui>Share</Ui> on an earthquake to make a share card: a picture with the map and the main details.</p>
+          <p>Where people reported feeling the earthquake, the card’s map also shows it as in the region view: small squares coloured by intensity (grey where the intensity is unknown), with the intensity scale at the bottom right. The suggested image description then mentions them.</p>
           <ul>
             <li><strong>Post text</strong> is filled in for you (magnitude, place, time, depth and a hashtag, with the link last), and you can edit it.</li>
             <li><strong>Image description (alt text)</strong> describes the picture for people using screen readers. It is filled in for you, and you can edit it.</li>
