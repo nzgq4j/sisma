@@ -86,7 +86,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Teilen</Ui> öffnet die Teilen-Karte (siehe <Link href="/help/share">Teilen</Link>).</li>
             <li>Wenn Menschen gemeldet haben, dass sie es gespürt haben, siehst du, wie viele.</li>
           </ul>
-          <Callout kind="note"><p>Ein Hinweis <strong>Tsunami-Warnung ausgegeben</strong> erscheint, wenn der Dienst mögliche Tsunami-Aktivität meldet. Folge den offiziellen Tsunami-Warnungen in deiner Region.</p></Callout>
+          <Callout kind="note"><p><strong>Tsunami:</strong> Wenn ein Tsunami-Warnzentrum (PTWC, NTWC oder der japanische Wetterdienst JMA) eine offizielle Meldung zu einem Erdbeben herausgibt, wird ihre Stufe wie herausgegeben angezeigt, zum Beispiel <strong>Tsunamiwarnung</strong> oder <strong>Tsunamihinweis</strong>, mit dem Zentrum, der Uhrzeit, den genannten Küsten und <Ui>Offizielle Meldung lesen</Ui>. Warnungen, Gefahrenmeldungen, Vorwarnungen und Hinweise sind farbig und versehen die Markierung des Erdbebens mit einem Wellen-Symbol und seine Zeile mit einem farbigen Wellen-Icon; Informationsmeldungen und Vorhersagen bleiben grau. Eine Meldung mit <em>Aufgehoben</em> oder <em>Nicht mehr gültig</em> wurde zurückgezogen oder ist abgelaufen. Ohne offizielle Meldung zeigt ein starkes Erdbeben unter dem Meer <em>Starkes Erdbeben unter dem Meer: offizielle Tsunami-Informationen prüfen</em>. sisma gibt diese Meldungen weiter und ist kein Warndienst: Folge immer den örtlichen Behörden.</p></Callout>
         </div>
         <Shot src="detail" alt="Erdbebendetails: Magnitude, Tiefe, Datum, Uhrzeit, Entfernung, Land, Koordinaten, Prüfstatus, Quelle, Region zeigen und Teilen" caption="Die Details eines Erdbebens" />
       </div>
@@ -304,6 +304,7 @@ export const TOPICS: Topic[] = [
               <thead><tr><th>Funktion</th><th>Kostenlos</th><th>sisma+</th></tr></thead>
               <tbody>
                 <tr><td>Live-Liste, Karte, Globus, Wissen</td><td>✓</td><td>✓</td></tr>
+                <tr><td>Offizielle Tsunami-Benachrichtigungen</td><td>✓</td><td>✓</td></tr>
                 <tr><td>Erdbebenverlauf</td><td>30 Tage</td><td>Gesamter Verlauf</td></tr>
                 <tr><td>Gespeicherte Orte</td><td>1</td><td>Bis zu 10</td></tr>
                 <tr><td>Push-Benachrichtigungen mit eigenen Regeln</td><td>–</td><td>Bis zu 5 Warnungen</td></tr>
@@ -379,6 +380,8 @@ export const TOPICS: Topic[] = [
         <li>Ein Diagramm zeigt, wie viele Erdbeben der letzten 30 Tage die Warnung ausgelöst hätten, damit du sie anpassen kannst.</li>
       </ul>
       <p>Warnungen, die du in den letzten 30 Tagen erhalten hast, stehen unter <em>Warnverlauf</em>.</p>
+      <h3>Tsunami-Benachrichtigungen</h3>
+      <p>Tsunami-Benachrichtigungen sind für alle Angemeldeten kostenlos. Schalte unter <Ui>Profil</Ui> <Ui>Tsunami-Benachrichtigungen</Ui> ein und tippe auf <Ui>Mitteilungen auf diesem Gerät einschalten</Ui>. Du wirst benachrichtigt, wenn eine offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder ein -hinweis für ein Erdbeben im Umkreis von 1.000 km um einen deiner gespeicherten Orte herausgegeben wird. Ruhezeiten gelten dafür nicht, und jede Stufe wird pro Erdbeben nur einmal gesendet.</p>
       <Callout kind="note"><p><strong>iPhone und iPad:</strong> Web-Mitteilungen funktionieren erst, wenn du sisma zum Home-Bildschirm hinzufügst (Teilen → Zum Home-Bildschirm) und es von dort öffnest. Wenn du sisma zum ersten Mal im Browser auf einem iPhone oder iPad öffnest, zeigt ein Fenster diese Schritte; tippe auf <Ui>Nicht jetzt</Ui>, um es in zwei Wochen wiederzusehen, oder auf <Ui>Verstanden</Ui>, um es auszublenden.</p></Callout>
       </>
     ),

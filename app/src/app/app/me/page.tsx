@@ -23,6 +23,7 @@ import { openOnboarding } from '@/components/onboarding/store';
 import { FeltMapInfoSheet, setFeltMapSharing, useFeltMapSharing } from '@/components/FeltMap';
 import { PRICES, TRIAL_DAYS, limits } from '@/lib/entitlements';
 import type { PlaceHit } from '@/lib/places';
+import { AlertDevice } from '@/components/alerts/shared';
 import styles from './me.module.css';
 
 const SOURCES = ['USGS', 'EMSC', 'GeoNet', 'JMA'];
@@ -57,6 +58,7 @@ export default function MePage() {
 
       <div className={styles.col}>
         <Alerts onLocked={() => setSheet('paywall')} />
+        <TsunamiAlerts />
         <Locations onLocked={() => setSheet('paywall')} />
         <Preferences />
         <AdminLink />
@@ -162,6 +164,43 @@ function Alerts({ onLocked }: { onLocked: () => void }) {
           </Link>
         )}
         {a.error && <p className={styles.errLine} role="alert">{m.acct.error}</p>}
+      </div>
+    </>
+  );
+}
+
+/** Official tsunami alerts (lib/tsunami/push.ts), free for every signed-in user: a switch (profiles.tsunami_push), the
+ *  rule in one line and this device's notifications. Pushes go to people with a saved place within 1,000 km. */
+function TsunamiAlerts() {
+  const { m } = useT();
+  const k = m.tsu;
+  const { user, profile, savePrefs } = useAccount();
+  const { locations } = useApp();
+  const push = usePushDevice();
+  const [busy, setBusy] = useState(false);
+  const on = profile?.tsunami_push !== false;
+  const hasPlace = locations.some(l => !l.fromDevice && !l.fallback);
+  return (
+    <>
+      <div className={styles.sectionLabel}>{k.me_title}</div>
+      <div className={styles.card}>
+        {user ? (
+          <button type="button" className={styles.row} role="switch" aria-checked={on} disabled={busy}
+            onClick={async () => {
+              // Turning tsunami alerts on also asks this device for notification permission (it has to come from a tap).
+              if (!on && push.state === 'off') void push.enable();
+              setBusy(true); await savePrefs({ tsunami_push: !on }); setBusy(false);
+            }}>
+            <span className="ms" aria-hidden="true">tsunami</span>
+            <span className={styles.grow}>{k.me_title}</span>
+            <span className={styles.switch} aria-hidden="true"><span /></span>
+          </button>
+        ) : null}
+        <div className={styles.alertBody}>
+          <p className={styles.hint}>{user ? k.me_hint : k.me_signin}</p>
+          {user && on && !hasPlace && <p className={styles.hint}>{k.me_no_place}</p>}
+          {user && on && <AlertDevice />}
+        </div>
       </div>
     </>
   );

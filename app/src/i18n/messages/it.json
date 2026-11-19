@@ -482,7 +482,10 @@
     "remove_area": "Rimuovi {name}",
     "area_limit": "Puoi sceglierne fino a 20.",
     "areas_none": "Nessuno",
-    "area_selected": "Selezionati"
+    "area_selected": "Selezionati",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · a {dist} da {place}. Segui le autorità locali.",
+    "tsunami_body_nomag": "{region} · a {dist} da {place}. Segui le autorità locali."
   },
   "region_chip": "Regione",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "Anche da M4.5 in su, l’elenco dell’USGS non è una registrazione completa di tutti i terremoti del mondo, soprattutto dove ci sono poche stazioni.",
     "note_4": "L’energia è stimata dalla magnitudo con una formula standard (log₁₀ E = 1,5 M + 4,8, in joule). È un’approssimazione, non una misura.",
     "note_5": "Un giorno o una settimana con molta attività non significa di per sé che stia per arrivare un forte terremoto."
+  },
+  "tsu": {
+    "lv_major_warning": "Allerta tsunami maggiore",
+    "lv_warning": "Allerta tsunami",
+    "lv_threat": "Minaccia di tsunami",
+    "lv_watch": "Sorveglianza tsunami",
+    "lv_advisory": "Avviso di tsunami",
+    "lv_forecast": "Previsione di tsunami",
+    "lv_information": "Informazioni sullo tsunami",
+    "lv_none": "Nessun rischio di tsunami",
+    "cancelled": "Annullato",
+    "ended": "Non più in vigore",
+    "issued": "{center} · emesso {time}",
+    "official": "Leggi il messaggio ufficiale",
+    "areas": "Coste indicate nel messaggio",
+    "more_areas": "+{n} altre",
+    "relay": "sisma mostra i messaggi ufficiali dei centri di allerta tsunami e non è un servizio di allerta. Segui le indicazioni delle autorità locali.",
+    "check": "Forte terremoto sotto il mare: controlla le informazioni ufficiali sugli tsunami",
+    "card": "Tsunami",
+    "legend": "Badge onda: allerta, minaccia, sorveglianza o avviso ufficiale di tsunami",
+    "center_PTWC": "Pacific Tsunami Warning Center",
+    "center_NTWC": "National Tsunami Warning Center",
+    "center_JMA": "Agenzia meteorologica giapponese",
+    "legend_short": "Allerta tsunami",
+    "me_title": "Allerte tsunami",
+    "me_hint": "Gratis per chi ha effettuato l’accesso: una notifica quando viene emessa un’allerta, una minaccia, una sorveglianza o un avviso ufficiale di tsunami per un terremoto entro 1.000 km da uno dei tuoi luoghi salvati.",
+    "me_signin": "Accedi, è gratis, per ricevere le allerte ufficiali di tsunami per i tuoi luoghi salvati.",
+    "me_no_place": "Aggiungi un luogo salvato qui sotto: le allerte tsunami riguardano i terremoti entro 1.000 km dai tuoi luoghi salvati."
   }
 }

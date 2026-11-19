@@ -18,6 +18,7 @@ import { MagFilterChip, RegionFilterChip } from '@/components/stage/StageParts';
 import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
 import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
+import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
 
 const SORT_LABEL = { time: 'sort_time', distance: 'sort_distance', mag: 'sort_mag' } as const;
 const MAG_BINS = [...MAG_SCALE].reverse().map(([min], i, a) => ({ min: i === 0 ? -99 : min, max: a[i + 1]?.[0] ?? 99 }));
@@ -47,7 +48,8 @@ export function Dashboard() {
     const recent = list.filter(q => now - q.time <= 7 * 864e5 && q.distanceKm != null);
     return recent.reduce<Row | null>((a, q) => (!a || q.distanceKm! < a.distanceKm! ? q : a), null);
   }, [list, now]);
-  const tsunamis = useMemo(() => list.filter(q => q.tsunami).length, [list]);
+  // Official tsunami warnings, threats, watches and advisories issued for the period's earthquakes (lib/tsunami/).
+  const tsunamis = useMemo(() => list.filter(q => q.tsunamiAlert && TSUNAMI_HAZARD.has(q.tsunamiAlert.level)).length, [list]);
 
   const activity: Bar[] = useMemo(() => {
     const hourly = range === '24h', step = hourly ? 36e5 : 864e5;

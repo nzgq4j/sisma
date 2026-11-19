@@ -14,7 +14,8 @@ import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { TILE_MAX_ZOOM, kForWebZoom, osmTileUrl, tileOpacity, visibleTiles, webZoom } from '@/lib/tiles';
 import { useTheme } from '@/components/Theme';
-import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, dotRadius, markerHit, pinLabel } from '@/lib/pin';
+import { BADGE_R, PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, WAVE_PATH, badgeAt, dotRadius, markerHit, pinLabel } from '@/lib/pin';
+import { tsunamiTone, toneVar } from '@/lib/tsunami/view';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
 import { useMarkerStyle } from '@/components/MarkerStyle';
 import { magIndex, magInkVar, magVar } from '@/lib/theme';
@@ -44,6 +45,7 @@ function Marker({ q, x, y, style, scale, focus = false }: { q: Quake; x: number;
         {focus && <circle cx={x} cy={y} r={r + 4} fill="none" stroke={c} strokeWidth={3} className={styles.focusPulse} />}
         <circle cx={x} cy={y} r={r} fill={c} fillOpacity={0.92} stroke="var(--surface)" strokeWidth={1} />
         <circle cx={x} cy={y} r={r + 4} fill="none" stroke="var(--ink)" strokeWidth={2.4} />
+        <TsunamiBadge q={q} x={x} y={y} style="circles" />
       </g>
     );
   }
@@ -52,6 +54,20 @@ function Marker({ q, x, y, style, scale, focus = false }: { q: Quake; x: number;
       {focus && <circle cx={x} cy={y} r={8} fill="none" stroke={magVar(q.mag)} strokeWidth={3} className={styles.focusPulse} />}
       <Pin q={q} x={x} y={y} scale={scale} />
       <path d={PIN_PATH} transform={`translate(${x},${y}) scale(${scale})`} fill="none" stroke="var(--ink)" strokeWidth={focus ? 1.8 : 2} strokeLinejoin="round" />
+      <TsunamiBadge q={q} x={x} y={y} style="pins" scale={scale} />
+    </g>
+  );
+}
+
+/** Official tsunami badge on the selected / focused marker (the canvas markers draw the same in lib/marker-sprite.ts). */
+function TsunamiBadge({ q, x, y, style, scale = 1 }: { q: Quake; x: number; y: number; style: 'pins' | 'circles'; scale?: number }) {
+  const tone = tsunamiTone(q.tsunamiAlert);
+  if (!tone) return null;
+  const at = badgeAt(style, q.mag);
+  return (
+    <g transform={`translate(${x},${y}) scale(${scale}) translate(${at.x},${at.y})`} aria-hidden="true">
+      <circle r={BADGE_R} fill={toneVar(tone)} stroke="var(--surface)" strokeWidth={1.5} />
+      <path d={WAVE_PATH} fill="none" stroke="var(--tsu-ink)" strokeWidth={1.3} strokeLinecap="round" />
     </g>
   );
 }
@@ -323,12 +339,13 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     ctx.clearRect(0, 0, size.w, size.h);
     const cs = getComputedStyle(wrap), v = (n: string) => cs.getPropertyValue(n).trim();
     const fills = [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)), inks = [0, 1, 2, 3, 4, 5].map(i => v(`--mag-ink-${i}`));
-    const edge = v('--surface'), font = getComputedStyle(document.body).fontFamily;
+    const edge = v('--surface'), font = getComputedStyle(document.body).fontFamily, tsuInk = v('--tsu-ink');
     for (const { q, x, y } of marks) {
       if (q.id === selectedId || q.id === focusedId) continue; // drawn above, in SVG
       const i = magIndex(q.mag);
       ctx.globalAlpha = overlay ? 0.3 : 1;
-      stampSprite(ctx, markerSprite({ style: markerStyle, mag: q.mag, fill: fills[i], ink: inks[i], edge, font }), x, y);
+      const tone = tsunamiTone(q.tsunamiAlert);
+      stampSprite(ctx, markerSprite({ style: markerStyle, mag: q.mag, fill: fills[i], ink: inks[i], edge, font, badge: tone ? { fill: v(`--tsu-${tone}`), ink: tsuInk } : null }), x, y);
     }
     ctx.globalAlpha = 1;
   }, [marks, markerStyle, dark, overlay, selectedId, focusedId, size.w, size.h]);

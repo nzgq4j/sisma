@@ -86,7 +86,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>分享</Ui>会打开分享卡片（请参阅<Link href="/help/share">分享</Link>）。</li>
             <li>如果有人报告感觉到了这次地震，你会看到人数。</li>
           </ul>
-          <Callout kind="note"><p>当机构标记可能有海啸活动时，会出现<strong>已发布海啸警报</strong>横幅。请遵循你所在地区的官方海啸警报。</p></Callout>
+          <Callout kind="note"><p><strong>海啸：</strong>当海啸预警中心（PTWC、NTWC 或日本气象厅 JMA）为某次地震发布官方信息时，会按发布内容显示其级别，例如<strong>海啸警报</strong>或<strong>海啸注意报</strong>，并显示发布中心、时间、涉及的海岸以及<Ui>阅读官方信息</Ui>。警报、威胁、监视和注意报以颜色显示，并在地震的标记上加波浪标记、在列表行中显示彩色波浪图标；信息声明和预报保持灰色。标有<em>已取消</em>或<em>已解除</em>的信息已被撤回或已过期。没有官方信息时，海底的大地震会显示<em>海底发生强烈地震：请查看官方海啸信息</em>。sisma 只是转发这些信息，并非预警服务：请始终听从当地有关部门的指示。</p></Callout>
         </div>
         <Shot src="detail" alt="地震详情：震级、深度、日期、时间、距离、国家/地区、坐标、审核状态、来源、显示区域和分享" caption="一次地震的详情" />
       </div>
@@ -304,6 +304,7 @@ export const TOPICS: Topic[] = [
               <thead><tr><th>功能</th><th>免费版</th><th>sisma+</th></tr></thead>
               <tbody>
                 <tr><td>实时列表、地图、地球、科普</td><td>✓</td><td>✓</td></tr>
+                <tr><td>官方海啸通知</td><td>✓</td><td>✓</td></tr>
                 <tr><td>地震历史</td><td>30 天</td><td>完整历史</td></tr>
                 <tr><td>已保存的地点</td><td>1</td><td>最多 10 个</td></tr>
                 <tr><td>按你自己的规则推送提醒</td><td>–</td><td>最多 5 个提醒</td></tr>
@@ -379,6 +380,8 @@ export const TOPICS: Topic[] = [
         <li>图表会显示过去 30 天内有多少次地震会触发该提醒，方便你调整。</li>
       </ul>
       <p>过去 30 天内收到的提醒列在<em>提醒记录</em>中。</p>
+      <h3>海啸通知</h3>
+      <p>海啸通知对所有登录用户免费。在<Ui>我的</Ui>中打开<Ui>海啸通知</Ui>，然后点按<Ui>在此设备上开启通知</Ui>。当你保存地点 1000 公里范围内的地震发布官方海啸警报、威胁、监视或注意报时，你会收到通知。免打扰时段不适用，每个级别对每次地震只发送一次。</p>
       <Callout kind="note"><p><strong>iPhone 和 iPad：</strong>只有将 sisma 添加到主屏幕（分享 → 添加到主屏幕）并从主屏幕打开后，网页通知才能使用。 在 iPhone 或 iPad 的浏览器中首次打开 sisma 时，会弹出窗口显示这些步骤；点按<Ui>以后再说</Ui>会在两周后再次显示，点按<Ui>知道了</Ui>则不再显示。</p></Callout>
       </>
     ),

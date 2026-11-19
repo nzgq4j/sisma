@@ -2,11 +2,13 @@
 // The single-use ticket is checked against the database, so only the scheduled job can trigger a run.
 // Matches recent quakes to each sisma+ user's alert rules (lib/alerts/match.ts, up to 5 rules, first match wins) and
 // pushes each new match to the user's devices, recording the rule and place for the user's alert history.
+// Also stores new official tsunami messages and pushes warnings to people near the earthquake (lib/tsunami/push.ts).
 import { NextResponse, type NextRequest } from 'next/server';
 import { adminClient } from '@/lib/auth';
 import { recentQuakes } from '@/lib/quakes/find';
 import { autoPost } from '@/lib/bluesky';
 import { autoPromo } from '@/lib/promo';
+import { runTsunami } from '@/lib/tsunami/push';
 import { matchRules, type AlertRecipient, type AlertRule, type Delivered, type RuleRecipient } from '@/lib/alerts/match';
 import { alertMessage } from '@/lib/alerts/message';
 import { sendPush } from '@/lib/alerts/send';
@@ -34,10 +36,12 @@ export async function POST(req: NextRequest) {
   const quakes = await recentQuakes(1);
   // Automatic Bluesky posts (Me → Admin: earthquakes, then the daily Play Store post): run alongside the alerts below so they never delay or stop them.
   const blueskyRun = autoPost(db, quakes, now).then(async posts => ({ quakes: posts, promo: await autoPromo(db, now) }));
+  // Official tsunami messages (PTWC, NTWC, JMA): stored, and pushed to people near the earthquake (lib/tsunami/push.ts).
+  const tsunamiRun = runTsunami(db, quakes, now).catch(() => ({ error: 'tsunami' }));
 
   const recipients = await loadRecipients(db);
-  if (!recipients) return NextResponse.json({ error: 'recipients', bluesky: await blueskyRun }, { status: 500 });
-  if (!recipients.length) return NextResponse.json({ recipients: 0, sent: 0, bluesky: await blueskyRun });
+  if (!recipients) return NextResponse.json({ error: 'recipients', bluesky: await blueskyRun, tsunami: await tsunamiRun }, { status: 500 });
+  if (!recipients.length) return NextResponse.json({ recipients: 0, sent: 0, bluesky: await blueskyRun, tsunami: await tsunamiRun });
 
   const [past] = await Promise.all([
     db.from('alert_deliveries').select('user_id, quake_id, quake_time, lat, lon')
@@ -67,7 +71,7 @@ export async function POST(req: NextRequest) {
     }));
   }
   if (gone.size) await db.from('push_tokens').delete().in('id', [...gone]);
-  return NextResponse.json({ recipients: recipients.length, alerts: alerts.length, sent, removed: gone.size, bluesky: await blueskyRun });
+  return NextResponse.json({ recipients: recipients.length, alerts: alerts.length, sent, removed: gone.size, bluesky: await blueskyRun, tsunami: await tsunamiRun });
 }
 
 /** Users with alerts on and their rules (public.alert_rule_recipients). Until that migration is applied, falls back to

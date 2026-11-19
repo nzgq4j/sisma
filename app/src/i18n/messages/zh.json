@@ -482,7 +482,10 @@
     "remove_area": "移除{name}",
     "area_limit": "最多可选择 20 个。",
     "areas_none": "无",
-    "area_selected": "已选"
+    "area_selected": "已选",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · 距{place} {dist}。请听从当地有关部门的指示。",
+    "tsunami_body_nomag": "{region} · 距{place} {dist}。请听从当地有关部门的指示。"
   },
   "region_chip": "地区",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "即使在 M4.5 及以上，USGS 的列表也不是全球所有地震的完整记录，在台站较少的地区尤其如此。",
     "note_4": "能量是用标准公式根据震级估算的（log₁₀ E = 1.5 M + 4.8，单位为焦耳）。这是近似值，而非测量值。",
     "note_5": "某一天或某一周活动较多，本身并不意味着即将发生大地震。"
+  },
+  "tsu": {
+    "lv_major_warning": "大海啸警报",
+    "lv_warning": "海啸警报",
+    "lv_threat": "海啸威胁",
+    "lv_watch": "海啸监视",
+    "lv_advisory": "海啸注意报",
+    "lv_forecast": "海啸预报",
+    "lv_information": "海啸信息",
+    "lv_none": "无海啸风险",
+    "cancelled": "已取消",
+    "ended": "已解除",
+    "issued": "{center} · {time} 发布",
+    "official": "阅读官方信息",
+    "areas": "本信息涉及的海岸",
+    "more_areas": "另有 {n} 处",
+    "relay": "sisma 显示海啸预警中心发布的官方信息，并非预警服务。请听从当地有关部门的指示。",
+    "check": "海底发生强烈地震：请查看官方海啸信息",
+    "card": "海啸",
+    "legend": "波浪标记：官方海啸警报、威胁、监视或注意报",
+    "center_PTWC": "太平洋海啸预警中心（PTWC）",
+    "center_NTWC": "美国国家海啸预警中心（NTWC）",
+    "center_JMA": "日本气象厅",
+    "legend_short": "海啸警报",
+    "me_title": "海啸通知",
+    "me_hint": "登录用户免费：当保存的地点 1000 公里范围内的地震发布官方海啸警报、威胁、监视或注意报时通知你。",
+    "me_signin": "免费登录，即可接收你保存地点的官方海啸通知。",
+    "me_no_place": "请在下方添加保存的地点：海啸通知针对你保存地点 1000 公里范围内的地震。"
   }
 }

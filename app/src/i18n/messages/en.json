@@ -482,7 +482,10 @@
     "remove_area": "Remove {name}",
     "area_limit": "You can choose up to 20.",
     "areas_none": "None",
-    "area_selected": "Selected"
+    "area_selected": "Selected",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · {dist} from {place}. Follow local authorities.",
+    "tsunami_body_nomag": "{region} · {dist} from {place}. Follow local authorities."
   },
   "region_chip": "Region",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "Even at M4.5, the USGS list is not a complete record of every earthquake worldwide, especially where there are few stations.",
     "note_4": "Energy is estimated from magnitude with a standard formula (log₁₀ E = 1.5 M + 4.8, in joules). It is an approximation, not a measurement.",
     "note_5": "A busy day or week does not, by itself, mean a large earthquake is coming."
+  },
+  "tsu": {
+    "lv_major_warning": "Major tsunami warning",
+    "lv_warning": "Tsunami warning",
+    "lv_threat": "Tsunami threat",
+    "lv_watch": "Tsunami watch",
+    "lv_advisory": "Tsunami advisory",
+    "lv_forecast": "Tsunami forecast",
+    "lv_information": "Tsunami information",
+    "lv_none": "No tsunami risk",
+    "cancelled": "Cancelled",
+    "ended": "No longer in effect",
+    "issued": "{center} · issued {time}",
+    "official": "Read the official message",
+    "areas": "Coasts in this message",
+    "more_areas": "+{n} more",
+    "relay": "sisma shows official messages from the tsunami warning centres and is not a warning service. Follow local authorities.",
+    "check": "Large earthquake under the sea: check official tsunami information",
+    "card": "Tsunami",
+    "legend": "Wave badge: official tsunami warning, threat, watch or advisory",
+    "center_PTWC": "Pacific Tsunami Warning Center",
+    "center_NTWC": "National Tsunami Warning Center",
+    "center_JMA": "Japan Meteorological Agency",
+    "legend_short": "Tsunami alert",
+    "me_title": "Tsunami alerts",
+    "me_hint": "Free for everyone signed in: a notification when an official tsunami warning, threat, watch or advisory is issued for an earthquake within 1,000 km of one of your saved places.",
+    "me_signin": "Sign in, free, to get official tsunami alerts for your saved places.",
+    "me_no_place": "Add a saved place below: tsunami alerts are for earthquakes within 1,000 km of your saved places."
   }
 }

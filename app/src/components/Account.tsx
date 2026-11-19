@@ -19,11 +19,13 @@ export interface Profile {
   billing_interval: Billing | null; subscription_status: string | null; trial_ends_at: string | null; current_period_end: string | null;
   cancel_at_period_end: boolean; stripe_customer_id: string | null; stripe_subscription_id: string | null;
   play_purchase_token: string | null; billing_source: 'stripe' | 'play' | null;
+  /** Tsunami alerts switch in Me (missing before the migration: treated as on). */
+  tsunami_push?: boolean;
 }
 interface AccountCtx {
   configured: boolean; ready: boolean; user: User | null; profile: Profile | null; plan: Plan;
   /** Updates the user's own preference columns (display_name, locale, theme are the only ones RLS allows). */
-  savePrefs: (p: Partial<Pick<Profile, 'display_name' | 'locale' | 'theme'>>) => Promise<boolean>;
+  savePrefs: (p: Partial<Pick<Profile, 'display_name' | 'locale' | 'theme' | 'tsunami_push'>>) => Promise<boolean>;
   accessToken: () => Promise<string | null>;
   /** Reads the profile again (after a purchase: the plan is written by the server). */
   refreshProfile: () => Promise<Profile | null>;
@@ -35,7 +37,7 @@ interface AccountCtx {
   openPassword: () => void;
 }
 const Ctx = createContext<AccountCtx | null>(null);
-const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end, cancel_at_period_end, stripe_customer_id, stripe_subscription_id, play_purchase_token, billing_source';
+const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end, cancel_at_period_end, stripe_customer_id, stripe_subscription_id, play_purchase_token, billing_source, tsunami_push';
 
 export function AccountProvider({ children }: { children: ReactNode }) {
   const sb = supabaseBrowser();

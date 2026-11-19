@@ -4,7 +4,10 @@ import { mergeQuakes } from '@/lib/quakes/merge';
 import { RANGE_DAYS, type RangeKey, type SortKey } from '@/lib/quakes/types';
 import { distanceKm } from '@/lib/geo';
 import { limits, type Plan } from '@/lib/entitlements';
-import { planForRequest } from '@/lib/auth';
+import { adminClient, planForRequest } from '@/lib/auth';
+import { loadIncidents } from '@/lib/tsunami/poll';
+import { alertFor } from '@/lib/tsunami/alerts';
+import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
 
 export const revalidate = 60;
 
@@ -17,13 +20,16 @@ export async function GET(req: NextRequest) {
   const days = RANGE_DAYS[range] ?? 7;
   if (days > L.historyDays) return NextResponse.json({ error: 'upgrade_required', entitlement: 'historyDays' }, { status: 402 });
 
-  const results = await Promise.allSettled([
+  const db = adminClient();
+  const [results, tsunamis] = await Promise.all([Promise.allSettled([
     SOURCES.usgs({ days, minMag: days > 30 ? 5 : 2.5 }),
     SOURCES.emsc({ days: Math.min(days, 30), minMag: 2.5 }),
     SOURCES.geonet({ days, minMag: 0 }),
     SOURCES.jma({ days, minMag: 0 }),
-  ]);
-  let list = mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])));
+  ]), db ? loadIncidents(db, Math.min(days, 400)).catch(() => []) : []]);
+  // Official tsunami messages (PTWC, NTWC, JMA) matched to their earthquakes (lib/tsunami/).
+  let list = mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])))
+    .map(x => { const a = tsunamis.length ? alertFor(x, tsunamis) : undefined; return a ? { ...x, tsunamiAlert: a } : x; });
   const since = Date.now() - days * 864e5;
   list = list.filter(x => x.time >= since);
 
@@ -33,7 +39,7 @@ export async function GET(req: NextRequest) {
     const minMag = Number(q.get('minMag') ?? 0), maxDepth = Number(q.get('maxDepth') ?? 1000);
     list = list.filter(x => x.mag >= minMag && x.depthKm <= maxDepth);
     if (q.get('felt') === '1') list = list.filter(x => (x.felt ?? 0) > 0);
-    if (q.get('tsunami') === '1') list = list.filter(x => x.tsunami);
+    if (q.get('tsunami') === '1') list = list.filter(x => x.tsunami || (x.tsunamiAlert != null && TSUNAMI_HAZARD.has(x.tsunamiAlert.level)));
   }
   const lat = Number(q.get('lat')), lon = Number(q.get('lon'));
   const withDist = list.map(x => ({ ...x, distanceKm: Number.isFinite(lat) && Number.isFinite(lon) ? distanceKm(lat, lon, x.lat, x.lon) : null }));

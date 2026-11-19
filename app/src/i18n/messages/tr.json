@@ -482,7 +482,10 @@
     "remove_area": "{name} kaldır",
     "area_limit": "En fazla 20 seçebilirsiniz.",
     "areas_none": "Yok",
-    "area_selected": "Seçilenler"
+    "area_selected": "Seçilenler",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · {place} konumuna {dist}. Yerel yetkililerin talimatlarına uyun.",
+    "tsunami_body_nomag": "{region} · {place} konumuna {dist}. Yerel yetkililerin talimatlarına uyun."
   },
   "region_chip": "Bölge",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "M4.5 ve üzerinde bile USGS listesi dünyadaki tüm depremlerin eksiksiz bir kaydı değildir, özellikle istasyonun az olduğu yerlerde.",
     "note_4": "Enerji, büyüklükten standart bir formülle tahmin edilir (log₁₀ E = 1,5 M + 4,8, joule cinsinden). Bu bir ölçüm değil, yaklaşık bir değerdir.",
     "note_5": "Hareketli bir gün ya da hafta, tek başına büyük bir depremin yaklaştığı anlamına gelmez."
+  },
+  "tsu": {
+    "lv_major_warning": "Büyük tsunami uyarısı",
+    "lv_warning": "Tsunami uyarısı",
+    "lv_threat": "Tsunami tehdidi",
+    "lv_watch": "Tsunami izlemesi",
+    "lv_advisory": "Tsunami bildirimi",
+    "lv_forecast": "Tsunami tahmini",
+    "lv_information": "Tsunami bilgisi",
+    "lv_none": "Tsunami riski yok",
+    "cancelled": "İptal edildi",
+    "ended": "Artık geçerli değil",
+    "issued": "{center} · {time} yayımlandı",
+    "official": "Resmî mesajı oku",
+    "areas": "Bu mesajdaki kıyılar",
+    "more_areas": "+{n} tane daha",
+    "relay": "sisma, tsunami uyarı merkezlerinin resmî mesajlarını gösterir ve bir uyarı hizmeti değildir. Yerel yetkililerin talimatlarına uyun.",
+    "check": "Deniz altında büyük deprem: resmî tsunami bilgilerini kontrol edin",
+    "card": "Tsunami",
+    "legend": "Dalga rozeti: resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi",
+    "center_PTWC": "Pacific Tsunami Warning Center",
+    "center_NTWC": "National Tsunami Warning Center",
+    "center_JMA": "Japonya Meteoroloji Ajansı",
+    "legend_short": "Tsunami uyarısı",
+    "me_title": "Tsunami bildirimleri",
+    "me_hint": "Oturum açan herkes için ücretsiz: kayıtlı yerlerinizden birine 1.000 km mesafedeki bir deprem için resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi yayımlandığında bildirim alırsınız.",
+    "me_signin": "Kayıtlı yerleriniz için resmî tsunami bildirimleri almak üzere ücretsiz oturum açın.",
+    "me_no_place": "Aşağıya kayıtlı bir yer ekleyin: tsunami bildirimleri, kayıtlı yerlerinize 1.000 km mesafedeki depremler içindir."
   }
 }

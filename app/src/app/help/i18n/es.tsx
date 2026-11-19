@@ -86,7 +86,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Compartir</Ui> abre la tarjeta para compartir (consulta <Link href="/help/share">Compartir</Link>).</li>
             <li>Si hay personas que reportaron haberlo sentido, verás cuántas.</li>
           </ul>
-          <Callout kind="note"><p>Aparece un aviso de <strong>Alerta de tsunami emitida</strong> cuando la agencia señala una posible actividad de tsunami. Sigue las alertas oficiales de tsunami de tu zona.</p></Callout>
+          <Callout kind="note"><p><strong>Tsunami:</strong> cuando un centro de alerta de tsunamis (PTWC, NTWC o la JMA de Japón) emite un mensaje oficial por un sismo, su nivel se muestra tal como se emitió, por ejemplo <strong>Aviso de tsunami</strong> o <strong>Advertencia de tsunami</strong>, con el centro, la hora, las costas que nombra y <Ui>Leer el mensaje oficial</Ui>. Los avisos, amenazas, vigilancias y advertencias tienen color y añaden una insignia de ola al marcador del sismo y un icono de ola de color a su fila; las declaraciones informativas y los pronósticos quedan en gris. Un mensaje marcado como <em>Cancelado</em> o <em>Ya no está vigente</em> se retiró o caducó. Sin mensaje oficial, un gran sismo bajo el mar muestra <em>Gran sismo bajo el mar: consulta la información oficial sobre tsunamis</em>. sisma retransmite estos mensajes y no es un servicio de alertas: sigue siempre a las autoridades locales.</p></Callout>
         </div>
         <Shot src="detail" alt="Detalles del sismo: magnitud, profundidad, fecha, hora, distancia, país, coordenadas, estado de revisión, fuente, Mostrar región y Compartir" caption="Los detalles de un sismo" />
       </div>
@@ -304,6 +304,7 @@ export const TOPICS: Topic[] = [
               <thead><tr><th>Función</th><th>Gratis</th><th>sisma+</th></tr></thead>
               <tbody>
                 <tr><td>Lista, mapa, globo y ciencia en directo</td><td>✓</td><td>✓</td></tr>
+                <tr><td>Alertas oficiales de tsunami</td><td>✓</td><td>✓</td></tr>
                 <tr><td>Historial de sismos</td><td>30 días</td><td>Historial completo</td></tr>
                 <tr><td>Ubicaciones guardadas</td><td>1</td><td>Hasta 10</td></tr>
                 <tr><td>Alertas push con tus propias reglas</td><td>–</td><td>Hasta 5 alertas</td></tr>
@@ -379,6 +380,8 @@ export const TOPICS: Topic[] = [
         <li>Un gráfico muestra cuántos sismos de los últimos 30 días habrían activado la alerta, para que puedas ajustarla.</li>
       </ul>
       <p>Las alertas que recibiste en los últimos 30 días aparecen en <em>Historial de alertas</em>.</p>
+      <h3>Alertas de tsunami</h3>
+      <p>Las alertas de tsunami son gratis para todas las personas con sesión iniciada. En <Ui>Perfil</Ui>, activa <Ui>Alertas de tsunami</Ui> y toca <Ui>Activar notificaciones en este dispositivo</Ui>. Recibirás una notificación cuando se emita un aviso, amenaza, vigilancia o advertencia oficial de tsunami por un sismo a menos de 1000 km de uno de tus lugares guardados. Las horas de silencio no se aplican y cada nivel se envía una sola vez por sismo.</p>
       <Callout kind="note"><p><strong>iPhone y iPad:</strong> las notificaciones web solo funcionan después de añadir sisma a la pantalla de inicio (Compartir → Añadir a pantalla de inicio) y abrirlo desde allí. La primera vez que abres sisma en el navegador de un iPhone o iPad, una ventana muestra estos pasos; toca <Ui>Ahora no</Ui> para volver a verla en dos semanas o <Ui>Entendido</Ui> para ocultarla.</p></Callout>
       </>
     ),
