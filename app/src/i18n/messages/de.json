@@ -445,6 +445,7 @@
     "hint": "Beim Teilen wird auch der Text kopiert, damit du ihn einfügen kannst, falls die App ihn weglässt. Füge die Bildbeschreibung in das Alt-Text-Feld der App ein.",
     "share_link": "Link teilen",
     "share_failed": "Das Teilen-Menü ließ sich nicht öffnen. Du kannst den Text kopieren und das Bild speichern.",
+    "tap_again": "Text kopiert. Tippe noch einmal auf Bild teilen, um die App zu wählen, und füge den Text dort ein.",
     "felt": "Gespürt",
     "alt_felt": "Wo es gespürt wurde, zeigen kleine Quadrate in Intensitätsfarben (MMI).",
     "alt_unknown": "Graue Quadrate: gespürt, Intensität unbekannt.",

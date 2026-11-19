@@ -445,6 +445,7 @@
     "hint": "Condividendo viene copiato anche il testo, così puoi incollarlo se l'app non lo inserisce. Incolla la descrizione dell'immagine nel campo del testo alternativo dell'app.",
     "share_link": "Condividi link",
     "share_failed": "Impossibile aprire il menu di condivisione. Puoi copiare il testo e salvare l'immagine.",
+    "tap_again": "Testo copiato. Tocca di nuovo Condividi immagine per scegliere l’app, poi incolla lì il testo.",
     "felt": "Avvertito",
     "alt_felt": "Dove è stato avvertito è indicato da piccoli quadrati nei colori dell’intensità (MMI).",
     "alt_unknown": "Quadrati grigi: avvertito, intensità sconosciuta.",
