@@ -1,4 +1,4 @@
-/* Science → Data (components/science/DataCharts.tsx). Single-series marks in --chart (mint, set apart from the violet interface; selected: --chart-strong), text in the ink tokens,
+/* Science → Data (components/science/DataCharts.tsx). Values in their own colours: time charts mint (--chart) with above-average bars coral (--chart-hot); magnitudes in the pin colours (--mag-N); depths in the globe's Depth mode colours; regions warm on the Ring of Fire, muted elsewhere (as in the Ring of Fire widget), text in the ink tokens,
    recessive grid; mobile first (360–412 px). */
 .page { padding: 4px 16px 24px; display: flex; flex-direction: column; gap: 12px; }
 .h1 { margin: 0; font-size: 30px; line-height: 1.1; font-weight: 800; letter-spacing: -.025em; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -23,18 +23,22 @@
 .readout b { color: var(--ink); font-size: 15px; }
 .svg { width: 100%; height: auto; display: block; touch-action: pan-y; overflow: visible; }
 .bar { fill: var(--chart); }
-.barMuted { fill: var(--chart); opacity: .35; }
-.barOn { fill: var(--chart-strong); }
+.hot { fill: var(--chart-hot); }
+.barMuted { opacity: .45; }
+.barOn { stroke: var(--ink); stroke-width: 1.5; paint-order: stroke; }
 .base { stroke: var(--line); stroke-width: 1; }
 .grid { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
 .avg { stroke: var(--ink2); stroke-width: 1.5; stroke-dasharray: 5 4; }
 .area { fill: var(--chart); opacity: .16; }
 .line { fill: none; stroke: var(--chart); stroke-width: 2; stroke-linejoin: round; }
 .cross { stroke: var(--ink2); stroke-width: 1; opacity: .5; }
-.dot { fill: var(--chart-strong); stroke: var(--surface); stroke-width: 2; }
+.lineHot { fill: none; stroke: var(--chart-hot); stroke-width: 3; stroke-linecap: round; }
+.dot { fill: var(--ink); stroke: var(--surface); stroke-width: 2; }
 .axis { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--ink2); }
-.legendLine { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--ink2); }
 .avgKey { width: 18px; border-top: 1.5px dashed var(--ink2); }
+.keys { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; font-weight: 600; color: var(--ink2); }
+.keys span { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
 .hbars { display: flex; flex-direction: column; gap: 8px; }
 .hrow { display: grid; grid-template-columns: minmax(90px, 38%) 1fr auto; align-items: center; gap: 8px; font-size: 13px; }
 .hlabel { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
