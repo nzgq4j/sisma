@@ -5,7 +5,7 @@
 // /app/map?focus=<quake id> ("Show region") zooms to ~7.5° across the shorter side of the view around that quake,
 // marks it as the event in focus (pulsing marker, summary card below) and draws its felt reports. Tapping a nearby
 // event there opens a callout on the map; tapping the callout makes that event the focus. The Layers button beside
-// "Back to world map" shows or hides each felt layer and the plate boundaries (remembered on the device).
+// "Back to world map" shows or hides the felt maps (all felt layers at once) and the plate boundaries (kept on the device).
 // The My location button (under the zoom buttons) zooms to the device position; the location chosen in Me stays as it is.
 import { Suspense, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -34,9 +34,7 @@ import { HEAT_COLORS, MMI_COLORS, ROMAN } from '@/lib/theme';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
 
-type FeltLayer = 'reports' | 'auto' | 'dyfi' | 'emsc';
-const LAYERS_KEY = 'sisma.feltLayers';
-const ALL_SHOWN: Record<FeltLayer, boolean> = { reports: true, auto: true, dyfi: true, emsc: true };
+const FELT_KEY = 'sisma.feltMaps';
 
 /** Region view: degrees of longitude across the shorter side of the map (~800 km at the equator). */
 const REGION_SPAN = 7.5;
@@ -54,22 +52,18 @@ function MapView() {
   const device = locations.find(l => l.fromDevice) ?? null;
   const { mapList: list, all, loaded, worldReg } = useQuakeData();
   const [plates, setPlates] = useState(false);
-  // Felt layers shown in the region view (Layers sheet); remembered on this device.
-  const [shown, setShownState] = useState<Record<FeltLayer, boolean>>(ALL_SHOWN);
+  // Felt maps (all felt layers together) shown in the region view: one switch in the Layers sheet, kept on this device.
+  const [feltOn, setFeltOnState] = useState(true);
   const [layersOpen, setLayersOpen] = useState(false);
   useEffect(() => {
-    let saved: unknown = null;
-    try { saved = JSON.parse(localStorage.getItem(LAYERS_KEY) ?? 'null'); } catch { /* storage unavailable */ }
-    if (!saved || typeof saved !== 'object') return;
-    const keep = { ...ALL_SHOWN };
-    for (const k of Object.keys(ALL_SHOWN) as FeltLayer[]) { const v = (saved as Record<string, unknown>)[k]; if (typeof v === 'boolean') keep[k] = v; }
-    void Promise.resolve().then(() => setShownState(keep));
+    let saved: string | null = null;
+    try { saved = localStorage.getItem(FELT_KEY); } catch { /* storage unavailable */ }
+    if (saved === '0') void Promise.resolve().then(() => setFeltOnState(false));
   }, []);
-  const setShown = (l: FeltLayer, on: boolean) => setShownState(v => {
-    const next = { ...v, [l]: on };
-    try { localStorage.setItem(LAYERS_KEY, JSON.stringify(next)); } catch { /* storage unavailable */ }
-    return next;
-  });
+  const setFeltOn = (on: boolean) => {
+    setFeltOnState(on);
+    try { localStorage.setItem(FELT_KEY, on ? '1' : '0'); } catch { /* storage unavailable */ }
+  };
   const [picked, setPicked] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
   const focusQuake = focusId ? all.find(q => hasId(q, focusId)) ?? null : null;
@@ -148,10 +142,10 @@ function MapView() {
     const items: { key: 'reports' | 'dyfi' | 'emsc' | 'auto'; label: string; on: boolean }[] = [];
     const maxes: number[] = [];
     let total = 0;
-    if (!felt.loading && felt.total > 0) { items.push({ key: 'reports', label: `sisma ${nf.format(felt.total)}`, on: shown.reports }); total += felt.total; if (felt.range) maxes.push(felt.range.max); }
-    if (dyfi.data && dyfi.data.cells.length > 0) { items.push({ key: 'dyfi', label: `USGS ${nf.format(dyfi.data.responses)}`, on: shown.dyfi }); total += dyfi.data.responses; if (dyfi.data.maxCdi != null) maxes.push(dyfi.data.maxCdi); }
-    if (emsc.data && emsc.data.cells.length > 0) { items.push({ key: 'emsc', label: `EMSC ${nf.format(emsc.data.reports)}`, on: shown.emsc }); total += emsc.data.reports; if (emsc.data.maxMmi != null) maxes.push(emsc.data.maxMmi); }
-    if (!auto.loading && auto.map && auto.map.cells.length > 0) items.push({ key: 'auto', label: t('legend_auto'), on: shown.auto });
+    if (!felt.loading && felt.total > 0) { items.push({ key: 'reports', label: `sisma ${nf.format(felt.total)}`, on: feltOn }); total += felt.total; if (felt.range) maxes.push(felt.range.max); }
+    if (dyfi.data && dyfi.data.cells.length > 0) { items.push({ key: 'dyfi', label: `USGS ${nf.format(dyfi.data.responses)}`, on: feltOn }); total += dyfi.data.responses; if (dyfi.data.maxCdi != null) maxes.push(dyfi.data.maxCdi); }
+    if (emsc.data && emsc.data.cells.length > 0) { items.push({ key: 'emsc', label: `EMSC ${nf.format(emsc.data.reports)}`, on: feltOn }); total += emsc.data.reports; if (emsc.data.maxMmi != null) maxes.push(emsc.data.maxMmi); }
+    if (!auto.loading && auto.map && auto.map.cells.length > 0) items.push({ key: 'auto', label: t('legend_auto'), on: feltOn });
     const top = maxes.length ? ROMAN[Math.min(10, Math.max(1, Math.round(Math.max(...maxes)))) - 1] : null;
     const summary = total > 0
       ? `${total === 1 ? t('felt_total_1') : t('felt_total_n', { n: nf.format(total) })}${top ? ` · ${t('dyfi_max', { mmi: top })}` : ''}`
@@ -168,7 +162,7 @@ function MapView() {
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
         focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, span: REGION_SPAN, y: 0.42 }
           : regionView ? { key: `wr:${worldReg}`, ...regionView, y: 0.42 } : null}
-        cells={focusQuake && shown.reports ? felt.cells : []} heat={focusQuake && shown.auto && auto.map ? auto.map.cells : []} dyfi={focusQuake && shown.dyfi && dyfi.data ? dyfi.data.cells : []} emsc={focusQuake && shown.emsc && emsc.data ? emsc.data.cells : []} onReset={focusId ? exitRegion : undefined}
+        cells={focusQuake && feltOn ? felt.cells : []} heat={focusQuake && feltOn && auto.map ? auto.map.cells : []} dyfi={focusQuake && feltOn && dyfi.data ? dyfi.data.cells : []} emsc={focusQuake && feltOn && emsc.data ? emsc.data.cells : []} onReset={focusId ? exitRegion : undefined}
         onLocate={locate.go} here={device} />
       <LocateNote note={locate.note} onClose={locate.dismiss} />
       {focusId && (
@@ -204,10 +198,7 @@ function MapView() {
       <FeltMapInfoSheet open={howOpen} onClose={() => setHowOpen(false)} />
       <Sheet open={layersOpen} onClose={() => setLayersOpen(false)} title={t('region_layers')}>
         <div className={styles.layerList}>
-          <LayerToggle on={shown.reports} onChange={v => setShown('reports', v)} icon="vibration" label={t('layer_reports')} />
-          <LayerToggle on={shown.dyfi} onChange={v => setShown('dyfi', v)} icon="grid_view" label={t('layer_dyfi')} />
-          <LayerToggle on={shown.emsc} onChange={v => setShown('emsc', v)} icon="scatter_plot" label={t('layer_emsc')} />
-          <LayerToggle on={shown.auto} onChange={v => setShown('auto', v)} icon="sensors" label={t('layer_auto')} />
+          <LayerToggle on={feltOn} onChange={setFeltOn} icon="vibration" label={t('layer_felt')} />
           <LayerToggle on={plates} onChange={setPlates} icon="texture" label={t('plates')} />
         </div>
         <button type="button" className={styles.layerInfo} onClick={() => { setLayersOpen(false); setHowOpen(true); }}>
