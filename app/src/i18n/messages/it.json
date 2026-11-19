@@ -39,7 +39,6 @@
   "layers_open": "Mostra o nascondi i livelli della mappa",
   "layer_felt": "Mappe del risentimento",
   "layers_hint": "Le mappe del risentimento compaiono solo se ci sono segnalazioni per questo terremoto. La tua scelta resta su questo dispositivo.",
-  "layers_credit": "Le segnalazioni provengono dagli utenti di sisma, da «Did You Feel It?» dell’USGS e dall’EMSC (CC BY 4.0).",
   "report": "Segnala cosa hai sentito",
   "report_title": "Cosa hai sentito?",
   "report_sub": "La tua segnalazione aiuta a mappare lo scuotimento locale.",
@@ -450,8 +449,7 @@
     "alt_felt": "Dove è stato avvertito è indicato da piccoli quadrati nei colori dell’intensità (MMI).",
     "alt_unknown": "Quadrati grigi: avvertito, intensità sconosciuta.",
     "alt_unknown_only": "Dove è stato avvertito è indicato da quadrati grigi (intensità sconosciuta).",
-    "felt_unknown": "intensità sconosciuta",
-    "felt_credit": "Segnalazioni: {sources}"
+    "felt_unknown": "intensità sconosciuta"
   },
   "felt_by_1": "1 persona l’ha avvertito",
   "notif": {

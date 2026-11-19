@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { shareMapSvg } from './share-map';
-import { feltSources, NO_FELT, shareGrid, type ShareFelt } from './share-felt';
+import { NO_FELT, shareGrid, type ShareFelt } from './share-felt';
 import { feltAltEn, feltMarks, isFeltMark } from './felt-layers';
 import { FELT_NEUTRAL, MMI_COLORS } from './theme';
 import type { Quake } from './quakes/types';
@@ -16,15 +16,13 @@ const felt: ShareFelt = {
 const svg = (f: ShareFelt | null) => shareMapSvg({ q, nearby: [], w: 968, h: 600, span: 7.5, units: 'km', colors, felt: f });
 
 describe('share card felt cells', () => {
-  it('merges the sources into one grid and names what it shows and where it comes from', () => {
+  it('merges the sources into one grid and names what it shows', () => {
     const g = shareGrid(felt);
     expect(g.find(c => c.lat === -14.7 && c.lon === -75.9)).toEqual({ lat: -14.7, lon: -75.9, n: 2, mmi: 4 });
     expect(g.find(c => c.lat === -14.6 && c.lon === -76)).toEqual({ lat: -14.6, lon: -76, n: 0, mmi: null }); // felt map only
     expect(feltMarks(g)).toEqual(['intensity', 'unknown']);
     expect(feltMarks(shareGrid({ ...NO_FELT, heat: felt.heat }))).toEqual(['unknown']);
     expect(feltMarks(shareGrid(NO_FELT))).toEqual([]);
-    expect(feltSources(felt)).toEqual(['sisma', 'USGS', 'EMSC (CC BY 4.0)']);
-    expect(feltSources({ ...NO_FELT, dyfi: felt.dyfi })).toEqual(['USGS']);
   });
 
   it('draws every cell in one style, intensity-coloured or neutral, under the event and without cells far off the map', () => {

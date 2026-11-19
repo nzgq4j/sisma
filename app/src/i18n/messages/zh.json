@@ -39,7 +39,6 @@
   "layers_open": "显示或隐藏地图图层",
   "layer_felt": "震感地图",
   "layers_hint": "只有这次地震有报告时才会显示震感地图。你的选择会保存在此设备上。",
-  "layers_credit": "有感报告来自 sisma 用户、USGS“Did You Feel It?”和 EMSC（CC BY 4.0）。",
   "report": "报告你的震感",
   "report_title": "你感觉到了什么？",
   "report_sub": "你的报告有助于绘制本地震感地图。",
@@ -450,8 +449,7 @@
     "alt_felt": "有感地点以烈度（MMI）颜色的小方块显示。",
     "alt_unknown": "灰色方块：有感，烈度未知。",
     "alt_unknown_only": "有感地点以灰色方块显示（烈度未知）。",
-    "felt_unknown": "烈度未知",
-    "felt_credit": "有感报告：{sources}"
+    "felt_unknown": "烈度未知"
   },
   "felt_by_1": "1 人报告有震感",
   "notif": {

@@ -39,7 +39,6 @@
   "layers_open": "Afficher ou masquer les couches",
   "layer_felt": "Cartes des secousses",
   "layers_hint": "Les cartes des secousses n’apparaissent que s’il y a des témoignages pour ce séisme. Votre choix est gardé sur cet appareil.",
-  "layers_credit": "Les témoignages proviennent des utilisateurs de sisma, de « Did You Feel It? » de l’USGS et de l’EMSC (CC BY 4.0).",
   "report": "Signaler ce que vous avez ressenti",
   "report_title": "Qu’avez-vous ressenti ?",
   "report_sub": "Votre signalement aide à cartographier les secousses locales.",
@@ -450,8 +449,7 @@
     "alt_felt": "Les lieux où il a été ressenti apparaissent sous forme de petits carrés aux couleurs d’intensité (MMI).",
     "alt_unknown": "Carrés gris : ressenti, intensité inconnue.",
     "alt_unknown_only": "Les lieux où il a été ressenti apparaissent sous forme de carrés gris (intensité inconnue).",
-    "felt_unknown": "intensité inconnue",
-    "felt_credit": "Témoignages : {sources}"
+    "felt_unknown": "intensité inconnue"
   },
   "felt_by_1": "1 personne l’a ressenti",
   "notif": {

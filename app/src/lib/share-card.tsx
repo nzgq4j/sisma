@@ -6,7 +6,7 @@
 import { ImageResponse } from 'next/og';
 import type { Quake } from '@/lib/quakes/types';
 import { shareMapScale, shareMapSvg } from '@/lib/share-map';
-import { feltSources, loadShareFelt, shareGrid, type ShareFelt } from '@/lib/share-felt';
+import { loadShareFelt, shareGrid, type ShareFelt } from '@/lib/share-felt';
 import { feltMarks } from '@/lib/felt-layers';
 import { FELT_NEUTRAL, MAG_INK_LIGHT, MAG_MARKER_LIGHT, MMI_COLORS, THEME, magIndex } from '@/lib/theme';
 import { countryAt } from '@/lib/country';
@@ -73,8 +73,7 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
     json<GeoJSON.MultiLineString>(`${origin}/data/plate-boundaries.json`), json<GeoJSON.GeoJsonObject>(`${origin}/data/lakes.json`),
     given ?? loadShareFelt(q),
   ]);
-  const marks = feltMarks(shareGrid(felt)), sources = feltSources(felt);
-  const credit = sources.length ? m.sharecard.felt_credit.replace('{sources}', sources.join(' · ')) : '';
+  const marks = feltMarks(shareGrid(felt));
   const since = Date.now() - 7 * 864e5;
   const nearby = all.filter(x => x.time >= since && Math.abs(x.lat - q.lat) < SPAN && Math.abs(((x.lon - q.lon + 540) % 360) - 180) < SPAN);
   const map = shareMapSvg({
@@ -107,7 +106,7 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
   const stats: [string, string][] = [[m.depth, depth], [m.coords, formatDms(q.lat, q.lon)], [m.review_status, status], [m.source, source]];
 
   // Every string on the card, so CJK fonts can be fetched as a small subset.
-  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_unknown, credit, 'IVX', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
+  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_unknown, 'IVX', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
   const cjk = locale === 'ja' ? 'Noto Sans JP' : locale === 'zh' ? 'Noto Sans SC' : null;
   const [f500, f700, f800, c500, c700] = await Promise.all([
     googleFont('Figtree', 500), googleFont('Figtree', 700), googleFont('Figtree', 800),
@@ -157,7 +156,6 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
                   </div>
                 )}
               </div>
-              {credit && <div style={{ display: 'flex', fontSize: 15, fontWeight: 500 }}>{credit}</div>}
             </div>
           )}
           {nearby.length > 1 && (

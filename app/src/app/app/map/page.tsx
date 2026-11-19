@@ -205,7 +205,6 @@ function MapView() {
           <span className="ms" aria-hidden="true">info</span>{m.feltmap.title}
         </button>
         <p className={styles.layerHint}>{t('layers_hint')}</p>
-        <p className={styles.layerHint}>{t('layers_credit')}</p>
       </Sheet>
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}
       {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={clear} onShowRegion={() => showRegion(sel.id)} /> : (

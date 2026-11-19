@@ -39,7 +39,6 @@
   "layers_open": "Mostrar ou ocultar camadas do mapa",
   "layer_felt": "Mapas de tremores",
   "layers_hint": "Os mapas de tremores só aparecem quando há relatos deste terremoto. Sua escolha fica salva neste dispositivo.",
-  "layers_credit": "Os relatos vêm de usuários do sisma, do “Did You Feel It?” do USGS e do EMSC (CC BY 4.0).",
   "report": "Relate o que sentiu",
   "report_title": "O que você sentiu?",
   "report_sub": "Seu relato ajuda a mapear o tremor local.",
@@ -450,8 +449,7 @@
     "alt_felt": "Onde foi sentido aparece como pequenos quadrados nas cores de intensidade (MMI).",
     "alt_unknown": "Quadrados cinza: sentido, intensidade desconhecida.",
     "alt_unknown_only": "Onde foi sentido aparece como quadrados cinza (intensidade desconhecida).",
-    "felt_unknown": "intensidade desconhecida",
-    "felt_credit": "Relatos: {sources}"
+    "felt_unknown": "intensidade desconhecida"
   },
   "felt_by_1": "1 pessoa relatou ter sentido",
   "notif": {

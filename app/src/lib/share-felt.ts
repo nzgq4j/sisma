@@ -16,11 +16,6 @@ export const NO_FELT: ShareFelt = { reports: [], heat: [], dyfi: [], emsc: [] };
 /** All sources merged into one grid of ~10 km cells, as drawn on the card (lib/felt-grid.ts). */
 export const shareGrid = (f: ShareFelt): FeltGridCell[] => feltGrid({ reports: f.reports, dyfi: f.dyfi, emsc: f.emsc, heat: f.heat });
 
-/** The sources with data, for the card's credit line (EMSC with its licence). */
-export function feltSources(f: ShareFelt): string[] {
-  return [...(f.reports.length || f.heat.length ? ['sisma'] : []), ...(f.dyfi.length ? ['USGS'] : []), ...(f.emsc.length ? ['EMSC (CC BY 4.0)'] : [])];
-}
-
 function within<T>(p: Promise<T>, ms: number, fallback: T): Promise<T> {
   return Promise.race([p.catch(() => fallback), new Promise<T>(res => setTimeout(() => res(fallback), ms))]);
 }

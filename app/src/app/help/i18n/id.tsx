@@ -188,7 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Ketuk <Ui>Bagikan</Ui> pada sebuah gempa untuk membuat kartu berbagi: gambar berisi peta dan detail utamanya.</p>
-          <p>Di tempat orang melaporkan merasakan gempa, peta pada kartu juga menunjukkannya seperti di tampilan wilayah: kotak kecil berwarna intensitas (abu-abu jika intensitas tidak diketahui), dengan skala intensitas dan sumber di kanan bawah. Deskripsi gambar yang disarankan juga menyebutkannya.</p>
+          <p>Di tempat orang melaporkan merasakan gempa, peta pada kartu juga menunjukkannya seperti di tampilan wilayah: kotak kecil berwarna intensitas (abu-abu jika intensitas tidak diketahui), dengan skala intensitas di kanan bawah. Deskripsi gambar yang disarankan juga menyebutkannya.</p>
           <ul>
             <li><strong>Teks postingan</strong> sudah diisikan untuk Anda (magnitudo, tempat, waktu, kedalaman, dan sebuah tagar, dengan tautan di akhir), dan Anda bisa mengeditnya.</li>
             <li><strong>Deskripsi gambar (teks alternatif)</strong> menjelaskan gambar bagi orang yang memakai pembaca layar. Teks ini sudah diisikan untuk Anda, dan Anda bisa mengeditnya.</li>
