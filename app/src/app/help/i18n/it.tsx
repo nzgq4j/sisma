@@ -194,7 +194,7 @@ export const TOPICS: Topic[] = [
             <li>La <strong>descrizione dell’immagine (testo alternativo)</strong> descrive l’immagine per chi usa un lettore di schermo. Viene compilata per te, e puoi modificarla.</li>
             <li><Ui>Condividi immagine</Ui> apre il menu di condivisione del telefono (nell’app Android e nei browser che lo supportano). Se un browser non può condividere immagini, o se l’immagine non è stata creata, <Ui>Condividi link</Ui> condivide invece il testo del post con il suo link. <Ui>Salva immagine</Ui> scarica l’immagine, e <Ui>Copia testo</Ui> e <Ui>Copia testo alternativo</Ui> copiano l’uno o l’altro campo.</li>
           </ul>
-          <Callout><p>X, Facebook e Bluesky spesso eliminano il testo che accompagna un’immagine condivisa, e nessuno di loro accetta il testo alternativo in questo modo. <strong>Condividi immagine copia anche il testo</strong>, così puoi incollarlo nel post. Usa <Ui>Copia testo alternativo</Ui> e incollalo nel campo per la descrizione dell’immagine dell’app.</p></Callout>
+          <Callout><p>X, Facebook e Bluesky spesso eliminano il testo che accompagna un’immagine condivisa, e nessuno di loro accetta il testo alternativo in questo modo. <strong>Condividi immagine copia anche il testo</strong>, così puoi incollarlo nel post. Usa <Ui>Copia testo alternativo</Ui> e incollalo nel campo per la descrizione dell’immagine dell’app. Su iPhone, se il menu di condivisione non si apre subito, tocca di nuovo <Ui>Condividi immagine</Ui>: il testo è già copiato.</p></Callout>
         </div>
         <Shot src="share" alt="Scheda di condivisione con l’anteprima dell’immagine, il testo del post modificabile e la descrizione dell’immagine" caption="La scheda di condivisione" />
       </div>

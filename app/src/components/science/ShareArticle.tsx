@@ -4,7 +4,7 @@
 // share cards, because some apps (WhatsApp on iPhone) show a link preview while writing but send the text without it.
 // Android app: the system share sheet (lib/native-share.ts); browsers: the Web Share API, with the picture where files
 // can be shared, else the text alone; with no Web Share API the text is copied.
-import { copyText, copyTextNow } from '@/lib/copy-text';
+import { copyText } from '@/lib/copy-text';
 import { useEffect, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { canShareNatively, shareFileNatively, shareTextNatively } from '@/lib/native-share';
@@ -35,8 +35,9 @@ export function ShareArticle({ id, title, intro, path = `/app/science/${id}`, im
     const url = `${location.origin}${path}`;
     const text = postWithLink(`${title}\n${firstSentence(intro)}`, url);
     const file = card?.id === id ? card.file : null; // the picture fetched for this article
-    // With a picture, many apps drop the text: copy it first, synchronously, so it can be pasted (lib/copy-text.ts).
-    if (file && copyTextNow(text)) { setCopied(true); setTimeout(() => setCopied(false), 2500); }
+    // With a picture, many apps drop the text: copy it first, and finish copying before the share menu opens
+    // (lib/copy-text.ts).
+    if (file && await copyText(text)) { setCopied(true); setTimeout(() => setCopied(false), 2500); }
     if (canShareNatively()) {
       if (file && await shareFileNatively(file, text, t('share')) !== 'failed') return;
       await shareTextNatively(text, t('share'));

@@ -194,7 +194,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Deskripsi gambar (teks alternatif)</strong> menjelaskan gambar bagi orang yang memakai pembaca layar. Teks ini sudah diisikan untuk Anda, dan Anda bisa mengeditnya.</li>
             <li><Ui>Bagikan gambar</Ui> membuka lembar berbagi ponsel Anda (di aplikasi Android dan di browser yang mendukungnya). Jika browser tidak bisa membagikan gambar, atau gambar tidak berhasil dibuat, <Ui>Bagikan tautan</Ui> membagikan teks postingan beserta tautannya. <Ui>Simpan gambar</Ui> mengunduh gambar, sedangkan <Ui>Salin teks</Ui> dan <Ui>Salin teks alternatif</Ui> menyalin masing-masing kolom.</li>
           </ul>
-          <Callout><p>X, Facebook, dan Bluesky sering membuang teks yang menyertai gambar yang dibagikan, dan tidak satu pun menerima teks alternatif dengan cara ini. <strong>Bagikan gambar juga menyalin teksnya</strong>, sehingga Anda bisa menempelkannya ke postingan. Gunakan <Ui>Salin teks alternatif</Ui> lalu tempelkan ke kolom deskripsi gambar di aplikasi tersebut.</p></Callout>
+          <Callout><p>X, Facebook, dan Bluesky sering membuang teks yang menyertai gambar yang dibagikan, dan tidak satu pun menerima teks alternatif dengan cara ini. <strong>Bagikan gambar juga menyalin teksnya</strong>, sehingga Anda bisa menempelkannya ke postingan. Gunakan <Ui>Salin teks alternatif</Ui> lalu tempelkan ke kolom deskripsi gambar di aplikasi tersebut. Di iPhone, jika menu berbagi tidak langsung terbuka, ketuk <Ui>Bagikan gambar</Ui> sekali lagi: teksnya sudah disalin.</p></Callout>
         </div>
         <Shot src="share" alt="Lembar berbagi dengan pratinjau kartu berbagi, teks postingan yang bisa diedit, dan deskripsi gambar" caption="Lembar berbagi" />
       </div>

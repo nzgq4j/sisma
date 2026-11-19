@@ -445,6 +445,7 @@
     "hint": "Sharing copies the text too, so you can paste it if the app leaves it out. Paste the image description into the app's alt text field.",
     "share_link": "Share link",
     "share_failed": "Couldn't open the share menu. You can copy the text and save the image instead.",
+    "tap_again": "Text copied. Tap Share image again to choose the app, then paste the text there.",
     "felt": "Felt",
     "alt_felt": "Where people felt it is shown as small squares in intensity colours (MMI).",
     "alt_unknown": "Grey squares: felt, intensity unknown.",

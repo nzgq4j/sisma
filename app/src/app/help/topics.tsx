@@ -207,7 +207,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Image description (alt text)</strong> describes the picture for people using screen readers. It is filled in for you, and you can edit it.</li>
             <li><Ui>Share image</Ui> opens your phone’s share sheet (in the Android app and in browsers that support it). Where a browser can’t share pictures, or the picture couldn’t be made, <Ui>Share link</Ui> shares the post text with its link instead. <Ui>Save image</Ui> downloads the picture, and <Ui>Copy text</Ui> and <Ui>Copy alt text</Ui> copy either field.</li>
           </ul>
-          <Callout><p>X, Facebook and Bluesky often drop the text that comes with a shared picture, and none of them take alt text this way. <strong>Share image also copies the text</strong>, so you can paste it into the post. Use <Ui>Copy alt text</Ui> and paste it into the app’s image description field.</p></Callout>
+          <Callout><p>X, Facebook and Bluesky often drop the text that comes with a shared picture, and none of them take alt text this way. <strong>Share image also copies the text</strong>, so you can paste it into the post. Use <Ui>Copy alt text</Ui> and paste it into the app’s image description field. On iPhone, if the share menu doesn’t open straight away, tap <Ui>Share image</Ui> again: the text is already copied.</p></Callout>
         </div>
         <Shot src="share" alt="Share sheet with the share card preview, editable post text and image description" caption="The share sheet" />
       </div>

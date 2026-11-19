@@ -445,6 +445,7 @@
     "hint": "Le partage copie aussi le texte, pour que vous puissiez le coller si l'app ne l'ajoute pas. Collez la description de l'image dans le champ de texte alternatif de l'app.",
     "share_link": "Partager le lien",
     "share_failed": "Impossible d'ouvrir le menu de partage. Vous pouvez copier le texte et enregistrer l'image.",
+    "tap_again": "Texte copié. Touchez de nouveau Partager l'image pour choisir l’app, puis collez-y le texte.",
     "felt": "Ressenti",
     "alt_felt": "Les lieux où il a été ressenti apparaissent sous forme de petits carrés aux couleurs d’intensité (MMI).",
     "alt_unknown": "Carrés gris : ressenti, intensité inconnue.",

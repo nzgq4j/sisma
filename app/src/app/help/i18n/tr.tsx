@@ -194,7 +194,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Görsel açıklaması (alternatif metin)</strong>, ekran okuyucu kullananlar için görseli tarif eder. Senin için doldurulur ve düzenleyebilirsin.</li>
             <li><Ui>Görseli paylaş</Ui>, telefonunun paylaşım menüsünü açar (Android uygulamasında ve bunu destekleyen tarayıcılarda). Tarayıcı görsel paylaşamıyorsa veya görsel oluşturulamadıysa <Ui>Bağlantıyı paylaş</Ui>, bunun yerine gönderi metnini bağlantısıyla paylaşır. <Ui>Görseli kaydet</Ui> görseli indirir; <Ui>Metni kopyala</Ui> ve <Ui>Alternatif metni kopyala</Ui> ilgili alanı kopyalar.</li>
           </ul>
-          <Callout><p>X, Facebook ve Bluesky paylaşılan bir görselle gelen metni çoğu zaman atar ve hiçbiri alternatif metni bu yolla almaz. <strong>Görseli paylaş metni de kopyalar</strong>, böylece gönderiye yapıştırabilirsin. <Ui>Alternatif metni kopyala</Ui> düğmesini kullan ve metni uygulamanın görsel açıklaması alanına yapıştır.</p></Callout>
+          <Callout><p>X, Facebook ve Bluesky paylaşılan bir görselle gelen metni çoğu zaman atar ve hiçbiri alternatif metni bu yolla almaz. <strong>Görseli paylaş metni de kopyalar</strong>, böylece gönderiye yapıştırabilirsin. <Ui>Alternatif metni kopyala</Ui> düğmesini kullan ve metni uygulamanın görsel açıklaması alanına yapıştır. iPhone’da paylaşım menüsü hemen açılmazsa <Ui>Görseli paylaş</Ui> düğmesine yeniden dokun: metin zaten kopyalandı.</p></Callout>
         </div>
         <Shot src="share" alt="Paylaşım kartı önizlemesi, düzenlenebilir gönderi metni ve görsel açıklamasıyla paylaşım penceresi" caption="Paylaşım penceresi" />
       </div>

@@ -4,7 +4,7 @@
 // where supported; otherwise Share link with the post), Save image, Copy text and Copy alt text. Many apps (X, Facebook, Bluesky) drop shared text when an
 // image comes with it, and none accept alt text this way, so sharing also copies the text for pasting.
 /* eslint-disable @next/next/no-img-element -- generated PNG preview */
-import { copyText, copyTextNow } from '@/lib/copy-text';
+import { copyText } from '@/lib/copy-text';
 import { isFeltMark, type FeltMark } from '@/lib/felt-layers';
 import { useEffect, useState } from 'react';
 import { Sheet } from './Sheet';
@@ -81,23 +81,25 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
       try { await navigator.share({ text: post.text }); } catch { /* cancelled */ }
     }
   };
+  // Share image / Share link: the text is copied first and the copy is finished before the share menu opens, because
+  // apps such as Bluesky drop the text that comes with an image, and on iPhone a copy still pending when the menu opens
+  // is lost (lib/copy-text.ts). If iOS then refuses to open the menu (the tap counts as "used" after the wait), the
+  // text is already copied and a second tap opens it.
+  const copyThenShare = async (data: ShareData, nativeShare: () => Promise<'shared' | 'cancelled' | 'failed'>) => {
+    setNote(null);
+    const copied = await copyText(post.text);
+    if (copied) setCopied('text');
+    if (native) { if (await nativeShare() === 'failed') setNote(m.sharecard.share_failed); return; }
+    try { await navigator.share(data); } catch (e) {
+      if ((e as Error)?.name === 'NotAllowedError' && copied) setNote(m.sharecard.tap_again);
+      else failed(e);
+    }
+  };
   const shareImage = async () => {
     if (state.s !== 'ready') return;
-    // Copy first, synchronously (lib/copy-text.ts): the receiving app may ignore the text that comes with the image,
-    // and iOS rejects a clipboard write still pending when the share menu opens. The full post goes in the share too.
-    if (copyTextNow(post.text)) setCopied('text');
-    else navigator.clipboard?.writeText(post.text).then(() => setCopied('text'), () => {});
-    // Nothing is awaited before navigator.share: Safari opens the share menu only straight from the tap.
-    setNote(null);
-    if (native) { if (await shareFileNatively(state.file, post.text, m.sharecard.title) === 'failed') setNote(m.sharecard.share_failed); return; }
-    try { await navigator.share({ files: [state.file], title: 'sisma', text: post.text }); } catch (e) { failed(e); }
+    await copyThenShare({ files: [state.file], title: 'sisma', text: post.text }, () => shareFileNatively(state.file, post.text, m.sharecard.title));
   };
-  const shareLink = async () => {
-    if (copyTextNow(post.text)) setCopied('text');
-    setNote(null);
-    if (native) { if (await shareTextNatively(post.text, m.sharecard.title) === 'failed') setNote(m.sharecard.share_failed); return; }
-    try { await navigator.share({ title: 'sisma', text: post.text }); } catch (e) { failed(e); }
-  };
+  const shareLink = () => copyThenShare({ title: 'sisma', text: post.text }, () => shareTextNatively(post.text, m.sharecard.title));
   const saveImage = () => {
     if (state.s !== 'ready') return;
     const a = document.createElement('a');

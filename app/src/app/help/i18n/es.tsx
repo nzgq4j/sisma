@@ -194,7 +194,7 @@ export const TOPICS: Topic[] = [
             <li>La <strong>descripción de la imagen (texto alternativo)</strong> describe la imagen para quienes usan lectores de pantalla. Se rellena por ti, y puedes editarla.</li>
             <li><Ui>Compartir imagen</Ui> abre el menú para compartir de tu teléfono (en la app de Android y en los navegadores que lo admiten). Si un navegador no puede compartir imágenes, o no se pudo crear la imagen, <Ui>Compartir enlace</Ui> comparte en su lugar el texto de la publicación con su enlace. <Ui>Guardar imagen</Ui> descarga la imagen, y <Ui>Copiar texto</Ui> y <Ui>Copiar texto alternativo</Ui> copian cada campo.</li>
           </ul>
-          <Callout><p>X, Facebook y Bluesky suelen descartar el texto que acompaña a una imagen compartida, y ninguno acepta texto alternativo de esta forma. <strong>Compartir imagen también copia el texto</strong>, para que puedas pegarlo en la publicación. Usa <Ui>Copiar texto alternativo</Ui> y pégalo en el campo de descripción de imagen de la app.</p></Callout>
+          <Callout><p>X, Facebook y Bluesky suelen descartar el texto que acompaña a una imagen compartida, y ninguno acepta texto alternativo de esta forma. <strong>Compartir imagen también copia el texto</strong>, para que puedas pegarlo en la publicación. Usa <Ui>Copiar texto alternativo</Ui> y pégalo en el campo de descripción de imagen de la app. En iPhone, si el menú para compartir no se abre enseguida, toca <Ui>Compartir imagen</Ui> otra vez: el texto ya está copiado.</p></Callout>
         </div>
         <Shot src="share" alt="Hoja para compartir con la vista previa de la tarjeta, el texto de la publicación editable y la descripción de la imagen" caption="La hoja para compartir" />
       </div>

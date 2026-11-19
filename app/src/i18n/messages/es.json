@@ -445,6 +445,7 @@
     "hint": "Al compartir también se copia el texto, para que puedas pegarlo si la app no lo incluye. Pega la descripción de la imagen en el campo de texto alternativo de la app.",
     "share_link": "Compartir enlace",
     "share_failed": "No se pudo abrir el menú para compartir. Puedes copiar el texto y guardar la imagen.",
+    "tap_again": "Texto copiado. Toca de nuevo Compartir imagen para elegir la app y pega allí el texto.",
     "felt": "Sentido",
     "alt_felt": "Dónde se sintió aparece como pequeños cuadrados en colores de intensidad (MMI).",
     "alt_unknown": "Cuadrados grises: sentido, intensidad desconocida.",

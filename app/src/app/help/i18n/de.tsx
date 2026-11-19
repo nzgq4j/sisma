@@ -194,7 +194,7 @@ export const TOPICS: Topic[] = [
             <li>Die <strong>Bildbeschreibung (Alt-Text)</strong> beschreibt das Bild für Menschen, die einen Screenreader nutzen. Sie ist schon ausgefüllt, und du kannst sie bearbeiten.</li>
             <li><Ui>Bild teilen</Ui> öffnet das Teilen-Menü deines Smartphones (in der Android-App und in Browsern, die das unterstützen). Wo ein Browser keine Bilder teilen kann oder das Bild nicht erstellt werden konnte, teilt <Ui>Link teilen</Ui> stattdessen den Beitragstext mit seinem Link. <Ui>Bild speichern</Ui> lädt das Bild herunter, und <Ui>Text kopieren</Ui> und <Ui>Alt-Text kopieren</Ui> kopieren das jeweilige Feld.</li>
           </ul>
-          <Callout><p>X, Facebook und Bluesky verwerfen oft den Text, der mit einem geteilten Bild kommt, und keine dieser Apps übernimmt auf diesem Weg den Alt-Text. <strong>„Bild teilen“ kopiert auch den Text</strong>, sodass du ihn in den Beitrag einfügen kannst. Nutze <Ui>Alt-Text kopieren</Ui> und füge ihn in das Feld für die Bildbeschreibung der App ein.</p></Callout>
+          <Callout><p>X, Facebook und Bluesky verwerfen oft den Text, der mit einem geteilten Bild kommt, und keine dieser Apps übernimmt auf diesem Weg den Alt-Text. <strong>„Bild teilen“ kopiert auch den Text</strong>, sodass du ihn in den Beitrag einfügen kannst. Nutze <Ui>Alt-Text kopieren</Ui> und füge ihn in das Feld für die Bildbeschreibung der App ein. Wenn sich auf dem iPhone das Teilen-Menü nicht sofort öffnet, tippe noch einmal auf <Ui>Bild teilen</Ui>: Der Text ist schon kopiert.</p></Callout>
         </div>
         <Shot src="share" alt="Teilen-Fenster mit Vorschau der Teilen-Karte, bearbeitbarem Beitragstext und Bildbeschreibung" caption="Das Teilen-Fenster" />
       </div>

@@ -445,6 +445,7 @@
     "hint": "Paylaşırken metin de kopyalanır; uygulama metni eklemezse yapıştırabilirsin. Görsel açıklamasını uygulamanın alternatif metin alanına yapıştır.",
     "share_link": "Bağlantıyı paylaş",
     "share_failed": "Paylaşım menüsü açılamadı. Metni kopyalayıp görseli kaydedebilirsin.",
+    "tap_again": "Metin kopyalandı. Uygulamayı seçmek için Görseli paylaş’a yeniden dokun, sonra metni oraya yapıştır.",
     "felt": "Hissedildi",
     "alt_felt": "Depremin hissedildiği yerler, şiddet renklerinde (MMI) küçük karelerle gösterilir.",
     "alt_unknown": "Gri kareler: hissedildi, şiddet bilinmiyor.",
