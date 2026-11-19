@@ -188,6 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Ketuk <Ui>Bagikan</Ui> pada sebuah gempa untuk membuat kartu berbagi: gambar berisi peta dan detail utamanya.</p>
+          <p>Di tempat orang melaporkan merasakan gempa, peta pada kartu juga menunjukkannya dengan warna intensitas, seperti di tampilan wilayah: area lembut untuk laporan sisma, pendaran untuk peta guncangan otomatis, kotak untuk “Did You Feel It?” USGS, dan titik untuk laporan EMSC, dengan legenda kecil di atas. Deskripsi gambar yang disarankan lalu menyebutkan lapisan tersebut.</p>
           <ul>
             <li><strong>Teks postingan</strong> sudah diisikan untuk Anda (magnitudo, tempat, waktu, kedalaman, dan sebuah tagar, dengan tautan di akhir), dan Anda bisa mengeditnya.</li>
             <li><strong>Deskripsi gambar (teks alternatif)</strong> menjelaskan gambar bagi orang yang memakai pembaca layar. Teks ini sudah diisikan untuk Anda, dan Anda bisa mengeditnya.</li>

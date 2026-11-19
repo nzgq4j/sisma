@@ -1,12 +1,13 @@
-// The 1080×1350 PNG share card for an event: regional map (lib/share-map.ts) with the event in focus and other recent
-// events, the main details, sisma branding and the "not an official warning service" line. Drawn for GET
+// The 1080×1350 PNG share card for an event: regional map (lib/share-map.ts) with the event in focus, other recent
+// events and the felt layers (lib/share-felt.ts) with a small legend, the main details, sisma branding and the "not an official warning service" line. Drawn for GET
 // /api/share-card (event looked up by id) and directly by the Bluesky auto-post (lib/bluesky.ts), which already has
 // the event and must not depend on finding it again in the feeds.
 /* eslint-disable @next/next/no-img-element -- Satori renders <img> */
 import { ImageResponse } from 'next/og';
 import type { Quake } from '@/lib/quakes/types';
 import { shareMapScale, shareMapSvg } from '@/lib/share-map';
-import { MAG_INK_LIGHT, MAG_MARKER_LIGHT, THEME, magIndex } from '@/lib/theme';
+import { feltLayers, loadShareFelt, type FeltLayer, type ShareFelt } from '@/lib/share-felt';
+import { HEAT_COLORS, MAG_INK_LIGHT, MAG_MARKER_LIGHT, MMI_COLORS, THEME, magIndex } from '@/lib/theme';
 import { countryAt } from '@/lib/country';
 import { formatDms } from '@/lib/geo';
 import { convertKmInText, KM_PER_MI, type Units } from '@/lib/units';
@@ -58,17 +59,24 @@ export interface ShareCardInput {
   tz: string;
   /** Site origin for the bundled map data and flags. */
   origin: string;
+  /** Felt layers, when already loaded; otherwise they are loaded here (lib/share-felt.ts). */
+  felt?: ShareFelt;
 }
 
-export async function shareCardResponse({ q, all, locale, units, tz, origin }: ShareCardInput): Promise<Response> {
-  const [m, plates, lakes] = await Promise.all([
+/** Response header listing the felt layers drawn on the card (comma-separated FeltLayer names), for the alt text. */
+export const FELT_HEADER = 'X-Felt-Layers';
+
+export async function shareCardResponse({ q, all, locale, units, tz, origin, felt: given }: ShareCardInput): Promise<Response> {
+  const [m, plates, lakes, felt] = await Promise.all([
     messages(locale),
     json<GeoJSON.MultiLineString>(`${origin}/data/plate-boundaries.json`), json<GeoJSON.GeoJsonObject>(`${origin}/data/lakes.json`),
+    given ?? loadShareFelt(q),
   ]);
+  const layers = feltLayers(felt);
   const since = Date.now() - 7 * 864e5;
   const nearby = all.filter(x => x.time >= since && Math.abs(x.lat - q.lat) < SPAN && Math.abs(((x.lon - q.lon + 540) % 360) - 180) < SPAN);
   const map = shareMapSvg({
-    q, nearby, w: MAP_W, h: MAP_H, span: SPAN, units, plates, lakes: lakes as never, font: 'Figtree', scaleText: false,
+    q, nearby, w: MAP_W, h: MAP_H, span: SPAN, units, plates, lakes: lakes as never, font: 'Figtree', scaleText: false, felt,
     colors: { sea: C.mapSea, land: C.mapLand, line: C.mapLine, plate: C.mapPlate, ink: C.ink, surface: C.surface },
   });
   // The scale label is drawn by the card (below), not inside the map image: text inside an embedded SVG is rendered
@@ -97,7 +105,7 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
   const stats: [string, string][] = [[m.depth, depth], [m.coords, formatDms(q.lat, q.lon)], [m.review_status, status], [m.source, source]];
 
   // Every string on the card, so CJK fonts can be fetched as a small subset.
-  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
+  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_auto, 'sisma USGS EMSC', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
   const cjk = locale === 'ja' ? 'Noto Sans JP' : locale === 'zh' ? 'Noto Sans SC' : null;
   const [f500, f700, f800, c500, c700] = await Promise.all([
     googleFont('Figtree', 500), googleFont('Figtree', 700), googleFont('Figtree', 800),
@@ -126,6 +134,17 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
         <div style={{ display: 'flex', position: 'relative', marginTop: 28, width: MAP_W, height: MAP_H, borderRadius: 40, overflow: 'hidden', border: `2px solid ${C.line}` }}>
           <img src={`data:image/svg+xml;base64,${Buffer.from(map).toString('base64')}`} width={MAP_W} height={MAP_H} alt="" />
           <div style={{ position: 'absolute', left: scale.bx, top: scale.by - 38, display: 'flex', fontSize: 22, fontWeight: 700, lineHeight: 1, color: C.ink }}>{nf.format(scale.len)} {units}</div>
+          {layers.length > 0 && (
+            <div style={{ position: 'absolute', bottom: 22, right: 22, display: 'flex', alignItems: 'center', gap: 14, padding: '10px 18px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 22, fontWeight: 700 }}>
+              <div style={{ display: 'flex' }}>{m.sharecard.felt}</div>
+              {layers.map(l => (
+                <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 7, color: C.ink }}>
+                  <FeltSwatch layer={l} />
+                  <div style={{ display: 'flex' }}>{LEGEND[l] ?? m.sharecard.felt_auto}</div>
+                </div>
+              ))}
+            </div>
+          )}
           {nearby.length > 1 && (
             <div style={{ position: 'absolute', top: 22, right: 22, display: 'flex', padding: '10px 20px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 22, fontWeight: 700 }}>{m.sharecard.nearby}</div>
           )}
@@ -161,6 +180,17 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin }: S
         </div>
       </div>
     ),
-    { width: W, height: H, fonts, headers: { 'Cache-Control': 'public, max-age=300, s-maxage=300' } },
+    { width: W, height: H, fonts, headers: { 'Cache-Control': 'public, max-age=300, s-maxage=300', [FELT_HEADER]: layers.join(','), 'Access-Control-Expose-Headers': FELT_HEADER } },
   );
+}
+
+const LEGEND: Partial<Record<FeltLayer, string>> = { reports: 'sisma', dyfi: 'USGS', emsc: 'EMSC' };
+
+/** A legend swatch drawn like the layer on the map (intensity V colour). */
+function FeltSwatch({ layer }: { layer: FeltLayer }) {
+  const c = MMI_COLORS[4];
+  if (layer === 'dyfi') return <div style={{ display: 'flex', width: 18, height: 18, borderRadius: 3, background: c, opacity: 0.75 }} />;
+  if (layer === 'emsc') return <div style={{ display: 'flex', width: 14, height: 14, borderRadius: 7, background: c, border: `1.5px solid ${C.ink}73` }} />;
+  const color = layer === 'auto' ? HEAT_COLORS[Math.floor(HEAT_COLORS.length / 2)] : c;
+  return <div style={{ display: 'flex', width: 22, height: 22, borderRadius: 11, backgroundImage: `radial-gradient(circle, ${color} 0%, ${color}99 55%, ${color}00 100%)` }} />;
 }

@@ -5,6 +5,7 @@
 // the app.bsky / com.atproto lexicons). The account is signed in from Me → Administration (session kept in Supabase
 // Vault, never the password); BLUESKY_IDENTIFIER / BLUESKY_APP_PASSWORD (+ optional BLUESKY_SERVICE) in the server env
 // are the fallback. docs/bluesky-setup.md
+import { feltAltEn, isFeltLayer, type FeltLayer } from './felt-layers';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Quake } from './quakes/types';
 import { countryAt } from './country';
@@ -80,7 +81,8 @@ export function draftPost(q: Quake): PostDraft {
     from = hit.end;
   }
   // Describes the share card as drawn (app/api/share-card): map with the event as a ringed dot, other events of the last
-  // 7 days as coloured dots, plate boundaries as dashed lines, then the details and the disclaimer.
+  // 7 days as coloured dots, plate boundaries as dashed lines, then the details and the disclaimer. The felt layers
+  // drawn on the card are added when the card is made (cardAlt).
   const source = [q.source, ...(q.alsoIn ?? [])].map(x => x.toUpperCase()).join(', ');
   const alt = `sisma.io earthquake card. Map of the area around a magnitude ${q.mag.toFixed(1)} earthquake, ${place}: `
     + `the epicentre is a ringed dot in the magnitude colour, other earthquakes from the last 7 days are coloured dots, and dashed lines, where present, `
@@ -198,21 +200,28 @@ export async function checkConnection(db: SupabaseClient): Promise<{ handle: str
  * there yet under the same id (feeds disagree for the first minutes), which left the first automatic posts without a card.
  * `known`: events already loaded (the job's last day), added to the week's events for the dots around it.
  */
-export async function card(q: Quake, known: Quake[] = []): Promise<Uint8Array | null> {
+export async function card(q: Quake, known: Quake[] = []): Promise<CardImage | null> {
   try {
-    const [{ shareCardResponse }, { recentQuakes }] = await Promise.all([import('./share-card'), import('./quakes/find')]);
+    const [{ shareCardResponse, FELT_HEADER }, { recentQuakes }] = await Promise.all([import('./share-card'), import('./quakes/find')]);
     const week = await recentQuakes(7).catch(() => [] as Quake[]);
     const seen = new Set<string>([q.id]);
     const all = [q, ...[...known, ...week].filter(x => !seen.has(x.id) && (seen.add(x.id), true))];
     const r = await shareCardResponse({ q, all, locale: 'en', units: 'km', tz: 'UTC', origin: SITE.url });
     if (!r.ok || !r.headers.get('content-type')?.startsWith('image/png')) return null;
     const buf = new Uint8Array(await r.arrayBuffer());
-    return buf.byteLength <= BLUESKY_MAX_IMAGE_BYTES ? buf : null;
+    const layers = (r.headers.get(FELT_HEADER) ?? '').split(',').filter(isFeltLayer);
+    return buf.byteLength <= BLUESKY_MAX_IMAGE_BYTES ? { data: buf, layers } : null;
   } catch (e) {
     console.error('bluesky card', q.id, e);
     return null;
   }
 }
+
+/** A share card made for a post, with the felt layers drawn on it (for the alt text). */
+export interface CardImage { data: Uint8Array; layers: FeltLayer[] }
+
+/** The post's alt text for this card: the draft's description plus a sentence on the felt layers drawn, if any. */
+export const cardAlt = (alt: string, img: CardImage | null) => (img?.layers.length ? `${alt} ${feltAltEn(img.layers)}` : alt);
 
 /** An image attached to a post: its bytes, type and size in pixels (Bluesky shows it at this aspect ratio). */
 export interface PostImage { data: Uint8Array; mime: 'image/png' | 'image/jpeg'; width: number; height: number }
@@ -235,10 +244,11 @@ export async function publishPost(db: SupabaseClient, post: { text: string; face
   return { uri: res.uri, url: `https://bsky.app/profile/${s.handle}/post/${rkey}`, image: !!image };
 }
 
-/** Publishes an event's post; `png`: the card if already made (null: none; undefined: make it now). */
-export async function publish(db: SupabaseClient, q: Quake, draft: PostDraft, png?: Uint8Array | null) {
-  if (png === undefined) png = await card(q);
-  return publishPost(db, draft, png ? { data: png, mime: 'image/png', width: CARD_W, height: CARD_H } : null);
+/** Publishes an event's post; `img`: the card if already made (null: none; undefined: make it now). */
+export async function publish(db: SupabaseClient, q: Quake, draft: PostDraft, img?: CardImage | null) {
+  if (img === undefined) img = await card(q);
+  const res = await publishPost(db, { ...draft, alt: cardAlt(draft.alt, img) }, img ? { data: img.data, mime: 'image/png', width: CARD_W, height: CARD_H } : null);
+  return { ...res, alt: cardAlt(draft.alt, img) };
 }
 
 // --- In Depth articles (posted by hand from Me → Administration or the article page) ---
@@ -345,7 +355,7 @@ export function autoCandidates(quakes: Quake[], minMagnitude: number, rows: Post
 export type PostOutcome = { ok: true; url: string; image: boolean } | { ok: false; error: string };
 
 /** Claims the event (one post per event), posts it and records the result. A failed post can be posted again by hand. */
-export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: boolean; by?: string | null; png?: Uint8Array | null }): Promise<PostOutcome> {
+export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: boolean; by?: string | null; card?: CardImage | null }): Promise<PostOutcome> {
   const draft = draftPost(q);
   const row = {
     quake_id: q.id, quake_time: new Date(q.time).toISOString(), lat: q.lat, lon: q.lon, mag: Math.round(q.mag * 10) / 10,
@@ -359,8 +369,8 @@ export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: bo
     if (retry.error || !retry.data?.length) return { ok: false, error: 'already_posted' };
   }
   try {
-    const res = await publish(db, q, draft, opts.png);
-    await db.from('bluesky_posts').update({ status: 'posted', post_uri: res.uri, post_url: res.url }).eq('quake_id', q.id);
+    const res = await publish(db, q, draft, opts.card);
+    await db.from('bluesky_posts').update({ status: 'posted', post_uri: res.uri, post_url: res.url, alt: res.alt }).eq('quake_id', q.id);
     return { ok: true, url: res.url, image: res.image };
   } catch (e) {
     const error = String((e as Error)?.message ?? e).slice(0, 500);
@@ -381,9 +391,9 @@ export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number)
     let posted = 0, failed = 0, waiting = 0;
     for (const q of todo) {
       // Without its card, a new event waits for the next run (every minute); after CARD_WAIT_MS it goes out as text.
-      const png = await card(q, quakes);
-      if (!png && cardWait(q, now)) { waiting++; continue; }
-      const r = await postQuake(db, q, { manual: false, png });
+      const img = await card(q, quakes);
+      if (!img && cardWait(q, now)) { waiting++; continue; }
+      const r = await postQuake(db, q, { manual: false, card: img });
       if (r.ok) posted++; else failed++;
     }
     return { posted, failed, waiting };

@@ -188,6 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tippe bei einem Erdbeben auf <Ui>Teilen</Ui>, um eine Teilen-Karte zu erstellen: ein Bild mit der Karte und den wichtigsten Details.</p>
+          <p>Wo Menschen das Erdbeben gemeldet haben, zeigt die Karte im Bild es auch in Intensitätsfarben, wie in der Regionsansicht: weiche Flächen für sisma-Meldungen, ein Schimmer für die automatische Spürkarte, Quadrate für „Did You Feel It?“ des USGS und Punkte für EMSC-Meldungen, mit einer kleinen Legende oben. Die vorgeschlagene Bildbeschreibung nennt dann die Ebenen im Bild.</p>
           <ul>
             <li>Der <strong>Beitragstext</strong> ist schon ausgefüllt (Magnitude, Ort, Zeit, Tiefe und ein Hashtag, der Link am Schluss), und du kannst ihn bearbeiten.</li>
             <li>Die <strong>Bildbeschreibung (Alt-Text)</strong> beschreibt das Bild für Menschen, die einen Screenreader nutzen. Sie ist schon ausgefüllt, und du kannst sie bearbeiten.</li>

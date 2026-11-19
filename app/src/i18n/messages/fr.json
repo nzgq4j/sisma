@@ -443,7 +443,14 @@
     "copied": "Copié",
     "hint": "Le partage copie aussi le texte, pour que vous puissiez le coller si l'app ne l'ajoute pas. Collez la description de l'image dans le champ de texte alternatif de l'app.",
     "share_link": "Partager le lien",
-    "share_failed": "Impossible d'ouvrir le menu de partage. Vous pouvez copier le texte et enregistrer l'image."
+    "share_failed": "Impossible d'ouvrir le menu de partage. Vous pouvez copier le texte et enregistrer l'image.",
+    "felt": "Ressenti",
+    "felt_auto": "carte des secousses",
+    "alt_felt": "Les lieux où il a été ressenti apparaissent dans les couleurs d’intensité : {layers}.",
+    "alt_reports": "zones estompées pour les témoignages sisma",
+    "alt_auto": "un halo pour la carte automatique",
+    "alt_dyfi": "carrés pour « Did You Feel It? » de l’USGS",
+    "alt_emsc": "points pour les témoignages EMSC"
   },
   "felt_by_1": "1 personne l’a ressenti",
   "notif": {

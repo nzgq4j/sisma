@@ -188,6 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Paylaşım kartı oluşturmak için bir depremde <Ui>Paylaş</Ui> düğmesine dokun: harita ve temel ayrıntıları içeren bir görsel.</p>
+          <p>İnsanların depremi hissettiğini bildirdiği yerler, bölge görünümünde olduğu gibi kartın haritasında da şiddet renkleriyle gösterilir: sisma bildirimleri için yumuşak alanlar, otomatik sarsıntı haritası için bir parıltı, USGS “Did You Feel It?” için kareler ve EMSC raporları için noktalar; üstte küçük bir açıklama bulunur. Önerilen görsel açıklaması da karttaki bu katmanları belirtir.</p>
           <ul>
             <li><strong>Gönderi metni</strong> senin için doldurulur (büyüklük, yer, zaman, derinlik ve bir hashtag; bağlantı en sonda) ve düzenleyebilirsin.</li>
             <li><strong>Görsel açıklaması (alternatif metin)</strong>, ekran okuyucu kullananlar için görseli tarif eder. Senin için doldurulur ve düzenleyebilirsin.</li>

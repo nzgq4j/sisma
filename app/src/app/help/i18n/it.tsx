@@ -188,6 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tocca <Ui>Condividi</Ui> su un terremoto per creare una scheda da condividere: un’immagine con la mappa e i dettagli principali.</p>
+          <p>Dove le persone hanno segnalato di averlo avvertito, la mappa della scheda lo mostra anche con i colori dell’intensità, come nella vista della zona: aree sfumate per le segnalazioni sisma, un alone per la mappa automatica, quadrati per «Did You Feel It?» dell’USGS e punti per le segnalazioni EMSC, con una piccola legenda in alto. La descrizione dell’immagine proposta nomina poi questi livelli.</p>
           <ul>
             <li>Il <strong>testo del post</strong> viene compilato per te (magnitudo, luogo, ora, profondità e un hashtag, con il link alla fine), e puoi modificarlo.</li>
             <li>La <strong>descrizione dell’immagine (testo alternativo)</strong> descrive l’immagine per chi usa un lettore di schermo. Viene compilata per te, e puoi modificarla.</li>

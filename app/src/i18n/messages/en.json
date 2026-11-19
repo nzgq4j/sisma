@@ -443,7 +443,14 @@
     "copied": "Copied",
     "hint": "Sharing copies the text too, so you can paste it if the app leaves it out. Paste the image description into the app's alt text field.",
     "share_link": "Share link",
-    "share_failed": "Couldn't open the share menu. You can copy the text and save the image instead."
+    "share_failed": "Couldn't open the share menu. You can copy the text and save the image instead.",
+    "felt": "Felt",
+    "felt_auto": "felt map",
+    "alt_felt": "Where people felt it is shown in intensity colours: {layers}.",
+    "alt_reports": "soft areas for sisma reports",
+    "alt_auto": "a glow for the automatic felt map",
+    "alt_dyfi": "squares for USGS “Did You Feel It?”",
+    "alt_emsc": "dots for EMSC reports"
   },
   "felt_by_1": "1 person reported feeling this",
   "notif": {

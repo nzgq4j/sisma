@@ -5,7 +5,9 @@ import { SOURCES } from '@/lib/quakes/sources';
 import { hasId, mergeQuakes } from '@/lib/quakes/merge';
 import { REPORT_GRACE_MS, REPORT_WINDOW_MS } from '@/lib/quakes/report-window';
 
-export interface FeltCell { lat: number; lon: number; n: number; mmi: number }
+import { feltCells, type FeltCell } from '@/lib/felt-cells';
+
+export type { FeltCell };
 
 const int = (v: unknown, min: number, max: number) => (Number.isInteger(v) && (v as number) >= min && (v as number) <= max ? (v as number) : null);
 
@@ -58,14 +60,7 @@ export async function GET(req: NextRequest) {
   if (!db) return NextResponse.json({ quakeId, total: 0, cells: [], demo: true });
   const { data, error } = await createClient(db.url, db.key, { auth: { persistSession: false } }).from('felt_reports').select('lat, lon, mmi').eq('quake_id', quakeId).limit(5000);
   if (error) return NextResponse.json({ error: 'read_failed' }, { status: 500 });
-  const cells = new Map<string, { lat: number; lon: number; n: number; sum: number }>();
-  for (const r of data ?? []) {
-    if (r.lat == null || r.lon == null) continue;
-    const lat = Math.round(Number(r.lat) * 10) / 10, lon = Math.round(Number(r.lon) * 10) / 10, k = `${lat},${lon}`;
-    const c = cells.get(k) ?? { lat, lon, n: 0, sum: 0 };
-    c.n++; c.sum += r.mmi; cells.set(k, c);
-  }
-  const out: FeltCell[] = [...cells.values()].map(c => ({ lat: c.lat, lon: c.lon, n: c.n, mmi: Math.round((c.sum / c.n) * 10) / 10 }));
+  const out: FeltCell[] = feltCells(data ?? []);
   // Every report counts towards the total and the intensity range, including those sent without a location.
   const mmis = (data ?? []).map(r => r.mmi as number);
   const range = mmis.length ? { min: Math.min(...mmis), max: Math.max(...mmis) } : null;
