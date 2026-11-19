@@ -1,3 +1,5 @@
+import type { TsunamiAlert } from '../tsunami/types';
+
 export type SourceId = 'usgs' | 'emsc' | 'geonet' | 'jma';
 
 /** Agency review state: automatic solution, preliminary (human-checked, may change) or reviewed (final). */
@@ -17,7 +19,8 @@ export interface Quake {
   felt?: number;         // number of felt reports (USGS DYFI)
   cdi?: number;          // max community intensity
   mmi?: number;          // max instrumental/JMA intensity mapped to MMI
-  tsunami: boolean;
+  tsunami: boolean;      // USGS flag: the event is large and offshore, so the tsunami centres may have issued a message
+  tsunamiAlert?: TsunamiAlert; // the official message for this event (PTWC, NTWC, JMA), matched by lib/tsunami/alerts.ts
   url?: string;
   status?: ReviewStatus; // agency review state, when the source publishes one
   alsoIn?: SourceId[];   // other sources reporting the same event

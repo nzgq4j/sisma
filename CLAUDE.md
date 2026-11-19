@@ -46,6 +46,15 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Share card felt cells (done): lib/share-felt.ts loads the sources on the server (4 s limit each), lib/share-map.ts draws the
    same grid; legend = intensity steps (+ grey); X-Felt-Layers (intensity, unknown) → alt text
    Todo: rate limiting, show felt_summary
+   Tsunami alerts (done): official messages from PTWC, NTWC (tsunami.gov Atom + CAP, lib/tsunami/noaa.ts) and JMA
+   (bosai/tsunami list + detail, lib/tsunami/jma.ts), stored in tsunami_messages by the per-minute job (lib/tsunami/poll.ts;
+   the feeds only carry the latest bulletin); the latest message per incident is matched to its quake (JMA by event id,
+   NOAA within 120 s and 300 km, lib/tsunami/alerts.ts) and served as Quake.tsunamiAlert by GET /api/quakes. Shown in the
+   detail / summary banner and region view card (components/Tsunami.tsx), row icon and a wave badge on map and globe pins
+   (--tsu-warning / threat / watch; information statements and forecasts stay neutral). Push (lib/tsunami/push.ts): warnings,
+   threats, watches and advisories to everyone signed in, free or sisma+, with notifications on, the Tsunami alerts switch
+   in Me (profiles.tsunami_push) and a saved place within 1,000 km (public.tsunami_recipients); once per incident and level
+   (tsunami_deliveries); quiet hours don't apply. USGS's tsunami flag alone only says to check official information
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →
    GET /api/felt-map heatmap in Show region (lib/feltmap.ts; 180 s window, ≥ 3 people per ~10 km cell; Me toggle)
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx

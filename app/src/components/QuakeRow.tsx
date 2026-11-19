@@ -3,6 +3,7 @@ import type { Quake } from '@/lib/quakes/types';
 import { MagBadge } from './MagBadge';
 import { useT } from '@/i18n/I18nProvider';
 import { useDistance } from './Units';
+import { TsunamiIcon } from './Tsunami';
 
 export function timeAgo(t: (k: never, v?: Record<string, number>) => string, ms: number) {
   const m = Math.round((Date.now() - ms) / 6e4);
@@ -28,7 +29,7 @@ export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | nul
           <span>↓ {u.depth(q.depthKm)}</span>
         </div>
       </div>
-      {q.tsunami && <span className="ms" style={{ color: 'var(--violet-text)', fontSize: 20 }}>tsunami</span>}
+      <TsunamiIcon q={q} />
       <span className="ms" aria-hidden="true" style={{ color: 'var(--ink2)', fontSize: 20 }}>chevron_right</span>
     </button>
   );

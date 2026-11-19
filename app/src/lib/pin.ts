@@ -19,3 +19,13 @@ export function markerHit(style: MarkerStyle, mag: number, touch: boolean): { dy
   const r = dotRadius(mag);
   return { dy: 0, reach: touch ? Math.max(22, r + 6) : r + 3 };
 }
+
+/** Official tsunami badge (lib/tsunami/view.ts): a small disc with a wave at the top right of the marker. */
+export const BADGE_R = 5.5;
+export const WAVE_PATH = 'M-3.6 0.6q0.9-1.8 1.8 0t1.8 0t1.8 0t1.8 0';
+/** Badge centre relative to the marker anchor (pin tip / circle centre). */
+export function badgeAt(style: MarkerStyle, mag: number): { x: number; y: number } {
+  if (style === 'pins') return { x: PIN_R * 0.78, y: -PIN_HEAD - PIN_R * 0.78 };
+  const d = dotRadius(mag) * 0.72 + 1;
+  return { x: d, y: -d };
+}

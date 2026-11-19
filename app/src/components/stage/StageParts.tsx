@@ -14,6 +14,7 @@ import { useUnits } from '@/components/Units';
 import { useMarkerStyle } from '@/components/MarkerStyle';
 import { dotRadius } from '@/lib/pin';
 import styles from './stage.module.css';
+import { TsunamiBadgeKey } from '@/components/Tsunami';
 
 export const MAG_STEPS = [2.5, 3, 4, 5, 6, 7];
 
@@ -145,6 +146,7 @@ export function Legend({ depth = false, plain = false }: { depth?: boolean; plai
           const d = sized ? Math.round(dotRadius(x.mag) * 2) : 10;
           return <span key={x.l}><i style={{ background: x.c, width: d, height: d, borderRadius: d / 2 }} />{x.l}</span>;
         })}
+      <TsunamiBadgeKey />
     </div>
   );
 }

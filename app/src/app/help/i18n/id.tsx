@@ -86,7 +86,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Bagikan</Ui> membuka kartu berbagi (lihat <Link href="/help/share">Berbagi</Link>).</li>
             <li>Jika ada orang yang melaporkan merasakannya, Anda akan melihat jumlahnya.</li>
           </ul>
-          <Callout kind="note"><p>Spanduk <strong>Peringatan tsunami dikeluarkan</strong> muncul jika lembaga menandai kemungkinan aktivitas tsunami. Ikuti peringatan tsunami resmi di daerah Anda.</p></Callout>
+          <Callout kind="note"><p><strong>Tsunami:</strong> saat pusat peringatan tsunami (PTWC, NTWC, atau JMA Jepang) mengeluarkan pesan resmi untuk sebuah gempa, tingkatnya ditampilkan apa adanya, misalnya <strong>Peringatan tsunami</strong> atau <strong>Imbauan tsunami</strong>, beserta pusatnya, waktunya, pantai yang disebut, dan <Ui>Baca pesan resmi</Ui>. Peringatan, ancaman, pemantauan, dan imbauan diberi warna serta menambahkan lencana gelombang pada penanda gempa dan ikon gelombang berwarna pada barisnya; pernyataan informasi dan prakiraan tetap abu-abu. Pesan bertanda <em>Dibatalkan</em> atau <em>Sudah tidak berlaku</em> sudah ditarik atau kedaluwarsa. Tanpa pesan resmi, gempa besar di bawah laut menampilkan <em>Gempa besar di bawah laut: periksa informasi tsunami resmi</em>. sisma meneruskan pesan-pesan ini dan bukan layanan peringatan: selalu ikuti arahan pihak berwenang setempat.</p></Callout>
         </div>
         <Shot src="detail" alt="Detail gempa: magnitudo, kedalaman, tanggal, waktu, jarak, negara, koordinat, status tinjauan, sumber, Tampilkan wilayah dan Bagikan" caption="Detail sebuah gempa" />
       </div>
@@ -304,6 +304,7 @@ export const TOPICS: Topic[] = [
               <thead><tr><th>Fitur</th><th>Gratis</th><th>sisma+</th></tr></thead>
               <tbody>
                 <tr><td>Daftar langsung, peta, globe, sains</td><td>✓</td><td>✓</td></tr>
+                <tr><td>Peringatan tsunami resmi</td><td>✓</td><td>✓</td></tr>
                 <tr><td>Riwayat gempa</td><td>30 hari</td><td>Riwayat lengkap</td></tr>
                 <tr><td>Lokasi tersimpan</td><td>1</td><td>Hingga 10</td></tr>
                 <tr><td>Notifikasi push dengan aturan Anda sendiri</td><td>–</td><td>Hingga 5 peringatan</td></tr>
@@ -379,6 +380,8 @@ export const TOPICS: Topic[] = [
         <li>Sebuah grafik menunjukkan berapa banyak gempa dalam 30 hari terakhir yang akan memicu peringatan itu, sehingga Anda bisa menyesuaikannya.</li>
       </ul>
       <p>Peringatan yang Anda terima dalam 30 hari terakhir tercantum di <em>Riwayat peringatan</em>.</p>
+      <h3>Peringatan tsunami</h3>
+      <p>Peringatan tsunami gratis untuk semua yang masuk. Di <Ui>Saya</Ui>, aktifkan <Ui>Peringatan tsunami</Ui> lalu ketuk <Ui>Aktifkan notifikasi di perangkat ini</Ui>. Anda akan menerima notifikasi saat peringatan, ancaman, pemantauan, atau imbauan tsunami resmi dikeluarkan untuk gempa dalam radius 1.000 km dari salah satu tempat tersimpan Anda. Jam tenang tidak berlaku, dan setiap tingkat hanya dikirim sekali per gempa.</p>
       <Callout kind="note"><p><strong>iPhone dan iPad:</strong> notifikasi web hanya berfungsi setelah Anda menambahkan sisma ke Layar Utama (Bagikan → Tambah ke Layar Utama) dan membukanya dari sana. Saat pertama kali membuka sisma di browser iPhone atau iPad, jendela pop-up menampilkan langkah-langkah ini; ketuk <Ui>Nanti saja</Ui> untuk melihatnya lagi dalam dua minggu atau <Ui>Mengerti</Ui> untuk menyembunyikannya.</p></Callout>
       </>
     ),

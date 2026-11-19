@@ -36,6 +36,7 @@ import { feltGrid } from '@/lib/felt-grid';
 import { readFeltOn, writeFeltOn } from '@/lib/felt-pref';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
+import { TsunamiBanner } from '@/components/Tsunami';
 
 /** The legend's intensity steps: one per distinct cell colour (MMI_COLORS), labelled with the first MMI it covers. */
 const MMI_STEPS = [{ i: 0, label: 'I' }, { i: 2, label: 'III' }, { i: 4, label: 'V' }, { i: 5, label: 'VI' }, { i: 6, label: 'VII' }, { i: 8, label: 'IX' }];
@@ -180,6 +181,7 @@ function MapView() {
               <span className="ms" aria-hidden="true">layers</span>
             </button>
           </div>
+          {focusQuake && (focusQuake.tsunamiAlert || focusQuake.tsunami) && <TsunamiBanner q={focusQuake} areas={3} compact />}
           {/* The felt legend: totals and the intensity scale (all sources share one cell style); dimmed when felt maps are off. */}
           {focusQuake && legend.show && (
             <div className={`${styles.feltLegend}${feltOn ? '' : ` ${styles.lineOff}`}`}>

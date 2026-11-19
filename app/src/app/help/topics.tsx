@@ -99,7 +99,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Share</Ui> opens the share card (see <Link href="/help/share">Sharing</Link>).</li>
             <li>If people reported feeling it, you’ll see how many.</li>
           </ul>
-          <Callout kind="note"><p>A <strong>Tsunami alert issued</strong> banner appears when the agency flags possible tsunami activity. Follow official tsunami warnings in your area.</p></Callout>
+          <Callout kind="note"><p><strong>Tsunami:</strong> when a tsunami warning centre (PTWC, NTWC or Japan’s JMA) issues an official message for an earthquake, its level is shown as issued, for example <strong>Tsunami warning</strong> or <strong>Tsunami advisory</strong>, with the centre, the time, the coasts it names and <Ui>Read the official message</Ui>. Warnings, threats, watches and advisories are coloured and add a wave badge to the earthquake’s pin and a coloured wave icon to its row; information statements and forecasts stay grey. A message marked <em>Cancelled</em> or <em>No longer in effect</em> has been withdrawn or has expired. Without an official message, a large earthquake under the sea shows <em>Large earthquake under the sea: check official tsunami information</em>. sisma relays these messages and is not a warning service: always follow local authorities.</p></Callout>
         </div>
         <Shot src="detail" alt="Earthquake details: magnitude, depth, date, time, distance, country, coordinates, review status, source, Show region and Share" caption="An earthquake’s details" />
       </div>
@@ -317,6 +317,7 @@ export const TOPICS: Topic[] = [
               <thead><tr><th>Feature</th><th>Free</th><th>sisma+</th></tr></thead>
               <tbody>
                 <tr><td>Live feed, map, globe, science</td><td>✓</td><td>✓</td></tr>
+                <tr><td>Official tsunami alerts</td><td>✓</td><td>✓</td></tr>
                 <tr><td>Earthquake history</td><td>30 days</td><td>Full history</td></tr>
                 <tr><td>Saved locations</td><td>1</td><td>Up to 10</td></tr>
                 <tr><td>Push alerts with your own rules</td><td>–</td><td>Up to 5 alerts</td></tr>
@@ -392,6 +393,8 @@ export const TOPICS: Topic[] = [
         <li>A chart shows how many earthquakes in the last 30 days would have triggered the alert, so you can tune it.</li>
       </ul>
       <p>Alerts you received in the last 30 days are listed under <em>Alert history</em>.</p>
+      <h3>Tsunami alerts</h3>
+      <p>Tsunami alerts are free for everyone who is signed in. In <Ui>Me</Ui>, turn on <Ui>Tsunami alerts</Ui> and tap <Ui>Turn on notifications on this device</Ui>. You get a notification when an official tsunami warning, threat, watch or advisory is issued for an earthquake within 1,000 km of one of your saved places. Quiet hours don’t apply, and each level is sent once per earthquake.</p>
       <Callout kind="note"><p><strong>iPhone and iPad:</strong> web notifications only work after you add sisma to the Home Screen (Share → Add to Home Screen) and open it from there. The first time you open sisma in the browser on an iPhone or iPad, a pop-up shows these steps; tap <Ui>Not now</Ui> to see it again in two weeks or <Ui>Got it</Ui> to hide it.</p></Callout>
       </>
     ),

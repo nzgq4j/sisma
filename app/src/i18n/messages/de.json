@@ -482,7 +482,10 @@
     "remove_area": "{name} entfernen",
     "area_limit": "Du kannst bis zu 20 auswählen.",
     "areas_none": "Keine",
-    "area_selected": "Ausgewählt"
+    "area_selected": "Ausgewählt",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · {dist} von {place}. Folge den örtlichen Behörden.",
+    "tsunami_body_nomag": "{region} · {dist} von {place}. Folge den örtlichen Behörden."
   },
   "region_chip": "Region",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "Auch ab M4.5 ist die USGS-Liste keine vollständige Aufzeichnung aller Erdbeben weltweit, vor allem dort, wo es wenige Stationen gibt.",
     "note_4": "Die Energie wird mit einer gängigen Formel aus der Magnitude geschätzt (log₁₀ E = 1,5 M + 4,8, in Joule). Das ist eine Näherung, keine Messung.",
     "note_5": "Ein unruhiger Tag oder eine unruhige Woche bedeutet für sich allein nicht, dass ein großes Erdbeben bevorsteht."
+  },
+  "tsu": {
+    "lv_major_warning": "Große Tsunamiwarnung",
+    "lv_warning": "Tsunamiwarnung",
+    "lv_threat": "Tsunamigefahr",
+    "lv_watch": "Tsunami-Vorwarnung",
+    "lv_advisory": "Tsunamihinweis",
+    "lv_forecast": "Tsunamivorhersage",
+    "lv_information": "Tsunami-Information",
+    "lv_none": "Keine Tsunamigefahr",
+    "cancelled": "Aufgehoben",
+    "ended": "Nicht mehr gültig",
+    "issued": "{center} · herausgegeben {time}",
+    "official": "Offizielle Meldung lesen",
+    "areas": "Küsten in dieser Meldung",
+    "more_areas": "+{n} weitere",
+    "relay": "sisma zeigt offizielle Meldungen der Tsunami-Warnzentren und ist kein Warndienst. Folge den Anweisungen der örtlichen Behörden.",
+    "check": "Starkes Erdbeben unter dem Meer: offizielle Tsunami-Informationen prüfen",
+    "card": "Tsunami",
+    "legend": "Wellen-Symbol: offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder -hinweis",
+    "center_PTWC": "Pacific Tsunami Warning Center",
+    "center_NTWC": "National Tsunami Warning Center",
+    "center_JMA": "Japanischer Wetterdienst (JMA)",
+    "legend_short": "Tsunamialarm",
+    "me_title": "Tsunami-Benachrichtigungen",
+    "me_hint": "Kostenlos für alle Angemeldeten: eine Benachrichtigung, wenn eine offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder ein -hinweis für ein Erdbeben im Umkreis von 1.000 km um einen deiner gespeicherten Orte herausgegeben wird.",
+    "me_signin": "Melde dich kostenlos an, um offizielle Tsunami-Benachrichtigungen für deine gespeicherten Orte zu erhalten.",
+    "me_no_place": "Füge unten einen gespeicherten Ort hinzu: Tsunami-Benachrichtigungen gelten für Erdbeben im Umkreis von 1.000 km um deine gespeicherten Orte."
   }
 }

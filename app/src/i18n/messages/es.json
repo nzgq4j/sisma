@@ -482,7 +482,10 @@
     "remove_area": "Quitar {name}",
     "area_limit": "Puedes elegir hasta 20.",
     "areas_none": "Ninguno",
-    "area_selected": "Seleccionados"
+    "area_selected": "Seleccionados",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · a {dist} de {place}. Sigue a las autoridades locales.",
+    "tsunami_body_nomag": "{region} · a {dist} de {place}. Sigue a las autoridades locales."
   },
   "region_chip": "Región",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "Incluso a partir de M4.5, la lista del USGS no es un registro completo de todos los sismos del mundo, sobre todo donde hay pocas estaciones.",
     "note_4": "La energía se estima a partir de la magnitud con una fórmula estándar (log₁₀ E = 1,5 M + 4,8, en julios). Es una aproximación, no una medición.",
     "note_5": "Un día o una semana con mucha actividad no significa por sí solo que se avecine un gran sismo."
+  },
+  "tsu": {
+    "lv_major_warning": "Aviso de tsunami mayor",
+    "lv_warning": "Aviso de tsunami",
+    "lv_threat": "Amenaza de tsunami",
+    "lv_watch": "Vigilancia de tsunami",
+    "lv_advisory": "Advertencia de tsunami",
+    "lv_forecast": "Pronóstico de tsunami",
+    "lv_information": "Información de tsunami",
+    "lv_none": "Sin riesgo de tsunami",
+    "cancelled": "Cancelado",
+    "ended": "Ya no está vigente",
+    "issued": "{center} · emitido {time}",
+    "official": "Leer el mensaje oficial",
+    "areas": "Costas en este mensaje",
+    "more_areas": "+{n} más",
+    "relay": "sisma muestra los mensajes oficiales de los centros de alerta de tsunamis y no es un servicio de alertas. Sigue a las autoridades locales.",
+    "check": "Gran sismo bajo el mar: consulta la información oficial sobre tsunamis",
+    "card": "Tsunami",
+    "legend": "Insignia de ola: aviso, amenaza, vigilancia o advertencia oficial de tsunami",
+    "center_PTWC": "Pacific Tsunami Warning Center",
+    "center_NTWC": "National Tsunami Warning Center",
+    "center_JMA": "Agencia Meteorológica de Japón",
+    "legend_short": "Alerta de tsunami",
+    "me_title": "Alertas de tsunami",
+    "me_hint": "Gratis para todas las personas con sesión iniciada: una notificación cuando se emite un aviso, amenaza, vigilancia o advertencia oficial de tsunami por un sismo a menos de 1000 km de uno de tus lugares guardados.",
+    "me_signin": "Inicia sesión, es gratis, para recibir alertas oficiales de tsunami para tus lugares guardados.",
+    "me_no_place": "Añade un lugar guardado abajo: las alertas de tsunami son para sismos a menos de 1000 km de tus lugares guardados."
   }
 }

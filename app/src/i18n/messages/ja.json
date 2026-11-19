@@ -482,7 +482,10 @@
     "remove_area": "{name}を削除",
     "area_limit": "最大20件まで選べます。",
     "areas_none": "なし",
-    "area_selected": "選択中"
+    "area_selected": "選択中",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · {place}から{dist}。地元当局の指示に従ってください。",
+    "tsunami_body_nomag": "{region} · {place}から{dist}。地元当局の指示に従ってください。"
   },
   "region_chip": "地域",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "M4.5 以上でも、USGS のリストは世界のすべての地震の完全な記録ではありません。観測点が少ない地域では特にそうです。",
     "note_4": "エネルギーは標準的な式（log₁₀ E = 1.5 M + 4.8、単位はジュール）でマグニチュードから推定しています。測定値ではなく概算です。",
     "note_5": "活動の多い日や週があっても、それだけで大地震が近いという意味にはなりません。"
+  },
+  "tsu": {
+    "lv_major_warning": "大津波警報",
+    "lv_warning": "津波警報",
+    "lv_threat": "津波の脅威",
+    "lv_watch": "津波監視",
+    "lv_advisory": "津波注意報",
+    "lv_forecast": "津波予報",
+    "lv_information": "津波情報",
+    "lv_none": "津波の心配なし",
+    "cancelled": "取り消し",
+    "ended": "解除済み",
+    "issued": "{center} · {time} 発表",
+    "official": "公式発表を読む",
+    "areas": "この発表の対象沿岸",
+    "more_areas": "ほか{n}件",
+    "relay": "sismaは津波警報センターの公式発表を表示するもので、警報サービスではありません。地元当局の指示に従ってください。",
+    "check": "海底で大きな地震：公式の津波情報を確認してください",
+    "card": "津波",
+    "legend": "波のバッジ：公式の津波警報・脅威・監視・注意報",
+    "center_PTWC": "太平洋津波警報センター（PTWC）",
+    "center_NTWC": "米国津波警報センター（NTWC）",
+    "center_JMA": "気象庁",
+    "legend_short": "津波の発表",
+    "me_title": "津波の通知",
+    "me_hint": "ログインしている方は無料：保存した場所から1,000 km以内の地震について、公式の津波警報・脅威・監視・注意報が発表されたときに通知します。",
+    "me_signin": "無料でログインすると、保存した場所の公式な津波の通知を受け取れます。",
+    "me_no_place": "下で場所を保存してください：津波の通知は、保存した場所から1,000 km以内の地震が対象です。"
   }
 }

@@ -1,0 +1,24 @@
+/* Official tsunami messages (components/Tsunami.tsx). Tone colours come from --tsu-* (globals.css); text stays in ink. */
+.banner { display: flex; align-items: flex-start; gap: 8px; padding: 10px 12px; border-radius: 14px; font-size: 14px; color: var(--ink); background: var(--surface2); border-left: 4px solid var(--ink2); }
+.banner > :global(.ms) { font-size: 22px; flex: none; color: var(--ink2); }
+.warning { border-left-color: var(--tsu-warning); background: color-mix(in srgb, var(--tsu-warning) 12%, var(--surface)); }
+.warning > :global(.ms) { color: var(--tsu-warning); }
+.threat { border-left-color: var(--tsu-threat); background: color-mix(in srgb, var(--tsu-threat) 12%, var(--surface)); }
+.threat > :global(.ms) { color: var(--tsu-threat); }
+.watch { border-left-color: var(--tsu-watch); background: color-mix(in srgb, var(--tsu-watch) 14%, var(--surface)); }
+.watch > :global(.ms) { color: var(--tsu-watch); }
+.neutral { font-weight: 600; align-items: center; }
+.body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.body strong { font-size: 15px; font-weight: 800; }
+.status { font-weight: 700; color: var(--ink2); }
+.meta { font-size: 13px; color: var(--ink2); }
+.areasH { margin-top: 6px; font-size: 12px; font-weight: 800; color: var(--ink2); text-transform: uppercase; letter-spacing: .04em; }
+.areas { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 3px; font-size: 13px; }
+.areas li { display: flex; align-items: baseline; gap: 6px; overflow-wrap: anywhere; }
+.areas li > i { align-self: center; }
+.areas small { color: var(--ink2); }
+.more { color: var(--ink2); }
+.dot { width: 8px; height: 8px; border-radius: 4px; flex: none; }
+.link { margin-top: 6px; display: inline-flex; align-items: center; gap: 4px; min-height: 44px; align-self: flex-start; font-weight: 800; color: var(--violet-text); }
+.link :global(.ms) { font-size: 18px; }
+.relay { font-size: 12px; color: var(--ink2); }

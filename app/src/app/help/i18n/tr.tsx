@@ -86,7 +86,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Paylaş</Ui>, paylaşım kartını açar (bkz. <Link href="/help/share">Paylaşma</Link>).</li>
             <li>Depremi hisseden kişiler bildirim yaptıysa kaç kişi olduğunu görürsün.</li>
           </ul>
-          <Callout kind="note"><p>Kurum olası tsunami etkinliği bildirdiğinde <strong>Tsunami uyarısı yayımlandı</strong> şeridi görünür. Bölgendeki resmî tsunami uyarılarını takip et.</p></Callout>
+          <Callout kind="note"><p><strong>Tsunami:</strong> bir tsunami uyarı merkezi (PTWC, NTWC veya Japonya’nın JMA’sı) bir deprem için resmî mesaj yayımladığında seviyesi yayımlandığı gibi gösterilir; örneğin <strong>Tsunami uyarısı</strong> veya <strong>Tsunami bildirimi</strong>; merkez, saat, adı geçen kıyılar ve <Ui>Resmî mesajı oku</Ui> da görünür. Uyarılar, tehditler, izlemeler ve bildirimler renklidir; depremin işaretine bir dalga rozeti, satırına renkli bir dalga simgesi ekler. Bilgi mesajları ve tahminler gri kalır. <em>İptal edildi</em> veya <em>Artık geçerli değil</em> olarak işaretlenen bir mesaj geri çekilmiş ya da süresi dolmuştur. Resmî mesaj yoksa deniz altındaki büyük bir depremde <em>Deniz altında büyük deprem: resmî tsunami bilgilerini kontrol edin</em> yazar. sisma bu mesajları aktarır ve bir uyarı hizmeti değildir: her zaman yerel yetkililerin talimatlarına uyun.</p></Callout>
         </div>
         <Shot src="detail" alt="Deprem ayrıntıları: büyüklük, derinlik, tarih, saat, mesafe, ülke, koordinatlar, inceleme durumu, kaynak, Bölgeyi göster ve Paylaş" caption="Bir depremin ayrıntıları" />
       </div>
@@ -304,6 +304,7 @@ export const TOPICS: Topic[] = [
               <thead><tr><th>Özellik</th><th>Ücretsiz</th><th>sisma+</th></tr></thead>
               <tbody>
                 <tr><td>Canlı akış, harita, küre, bilim</td><td>✓</td><td>✓</td></tr>
+                <tr><td>Resmî tsunami bildirimleri</td><td>✓</td><td>✓</td></tr>
                 <tr><td>Deprem geçmişi</td><td>30 gün</td><td>Tüm geçmiş</td></tr>
                 <tr><td>Kayıtlı konumlar</td><td>1</td><td>En fazla 10</td></tr>
                 <tr><td>Kendi kurallarınla anlık uyarılar</td><td>–</td><td>En fazla 5 uyarı</td></tr>
@@ -379,6 +380,8 @@ export const TOPICS: Topic[] = [
         <li>Bir grafik, son 30 günde kaç depremin bu uyarıyı tetikleyeceğini gösterir; böylece uyarını ince ayarlayabilirsin.</li>
       </ul>
       <p>Son 30 günde aldığın uyarılar <em>Uyarı geçmişi</em> altında listelenir.</p>
+      <h3>Tsunami bildirimleri</h3>
+      <p>Tsunami bildirimleri oturum açan herkes için ücretsizdir. <Ui>Profil</Ui> bölümünde <Ui>Tsunami bildirimleri</Ui> seçeneğini açın ve <Ui>Bu cihazda bildirimleri aç</Ui> düğmesine dokunun. Kayıtlı yerlerinizden birine 1.000 km mesafedeki bir deprem için resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi yayımlandığında bildirim alırsınız. Sessiz saatler uygulanmaz ve her seviye deprem başına yalnızca bir kez gönderilir.</p>
       <Callout kind="note"><p><strong>iPhone ve iPad:</strong> web bildirimleri yalnızca sisma’yı Ana Ekran’a ekledikten (Paylaş → Ana Ekrana Ekle) ve oradan açtıktan sonra çalışır. sisma’yı iPhone veya iPad’de tarayıcıda ilk kez açtığınızda bu adımlar bir açılır pencerede gösterilir; iki hafta sonra yeniden görmek için <Ui>Şimdi değil</Ui>, gizlemek için <Ui>Anladım</Ui> düğmesine dokunun.</p></Callout>
       </>
     ),

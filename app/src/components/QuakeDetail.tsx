@@ -14,6 +14,7 @@ import type { Row } from './QuakeData';
 import { useDistance } from './Units';
 import { ShareCardSheet } from './ShareCard';
 import styles from './dash/dash.module.css';
+import { TsunamiBanner } from './Tsunami';
 import { fillPost } from '@/lib/share-text';
 
 /** Map URL that zooms to a quake and shows its felt reports. */
@@ -56,7 +57,7 @@ export function QuakeSummary({ q, onClose, onDetails }: { q: Row; onClose?: () =
         </div>
         {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
       </div>
-      {q.tsunami && <div className={styles.banner}><span className="ms" aria-hidden="true">tsunami</span>{t('tsunami')}</div>}
+      <TsunamiBanner q={q} />
       <div className={styles.summaryActions}>
         <FeltButton q={q} />
         <button type="button" className={styles.detailsBtn} onClick={onDetails} aria-haspopup="dialog">
@@ -93,7 +94,7 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
         </div>
         {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
       </div>
-      {q.tsunami && <div className={styles.banner}><span className="ms" aria-hidden="true">tsunami</span>{t('tsunami')}</div>}
+      <TsunamiBanner q={q} areas={12} full />
       <dl className={styles.stats}>
         <div><dt>{t('magnitude')}</dt><FitLine as="dd">{q.mag.toFixed(1)}{q.magType ? ` ${q.magType}` : ''}</FitLine></div>
         <div><dt>{t('depth')}</dt><FitLine as="dd">{u.depth(q.depthKm)}</FitLine></div>

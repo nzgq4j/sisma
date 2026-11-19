@@ -10,6 +10,7 @@ import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, depthInk, magIndex } from '@/lib/theme';
 import { markerHit } from '@/lib/pin';
+import { tsunamiTone } from '@/lib/tsunami/view';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
 import { useMarkerStyle } from '@/components/MarkerStyle';
 import { LAND, SPHERE, useLakes, usePlates } from '@/lib/world';
@@ -42,7 +43,8 @@ function readTheme() {
   return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
     // Marker colours by magnitude band, following light/dark mode (globals.css --mag-0 … --mag-5).
     mags: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)), magInks: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-ink-${i}`)),
-    surface: v('--surface'), font: getComputedStyle(document.body).fontFamily };
+    surface: v('--surface'), font: getComputedStyle(document.body).fontFamily,
+    tsu: { warning: v('--tsu-warning'), threat: v('--tsu-threat'), watch: v('--tsu-watch'), ink: v('--tsu-ink') } };
 }
 
 export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
@@ -201,9 +203,9 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
         ? { fill: depthColor(q.depthKm), ink: depthInk(q.depthKm) }
         : { fill: theme.mags[magIndex(q.mag)], ink: theme.magInks[magIndex(q.mag)] };
       const stamp = (x: number, y: number, q: Quake, selected: boolean) => {
-        const { fill, ink } = look(q);
+        const { fill, ink } = look(q), tone = tsunamiTone(q.tsunamiAlert);
         stampSprite(ctx, markerSprite({ style: styleRef.current, mag: q.mag, fill, ink, edge: theme.surface, font: theme.font,
-          outline: selected ? theme.ink : null, scale: selected ? 1.15 : 1 }), x, y);
+          outline: selected ? theme.ink : null, scale: selected ? 1.15 : 1, badge: tone ? { fill: theme.tsu[tone], ink: theme.tsu.ink } : null }), x, y);
       };
       for (const q of sorted.current.list) {
         if (geoDistance([q.lon, q.lat], c) > 1.55) continue;

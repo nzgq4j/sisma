@@ -11,7 +11,7 @@ export const SITE = {
     entity: 'an Arizona limited liability company',
     address: '15990 S. Rancho Sahuarita Blvd, Sahuarita, AZ 85629, USA',
     privacyEmail: 'privacy@sisma.io',
-    policyUpdated: '2026-11-03',
+    policyUpdated: '2026-11-19',
     supportEmail: 'support@sisma.io',
     termsUpdated: '2026-11-10',
   },

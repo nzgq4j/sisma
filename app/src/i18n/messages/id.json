@@ -482,7 +482,10 @@
     "remove_area": "Hapus {name}",
     "area_limit": "Anda dapat memilih hingga 20.",
     "areas_none": "Tidak ada",
-    "area_selected": "Dipilih"
+    "area_selected": "Dipilih",
+    "tsunami_title": "{level} · {center}",
+    "tsunami_body": "M{mag} · {region} · {dist} dari {place}. Ikuti arahan pihak berwenang setempat.",
+    "tsunami_body_nomag": "{region} · {dist} dari {place}. Ikuti arahan pihak berwenang setempat."
   },
   "region_chip": "Wilayah",
   "wr": {
@@ -804,5 +807,33 @@
     "note_3": "Bahkan untuk M4.5 ke atas, daftar USGS bukan catatan lengkap semua gempa di dunia, terutama di tempat yang sedikit stasiunnya.",
     "note_4": "Energi diperkirakan dari magnitudo dengan rumus standar (log₁₀ E = 1,5 M + 4,8, dalam joule). Ini perkiraan, bukan pengukuran.",
     "note_5": "Hari atau minggu yang ramai tidak dengan sendirinya berarti gempa besar akan datang."
+  },
+  "tsu": {
+    "lv_major_warning": "Peringatan tsunami besar",
+    "lv_warning": "Peringatan tsunami",
+    "lv_threat": "Ancaman tsunami",
+    "lv_watch": "Pemantauan tsunami",
+    "lv_advisory": "Imbauan tsunami",
+    "lv_forecast": "Prakiraan tsunami",
+    "lv_information": "Informasi tsunami",
+    "lv_none": "Tidak ada risiko tsunami",
+    "cancelled": "Dibatalkan",
+    "ended": "Sudah tidak berlaku",
+    "issued": "{center} · dikeluarkan {time}",
+    "official": "Baca pesan resmi",
+    "areas": "Pantai dalam pesan ini",
+    "more_areas": "+{n} lainnya",
+    "relay": "sisma menampilkan pesan resmi dari pusat peringatan tsunami dan bukan layanan peringatan. Ikuti arahan pihak berwenang setempat.",
+    "check": "Gempa besar di bawah laut: periksa informasi tsunami resmi",
+    "card": "Tsunami",
+    "legend": "Lencana gelombang: peringatan, ancaman, pemantauan, atau imbauan tsunami resmi",
+    "center_PTWC": "Pacific Tsunami Warning Center",
+    "center_NTWC": "National Tsunami Warning Center",
+    "center_JMA": "Badan Meteorologi Jepang",
+    "legend_short": "Peringatan tsunami",
+    "me_title": "Peringatan tsunami",
+    "me_hint": "Gratis untuk semua yang masuk: notifikasi saat peringatan, ancaman, pemantauan, atau imbauan tsunami resmi dikeluarkan untuk gempa dalam radius 1.000 km dari salah satu tempat tersimpan Anda.",
+    "me_signin": "Masuk, gratis, untuk menerima peringatan tsunami resmi untuk tempat tersimpan Anda.",
+    "me_no_place": "Tambahkan tempat tersimpan di bawah: peringatan tsunami berlaku untuk gempa dalam radius 1.000 km dari tempat tersimpan Anda."
   }
 }
