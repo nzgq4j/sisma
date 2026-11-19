@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { fetchEmscFelt, isEmscUnid } from '@/lib/quakes/emsc-felt';
+import { fetchEmscFelt, isEmscUnid, unzip } from '@/lib/quakes/emsc-felt';
 
 // GET /api/emsc-felt?unid=<EMSC unid> → { unid, reports, maxMmi, cells: [{ lat, lon, n, mmi }] }
 // EMSC felt reports (lib/quakes/emsc-felt.ts) grouped into ~10 km cells on the server: individual positions are never
@@ -8,6 +8,11 @@ export async function GET(req: NextRequest) {
   const unid = req.nextUrl.searchParams.get('unid') ?? '';
   if (!isEmscUnid(unid)) return NextResponse.json({ error: 'invalid' }, { status: 400 });
   const dbg = req.nextUrl.searchParams.get('debug');
+  if (dbg === 'csv') { // TEMPORARY diagnostic, removed before merge
+    const r = await fetch(`https://www.seismicportal.eu/testimonies-ws/api/search?unids=[${unid}]&includeTestimonies=true`, { cache: 'no-store' });
+    const files = unzip(new Uint8Array(await r.arrayBuffer()));
+    return NextResponse.json(Object.fromEntries(Object.entries(files).map(([k, v]) => [k, { len: v.length, lines: v.split(/\r?\n/).length, head: v.slice(0, 2500) }])));
+  }
   if (dbg) { // TEMPORARY diagnostic, removed before merge
     const urls = [`https://www.seismicportal.eu/testimonies-ws/api/search?unids=[${unid}]&includeTestimonies=true`, `https://www.seismicportal.eu/testimonies-ws/api/search?unids=%5B${unid}%5D&includeTestimonies=true`, `https://www.seismicportal.eu/testimonies-ws/api/search?eventid=${unid}&format=json`, `https://www.seismicportal.eu/testimonies-ws/api/openapi.json`];
     const out = [];
