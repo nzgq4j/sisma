@@ -188,7 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Toque em <Ui>Compartilhar</Ui> em um terremoto para criar um cartão de compartilhamento: uma imagem com o mapa e os principais detalhes.</p>
-          <p>Onde as pessoas relataram ter sentido o terremoto, o mapa do cartão também mostra isso como na visualização da região: pequenos quadrados nas cores de intensidade (cinza quando a intensidade é desconhecida), com a escala de intensidade no canto inferior direito. A descrição de imagem sugerida também menciona isso.</p>
+          <p>Onde as pessoas relataram ter sentido o terremoto, o mapa do cartão também mostra isso como na visualização da região: pequenos quadrados nas cores de intensidade (cinza quando a intensidade é desconhecida), com a escala de intensidade no canto inferior direito. A descrição de imagem sugerida também menciona isso. Se você desativou <Ui>Mapas de tremores</Ui> em <Ui>Camadas</Ui> na visualização da região, o cartão também não os mostra.</p>
           <ul>
             <li>O <strong>texto da publicação</strong> já vem preenchido (magnitude, local, horário, profundidade e uma hashtag, com o link no final), e você pode editá-lo.</li>
             <li>A <strong>descrição da imagem (texto alternativo)</strong> descreve a imagem para quem usa leitor de tela. Ela já vem preenchida, e você pode editá-la.</li>

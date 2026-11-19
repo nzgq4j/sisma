@@ -33,10 +33,10 @@ import { Sheet } from '@/components/Sheet';
 import { REGION_VIEW } from '@/lib/world-regions';
 import { FELT_NEUTRAL, MMI_COLORS, ROMAN } from '@/lib/theme';
 import { feltGrid } from '@/lib/felt-grid';
+import { readFeltOn, writeFeltOn } from '@/lib/felt-pref';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
 
-const FELT_KEY = 'sisma.feltMaps';
 /** The legend's intensity steps: one per distinct cell colour (MMI_COLORS), labelled with the first MMI it covers. */
 const MMI_STEPS = [{ i: 0, label: 'I' }, { i: 2, label: 'III' }, { i: 4, label: 'V' }, { i: 5, label: 'VI' }, { i: 6, label: 'VII' }, { i: 8, label: 'IX' }];
 
@@ -60,13 +60,11 @@ function MapView() {
   const [feltOn, setFeltOnState] = useState(true);
   const [layersOpen, setLayersOpen] = useState(false);
   useEffect(() => {
-    let saved: string | null = null;
-    try { saved = localStorage.getItem(FELT_KEY); } catch { /* storage unavailable */ }
-    if (saved === '0') void Promise.resolve().then(() => setFeltOnState(false));
+    if (!readFeltOn()) void Promise.resolve().then(() => setFeltOnState(false));
   }, []);
   const setFeltOn = (on: boolean) => {
     setFeltOnState(on);
-    try { localStorage.setItem(FELT_KEY, on ? '1' : '0'); } catch { /* storage unavailable */ }
+    writeFeltOn(on);
   };
   const [picked, setPicked] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
