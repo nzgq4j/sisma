@@ -21,6 +21,7 @@ import { HEAT_COLORS, MMI_COLORS, magIndex, magInkVar, magVar } from '@/lib/them
 import type { HeatCell } from '@/lib/feltmap';
 import type { FeltCell } from '@/components/FeltReport';
 import type { DyfiCell } from '@/lib/quakes/dyfi';
+import type { EmscFeltCell } from '@/lib/quakes/emsc-felt';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
 import { BORDERS, COUNTRIES, SPHERE, useDetailedWorld, useLakes, usePlates } from '@/lib/world';
@@ -106,7 +107,7 @@ function TileCredit() {
   );
 }
 
-export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], dyfi = [], onReset, onLocate, here = null }: {
+export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], dyfi = [], emsc = [], onReset, onLocate, here = null }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   projection?: 'equalEarth' | 'mercator'; plates?: boolean; pin?: boolean; controls?: boolean; toolsClassName?: string;
   /** Zoom to this point (changing `key` re-applies it). */
@@ -123,6 +124,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   heat?: HeatCell[];
   /** USGS "Did You Feel It?" community intensity in ~10 km boxes (lib/quakes/dyfi.ts), drawn under the other felt layers. */
   dyfi?: DyfiCell[];
+  /** EMSC felt reports in ~10 km cells (lib/quakes/emsc-felt.ts), drawn as solid intensity-coloured dots. */
+  emsc?: EmscFeltCell[];
   /** Called when the reset-view button is pressed (e.g. to leave a focused region). */
   onReset?: () => void;
   /** Shows a "My location" button: resolves with the device position (or null), which the map then zooms to. */
@@ -271,6 +274,10 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
     return [{ key: `${c.lat},${c.lon}`, cdi: c.cdi, pts, x: mid[0], y: mid[1], w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys) }];
   }), [dyfi, project]);
+  const emscDots = useMemo(() => emsc.flatMap(c => {
+    const a = project(c.lon, c.lat);
+    return a ? [{ ...c, x: a[0], y: a[1] }] : [];
+  }), [emsc, project]);
   const overlay = blobs.length > 0 || heatSpots.length > 0;
   // Event markers are drawn in screen pixels (not inside the zoomed group), so they keep the same size at every
   // zoom and stay precise and tappable at street level, where the zoom factor reaches tens of thousands.
@@ -491,6 +498,14 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
               ? <rect key={b.key} x={b.x - min / 2} y={b.y - min / 2} width={min} height={min} fill={fill} />
               : <path key={b.key} d={`M${b.pts.map(p => `${p[0]},${p[1]}`).join('L')}Z`} fill={fill} />;
           })}
+        </g>
+      )}
+      {emscDots.length > 0 && (
+        <g aria-hidden="true" pointerEvents="none">
+          {emscDots.map(d => (
+            <circle key={`e${d.lat},${d.lon}`} cx={d.x} cy={d.y} r={(4 + Math.min(4, Math.sqrt(d.n))) / k}
+              fill={MMI_COLORS[Math.min(10, Math.max(1, Math.round(d.mmi))) - 1]} fillOpacity={0.85} stroke="var(--surface)" strokeWidth={1 / k} />
+          ))}
         </g>
       )}
       {heatSpots.length > 0 && (
