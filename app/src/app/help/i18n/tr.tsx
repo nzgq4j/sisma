@@ -169,10 +169,10 @@ export const TOPICS: Topic[] = [
             <li><Ui>Bildirimi gönder</Ui> düğmesine dokun.</li>
           </ol>
           <p>Bildirimin <strong>adın veya hesabın olmadan</strong> saklanır. Haritada konumu yaklaşık 10 km’ye yuvarlanır.</p>
-          <p>Bildirimler bölge görünümünde (<Ui>Bölgeyi göster</Ui>) her şiddet düzeyi için ayrı renkte yumuşak alanlar olarak görünür.</p>
+          <p>Bildirimler bölge görünümünde (<Ui>Bölgeyi göster</Ui>) yaklaşık 10 km’lik küçük kareler olarak görünür. Aşağıdaki USGS ve EMSC raporlarıyla birlikte her kare, içindeki raporların ortalama şiddetinin rengini alır.</p>
           <p>USGS’nin kaydettiği depremlerde bölge görünümü, USGS <strong>Did You Feel It?</strong> anketine verilen yanıtları da her şiddet düzeyi için ayrı renkte, yaklaşık 10 km’lik renkli kareler olarak gösterir.</p>
-          <p>EMSC’nin kaydettiği depremlerde EMSC web siteleri ve LastQuake uygulaması üzerinden gönderilen hissetme raporlarını da yaklaşık 10 km’lik alanlarda toplayıp her şiddet düzeyi için ayrı renkte noktalar olarak gösterir. EMSC verileri CC BY 4.0 lisansıyla paylaşılır.</p>
-          <p>Tüm sarsıntı haritalarını birlikte göstermek veya gizlemek için <Ui>Dünya haritasına dön</Ui> düğmesinin yanındaki <Ui>Katmanlar</Ui> düğmesine dokun ve <Ui>Sarsıntı haritaları</Ui> anahtarını kullan; levha sınırlarının ayrı bir anahtarı vardır. Seçimin bu cihazda saklanır. Haritanın üstündeki açıklama tüm kaynakları bir araya getirir: toplam rapor sayısı ve en yüksek şiddet, şiddet renk ölçeği ve her kaynağın simgesiyle sayısı.</p>
+          <p>EMSC’nin kaydettiği depremlerde EMSC web siteleri ve LastQuake uygulaması üzerinden gönderilen hissetme raporları da aynı karelere dahil edilir. EMSC verileri CC BY 4.0 lisansıyla paylaşılır.</p>
+          <p>Tüm sarsıntı haritalarını birlikte göstermek veya gizlemek için <Ui>Dünya haritasına dön</Ui> düğmesinin yanındaki <Ui>Katmanlar</Ui> düğmesine dokun ve <Ui>Sarsıntı haritaları</Ui> anahtarını kullan; levha sınırlarının ayrı bir anahtarı vardır. Seçimin bu cihazda saklanır. Üstteki açıklama toplam rapor sayısını ve en yüksek şiddeti, şiddet renk ölçeğiyle birlikte verir. Gri kareler, otomatik sarsıntı haritasında hiçbir raporun şiddet bildirmediği alanlardır.</p>
           <h3>Hissedilme haritaları</h3>
           <p>Bir depremin hemen ardından birçok kişi sisma’yı açtığında, bu yoğunluk depremin muhtemelen nerede hissedildiğini gösterir. sisma bunu bölge görünümünde anonim bir <strong>hissedilme haritasına</strong> dönüştürür. Konumlar cihazında 500 m’ye kadar bulanıklaştırılır, hiçbir hesap veya cihaz tanımlayıcısı taşımaz ve yalnızca en az 3 kişinin bulunduğu yaklaşık 10 km’lik alanlarda gösterilir. Bunu <Ui>Profil</Ui> → <Ui>Depremin nerede hissedildiğini haritalamaya yardım et</Ui> bölümünden kapatabilirsin.</p>
         </div>
@@ -188,7 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Paylaşım kartı oluşturmak için bir depremde <Ui>Paylaş</Ui> düğmesine dokun: harita ve temel ayrıntıları içeren bir görsel.</p>
-          <p>İnsanların depremi hissettiğini bildirdiği yerler, bölge görünümünde olduğu gibi kartın haritasında da şiddet renkleriyle gösterilir: sisma bildirimleri için yumuşak alanlar, otomatik sarsıntı haritası için bir parıltı, USGS “Did You Feel It?” için kareler ve EMSC raporları için noktalar; üstte küçük bir açıklama bulunur. Önerilen görsel açıklaması da karttaki bu katmanları belirtir.</p>
+          <p>İnsanların depremi hissettiğini bildirdiği yerler, bölge görünümünde olduğu gibi kartın haritasında da gösterilir: şiddet renklerinde küçük kareler (şiddet bilinmiyorsa gri), sağ altta şiddet ölçeği ve kaynaklarla. Önerilen görsel açıklaması da bundan bahseder.</p>
           <ul>
             <li><strong>Gönderi metni</strong> senin için doldurulur (büyüklük, yer, zaman, derinlik ve bir hashtag; bağlantı en sonda) ve düzenleyebilirsin.</li>
             <li><strong>Görsel açıklaması (alternatif metin)</strong>, ekran okuyucu kullananlar için görseli tarif eder. Senin için doldurulur ve düzenleyebilirsin.</li>

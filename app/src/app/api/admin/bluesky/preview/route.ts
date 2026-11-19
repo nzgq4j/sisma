@@ -4,8 +4,8 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { findQuake } from '@/lib/quakes/find';
 import { draftPost } from '@/lib/bluesky';
-import { feltLayers, loadShareFelt } from '@/lib/share-felt';
-import { feltAltEn } from '@/lib/felt-layers';
+import { loadShareFelt, shareGrid } from '@/lib/share-felt';
+import { feltAltEn, feltMarks } from '@/lib/felt-layers';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
   if (!q) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   const d = draftPost(q);
   // The felt layers the card will draw, so the alt text matches the published one (lib/bluesky.ts cardAlt).
-  const layers = feltLayers(await loadShareFelt(q));
+  const layers = feltMarks(shareGrid(await loadShareFelt(q)));
   const alt = layers.length ? `${d.alt} ${feltAltEn(layers)}` : d.alt;
   const graphemes = [...new Intl.Segmenter('en', { granularity: 'grapheme' }).segment(d.text)].length;
   return NextResponse.json({ text: d.text, alt, url: d.url, graphemes, image: `/api/share-card?id=${encodeURIComponent(q.id)}&locale=en&units=km&tz=UTC` });

@@ -5,7 +5,7 @@
 // the app.bsky / com.atproto lexicons). The account is signed in from Me → Administration (session kept in Supabase
 // Vault, never the password); BLUESKY_IDENTIFIER / BLUESKY_APP_PASSWORD (+ optional BLUESKY_SERVICE) in the server env
 // are the fallback. docs/bluesky-setup.md
-import { feltAltEn, isFeltLayer, type FeltLayer } from './felt-layers';
+import { feltAltEn, isFeltMark, type FeltMark } from './felt-layers';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Quake } from './quakes/types';
 import { countryAt } from './country';
@@ -209,7 +209,7 @@ export async function card(q: Quake, known: Quake[] = []): Promise<CardImage | n
     const r = await shareCardResponse({ q, all, locale: 'en', units: 'km', tz: 'UTC', origin: SITE.url });
     if (!r.ok || !r.headers.get('content-type')?.startsWith('image/png')) return null;
     const buf = new Uint8Array(await r.arrayBuffer());
-    const layers = (r.headers.get(FELT_HEADER) ?? '').split(',').filter(isFeltLayer);
+    const layers = (r.headers.get(FELT_HEADER) ?? '').split(',').filter(isFeltMark);
     return buf.byteLength <= BLUESKY_MAX_IMAGE_BYTES ? { data: buf, layers } : null;
   } catch (e) {
     console.error('bluesky card', q.id, e);
@@ -218,7 +218,7 @@ export async function card(q: Quake, known: Quake[] = []): Promise<CardImage | n
 }
 
 /** A share card made for a post, with the felt layers drawn on it (for the alt text). */
-export interface CardImage { data: Uint8Array; layers: FeltLayer[] }
+export interface CardImage { data: Uint8Array; layers: FeltMark[] }
 
 /** The post's alt text for this card: the draft's description plus a sentence on the felt layers drawn, if any. */
 export const cardAlt = (alt: string, img: CardImage | null) => (img?.layers.length ? `${alt} ${feltAltEn(img.layers)}` : alt);

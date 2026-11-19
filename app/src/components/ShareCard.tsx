@@ -4,7 +4,7 @@
 // where supported; otherwise Share link with the post), Save image, Copy text and Copy alt text. Many apps (X, Facebook, Bluesky) drop shared text when an
 // image comes with it, and none accept alt text this way, so sharing also copies the text for pasting.
 /* eslint-disable @next/next/no-img-element -- generated PNG preview */
-import { isFeltLayer, type FeltLayer } from '@/lib/felt-layers';
+import { isFeltMark, type FeltMark } from '@/lib/felt-layers';
 import { useEffect, useState } from 'react';
 import { Sheet } from './Sheet';
 import { useT } from '@/i18n/I18nProvider';
@@ -17,7 +17,7 @@ import styles from './dash/dash.module.css';
 export const shareCardUrl = (id: string, locale: string, units: string, tz: string) =>
   `/api/share-card?${new URLSearchParams({ id, locale, units, tz })}`;
 
-type Result = { key: string } & ({ s: 'ready'; file: File; url: string; layers: FeltLayer[] } | { s: 'failed' });
+type Result = { key: string } & ({ s: 'ready'; file: File; url: string; layers: FeltMark[] } | { s: 'failed' });
 type State = { s: 'loading' } | Result;
 
 export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
@@ -39,7 +39,9 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
   // Description, hashtag, then the link last (lib/share-text.ts).
   // The image description also names the felt layers the card drew (X-Felt-Layers from the card response).
   const feltAlt = state.s === 'ready' && state.layers.length
-    ? ' ' + m.sharecard.alt_felt.replace('{layers}', state.layers.map(l => m.sharecard[`alt_${l}`]).join(', ')) : '';
+    ? ' ' + (state.layers.includes('intensity')
+      ? m.sharecard.alt_felt + (state.layers.includes('unknown') ? ' ' + m.sharecard.alt_unknown : '')
+      : m.sharecard.alt_unknown_only) : '';
   const post = draft?.key === key ? draft : { key, text: postWithLink(text, typeof location === 'undefined' ? '' : location.origin + path, m.sharecard.tag), alt: alt + feltAlt };
   const [note, setNote] = useState<string | null>(null);
   const edit = (patch: Partial<{ text: string; alt: string }>) => setDraft({ ...post, ...patch });
@@ -50,7 +52,7 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
     fetch(shareCardUrl(q.id, locale, units, tz))
       .then(r => (r.ok && r.headers.get('content-type')?.startsWith('image/')
-        ? r.blob().then(blob => ({ blob, layers: (r.headers.get('x-felt-layers') ?? '').split(',').filter(isFeltLayer) }))
+        ? r.blob().then(blob => ({ blob, layers: (r.headers.get('x-felt-layers') ?? '').split(',').filter(isFeltMark) }))
         : Promise.reject(new Error(String(r.status)))))
       .then(({ blob, layers }) => {
         if (!alive) return;

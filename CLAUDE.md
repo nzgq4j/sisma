@@ -36,13 +36,15 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    (components/FeltReport.tsx), POST /api/reports re-checks the quake and the window. "Show on the map" switch places the report
    (~10 km cell) at the device position, else the place chosen in Me, within 3,000 km; the region view card counts every
    report (GET /api/reports: total, MMI range, cells) and says how many are on the map.
-   USGS "Did You Feel It?" layer (done): region view draws the focused event's DYFI 10 km boxes by intensity (GET /api/dyfi →
-   lib/quakes/dyfi.ts: dyfi_geo_10km.geojson, else cdi_geo.txt; components/Dyfi.tsx), card line with responses and a USGS link
-   EMSC felt reports layer (done): GET /api/emsc-felt → lib/quakes/emsc-felt.ts (testimonies-ws zip, grouped into 0.1° cells on
-   the server, never individual positions; CC BY 4.0, credited), drawn as intensity dots with a card line and EMSC link
-   Layers sheet (done): button beside "Back to world map": one Felt maps switch for all felt layers, plus plate boundaries
-   (localStorage sisma.feltMaps); "How felt maps work" is in the Layers sheet
-   Share card felt layers (done): lib/share-felt.ts loads the sources on the server (4 s limit each)
+   Felt sources (done), all drawn as ONE grid of ~10 km intensity-coloured squares (lib/felt-grid.ts: report-weighted mean MMI
+   per 0.1° cell; automatic felt map areas without a report = grey FELT_NEUTRAL "intensity unknown") with an intensity-only
+   legend: sisma reports, USGS "Did You Feel It?" (GET /api/dyfi → lib/quakes/dyfi.ts: dyfi_geo_10km.geojson, else
+   cdi_geo.txt), EMSC felt reports (GET /api/emsc-felt → lib/quakes/emsc-felt.ts: testimonies-ws zip grouped into 0.1° cells
+   on the server, never individual positions; CC BY 4.0: credited in the Layers sheet and on the share card)
+   Layers sheet (done): button beside "Back to world map": one Felt maps switch, plus plate boundaries (localStorage
+   sisma.feltMaps); "How felt maps work" and the source credit are in the sheet
+   Share card felt cells (done): lib/share-felt.ts loads the sources on the server (4 s limit each), lib/share-map.ts draws the
+   same grid; legend = intensity steps (+ grey) and a source credit; X-Felt-Layers (intensity, unknown) → alt text
    Todo: rate limiting, show felt_summary
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →
    GET /api/felt-map heatmap in Show region (lib/feltmap.ts; 180 s window, ≥ 3 people per ~10 km cell; Me toggle)

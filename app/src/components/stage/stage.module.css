@@ -67,14 +67,11 @@
 /* Region view: one legend for all felt layers (totals, intensity scale, a symbol per source like the map's). */
 .feltLegend { display: flex; flex-direction: column; gap: 6px; padding: 0 4px 2px; min-width: 0; }
 .feltLegendSum { font-size: 13px; font-weight: 800; }
-.feltLegendScale { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: var(--ink2); }
-.feltLegendScale i { flex: 1; height: 8px; border-radius: 4px; }
-.feltLegendItems { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; font-weight: 700; }
-.feltLegendItem { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
-.feltLegendItem .sw { display: inline-block; width: 12px; height: 12px; flex: none; }
-.sw_reports, .sw_auto { border-radius: 6px; background: radial-gradient(circle, var(--c) 0%, color-mix(in srgb, var(--c) 55%, transparent) 55%, transparent 100%); }
-.sw_dyfi { border-radius: 2px; background: var(--c); opacity: .75; }
-.feltLegendItem .sw_emsc { width: 10px; height: 10px; border-radius: 5px; background: var(--c); box-shadow: 0 0 0 1.5px var(--surface); }
+.feltLegendScale { display: flex; align-items: flex-start; gap: 2px; flex-wrap: wrap; font-size: 10px; font-weight: 700; color: var(--ink2); }
+.mmiStep { flex: 1; min-width: 26px; display: flex; flex-direction: column; gap: 2px; }
+.mmiStep i, .mmiUnknown i { display: block; height: 8px; border-radius: 2px; opacity: .85; }
+.mmiUnknown { flex: none; display: flex; align-items: center; gap: 4px; margin-left: 8px; }
+.mmiUnknown i { width: 14px; }
 .layerInfo { display: flex; align-items: center; gap: 12px; min-height: 48px; width: 100%; margin-top: 4px; padding: 0 2px; border: 0; background: transparent; color: var(--violet-text); font: inherit; font-size: 15px; font-weight: 700; text-align: left; cursor: pointer; }
 .layerInfo :global(.ms) { font-size: 22px; }
 

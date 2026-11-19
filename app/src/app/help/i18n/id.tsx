@@ -169,10 +169,10 @@ export const TOPICS: Topic[] = [
             <li>Ketuk <Ui>Kirim laporan</Ui>.</li>
           </ol>
           <p>Laporan Anda disimpan <strong>tanpa nama atau akun Anda</strong>. Di peta, posisinya dibulatkan hingga sekitar 10 km.</p>
-          <p>Laporan muncul di tampilan wilayah (<Ui>Tampilkan wilayah</Ui>) sebagai area berwarna lembut, satu warna untuk tiap tingkat intensitas.</p>
+          <p>Laporan muncul di tampilan wilayah (<Ui>Tampilkan wilayah</Ui>) sebagai kotak kecil sekitar 10 km. Bersama laporan USGS dan EMSC di bawah, tiap kotak diberi warna intensitas rata-rata laporan di dalamnya.</p>
           <p>Untuk gempa yang dicatat USGS, tampilan wilayah juga menunjukkan jawaban orang atas survei <strong>Did You Feel It?</strong> dari USGS, sebagai kotak berwarna sekitar 10 km, satu warna untuk tiap tingkat intensitas.</p>
-          <p>Untuk gempa yang dicatat EMSC, tampilan ini juga menunjukkan laporan yang dikirim melalui situs EMSC dan aplikasi LastQuake, dikelompokkan dalam area sekitar 10 km dan digambar sebagai titik berwarna, satu warna untuk tiap tingkat intensitas. Data EMSC dibagikan dengan lisensi CC BY 4.0.</p>
-          <p>Untuk menampilkan atau menyembunyikan semua peta guncangan sekaligus, ketuk tombol <Ui>Lapisan</Ui> di samping <Ui>Kembali ke peta dunia</Ui> dan gunakan sakelar <Ui>Peta guncangan</Ui>; batas lempeng punya sakelar sendiri. Pilihan Anda disimpan di perangkat ini. Legenda di bagian atas peta menggabungkan semua sumber: jumlah total laporan dan intensitas tertinggi, skala warna intensitas, serta simbol tiap sumber beserta jumlahnya.</p>
+          <p>Untuk gempa yang dicatat EMSC, laporan yang dikirim melalui situs EMSC dan aplikasi LastQuake juga dimasukkan ke kotak yang sama. Data EMSC dibagikan dengan lisensi CC BY 4.0.</p>
+          <p>Untuk menampilkan atau menyembunyikan semua peta guncangan sekaligus, ketuk tombol <Ui>Lapisan</Ui> di samping <Ui>Kembali ke peta dunia</Ui> dan gunakan sakelar <Ui>Peta guncangan</Ui>; batas lempeng punya sakelar sendiri. Pilihan Anda disimpan di perangkat ini. Legenda di bagian atas menunjukkan jumlah total laporan dan intensitas tertinggi, dengan skala warna intensitas. Kotak abu-abu adalah area dari peta guncangan otomatis yang tidak memiliki laporan intensitas.</p>
           <h3>Peta guncangan</h3>
           <p>Saat banyak orang membuka sisma tepat setelah gempa, lonjakan itu menunjukkan di mana gempa kemungkinan besar terasa. sisma mengubahnya menjadi <strong>peta guncangan</strong> anonim di tampilan wilayah. Posisi dikaburkan di perangkat Anda hingga 500 m, tidak membawa pengenal akun atau perangkat, dan hanya ditampilkan untuk area sekitar 10 km dengan setidaknya 3 orang. Anda bisa menonaktifkannya di <Ui>Saya</Ui> → <Ui>Bantu memetakan di mana gempa terasa</Ui>.</p>
         </div>
@@ -188,7 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Ketuk <Ui>Bagikan</Ui> pada sebuah gempa untuk membuat kartu berbagi: gambar berisi peta dan detail utamanya.</p>
-          <p>Di tempat orang melaporkan merasakan gempa, peta pada kartu juga menunjukkannya dengan warna intensitas, seperti di tampilan wilayah: area lembut untuk laporan sisma, pendaran untuk peta guncangan otomatis, kotak untuk “Did You Feel It?” USGS, dan titik untuk laporan EMSC, dengan legenda kecil di atas. Deskripsi gambar yang disarankan lalu menyebutkan lapisan tersebut.</p>
+          <p>Di tempat orang melaporkan merasakan gempa, peta pada kartu juga menunjukkannya seperti di tampilan wilayah: kotak kecil berwarna intensitas (abu-abu jika intensitas tidak diketahui), dengan skala intensitas dan sumber di kanan bawah. Deskripsi gambar yang disarankan juga menyebutkannya.</p>
           <ul>
             <li><strong>Teks postingan</strong> sudah diisikan untuk Anda (magnitudo, tempat, waktu, kedalaman, dan sebuah tagar, dengan tautan di akhir), dan Anda bisa mengeditnya.</li>
             <li><strong>Deskripsi gambar (teks alternatif)</strong> menjelaskan gambar bagi orang yang memakai pembaca layar. Teks ini sudah diisikan untuk Anda, dan Anda bisa mengeditnya.</li>

@@ -41,3 +41,5 @@ export type SciencePalette = (typeof SCIENCE_PALETTE)['light'];
 
 /** Automatic felt-map heat ramp (weak → strong surge of app activity after a quake). */
 export const HEAT_COLORS = ['#FFD166', '#FFA94D', '#FF7A59', '#EE4266'] as const;
+/** Felt cells without an intensity (automatic felt map areas no report covers): lib/felt-grid.ts. */
+export const FELT_NEUTRAL = '#9AA3B5';

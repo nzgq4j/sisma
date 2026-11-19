@@ -7,7 +7,7 @@
 // event there opens a callout on the map; tapping the callout makes that event the focus. The Layers button beside
 // "Back to world map" shows or hides the felt maps (all felt layers at once) and the plate boundaries (kept on the device).
 // The My location button (under the zoom buttons) zooms to the device position; the location chosen in Me stays as it is.
-import { Suspense, useEffect, useRef, useState, type CSSProperties } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
@@ -30,11 +30,14 @@ import { Legend, LocateNote, Selection, useLocateHere } from '@/components/stage
 import { FilterPanel, LayerToggle } from '@/components/stage/FilterPanel';
 import { Sheet } from '@/components/Sheet';
 import { REGION_VIEW } from '@/lib/world-regions';
-import { HEAT_COLORS, MMI_COLORS, ROMAN } from '@/lib/theme';
+import { FELT_NEUTRAL, MMI_COLORS, ROMAN } from '@/lib/theme';
+import { feltGrid } from '@/lib/felt-grid';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
 
 const FELT_KEY = 'sisma.feltMaps';
+/** The legend's intensity steps: one per distinct cell colour (MMI_COLORS), labelled with the first MMI it covers. */
+const MMI_STEPS = [{ i: 0, label: 'I' }, { i: 2, label: 'III' }, { i: 4, label: 'V' }, { i: 5, label: 'VI' }, { i: 6, label: 'VII' }, { i: 8, label: 'IX' }];
 
 /** Region view: degrees of longitude across the shorter side of the map (~800 km at the equator). */
 const REGION_SPAN = 7.5;
@@ -137,20 +140,23 @@ function MapView() {
     if (q) setPicked(q.id); else clear();
   };
 
-  // The combined felt legend: reports from sisma, USGS and EMSC (total and highest intensity), and the automatic map.
+  // Every felt source merged into one grid of ~10 km cells (lib/felt-grid.ts), drawn in one style.
+  const grid = useMemo(() => (focusQuake ? feltGrid({
+    reports: felt.cells, dyfi: dyfi.data?.cells, emsc: emsc.data?.cells, heat: auto.map?.cells,
+  }) : []), [focusQuake, felt.cells, dyfi.data, emsc.data, auto.map]);
+  // The felt legend: total reports from all sources and the highest intensity, then the intensity scale.
   const legend = (() => {
-    const items: { key: 'reports' | 'dyfi' | 'emsc' | 'auto'; label: string; on: boolean }[] = [];
     const maxes: number[] = [];
     let total = 0;
-    if (!felt.loading && felt.total > 0) { items.push({ key: 'reports', label: `sisma ${nf.format(felt.total)}`, on: feltOn }); total += felt.total; if (felt.range) maxes.push(felt.range.max); }
-    if (dyfi.data && dyfi.data.cells.length > 0) { items.push({ key: 'dyfi', label: `USGS ${nf.format(dyfi.data.responses)}`, on: feltOn }); total += dyfi.data.responses; if (dyfi.data.maxCdi != null) maxes.push(dyfi.data.maxCdi); }
-    if (emsc.data && emsc.data.cells.length > 0) { items.push({ key: 'emsc', label: `EMSC ${nf.format(emsc.data.reports)}`, on: feltOn }); total += emsc.data.reports; if (emsc.data.maxMmi != null) maxes.push(emsc.data.maxMmi); }
-    if (!auto.loading && auto.map && auto.map.cells.length > 0) items.push({ key: 'auto', label: t('legend_auto'), on: feltOn });
+    if (!felt.loading && felt.total > 0) { total += felt.total; if (felt.range) maxes.push(felt.range.max); }
+    if (dyfi.data && dyfi.data.cells.length > 0) { total += dyfi.data.responses; if (dyfi.data.maxCdi != null) maxes.push(dyfi.data.maxCdi); }
+    if (emsc.data && emsc.data.cells.length > 0) { total += emsc.data.reports; if (emsc.data.maxMmi != null) maxes.push(emsc.data.maxMmi); }
     const top = maxes.length ? ROMAN[Math.min(10, Math.max(1, Math.round(Math.max(...maxes)))) - 1] : null;
+    const unknown = grid.some(c => c.mmi == null);
     const summary = total > 0
       ? `${total === 1 ? t('felt_total_1') : t('felt_total_n', { n: nf.format(total) })}${top ? ` · ${t('dyfi_max', { mmi: top })}` : ''}`
-      : auto.map ? (auto.map.cells.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(auto.map.cells.length))) : '';
-    return { items, summary, mmi: total > 0 };
+      : grid.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(grid.length));
+    return { show: grid.length > 0, summary, intensity: total > 0, unknown };
   })();
 
   return (
@@ -162,7 +168,7 @@ function MapView() {
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
         focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, span: REGION_SPAN, y: 0.42 }
           : regionView ? { key: `wr:${worldReg}`, ...regionView, y: 0.42 } : null}
-        cells={focusQuake && feltOn ? felt.cells : []} heat={focusQuake && feltOn && auto.map ? auto.map.cells : []} dyfi={focusQuake && feltOn && dyfi.data ? dyfi.data.cells : []} emsc={focusQuake && feltOn && emsc.data ? emsc.data.cells : []} onReset={focusId ? exitRegion : undefined}
+        felt={feltOn ? grid : []} onReset={focusId ? exitRegion : undefined}
         onLocate={locate.go} here={device} />
       <LocateNote note={locate.note} onClose={locate.dismiss} />
       {focusId && (
@@ -175,21 +181,15 @@ function MapView() {
               <span className="ms" aria-hidden="true">layers</span>
             </button>
           </div>
-          {/* One legend for all felt layers: totals, the intensity scale and each source's symbol (dimmed when hidden). */}
-          {focusQuake && legend.items.length > 0 && (
-            <div className={styles.feltLegend}>
+          {/* The felt legend: totals and the intensity scale (all sources share one cell style); dimmed when felt maps are off. */}
+          {focusQuake && legend.show && (
+            <div className={`${styles.feltLegend}${feltOn ? '' : ` ${styles.lineOff}`}`}>
               <FitLine min={9} className={styles.feltLegendSum}>{legend.summary}</FitLine>
-              {legend.mmi && (
-                <span className={styles.feltLegendScale} aria-hidden="true">
-                  <span>MMI I</span><i style={{ background: `linear-gradient(90deg, ${MMI_COLORS.join(', ')})` }} /><span>X</span>
-                </span>
-              )}
-              <span className={styles.feltLegendItems}>
-                {legend.items.map(it => (
-                  <span key={it.key} className={`${styles.feltLegendItem}${it.on ? '' : ` ${styles.lineOff}`}`}>
-                    <i className={`${styles.sw} ${styles[`sw_${it.key}`]}`} style={{ '--c': it.key === 'auto' ? HEAT_COLORS[2] : MMI_COLORS[4] } as CSSProperties} aria-hidden="true" />{it.label}
-                  </span>
+              <span className={styles.feltLegendScale} aria-label={t('legend_scale')}>
+                {legend.intensity && MMI_STEPS.map(st => (
+                  <span key={st.label} className={styles.mmiStep}><i style={{ background: MMI_COLORS[st.i] }} />{st.label}</span>
                 ))}
+                {legend.unknown && <span className={styles.mmiUnknown}><i style={{ background: FELT_NEUTRAL }} />{t('legend_unknown')}</span>}
               </span>
             </div>
           )}
@@ -205,6 +205,7 @@ function MapView() {
           <span className="ms" aria-hidden="true">info</span>{m.feltmap.title}
         </button>
         <p className={styles.layerHint}>{t('layers_hint')}</p>
+        <p className={styles.layerHint}>{t('layers_credit')}</p>
       </Sheet>
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}
       {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={clear} onShowRegion={() => showRegion(sel.id)} /> : (

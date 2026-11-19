@@ -169,10 +169,10 @@ export const TOPICS: Topic[] = [
             <li>Toque em <Ui>Enviar relato</Ui>.</li>
           </ol>
           <p>Seu relato é guardado <strong>sem seu nome nem sua conta</strong>. No mapa, a posição é arredondada para cerca de 10 km.</p>
-          <p>Os relatos aparecem na visualização da região (<Ui>Mostrar região</Ui>) como áreas coloridas suaves, uma cor por nível de intensidade.</p>
+          <p>Os relatos aparecem na visualização da região (<Ui>Mostrar região</Ui>) como pequenos quadrados de cerca de 10 km. Junto com os relatos do USGS e do EMSC descritos abaixo, cada quadrado recebe a cor da intensidade média dos relatos que contém.</p>
           <p>Nos terremotos registrados pelo USGS, a visualização da região também mostra as respostas à pesquisa <strong>Did You Feel It?</strong> do USGS, como quadrados coloridos de cerca de 10 km, uma cor por nível de intensidade.</p>
-          <p>Nos terremotos registrados pelo EMSC, também mostra os relatos enviados pelos sites do EMSC e pelo app LastQuake, agrupados em áreas de cerca de 10 km e desenhados como pontos coloridos, uma cor por nível de intensidade. Os dados do EMSC são compartilhados sob a licença CC BY 4.0.</p>
-          <p>Para mostrar ou ocultar todos os mapas de tremores de uma vez, toque no botão <Ui>Camadas</Ui> ao lado de <Ui>Voltar ao mapa-múndi</Ui> e use a chave <Ui>Mapas de tremores</Ui>; os limites de placas têm a sua própria chave. Sua escolha fica salva neste dispositivo. A legenda no topo do mapa reúne todas as fontes: o número total de relatos e a maior intensidade, a escala de cores de intensidade e o símbolo de cada fonte com a sua contagem.</p>
+          <p>Nos terremotos registrados pelo EMSC, também inclui os relatos enviados pelos sites do EMSC e pelo app LastQuake, nos mesmos quadrados. Os dados do EMSC são compartilhados sob a licença CC BY 4.0.</p>
+          <p>Para mostrar ou ocultar todos os mapas de tremores de uma vez, toque no botão <Ui>Camadas</Ui> ao lado de <Ui>Voltar ao mapa-múndi</Ui> e use a chave <Ui>Mapas de tremores</Ui>; os limites de placas têm a sua própria chave. Sua escolha fica salva neste dispositivo. A legenda no topo mostra o número total de relatos e a maior intensidade, com a escala de cores de intensidade. Os quadrados cinza são áreas do mapa automático onde nenhum relato indica uma intensidade.</p>
           <h3>Mapas de percepção</h3>
           <p>Quando muitas pessoas abrem o sisma logo depois de um terremoto, esse movimento mostra onde ele provavelmente foi sentido. O sisma transforma isso em um <strong>mapa de percepção</strong> anônimo na visão da região. As posições são embaralhadas no seu dispositivo em até 500 m, não levam nenhum identificador de conta ou de dispositivo e só aparecem para áreas de cerca de 10 km com pelo menos 3 pessoas. Você pode desativar isso em <Ui>Perfil</Ui> → <Ui>Ajudar a mapear onde os tremores são sentidos</Ui>.</p>
         </div>
@@ -188,7 +188,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Toque em <Ui>Compartilhar</Ui> em um terremoto para criar um cartão de compartilhamento: uma imagem com o mapa e os principais detalhes.</p>
-          <p>Onde as pessoas relataram ter sentido o terremoto, o mapa do cartão também mostra isso nas cores de intensidade, como na visualização da região: áreas suaves para os relatos do sisma, um brilho para o mapa automático, quadrados para o “Did You Feel It?” do USGS e pontos para os relatos do EMSC, com uma pequena legenda no topo. A descrição de imagem sugerida cita então essas camadas.</p>
+          <p>Onde as pessoas relataram ter sentido o terremoto, o mapa do cartão também mostra isso como na visualização da região: pequenos quadrados nas cores de intensidade (cinza quando a intensidade é desconhecida), com a escala de intensidade e as fontes no canto inferior direito. A descrição de imagem sugerida também menciona isso.</p>
           <ul>
             <li>O <strong>texto da publicação</strong> já vem preenchido (magnitude, local, horário, profundidade e uma hashtag, com o link no final), e você pode editá-lo.</li>
             <li>A <strong>descrição da imagem (texto alternativo)</strong> descreve a imagem para quem usa leitor de tela. Ela já vem preenchida, e você pode editá-la.</li>

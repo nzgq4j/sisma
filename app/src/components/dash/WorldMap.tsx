@@ -8,7 +8,7 @@
 // mode, the stronger MAG_MARKER_LIGHT in light mode) with the magnitude written in the head; a tap picks the nearest.
 // Mercator zooms on to street level: from web zoom 6.5–7.5 (about 300 km across a phone) OpenStreetMap tiles fade in
 // over the app's outlines (lib/tiles.ts), with the required credit; darkened by a filter in dark mode.
-import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { geoEqualEarth, geoGraticule10, geoMercator, geoPath, type GeoProjection } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
@@ -17,11 +17,8 @@ import { useTheme } from '@/components/Theme';
 import { PIN_FONT_PX, PIN_HEAD, PIN_PATH, PIN_R, PIN_TEXT_DY, dotRadius, markerHit, pinLabel } from '@/lib/pin';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
 import { useMarkerStyle } from '@/components/MarkerStyle';
-import { HEAT_COLORS, MMI_COLORS, magIndex, magInkVar, magVar } from '@/lib/theme';
-import type { HeatCell } from '@/lib/feltmap';
-import type { FeltCell } from '@/components/FeltReport';
-import type { DyfiCell } from '@/lib/quakes/dyfi';
-import type { EmscFeltCell } from '@/lib/quakes/emsc-felt';
+import { magIndex, magInkVar, magVar } from '@/lib/theme';
+import { FELT_CELL_DEG, feltColor, type FeltGridCell } from '@/lib/felt-grid';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
 import { BORDERS, COUNTRIES, SPHERE, useDetailedWorld, useLakes, usePlates } from '@/lib/world';
@@ -107,7 +104,7 @@ function TileCredit() {
   );
 }
 
-export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, cells = [], heat = [], dyfi = [], emsc = [], onReset, onLocate, here = null }: {
+export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'equalEarth', plates = false, pin = true, controls = true, toolsClassName = '', focus = null, focusedId = null, popup = null, safeArea, felt = [], onReset, onLocate, here = null }: {
   quakes: Quake[]; center: { lat: number; lon: number }; selectedId: string | null; onSelect: (q: Quake | null) => void;
   projection?: 'equalEarth' | 'mercator'; plates?: boolean; pin?: boolean; controls?: boolean; toolsClassName?: string;
   /** Zoom to this point (changing `key` re-applies it). */
@@ -118,14 +115,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   popup?: { id: string; content: ReactNode } | null;
   /** Px from the top and bottom of the map covered by overlays (chips, cards); a callout is kept clear of them. */
   safeArea?: () => { top: number; bottom: number };
-  /** Felt reports as ~10 km cells, drawn as soft, blurred areas so no exact position is implied. */
-  cells?: FeltCell[];
-  /** Automatic felt map (lib/feltmap.ts): ~10 km cells weighted 0–1 by the surge of app activity after the quake. */
-  heat?: HeatCell[];
-  /** USGS "Did You Feel It?" community intensity in ~10 km boxes (lib/quakes/dyfi.ts), drawn under the other felt layers. */
-  dyfi?: DyfiCell[];
-  /** EMSC felt reports in ~10 km cells (lib/quakes/emsc-felt.ts), drawn as solid intensity-coloured dots. */
-  emsc?: EmscFeltCell[];
+  /** All felt sources merged into ~10 km cells (lib/felt-grid.ts), drawn as one style: intensity-coloured squares. */
+  felt?: FeltGridCell[];
   /** Called when the reset-view button is pressed (e.g. to leave a focused region). */
   onReset?: () => void;
   /** Shows a "My location" button: resolves with the device position (or null), which the map then zooms to. */
@@ -133,7 +124,6 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   /** The device position, marked when it differs from `center` (the location chosen in Me). */
   here?: { lat: number; lon: number } | null;
 }) {
-  const gid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const { t, m } = useT();
   const u = useDistance();
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -254,31 +244,13 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const me = pin ? project(center.lon, center.lat) : null;
   // The device position, when it isn't the chosen location itself (more than ~100 m away).
   const away = here && Math.hypot(here.lat - center.lat, here.lon - center.lon) > 0.001 ? project(here.lon, here.lat) : null;
-  // ~10 km radius (0.09° of latitude) in map units; felt reports get a radius of at least ~30 screen px so they stay
-  // visible in the region view.
-  const blobs = useMemo(() => cells.flatMap(c => {
-    const a = project(c.lon, c.lat), b = project(c.lon, Math.min(89, c.lat + 0.09));
-    return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
-  }), [cells, project]);
-  const heatSpots = useMemo(() => heat.flatMap(c => {
-    const a = project(c.lon, c.lat), b = project(c.lon, Math.min(89, c.lat + 0.09));
-    return a && b ? [{ ...c, x: a[0], y: a[1], geoR: Math.hypot(b[0] - a[0], b[1] - a[1]) }] : [];
-  }), [heat, project]);
-  // DYFI boxes in map units: USGS's outline when given, else a ~10 km square around the box centre.
-  const dyfiBoxes = useMemo(() => dyfi.flatMap(c => {
-    const d = 0.045, dl = d / Math.max(0.2, Math.cos((c.lat * Math.PI) / 180));
-    const ring = c.ring ?? [[c.lon - dl, c.lat - d], [c.lon + dl, c.lat - d], [c.lon + dl, c.lat + d], [c.lon - dl, c.lat + d]];
-    const pts = ring.map(([lo, la]) => project(lo, la)).filter((p): p is [number, number] => !!p);
-    const mid = project(c.lon, c.lat);
-    if (pts.length < 3 || !mid) return [];
-    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
-    return [{ key: `${c.lat},${c.lon}`, cdi: c.cdi, pts, x: mid[0], y: mid[1], w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys) }];
-  }), [dyfi, project]);
-  const emscDots = useMemo(() => emsc.flatMap(c => {
-    const a = project(c.lon, c.lat);
-    return a ? [{ ...c, x: a[0], y: a[1] }] : [];
-  }), [emsc, project]);
-  const overlay = blobs.length > 0 || heatSpots.length > 0;
+  // Felt cells (0.1° squares) in map units, with their centre for the minimum on-screen size.
+  const feltSquares = useMemo(() => felt.flatMap(c => {
+    const d = FELT_CELL_DEG / 2, a = project(c.lon - d, Math.min(89, c.lat + d)), b = project(c.lon + d, Math.max(-89, c.lat - d)), m = project(c.lon, c.lat);
+    return a && b && m ? [{ key: `${c.lat},${c.lon}`, fill: feltColor(c.mmi), x: m[0], y: m[1], w: Math.abs(b[0] - a[0]), h: Math.abs(b[1] - a[1]) }] : [];
+  }), [felt, project]);
+  // Other events are dimmed while felt cells are shown.
+  const overlay = feltSquares.length > 0;
   // Event markers are drawn in screen pixels (not inside the zoomed group), so they keep the same size at every
   // zoom and stay precise and tappable at street level, where the zoom factor reaches tens of thousands.
   // Each world copy on screen (endless scrolling) gets its own marker.
@@ -488,40 +460,13 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {plates && plateData && (
         <path d={path(plateData) ?? ''} fill="none" stroke="var(--map-plate)" strokeWidth={1.4} strokeOpacity={0.6} strokeDasharray="4 3" vectorEffect="non-scaling-stroke" />
       )}
-      {dyfiBoxes.length > 0 && (
-        <g aria-hidden="true" pointerEvents="none" opacity={0.6}>
-          {dyfiBoxes.map(b => {
-            const fill = MMI_COLORS[Math.min(10, Math.max(1, Math.round(b.cdi))) - 1];
-            // Kept at least ~8 screen px across so single boxes stay visible in the region view.
-            const min = 8 / k;
-            return b.w < min || b.h < min
-              ? <rect key={b.key} x={b.x - min / 2} y={b.y - min / 2} width={min} height={min} fill={fill} />
-              : <path key={b.key} d={`M${b.pts.map(p => `${p[0]},${p[1]}`).join('L')}Z`} fill={fill} />;
+      {feltSquares.length > 0 && (
+        <g aria-hidden="true" pointerEvents="none" opacity={0.72}>
+          {feltSquares.map(c => {
+            // At least ~10 screen px across, so single cells stay visible in the region view.
+            const w = Math.max(c.w, 10 / k), h = Math.max(c.h, 10 / k);
+            return <rect key={c.key} x={c.x - w / 2} y={c.y - h / 2} width={w} height={h} rx={Math.min(w, h) * 0.2} fill={c.fill} />;
           })}
-        </g>
-      )}
-      {emscDots.length > 0 && (
-        <g aria-hidden="true" pointerEvents="none">
-          {emscDots.map(d => (
-            <circle key={`e${d.lat},${d.lon}`} cx={d.x} cy={d.y} r={(4 + Math.min(4, Math.sqrt(d.n))) / k}
-              fill={MMI_COLORS[Math.min(10, Math.max(1, Math.round(d.mmi))) - 1]} fillOpacity={0.85} stroke="var(--surface)" strokeWidth={1 / k} />
-          ))}
-        </g>
-      )}
-      {heatSpots.length > 0 && (
-        <g aria-hidden="true" pointerEvents="none">
-          {heatSpots.map(h => (
-            <circle key={`h${h.lat},${h.lon}`} cx={h.x} cy={h.y} r={Math.max(h.geoR * 1.8, 24 / k) * (0.8 + 0.6 * h.w)}
-              fill={`url(#${gid}heat${Math.min(HEAT_COLORS.length - 1, Math.floor(h.w * HEAT_COLORS.length))})`} />
-          ))}
-        </g>
-      )}
-      {blobs.length > 0 && (
-        <g aria-hidden="true" pointerEvents="none">
-          {blobs.map(b => (
-            <circle key={`${b.lat},${b.lon}`} cx={b.x} cy={b.y} r={Math.max(b.geoR * 1.6, 30 / k) * (1 + Math.min(1, (b.n - 1) / 10) * 0.5)}
-              fill={`url(#${gid}felt${Math.min(10, Math.max(1, Math.round(b.mmi)))})`} />
-          ))}
         </g>
       )}
     </>
@@ -535,24 +480,6 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {size.w > 0 && (
         <svg ref={svgRef} width={size.w} height={size.h} role="img" aria-label={t('count', { n: quakes.length })} className={styles.mapSvg}
           onClick={pick} onPointerMove={onMouseMove} onPointerLeave={() => { mouseRef.current = null; }}>
-          {overlay && (
-            <defs>
-              {HEAT_COLORS.map((c, i) => (
-                <radialGradient key={`h${i}`} id={`${gid}heat${i}`}>
-                  <stop offset="0%" stopColor={c} stopOpacity={0.8} />
-                  <stop offset="55%" stopColor={c} stopOpacity={0.5} />
-                  <stop offset="100%" stopColor={c} stopOpacity={0} />
-                </radialGradient>
-              ))}
-              {MMI_COLORS.map((c, i) => (
-                <radialGradient key={i} id={`${gid}felt${i + 1}`}>
-                  <stop offset="0%" stopColor={c} stopOpacity={0.85} />
-                  <stop offset="60%" stopColor={c} stopOpacity={0.45} />
-                  <stop offset="100%" stopColor={c} stopOpacity={0} />
-                </radialGradient>
-              ))}
-            </defs>
-          )}
           {streetTiles.length > 0 && (
             <g aria-hidden="true" pointerEvents="none" opacity={tileAlpha} className={dark ? styles.tilesDark : undefined}>
               {streetTiles.map(tl => (

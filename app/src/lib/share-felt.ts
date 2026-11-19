@@ -1,6 +1,6 @@
 // Felt layers for the share card's map (lib/share-card.tsx, lib/share-map.ts), loaded on the server for one event,
-// the same four as the region view: sisma's "I felt it" reports (~10 km cells), the automatic felt map (cached in
-// felt_maps once its window has closed), USGS "Did You Feel It?" boxes and EMSC felt reports (~10 km cells). Each
+// the same as the region view: sisma's "I felt it" reports (~10 km cells), the automatic felt map (cached in
+// felt_maps once its window has closed), USGS "Did You Feel It?" boxes and EMSC felt reports, merged into one grid. Each
 // source has a time limit, so a slow or unreachable one leaves its layer out instead of delaying the card.
 import { adminClient } from './auth';
 import { feltCells, type FeltCell } from './felt-cells';
@@ -8,20 +8,19 @@ import type { HeatCell } from './feltmap';
 import { fetchDyfi, usgsEventId, type DyfiCell } from './quakes/dyfi';
 import { emscUnid, fetchEmscFelt, type EmscFeltCell } from './quakes/emsc-felt';
 import type { Quake } from './quakes/types';
-import type { FeltLayer } from './felt-layers';
-
-export type { FeltLayer };
+import { feltGrid, type FeltGridCell } from './felt-grid';
 
 export interface ShareFelt { reports: FeltCell[]; heat: HeatCell[]; dyfi: DyfiCell[]; emsc: EmscFeltCell[] }
 export const NO_FELT: ShareFelt = { reports: [], heat: [], dyfi: [], emsc: [] };
 
-/** The layers that have something to draw, in drawing-legend order. */
-export function feltLayers(f: ShareFelt): FeltLayer[] {
-  return [
-    ...(f.reports.length ? ['reports' as const] : []), ...(f.heat.length ? ['auto' as const] : []),
-    ...(f.dyfi.length ? ['dyfi' as const] : []), ...(f.emsc.length ? ['emsc' as const] : []),
-  ];
+/** All sources merged into one grid of ~10 km cells, as drawn on the card (lib/felt-grid.ts). */
+export const shareGrid = (f: ShareFelt): FeltGridCell[] => feltGrid({ reports: f.reports, dyfi: f.dyfi, emsc: f.emsc, heat: f.heat });
+
+/** The sources with data, for the card's credit line (EMSC with its licence). */
+export function feltSources(f: ShareFelt): string[] {
+  return [...(f.reports.length || f.heat.length ? ['sisma'] : []), ...(f.dyfi.length ? ['USGS'] : []), ...(f.emsc.length ? ['EMSC (CC BY 4.0)'] : [])];
 }
+
 function within<T>(p: Promise<T>, ms: number, fallback: T): Promise<T> {
   return Promise.race([p.catch(() => fallback), new Promise<T>(res => setTimeout(() => res(fallback), ms))]);
 }

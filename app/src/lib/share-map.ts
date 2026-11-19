@@ -1,13 +1,14 @@
 // Regional map for the share card (api/share-card), drawn on the server as an SVG string: world-atlas 50m countries,
-// optional plate boundaries and lakes, felt layers (lib/share-felt.ts, styled as in the region view), nearby events as
+// optional plate boundaries and lakes, felt cells (lib/share-felt.ts, styled as in the region view), nearby events as
 // magnitude-coloured dots, the event in focus as a ringed marker, and a scale bar. Mercator centred on the event, `span` degrees of longitude across the width.
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature, mesh } from 'topojson-client';
 import type { Topology, GeometryCollection } from 'topojson-specification';
 import type { GeoPermissibleObjects } from 'd3-geo';
 import world from 'world-atlas/countries-50m.json';
-import { HEAT_COLORS, MAG_MARKER_LIGHT, MMI_COLORS, magIndex } from './theme';
-import type { ShareFelt } from './share-felt';
+import { MAG_MARKER_LIGHT, magIndex } from './theme';
+import { shareGrid, type ShareFelt } from './share-felt';
+import { FELT_CELL_DEG, feltColor } from './felt-grid';
 import type { Quake } from './quakes/types';
 import { KM_PER_MI, type Units } from './units';
 
@@ -42,7 +43,7 @@ export function shareMapSvg(opts: {
   plates?: GeoPermissibleObjects | null; lakes?: GeoPermissibleObjects | null; font?: string;
   /** false: leave the scale bar's text out (the share card draws it itself with its own font, see shareMapScale). */
   scaleText?: boolean;
-  /** Felt layers drawn under the events: USGS boxes, the automatic felt map, sisma reports and EMSC dots. */
+  /** Felt sources, drawn under the events as one grid of intensity-coloured cells. */
   felt?: ShareFelt | null;
 }): string {
   const { q, nearby, w, h, span, units, colors: c } = opts;
@@ -59,7 +60,7 @@ export function shareMapSvg(opts: {
     .map(({ n, xy }) => `<circle cx="${xy[0].toFixed(1)}" cy="${xy[1].toFixed(1)}" r="${Math.max(7, (n.mag - 1.6) * 5).toFixed(1)}" fill="${MAG_MARKER_LIGHT[magIndex(n.mag)]}" fill-opacity="0.9" stroke="${c.surface}" stroke-width="2"/>`)
     .join('');
 
-  const felt = feltSvg(opts.felt, proj, w, h, c.ink);
+  const felt = feltSvg(opts.felt, proj, w, h);
 
   const [fx, fy] = proj([q.lon, q.lat]) ?? [w / 2, h / 2];
   const mc = MAG_MARKER_LIGHT[magIndex(q.mag)]; // the card is light, like the light-mode map
@@ -85,54 +86,15 @@ ${opts.plates ? `<path d="${d(opts.plates)}" fill="none" stroke="${c.plate}" str
 ${felt}${dots}${marker}${scale}</svg>`;
 }
 
-const mmiColor = (v: number) => MMI_COLORS[Math.min(10, Math.max(1, Math.round(v))) - 1];
-
-/** The felt layers as SVG, in card pixels (the region view's styles: see components/dash/WorldMap.tsx). */
-function feltSvg(f: ShareFelt | null | undefined, proj: (p: [number, number]) => [number, number] | null, w: number, h: number, ink: string): string {
+/** The felt cells as SVG, in card pixels: all sources merged (lib/felt-grid.ts), one style as in the region view. */
+function feltSvg(f: ShareFelt | null | undefined, proj: (p: [number, number]) => [number, number] | null, w: number, h: number): string {
   if (!f) return '';
-  const inside = (p: [number, number] | null): p is [number, number] => !!p && p[0] > -60 && p[0] < w + 60 && p[1] > -60 && p[1] < h + 60;
-  // Radius of ~10 km (0.09° of latitude) at a point, in card pixels.
-  const geoR = (lat: number, lon: number, p: [number, number]) => { const b = proj([lon, Math.min(89, lat + 0.09)]); return b ? Math.hypot(b[0] - p[0], b[1] - p[1]) : 0; };
-  const n = (v: number) => v.toFixed(1);
-  const defs: string[] = [], used = new Set<string>();
-  const grad = (id: string, color: string, stops: [number, number][]) => {
-    if (used.has(id)) return; used.add(id);
-    defs.push(`<radialGradient id="${id}">${stops.map(([o, a]) => `<stop offset="${o}%" stop-color="${color}" stop-opacity="${a}"/>`).join('')}</radialGradient>`);
-  };
-
-  const dyfi = f.dyfi.flatMap(c => {
-    const d = 0.045, dl = d / Math.max(0.2, Math.cos((c.lat * Math.PI) / 180));
-    const ring = c.ring ?? [[c.lon - dl, c.lat - d], [c.lon + dl, c.lat - d], [c.lon + dl, c.lat + d], [c.lon - dl, c.lat + d]];
-    const pts = ring.map(([lo, la]) => proj([lo, la])).filter((p): p is [number, number] => !!p);
-    const mid = proj([c.lon, c.lat]);
-    if (pts.length < 3 || !inside(mid)) return [];
-    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]), min = 10;
-    return [Math.max(...xs) - Math.min(...xs) < min || Math.max(...ys) - Math.min(...ys) < min
-      ? `<rect x="${n(mid[0] - min / 2)}" y="${n(mid[1] - min / 2)}" width="${min}" height="${min}" fill="${mmiColor(c.cdi)}"/>`
-      : `<path d="M${pts.map(p => `${n(p[0])},${n(p[1])}`).join('L')}Z" fill="${mmiColor(c.cdi)}"/>`];
-  }).join('');
-
-  const heat = f.heat.flatMap(c => {
-    const p = proj([c.lon, c.lat]);
-    if (!inside(p)) return [];
-    const i = Math.min(HEAT_COLORS.length - 1, Math.floor(c.w * HEAT_COLORS.length));
-    grad(`fh${i}`, HEAT_COLORS[i], [[0, 0.8], [55, 0.5], [100, 0]]);
-    return [`<circle cx="${n(p[0])}" cy="${n(p[1])}" r="${n(Math.max(geoR(c.lat, c.lon, p) * 1.8, 30) * (0.8 + 0.6 * c.w))}" fill="url(#fh${i})"/>`];
-  }).join('');
-
-  const reports = f.reports.flatMap(c => {
-    const p = proj([c.lon, c.lat]);
-    if (!inside(p)) return [];
-    const i = Math.min(10, Math.max(1, Math.round(c.mmi)));
-    grad(`fr${i}`, MMI_COLORS[i - 1], [[0, 0.85], [60, 0.45], [100, 0]]);
-    return [`<circle cx="${n(p[0])}" cy="${n(p[1])}" r="${n(Math.max(geoR(c.lat, c.lon, p) * 1.6, 26) * (1 + Math.min(1, (c.n - 1) / 10) * 0.5))}" fill="url(#fr${i})"/>`];
-  }).join('');
-
-  const emsc = f.emsc.flatMap(c => {
-    const p = proj([c.lon, c.lat]);
-    // Smaller than the event dots, with a thin dark outline, so they don't read as earthquakes.
-    return inside(p) ? [`<circle cx="${n(p[0])}" cy="${n(p[1])}" r="${n(4 + Math.min(3, Math.sqrt(c.n)))}" fill="${mmiColor(c.mmi)}" fill-opacity="0.9" stroke="${ink}" stroke-opacity="0.45" stroke-width="1.5"/>`] : [];
-  }).join('');
-
-  return `${defs.length ? `<defs>${defs.join('')}</defs>` : ''}${dyfi ? `<g opacity="0.6">${dyfi}</g>` : ''}${heat}${reports}${emsc}`;
+  const n = (v: number) => v.toFixed(1), d = FELT_CELL_DEG / 2, min = 12;
+  const cells = shareGrid(f).flatMap(c => {
+    const a = proj([c.lon - d, Math.min(89, c.lat + d)]), b = proj([c.lon + d, Math.max(-89, c.lat - d)]), m = proj([c.lon, c.lat]);
+    if (!a || !b || !m || m[0] < -40 || m[0] > w + 40 || m[1] < -40 || m[1] > h + 40) return [];
+    const cw = Math.max(min, Math.abs(b[0] - a[0])), ch = Math.max(min, Math.abs(b[1] - a[1]));
+    return [`<rect x="${n(m[0] - cw / 2)}" y="${n(m[1] - ch / 2)}" width="${n(cw)}" height="${n(ch)}" rx="${n(Math.min(cw, ch) * 0.2)}" fill="${feltColor(c.mmi)}"/>`];
+  });
+  return cells.length ? `<g opacity="0.72">${cells.join('')}</g>` : '';
 }
