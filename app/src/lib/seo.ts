@@ -63,6 +63,12 @@ export const CARDS = {
     path: '/app/science', image: 'science', alt: 'Diagrams of plate tectonics, fault types, seismic waves and a tsunami',
     kicker: 'Science', heading: 'How earthquakes work', sub: 'Eight illustrated guides, from plate tectonics to the Ring of Fire.',
   },
+  data: {
+    title: 'Worldwide Earthquake Data: Live Charts | sisma',
+    description: 'Live charts from the USGS catalog: earthquakes per hour and day, magnitudes, depths, activity by region, estimated energy and M7+ earthquakes per year since 1900.',
+    path: '/app/science/data', image: 'science', alt: 'Diagrams of plate tectonics, fault types, seismic waves and a tsunami',
+    kicker: 'Science · Data', heading: 'Earthquake data', sub: 'Live charts of worldwide seismic activity.',
+  },
   library: {
     title: 'In Depth: Earthquakes, Geology and Plate Tectonics | sisma',
     description: 'Long-form, sourced articles on earthquake prediction, plate tectonics and subduction, faults, Earth’s interior, seismic waves, aftershocks and hazards.',

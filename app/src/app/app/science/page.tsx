@@ -1,6 +1,6 @@
 'use client';
-// Science list. Spec: design/SismaApp.dc.html (isSciList block). Below the illustrated topics, the In Depth library
-// of long-form articles (lib/library.ts).
+// Science list. Spec: design/SismaApp.dc.html (isSciList block). Below the illustrated topics, Data (live worldwide
+// charts, sisma+: app/science/data) and the In Depth library of long-form articles (lib/library.ts).
 import Link from 'next/link';
 import science from '@/content/science.json';
 import { localArticle } from '@/lib/science';
@@ -26,6 +26,17 @@ export default function SciencePage() {
           </Link>
         ))}
       </div>
+      <div className={styles.libraryHead}>
+        <h2>{m.data.title}</h2>
+      </div>
+      <Link href="/app/science/data" className={styles.topic}>
+        <span className={`${styles.tile} ${styles.violet}`}><span className="ms" aria-hidden="true">monitoring</span></span>
+        <span className={styles.topicText}>
+          <span className={styles.meta}>{m.data.plus}</span>
+          <span className={styles.topicTitle}>{m.data.h1}</span>
+          <span className={styles.blurb}>{m.data.card_sub}</span>
+        </span>
+      </Link>
       <div className={styles.libraryHead}>
         <h2>{m.library.title}</h2>
         <Link href={LIBRARY_PATH}>{m.library.all}</Link>

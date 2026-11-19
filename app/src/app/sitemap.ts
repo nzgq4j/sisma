@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page('/app/map', 0.8, 'always'),
     page('/app/globe', 0.8, 'always'),
     page('/app/science', 0.7, 'monthly'),
+    page('/app/science/data', 0.5, 'weekly'),
     ...(science as { id: string }[]).map(a => page(`/app/science/${a.id}`, 0.6, 'monthly')),
     page(LIBRARY_PATH, 0.7, 'weekly'),
     ...LIBRARY.map(a => ({ ...page(libraryHref(a.id), 0.7, 'monthly'), lastModified: a.updated })),

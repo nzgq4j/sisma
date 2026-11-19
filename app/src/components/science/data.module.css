@@ -1,0 +1,45 @@
+/* Science → Data (components/science/DataCharts.tsx). Single-series marks in --violet, text in the ink tokens,
+   recessive grid; mobile first (360–412 px). */
+.page { padding: 4px 16px 24px; display: flex; flex-direction: column; gap: 12px; }
+.h1 { margin: 0; font-size: 30px; line-height: 1.1; font-weight: 800; letter-spacing: -.025em; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.badge { font-size: 13px; font-weight: 800; letter-spacing: 0; padding: 4px 10px; border-radius: 999px; background: var(--violet-soft); color: var(--violet-text); }
+.lead { margin: 0 4px 4px; font-size: 15px; color: var(--ink2); text-wrap: pretty; }
+.updated { margin: 0 4px; font-size: 12px; font-weight: 600; color: var(--ink2); }
+.card { background: var(--surface); border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.card h2 { margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -.01em; }
+.text { margin: 0; font-size: 14px; line-height: 1.45; color: var(--ink2); text-wrap: pretty; }
+.status { margin: 0; font-size: 14px; color: var(--ink2); }
+.big { margin: 2px 0 0; font-size: 16px; font-weight: 800; color: var(--ink); }
+.locked { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border-radius: 22px; background: var(--violet-soft); color: var(--ink); }
+.locked > :global(.ms) { font-size: 24px; color: var(--violet-text); }
+.locked strong { display: block; font-size: 16px; font-weight: 800; }
+.locked p { margin: 4px 0 12px; font-size: 14px; color: var(--ink2); }
+.lockedBtn { min-height: 44px; padding: 0 18px; border: 0; border-radius: 22px; background: var(--violet); color: var(--on-violet); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }
+.seg { display: flex; background: var(--surface2); border-radius: 14px; padding: 4px; gap: 4px; }
+.seg button { flex: 1; min-height: 36px; border: 0; border-radius: 10px; background: transparent; color: var(--ink2); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.seg button[aria-selected='true'] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 4px rgba(27, 21, 48, .12); }
+.chart { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.readout { margin: 0; min-height: 20px; font-size: 13px; color: var(--ink2); }
+.readout b { color: var(--ink); font-size: 15px; }
+.svg { width: 100%; height: auto; display: block; touch-action: pan-y; overflow: visible; }
+.bar { fill: var(--violet); opacity: .55; }
+.barMuted { fill: var(--violet); opacity: .3; }
+.barOn { fill: var(--violet); }
+.base { stroke: var(--line); stroke-width: 1; }
+.grid { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+.avg { stroke: var(--ink2); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.area { fill: var(--violet); opacity: .12; }
+.line { fill: none; stroke: var(--violet); stroke-width: 2; stroke-linejoin: round; }
+.cross { stroke: var(--ink2); stroke-width: 1; opacity: .5; }
+.dot { fill: var(--violet); stroke: var(--surface); stroke-width: 2; }
+.axis { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; color: var(--ink2); }
+.legendLine { margin: 0; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--ink2); }
+.avgKey { width: 18px; border-top: 1.5px dashed var(--ink2); }
+.hbars { display: flex; flex-direction: column; gap: 8px; }
+.hrow { display: grid; grid-template-columns: minmax(90px, 38%) 1fr auto; align-items: center; gap: 8px; font-size: 13px; }
+.hlabel { font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+.htrack { height: 12px; border-radius: 6px; background: var(--surface2); overflow: hidden; }
+.htrack i { display: block; height: 100%; border-radius: 6px; background: var(--violet); }
+.hvalue { font-weight: 800; color: var(--ink); white-space: nowrap; }
+.hvalue small { font-weight: 600; color: var(--ink2); font-size: 12px; }
+.notes { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 14px; line-height: 1.45; color: var(--ink2); }
