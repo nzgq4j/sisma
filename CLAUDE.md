@@ -35,7 +35,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 3. Felt report sheet (done): "I felt it" on quakes < 6 h old (lib/quakes/report-window.ts), quick → details → thanks
    (components/FeltReport.tsx), POST /api/reports re-checks the quake and the window. "Show on the map" switch places the report
    (~10 km cell) at the device position, else the place chosen in Me, within 3,000 km; the region view card counts every
-   report (GET /api/reports: total, MMI range, cells) and says how many are on the map. Todo: rate limiting, show felt_summary
+   report (GET /api/reports: total, MMI range, cells) and says how many are on the map.
+   USGS "Did You Feel It?" layer (done): region view draws the focused event's DYFI 10 km boxes by intensity (GET /api/dyfi →
+   lib/quakes/dyfi.ts: dyfi_geo_10km.geojson, else cdi_geo.txt; components/Dyfi.tsx), card line with responses and a USGS link Todo: rate limiting, show felt_summary
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →
    GET /api/felt-map heatmap in Show region (lib/feltmap.ts; 180 s window, ≥ 3 people per ~10 km cell; Me toggle)
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx

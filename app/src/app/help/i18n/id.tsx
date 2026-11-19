@@ -170,6 +170,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <p>Laporan Anda disimpan <strong>tanpa nama atau akun Anda</strong>. Di peta, posisinya dibulatkan hingga sekitar 10 km.</p>
           <p>Laporan muncul di tampilan wilayah (<Ui>Tampilkan wilayah</Ui>) sebagai area berwarna lembut, satu warna untuk tiap tingkat intensitas. Kartu di atas menunjukkan jumlah laporan dan rentang intensitasnya (MMI), serta berapa yang ada di peta jika sebagian dikirim tanpa lokasi.</p>
+          <p>Untuk gempa yang dicatat USGS, tampilan wilayah juga menunjukkan jawaban orang atas survei <strong>Did You Feel It?</strong> dari USGS, sebagai kotak berwarna sekitar 10 km, satu warna untuk tiap tingkat intensitas. Kartu menunjukkan jumlah tanggapan, jumlah area, dan intensitas tertinggi; tombol buka menampilkan peta lengkap di situs USGS.</p>
           <h3>Peta guncangan</h3>
           <p>Saat banyak orang membuka sisma tepat setelah gempa, lonjakan itu menunjukkan di mana gempa kemungkinan besar terasa. sisma mengubahnya menjadi <strong>peta guncangan</strong> anonim di tampilan wilayah. Posisi dikaburkan di perangkat Anda hingga 500 m, tidak membawa pengenal akun atau perangkat, dan hanya ditampilkan untuk area sekitar 10 km dengan setidaknya 3 orang. Anda bisa menonaktifkannya di <Ui>Saya</Ui> → <Ui>Bantu memetakan di mana gempa terasa</Ui>.</p>
         </div>
