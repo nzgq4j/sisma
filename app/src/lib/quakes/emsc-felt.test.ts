@@ -26,6 +26,15 @@ function zip(name: string, text: string, deflate = true) {
   return new Uint8Array(Buffer.concat([local, n, data, cd, n, end]));
 }
 
+const CSV = `#20170919_0000091
+#thumbnails 1.0
+#Correction from Bossu et al. 2016
+#longitude,latitude,time,source,iraw,icorr
+-99.1364,19.4092,2017-09-20T17:34:58.000 UTC,app,2,2.0
+-99.1332,19.4326,2017-09-19T23:19:44.000 UTC,app,1,1.0
+-105.2253,20.6534,2017-09-19T18:21:28.000 UTC,mob,2,2.0
+`;
+
 describe('emsc felt reports', () => {
   it('finds the EMSC unid', () => {
     expect(emscUnid({ id: 'emsc:20261118_0000342' })).toBe('20261118_0000342');
@@ -42,6 +51,12 @@ describe('emsc felt reports', () => {
     expect(r.maxMmi).toBe(6.5);
   });
 
+  it('reads the current CSV layout by its header names', () => {
+    const r = parseEmscFelt(CSV);
+    expect(r.reports).toBe(3);
+    expect(r.cells).toEqual([{ lat: 19.4, lon: -99.1, n: 2, mmi: 1.5 }, { lat: 20.7, lon: -105.2, n: 1, mmi: 2 }]);
+  });
+
   it('reads deflated and stored zip entries', () => {
     expect(unzip(zip('a.txt', TXT))['a.txt']).toBe(TXT);
     expect(unzip(zip('a.txt', TXT, false))['a.txt']).toBe(TXT);
@@ -52,6 +67,9 @@ describe('emsc felt reports', () => {
     const get = (body: BodyInit | null, status = 200) => (async () => new Response(body, { status })) as unknown as typeof fetch;
     const a = await fetchEmscFelt('20170919_0000091', get(zip('20170919_0000091.txt', TXT)));
     expect(a.reports).toBe(3);
+    const b = await fetchEmscFelt('20170919_0000091', get(zip('20170919_0000091.csv', CSV)));
+    expect(b.reports).toBe(3);
+    expect((await fetchEmscFelt('20170919_0000091', get(zip('CC-BY-4.0', 'licence text')))).reports).toBe(0);
     expect((await fetchEmscFelt('20170919_0000091', get('[]'))).reports).toBe(0);
     expect((await fetchEmscFelt('20170919_0000091', get(null, 204))).cells).toEqual([]);
     await expect(fetchEmscFelt('20170919_0000091', get('x', 500))).rejects.toThrow();

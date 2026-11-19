@@ -1,6 +1,8 @@
 // EMSC felt reports ("testimonies", collected through the EMSC websites and the LastQuake app) for one EMSC event:
 // seismicportal.eu/testimonies-ws/api/search?unids=[<unid>]&includeTestimonies=true answers with a zip holding
-// <unid>.txt, one report per line: "longitude,latitude,iraw,icorr" (icorr: intensity corrected after Bossu et al. 2016).
+// <unid>.csv (with events.csv, the CC BY 4.0 licence and EMSC's instructions), one report per line under a
+// "#longitude,latitude,time,source,iraw,icorr" header (older archives: <unid>.txt, "longitude,latitude,iraw,icorr").
+// icorr is the intensity corrected after Bossu et al. 2016; columns are found by their header names.
 // Reports are grouped here, on the server, into ~10 km cells (0.1°) with a count and a mean intensity, so the app never
 // receives individual positions. Data © EMSC, CC BY 4.0: credited where shown. Used by GET /api/emsc-felt.
 import { inflateRawSync } from 'node:zlib';
@@ -42,14 +44,24 @@ export function unzip(buf: Uint8Array): Record<string, string> {
   return out;
 }
 
-/** Reports from the text file, grouped into 0.1° cells; lines starting with # are comments. */
+/** Reports from the CSV, grouped into 0.1° cells. Columns come from the "#longitude,latitude,…" header line. */
 export function parseEmscFelt(text: string): EmscFelt {
   const cells = new Map<string, { lat: number; lon: number; n: number; sum: number }>();
   let reports = 0;
+  let col = { lon: 0, lat: 1, iraw: 2, icorr: 3 };
   for (const line of text.split(/\r?\n/)) {
     const s = line.trim();
-    if (!s || s.startsWith('#')) continue;
-    const [lon, lat, iraw, icorr] = s.split(',').map(Number);
+    if (!s) continue;
+    if (s.startsWith('#')) {
+      const names = s.slice(1).split(',').map(x => x.trim().toLowerCase());
+      if (names.includes('longitude') && names.includes('latitude')) {
+        col = { lon: names.indexOf('longitude'), lat: names.indexOf('latitude'), iraw: names.indexOf('iraw'), icorr: names.indexOf('icorr') };
+      }
+      continue;
+    }
+    const f = s.split(',');
+    const lon = Number(f[col.lon]), lat = Number(f[col.lat]);
+    const icorr = col.icorr >= 0 ? Number(f[col.icorr]) : NaN, iraw = col.iraw >= 0 ? Number(f[col.iraw]) : NaN;
     const mmi = Number.isFinite(icorr) ? icorr : iraw;
     if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180 || !Number.isFinite(mmi) || mmi < 1 || mmi > 12) continue;
     reports++;
@@ -69,6 +81,7 @@ export async function fetchEmscFelt(unid: string, get: typeof fetch = fetch): Pr
   const buf = new Uint8Array(await r.arrayBuffer());
   if (buf.length < 4 || buf[0] !== 0x50 || buf[1] !== 0x4b) return { reports: 0, maxMmi: null, cells: [] }; // no archive: no reports
   const files = unzip(buf);
-  const text = files[`${unid}.txt`] ?? Object.values(files)[0] ?? '';
+  const name = Object.keys(files).find(k => k === `${unid}.csv` || k === `${unid}.txt`);
+  const text = name ? files[name] : '';
   return parseEmscFelt(text);
 }
