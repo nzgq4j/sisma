@@ -165,13 +165,15 @@ export const TOPICS: Topic[] = [
             <li>Buka gempanya. Hingga <strong>6 jam</strong> setelah gempa terjadi, Anda akan melihat <Ui>Saya merasakannya</Ui>.</li>
             <li>Geser penggeser sesuai seberapa kuat guncangan terasa, dari <em>Tidak terasa</em> hingga <em>Ekstrem</em>. Lencana menunjukkan tingkat intensitas yang sesuai (MMI).</li>
             <li>Jika mau, tambahkan catatan, atau ketuk <Ui>Tambah detail</Ui> untuk menyebutkan di mana Anda berada, berapa lama guncangan berlangsung, apa yang bergerak, dan kerusakan apa pun.</li>
+            <li>Jika <Ui>Tampilkan di peta</Ui> muncul, biarkan aktif untuk menaruh laporan Anda di peta, atau matikan agar laporan hanya dihitung. Lokasi yang dipakai adalah lokasi perangkat Anda atau, jika belum Anda bagikan, tempat yang dipilih di <Ui>Saya</Ui>, dan opsi ini hanya muncul jika tempat itu berjarak kurang dari 3.000 km dari gempa.</li>
             <li>Ketuk <Ui>Kirim laporan</Ui>.</li>
           </ol>
-          <p>Laporan Anda disimpan <strong>tanpa nama atau akun Anda</strong>, dan posisi Anda dibulatkan hingga sekitar 10 km.</p>
+          <p>Laporan Anda disimpan <strong>tanpa nama atau akun Anda</strong>. Di peta, posisinya dibulatkan hingga sekitar 10 km.</p>
+          <p>Laporan muncul di tampilan wilayah (<Ui>Tampilkan wilayah</Ui>) sebagai area berwarna lembut, satu warna untuk tiap tingkat intensitas. Kartu di atas menunjukkan jumlah laporan dan rentang intensitasnya (MMI), serta berapa yang ada di peta jika sebagian dikirim tanpa lokasi.</p>
           <h3>Peta guncangan</h3>
           <p>Saat banyak orang membuka sisma tepat setelah gempa, lonjakan itu menunjukkan di mana gempa kemungkinan besar terasa. sisma mengubahnya menjadi <strong>peta guncangan</strong> anonim di tampilan wilayah. Posisi dikaburkan di perangkat Anda hingga 500 m, tidak membawa pengenal akun atau perangkat, dan hanya ditampilkan untuk area sekitar 10 km dengan setidaknya 3 orang. Anda bisa menonaktifkannya di <Ui>Saya</Ui> → <Ui>Bantu memetakan di mana gempa terasa</Ui>.</p>
         </div>
-        <Shot src="felt" alt="Lembar Apa yang Anda rasakan? dengan penggeser intensitas, catatan opsional, dan Kirim laporan" caption="Melaporkan apa yang Anda rasakan" />
+        <Shot src="felt" alt="Lembar Apa yang Anda rasakan? dengan penggeser intensitas, catatan opsional, sakelar Tampilkan di peta, dan Kirim laporan" caption="Melaporkan apa yang Anda rasakan" />
       </div>
       </>
     ),

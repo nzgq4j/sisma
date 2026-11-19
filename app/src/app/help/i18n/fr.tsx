@@ -165,13 +165,15 @@ export const TOPICS: Topic[] = [
             <li>Ouvrez le séisme. Pendant <strong>6 heures</strong> au maximum après qu’il s’est produit, vous verrez <Ui>Je l’ai ressenti</Ui>.</li>
             <li>Placez le curseur selon la force ressentie, de <em>Non ressenti</em> à <em>Extrême</em>. La pastille indique le niveau d’intensité correspondant (MMI).</li>
             <li>Ajoutez une note si vous le souhaitez, ou touchez <Ui>Ajouter des détails</Ui> pour indiquer où vous étiez, combien de temps cela a duré, ce qui a bougé et les éventuels dégâts.</li>
+            <li>Si <Ui>Afficher sur la carte</Ui> apparaît, laissez-le activé pour placer votre témoignage sur la carte, ou désactivez-le pour qu’il soit seulement compté. Il utilise la position de votre appareil ou, si vous ne l’avez pas partagée, le lieu choisi dans <Ui>Profil</Ui>, et n’apparaît que si ce lieu est à moins de 3 000 km du séisme.</li>
             <li>Touchez <Ui>Envoyer</Ui>.</li>
           </ol>
-          <p>Votre témoignage est enregistré <strong>sans votre nom ni votre compte</strong>, et votre position est arrondie à environ 10 km.</p>
+          <p>Votre témoignage est enregistré <strong>sans votre nom ni votre compte</strong>. Sur la carte, sa position est arrondie à environ 10 km.</p>
+          <p>Les témoignages apparaissent dans la vue de la région (<Ui>Afficher la région</Ui>) sous forme de zones colorées estompées, une couleur par niveau d’intensité. La carte en haut indique le nombre de témoignages et leur plage d’intensité (MMI), ainsi que le nombre affiché sur la carte lorsque certains ont été envoyés sans position.</p>
           <h3>Cartes des ressentis</h3>
           <p>Quand beaucoup de personnes ouvrent sisma juste après un séisme, cet afflux montre où il a probablement été ressenti. sisma en fait une <strong>carte des ressentis</strong> anonyme dans la vue régionale. Les positions sont floutées sur votre appareil jusqu’à 500 m, ne portent aucun identifiant de compte ni d’appareil, et ne sont affichées que pour des zones d’environ 10 km comptant au moins 3 personnes. Vous pouvez désactiver cette fonction dans <Ui>Profil</Ui> → <Ui>Aider à cartographier où les séismes sont ressentis</Ui>.</p>
         </div>
-        <Shot src="felt" alt="Fiche Qu’avez-vous ressenti ? avec un curseur d’intensité, une note facultative et Envoyer" caption="Signaler ce que vous avez ressenti" />
+        <Shot src="felt" alt="Fiche Qu’avez-vous ressenti ? avec un curseur d’intensité, une note facultative, l’interrupteur Afficher sur la carte et Envoyer" caption="Signaler ce que vous avez ressenti" />
       </div>
       </>
     ),

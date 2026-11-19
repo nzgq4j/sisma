@@ -165,13 +165,15 @@ export const TOPICS: Topic[] = [
             <li>Öffne das Erdbeben. Bis zu <strong>6 Stunden</strong> danach siehst du <Ui>Ich habe es gespürt</Ui>.</li>
             <li>Stell den Schieberegler darauf ein, wie stark es sich angefühlt hat, von <em>Nicht gespürt</em> bis <em>Extrem</em>. Das Kennzeichen zeigt die passende Intensitätsstufe (MMI).</li>
             <li>Füge bei Bedarf eine Notiz hinzu oder tippe auf <Ui>Details hinzufügen</Ui> für deinen Aufenthaltsort, die Dauer, was sich bewegt hat und eventuelle Schäden.</li>
+            <li>Wenn <Ui>Auf der Karte zeigen</Ui> erscheint, lass es eingeschaltet, um deine Meldung auf die Karte zu setzen, oder schalte es aus, damit sie nur gezählt wird. Verwendet wird der Standort deines Geräts oder, falls du ihn nicht freigegeben hast, der in <Ui>Profil</Ui> gewählte Ort. Die Option erscheint nur, wenn dieser Ort weniger als 3.000 km vom Erdbeben entfernt ist.</li>
             <li>Tippe auf <Ui>Meldung senden</Ui>.</li>
           </ol>
-          <p>Deine Meldung wird <strong>ohne deinen Namen und ohne dein Konto</strong> gespeichert, und deine Position wird auf etwa 10 km gerundet.</p>
+          <p>Deine Meldung wird <strong>ohne deinen Namen und ohne dein Konto</strong> gespeichert. Auf der Karte wird ihre Position auf etwa 10 km gerundet.</p>
+          <p>Meldungen erscheinen in der Regionsansicht (<Ui>Region zeigen</Ui>) als weiche Farbflächen, eine Farbe pro Intensitätsstufe. Die Karte oben zeigt die Zahl der Meldungen und ihren Intensitätsbereich (MMI) und, wenn einige ohne Standort gesendet wurden, wie viele auf der Karte sind.</p>
           <h3>Spürkarten</h3>
           <p>Wenn viele Menschen sisma direkt nach einem Erdbeben öffnen, zeigt dieser Ansturm, wo es wahrscheinlich gespürt wurde. sisma macht daraus eine anonyme <strong>Spürkarte</strong> in der Regionsansicht. Positionen werden auf deinem Gerät um bis zu 500 m verschoben, enthalten keine Konto- oder Gerätekennung und werden nur für Gebiete von etwa 10 km mit mindestens 3 Personen angezeigt. Du kannst das unter <Ui>Profil</Ui> → <Ui>Helfen, Spürkarten zu erstellen</Ui> ausschalten.</p>
         </div>
-        <Shot src="felt" alt="Fenster „Was hast du gespürt?“ mit Intensitätsregler, optionaler Notiz und Meldung senden" caption="Melden, was du gespürt hast" />
+        <Shot src="felt" alt="Fenster „Was hast du gespürt?“ mit Intensitätsregler, optionaler Notiz, dem Schalter Auf der Karte zeigen und Meldung senden" caption="Melden, was du gespürt hast" />
       </div>
       </>
     ),

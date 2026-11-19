@@ -165,13 +165,15 @@ export const TOPICS: Topic[] = [
             <li>Abre el sismo. Durante las <strong>6 horas</strong> siguientes a que ocurriera, verás <Ui>Lo sentí</Ui>.</li>
             <li>Mueve el control deslizante según la fuerza con que lo sentiste, de <em>No sentido</em> a <em>Extremo</em>. La insignia muestra el nivel de intensidad correspondiente (MMI).</li>
             <li>Si quieres, añade una nota o toca <Ui>Añadir detalles</Ui> para indicar dónde estabas, cuánto duró, qué se movió y si hubo daños.</li>
+            <li>Si aparece <Ui>Mostrar en el mapa</Ui>, déjalo activado para situar tu reporte en el mapa, o desactívalo para que solo se cuente. Usa la ubicación de tu dispositivo o, si no la has compartido, el lugar elegido en <Ui>Perfil</Ui>, y solo aparece cuando ese lugar está a menos de 3000 km del sismo.</li>
             <li>Toca <Ui>Enviar reporte</Ui>.</li>
           </ol>
-          <p>Tu reporte se guarda <strong>sin tu nombre ni tu cuenta</strong>, y tu posición se redondea a unos 10 km.</p>
+          <p>Tu reporte se guarda <strong>sin tu nombre ni tu cuenta</strong>. En el mapa, su posición se redondea a unos 10 km.</p>
+          <p>Los reportes aparecen en la vista de región (<Ui>Mostrar región</Ui>) como zonas de color difuminadas, un color por nivel de intensidad. La tarjeta superior muestra cuántos reportes hay y su rango de intensidad (MMI), y cuántos están en el mapa cuando algunos se enviaron sin ubicación.</p>
           <h3>Mapas de percepción</h3>
           <p>Cuando mucha gente abre sisma justo después de un sismo, ese aumento muestra dónde probablemente se sintió. sisma lo convierte en un <strong>mapa de percepción</strong> anónimo en la vista de región. Las posiciones se difuminan en tu dispositivo hasta 500 m, no llevan ningún identificador de cuenta ni de dispositivo, y solo se muestran para zonas de unos 10 km con al menos 3 personas. Puedes desactivarlo en <Ui>Perfil</Ui> → <Ui>Ayudar a mapear dónde se sienten los sismos</Ui>.</p>
         </div>
-        <Shot src="felt" alt="Hoja ¿Qué sentiste? con un control deslizante de intensidad, una nota opcional y Enviar reporte" caption="Reportar lo que sentiste" />
+        <Shot src="felt" alt="Hoja ¿Qué sentiste? con un control deslizante de intensidad, una nota opcional, el interruptor Mostrar en el mapa y Enviar reporte" caption="Reportar lo que sentiste" />
       </div>
       </>
     ),

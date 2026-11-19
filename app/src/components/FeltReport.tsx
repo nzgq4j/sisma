@@ -9,6 +9,7 @@ import { Sheet } from './Sheet';
 import { timeAgo } from './QuakeRow';
 import { MMI_COLORS, ROMAN } from '@/lib/theme';
 import { canReport } from '@/lib/quakes/report-window';
+import { distanceKm } from '@/lib/geo';
 import type { Quake } from '@/lib/quakes/types';
 import styles from './felt.module.css';
 
@@ -87,6 +88,8 @@ export function FeltButton({ q, variant = 'pill', fallback = null }: { q: Quake;
   );
 }
 
+/** A report is placed on the felt map only from a place within this distance of the epicentre. */
+const MAP_RANGE_KM = 3000;
 const DURATIONS = ['< 10 s', '10–30 s', '30–60 s', '> 1 min'];
 
 function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onSent: (entry: MineEntry) => void }) {
@@ -100,22 +103,29 @@ function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onS
   const [moved, setMoved] = useState<number[]>([]);
   const [damage, setDamage] = useState<number | null>(null);
   const [state, setState] = useState<'idle' | 'sending' | 'error'>('idle');
+  const [sentOnMap, setSentOnMap] = useState(false);
+  // Where the report goes on the felt map: the device position, else the place chosen in Me (not the default
+  // place). Only offered within 3,000 km of the epicentre; the person can switch it off.
+  const chosen = locations[active];
+  const spot = locations.find(l => l.fromDevice) ?? (chosen && !chosen.fallback ? chosen : null);
+  const near = spot && distanceKm(spot.lat, spot.lon, q.lat, q.lon) <= MAP_RANGE_KM ? spot : null;
+  const [onMap, setOnMap] = useState(true);
 
   const send = async () => {
     setState('sending');
-    const loc = locations[active];
+    const loc = near && onMap ? near : null;
     try {
       const r = await fetch('/api/reports', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           quakeId: q.id, mmi, note, locale, ...(step === 'details' ? { place, duration, moved, damage } : {}),
-          // Only a real device location is sent (the server coarsens it to ~10 km).
-          ...(loc?.fromDevice ? { lat: loc.lat, lon: loc.lon } : {}),
+          // Only when the person leaves "Show on the map" on; the server coarsens it to ~10 km.
+          ...(loc ? { lat: loc.lat, lon: loc.lon } : {}),
         }),
       });
       if (!r.ok) throw new Error(String(r.status));
-      const cell = loc?.fromDevice ? { lat: Math.round(loc.lat * 10) / 10, lon: Math.round(loc.lon * 10) / 10 } : {};
-      onSent({ mmi, ...cell }); setState('idle'); setStep('done');
+      const cell = loc ? { lat: Math.round(loc.lat * 10) / 10, lon: Math.round(loc.lon * 10) / 10 } : {};
+      onSent({ mmi, ...cell }); setSentOnMap(!!loc); setState('idle'); setStep('done');
     } catch { setState('error'); }
   };
 
@@ -127,7 +137,7 @@ function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onS
       <div className={styles.done}>
         <span className={styles.doneIcon}><span className="ms" aria-hidden="true">check</span></span>
         <h2>{t('thanks')}</h2>
-        <p>{t('thanks_sub')}</p>
+        <p>{sentOnMap ? t('thanks_sub') : t('thanks_sub_nomap')}</p>
       </div>
       <button type="button" className={styles.primary} onClick={onClose}>{t('done')}</button>
     </>
@@ -148,6 +158,16 @@ function ReportForm({ q, onClose, onSent }: { q: Quake; onClose: () => void; onS
           <input className={styles.slider} type="range" min={1} max={10} step={1} value={mmi} onChange={e => setMmi(+e.target.value)}
             aria-label={t('report_title')} aria-valuetext={`MMI ${ROMAN[mmi - 1]} · ${mmiLabel}`} />
           <textarea className={styles.note} rows={2} value={note} onChange={e => setNote(e.target.value)} placeholder={t('note_ph')} maxLength={500} aria-label={t('note_ph')} />
+          {near && (
+            <button type="button" className={styles.mapRow} role="switch" aria-checked={onMap} onClick={() => setOnMap(v => !v)}>
+              <span className="ms" aria-hidden="true">{near.fromDevice ? 'my_location' : 'location_on'}</span>
+              <span className={styles.mapText}>
+                <strong>{t('report_map')}</strong>
+                <small>{near.fromDevice ? t('report_map_here') : t('report_map_hint', { place: near.name })}</small>
+              </span>
+              <span className={styles.switch} aria-hidden="true"><span /></span>
+            </button>
+          )}
         </>
       ) : (
         <>
@@ -185,20 +205,23 @@ export interface FeltCell { lat: number; lon: number; n: number; mmi: number }
  */
 export function useFeltCells(quakeId: string | null) {
   const { mine } = useFeltReport();
-  const [data, setData] = useState<{ id: string; cells: FeltCell[]; demo: boolean } | null>(null);
+  const [data, setData] = useState<{ id: string; cells: FeltCell[]; total: number; range: { min: number; max: number } | null; demo: boolean } | null>(null);
   useEffect(() => {
     if (!quakeId) return;
     let alive = true;
     fetch('/api/reports?quakeId=' + encodeURIComponent(quakeId))
       .then(r => (r.ok ? r.json() : null))
-      .then(j => { if (alive) setData({ id: quakeId, cells: j?.cells ?? [], demo: !j || !!j.demo }); })
-      .catch(() => { if (alive) setData({ id: quakeId, cells: [], demo: true }); });
+      .then(j => { if (alive) setData({ id: quakeId, cells: j?.cells ?? [], total: j?.total ?? 0, range: j?.range ?? null, demo: !j || !!j.demo }); })
+      .catch(() => { if (alive) setData({ id: quakeId, cells: [], total: 0, range: null, demo: true }); });
     return () => { alive = false; };
   }, [quakeId]);
+  // total: every report (with or without a location); mapped: those on the map; range: lowest and highest MMI.
   return useMemo(() => {
-    if (!quakeId || data?.id !== quakeId) return { loading: !!quakeId, cells: [] as FeltCell[], total: 0 };
-    const own = mine[quakeId];
-    const cells = data.demo && own?.lat != null && own.lon != null ? [...data.cells, { lat: own.lat, lon: own.lon, n: 1, mmi: own.mmi }] : data.cells;
-    return { loading: false, cells, total: cells.reduce((s, c) => s + c.n, 0) };
+    if (!quakeId || data?.id !== quakeId) return { loading: !!quakeId, cells: [] as FeltCell[], total: 0, mapped: 0, range: null };
+    const own = data.demo ? mine[quakeId] : undefined;
+    const cells = own?.lat != null && own.lon != null ? [...data.cells, { lat: own.lat, lon: own.lon, n: 1, mmi: own.mmi }] : data.cells;
+    const total = own ? data.total + 1 : data.total;
+    const range = own ? { min: Math.min(own.mmi, data.range?.min ?? 10), max: Math.max(own.mmi, data.range?.max ?? 1) } : data.range;
+    return { loading: false, cells, total, mapped: cells.reduce((s, c) => s + c.n, 0), range };
   }, [quakeId, data, mine]);
 }

@@ -178,13 +178,15 @@ export const TOPICS: Topic[] = [
             <li>Open the earthquake. For up to <strong>6 hours</strong> after it happened, you’ll see <Ui>I felt it</Ui>.</li>
             <li>Move the slider to how strong it felt, from <em>Not felt</em> to <em>Extreme</em>. The badge shows the matching intensity level (MMI).</li>
             <li>Optionally add a note, or tap <Ui>Add more detail</Ui> for where you were, how long it lasted, what moved and any damage.</li>
+            <li>If <Ui>Show on the map</Ui> appears, leave it on to place your report on the map, or switch it off so it is only counted. It uses your device location or, if you haven’t shared it, the place chosen in <Ui>Me</Ui>, and appears only when that place is within 3,000 km of the earthquake.</li>
             <li>Tap <Ui>Send report</Ui>.</li>
           </ol>
-          <p>Your report is stored <strong>without your name or account</strong>, and your position is rounded to about 10 km.</p>
+          <p>Your report is stored <strong>without your name or account</strong>. On the map, its position is rounded to about 10 km.</p>
+          <p>Reports appear in the region view (<Ui>Show region</Ui>) as soft coloured areas, one colour per intensity level. The card at the top shows how many reports there are and their intensity range (MMI), and how many are on the map when some were sent without a location.</p>
           <h3>Felt maps</h3>
           <p>When many people open sisma right after an earthquake, that rush shows where it was probably felt. sisma turns it into an anonymous <strong>felt map</strong> in the region view. Positions are blurred on your device by up to 500 m, carry no account or device identifier, and are only shown for areas of about 10 km with at least 3 people. You can turn this off in <Ui>Me</Ui> → <Ui>Help map where quakes are felt</Ui>.</p>
         </div>
-        <Shot src="felt" alt="What did you feel? sheet with an intensity slider, an optional note and Send report" caption="Reporting what you felt" />
+        <Shot src="felt" alt="What did you feel? sheet with an intensity slider, an optional note, the Show on the map switch and Send report" caption="Reporting what you felt" />
       </div>
       </>
     ),

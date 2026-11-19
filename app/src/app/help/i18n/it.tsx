@@ -165,13 +165,15 @@ export const TOPICS: Topic[] = [
             <li>Apri il terremoto. Fino a <strong>6 ore</strong> dopo l’evento vedrai <Ui>L’ho sentito</Ui>.</li>
             <li>Sposta il cursore in base a quanto è stato forte, da <em>Non avvertito</em> a <em>Estremo</em>. Il badge mostra il livello di intensità corrispondente (MMI).</li>
             <li>Se vuoi, aggiungi una nota, oppure tocca <Ui>Aggiungi dettagli</Ui> per indicare dove ti trovavi, quanto è durato, cosa si è mosso ed eventuali danni.</li>
+            <li>Se compare <Ui>Mostra sulla mappa</Ui>, lascialo attivo per collocare la tua segnalazione sulla mappa, oppure disattivalo perché venga solo conteggiata. Usa la posizione del dispositivo o, se non l’hai condivisa, il luogo scelto in <Ui>Profilo</Ui>, e compare solo quando quel luogo è entro 3.000 km dal terremoto.</li>
             <li>Tocca <Ui>Invia segnalazione</Ui>.</li>
           </ol>
-          <p>La tua segnalazione viene salvata <strong>senza il tuo nome né il tuo account</strong>, e la tua posizione viene arrotondata a circa 10 km.</p>
+          <p>La tua segnalazione viene salvata <strong>senza il tuo nome né il tuo account</strong>. Sulla mappa, la sua posizione viene arrotondata a circa 10 km.</p>
+          <p>Le segnalazioni compaiono nella vista della zona (<Ui>Mostra zona</Ui>) come aree colorate sfumate, un colore per ogni livello di intensità. La scheda in alto indica quante segnalazioni ci sono e il loro intervallo di intensità (MMI), e quante sono sulla mappa quando alcune sono state inviate senza posizione.</p>
           <h3>Mappe del risentimento</h3>
           <p>Quando molte persone aprono sisma subito dopo un terremoto, quell’afflusso mostra dove probabilmente è stato avvertito. sisma lo trasforma in una <strong>mappa del risentimento</strong> anonima nella vista della zona. Le posizioni vengono sfocate sul tuo dispositivo fino a 500 m, non contengono alcun identificativo di account o dispositivo e vengono mostrate solo per aree di circa 10 km con almeno 3 persone. Puoi disattivare questa funzione in <Ui>Profilo</Ui> → <Ui>Aiuta a mappare dove si avvertono i terremoti</Ui>.</p>
         </div>
-        <Shot src="felt" alt="Scheda Cosa hai sentito? con un cursore dell’intensità, una nota facoltativa e Invia segnalazione" caption="Segnalare cosa hai sentito" />
+        <Shot src="felt" alt="Scheda Cosa hai sentito? con un cursore dell’intensità, una nota facoltativa, l’interruttore Mostra sulla mappa e Invia segnalazione" caption="Segnalare cosa hai sentito" />
       </div>
       </>
     ),

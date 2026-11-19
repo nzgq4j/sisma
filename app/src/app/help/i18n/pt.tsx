@@ -165,13 +165,15 @@ export const TOPICS: Topic[] = [
             <li>Abra o terremoto. Por até <strong>6 horas</strong> depois que ele aconteceu, você vê <Ui>Eu senti</Ui>.</li>
             <li>Mova o controle deslizante até a força que você sentiu, de <em>Não sentido</em> a <em>Extremo</em>. O selo mostra o nível de intensidade correspondente (MMI).</li>
             <li>Se quiser, acrescente uma observação ou toque em <Ui>Adicionar detalhes</Ui> para dizer onde você estava, quanto tempo durou, o que se mexeu e se houve danos.</li>
+            <li>Se aparecer <Ui>Mostrar no mapa</Ui>, deixe ativado para colocar seu relato no mapa, ou desative para que ele seja apenas contado. Ele usa a localização do seu dispositivo ou, se você não a compartilhou, o lugar escolhido em <Ui>Perfil</Ui>, e só aparece quando esse lugar está a menos de 3.000 km do terremoto.</li>
             <li>Toque em <Ui>Enviar relato</Ui>.</li>
           </ol>
-          <p>Seu relato é guardado <strong>sem seu nome nem sua conta</strong>, e sua posição é arredondada para cerca de 10 km.</p>
+          <p>Seu relato é guardado <strong>sem seu nome nem sua conta</strong>. No mapa, a posição é arredondada para cerca de 10 km.</p>
+          <p>Os relatos aparecem na visualização da região (<Ui>Mostrar região</Ui>) como áreas coloridas suaves, uma cor por nível de intensidade. O cartão no topo mostra quantos relatos existem e sua faixa de intensidade (MMI), e quantos estão no mapa quando alguns foram enviados sem localização.</p>
           <h3>Mapas de percepção</h3>
           <p>Quando muitas pessoas abrem o sisma logo depois de um terremoto, esse movimento mostra onde ele provavelmente foi sentido. O sisma transforma isso em um <strong>mapa de percepção</strong> anônimo na visão da região. As posições são embaralhadas no seu dispositivo em até 500 m, não levam nenhum identificador de conta ou de dispositivo e só aparecem para áreas de cerca de 10 km com pelo menos 3 pessoas. Você pode desativar isso em <Ui>Perfil</Ui> → <Ui>Ajudar a mapear onde os tremores são sentidos</Ui>.</p>
         </div>
-        <Shot src="felt" alt="Tela O que você sentiu? com um controle deslizante de intensidade, uma observação opcional e Enviar relato" caption="Relatando o que você sentiu" />
+        <Shot src="felt" alt="Tela O que você sentiu? com um controle deslizante de intensidade, uma observação opcional, a chave Mostrar no mapa e Enviar relato" caption="Relatando o que você sentiu" />
       </div>
       </>
     ),
