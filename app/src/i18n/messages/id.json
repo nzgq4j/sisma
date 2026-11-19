@@ -448,7 +448,14 @@
     "copied": "Disalin",
     "hint": "Saat berbagi, teks juga disalin sehingga bisa Anda tempel jika aplikasi tidak memasukkannya. Tempel deskripsi gambar ke kolom teks alternatif di aplikasi.",
     "share_link": "Bagikan tautan",
-    "share_failed": "Tidak dapat membuka menu berbagi. Anda bisa menyalin teks dan menyimpan gambar."
+    "share_failed": "Tidak dapat membuka menu berbagi. Anda bisa menyalin teks dan menyimpan gambar.",
+    "felt": "Terasa",
+    "felt_auto": "peta guncangan",
+    "alt_felt": "Tempat gempa terasa ditunjukkan dengan warna intensitas: {layers}.",
+    "alt_reports": "area lembut untuk laporan sisma",
+    "alt_auto": "pendaran untuk peta guncangan otomatis",
+    "alt_dyfi": "kotak untuk “Did You Feel It?” USGS",
+    "alt_emsc": "titik untuk laporan EMSC"
   },
   "felt_by_1": "1 orang melaporkan merasakannya",
   "notif": {

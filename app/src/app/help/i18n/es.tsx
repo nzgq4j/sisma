@@ -187,6 +187,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Toca <Ui>Compartir</Ui> en un sismo para crear una tarjeta para compartir: una imagen con el mapa y los datos principales.</p>
+          <p>Donde la gente informó haber sentido el sismo, el mapa de la tarjeta también lo muestra en colores de intensidad, como en la vista de región: zonas difuminadas para los reportes de sisma, un halo para el mapa de percepción automático, cuadrados para «Did You Feel It?» del USGS y puntos para los reportes del EMSC, con una pequeña leyenda arriba. La descripción de imagen sugerida nombra entonces esas capas.</p>
           <ul>
             <li>El <strong>texto de la publicación</strong> se rellena por ti (magnitud, lugar, hora, profundidad y una etiqueta, con el enlace al final), y puedes editarlo.</li>
             <li>La <strong>descripción de la imagen (texto alternativo)</strong> describe la imagen para quienes usan lectores de pantalla. Se rellena por ti, y puedes editarla.</li>

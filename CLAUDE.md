@@ -39,7 +39,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    USGS "Did You Feel It?" layer (done): region view draws the focused event's DYFI 10 km boxes by intensity (GET /api/dyfi →
    lib/quakes/dyfi.ts: dyfi_geo_10km.geojson, else cdi_geo.txt; components/Dyfi.tsx), card line with responses and a USGS link
    EMSC felt reports layer (done): GET /api/emsc-felt → lib/quakes/emsc-felt.ts (testimonies-ws zip, grouped into 0.1° cells on
-   the server, never individual positions; CC BY 4.0, credited), drawn as intensity dots with a card line and EMSC link Todo: rate limiting, show felt_summary
+   the server, never individual positions; CC BY 4.0, credited), drawn as intensity dots with a card line and EMSC link
+   Share card felt layers (done): lib/share-felt.ts loads the four layers on the server (4 s limit each), lib/share-map.ts draws them
+   like the region view, legend on the card; X-Felt-Layers header → alt text (Share sheet, Bluesky cardAlt, admin preview) Todo: rate limiting, show felt_summary
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →
    GET /api/felt-map heatmap in Show region (lib/feltmap.ts; 180 s window, ≥ 3 people per ~10 km cell; Me toggle)
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx

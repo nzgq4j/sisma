@@ -448,7 +448,14 @@
     "copied": "Copiado",
     "hint": "Al compartir también se copia el texto, para que puedas pegarlo si la app no lo incluye. Pega la descripción de la imagen en el campo de texto alternativo de la app.",
     "share_link": "Compartir enlace",
-    "share_failed": "No se pudo abrir el menú para compartir. Puedes copiar el texto y guardar la imagen."
+    "share_failed": "No se pudo abrir el menú para compartir. Puedes copiar el texto y guardar la imagen.",
+    "felt": "Sentido",
+    "felt_auto": "mapa de percepción",
+    "alt_felt": "Dónde se sintió aparece en colores de intensidad: {layers}.",
+    "alt_reports": "zonas difuminadas para los reportes de sisma",
+    "alt_auto": "un halo para el mapa de percepción automático",
+    "alt_dyfi": "cuadrados para «Did You Feel It?» del USGS",
+    "alt_emsc": "puntos para los reportes del EMSC"
   },
   "felt_by_1": "1 persona reportó sentirlo",
   "notif": {

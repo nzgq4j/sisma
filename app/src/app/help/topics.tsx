@@ -200,6 +200,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tap <Ui>Share</Ui> on an earthquake to make a share card: a picture with the map and the main details.</p>
+          <p>Where people reported feeling the earthquake, the card’s map also shows it in intensity colours, as in the region view: soft areas for sisma reports, a glow for the automatic felt map, squares for USGS “Did You Feel It?” and dots for EMSC reports, with a small legend at the top. The suggested image description then names the felt layers on the card.</p>
           <ul>
             <li><strong>Post text</strong> is filled in for you (magnitude, place, time, depth and a hashtag, with the link last), and you can edit it.</li>
             <li><strong>Image description (alt text)</strong> describes the picture for people using screen readers. It is filled in for you, and you can edit it.</li>

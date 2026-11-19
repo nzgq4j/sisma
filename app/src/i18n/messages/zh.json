@@ -448,7 +448,14 @@
     "copied": "已复制",
     "hint": "分享时也会复制文字，如果应用没有填入，可以直接粘贴。请把图片描述粘贴到应用的替代文字栏。",
     "share_link": "分享链接",
-    "share_failed": "无法打开分享菜单。你可以复制文字并保存图片。"
+    "share_failed": "无法打开分享菜单。你可以复制文字并保存图片。",
+    "felt": "有感",
+    "felt_auto": "震感地图",
+    "alt_felt": "有感地点以烈度颜色显示：{layers}。",
+    "alt_reports": "sisma 报告为柔和色块",
+    "alt_auto": "自动震感地图为光晕",
+    "alt_dyfi": "USGS“Did You Feel It?”为方块",
+    "alt_emsc": "EMSC 报告为圆点"
   },
   "felt_by_1": "1 人报告有震感",
   "notif": {

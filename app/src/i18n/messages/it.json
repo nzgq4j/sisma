@@ -448,7 +448,14 @@
     "copied": "Copiato",
     "hint": "Condividendo viene copiato anche il testo, così puoi incollarlo se l'app non lo inserisce. Incolla la descrizione dell'immagine nel campo del testo alternativo dell'app.",
     "share_link": "Condividi link",
-    "share_failed": "Impossibile aprire il menu di condivisione. Puoi copiare il testo e salvare l'immagine."
+    "share_failed": "Impossibile aprire il menu di condivisione. Puoi copiare il testo e salvare l'immagine.",
+    "felt": "Avvertito",
+    "felt_auto": "mappa del risentimento",
+    "alt_felt": "Dove è stato avvertito è indicato con i colori dell’intensità: {layers}.",
+    "alt_reports": "aree sfumate per le segnalazioni sisma",
+    "alt_auto": "un alone per la mappa automatica",
+    "alt_dyfi": "quadrati per «Did You Feel It?» dell’USGS",
+    "alt_emsc": "punti per le segnalazioni EMSC"
   },
   "felt_by_1": "1 persona l’ha avvertito",
   "notif": {
