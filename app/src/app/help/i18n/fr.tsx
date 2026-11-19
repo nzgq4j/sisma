@@ -189,6 +189,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Touchez <Ui>Partager</Ui> sur un séisme pour créer une carte de partage : une image avec la carte et les principaux détails.</p>
           <p>Là où des personnes ont signalé l’avoir ressenti, la carte de l’image le montre aussi comme dans la vue de la région : de petits carrés aux couleurs d’intensité (gris si l’intensité est inconnue), avec l’échelle d’intensité en bas à droite. La description d’image proposée le mentionne aussi. Si vous avez désactivé <Ui>Cartes des secousses</Ui> dans <Ui>Couches</Ui> de la vue de la région, la carte ne les montre pas non plus.</p>
+          <p>Quand un centre d’alerte aux tsunamis a émis un message officiel pour le séisme, l’image affiche son niveau et le centre en haut à gauche de la carte, par exemple <strong>Alerte au tsunami · PTWC</strong>, en couleur tant qu’une alerte, une menace, une veille ou un avis est en vigueur. Le texte de la publication et la description de l’image le mentionnent aussi.</p>
           <ul>
             <li>Le <strong>Texte de la publication</strong> est rempli pour vous (magnitude, lieu, heure, profondeur et un hashtag, avec le lien à la fin), et vous pouvez le modifier.</li>
             <li>La <strong>Description de l&apos;image (texte alternatif)</strong> décrit l’image pour les personnes qui utilisent un lecteur d’écran. Elle est remplie pour vous, et vous pouvez la modifier.</li>

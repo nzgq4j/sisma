@@ -451,7 +451,8 @@
     "alt_felt": "Dónde se sintió aparece como pequeños cuadrados en colores de intensidad (MMI).",
     "alt_unknown": "Cuadrados grises: sentido, intensidad desconocida.",
     "alt_unknown_only": "Dónde se sintió aparece como cuadrados grises (intensidad desconocida).",
-    "felt_unknown": "intensidad desconocida"
+    "felt_unknown": "intensidad desconocida",
+    "alt_tsunami": "Una etiqueta en la esquina superior izquierda del mapa dice «{text}»."
   },
   "felt_by_1": "1 persona reportó sentirlo",
   "notif": {

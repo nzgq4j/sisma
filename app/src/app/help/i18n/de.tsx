@@ -189,6 +189,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Tippe bei einem Erdbeben auf <Ui>Teilen</Ui>, um eine Teilen-Karte zu erstellen: ein Bild mit der Karte und den wichtigsten Details.</p>
           <p>Wo Menschen das Erdbeben gemeldet haben, zeigt die Karte im Bild es auch wie in der Regionsansicht: kleine Quadrate in Intensitätsfarben (grau, wenn die Intensität unbekannt ist), mit der Intensitätsskala unten rechts. Die vorgeschlagene Bildbeschreibung erwähnt das ebenfalls. Wenn du <Ui>Spürkarten</Ui> unter <Ui>Ebenen</Ui> in der Regionsansicht ausgeschaltet hast, lässt das Bild sie ebenfalls weg.</p>
+          <p>Hat ein Tsunami-Warnzentrum eine offizielle Meldung zu dem Erdbeben herausgegeben, zeigt das Bild ihre Stufe und das Zentrum oben links auf der Karte, zum Beispiel <strong>Tsunamiwarnung · PTWC</strong>, farbig, solange eine Warnung, Gefahrenmeldung, Vorwarnung oder ein Hinweis gilt. Auch der Beitragstext und die Bildbeschreibung nennen sie.</p>
           <ul>
             <li>Der <strong>Beitragstext</strong> ist schon ausgefüllt (Magnitude, Ort, Zeit, Tiefe und ein Hashtag, der Link am Schluss), und du kannst ihn bearbeiten.</li>
             <li>Die <strong>Bildbeschreibung (Alt-Text)</strong> beschreibt das Bild für Menschen, die einen Screenreader nutzen. Sie ist schon ausgefüllt, und du kannst sie bearbeiten.</li>

@@ -55,6 +55,10 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    threats, watches and advisories to everyone signed in, free or sisma+, with notifications on, the Tsunami alerts switch
    in Me (profiles.tsunami_push) and a saved place within 1,000 km (public.tsunami_recipients); once per incident and level
    (tsunami_deliveries); quiet hours don't apply. USGS's tsunami flag alone only says to check official information
+   Share card + Bluesky (done): lib/tsunami/attach.ts withTsunami() adds the alerts wherever quakes are served or drawn
+   (GET /api/quakes, /api/share-card, the alert job, admin Bluesky routes); the card draws a pill at the top left of the map
+   (tsunamiLine, lib/tsunami/text.ts; level colour while in effect, beside "other events" or on its own row); the share sheet
+   adds the line to the post and alt text; Bluesky posts add it (+ #tsunami while in effect) and describe the pill in the alt
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →
    GET /api/felt-map heatmap in Show region (lib/feltmap.ts; 180 s window, ≥ 3 people per ~10 km cell; Me toggle)
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx

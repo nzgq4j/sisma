@@ -451,7 +451,8 @@
     "alt_felt": "Tempat gempa terasa ditunjukkan dengan kotak kecil berwarna intensitas (MMI).",
     "alt_unknown": "Kotak abu-abu: terasa, intensitas tidak diketahui.",
     "alt_unknown_only": "Tempat gempa terasa ditunjukkan dengan kotak abu-abu (intensitas tidak diketahui).",
-    "felt_unknown": "intensitas tidak diketahui"
+    "felt_unknown": "intensitas tidak diketahui",
+    "alt_tsunami": "Label di kiri atas peta bertuliskan “{text}”."
   },
   "felt_by_1": "1 orang melaporkan merasakannya",
   "notif": {

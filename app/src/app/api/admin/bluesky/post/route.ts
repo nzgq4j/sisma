@@ -2,6 +2,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { findQuake } from '@/lib/quakes/find';
+import { withTsunami } from '@/lib/tsunami/attach';
 import { blueskySource, postQuake } from '@/lib/bluesky';
 
 export const maxDuration = 60;
@@ -11,7 +12,8 @@ export async function POST(req: NextRequest) {
   if (!a) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   if (!(await blueskySource(a.db))) return NextResponse.json({ error: 'not_configured' }, { status: 501 });
   const { id } = (await req.json().catch(() => ({}))) as { id?: unknown };
-  const q = typeof id === 'string' ? await findQuake(id, 7) : null;
+  const found = typeof id === 'string' ? await findQuake(id, 7) : null;
+  const q = found ? (await withTsunami([found]))[0] : null;
   if (!q) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   const r = await postQuake(a.db, q, { manual: true, by: a.user.id });
   if (!r.ok) return NextResponse.json({ error: r.error }, { status: r.error === 'already_posted' ? 409 : 502 });

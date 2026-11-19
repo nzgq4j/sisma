@@ -6,6 +6,9 @@
 // Vault, never the password); BLUESKY_IDENTIFIER / BLUESKY_APP_PASSWORD (+ optional BLUESKY_SERVICE) in the server env
 // are the fallback. docs/bluesky-setup.md
 import { feltAltEn, isFeltMark, type FeltMark } from './felt-layers';
+import en from '@/i18n/messages/en.json';
+import { tsunamiLine } from './tsunami/text';
+import { tsunamiTone } from './tsunami/view';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Quake } from './quakes/types';
 import { countryAt } from './country';
@@ -47,12 +50,17 @@ export function draftPost(q: Quake): PostDraft {
   const country = countryName(countryAt(q.lat, q.lon)?.code ?? null);
   const url = eventUrl(q);
   const mag = `M${q.mag.toFixed(1)}`;
-  const tags = ['earthquake', ...(country ? [tagOf(country)] : [])].filter(t => t && graphemes(t) <= 64);
+  // Official tsunami alert (lib/tsunami/): its level and centre on their own line, #tsunami while a warning, threat,
+  // watch or advisory is in effect; without one, USGS's flag only points to the official information.
+  const tsu = q.tsunamiAlert ? tsunamiLine(q.tsunamiAlert, en.tsu) : null;
+  const hazard = tsunamiTone(q.tsunamiAlert) != null;
+  const tsuText = tsu ? `${tsu}${hazard ? '. Follow local authorities.' : ''}` : q.tsunami ? `${en.tsu.check}.` : null;
+  const tags = ['earthquake', ...(hazard ? ['tsunami'] : []), ...(country ? [tagOf(country)] : [])].filter(t => t && graphemes(t) <= 64);
   const build = (place: string) => {
     const lines = [
       `${mag} earthquake · ${place}`,
       `${time(q.time)} UTC · ${depth(q.depthKm)}`,
-      ...(q.tsunami ? ['Tsunami information issued: follow official warnings.'] : []),
+      ...(tsuText ? [tsuText] : []),
       `Map and details: ${url}`,
       tags.map(t => `#${t}`).join(' '),
       'Not an official warning service',
@@ -87,7 +95,7 @@ export function draftPost(q: Quake): PostDraft {
   const alt = `sisma.io earthquake card. Map of the area around a magnitude ${q.mag.toFixed(1)} earthquake, ${place}: `
     + `the epicentre is a ringed dot in the magnitude colour, other earthquakes from the last 7 days are coloured dots, and dashed lines, where present, `
     + `mark tectonic plate boundaries. ${time(q.time)} UTC, depth ${Math.round(q.depthKm)} km, coordinates ${formatDms(q.lat, q.lon)}, `
-    + `source ${source}. Not an official warning service.`;
+    + `source ${source}.${tsu ? ` ${en.sharecard.alt_tsunami.replace('{text}', tsu)}` : ''} Not an official warning service.`;
   return { text, facets, alt, url, place };
 }
 

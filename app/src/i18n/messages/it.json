@@ -451,7 +451,8 @@
     "alt_felt": "Dove è stato avvertito è indicato da piccoli quadrati nei colori dell’intensità (MMI).",
     "alt_unknown": "Quadrati grigi: avvertito, intensità sconosciuta.",
     "alt_unknown_only": "Dove è stato avvertito è indicato da quadrati grigi (intensità sconosciuta).",
-    "felt_unknown": "intensità sconosciuta"
+    "felt_unknown": "intensità sconosciuta",
+    "alt_tsunami": "Un’etichetta in alto a sinistra sulla mappa riporta «{text}»."
   },
   "felt_by_1": "1 persona l’ha avvertito",
   "notif": {

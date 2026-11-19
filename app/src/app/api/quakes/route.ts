@@ -4,9 +4,8 @@ import { mergeQuakes } from '@/lib/quakes/merge';
 import { RANGE_DAYS, type RangeKey, type SortKey } from '@/lib/quakes/types';
 import { distanceKm } from '@/lib/geo';
 import { limits, type Plan } from '@/lib/entitlements';
-import { adminClient, planForRequest } from '@/lib/auth';
-import { loadIncidents } from '@/lib/tsunami/poll';
-import { alertFor } from '@/lib/tsunami/alerts';
+import { planForRequest } from '@/lib/auth';
+import { withTsunami } from '@/lib/tsunami/attach';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
 
 export const revalidate = 60;
@@ -20,16 +19,14 @@ export async function GET(req: NextRequest) {
   const days = RANGE_DAYS[range] ?? 7;
   if (days > L.historyDays) return NextResponse.json({ error: 'upgrade_required', entitlement: 'historyDays' }, { status: 402 });
 
-  const db = adminClient();
-  const [results, tsunamis] = await Promise.all([Promise.allSettled([
+  const results = await Promise.allSettled([
     SOURCES.usgs({ days, minMag: days > 30 ? 5 : 2.5 }),
     SOURCES.emsc({ days: Math.min(days, 30), minMag: 2.5 }),
     SOURCES.geonet({ days, minMag: 0 }),
     SOURCES.jma({ days, minMag: 0 }),
-  ]), db ? loadIncidents(db, Math.min(days, 400)).catch(() => []) : []]);
+  ]);
   // Official tsunami messages (PTWC, NTWC, JMA) matched to their earthquakes (lib/tsunami/).
-  let list = mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])))
-    .map(x => { const a = tsunamis.length ? alertFor(x, tsunamis) : undefined; return a ? { ...x, tsunamiAlert: a } : x; });
+  let list = await withTsunami(mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : []))), Math.min(days, 400));
   const since = Date.now() - days * 864e5;
   list = list.filter(x => x.time >= since);
 

@@ -451,7 +451,8 @@
     "alt_felt": "Wo es gespürt wurde, zeigen kleine Quadrate in Intensitätsfarben (MMI).",
     "alt_unknown": "Graue Quadrate: gespürt, Intensität unbekannt.",
     "alt_unknown_only": "Wo es gespürt wurde, zeigen graue Quadrate (Intensität unbekannt).",
-    "felt_unknown": "Intensität unbekannt"
+    "felt_unknown": "Intensität unbekannt",
+    "alt_tsunami": "Ein Hinweis oben links auf der Karte lautet „{text}“."
   },
   "felt_by_1": "1 Person hat es gespürt",
   "notif": {
