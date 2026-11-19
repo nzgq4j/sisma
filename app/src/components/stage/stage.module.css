@@ -66,3 +66,11 @@
 .feltSub { font-weight: 600; color: var(--ink2); }
 .feltScale i.square { border-radius: 2px; filter: none; }
 .feltScale i.dot { filter: none; box-shadow: 0 0 0 1px var(--surface); }
+.regionTop { display: flex; gap: 8px; }
+.regionTop .exitBtn { flex: 1; min-width: 0; }
+.layersBtn { flex: none; width: 44px; height: 40px; border: 0; border-radius: 12px; background: var(--surface2); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.layersBtn :global(.ms) { font-size: 22px; }
+.layersBtn:hover { color: var(--violet-text); }
+.lineOff { opacity: .45; }
+.layerList { display: flex; flex-direction: column; }
+.layerHint { margin: 12px 0 0; font-size: 13px; color: var(--ink2); line-height: 1.4; }

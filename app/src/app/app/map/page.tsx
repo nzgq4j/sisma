@@ -4,7 +4,8 @@
 // choosing a world region there zooms the map to that region.
 // /app/map?focus=<quake id> ("Show region") zooms to ~7.5° across the shorter side of the view around that quake,
 // marks it as the event in focus (pulsing marker, summary card below) and draws its felt reports. Tapping a nearby
-// event there opens a callout on the map; tapping the callout makes that event the focus.
+// event there opens a callout on the map; tapping the callout makes that event the focus. The Layers button beside
+// "Back to world map" shows or hides each felt layer and the plate boundaries (remembered on the device).
 // The My location button (under the zoom buttons) zooms to the device position; the location chosen in Me stays as it is.
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -27,10 +28,15 @@ import { hasId } from '@/lib/quakes/merge';
 import { FitLine } from '@/components/FitLine';
 import { Legend, LocateNote, Selection, useLocateHere } from '@/components/stage/StageParts';
 import { FilterPanel, LayerToggle } from '@/components/stage/FilterPanel';
+import { Sheet } from '@/components/Sheet';
 import { REGION_VIEW } from '@/lib/world-regions';
 import { HEAT_COLORS, MMI_COLORS, ROMAN } from '@/lib/theme';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
+
+type FeltLayer = 'reports' | 'auto' | 'dyfi' | 'emsc';
+const LAYERS_KEY = 'sisma.feltLayers';
+const ALL_SHOWN: Record<FeltLayer, boolean> = { reports: true, auto: true, dyfi: true, emsc: true };
 
 /** Region view: degrees of longitude across the shorter side of the map (~800 km at the equator). */
 const REGION_SPAN = 7.5;
@@ -48,6 +54,22 @@ function MapView() {
   const device = locations.find(l => l.fromDevice) ?? null;
   const { mapList: list, all, loaded, worldReg } = useQuakeData();
   const [plates, setPlates] = useState(false);
+  // Felt layers shown in the region view (Layers sheet); remembered on this device.
+  const [shown, setShownState] = useState<Record<FeltLayer, boolean>>(ALL_SHOWN);
+  const [layersOpen, setLayersOpen] = useState(false);
+  useEffect(() => {
+    let saved: unknown = null;
+    try { saved = JSON.parse(localStorage.getItem(LAYERS_KEY) ?? 'null'); } catch { /* storage unavailable */ }
+    if (!saved || typeof saved !== 'object') return;
+    const keep = { ...ALL_SHOWN };
+    for (const k of Object.keys(ALL_SHOWN) as FeltLayer[]) { const v = (saved as Record<string, unknown>)[k]; if (typeof v === 'boolean') keep[k] = v; }
+    void Promise.resolve().then(() => setShownState(keep));
+  }, []);
+  const setShown = (l: FeltLayer, on: boolean) => setShownState(v => {
+    const next = { ...v, [l]: on };
+    try { localStorage.setItem(LAYERS_KEY, JSON.stringify(next)); } catch { /* storage unavailable */ }
+    return next;
+  });
   const [picked, setPicked] = useState<string | null>(null);
   const [sheet, setSheet] = useState(false);
   const focusQuake = focusId ? all.find(q => hasId(q, focusId)) ?? null : null;
@@ -130,17 +152,22 @@ function MapView() {
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
         focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, span: REGION_SPAN, y: 0.42 }
           : regionView ? { key: `wr:${worldReg}`, ...regionView, y: 0.42 } : null}
-        cells={focusQuake ? felt.cells : []} heat={focusQuake && auto.map ? auto.map.cells : []} dyfi={focusQuake && dyfi.data ? dyfi.data.cells : []} emsc={focusQuake && emsc.data ? emsc.data.cells : []} onReset={focusId ? exitRegion : undefined}
+        cells={focusQuake && shown.reports ? felt.cells : []} heat={focusQuake && shown.auto && auto.map ? auto.map.cells : []} dyfi={focusQuake && shown.dyfi && dyfi.data ? dyfi.data.cells : []} emsc={focusQuake && shown.emsc && emsc.data ? emsc.data.cells : []} onReset={focusId ? exitRegion : undefined}
         onLocate={locate.go} here={device} />
       <LocateNote note={locate.note} onClose={locate.dismiss} />
       {focusId && (
         <div className={styles.feltCard} role="status">
-          <button type="button" className={styles.exitBtn} onClick={exitRegion}>
-            <span className="ms" aria-hidden="true">arrow_back</span>{t('exit_region')}
-          </button>
+          <div className={styles.regionTop}>
+            <button type="button" className={styles.exitBtn} onClick={exitRegion}>
+              <span className="ms" aria-hidden="true">arrow_back</span>{t('exit_region')}
+            </button>
+            <button type="button" className={styles.layersBtn} onClick={() => setLayersOpen(true)} aria-haspopup="dialog" aria-label={t('layers_open')}>
+              <span className="ms" aria-hidden="true">layers</span>
+            </button>
+          </div>
           {/* Each line (with its colour scale) only appears once there is something to show. */}
           {focusQuake && !felt.loading && felt.total > 0 && (
-            <span className={styles.feltLine}>
+            <span className={`${styles.feltLine}${shown.reports ? '' : ` ${styles.lineOff}`}`}>
               <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} style={{ background: c }} />)}</span>
               {/* Count on the first line; intensity range (all reports) and, when some have no location, how many are mapped. */}
               <span className={styles.feltText}>
@@ -155,7 +182,7 @@ function MapView() {
             </span>
           )}
           {focusQuake && usgsId && dyfi.data && dyfi.data.cells.length > 0 && (
-            <span className={styles.feltLine}>
+            <span className={`${styles.feltLine}${shown.dyfi ? '' : ` ${styles.lineOff}`}`}>
               <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} className={styles.square} style={{ background: c }} />)}</span>
               <span className={styles.feltText}>
                 <FitLine min={9}>{dyfi.data.responses === 1 ? t('dyfi_line_1') : t('dyfi_line', { n: nf.format(dyfi.data.responses) })}</FitLine>
@@ -167,7 +194,7 @@ function MapView() {
             </span>
           )}
           {focusQuake && unid && emsc.data && emsc.data.cells.length > 0 && (
-            <span className={styles.feltLine}>
+            <span className={`${styles.feltLine}${shown.emsc ? '' : ` ${styles.lineOff}`}`}>
               <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} className={styles.dot} style={{ background: c }} />)}</span>
               <span className={styles.feltText}>
                 <FitLine min={9}>{emsc.data.reports === 1 ? t('emsc_line_1') : t('emsc_line', { n: nf.format(emsc.data.reports) })}</FitLine>
@@ -179,7 +206,7 @@ function MapView() {
             </span>
           )}
           {focusQuake && !auto.loading && auto.map && auto.map.cells.length > 0 && (
-            <span className={styles.feltLine}>
+            <span className={`${styles.feltLine}${shown.auto ? '' : ` ${styles.lineOff}`}`}>
               <span className={styles.feltScale} aria-hidden="true">{HEAT_COLORS.map(c => <i key={c} style={{ background: c }} />)}</span>
               <FitLine min={9}>
                 {auto.map.cells.length === 1 ? m.feltmap.line_areas_1 : m.feltmap.line_areas.replace('{n}', nf.format(auto.map.cells.length))}
@@ -192,6 +219,16 @@ function MapView() {
         </div>
       )}
       <FeltMapInfoSheet open={howOpen} onClose={() => setHowOpen(false)} />
+      <Sheet open={layersOpen} onClose={() => setLayersOpen(false)} title={t('region_layers')}>
+        <div className={styles.layerList}>
+          <LayerToggle on={shown.reports} onChange={v => setShown('reports', v)} icon="vibration" label={t('layer_reports')} />
+          <LayerToggle on={shown.dyfi} onChange={v => setShown('dyfi', v)} icon="grid_view" label={t('layer_dyfi')} />
+          <LayerToggle on={shown.emsc} onChange={v => setShown('emsc', v)} icon="scatter_plot" label={t('layer_emsc')} />
+          <LayerToggle on={shown.auto} onChange={v => setShown('auto', v)} icon="sensors" label={t('layer_auto')} />
+          <LayerToggle on={plates} onChange={setPlates} icon="texture" label={t('plates')} />
+        </div>
+        <p className={styles.layerHint}>{t('layers_hint')}</p>
+      </Sheet>
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}
       {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={clear} onShowRegion={() => showRegion(sel.id)} /> : (
         <FilterPanel legend={<Legend plain />}
