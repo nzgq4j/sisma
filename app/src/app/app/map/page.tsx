@@ -14,6 +14,8 @@ import { useQuakeData } from '@/components/QuakeData';
 import { useFeltCells } from '@/components/FeltReport';
 import { FeltMapInfoSheet, useFeltMap } from '@/components/FeltMap';
 import { dyfiPage, useDyfi } from '@/components/Dyfi';
+import { useEmscFelt } from '@/components/EmscFelt';
+import { emscEventPage, emscUnid } from '@/lib/quakes/emsc-felt';
 import { usgsEventId } from '@/lib/quakes/dyfi';
 import { regionHref } from '@/components/QuakeDetail';
 import { WorldMap } from '@/components/dash/WorldMap';
@@ -61,6 +63,9 @@ function MapView() {
   // USGS "Did You Feel It?" for the event in focus, when USGS has a record of it.
   const usgsId = focusQuake ? usgsEventId(focusQuake) : null;
   const dyfi = useDyfi(usgsId);
+  // EMSC felt reports (websites and LastQuake app) for the event in focus, when EMSC has a record of it.
+  const unid = focusQuake ? emscUnid(focusQuake) : null;
+  const emsc = useEmscFelt(unid);
   const [howOpen, setHowOpen] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
   // Map area covered by the region card (top) and the event card or filter panel (bottom), measured when a callout opens.
@@ -125,7 +130,7 @@ function MapView() {
         projection="mercator" plates={plates} toolsClassName={styles.mapTools}
         focus={focusQuake ? { key: focusQuake.id, lat: focusQuake.lat, lon: focusQuake.lon, span: REGION_SPAN, y: 0.42 }
           : regionView ? { key: `wr:${worldReg}`, ...regionView, y: 0.42 } : null}
-        cells={focusQuake ? felt.cells : []} heat={focusQuake && auto.map ? auto.map.cells : []} dyfi={focusQuake && dyfi.data ? dyfi.data.cells : []} onReset={focusId ? exitRegion : undefined}
+        cells={focusQuake ? felt.cells : []} heat={focusQuake && auto.map ? auto.map.cells : []} dyfi={focusQuake && dyfi.data ? dyfi.data.cells : []} emsc={focusQuake && emsc.data ? emsc.data.cells : []} onReset={focusId ? exitRegion : undefined}
         onLocate={locate.go} here={device} />
       <LocateNote note={locate.note} onClose={locate.dismiss} />
       {focusId && (
@@ -157,6 +162,18 @@ function MapView() {
                 <FitLine min={9} className={styles.feltSub}>USGS · {dyfi.data.cells.length === 1 ? t('dyfi_sub_1') : t('dyfi_sub', { n: nf.format(dyfi.data.cells.length) })}{dyfi.data.maxCdi != null && ` · ${t('dyfi_max', { mmi: ROMAN[Math.min(10, Math.max(1, Math.round(dyfi.data.maxCdi))) - 1] })}`}</FitLine>
               </span>
               <a className={styles.infoBtn} href={dyfiPage(usgsId)} target="_blank" rel="noopener noreferrer" aria-label={t('dyfi_open')}>
+                <span className="ms" aria-hidden="true">open_in_new</span>
+              </a>
+            </span>
+          )}
+          {focusQuake && unid && emsc.data && emsc.data.cells.length > 0 && (
+            <span className={styles.feltLine}>
+              <span className={styles.feltScale} aria-hidden="true">{MMI_COLORS.filter((_, i) => i % 2 === 1).map((c, i) => <i key={i} className={styles.dot} style={{ background: c }} />)}</span>
+              <span className={styles.feltText}>
+                <FitLine min={9}>{emsc.data.reports === 1 ? t('emsc_line_1') : t('emsc_line', { n: nf.format(emsc.data.reports) })}</FitLine>
+                <FitLine min={9} className={styles.feltSub}>EMSC · {emsc.data.cells.length === 1 ? t('dyfi_sub_1') : t('dyfi_sub', { n: nf.format(emsc.data.cells.length) })}{emsc.data.maxMmi != null && ` · ${t('dyfi_max', { mmi: ROMAN[Math.min(10, Math.max(1, Math.round(emsc.data.maxMmi))) - 1] })}`}</FitLine>
+              </span>
+              <a className={styles.infoBtn} href={emscEventPage(unid)} target="_blank" rel="noopener noreferrer" aria-label={t('emsc_open')}>
                 <span className="ms" aria-hidden="true">open_in_new</span>
               </a>
             </span>

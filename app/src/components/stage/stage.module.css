@@ -65,3 +65,4 @@
 .feltText { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
 .feltSub { font-weight: 600; color: var(--ink2); }
 .feltScale i.square { border-radius: 2px; filter: none; }
+.feltScale i.dot { filter: none; box-shadow: 0 0 0 1px var(--surface); }
