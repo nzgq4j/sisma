@@ -201,7 +201,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tap <Ui>Share</Ui> on an earthquake to make a share card: a picture with the map and the main details.</p>
-          <p>Where people reported feeling the earthquake, the card’s map also shows it as in the region view: small squares coloured by intensity (grey where the intensity is unknown), with the intensity scale at the bottom right. The suggested image description then mentions them.</p>
+          <p>Where people reported feeling the earthquake, the card’s map also shows it as in the region view: small squares coloured by intensity (grey where the intensity is unknown), with the intensity scale at the bottom right. The suggested image description then mentions them. If you’ve switched off <Ui>Felt maps</Ui> under <Ui>Layers</Ui> in the region view, the card leaves them out too.</p>
           <ul>
             <li><strong>Post text</strong> is filled in for you (magnitude, place, time, depth and a hashtag, with the link last), and you can edit it.</li>
             <li><strong>Image description (alt text)</strong> describes the picture for people using screen readers. It is filled in for you, and you can edit it.</li>

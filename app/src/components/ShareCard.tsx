@@ -4,6 +4,7 @@
 // where supported; otherwise Share link with the post), Save image, Copy text and Copy alt text. Many apps (X, Facebook, Bluesky) drop shared text when an
 // image comes with it, and none accept alt text this way, so sharing also copies the text for pasting.
 /* eslint-disable @next/next/no-img-element -- generated PNG preview */
+import { readFeltOn } from '@/lib/felt-pref';
 import { copyText } from '@/lib/copy-text';
 import { isFeltMark, type FeltMark } from '@/lib/felt-layers';
 import { useEffect, useState } from 'react';
@@ -15,8 +16,9 @@ import { canShareNatively, shareFileNatively, shareTextNatively } from '@/lib/na
 import { postWithLink } from '@/lib/share-text';
 import styles from './dash/dash.module.css';
 
-export const shareCardUrl = (id: string, locale: string, units: string, tz: string) =>
-  `/api/share-card?${new URLSearchParams({ id, locale, units, tz })}`;
+/** The card image URL; felt=false leaves the felt squares out (the Felt maps switch is off: lib/felt-pref.ts). */
+export const shareCardUrl = (id: string, locale: string, units: string, tz: string, felt = true) =>
+  `/api/share-card?${new URLSearchParams({ id, locale, units, tz, ...(felt ? {} : { felt: '0' }) })}`;
 
 type Result = { key: string } & ({ s: 'ready'; file: File; url: string; layers: FeltMark[] } | { s: 'failed' });
 type State = { s: 'loading' } | Result;
@@ -51,7 +53,7 @@ export function ShareCardSheet({ q, open, onClose, path, text, alt }: {
     if (!open) return;
     let alive = true, objectUrl = '';
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
-    fetch(shareCardUrl(q.id, locale, units, tz))
+    fetch(shareCardUrl(q.id, locale, units, tz, readFeltOn()))
       .then(r => (r.ok && r.headers.get('content-type')?.startsWith('image/')
         ? r.blob().then(blob => ({ blob, layers: (r.headers.get('x-felt-layers') ?? '').split(',').filter(isFeltMark) }))
         : Promise.reject(new Error(String(r.status)))))

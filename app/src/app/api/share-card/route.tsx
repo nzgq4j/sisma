@@ -1,8 +1,10 @@
-// GET /api/share-card?id=<quake id>&locale=en&units=km&tz=Europe/Rome → 1080×1350 PNG share card (lib/share-card.tsx).
+// GET /api/share-card?id=<quake id>&locale=en&units=km&tz=Europe/Rome[&felt=0] → 1080×1350 PNG share card (lib/share-card.tsx).
+// felt=0: without felt squares (the person's Felt maps switch is off).
 // The event is looked up on the server by id (last 30 days), so a card can only show real data from the feeds.
 import type { NextRequest } from 'next/server';
 import { hasId, recentQuakes } from '@/lib/quakes/find';
 import { shareCardResponse, validTz } from '@/lib/share-card';
+import { NO_FELT } from '@/lib/share-felt';
 import { asLocale } from '@/i18n/server';
 
 export async function GET(req: NextRequest) {
@@ -14,6 +16,6 @@ export async function GET(req: NextRequest) {
   if (!q) return Response.json({ error: 'not_found' }, { status: 404 });
   return shareCardResponse({
     q, all, locale: asLocale(sp.get('locale')), units: sp.get('units') === 'mi' ? 'mi' : 'km', tz: validTz(sp.get('tz')),
-    origin: req.nextUrl.origin,
+    origin: req.nextUrl.origin, ...(sp.get('felt') === '0' ? { felt: NO_FELT } : {}),
   });
 }
