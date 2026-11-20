@@ -69,7 +69,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    choosing a world region zooms the map (lib/world-regions.ts REGION_VIEW) and turns the Globe to face it
    Region view (/app/map?focus=<id>): ~7.5° across the shorter side, pulsing focus marker, callouts for nearby events,
    top card = Back to world map + Layers only; the felt legend (totals + intensity scale) is on the event's full card (Details),
-   1:50m coastlines when zoomed in. Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx) with editable post
+   1:50m coastlines when zoomed in; city names from web zoom 4 (lib/cities.ts, public/data/cities.json from Natural Earth
+   populated places via scripts/build-cities.mjs, 10 languages; drawn on the base canvas, clear of event markers, fading
+   out with the street tiles). Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx) with editable post
    text + alt text (lib/share-text.ts: post built from fragments, empty ones dropped, link last; card headline shrinks to one
    line); Share link fallback where files can't be shared; Android app shares through the system sheet (@capacitor/share +
    filesystem, lib/native-share.ts)

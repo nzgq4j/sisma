@@ -103,6 +103,7 @@ export const TOPICS: Topic[] = [
           <ul>
             <li><strong>Geser dan zoom</strong> dengan jari atau mouse, atau dengan tombol <Ui>+</Ui> dan <Ui>−</Ui>. Tombol ketiga mengembalikan tampilan.</li>
             <li><strong>Lokasi saya</strong> (tombol keempat) memperbesar ke tempat Anda berada sekarang. Pertama kali, sisma meminta akses ke lokasi Anda. Cincin di sekitar titik menandai posisi Anda jika tempat lain dipilih di <Ui>Saya</Ui>; pilihan itu tetap seperti semula.</li>
+            <li>Perbesar ke suatu wilayah dan <strong>nama kota</strong> muncul dalam bahasa Anda untuk membantu menentukan lokasi. Kota besar ditampilkan lebih dulu; nama tidak menutupi gempa dan berganti dengan nama di peta jalan.</li>
             <li>Jika Anda memperbesar cukup jauh, <strong>peta jalan</strong> dari OpenStreetMap perlahan muncul, sehingga Anda bisa melihat dengan tepat di mana suatu kejadian berlangsung.</li>
             <li><strong>Ketuk pin</strong> untuk melihat kartu ringkasan, lalu <Ui>Detail</Ui> untuk semua informasinya.</li>
           </ul>

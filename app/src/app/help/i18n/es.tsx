@@ -103,6 +103,7 @@ export const TOPICS: Topic[] = [
           <ul>
             <li><strong>Mueve y haz zoom</strong> con los dedos o el ratón, o con los botones <Ui>+</Ui> y <Ui>−</Ui>. El tercer botón restablece la vista.</li>
             <li><strong>Mi ubicación</strong> (el cuarto botón) hace zoom hasta donde estás ahora. La primera vez, sisma te pide acceso a tu ubicación. Un anillo alrededor del punto marca tu posición cuando en <Ui>Perfil</Ui> tienes elegido otro lugar; esa elección no cambia.</li>
+            <li>Al acercarte a una región aparecen <strong>nombres de ciudades</strong>, en tu idioma, para ayudarte a orientarte. Primero las ciudades más grandes; los nombres no tapan los sismos y dejan paso a los de los mapas de calles.</li>
             <li>Si te acercas lo suficiente, aparecen <strong>mapas de calles</strong> de OpenStreetMap, para que veas exactamente dónde ocurrió un evento.</li>
             <li><strong>Toca un marcador</strong> para ver una tarjeta de resumen y luego <Ui>Detalles</Ui> para verlo todo.</li>
           </ul>

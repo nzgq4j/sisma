@@ -103,6 +103,7 @@ export const TOPICS: Topic[] = [
           <ul>
             <li>Parmaklarınla veya fareyle ya da <Ui>+</Ui> ve <Ui>−</Ui> düğmeleriyle <strong>kaydır ve yakınlaştır</strong>. Üçüncü düğme görünümü sıfırlar.</li>
             <li><strong>Konumum</strong> (dördüncü düğme) şu an bulunduğun yere yakınlaştırır. sisma ilk seferde konumuna erişim izni ister. <Ui>Profil</Ui> sekmesinde başka bir yer seçiliyse, noktanın çevresindeki halka senin konumunu gösterir; o seçim olduğu gibi kalır.</li>
+            <li>Bir bölgeye yakınlaştırdığında, yönünü bulmana yardımcı olmak için <strong>şehir adları</strong> kendi dilinde görünür. Önce büyük şehirler gelir; adlar depremlerin üstüne gelmez ve sokak haritalarının kendi adlarına yerini bırakır.</li>
             <li>Yeterince yakınlaştırınca OpenStreetMap’ten <strong>sokak haritaları</strong> belirir; böylece bir olayın tam olarak nerede olduğunu görebilirsin.</li>
             <li>Özet kartını görmek için <strong>bir işarete dokun</strong>, her şeyi görmek için ardından <Ui>Ayrıntılar</Ui> düğmesine dokun.</li>
           </ul>

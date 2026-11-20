@@ -23,6 +23,7 @@ import { FELT_CELL_DEG, feltColor, type FeltGridCell } from '@/lib/felt-grid';
 import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
 import { BORDERS, COUNTRIES, SPHERE, useDetailedWorld, useLakes, usePlates } from '@/lib/world';
+import { CITIES_FROM, placeLabels, useCities, type Box, type City } from '@/lib/cities';
 import type { Quake } from '@/lib/quakes/types';
 import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
@@ -140,7 +141,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   /** The device position, marked when it differs from `center` (the location chosen in Me). */
   here?: { lat: number; lon: number } | null;
 }) {
-  const { t, m } = useT();
+  const { t, m, locale } = useT();
   const u = useDistance();
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -444,11 +445,25 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     };
   }, [land, borders, lakesD, mercator, path]);
   const hideOutlines = zw >= HIDE_OUTLINES_FROM;
+  // City names once zoomed in to a region (lib/cities.ts), in map units; drawn on the base canvas under the events, at
+  // a fixed screen size, fading out as the street tiles (which have their own names) fade in.
+  const regionZoom = mercator && sc ? webZoom(sc, k) : 0;
+  const cities = useCities(regionZoom >= CITIES_FROM - 0.5);
+  const cityPts = useMemo(() => {
+    if (!cities || !mercator) return null;
+    const m = new Map<City, [number, number]>();
+    for (const c of cities) { const p = project(c.lon, c.lat); if (p) m.set(c, p); }
+    return m;
+  }, [cities, mercator, project]);
+  // Event positions in map units, so names keep clear of the markers.
+  const quakePts = useMemo(() => (cityPts ? quakes.map(q => ({ p: project(q.lon, q.lat), r: dotRadius(q.mag) })) : []), [cityPts, quakes, project]);
   useEffect(() => {
     const cv = baseCanvasRef.current, wrap = wrapRef.current;
     if (!cv || !wrap || !size.w || !shapes) return;
     const cs = getComputedStyle(wrap), v = (n: string) => cs.getPropertyValue(n).trim();
-    const col = { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat') };
+    const col = { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), label: v('--map-label'), halo: v('--map-label-halo') };
+    const font = `600 11px ${getComputedStyle(document.body).fontFamily}`, widths = new Map<string, number>();
+    const cityList = cityPts ? [...cityPts.keys()] : [];
     const dpr = window.devicePixelRatio || 1, W = worldW, cx = size.w / 2;
     if (cv.width !== Math.round(size.w * dpr) || cv.height !== Math.round(size.h * dpr)) { cv.width = Math.round(size.w * dpr); cv.height = Math.round(size.h * dpr); }
     const ctx = cv.getContext('2d'); if (!ctx) return;
@@ -465,11 +480,45 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
         if (shapes.lakes) { ctx.fillStyle = col.sea; ctx.fill(shapes.lakes); ctx.strokeStyle = col.line; ctx.lineWidth = 0.5 / tk; ctx.stroke(shapes.lakes); }
         ctx.strokeStyle = col.line; ctx.lineWidth = 0.6 / tk; ctx.lineJoin = 'round'; ctx.stroke(shapes.borders);
       }
+      // City names: a dot and the name beside it, with a halo so they read over land, sea and borders.
+      const zNow = cityPts && sc ? webZoom(sc, tk) : 0;
+      const alpha = tiles ? 1 - tileOpacity(zNow) : 1;
+      if (!cityPts || zNow < CITIES_FROM || alpha <= 0) return;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.font = font; ctx.textBaseline = 'middle';
+      const measure = (s: string) => { let w = widths.get(s); if (w == null) { w = ctx.measureText(s).width; widths.set(s, w); } return w; };
+      const at = (c: City) => {
+        const p = cityPts.get(c); if (!p) return null;
+        for (const off of W ? [0, -W, W] : [0]) {
+          const sx = x + tk * (p[0] + off);
+          if (sx >= 0 && sx <= size.w) return { x: sx, y: y + tk * p[1] };
+        }
+        return null;
+      };
+      const blocked: Box[] = [];
+      for (const { p, r } of quakePts) {
+        if (!p) continue;
+        for (const off of W ? [0, -W, W] : [0]) {
+          const sx = x + tk * (p[0] + off), sy = y + tk * p[1];
+          if (sx < -20 || sx > size.w + 20 || sy < -40 || sy > size.h + 20) continue;
+          // Pins (the focused one drawn 1.3× with its pulse) or circles, with a little room.
+          blocked.push(styleRef.current === 'pins' ? [sx - 16, sy - 40, sx + 16, sy + 8] : [sx - r - 4, sy - r - 4, sx + r + 4, sy + r + 4]);
+        }
+      }
+      ctx.globalAlpha = alpha; ctx.lineJoin = 'round';
+      for (const l of placeLabels(cityList, zNow, locale, at, measure, size, undefined, blocked)) {
+        ctx.beginPath(); ctx.arc(l.x, l.y, 2.5, 0, Math.PI * 2);
+        ctx.fillStyle = col.label; ctx.strokeStyle = col.halo; ctx.lineWidth = 1.5; ctx.fill(); ctx.stroke();
+        ctx.textAlign = l.w >= 0 ? 'left' : 'right';
+        const tx = l.w >= 0 ? l.x + 6 : l.x - 6;
+        ctx.lineWidth = 3; ctx.strokeText(l.text, tx, l.y); ctx.fillText(l.text, tx, l.y);
+      }
+      ctx.globalAlpha = 1;
     };
     drawBaseRef.current = draw;
     draw(tf);
     // eslint-disable-next-line react-hooks/exhaustive-deps -- tf changes are drawn by the zoom handler directly
-  }, [shapes, size.w, size.h, worldW, dark, hideOutlines]);
+  }, [shapes, size.w, size.h, worldW, dark, hideOutlines, cityPts, quakePts, locale, sc, tiles]);
 
   // Everything drawn over the map (and over the street tiles): plates, felt layers, events, markers.
   const over = (
