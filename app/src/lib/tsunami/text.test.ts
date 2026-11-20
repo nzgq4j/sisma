@@ -4,7 +4,7 @@ import ja from '@/i18n/messages/ja.json';
 import { tsunamiLine } from './text';
 import type { TsunamiAlert } from './types';
 
-const a: TsunamiAlert = { level: 'major_warning', center: 'JMA', status: 'active', title: 'Tsunami Warning', issued: 0, url: '', areas: [] };
+const a: TsunamiAlert = { incident: 'jma:1', level: 'major_warning', center: 'JMA', status: 'active', title: 'Tsunami Warning', issued: 0, url: '', areas: [] };
 
 describe('tsunami line', () => {
   it('names the level and centre, and a status that no longer applies', () => {

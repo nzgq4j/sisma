@@ -640,7 +640,7 @@
     "not_connected": "Non connecté",
     "not_configured": "Bluesky n’est pas encore connecté. Connectez-vous ci-dessous.",
     "auto": "Publier automatiquement",
-    "auto_p": "Publie chaque séisme égal ou supérieur à la magnitude minimale dans les 30 minutes, avec sa carte. 2 publications par minute au maximum.",
+    "auto_p": "Publie chaque séisme égal ou supérieur à la magnitude minimale dans les 30 minutes, avec sa carte. 2 publications par minute au maximum. Les séismes avec un message officiel de tsunami sont toujours publiés, et chaque nouveau niveau de tsunami ou annulation fait l’objet de sa propre publication.",
     "min": "Magnitude minimale",
     "recent": "Dernières 24 heures (M4,5+)",
     "recent_none": "Aucun séisme de M4,5 ou plus au cours des dernières 24 heures.",

@@ -640,7 +640,7 @@
     "not_connected": "Not connected",
     "not_configured": "Bluesky isn’t connected yet. Sign in below.",
     "auto": "Post automatically",
-    "auto_p": "Posts each earthquake at or above the minimum magnitude within 30 minutes, with its map card. At most 2 posts a minute.",
+    "auto_p": "Posts each earthquake at or above the minimum magnitude within 30 minutes, with its map card. At most 2 posts a minute. Earthquakes with an official tsunami report are always posted, and each new tsunami level or cancellation gets a post of its own.",
     "min": "Minimum magnitude",
     "recent": "Last 24 hours (M4.5+)",
     "recent_none": "No earthquakes of M4.5 or more in the last 24 hours.",

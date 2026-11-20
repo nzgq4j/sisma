@@ -640,7 +640,7 @@
     "not_connected": "Bağlı değil",
     "not_configured": "Bluesky henüz bağlı değil. Aşağıdan giriş yapın.",
     "auto": "Otomatik paylaş",
-    "auto_p": "En düşük büyüklükteki veya daha güçlü her depremi 30 dakika içinde harita kartıyla paylaşır. Dakikada en fazla 2 gönderi.",
+    "auto_p": "En düşük büyüklükteki veya daha güçlü her depremi 30 dakika içinde harita kartıyla paylaşır. Dakikada en fazla 2 gönderi. Resmî tsunami raporu olan depremler her zaman paylaşılır; her yeni tsunami seviyesi veya iptal için ayrı bir gönderi yapılır.",
     "min": "En düşük büyüklük",
     "recent": "Son 24 saat (M4,5+)",
     "recent_none": "Son 24 saatte M4,5 veya üzeri deprem yok.",

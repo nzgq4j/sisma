@@ -640,7 +640,7 @@
     "not_connected": "Não conectado",
     "not_configured": "O Bluesky ainda não está conectado. Entre abaixo.",
     "auto": "Publicar automaticamente",
-    "auto_p": "Publica cada terremoto igual ou acima da magnitude mínima em até 30 minutos, com o cartão do mapa. No máximo 2 posts por minuto.",
+    "auto_p": "Publica cada terremoto igual ou acima da magnitude mínima em até 30 minutos, com o cartão do mapa. No máximo 2 posts por minuto. Terremotos com um aviso oficial de tsunami são sempre publicados, e cada novo nível de tsunami ou cancelamento ganha uma publicação própria.",
     "min": "Magnitude mínima",
     "recent": "Últimas 24 horas (M4,5+)",
     "recent_none": "Nenhum terremoto de M4,5 ou mais nas últimas 24 horas.",

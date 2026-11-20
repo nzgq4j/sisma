@@ -9,6 +9,11 @@ import { feltAltEn, isFeltMark, type FeltMark } from './felt-layers';
 import en from '@/i18n/messages/en.json';
 import { tsunamiLine } from './tsunami/text';
 import { tsunamiTone } from './tsunami/view';
+import type { Incident } from './tsunami/alerts';
+import { matches } from './tsunami/alerts';
+import { loadIncidents } from './tsunami/poll';
+import { levelRank } from './tsunami/types';
+import type { TsunamiAlert } from './tsunami/types';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Quake } from './quakes/types';
 import { countryAt } from './country';
@@ -97,6 +102,38 @@ export function draftPost(q: Quake): PostDraft {
     + `mark tectonic plate boundaries. ${time(q.time)} UTC, depth ${Math.round(q.depthKm)} km, coordinates ${formatDms(q.lat, q.lon)}, `
     + `source ${source}.${tsu ? ` ${en.sharecard.alt_tsunami.replace('{text}', tsu)}` : ''} Not an official warning service.`;
   return { text, facets, alt, url, place };
+}
+
+/** One post per tsunami report: an event's incident, level, and whether it was cancelled. */
+export const tsunamiKey = (a: Pick<TsunamiAlert, 'incident' | 'level' | 'status'>) => `${a.incident}|${a.level}|${a.status === 'cancelled' ? 'c' : 'a'}`;
+
+/**
+ * Post for a new official tsunami report (a new level, or a cancellation): the level and centre, the earthquake, the
+ * official message, the region view when the earthquake is in the feeds, hashtags and the disclaimer. English. `q`: the
+ * matched earthquake (its share card goes with the post, and its alt text), or null to post from the message alone.
+ */
+export function draftTsunamiPost(i: Incident, q: Quake | null): PostDraft {
+  const line = tsunamiLine(i, en.tsu), hazard = tsunamiTone(i) != null;
+  const mag = q?.mag ?? i.mag, when = q?.time ?? i.origin ?? i.issued;
+  const lat = q?.lat ?? i.lat, lon = q?.lon ?? i.lon;
+  const country = lat != null && lon != null ? countryName(countryAt(lat, lon)?.code ?? null) : null;
+  const tags = ['tsunami', 'earthquake', ...(country ? [tagOf(country)] : [])].filter(t => t && graphemes(t) <= 64);
+  const build = (place: string) => [
+    `${line}${hazard ? '. Follow local authorities.' : ''}`,
+    `${mag != null ? `M${mag.toFixed(1)} earthquake` : 'Earthquake'} · ${place}`,
+    `${time(when)} UTC`,
+    `Official message: ${i.url}`,
+    ...(q ? [`Map and details: ${eventUrl(q)}`] : []),
+    tags.map(t => `#${t}`).join(' '),
+    'Not an official warning service',
+  ].join('\n');
+  let place = ((q ? q.region || q.title : i.place) || 'Unknown location').trim();
+  let text = build(place);
+  while ((graphemes(text) > BLUESKY_MAX_GRAPHEMES || bytes(text) > 3000) && place.length > 8) {
+    place = place.slice(0, Math.max(8, place.length - 10)).trimEnd() + '…';
+    text = build(place);
+  }
+  return { text, facets: detectFacets(text), alt: q ? draftPost({ ...q, tsunamiAlert: i }).alt : '', url: i.url, place: `${line} – ${place}` };
 }
 
 // --- AT Protocol client ---
@@ -352,11 +389,12 @@ export const CARD_WAIT_MS = 15 * 60_000;
 /** True while an event without a card should still wait for it. */
 export const cardWait = (q: Pick<Quake, 'time'>, now: number) => now - q.time < CARD_WAIT_MS;
 
-/** Which recent events the automatic posting would post now (largest first). */
+/** Which recent events the automatic posting would post now: those with an official tsunami report whatever their
+ *  magnitude, first, then the others at or above the minimum magnitude, largest first. */
 export function autoCandidates(quakes: Quake[], minMagnitude: number, rows: PostRow[], now: number): Quake[] {
   return quakes
-    .filter(q => q.mag >= minMagnitude && q.time <= now + 60_000 && now - q.time <= AUTO_MAX_AGE_MS && !alreadyPosted(q, rows))
-    .sort((a, b) => b.mag - a.mag)
+    .filter(q => (q.mag >= minMagnitude || q.tsunamiAlert) && q.time <= now + 60_000 && now - q.time <= AUTO_MAX_AGE_MS && !alreadyPosted(q, rows))
+    .sort((a, b) => Number(!!b.tsunamiAlert) - Number(!!a.tsunamiAlert) || b.mag - a.mag)
     .slice(0, AUTO_MAX_PER_RUN);
 }
 
@@ -368,7 +406,7 @@ export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: bo
   const row = {
     quake_id: q.id, quake_time: new Date(q.time).toISOString(), lat: q.lat, lon: q.lon, mag: Math.round(q.mag * 10) / 10,
     place: draft.place.slice(0, 200), text: draft.text, alt: draft.alt, status: 'posting', error: null,
-    manual: opts.manual, posted_by: opts.by ?? null,
+    manual: opts.manual, posted_by: opts.by ?? null, tsunami_key: q.tsunamiAlert ? tsunamiKey(q.tsunamiAlert) : null,
   };
   // Claim: insert, or take over a failed attempt. Anything else means it is posted or being posted.
   const ins = await db.from('bluesky_posts').insert(row);
@@ -388,7 +426,7 @@ export async function postQuake(db: SupabaseClient, q: Quake, opts: { manual: bo
 }
 
 /** The automatic step of the every-minute alert job. Never throws (alerts must still go out). */
-export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number): Promise<{ posted: number; failed: number; waiting: number } | { skipped: string }> {
+export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number): Promise<{ posted: number; failed: number; waiting: number; tsunami: { posted: number; failed: number } } | { skipped: string }> {
   try {
     if (!(await blueskySource(db))) return { skipped: 'not_configured' };
     const { data: s } = await db.from('bluesky_settings').select('enabled, min_magnitude').eq('id', 1).maybeSingle();
@@ -397,16 +435,74 @@ export async function autoPost(db: SupabaseClient, quakes: Quake[], now: number)
       .gte('quake_time', new Date(now - 2 * 3600_000).toISOString());
     const todo = autoCandidates(quakes, Number(s.min_magnitude), (rows ?? []) as PostRow[], now);
     let posted = 0, failed = 0, waiting = 0;
+    const waitingIds = new Set<string>();
     for (const q of todo) {
       // Without its card, a new event waits for the next run (every minute); after CARD_WAIT_MS it goes out as text.
       const img = await card(q, quakes);
-      if (!img && cardWait(q, now)) { waiting++; continue; }
+      if (!img && cardWait(q, now)) { waiting++; waitingIds.add(q.id); continue; }
       const r = await postQuake(db, q, { manual: false, card: img });
       if (r.ok) posted++; else failed++;
     }
-    return { posted, failed, waiting };
+    const tsunami = await autoTsunami(db, quakes, now, waitingIds);
+    return { posted, failed, waiting, tsunami };
   } catch (e) {
     console.error('bluesky auto post', e);
     return { skipped: 'error' };
+  }
+}
+
+/** Tsunami reports older than this when first seen are not posted (a first run, or a late feed). */
+export const TSUNAMI_POST_MAX_AGE_MS = 3 * 3600_000;
+
+/** New tsunami reports (lib/tsunami/) not yet carried by a post, most serious first. */
+export function tsunamiCandidates(list: Incident[], covered: Set<string>, now: number): Incident[] {
+  return list
+    .filter(i => now - i.issued <= TSUNAMI_POST_MAX_AGE_MS && !covered.has(tsunamiKey(i)))
+    .sort((a, b) => levelRank(a.level) - levelRank(b.level) || b.issued - a.issued)
+    .slice(0, AUTO_MAX_PER_RUN);
+}
+
+/**
+ * Every new official tsunami report gets a post (one per event, level and cancellation): an earthquake post that already
+ * carried it counts; otherwise a post of its own, with the earthquake's card when the earthquake is in the feeds. Waits
+ * while that earthquake's own post is waiting for its card. Like earthquake posts, a failed post is not retried here.
+ */
+async function autoTsunami(db: SupabaseClient, quakes: Quake[], now: number, waitingIds: Set<string>): Promise<{ posted: number; failed: number }> {
+  const list = await loadIncidents(db, 1, now);
+  const keys = list.filter(i => now - i.issued <= TSUNAMI_POST_MAX_AGE_MS).map(tsunamiKey);
+  if (!keys.length) return { posted: 0, failed: 0 };
+  const { data } = await db.from('bluesky_posts').select('tsunami_key').in('tsunami_key', keys);
+  const covered = new Set((data ?? []).map(r => r.tsunami_key as string));
+  let posted = 0, failed = 0;
+  for (const i of tsunamiCandidates(list, covered, now)) {
+    const found = quakes.find(q => matches(q, i)) ?? null;
+    if (found && waitingIds.has(found.id)) continue;
+    const q = found ? { ...found, tsunamiAlert: { incident: i.incident, level: i.level, center: i.center, status: i.status, title: i.title, issued: i.issued, url: i.url, areas: i.areas } } : null;
+    const img = q ? await card(q, quakes) : null;
+    if (q && !img && cardWait(q, now)) continue;
+    const r = await postTsunami(db, i, q, img);
+    if (r.ok) posted++; else if (r.error !== 'already_posted') failed++;
+  }
+  return { posted, failed };
+}
+
+/** Claims and publishes the post for one tsunami report (bluesky_posts row "tsunami:<key>"). */
+export async function postTsunami(db: SupabaseClient, i: Incident, q: Quake | null, img: CardImage | null): Promise<PostOutcome> {
+  const draft = draftTsunamiPost(i, q), key = tsunamiKey(i), id = `tsunami:${key}`;
+  const when = q?.time ?? i.origin ?? i.issued;
+  const ins = await db.from('bluesky_posts').insert({
+    quake_id: id, quake_time: new Date(when).toISOString(), lat: q?.lat ?? i.lat ?? 0, lon: q?.lon ?? i.lon ?? 0,
+    mag: Math.round((q?.mag ?? i.mag ?? 0) * 10) / 10, place: draft.place.slice(0, 200), text: draft.text, alt: draft.alt,
+    status: 'posting', error: null, manual: false, tsunami_key: key,
+  });
+  if (ins.error) return { ok: false, error: 'already_posted' };
+  try {
+    const res = q ? await publish(db, q, draft, img) : { ...(await publishPost(db, draft, null)), alt: '' };
+    await db.from('bluesky_posts').update({ status: 'posted', post_uri: res.uri, post_url: res.url, alt: res.alt }).eq('quake_id', id);
+    return { ok: true, url: res.url, image: res.image };
+  } catch (e) {
+    const error = String((e as Error)?.message ?? e).slice(0, 500);
+    await db.from('bluesky_posts').update({ status: 'failed', error }).eq('quake_id', id);
+    return { ok: false, error };
   }
 }
