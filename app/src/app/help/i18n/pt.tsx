@@ -103,6 +103,7 @@ export const TOPICS: Topic[] = [
           <ul>
             <li><strong>Mova e aproxime</strong> com os dedos ou o mouse, ou com os botões <Ui>+</Ui> e <Ui>−</Ui>. O terceiro botão volta à visão inicial.</li>
             <li><strong>Minha localização</strong> (o quarto botão) aproxima o mapa de onde você está agora. Na primeira vez, o sisma pede acesso à sua localização. Um anel em volta do ponto marca sua posição quando outro local está escolhido em <Ui>Perfil</Ui>; essa escolha continua como está.</li>
+            <li>Ao aproximar uma região, aparecem <strong>nomes de cidades</strong>, no seu idioma, para ajudar você a se localizar. As maiores cidades vêm primeiro; os nomes não cobrem os terremotos e dão lugar aos dos mapas de ruas.</li>
             <li>Aproxime bastante e os <strong>mapas de ruas</strong> do OpenStreetMap aparecem aos poucos, para você ver exatamente onde foi um evento.</li>
             <li><strong>Toque em um alfinete</strong> para ver um cartão de resumo e depois em <Ui>Detalhes</Ui> para ver tudo sobre ele.</li>
           </ul>

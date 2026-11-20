@@ -103,6 +103,7 @@ export const TOPICS: Topic[] = [
           <ul>
             <li><strong>Verschieben und zoomen</strong> mit den Fingern oder der Maus oder mit den Tasten <Ui>+</Ui> und <Ui>−</Ui>. Die dritte Taste setzt die Ansicht zurück.</li>
             <li><strong>Mein Standort</strong> (die vierte Taste) zoomt dorthin, wo du gerade bist. Beim ersten Mal fragt sisma nach Zugriff auf deinen Standort. Ein Ring um den Punkt markiert deine Position, wenn unter <Ui>Profil</Ui> ein anderer Ort gewählt ist; diese Auswahl bleibt, wie sie ist.</li>
+            <li>Zoomst du auf eine Region, erscheinen <strong>Städtenamen</strong> in deiner Sprache, damit du dich orientieren kannst. Größere Städte zuerst; die Namen verdecken keine Erdbeben und weichen den Namen der Straßenkarten.</li>
             <li>Wenn du weit genug hineinzoomst, werden <strong>Straßenkarten</strong> von OpenStreetMap eingeblendet, sodass du genau siehst, wo ein Ereignis war.</li>
             <li><strong>Tippe auf eine Markierung</strong>, um eine Übersichtskarte zu sehen, dann auf <Ui>Details</Ui> für alles Weitere.</li>
           </ul>

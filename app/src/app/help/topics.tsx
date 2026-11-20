@@ -116,6 +116,7 @@ export const TOPICS: Topic[] = [
           <ul>
             <li><strong>Move and zoom</strong> with your fingers or mouse, or with the <Ui>+</Ui> and <Ui>−</Ui> buttons. The third button resets the view.</li>
             <li><strong>My location</strong> (the fourth button) zooms to where you are now. The first time, sisma asks for access to your location. A ring round the dot marks your position when another place is chosen in <Ui>Me</Ui>; that choice stays as it is.</li>
+            <li>Zoom in to a region and <strong>city names</strong> appear, in your language, to help you get your bearings. Larger cities come first, names keep clear of the earthquakes, and they give way to the street maps’ own names.</li>
             <li>Zoom in far enough and <strong>street maps</strong> from OpenStreetMap fade in, so you can see exactly where an event was.</li>
             <li><strong>Tap a pin</strong> to see a summary card, then <Ui>Details</Ui> for everything about it.</li>
           </ul>

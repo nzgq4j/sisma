@@ -8,3 +8,8 @@ Reduced to a single MultiLineString with coordinates rounded to 0.01°.
 `lakes.json` — lakes from Natural Earth 1:50m (`ne_50m_lakes`, scalerank ≤ 3; public domain,
 https://www.naturalearthdata.com). Reduced to a single MultiPolygon rounded to 0.01° by `scripts/build-lakes.mjs`.
 Seas such as the Caspian, Black and Mediterranean are already water in the world-atlas country shapes.
+
+`cities.json` — city names for the zoomed-in map from Natural Earth 1:10m populated places
+(`ne_10m_populated_places`; public domain, https://www.naturalearthdata.com): position (0.01°), Natural Earth's
+MIN_ZOOM, population and the name in the app's 10 languages, for places Natural Earth labels before web zoom 7.
+Built by `scripts/build-cities.mjs`.
