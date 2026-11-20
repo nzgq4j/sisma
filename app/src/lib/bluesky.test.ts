@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, CARD_WAIT_MS, cardWait, draftPost, draftTsunamiPost, eventUrl, tsunamiCandidates, tsunamiKey, TSUNAMI_POST_MAX_AGE_MS, type PostRow } from './bluesky';
+import { fitPlace, alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, CARD_WAIT_MS, cardWait, draftPost, draftTsunamiPost, eventUrl, tsunamiCandidates, tsunamiKey, TSUNAMI_POST_MAX_AGE_MS, type PostRow } from './bluesky';
 import type { Incident } from './tsunami/alerts';
 import type { Quake } from './quakes/types';
 
@@ -117,15 +117,34 @@ describe('tsunami reports', () => {
   it('writes the post with the earthquake, or from the message alone', () => {
     const d = draftTsunamiPost(inc(), q());
     expect(d.text.split('\n').slice(0, 4)).toEqual(['Tsunami warning · PTWC. Follow local authorities.', 'M6.4 earthquake · Japan', '6 Nov, 03:01 UTC',
-      'Official message: https://www.tsunami.gov/events/PHEB/2026/11/06/1/WEPA40.txt']);
+      'Official message: tsunami.gov']);
     expect(d.text).toContain(`Map and details: ${eventUrl(q())}`);
     expect(d.text).toMatch(/\n#tsunami #earthquake #Japan\nNot an official warning service$/);
-    expect(d.facets.map(f => slice(d.text, f))).toEqual(['https://www.tsunami.gov/events/PHEB/2026/11/06/1/WEPA40.txt', eventUrl(q()), '#tsunami', '#earthquake', '#Japan']);
+    expect(d.facets.map(f => slice(d.text, f))).toEqual(['tsunami.gov', eventUrl(q()), '#tsunami', '#earthquake', '#Japan']);
+    expect(d.facets[0].features[0]).toEqual({ $type: 'app.bsky.richtext.facet#link', uri: 'https://www.tsunami.gov/events/PHEB/2026/11/06/1/WEPA40.txt' });
     expect(d.alt).toContain('reads “Tsunami warning · PTWC”');
     expect(g(d.text)).toBeLessThanOrEqual(BLUESKY_MAX_GRAPHEMES);
     const alone = draftTsunamiPost(inc({ level: 'advisory', status: 'cancelled', mag: null }), null);
     expect(alone.text).toMatch(/^Tsunami advisory · PTWC · Cancelled\nEarthquake · OFF EAST COAST OF HONSHU JAPAN\n/);
     expect(alone.text).not.toContain('Map and details');
     expect(alone.alt).toBe('');
+  });
+});
+
+describe('fitting the place name', () => {
+  it('always ends, even when the post can never fit', () => {
+    const r = fitPlace('United States', () => 'x'.repeat(400));
+    expect(r.place).toBe('United S…');
+    expect(fitPlace('A'.repeat(50), p => p + 'y'.repeat(260)).text.length).toBeLessThanOrEqual(300);
+  });
+
+  it('fits the follow-up for a long NTWC report (the 20 Nov Pinnacles event)', () => {
+    const i: Incident = { incident: 'ntwc:tosga4', level: 'information', center: 'NTWC', status: 'ended', title: 'Tsunami Information', issued: NOW,
+      url: 'https://www.tsunami.gov/events/PAAQ/2026/11/20/tosga4/1/WEPA43/WEPA43.txt', areas: [], origin: NOW, lat: 36.6, lon: -121.2, mag: 4.9,
+      place: '30 miles SE of Monterey, California' };
+    const d = draftTsunamiPost(i, q({ id: 'usgs:nc75468702', region: 'United States', lat: 36.6, lon: -121.2, mag: 5 }));
+    expect(g(d.text)).toBeLessThanOrEqual(BLUESKY_MAX_GRAPHEMES);
+    expect(d.text).toContain('M5.0 earthquake · United States');
+    expect(d.text).toContain('Tsunami information · NTWC · No longer in effect');
   });
 });
