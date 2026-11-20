@@ -50,6 +50,19 @@ export interface PostDraft { text: string; facets: Facet[]; alt: string; url: st
 const time = (ms: number) => new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).format(ms);
 const depth = (km: number) => `${Math.round(km)} km (${Math.round(km / KM_PER_MI)} mi) deep`;
 
+/** Shortens `place` (10 characters at a time, never below 8, then "…") until the post fits; always ends. */
+export function fitPlace(full: string, build: (place: string) => string): { place: string; text: string } {
+  let place = full, text = build(place), n = full.length;
+  while ((graphemes(text) > BLUESKY_MAX_GRAPHEMES || bytes(text) > 3000) && n > 8) {
+    n = Math.max(8, n - 10);
+    place = full.slice(0, n).trimEnd() + '…';
+    text = build(place);
+  }
+  return { place, text };
+}
+/** "tsunami.gov", "jma.go.jp": the site of an official message, as shown in posts. */
+const officialHost = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return 'official site'; } };
+
 /** Text (≤ 300 graphemes), link and hashtag facets, and alt text for one event. English: the account's language. */
 export function draftPost(q: Quake): PostDraft {
   const country = countryName(countryAt(q.lat, q.lon)?.code ?? null);
@@ -73,12 +86,7 @@ export function draftPost(q: Quake): PostDraft {
     return lines.join('\n');
   };
   // Shorten the place name until the post fits (the URL and the rest are fixed).
-  let place = (q.region || q.title || 'Unknown location').trim();
-  let text = build(place);
-  while ((graphemes(text) > BLUESKY_MAX_GRAPHEMES || bytes(text) > 3000) && place.length > 8) {
-    place = place.slice(0, Math.max(8, place.length - 10)).trimEnd() + '…';
-    text = build(place);
-  }
+  const { place, text } = fitPlace((q.region || q.title || 'Unknown location').trim(), build);
   const facets: Facet[] = [];
   const at = (needle: string, from = 0) => {
     const i = text.indexOf(needle, from);
@@ -122,18 +130,18 @@ export function draftTsunamiPost(i: Incident, q: Quake | null): PostDraft {
     `${line}${hazard ? '. Follow local authorities.' : ''}`,
     `${mag != null ? `M${mag.toFixed(1)} earthquake` : 'Earthquake'} · ${place}`,
     `${time(when)} UTC`,
-    `Official message: ${i.url}`,
+    `Official message: ${officialHost(i.url)}`,
     ...(q ? [`Map and details: ${eventUrl(q)}`] : []),
     tags.map(t => `#${t}`).join(' '),
     'Not an official warning service',
   ].join('\n');
-  let place = ((q ? q.region || q.title : i.place) || 'Unknown location').trim();
-  let text = build(place);
-  while ((graphemes(text) > BLUESKY_MAX_GRAPHEMES || bytes(text) > 3000) && place.length > 8) {
-    place = place.slice(0, Math.max(8, place.length - 10)).trimEnd() + '…';
-    text = build(place);
-  }
-  return { text, facets: detectFacets(text), alt: q ? draftPost({ ...q, tsunamiAlert: i }).alt : '', url: i.url, place: `${line} – ${place}` };
+  const { place, text } = fitPlace(((q ? q.region || q.title : i.place) || 'Unknown location').trim(), build);
+  // The official message is shown by its site's name and linked to the full address (it would not fit otherwise).
+  const label = `Official message: ${officialHost(i.url)}`, at = text.indexOf(label) + 'Official message: '.length;
+  const official: Facet = { index: { byteStart: bytes(text.slice(0, at)), byteEnd: bytes(text.slice(0, at)) + bytes(officialHost(i.url)) },
+    features: [{ $type: 'app.bsky.richtext.facet#link', uri: i.url }] };
+  const facets = [...detectFacets(text), official].sort((a, b) => a.index.byteStart - b.index.byteStart);
+  return { text, facets, alt: q ? draftPost({ ...q, tsunamiAlert: i }).alt : '', url: i.url, place: `${line} – ${place}` };
 }
 
 // --- AT Protocol client ---
