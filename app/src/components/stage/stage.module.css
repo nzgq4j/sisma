@@ -66,6 +66,7 @@
 .layerHint { margin: 12px 0 0; font-size: 13px; color: var(--ink2); line-height: 1.4; }
 /* Region view: one legend for all felt layers (totals, intensity scale, a symbol per source like the map's). */
 .feltLegend { display: flex; flex-direction: column; gap: 6px; padding: 0 4px 2px; min-width: 0; }
+.feltLegendCard { padding: 10px 12px; border-radius: 14px; background: var(--surface2); }
 .feltLegendSum { font-size: 13px; font-weight: 800; }
 .feltLegendScale { display: flex; align-items: flex-start; gap: 2px; flex-wrap: wrap; font-size: 10px; font-weight: 700; color: var(--ink2); }
 .mmiStep { flex: 1; min-width: 26px; display: flex; flex-direction: column; gap: 2px; }

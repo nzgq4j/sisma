@@ -1,6 +1,5 @@
 'use client';
-// Official tsunami messages for an earthquake (lib/tsunami/): the banner in the summary card and detail sheet, the card
-// line in the region view, the icon on feed rows and the badge in the map legend. Levels and centres are the warning
+// Official tsunami messages for an earthquake (lib/tsunami/): the banner in the summary card and detail sheet, the icon on feed rows and the badge in the map legend. Levels and centres are the warning
 // centres' own; without an official message, USGS's tsunami flag only asks people to check official information.
 import { useT } from '@/i18n/I18nProvider';
 import type { Quake } from '@/lib/quakes/types';
@@ -18,9 +17,9 @@ export function useLevelName() {
 }
 
 /** Banner for an earthquake with an official message (or USGS's flag). `areas`: how many coasts to list; `full`: the
- *  link to the official message and the relay note too; `compact`: coasts on one line (region view card). A coast's own
- *  level is shown only where it differs from the message's. */
-export function TsunamiBanner({ q, areas = 0, full = false, compact = false }: { q: Q; areas?: number; full?: boolean; compact?: boolean }) {
+ *  link to the official message and the relay note too. A coast's own level is shown only where it differs from the
+ *  message's. */
+export function TsunamiBanner({ q, areas = 0, full = false }: { q: Q; areas?: number; full?: boolean }) {
   const { m, locale, nf } = useT();
   const name = useLevelName();
   const a = q.tsunamiAlert;
@@ -38,10 +37,7 @@ export function TsunamiBanner({ q, areas = 0, full = false, compact = false }: {
       <div className={styles.body}>
         <strong>{name(a)}{a.status !== 'active' && <span className={styles.status}> · {a.status === 'cancelled' ? m.tsu.cancelled : m.tsu.ended}</span>}</strong>
         <span className={styles.meta} title={center}>{m.tsu.issued.replace('{center}', a.center).replace('{time}', when)}</span>
-        {shown.length > 0 && compact && (
-          <span className={styles.meta}>{shown.map(x => x.name).join(', ')}{a.areas.length > shown.length ? ` ${m.tsu.more_areas.replace('{n}', nf.format(a.areas.length - shown.length))}` : ''}</span>
-        )}
-        {shown.length > 0 && !compact && (
+        {shown.length > 0 && (
           <>
             <span className={styles.areasH}>{m.tsu.areas}</span>
             <ul className={styles.areas}>
