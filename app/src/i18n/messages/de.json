@@ -640,7 +640,7 @@
     "not_connected": "Nicht verbunden",
     "not_configured": "Bluesky ist noch nicht verbunden. Melde dich unten an.",
     "auto": "Automatisch posten",
-    "auto_p": "Postet jedes Erdbeben ab der Mindestmagnitude innerhalb von 30 Minuten mit seiner Kartenkarte. Höchstens 2 Posts pro Minute.",
+    "auto_p": "Postet jedes Erdbeben ab der Mindestmagnitude innerhalb von 30 Minuten mit seiner Kartenkarte. Höchstens 2 Posts pro Minute. Erdbeben mit einer offiziellen Tsunami-Meldung werden immer gepostet, und jede neue Tsunami-Stufe oder Aufhebung bekommt einen eigenen Beitrag.",
     "min": "Mindestmagnitude",
     "recent": "Letzte 24 Stunden (M4,5+)",
     "recent_none": "Keine Erdbeben ab M4,5 in den letzten 24 Stunden.",

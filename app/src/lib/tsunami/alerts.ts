@@ -8,7 +8,7 @@ import { levelRank, type TsunamiAlert, type TsunamiMessage } from './types';
 export const MATCH_SECONDS = 120;
 export const MATCH_KM = 300;
 
-export interface Incident extends TsunamiAlert { incident: string; origin: number | null; lat: number | null; lon: number | null; mag: number | null; place: string }
+export interface Incident extends TsunamiAlert { origin: number | null; lat: number | null; lon: number | null; mag: number | null; place: string }
 
 /** The latest message of each incident, with the earthquake details from any of its messages. */
 export function incidents(messages: TsunamiMessage[], now: number): Incident[] {
@@ -40,6 +40,6 @@ export function alertFor(q: QuakeLike, list: Incident[]): TsunamiAlert | undefin
   const mine = list.filter(i => matches(q, i));
   if (!mine.length) return undefined;
   mine.sort((a, b) => Number(b.status === 'active') - Number(a.status === 'active') || levelRank(a.level) - levelRank(b.level) || b.issued - a.issued);
-  const { level, center, status, title, issued, url, areas } = mine[0];
-  return { level, center, status, title, issued, url, areas };
+  const { incident, level, center, status, title, issued, url, areas } = mine[0];
+  return { incident, level, center, status, title, issued, url, areas };
 }

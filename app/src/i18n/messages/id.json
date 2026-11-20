@@ -640,7 +640,7 @@
     "not_connected": "Tidak terhubung",
     "not_configured": "Bluesky belum terhubung. Masuk di bawah.",
     "auto": "Posting otomatis",
-    "auto_p": "Memposting setiap gempa yang mencapai magnitudo minimum dalam 30 menit, beserta kartu petanya. Paling banyak 2 posting per menit.",
+    "auto_p": "Memposting setiap gempa yang mencapai magnitudo minimum dalam 30 menit, beserta kartu petanya. Paling banyak 2 posting per menit. Gempa dengan laporan tsunami resmi selalu diunggah, dan setiap tingkat tsunami baru atau pembatalan mendapat unggahan sendiri.",
     "min": "Magnitudo minimum",
     "recent": "24 jam terakhir (M4,5+)",
     "recent_none": "Tidak ada gempa M4,5 atau lebih dalam 24 jam terakhir.",

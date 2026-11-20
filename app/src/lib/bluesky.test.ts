@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, CARD_WAIT_MS, cardWait, draftPost, eventUrl, type PostRow } from './bluesky';
+import { alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, CARD_WAIT_MS, cardWait, draftPost, draftTsunamiPost, eventUrl, tsunamiCandidates, tsunamiKey, TSUNAMI_POST_MAX_AGE_MS, type PostRow } from './bluesky';
+import type { Incident } from './tsunami/alerts';
 import type { Quake } from './quakes/types';
 
 const NOW = Date.parse('2026-11-06T03:10:00Z');
@@ -36,7 +37,7 @@ describe('draftPost', () => {
     expect(draftPost(q({ region: 'Kermadec Islands region', lat: -30, lon: -178 })).text).toMatch(/\n#earthquake\n/);
   });
   it('names the official tsunami alert, with #tsunami while it is in effect', () => {
-    const alert = { level: 'warning' as const, center: 'PTWC' as const, status: 'active' as const, title: 'Tsunami Warning', issued: 0, url: 'https://www.tsunami.gov/x.txt', areas: [] };
+    const alert = { incident: 'ptwc:1', level: 'warning' as const, center: 'PTWC' as const, status: 'active' as const, title: 'Tsunami Warning', issued: 0, url: 'https://www.tsunami.gov/x.txt', areas: [] };
     const d = draftPost(q({ tsunami: true, tsunamiAlert: alert }));
     expect(d.text).toContain('\nTsunami warning · PTWC. Follow local authorities.\n');
     expect(d.text).toMatch(/#earthquake #tsunami #Japan\n/);
@@ -86,5 +87,45 @@ describe('jwtExpiry', () => {
     const t = `h.${Buffer.from(JSON.stringify({ exp: 1_800_000_000 })).toString('base64url')}.s`;
     expect(jwtExpiry(t)).toBe(1_800_000_000_000);
     expect(jwtExpiry('not-a-jwt')).toBe(0);
+  });
+});
+
+describe('tsunami reports', () => {
+  const inc = (o: Partial<Incident> = {}): Incident => ({ incident: 'ptwc:1', level: 'warning', center: 'PTWC', status: 'active', title: 'Tsunami Warning',
+    issued: NOW - 5 * 60_000, url: 'https://www.tsunami.gov/events/PHEB/2026/11/06/1/WEPA40.txt', areas: [], origin: Date.parse('2026-11-06T03:01:00Z'),
+    lat: 37.5, lon: 141.5, mag: 6.5, place: 'OFF EAST COAST OF HONSHU JAPAN', ...o });
+
+  it('keys one post per event, level and cancellation', () => {
+    expect(tsunamiKey(inc())).toBe('ptwc:1|warning|a');
+    expect(tsunamiKey(inc({ status: 'ended' }))).toBe('ptwc:1|warning|a');
+    expect(tsunamiKey(inc({ status: 'cancelled' }))).toBe('ptwc:1|warning|c');
+  });
+
+  it('posts new reports only, most serious first, at most two a run, never old ones', () => {
+    const list = [inc({ incident: 'a', level: 'information' }), inc({ incident: 'b' }), inc({ incident: 'c', level: 'advisory' }),
+      inc({ incident: 'd', level: 'major_warning', issued: NOW - TSUNAMI_POST_MAX_AGE_MS - 1 })];
+    expect(tsunamiCandidates(list, new Set(), NOW).map(i => i.incident)).toEqual(['b', 'c']);
+    expect(tsunamiCandidates(list, new Set(['b|warning|a', 'c|advisory|a']), NOW).map(i => i.incident)).toEqual(['a']);
+  });
+
+  it('posts earthquakes with a tsunami report whatever their magnitude, first', () => {
+    const alert = { incident: 'ptwc:1', level: 'information' as const, center: 'PTWC' as const, status: 'active' as const, title: '', issued: 0, url: '', areas: [] };
+    const list = [q({ id: 'big', mag: 6.8 }), q({ id: 'small', mag: 4.2, tsunamiAlert: alert, lat: 10, lon: 10 })];
+    expect(autoCandidates(list, 6, [], NOW).map(x => x.id)).toEqual(['small', 'big']);
+  });
+
+  it('writes the post with the earthquake, or from the message alone', () => {
+    const d = draftTsunamiPost(inc(), q());
+    expect(d.text.split('\n').slice(0, 4)).toEqual(['Tsunami warning · PTWC. Follow local authorities.', 'M6.4 earthquake · Japan', '6 Nov, 03:01 UTC',
+      'Official message: https://www.tsunami.gov/events/PHEB/2026/11/06/1/WEPA40.txt']);
+    expect(d.text).toContain(`Map and details: ${eventUrl(q())}`);
+    expect(d.text).toMatch(/\n#tsunami #earthquake #Japan\nNot an official warning service$/);
+    expect(d.facets.map(f => slice(d.text, f))).toEqual(['https://www.tsunami.gov/events/PHEB/2026/11/06/1/WEPA40.txt', eventUrl(q()), '#tsunami', '#earthquake', '#Japan']);
+    expect(d.alt).toContain('reads “Tsunami warning · PTWC”');
+    expect(g(d.text)).toBeLessThanOrEqual(BLUESKY_MAX_GRAPHEMES);
+    const alone = draftTsunamiPost(inc({ level: 'advisory', status: 'cancelled', mag: null }), null);
+    expect(alone.text).toMatch(/^Tsunami advisory · PTWC · Cancelled\nEarthquake · OFF EAST COAST OF HONSHU JAPAN\n/);
+    expect(alone.text).not.toContain('Map and details');
+    expect(alone.alt).toBe('');
   });
 });

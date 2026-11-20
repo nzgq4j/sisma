@@ -38,6 +38,7 @@ export interface TsunamiMessage {
 
 /** What the app shows for an earthquake: the latest message of its incident, per centre, the most serious first. */
 export interface TsunamiAlert {
+  incident: string;        // the incident it belongs to (TsunamiMessage.incident)
   level: TsunamiLevel;
   center: TsunamiCenter;
   status: 'active' | 'cancelled' | 'ended';
