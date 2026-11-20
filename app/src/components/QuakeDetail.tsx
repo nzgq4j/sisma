@@ -70,7 +70,7 @@ export function QuakeSummary({ q, onClose, onDetails }: { q: Row; onClose?: () =
 }
 
 /** Detailed view of an event (opened from Details, and from Feed rows): every data point, Share and Show region. */
-export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: () => void; onShowRegion?: () => void }) {
+export function QuakeDetail({ q, onClose, onShowRegion, extra }: { q: Row; onClose?: () => void; onShowRegion?: () => void; extra?: React.ReactNode }) {
   const { t, m, nf } = useT();
   const u = useDistance();
   const router = useRouter();
@@ -100,6 +100,7 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
         {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
       </div>
       <TsunamiBanner q={q} areas={12} full />
+      {extra}
       <dl className={styles.stats}>
         <div><dt>{t('magnitude')}</dt><FitLine as="dd">{q.mag.toFixed(1)}{q.magType ? ` ${q.magType}` : ''}</FitLine></div>
         <div><dt>{t('depth')}</dt><FitLine as="dd">{u.depth(q.depthKm)}</FitLine></div>

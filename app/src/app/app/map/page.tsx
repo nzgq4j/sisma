@@ -36,7 +36,6 @@ import { feltGrid } from '@/lib/felt-grid';
 import { readFeltOn, writeFeltOn } from '@/lib/felt-pref';
 import styles from '@/components/stage/stage.module.css';
 import dash from '@/components/dash/dash.module.css';
-import { TsunamiBanner } from '@/components/Tsunami';
 
 /** The legend's intensity steps: one per distinct cell colour (MMI_COLORS), labelled with the first MMI it covers. */
 const MMI_STEPS = [{ i: 0, label: 'I' }, { i: 2, label: 'III' }, { i: 4, label: 'V' }, { i: 5, label: 'VI' }, { i: 6, label: 'VII' }, { i: 8, label: 'IX' }];
@@ -159,6 +158,20 @@ function MapView() {
     return { show: grid.length > 0, summary, intensity: total > 0, unknown };
   })();
 
+  // The felt legend: totals and the intensity scale (all sources share one cell style), shown on the event's full card
+  // (Details); dimmed when felt maps are off.
+  const feltLegend = focusQuake && legend.show ? (
+    <div className={`${styles.feltLegend} ${styles.feltLegendCard}${feltOn ? '' : ` ${styles.lineOff}`}`}>
+      <FitLine min={9} className={styles.feltLegendSum}>{legend.summary}</FitLine>
+      <span className={styles.feltLegendScale} aria-label={t('legend_scale')}>
+        {legend.intensity && MMI_STEPS.map(st => (
+          <span key={st.label} className={styles.mmiStep}><i style={{ background: MMI_COLORS[st.i] }} />{st.label}</span>
+        ))}
+        {legend.unknown && <span className={styles.mmiUnknown}><i style={{ background: FELT_NEUTRAL }} />{t('legend_unknown')}</span>}
+      </span>
+    </div>
+  ) : null;
+
   return (
     <div className={styles.stage} ref={stageRef}>
       <WorldMap quakes={list.some(q => q.id === focusQuake?.id) || !focusQuake ? list : [...list, focusQuake]}
@@ -181,19 +194,6 @@ function MapView() {
               <span className="ms" aria-hidden="true">layers</span>
             </button>
           </div>
-          {focusQuake && (focusQuake.tsunamiAlert || focusQuake.tsunami) && <TsunamiBanner q={focusQuake} areas={3} compact />}
-          {/* The felt legend: totals and the intensity scale (all sources share one cell style); dimmed when felt maps are off. */}
-          {focusQuake && legend.show && (
-            <div className={`${styles.feltLegend}${feltOn ? '' : ` ${styles.lineOff}`}`}>
-              <FitLine min={9} className={styles.feltLegendSum}>{legend.summary}</FitLine>
-              <span className={styles.feltLegendScale} aria-label={t('legend_scale')}>
-                {legend.intensity && MMI_STEPS.map(st => (
-                  <span key={st.label} className={styles.mmiStep}><i style={{ background: MMI_COLORS[st.i] }} />{st.label}</span>
-                ))}
-                {legend.unknown && <span className={styles.mmiUnknown}><i style={{ background: FELT_NEUTRAL }} />{t('legend_unknown')}</span>}
-              </span>
-            </div>
-          )}
         </div>
       )}
       <FeltMapInfoSheet open={howOpen} onClose={() => setHowOpen(false)} />
@@ -207,7 +207,8 @@ function MapView() {
         <p className={styles.layerHint}>{t('layers_hint')}</p>
       </Sheet>
       {!loaded && <div className={styles.loading}>{m.dash.loading}</div>}
-      {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={clear} onShowRegion={() => showRegion(sel.id)} /> : (
+      {sel ? <Selection q={sel} open={sheet} setOpen={setSheet} onClear={clear} onShowRegion={() => showRegion(sel.id)}
+        extra={focusQuake && sel.id === focusQuake.id ? feltLegend : null} /> : (
         <FilterPanel legend={<Legend plain />}
           layers={<LayerToggle on={plates} onChange={setPlates} icon="texture" label={t('plates')} />}
           hint={<>{t('map_hint')}{plates && <><br />Plates: PB2002, Bird (2003)</>}</>} />

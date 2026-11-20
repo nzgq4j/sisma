@@ -50,7 +50,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    (bosai/tsunami list + detail, lib/tsunami/jma.ts), stored in tsunami_messages by the per-minute job (lib/tsunami/poll.ts;
    the feeds only carry the latest bulletin); the latest message per incident is matched to its quake (JMA by event id,
    NOAA within 120 s and 300 km, lib/tsunami/alerts.ts) and served as Quake.tsunamiAlert by GET /api/quakes. Shown in the
-   detail / summary banner and region view card (components/Tsunami.tsx), row icon and a wave badge on map and globe pins
+   detail / summary banner (components/Tsunami.tsx; not in the region view's top card), row icon and a wave badge on map and globe pins
    (--tsu-warning / threat / watch; information statements and forecasts stay neutral). Push (lib/tsunami/push.ts): warnings,
    threats, watches and advisories to everyone signed in, free or sisma+, with notifications on, the Tsunami alerts switch
    in Me (profiles.tsunami_push) and a saved place within 1,000 km (public.tsunami_recipients); once per incident and level
@@ -68,6 +68,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Filters + layers + legend in a pull-up panel (components/stage/FilterPanel.tsx, peek / half / full like polar lights);
    choosing a world region zooms the map (lib/world-regions.ts REGION_VIEW) and turns the Globe to face it
    Region view (/app/map?focus=<id>): ~7.5° across the shorter side, pulsing focus marker, callouts for nearby events,
+   top card = Back to world map + Layers only; the felt legend (totals + intensity scale) is on the event's full card (Details),
    1:50m coastlines when zoomed in. Share = portrait PNG card from GET /api/share-card (lib/share-map.ts, components/ShareCard.tsx) with editable post
    text + alt text (lib/share-text.ts: post built from fragments, empty ones dropped, link last; card headline shrinks to one
    line); Share link fallback where files can't be shared; Android app shares through the system sheet (@capacitor/share +

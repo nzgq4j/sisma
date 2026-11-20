@@ -152,7 +152,8 @@ export function Legend({ depth = false, plain = false }: { depth?: boolean; plai
 }
 
 /** The selected quake: bottom card + detail sheet on phones, floating detail panel on desktop. */
-export function Selection({ q, open, setOpen, onClear, onShowRegion }: { q: Row; open: boolean; setOpen: (v: boolean) => void; onClear: () => void; onShowRegion?: () => void }) {
+/** `extra`: shown on the full card (Details) only, e.g. the region view's felt legend. */
+export function Selection({ q, open, setOpen, onClear, onShowRegion, extra }: { q: Row; open: boolean; setOpen: (v: boolean) => void; onClear: () => void; onShowRegion?: () => void; extra?: React.ReactNode }) {
   const desktop = useDesktop();
   // Swipe up opens Details; swipe down or double tap (away from buttons) closes the card.
   const g = useCardGestures({ onUp: () => setOpen(true), onDown: onClear });
@@ -163,7 +164,7 @@ export function Selection({ q, open, setOpen, onClear, onShowRegion }: { q: Row;
         <QuakeSummary q={q} onClose={desktop ? onClear : undefined} onDetails={() => setOpen(true)} />
       </aside>
       <Sheet open={open} onClose={() => setOpen(false)} label={q.region}>
-        <QuakeDetail q={q} onClose={() => setOpen(false)} onShowRegion={onShowRegion && (() => { setOpen(false); onShowRegion(); })} />
+        <QuakeDetail q={q} extra={extra} onClose={() => setOpen(false)} onShowRegion={onShowRegion && (() => { setOpen(false); onShowRegion(); })} />
       </Sheet>
     </>
   );
