@@ -6,12 +6,13 @@ import { hasId, recentQuakes } from '@/lib/quakes/find';
 import { shareCardResponse, validTz } from '@/lib/share-card';
 import { NO_FELT } from '@/lib/share-felt';
 import { asLocale } from '@/i18n/server';
+import { withTsunami } from '@/lib/tsunami/attach';
 
 export async function GET(req: NextRequest) {
   const sp = req.nextUrl.searchParams;
   const id = sp.get('id');
   if (!id) return Response.json({ error: 'missing_id' }, { status: 400 });
-  const all = await recentQuakes(30);
+  const all = await withTsunami(await recentQuakes(30));
   const q = all.find(x => hasId(x, id));
   if (!q) return Response.json({ error: 'not_found' }, { status: 404 });
   return shareCardResponse({

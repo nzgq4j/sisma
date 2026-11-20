@@ -30,10 +30,21 @@ describe('draftPost', () => {
   });
   it('mentions tsunami information and uses multi-word country tags', () => {
     const d = draftPost(q({ tsunami: true, region: 'Wellington, New Zealand', lat: -41.3, lon: 174.8 }));
-    expect(d.text).toContain('Tsunami information issued: follow official warnings.');
+    expect(d.text).toContain('Large earthquake under the sea: check official tsunami information.');
     expect(d.text).toMatch(/#earthquake #NewZealand\n/);
     // Far from any coast there is no country: only #earthquake.
     expect(draftPost(q({ region: 'Kermadec Islands region', lat: -30, lon: -178 })).text).toMatch(/\n#earthquake\n/);
+  });
+  it('names the official tsunami alert, with #tsunami while it is in effect', () => {
+    const alert = { level: 'warning' as const, center: 'PTWC' as const, status: 'active' as const, title: 'Tsunami Warning', issued: 0, url: 'https://www.tsunami.gov/x.txt', areas: [] };
+    const d = draftPost(q({ tsunami: true, tsunamiAlert: alert }));
+    expect(d.text).toContain('\nTsunami warning · PTWC. Follow local authorities.\n');
+    expect(d.text).toMatch(/#earthquake #tsunami #Japan\n/);
+    expect(slice(d.text, d.facets[2])).toBe('#tsunami');
+    expect(d.alt).toContain('A label at the top left of the map reads “Tsunami warning · PTWC”. Not an official warning service.');
+    const ended = draftPost(q({ tsunamiAlert: { ...alert, level: 'information', status: 'ended' } }));
+    expect(ended.text).toContain('\nTsunami information · PTWC · No longer in effect\n');
+    expect(ended.text).not.toContain('#tsunami');
   });
   it('shortens a very long place to fit 300 graphemes and keeps the link intact', () => {
     const d = draftPost(q({ region: 'Ü'.repeat(400) }));

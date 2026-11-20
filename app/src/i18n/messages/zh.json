@@ -451,7 +451,8 @@
     "alt_felt": "有感地点以烈度（MMI）颜色的小方块显示。",
     "alt_unknown": "灰色方块：有感，烈度未知。",
     "alt_unknown_only": "有感地点以灰色方块显示（烈度未知）。",
-    "felt_unknown": "烈度未知"
+    "felt_unknown": "烈度未知",
+    "alt_tsunami": "地图左上角的标签写着“{text}”。"
   },
   "felt_by_1": "1 人报告有震感",
   "notif": {

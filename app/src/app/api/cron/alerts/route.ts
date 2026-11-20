@@ -9,6 +9,7 @@ import { recentQuakes } from '@/lib/quakes/find';
 import { autoPost } from '@/lib/bluesky';
 import { autoPromo } from '@/lib/promo';
 import { runTsunami } from '@/lib/tsunami/push';
+import { withTsunami } from '@/lib/tsunami/attach';
 import { matchRules, type AlertRecipient, type AlertRule, type Delivered, type RuleRecipient } from '@/lib/alerts/match';
 import { alertMessage } from '@/lib/alerts/message';
 import { sendPush } from '@/lib/alerts/send';
@@ -33,7 +34,8 @@ export async function POST(req: NextRequest) {
   if (ok !== true) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
 
   const now = Date.now();
-  const quakes = await recentQuakes(1);
+  // With their official tsunami alerts, for the Bluesky posts (stored by earlier runs of this job).
+  const quakes = await withTsunami(await recentQuakes(1), 2);
   // Automatic Bluesky posts (Me → Admin: earthquakes, then the daily Play Store post): run alongside the alerts below so they never delay or stop them.
   const blueskyRun = autoPost(db, quakes, now).then(async posts => ({ quakes: posts, promo: await autoPromo(db, now) }));
   // Official tsunami messages (PTWC, NTWC, JMA): stored, and pushed to people near the earthquake (lib/tsunami/push.ts).

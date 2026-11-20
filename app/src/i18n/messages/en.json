@@ -451,7 +451,8 @@
     "alt_felt": "Where people felt it is shown as small squares in intensity colours (MMI).",
     "alt_unknown": "Grey squares: felt, intensity unknown.",
     "alt_unknown_only": "Where people felt it is shown as grey squares (intensity unknown).",
-    "felt_unknown": "intensity unknown"
+    "felt_unknown": "intensity unknown",
+    "alt_tsunami": "A label at the top left of the map reads “{text}”."
   },
   "felt_by_1": "1 person reported feeling this",
   "notif": {

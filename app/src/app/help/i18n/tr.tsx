@@ -189,6 +189,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Paylaşım kartı oluşturmak için bir depremde <Ui>Paylaş</Ui> düğmesine dokun: harita ve temel ayrıntıları içeren bir görsel.</p>
           <p>İnsanların depremi hissettiğini bildirdiği yerler, bölge görünümünde olduğu gibi kartın haritasında da gösterilir: şiddet renklerinde küçük kareler (şiddet bilinmiyorsa gri), sağ altta şiddet ölçeğiyle. Önerilen görsel açıklaması da bundan bahseder. Bölge görünümünde <Ui>Katmanlar</Ui> altında <Ui>Sarsıntı haritaları</Ui> kapalıysa kart da bunları göstermez.</p>
+          <p>Bir tsunami uyarı merkezi deprem için resmî mesaj yayımladıysa kart, seviyesini ve merkezi haritanın sol üstünde gösterir; örneğin <strong>Tsunami uyarısı · PTWC</strong>. Bir uyarı, tehdit, izleme veya bildirim geçerli olduğu sürece renklidir. Gönderi metni ve görsel açıklaması da bunu içerir.</p>
           <ul>
             <li><strong>Gönderi metni</strong> senin için doldurulur (büyüklük, yer, zaman, derinlik ve bir hashtag; bağlantı en sonda) ve düzenleyebilirsin.</li>
             <li><strong>Görsel açıklaması (alternatif metin)</strong>, ekran okuyucu kullananlar için görseli tarif eder. Senin için doldurulur ve düzenleyebilirsin.</li>

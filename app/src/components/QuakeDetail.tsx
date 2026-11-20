@@ -15,6 +15,7 @@ import { useDistance } from './Units';
 import { ShareCardSheet } from './ShareCard';
 import styles from './dash/dash.module.css';
 import { TsunamiBanner } from './Tsunami';
+import { tsunamiLine } from '@/lib/tsunami/text';
 import { fillPost } from '@/lib/share-text';
 
 /** Map URL that zooms to a quake and shows its felt reports. */
@@ -82,7 +83,11 @@ export function QuakeDetail({ q, onClose, onShowRegion }: { q: Row; onClose?: ()
   // Share defaults (editable in the share sheet): a short description and the image description.
   // Empty values drop their fragment from the post (lib/share-text.ts fillPost).
   const vals = { mag: q.mag.toFixed(1), place: q.region, when: `${date} ${time}`.trim(), depth: u.depth(q.depthKm) };
-  const shareText = fillPost(m.sharecard.post, vals), shareAlt = m.sharecard.alt_text.replace(/\{(\w+)\}/g, (_, k: string) => vals[k as keyof typeof vals] ?? '');
+  // An official tsunami alert adds its line to the post and describes the card's pill (lib/share-card.tsx) in the alt text.
+  const tsu = q.tsunamiAlert ? tsunamiLine(q.tsunamiAlert, m.tsu) : null;
+  const shareText = fillPost(m.sharecard.post, vals) + (tsu ? `\n${tsu}` : '');
+  const shareAlt = m.sharecard.alt_text.replace(/\{(\w+)\}/g, (_, k: string) => vals[k as keyof typeof vals] ?? '')
+    + (tsu ? ' ' + m.sharecard.alt_tsunami.replace('{text}', tsu) : '');
 
   return (
     <>

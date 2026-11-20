@@ -451,7 +451,8 @@
     "alt_felt": "Onde foi sentido aparece como pequenos quadrados nas cores de intensidade (MMI).",
     "alt_unknown": "Quadrados cinza: sentido, intensidade desconhecida.",
     "alt_unknown_only": "Onde foi sentido aparece como quadrados cinza (intensidade desconhecida).",
-    "felt_unknown": "intensidade desconhecida"
+    "felt_unknown": "intensidade desconhecida",
+    "alt_tsunami": "Uma etiqueta no canto superior esquerdo do mapa diz “{text}”."
   },
   "felt_by_1": "1 pessoa relatou ter sentido",
   "notif": {

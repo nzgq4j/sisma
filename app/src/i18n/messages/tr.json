@@ -451,7 +451,8 @@
     "alt_felt": "Depremin hissedildiği yerler, şiddet renklerinde (MMI) küçük karelerle gösterilir.",
     "alt_unknown": "Gri kareler: hissedildi, şiddet bilinmiyor.",
     "alt_unknown_only": "Depremin hissedildiği yerler gri karelerle gösterilir (şiddet bilinmiyor).",
-    "felt_unknown": "şiddet bilinmiyor"
+    "felt_unknown": "şiddet bilinmiyor",
+    "alt_tsunami": "Haritanın sol üstündeki etikette “{text}” yazıyor."
   },
   "felt_by_1": "1 kişi hissettiğini bildirdi",
   "notif": {

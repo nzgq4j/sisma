@@ -4,6 +4,7 @@ import { NextResponse, type NextRequest } from 'next/server';
 import { requireAdmin } from '@/lib/admin';
 import { findQuake } from '@/lib/quakes/find';
 import { draftPost } from '@/lib/bluesky';
+import { withTsunami } from '@/lib/tsunami/attach';
 import { loadShareFelt, shareGrid } from '@/lib/share-felt';
 import { feltAltEn, feltMarks } from '@/lib/felt-layers';
 
@@ -12,7 +13,8 @@ export const dynamic = 'force-dynamic';
 export async function GET(req: NextRequest) {
   if (!(await requireAdmin(req))) return NextResponse.json({ error: 'forbidden' }, { status: 403 });
   const id = req.nextUrl.searchParams.get('id');
-  const q = id ? await findQuake(id, 7) : null;
+  const found = id ? await findQuake(id, 7) : null;
+  const q = found ? (await withTsunami([found]))[0] : null;
   if (!q) return NextResponse.json({ error: 'not_found' }, { status: 404 });
   const d = draftPost(q);
   // The felt layers the card will draw, so the alt text matches the published one (lib/bluesky.ts cardAlt).

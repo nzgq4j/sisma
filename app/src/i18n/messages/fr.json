@@ -451,7 +451,8 @@
     "alt_felt": "Les lieux où il a été ressenti apparaissent sous forme de petits carrés aux couleurs d’intensité (MMI).",
     "alt_unknown": "Carrés gris : ressenti, intensité inconnue.",
     "alt_unknown_only": "Les lieux où il a été ressenti apparaissent sous forme de carrés gris (intensité inconnue).",
-    "felt_unknown": "intensité inconnue"
+    "felt_unknown": "intensité inconnue",
+    "alt_tsunami": "Une étiquette en haut à gauche de la carte indique « {text} »."
   },
   "felt_by_1": "1 personne l’a ressenti",
   "notif": {

@@ -14,7 +14,10 @@ import { formatDms } from '@/lib/geo';
 import { convertKmInText, KM_PER_MI, type Units } from '@/lib/units';
 import { EARTHQUAKE_PATH } from '@/components/logo-path';
 import { asLocale, serverMessages as messages } from '@/i18n/server';
-import { fitLine } from './share-text';
+import { emWidth, fitLine } from './share-text';
+import { tsunamiTone } from '@/lib/tsunami/view';
+import { tsunamiLine } from '@/lib/tsunami/text';
+import { WAVE_PATH } from '@/lib/pin';
 const W = 1080, H = 1350, PAD = 56, MAP_W = W - PAD * 2, MAP_H = 600;
 const SPAN = 7.5;
 const C = THEME.light;
@@ -104,9 +107,18 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
   // Badge in the light pin colours, like the card's map and the app's light mode.
   const mc = { fill: MAG_MARKER_LIGHT[magIndex(q.mag)], text: MAG_INK_LIGHT[magIndex(q.mag)] };
   const stats: [string, string][] = [[m.depth, depth], [m.coords, formatDms(q.lat, q.lon)], [m.review_status, status], [m.source, source]];
+  // Official tsunami alert (lib/tsunami/): a pill at the top left of the map, in the app's level colours (light theme);
+  // neutral for information statements, forecasts and alerts that are cancelled or no longer in effect.
+  const tsu = q.tsunamiAlert ? { text: tsunamiLine(q.tsunamiAlert, m.tsu), tone: tsunamiTone(q.tsunamiAlert) } : null;
+  const tsuFill = tsu?.tone === 'warning' ? C.tsuWarning : tsu?.tone === 'threat' ? C.tsuThreat : tsu?.tone === 'watch' ? C.tsuWatch : null;
+  // Beside the "other events" label when it fits at 20 px or more, otherwise on a row of its own below it.
+  const pillRoom = MAP_W - 44 - 66, besideRoom = pillRoom - (nearby.length > 1 ? emWidth(m.sharecard.nearby) * 22 + 40 + 16 : 0);
+  const tsuBeside = !!tsu && emWidth(tsu.text) * 20 <= besideRoom;
+  const tsuPill = tsu ? fitLine(tsu.text, { maxWidth: tsuBeside ? besideRoom : pillRoom, size: 26, min: 20 }) : null;
+  const wave = (color: string) => `data:image/svg+xml;base64,${Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 10 10"><path d="${WAVE_PATH}" fill="none" stroke="${color}" stroke-width="1.3" stroke-linecap="round"/></svg>`).toString('base64')}`;
 
   // Every string on the card, so CJK fonts can be fetched as a small subset.
-  const text = [m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_unknown, 'IVX', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
+  const text = [tsu?.text ?? '', m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_unknown, 'IVX', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
   const cjk = locale === 'ja' ? 'Noto Sans JP' : locale === 'zh' ? 'Noto Sans SC' : null;
   const [f500, f700, f800, c500, c700] = await Promise.all([
     googleFont('Figtree', 500), googleFont('Figtree', 700), googleFont('Figtree', 800),
@@ -156,6 +168,13 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
                   </div>
                 )}
               </div>
+            </div>
+          )}
+          {tsu && tsuPill && (
+            <div style={{ position: 'absolute', top: tsuBeside ? 22 : 80, left: 22, display: 'flex', alignItems: 'center', gap: 10, padding: '10px 20px 10px 14px', borderRadius: 18,
+              background: tsuFill ?? 'rgba(255,255,255,.92)', color: tsuFill ? C.tsuInk : C.ink, fontSize: tsuPill.size, fontWeight: 800 }}>
+              <img src={wave(tsuFill ? C.tsuInk : C.ink2)} width={36} height={36} alt="" />
+              <div style={{ display: 'flex', whiteSpace: 'nowrap' }}>{tsuPill.text}</div>
             </div>
           )}
           {nearby.length > 1 && (
