@@ -63,6 +63,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Tsunami reports always get a Bluesky post (lib/bluesky.ts): quakes with an alert bypass the minimum magnitude and go first;
    each new report per event (tsunamiKey: incident | level | cancelled) not yet carried by a post gets its own post
    (draftTsunamiPost, row "tsunami:<key>" in bluesky_posts, tsunami_key column); none older than 3 h when first seen
+   A report whose earthquake isn't in the feeds yet waits up to CARD_WAIT_MS from the message; then the card is drawn from
+   the message (incidentQuake: no depth, source = centre via shareCardResponse sourceLabel, alt incidentAlt)
    Automatic felt map (done): anonymous blurred app-activity pings (components/FeltMap.tsx → POST /api/presence) →
    GET /api/felt-map heatmap in Show region (lib/feltmap.ts; 180 s window, ≥ 3 people per ~10 km cell; Me toggle)
 4. Map tab (done): d3-geo Mercator rotated to the user's longitude, d3-zoom, plate boundaries toggle — components/dash/WorldMap.tsx

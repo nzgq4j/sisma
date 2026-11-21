@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { fitPlace, alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, CARD_WAIT_MS, cardWait, draftPost, draftTsunamiPost, eventUrl, tsunamiCandidates, tsunamiKey, TSUNAMI_POST_MAX_AGE_MS, type PostRow } from './bluesky';
+import { fitPlace, alreadyPosted, autoCandidates, BLUESKY_MAX_GRAPHEMES, CARD_WAIT_MS, cardWait, draftPost, draftTsunamiPost, eventUrl, incidentAlt, incidentQuake, tsunamiCandidates, tsunamiKey, TSUNAMI_POST_MAX_AGE_MS, type PostRow } from './bluesky';
 import type { Incident } from './tsunami/alerts';
 import type { Quake } from './quakes/types';
 
@@ -128,6 +128,25 @@ describe('tsunami reports', () => {
     expect(alone.text).toMatch(/^Tsunami advisory · PTWC · Cancelled\nEarthquake · OFF EAST COAST OF HONSHU JAPAN\n/);
     expect(alone.text).not.toContain('Map and details');
     expect(alone.alt).toBe('');
+  });
+});
+
+describe('tsunami card without the earthquake in the feeds', () => {
+  const base = { incident: 'ptwc:26325053', level: 'information' as const, center: 'PTWC' as const, status: 'active' as const, title: 'Tsunami Information Statement',
+    issued: Date.UTC(2026, 10, 21, 15, 4, 37), url: 'https://www.tsunami.gov/events/PHEB/2026/11/21/26325053/1/WEPA40/WEPA40.txt', areas: [],
+    origin: Date.UTC(2026, 10, 21, 15, 0, 12), lat: 18.608, lon: -68.78, mag: 4.8, place: 'ABOUT 65 MILES NORTHWEST OF ISLA MONA' };
+  it('builds the earthquake from the message, without a depth', () => {
+    const q = incidentQuake(base)!;
+    expect(q).toMatchObject({ id: 'tsunami:ptwc:26325053', mag: 4.8, lat: 18.608, lon: -68.78, time: base.origin, region: base.place });
+    expect(Number.isFinite(q.depthKm)).toBe(false);
+    expect(incidentQuake({ ...base, lat: null })).toBeNull();
+  });
+  it('describes the card, naming the centre as the source', () => {
+    const alt = incidentAlt(base);
+    expect(alt).toContain('magnitude 4.8 earthquake, ABOUT 65 MILES NORTHWEST OF ISLA MONA');
+    expect(alt).toContain('source PTWC');
+    expect(alt).toContain('Tsunami information · PTWC');
+    expect(alt).not.toContain('depth');
   });
 });
 

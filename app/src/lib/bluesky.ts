@@ -253,13 +253,13 @@ export async function checkConnection(db: SupabaseClient): Promise<{ handle: str
  * there yet under the same id (feeds disagree for the first minutes), which left the first automatic posts without a card.
  * `known`: events already loaded (the job's last day), added to the week's events for the dots around it.
  */
-export async function card(q: Quake, known: Quake[] = []): Promise<CardImage | null> {
+export async function card(q: Quake, known: Quake[] = [], sourceLabel?: string): Promise<CardImage | null> {
   try {
     const [{ shareCardResponse, FELT_HEADER }, { recentQuakes }] = await Promise.all([import('./share-card'), import('./quakes/find')]);
     const week = await recentQuakes(7).catch(() => [] as Quake[]);
     const seen = new Set<string>([q.id]);
     const all = [q, ...[...known, ...week].filter(x => !seen.has(x.id) && (seen.add(x.id), true))];
-    const r = await shareCardResponse({ q, all, locale: 'en', units: 'km', tz: 'UTC', origin: SITE.url });
+    const r = await shareCardResponse({ q, all, locale: 'en', units: 'km', tz: 'UTC', origin: SITE.url, sourceLabel });
     if (!r.ok || !r.headers.get('content-type')?.startsWith('image/png')) return null;
     const buf = new Uint8Array(await r.arrayBuffer());
     const layers = (r.headers.get(FELT_HEADER) ?? '').split(',').filter(isFeltMark);
@@ -485,13 +485,36 @@ async function autoTsunami(db: SupabaseClient, quakes: Quake[], now: number, wai
   for (const i of tsunamiCandidates(list, covered, now)) {
     const found = quakes.find(q => matches(q, i)) ?? null;
     if (found && waitingIds.has(found.id)) continue;
-    const q = found ? { ...found, tsunamiAlert: { incident: i.incident, level: i.level, center: i.center, status: i.status, title: i.title, issued: i.issued, url: i.url, areas: i.areas } } : null;
-    const img = q ? await card(q, quakes) : null;
+    // A centre often issues its message before the earthquake reaches the feeds: wait for it (up to CARD_WAIT_MS from
+    // the message), so the post carries its card and link like an earthquake post.
+    if (!found && now - i.issued < CARD_WAIT_MS) continue;
+    const alert = { incident: i.incident, level: i.level, center: i.center, status: i.status, title: i.title, issued: i.issued, url: i.url, areas: i.areas };
+    const q = found ? { ...found, tsunamiAlert: alert } : null;
+    // Still not in the feeds: the card is drawn from the message's own earthquake (position, magnitude, time).
+    const own = q ? null : incidentQuake(i);
+    const img = q ? await card(q, quakes) : own ? await card({ ...own, tsunamiAlert: alert }, quakes, i.center) : null;
     if (q && !img && cardWait(q, now)) continue;
     const r = await postTsunami(db, i, q, img);
     if (r.ok) posted++; else if (r.error !== 'already_posted') failed++;
   }
   return { posted, failed };
+}
+
+/** The earthquake as a tsunami centre's message gives it (no depth), for a card when the feeds don't have it. */
+export function incidentQuake(i: Incident): Quake | null {
+  if (i.lat == null || i.lon == null || i.mag == null || i.origin == null) return null;
+  // `source` is a placeholder: the card names the centre instead (card(…, sourceLabel)).
+  return { id: `tsunami:${i.incident}`, source: 'usgs', mag: i.mag, title: i.place, region: i.place, time: i.origin, lat: i.lat, lon: i.lon, depthKm: NaN, tsunami: false };
+}
+
+/** Alt text for a card drawn from a tsunami centre's message (incidentQuake). */
+export function incidentAlt(i: Incident): string {
+  const q = incidentQuake(i);
+  if (!q) return '';
+  return `sisma.io earthquake card. Map of the area around a magnitude ${q.mag.toFixed(1)} earthquake, ${i.place}: `
+    + `the epicentre is a ringed dot in the magnitude colour, other earthquakes from the last 7 days are coloured dots, and dashed lines, where present, `
+    + `mark tectonic plate boundaries. ${time(q.time)} UTC, coordinates ${formatDms(q.lat, q.lon)}, source ${i.center}. `
+    + `${en.sharecard.alt_tsunami.replace('{text}', tsunamiLine(i, en.tsu))} Not an official warning service.`;
 }
 
 /** Claims and publishes the post for one tsunami report (bluesky_posts row "tsunami:<key>"). */
@@ -505,7 +528,9 @@ export async function postTsunami(db: SupabaseClient, i: Incident, q: Quake | nu
   });
   if (ins.error) return { ok: false, error: 'already_posted' };
   try {
-    const res = q ? await publish(db, q, draft, img) : { ...(await publishPost(db, draft, null)), alt: '' };
+    const alt = cardAlt(draft.alt || incidentAlt(i), img);
+    const res = q ? await publish(db, q, draft, img)
+      : { ...(await publishPost(db, { ...draft, alt }, img ? { data: img.data, mime: 'image/png', width: CARD_W, height: CARD_H } : null)), alt: img ? alt : '' };
     await db.from('bluesky_posts').update({ status: 'posted', post_uri: res.uri, post_url: res.url, alt: res.alt }).eq('quake_id', id);
     return { ok: true, url: res.url, image: res.image };
   } catch (e) {
