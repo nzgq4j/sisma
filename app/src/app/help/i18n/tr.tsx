@@ -216,8 +216,8 @@ export const TOPICS: Topic[] = [
           <h3>E-postayla hesap oluştur</h3>
           <ol className={s.steps}>
             <li>Giriş penceresinin altındaki <Ui>Hesap oluştur</Ui> düğmesine dokun.</li>
-            <li>E-postanı ve bir şifre gir: en az 8 karakter, harf ve rakam içersin.</li>
-            <li>Sana gönderdiğimiz onay e-postasını aç ve bağlantıya dokun. Ardından giriş yapmış olursun.</li>
+            <li>E-postanı ve bir şifre gir: en az 8 karakter, harf ve rakam içersin. Bilinen veri sızıntılarında bulunan şifreler kabul edilmez.</li>
+            <li>Sana gönderdiğimiz onay e-postasını aç ve bağlantıya dokun. Ardından giriş yapmış olursun. Bir dakika içinde gelmedi mi? Spam veya gereksiz klasörüne bak.</li>
           </ol>
           <h3>Google ile giriş yap</h3>
           <p><Ui>Google ile devam et</Ui> düğmesine dokun. Android uygulamasında, açılan listeden Google hesabını seç. Google e-postanın zaten bir sisma hesabı varsa Google aynı hesaba eklenir.</p>

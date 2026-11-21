@@ -229,8 +229,8 @@ export const TOPICS: Topic[] = [
           <h3>Create an account with email</h3>
           <ol className={s.steps}>
             <li>Tap <Ui>Create an account</Ui> at the bottom of the sign-in sheet.</li>
-            <li>Enter your email and a password: at least 8 characters, with letters and numbers.</li>
-            <li>Open the confirmation email we send you and tap the link. You are then signed in.</li>
+            <li>Enter your email and a password: at least 8 characters, with letters and numbers. Passwords found in known data breaches are refused.</li>
+            <li>Open the confirmation email we send you and tap the link. You are then signed in. Not there within a minute? Check your spam or junk folder.</li>
           </ol>
           <h3>Sign in with Google</h3>
           <p>Tap <Ui>Continue with Google</Ui>. In the Android app, choose your Google account from the list that appears. If your Google email already has a sisma account, Google is added to that same account.</p>

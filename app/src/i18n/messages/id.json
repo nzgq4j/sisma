@@ -344,7 +344,7 @@
     "have_account": "Sudah punya akun? Masuk",
     "create_account": "Buat akun",
     "err_credentials": "Email atau kata sandi salah.",
-    "err_unconfirmed": "Konfirmasi email Anda dulu — periksa tautan di kotak masuk.",
+    "err_unconfirmed": "Konfirmasi email Anda dulu — periksa tautan di kotak masuk. Tidak ada? Periksa folder spam atau sampah.",
     "err_weak": "Pilih kata sandi yang lebih kuat: minimal 8 karakter, dengan huruf dan angka.",
     "err_exists": "Akun dengan email ini sudah ada. Silakan masuk.",
     "enter_email": "Masukkan alamat email Anda dulu.",
@@ -361,7 +361,9 @@
     "err_reauth": "Demi keamanan, keluar lalu masuk lagi, kemudian ubah kata sandi Anda.",
     "err_same": "Pilih kata sandi yang belum pernah Anda gunakan.",
     "help": "Bantuan & dukungan",
-    "my_location_alerts": "Juga dipakai untuk peringatan Anda, dibulatkan sekitar 1 km"
+    "my_location_alerts": "Juga dipakai untuk peringatan Anda, dibulatkan sekitar 1 km",
+    "err_pwned": "Kata sandi ini pernah muncul dalam kebocoran data di situs lain, jadi tidak aman dipakai. Pilih yang lain, atau gunakan Lanjutkan dengan Google.",
+    "check_spam": "Belum masuk setelah satu menit? Periksa folder spam atau sampah, lalu tandai email sebagai bukan spam agar email berikutnya sampai."
   },
   "onboard": {
     "skip": "Lewati",

@@ -216,8 +216,8 @@ export const TOPICS: Topic[] = [
           <h3>Crear una cuenta con correo</h3>
           <ol className={s.steps}>
             <li>Toca <Ui>Crear una cuenta</Ui> en la parte inferior de la hoja de inicio de sesión.</li>
-            <li>Escribe tu correo y una contraseña: al menos 8 caracteres, con letras y números.</li>
-            <li>Abre el correo de confirmación que te enviamos y toca el enlace. Así quedarás conectado.</li>
+            <li>Escribe tu correo y una contraseña: al menos 8 caracteres, con letras y números. Las contraseñas que aparecen en filtraciones de datos conocidas se rechazan.</li>
+            <li>Abre el correo de confirmación que te enviamos y toca el enlace. Así quedarás conectado. ¿No llega en un minuto? Revisa la carpeta de spam o correo no deseado.</li>
           </ol>
           <h3>Iniciar sesión con Google</h3>
           <p>Toca <Ui>Continuar con Google</Ui>. En la app de Android, elige tu cuenta de Google en la lista que aparece. Si tu correo de Google ya tiene una cuenta de sisma, Google se añade a esa misma cuenta.</p>

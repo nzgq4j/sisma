@@ -344,7 +344,7 @@
     "have_account": "Schon ein Konto? Anmelden",
     "create_account": "Konto erstellen",
     "err_credentials": "E-Mail oder Passwort ist falsch.",
-    "err_unconfirmed": "Bitte bestätige zuerst deine E-Mail – den Link findest du in deinem Posteingang.",
+    "err_unconfirmed": "Bitte bestätige zuerst deine E-Mail – den Link findest du in deinem Posteingang. Nicht da? Sieh im Spam- oder Junk-Ordner nach.",
     "err_weak": "Wähle ein stärkeres Passwort: mindestens 8 Zeichen, mit Buchstaben und Zahlen.",
     "err_exists": "Mit dieser E-Mail gibt es bereits ein Konto. Bitte melde dich an.",
     "enter_email": "Gib zuerst deine E-Mail-Adresse ein.",
@@ -361,7 +361,9 @@
     "err_reauth": "Melde dich zur Sicherheit ab und wieder an und ändere dann dein Passwort.",
     "err_same": "Wähle ein Passwort, das du noch nicht verwendet hast.",
     "help": "Hilfe & Support",
-    "my_location_alerts": "Auch für deine Alarme genutzt, auf etwa 1 km gerundet"
+    "my_location_alerts": "Auch für deine Alarme genutzt, auf etwa 1 km gerundet",
+    "err_pwned": "Dieses Passwort ist bei einem Datenleck auf einer anderen Website aufgetaucht und daher nicht sicher. Wähle ein anderes oder nutze Weiter mit Google.",
+    "check_spam": "Nach einer Minute noch nichts da? Sieh im Spam- oder Junk-Ordner nach und markiere die E-Mail als „kein Spam“, damit die nächste ankommt."
   },
   "onboard": {
     "skip": "Überspringen",

@@ -137,10 +137,12 @@ export const useAccount = () => { const v = useContext(Ctx); if (!v) throw new E
 type Mode = 'password' | 'signup';
 type Status = 'idle' | 'busy' | 'signup_sent' | 'reset_sent' | 'oauth';
 
-const authError = (code: string | undefined, a: Record<string, string>) =>
+/** `reasons`: Supabase's weak-password reasons; 'pwned' means the password appears in known data breaches
+ *  (leaked password protection, HaveIBeenPwned), whatever its length. */
+const authError = (code: string | undefined, a: Record<string, string>, reasons?: string[]) =>
   code === 'invalid_credentials' ? a.err_credentials
     : code === 'email_not_confirmed' ? a.err_unconfirmed
-      : code === 'weak_password' ? a.err_weak
+      : code === 'weak_password' ? (reasons?.includes('pwned') ? a.err_pwned : a.err_weak)
         : code === 'user_already_exists' || code === 'email_exists' ? a.err_exists
           : code === 'over_email_send_rate_limit' || code === 'over_request_rate_limit' ? a.rate_limited
             : a.error;
@@ -170,11 +172,11 @@ function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () =
     onClose(); if (status !== 'busy') { setStatus('idle'); setErr(null); setPassword(''); }
   };
 
-  const run = async (fn: () => Promise<{ error: { code?: string } | null }>, ok: Status | 'close') => {
+  const run = async (fn: () => Promise<{ error: { code?: string; reasons?: string[] } | null }>, ok: Status | 'close') => {
     if (!sb) return;
     setStatus('busy'); setErr(null);
     const { error } = await fn();
-    if (error) { setStatus('idle'); setErr(authError(error.code, a)); return; }
+    if (error) { setStatus('idle'); setErr(authError(error.code, a, (error as { reasons?: string[] }).reasons)); return; }
     if (ok === 'close') { setPassword(''); setStatus('idle'); onClose(); } else setStatus(ok);
   };
   const submit = (e: React.FormEvent) => {
@@ -213,6 +215,7 @@ function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () =
               <span className={`ms ${styles.bigIcon}`} aria-hidden="true">mark_email_read</span>
               <h3 className={styles.h}>{a.sent_h}</h3>
               <p className={styles.p}>{sentBody.replace('{email}', email.trim())}</p>
+              <p className={styles.hint}>{a.check_spam}</p>
               <button type="button" className={styles.linkBtn} onClick={() => reset('password')}>{a.back_to_sign_in}</button>
             </>
           ) : (
@@ -275,7 +278,7 @@ function PasswordSheet({ onClose }: { onClose: () => void }) {
     const { error } = await sb.auth.updateUser({ password: pw });
     if (!error) { setStatus('done'); return; }
     setStatus('idle');
-    setErr(error.code === 'reauthentication_needed' ? a.err_reauth : error.code === 'same_password' ? a.err_same : authError(error.code, a));
+    setErr(error.code === 'reauthentication_needed' ? a.err_reauth : error.code === 'same_password' ? a.err_same : authError(error.code, a, (error as { reasons?: string[] }).reasons));
   };
   return (
     <Sheet open onClose={onClose} title={a.change_password}>

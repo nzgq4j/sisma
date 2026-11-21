@@ -344,7 +344,7 @@
     "have_account": "¿Ya tienes cuenta? Inicia sesión",
     "create_account": "Crear cuenta",
     "err_credentials": "El correo o la contraseña no son correctos.",
-    "err_unconfirmed": "Primero confirma tu correo: busca el enlace en tu bandeja de entrada.",
+    "err_unconfirmed": "Primero confirma tu correo: busca el enlace en tu bandeja de entrada. ¿No lo encuentras? Revisa la carpeta de spam o correo no deseado.",
     "err_weak": "Elige una contraseña más segura: al menos 8 caracteres, con letras y números.",
     "err_exists": "Ya existe una cuenta con este correo. Inicia sesión.",
     "enter_email": "Primero escribe tu correo.",
@@ -361,7 +361,9 @@
     "err_reauth": "Por seguridad, cierra sesión, vuelve a entrar y cambia tu contraseña.",
     "err_same": "Elige una contraseña que no hayas usado antes.",
     "help": "Ayuda y soporte",
-    "my_location_alerts": "También se usa para tus alertas, redondeada a 1 km aprox."
+    "my_location_alerts": "También se usa para tus alertas, redondeada a 1 km aprox.",
+    "err_pwned": "Esta contraseña ha aparecido en una filtración de datos de otro sitio, así que no es segura. Elige otra o usa Continuar con Google.",
+    "check_spam": "¿No te llega en un minuto? Revisa la carpeta de spam o correo no deseado y marca el correo como «no es spam» para que el siguiente llegue bien."
   },
   "onboard": {
     "skip": "Omitir",

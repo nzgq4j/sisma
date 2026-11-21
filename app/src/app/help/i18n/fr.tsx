@@ -216,8 +216,8 @@ export const TOPICS: Topic[] = [
           <h3>Créer un compte avec un e-mail</h3>
           <ol className={s.steps}>
             <li>Touchez <Ui>Créer un compte</Ui> en bas de la fiche de connexion.</li>
-            <li>Saisissez votre e-mail et un mot de passe : au moins 8 caractères, avec des lettres et des chiffres.</li>
-            <li>Ouvrez l’e-mail de confirmation que nous vous envoyons et touchez le lien. Vous êtes alors connecté.</li>
+            <li>Saisissez votre e-mail et un mot de passe : au moins 8 caractères, avec des lettres et des chiffres. Les mots de passe trouvés dans des fuites de données connues sont refusés.</li>
+            <li>Ouvrez l’e-mail de confirmation que nous vous envoyons et touchez le lien. Vous êtes alors connecté. Rien au bout d’une minute ? Regardez dans vos courriers indésirables (spam).</li>
           </ol>
           <h3>Se connecter avec Google</h3>
           <p>Touchez <Ui>Continuer avec Google</Ui>. Dans l’app Android, choisissez votre compte Google dans la liste qui s’affiche. Si votre adresse Google a déjà un compte sisma, Google est ajouté à ce même compte.</p>

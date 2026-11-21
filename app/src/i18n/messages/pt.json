@@ -344,7 +344,7 @@
     "have_account": "Já tem conta? Entrar",
     "create_account": "Criar conta",
     "err_credentials": "E-mail ou senha incorretos.",
-    "err_unconfirmed": "Confirme seu e-mail primeiro — procure o link na sua caixa de entrada.",
+    "err_unconfirmed": "Confirme seu e-mail primeiro — procure o link na sua caixa de entrada. Não encontrou? Confira a pasta de spam ou lixo eletrônico.",
     "err_weak": "Escolha uma senha mais forte: pelo menos 8 caracteres, com letras e números.",
     "err_exists": "Já existe uma conta com este e-mail. Entre nela.",
     "enter_email": "Digite seu e-mail primeiro.",
@@ -361,7 +361,9 @@
     "err_reauth": "Por segurança, saia e entre novamente, depois altere sua senha.",
     "err_same": "Escolha uma senha que você ainda não usou.",
     "help": "Ajuda e suporte",
-    "my_location_alerts": "Também usada nos seus alertas, arredondada para cerca de 1 km"
+    "my_location_alerts": "Também usada nos seus alertas, arredondada para cerca de 1 km",
+    "err_pwned": "Esta senha apareceu em um vazamento de dados de outro site, então não é segura. Escolha outra ou use Continuar com o Google.",
+    "check_spam": "Não chegou em um minuto? Confira a pasta de spam ou lixo eletrônico e marque o e-mail como “não é spam” para receber os próximos."
   },
   "onboard": {
     "skip": "Pular",

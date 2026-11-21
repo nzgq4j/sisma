@@ -344,7 +344,7 @@
     "have_account": "Hai già un account? Accedi",
     "create_account": "Crea account",
     "err_credentials": "Email o password non corretta.",
-    "err_unconfirmed": "Conferma prima la tua email: cerca il link nella posta in arrivo.",
+    "err_unconfirmed": "Conferma prima la tua email: cerca il link nella posta in arrivo. Non la trovi? Controlla la cartella spam o posta indesiderata.",
     "err_weak": "Scegli una password più sicura: almeno 8 caratteri, con lettere e numeri.",
     "err_exists": "Esiste già un account con questa email. Accedi.",
     "enter_email": "Inserisci prima il tuo indirizzo email.",
@@ -361,7 +361,9 @@
     "err_reauth": "Per sicurezza, esci e accedi di nuovo, poi cambia la password.",
     "err_same": "Scegli una password che non hai mai usato.",
     "help": "Aiuto e supporto",
-    "my_location_alerts": "Usata anche per i tuoi avvisi, arrotondata a circa 1 km"
+    "my_location_alerts": "Usata anche per i tuoi avvisi, arrotondata a circa 1 km",
+    "err_pwned": "Questa password è comparsa in una violazione di dati su un altro sito, quindi non è sicura. Scegline un’altra oppure usa Continua con Google.",
+    "check_spam": "Non arriva entro un minuto? Controlla la cartella spam o posta indesiderata e segna l’email come non spam per ricevere le prossime."
   },
   "onboard": {
     "skip": "Salta",
