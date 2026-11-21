@@ -152,6 +152,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
   const zoomRef = useRef<ZoomBehavior<SVGSVGElement, unknown> | null>(null);
   const [size, setSize] = useState({ w: 0, h: 0 });
   const [tf, setTf] = useState({ x: 0, y: 0, k: 1 });
+  /** The latest zoom transform, set in the zoom handler before React re-renders, so a redraw of the outline canvas
+   *  in the same update (new events, cities, theme) uses the view just applied and not the one of the last render. */
+  const tfRef = useRef(tf);
   const k = tf.k;
   // Extra world copies needed to fill the view while scrolling endlessly (bit 1 = left, bit 2 = right).
   const [sides, setSides] = useState(0);
@@ -222,6 +225,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
           setSides(left | right);
         }
         const t = `translate(${x},${y}) scale(${tk})`;
+        tfRef.current = { x, y, k: tk };
         drawBaseRef.current({ x, y, k: tk }); overRef.current?.setAttribute('transform', t);
         setTf({ x, y, k: tk }); setHover(null);
       });
@@ -516,8 +520,8 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       ctx.globalAlpha = 1;
     };
     drawBaseRef.current = draw;
-    draw(tf);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- tf changes are drawn by the zoom handler directly
+    draw(tfRef.current);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- size.w / size.h are listed; the view comes from tfRef
   }, [shapes, size.w, size.h, worldW, dark, hideOutlines, cityPts, quakePts, locale, sc, tiles]);
 
   // Everything drawn over the map (and over the street tiles): plates, felt layers, events, markers.
