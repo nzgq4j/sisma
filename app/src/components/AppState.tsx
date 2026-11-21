@@ -57,7 +57,7 @@ const writeActive = (k: string | null) => activeStore.set(k);
 
 interface NativeGeo {
   requestPermissions: () => Promise<{ location: string }>;
-  getCurrentPosition: (o: { enableHighAccuracy: boolean; timeout: number }) => Promise<{ coords: { latitude: number; longitude: number } }>;
+  getCurrentPosition: (o: { enableHighAccuracy: boolean; timeout: number; maximumAge?: number }) => Promise<{ coords: { latitude: number; longitude: number } }>;
 }
 /** @capacitor/geolocation when running inside the Android app; null in a browser. */
 function nativeGeolocation(): NativeGeo | null {
@@ -109,7 +109,10 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       try {
         const perm = await G.requestPermissions();
         if (perm.location === 'denied') return 'denied';
-        const p = await G.getCurrentPosition({ enableHighAccuracy: false, timeout: 15_000 });
+        // Network location first (fast, low power); if the phone has none (indoors without Wi-Fi, emulators, which only
+        // simulate GPS), ask for GPS. A position up to 5 minutes old is fine.
+        const p = await G.getCurrentPosition({ enableHighAccuracy: false, timeout: 10_000, maximumAge: 300_000 })
+          .catch(() => G.getCurrentPosition({ enableHighAccuracy: true, timeout: 20_000, maximumAge: 300_000 }));
         return applyFix(p.coords.latitude, p.coords.longitude);
       } catch { return 'unavailable'; }
     }
