@@ -143,6 +143,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>L’onglet <Ui>Globe</Ui> affiche les mêmes séismes sur une Terre en 3D. Faites glisser pour la tourner et pincez ou faites défiler pour zoomer. Touchez une épingle pour afficher son résumé. <Ui>Ma position</Ui>, sous le bouton <Ui>−</Ui>, tourne le globe vers l’endroit où vous êtes et zoome (la rotation s’arrête pour que vous restiez à l’écran).</p>
+          <p>En zoomant, des <strong>noms de villes</strong> apparaissent dans votre langue, comme sur la carte, sur la face du globe tournée vers vous, sans masquer les séismes ni les boutons.</p>
           <p>Dans les calques du panneau <Ui>Filtres</Ui> :</p>
           <ul>
             <li><strong>Profondeur</strong> colore chaque séisme selon sa profondeur et trace une ligne jusqu’à son point de départ, pour voir les séismes profonds sous les zones de subduction.</li>

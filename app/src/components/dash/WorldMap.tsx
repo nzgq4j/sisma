@@ -24,7 +24,7 @@ import { useT } from '@/i18n/I18nProvider';
 import { timeAgo } from '@/components/QuakeRow';
 import { BORDERS, COUNTRIES, SPHERE, useDetailedWorld, useLakes, usePlates } from '@/lib/world';
 import { CITIES_FROM, placeLabels, type Box, type City } from '@/lib/cities';
-import { useCities } from '@/lib/use-cities';
+import { overlayBoxes, useCities } from '@/lib/use-cities';
 import type { Quake } from '@/lib/quakes/types';
 import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
@@ -500,7 +500,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
         }
         return null;
       };
-      const blocked: Box[] = [];
+      const blocked: Box[] = overlayBoxes(wrap, cv); // the zoom buttons
       for (const { p, r } of quakePts) {
         if (!p) continue;
         for (const off of W ? [0, -W, W] : [0]) {
@@ -592,7 +592,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
         </>
       )}
       {controls && (
-        <div className={`${styles.mapTools} ${toolsClassName}`}>
+        <div className={`${styles.mapTools} ${toolsClassName}`} data-map-overlay="">
           <button type="button" onClick={() => zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>
           <button type="button" onClick={() => zoomBy(1 / 1.6)} aria-label={m.dash.zoom_out} title={m.dash.zoom_out}><span className="ms">remove</span></button>
           <button type="button" onClick={reset} aria-label={m.dash.reset_view} title={m.dash.reset_view}><span className="ms">fit_screen</span></button>

@@ -143,6 +143,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Der Tab <Ui>Globus</Ui> zeigt dieselben Erdbeben auf einer 3D-Erde. Zieh, um ihn zu drehen, und zoome mit zwei Fingern oder dem Mausrad. Tippe auf eine Markierung für ihre Übersicht. <Ui>Mein Standort</Ui> unter der Taste <Ui>−</Ui> dreht den Globus dorthin, wo du gerade bist, und zoomt hinein (die Drehung stoppt, damit du im Blick bleibst).</p>
+          <p>Zoomst du hinein, erscheinen <strong>Städtenamen</strong> in deiner Sprache, wie auf der Karte, auf der dir zugewandten Seite des Globus, ohne Erdbeben oder Schaltflächen zu verdecken.</p>
           <p>In den Ebenen des Felds <Ui>Filter</Ui>:</p>
           <ul>
             <li><strong>Tiefe</strong> färbt jedes Erdbeben nach seiner Tiefe und zeichnet eine Linie hinunter bis zu seinem Ursprung, sodass du tiefe Erdbeben unter Subduktionszonen siehst.</li>

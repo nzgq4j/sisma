@@ -143,6 +143,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tab <Ui>Globe</Ui> menampilkan gempa yang sama pada Bumi 3D. Seret untuk memutarnya, dan cubit atau gulir untuk zoom. Ketuk pin untuk melihat ringkasannya. <Ui>Lokasi saya</Ui>, di bawah tombol <Ui>−</Ui>, memutar globe ke tempat Anda berada sekarang dan memperbesarnya (putaran berhenti agar Anda tetap terlihat).</p>
+          <p>Perbesar dan <strong>nama kota</strong> muncul dalam bahasa Anda, seperti di peta, di sisi bola dunia yang menghadap Anda, tanpa menutupi gempa dan tombol.</p>
           <p>Di lapisan panel <Ui>Filter</Ui>:</p>
           <ul>
             <li><strong>Kedalaman</strong> mewarnai setiap gempa menurut kedalamannya dan menggambar garis ke bawah sampai titik awalnya, sehingga Anda bisa melihat gempa dalam di bawah zona subduksi.</li>

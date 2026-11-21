@@ -156,6 +156,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>The <Ui>Globe</Ui> tab shows the same earthquakes on a 3D Earth. Drag to turn it and pinch or scroll to zoom. Tap a pin for its summary. <Ui>My location</Ui>, under the <Ui>−</Ui> button, turns the globe to where you are now and zooms in (the spin stops so you stay in view).</p>
+          <p>Zoom in and <strong>city names</strong> appear in your language, as on the map, on the side of the globe facing you, clear of the earthquakes and the buttons.</p>
           <p>In the <Ui>Filters</Ui> panel’s layers:</p>
           <ul>
             <li><strong>Depth</strong> colours each earthquake by depth and draws a line down to where it started, so you can see deep earthquakes under subduction zones.</li>

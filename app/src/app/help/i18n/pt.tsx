@@ -143,6 +143,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>A aba <Ui>Globo</Ui> mostra os mesmos terremotos em uma Terra 3D. Arraste para girar e faça o gesto de pinça ou role para aproximar. Toque em um alfinete para ver o resumo. <Ui>Minha localização</Ui>, abaixo do botão <Ui>−</Ui>, gira o globo até onde você está agora e aproxima (a rotação para, para você continuar à vista).</p>
+          <p>Ao aproximar, aparecem <strong>nomes de cidades</strong> no seu idioma, como no mapa, no lado do globo voltado para você, sem cobrir os terremotos nem os botões.</p>
           <p>Nas camadas do painel <Ui>Filtros</Ui>:</p>
           <ul>
             <li><strong>Profundidade</strong> colore cada terremoto pela profundidade e traça uma linha até onde ele começou, para você ver os terremotos profundos sob as zonas de subducção.</li>

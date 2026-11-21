@@ -143,6 +143,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>La scheda <Ui>Globo</Ui> mostra gli stessi terremoti su una Terra in 3D. Trascina per ruotarla e avvicina le dita o scorri per fare zoom. Tocca un segnaposto per il suo riepilogo. <Ui>La mia posizione</Ui>, sotto il pulsante <Ui>−</Ui>, gira il globo verso dove ti trovi ora e fa zoom (la rotazione si ferma così resti inquadrato).</p>
+          <p>Ingrandendo compaiono i <strong>nomi delle città</strong> nella tua lingua, come sulla mappa, sul lato del globo rivolto verso di te, senza coprire i terremoti né i pulsanti.</p>
           <p>Nei livelli del pannello <Ui>Filtri</Ui>:</p>
           <ul>
             <li><strong>Profondità</strong> colora ogni terremoto in base alla profondità e traccia una linea fino al punto in cui è iniziato, così puoi vedere i terremoti profondi sotto le zone di subduzione.</li>
