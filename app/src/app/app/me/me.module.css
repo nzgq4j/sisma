@@ -59,6 +59,7 @@ div.row { cursor: default; }
 .placeRow > .row { flex: 1; min-width: 0; }
 .placeName { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .placeDetail { display: block; font-size: 13px; font-weight: 500; color: var(--ink2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.placeNote { white-space: normal; }
 .iconBtn { width: 44px; height: 44px; border: 0; border-radius: 22px; background: transparent; color: var(--ink2); cursor: pointer; display: flex; align-items: center; justify-content: center; flex: none; }
 .iconBtn:hover { background: var(--surface2); }
 .iconBtn :global(.ms) { font-size: 20px; }

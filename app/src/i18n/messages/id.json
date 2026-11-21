@@ -360,7 +360,8 @@
     "done_btn": "Selesai",
     "err_reauth": "Demi keamanan, keluar lalu masuk lagi, kemudian ubah kata sandi Anda.",
     "err_same": "Pilih kata sandi yang belum pernah Anda gunakan.",
-    "help": "Bantuan & dukungan"
+    "help": "Bantuan & dukungan",
+    "my_location_alerts": "Juga dipakai untuk peringatan Anda, dibulatkan sekitar 1 km"
   },
   "onboard": {
     "skip": "Lewati",
@@ -486,7 +487,8 @@
     "area_selected": "Dipilih",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · {dist} dari {place}. Ikuti arahan pihak berwenang setempat.",
-    "tsunami_body_nomag": "{region} · {dist} dari {place}. Ikuti arahan pihak berwenang setempat."
+    "tsunami_body_nomag": "{region} · {dist} dari {place}. Ikuti arahan pihak berwenang setempat.",
+    "your_location": "lokasi Anda"
   },
   "region_chip": "Wilayah",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "Tidak dapat membuka tagihan. Coba lagi.",
     "soon": "Tagihan belum tersedia.",
     "st_cancelled": "Dibatalkan",
-    "cancels_on": "Berakhir pada {date}"
+    "cancels_on": "Berakhir pada {date}",
+    "st_comp": "Gratis dari sisma",
+    "comp_line": "Gratis selamanya, tanpa langganan",
+    "comp_hint": "sisma memberi akun Anda sisma+ secara gratis. Anda tidak perlu berlangganan.",
+    "comp_cancel_hint": "sisma memberi akun Anda sisma+ secara gratis, jadi Anda bisa membatalkan langganan ini dan tetap memiliki semuanya."
   },
   "ptr": {
     "pull": "Tarik untuk memuat ulang",
@@ -609,7 +615,8 @@
     "delete_h": "Hapus peringatan ini?",
     "delete_p": "Anda tidak akan lagi menerima notifikasi untuk peringatan ini. Peringatan yang sudah terkirim tetap ada di riwayat.",
     "cancel": "Batal",
-    "not_found": "Peringatan ini sudah tidak ada."
+    "not_found": "Peringatan ini sudah tidak ada.",
+    "near_device_note": "Lokasi saya adalah posisi terakhir ponsel ini saat Anda masuk, dibulatkan sekitar 1 km."
   },
   "billing": {
     "subscribe": "Berlangganan",
@@ -833,8 +840,8 @@
     "center_JMA": "Badan Meteorologi Jepang",
     "legend_short": "Peringatan tsunami",
     "me_title": "Peringatan tsunami",
-    "me_hint": "Gratis untuk semua yang masuk: notifikasi saat peringatan, ancaman, pemantauan, atau imbauan tsunami resmi dikeluarkan untuk gempa dalam radius 1.000 km dari salah satu tempat tersimpan Anda.",
+    "me_hint": "Gratis untuk semua yang masuk: notifikasi saat peringatan, ancaman, pemantauan, atau imbauan tsunami resmi dikeluarkan untuk gempa dalam radius 1.000 km dari Lokasi saya atau salah satu tempat tersimpan Anda.",
     "me_signin": "Masuk, gratis, untuk menerima peringatan tsunami resmi untuk tempat tersimpan Anda.",
-    "me_no_place": "Tambahkan tempat tersimpan di bawah: peringatan tsunami berlaku untuk gempa dalam radius 1.000 km dari tempat tersimpan Anda."
+    "me_no_place": "Gunakan Lokasi saya atau tambahkan tempat tersimpan di bawah: peringatan tsunami berlaku untuk gempa dalam radius 1.000 km dari tempat-tempat itu."
   }
 }

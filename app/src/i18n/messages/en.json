@@ -360,7 +360,8 @@
     "done_btn": "Done",
     "err_reauth": "For your security, sign out and sign in again, then change your password.",
     "err_same": "Choose a password you haven’t used before.",
-    "help": "Help & support"
+    "help": "Help & support",
+    "my_location_alerts": "Also used for your alerts, rounded to about 1 km"
   },
   "onboard": {
     "skip": "Skip",
@@ -486,7 +487,8 @@
     "area_selected": "Selected",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · {dist} from {place}. Follow local authorities.",
-    "tsunami_body_nomag": "{region} · {dist} from {place}. Follow local authorities."
+    "tsunami_body_nomag": "{region} · {dist} from {place}. Follow local authorities.",
+    "your_location": "your location"
   },
   "region_chip": "Region",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "Couldn’t open billing. Please try again.",
     "soon": "Billing isn’t available yet.",
     "st_cancelled": "Cancelled",
-    "cancels_on": "Cancels on {date}"
+    "cancels_on": "Cancels on {date}",
+    "st_comp": "Complimentary",
+    "comp_line": "Free for life, no subscription needed",
+    "comp_hint": "sisma has given your account sisma+ for free. You don’t need a subscription.",
+    "comp_cancel_hint": "sisma has given your account sisma+ for free, so you can cancel this subscription and keep everything."
   },
   "ptr": {
     "pull": "Pull to refresh",
@@ -609,7 +615,8 @@
     "delete_h": "Delete this alert?",
     "delete_p": "You will no longer get notifications for it. Alerts it already sent stay in your history.",
     "cancel": "Cancel",
-    "not_found": "This alert no longer exists."
+    "not_found": "This alert no longer exists.",
+    "near_device_note": "My location is this phone’s last position while you’re signed in, rounded to about 1 km."
   },
   "billing": {
     "subscribe": "Subscribe",
@@ -833,8 +840,8 @@
     "center_JMA": "Japan Meteorological Agency",
     "legend_short": "Tsunami alert",
     "me_title": "Tsunami alerts",
-    "me_hint": "Free for everyone signed in: a notification when an official tsunami warning, threat, watch or advisory is issued for an earthquake within 1,000 km of one of your saved places.",
+    "me_hint": "Free for everyone signed in: a notification when an official tsunami warning, threat, watch or advisory is issued for an earthquake within 1,000 km of My location or one of your saved places.",
     "me_signin": "Sign in, free, to get official tsunami alerts for your saved places.",
-    "me_no_place": "Add a saved place below: tsunami alerts are for earthquakes within 1,000 km of your saved places."
+    "me_no_place": "Use My location or add a saved place below: tsunami alerts are for earthquakes within 1,000 km of them."
   }
 }

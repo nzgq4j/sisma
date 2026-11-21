@@ -78,6 +78,9 @@ export async function buyWithPlay(billing: Billing, userId: string, accessToken:
     // The subscription can't be bought in this build: products not set up in Play Console yet, or the app was not
     // installed from Google Play (the plugin rejects with "Product not found" before Google's sheet opens).
     const msg = String((e as Error)?.message ?? e);
+    // The plugin can reject after Google has completed the purchase (seen with a free-trial offer): look for it on
+    // this device before saying anything went wrong.
+    if ((await restorePlay(userId, accessToken).catch(() => 'error' as const)) === 'ok') return 'ok';
     if (code === 'ITEM_UNAVAILABLE' || code === 'BILLING_UNAVAILABLE' || code === 'DEVELOPER_ERROR' || /product not found/i.test(msg)) return 'unavailable';
     return 'error';
   }

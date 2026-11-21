@@ -221,6 +221,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>Accedi con Google</h3>
           <p>Tocca <Ui>Continua con Google</Ui>. Nell’app Android, scegli il tuo account Google dall’elenco che compare. Se alla tua email Google corrisponde già un account sisma, Google viene aggiunto a quello stesso account.</p>
+          <p>Quando crei un account, anche <Ui>Continua con Google</Ui> è in alto: crea subito l’account, senza password né email di conferma.</p>
         </div>
         <Shot src="signin" alt="Scheda di accesso: Continua con Google, email e password, Password dimenticata? e Crea un account" caption="Accedere" />
       </div>
@@ -289,6 +290,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Aggiungi luogo</Ui> ti permette di cercare una città o un paese e salvarlo.</li>
             <li>Tocca un luogo per usarlo per le distanze. Tocca <Ui>×</Ui> per rimuoverlo.</li>
             <li>Quando è scelta <strong>La mia posizione</strong>, sisma usa la tua posizione ogni volta che il dispositivo può fornirla. Se non può (localizzazione disattivata o non consentita), o se hai scelto un luogo salvato, sisma usa quel luogo salvato: il tuo luogo predefinito, oppure il primo che hai salvato.</li>
+            <li>Quando hai effettuato l’accesso, <strong>La mia posizione</strong> si usa anche per i tuoi avvisi e le allerte tsunami: sisma conserva l’ultima posizione del tuo dispositivo, arrotondata a circa 1 km, e la usa per 30 giorni dall’ultimo aggiornamento.</li>
           </ul>
           <p>Il piano gratuito include <strong>1 luogo salvato</strong>, e sisma+ <strong>fino a 10</strong>. Senza un account, i luoghi vengono conservati su questo dispositivo e passano nel tuo account quando accedi.</p>
         </div>
@@ -338,6 +340,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Acquistato sul sito</strong>: <Ui>Gestisci fatturazione</Ui> apre la pagina di Stripe, dove puoi aggiornare la carta, vedere le fatture o annullare.</li>
             <li><strong>Acquistato nell’app Android</strong>: <Ui>Gestisci in Google Play</Ui> apre il tuo abbonamento in Google Play.</li>
           </ul>
+          <p>Se sisma ha regalato sisma+ al tuo account, il tuo piano mostra <Ui>Omaggio</Ui>. Non ti serve un abbonamento e puoi annullare quello che hai iniziato senza perdere sisma+.</p>
         </div>
         <Shot src="subscription" alt="Pagina dell’abbonamento: stato, piano, data di rinnovo e Gestisci in Google Play" caption="Il tuo abbonamento" />
       </div>
@@ -384,9 +387,10 @@ export const TOPICS: Topic[] = [
         <li><strong>Ore di silenzio</strong>: nessun avviso durante la notte, con la possibilità di lasciar passare comunque i terremoti forti (magnitudo 6 o superiore).</li>
         <li>Un grafico mostra quanti terremoti degli ultimi 30 giorni avrebbero attivato l’avviso, così puoi regolarlo.</li>
       </ul>
+      <p><strong>Monitoraggio</strong> include anche <strong>La mia posizione</strong> quando il dispositivo condivide la sua posizione: vedi <Link href="/help/locations">Luoghi salvati</Link>.</p>
       <p>Gli avvisi ricevuti negli ultimi 30 giorni sono elencati in <em>Cronologia avvisi</em>.</p>
       <h3>Allerte tsunami</h3>
-      <p>Le allerte tsunami sono gratuite per chi ha effettuato l’accesso. In <Ui>Profilo</Ui>, attiva <Ui>Allerte tsunami</Ui> e tocca <Ui>Attiva le notifiche su questo dispositivo</Ui>. Ricevi una notifica quando viene emessa un’allerta, una minaccia, una sorveglianza o un avviso ufficiale di tsunami per un terremoto entro 1.000 km da uno dei tuoi luoghi salvati. Le ore di silenzio non si applicano e ogni livello viene inviato una sola volta per terremoto.</p>
+      <p>Le allerte tsunami sono gratuite per chi ha effettuato l’accesso. In <Ui>Profilo</Ui>, attiva <Ui>Allerte tsunami</Ui> e tocca <Ui>Attiva le notifiche su questo dispositivo</Ui>. Ricevi una notifica quando viene emessa un’allerta, una minaccia, una sorveglianza o un avviso ufficiale di tsunami per un terremoto entro 1.000 km da uno dei tuoi luoghi salvati. Le ore di silenzio non si applicano e ogni livello viene inviato una sola volta per terremoto. Conta anche La mia posizione, come per gli altri avvisi.</p>
       <Callout kind="note"><p><strong>iPhone e iPad:</strong> le notifiche web funzionano solo dopo aver aggiunto sisma alla schermata Home (Condividi → Aggiungi alla schermata Home) e averlo aperto da lì. La prima volta che apri sisma nel browser di un iPhone o iPad, una finestra mostra questi passaggi; tocca <Ui>Non ora</Ui> per rivederla tra due settimane o <Ui>Ho capito</Ui> per nasconderla.</p></Callout>
       </>
     ),

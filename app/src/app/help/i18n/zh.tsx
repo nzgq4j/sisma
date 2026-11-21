@@ -221,6 +221,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>使用 Google 登录</h3>
           <p>点按<Ui>使用 Google 继续</Ui>。在 Android 应用中，从出现的列表里选择你的 Google 账户。如果你的 Google 邮箱已有 sisma 账户，Google 会被添加到同一个账户。</p>
+          <p>创建账户时，<Ui>使用 Google 继续</Ui> 也在最上方：无需密码或确认邮件，立即创建账户。</p>
         </div>
         <Shot src="signin" alt="登录面板：使用 Google 继续、邮箱和密码、忘记密码和创建账户" caption="登录" />
       </div>
@@ -289,6 +290,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>添加地点</Ui>可以搜索城市或城镇并保存。</li>
             <li>点按一个地点，将其设为计算距离所用的地点。点按 <Ui>×</Ui> 可将其删除。</li>
             <li>选择<strong>我的位置</strong>时，只要设备能提供位置，sisma 就会使用你的位置。如果无法获取（定位已关闭或未获允许），或者你选择了已保存的地点，sisma 会使用该已保存地点：你的默认地点，或你保存的第一个地点。</li>
+            <li>登录后，<strong>我的位置</strong>也会用于你的提醒和海啸提醒：sisma 会保存设备的最后位置（精确到约 1 公里），并在最后一次更新后的 30 天内使用。</li>
           </ul>
           <p>免费版可保存 <strong>1 个地点</strong>，sisma+ 最多可保存 <strong>10 个</strong>。未登录时，地点保存在本设备上，登录后会移入你的账户。</p>
         </div>
@@ -338,6 +340,7 @@ export const TOPICS: Topic[] = [
             <li><strong>在网站上购买</strong>：<Ui>管理账单</Ui>会打开 Stripe 的页面，你可以在那里更新银行卡、查看发票或取消订阅。</li>
             <li><strong>在 Android 应用中购买</strong>：<Ui>在 Google Play 中管理</Ui>会在 Google Play 中打开你的订阅。</li>
           </ul>
+          <p>如果 sisma 已免费为你的账户开通 sisma+，你的方案会显示 <Ui>赠送</Ui>。你不需要订阅，已开始的订阅也可以取消，sisma+ 不会失去。</p>
         </div>
         <Shot src="subscription" alt="订阅页面：状态、方案、续订日期和在 Google Play 中管理" caption="你的订阅" />
       </div>
@@ -384,9 +387,10 @@ export const TOPICS: Topic[] = [
         <li><strong>免打扰时段</strong>：夜间不提醒，也可以选择仍让强震（6 级及以上）的提醒通过。</li>
         <li>图表会显示过去 30 天内有多少次地震会触发该提醒，方便你调整。</li>
       </ul>
+      <p>当设备共享位置时，<strong>监测范围</strong>也包括<strong>我的位置</strong>：请参阅<Link href="/help/locations">已保存的地点</Link>。</p>
       <p>过去 30 天内收到的提醒列在<em>提醒记录</em>中。</p>
       <h3>海啸通知</h3>
-      <p>海啸通知对所有登录用户免费。在<Ui>我的</Ui>中打开<Ui>海啸通知</Ui>，然后点按<Ui>在此设备上开启通知</Ui>。当你保存地点 1000 公里范围内的地震发布官方海啸警报、威胁、监视或注意报时，你会收到通知。免打扰时段不适用，每个级别对每次地震只发送一次。</p>
+      <p>海啸通知对所有登录用户免费。在<Ui>我的</Ui>中打开<Ui>海啸通知</Ui>，然后点按<Ui>在此设备上开启通知</Ui>。当你保存地点 1000 公里范围内的地震发布官方海啸警报、威胁、监视或注意报时，你会收到通知。免打扰时段不适用，每个级别对每次地震只发送一次。 与其他提醒一样，我的位置也计算在内。</p>
       <Callout kind="note"><p><strong>iPhone 和 iPad：</strong>只有将 sisma 添加到主屏幕（分享 → 添加到主屏幕）并从主屏幕打开后，网页通知才能使用。 在 iPhone 或 iPad 的浏览器中首次打开 sisma 时，会弹出窗口显示这些步骤；点按<Ui>以后再说</Ui>会在两周后再次显示，点按<Ui>知道了</Ui>则不再显示。</p></Callout>
       </>
     ),

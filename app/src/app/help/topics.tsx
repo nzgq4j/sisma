@@ -234,6 +234,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>Sign in with Google</h3>
           <p>Tap <Ui>Continue with Google</Ui>. In the Android app, choose your Google account from the list that appears. If your Google email already has a sisma account, Google is added to that same account.</p>
+          <p>When you create an account, <Ui>Continue with Google</Ui> is at the top too: it creates the account straight away, with no password or confirmation email.</p>
         </div>
         <Shot src="signin" alt="Sign in sheet: Continue with Google, email and password, Forgot password and Create an account" caption="Signing in" />
       </div>
@@ -302,6 +303,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Add location</Ui> lets you search for a city or town and save it.</li>
             <li>Tap a location to make it the one used for distances. Tap <Ui>×</Ui> to remove it.</li>
             <li>When <strong>My location</strong> is chosen, sisma uses your position whenever your device can give it. If it can’t (location turned off or not allowed), or you chose a saved place, sisma uses that saved place: your default place, or the first one you saved.</li>
+            <li>When you’re signed in, <strong>My location</strong> is also used for your alerts and tsunami alerts: sisma keeps your device’s last position, rounded to about 1 km, and uses it for 30 days after it was last updated.</li>
           </ul>
           <p>The free plan has <strong>1 saved location</strong>, and sisma+ has <strong>up to 10</strong>. Without an account, locations are kept on this device and move into your account when you sign in.</p>
         </div>
@@ -351,6 +353,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Bought on the website</strong>: <Ui>Manage billing</Ui> opens Stripe’s page, where you can update your card, see invoices or cancel.</li>
             <li><strong>Bought in the Android app</strong>: <Ui>Manage in Google Play</Ui> opens your subscription in Google Play.</li>
           </ul>
+          <p>If sisma has given your account sisma+ for free, your plan shows <Ui>Complimentary</Ui>. You don’t need a subscription, and you can cancel one you started without losing sisma+.</p>
         </div>
         <Shot src="subscription" alt="Subscription page: status, plan, renewal date and Manage in Google Play" caption="Your subscription" />
       </div>
@@ -397,9 +400,10 @@ export const TOPICS: Topic[] = [
         <li><strong>Quiet hours</strong>: no alerts overnight, with the option to still let strong earthquakes (magnitude 6 or more) through.</li>
         <li>A chart shows how many earthquakes in the last 30 days would have triggered the alert, so you can tune it.</li>
       </ul>
+      <p><strong>Watching</strong> also includes <strong>My location</strong> when your device shares its position: see <Link href="/help/locations">Saved locations</Link>.</p>
       <p>Alerts you received in the last 30 days are listed under <em>Alert history</em>.</p>
       <h3>Tsunami alerts</h3>
-      <p>Tsunami alerts are free for everyone who is signed in. In <Ui>Me</Ui>, turn on <Ui>Tsunami alerts</Ui> and tap <Ui>Turn on notifications on this device</Ui>. You get a notification when an official tsunami warning, threat, watch or advisory is issued for an earthquake within 1,000 km of one of your saved places. Quiet hours don’t apply, and each level is sent once per earthquake.</p>
+      <p>Tsunami alerts are free for everyone who is signed in. In <Ui>Me</Ui>, turn on <Ui>Tsunami alerts</Ui> and tap <Ui>Turn on notifications on this device</Ui>. You get a notification when an official tsunami warning, threat, watch or advisory is issued for an earthquake within 1,000 km of one of your saved places. Quiet hours don’t apply, and each level is sent once per earthquake. My location counts too, as for other alerts.</p>
       <Callout kind="note"><p><strong>iPhone and iPad:</strong> web notifications only work after you add sisma to the Home Screen (Share → Add to Home Screen) and open it from there. The first time you open sisma in the browser on an iPhone or iPad, a pop-up shows these steps; tap <Ui>Not now</Ui> to see it again in two weeks or <Ui>Got it</Ui> to hide it.</p></Callout>
       </>
     ),

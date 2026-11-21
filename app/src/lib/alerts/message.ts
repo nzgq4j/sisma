@@ -2,7 +2,12 @@
 import { KM_PER_MI, type Units } from '../units';
 import type { Quake } from '../quakes/types';
 
-export interface PushStrings { title_near: string; title_any: string; title_area: string; body: string }
+export interface PushStrings { title_near: string; title_any: string; title_area: string; body: string; your_location: string }
+
+/** The place name the database gives the account's own position ("My location", public.alert_places). */
+export const DEVICE_PLACE = '@device';
+/** A place's name as shown in a notification: "your location" for the account's own position. */
+export const placeName = (name: string, strings: Pick<PushStrings, 'your_location'>) => (name === DEVICE_PLACE ? strings.your_location : name);
 export interface PushMessage { title: string; body: string; url: string; tag: string }
 
 const fill = (s: string, v: Record<string, string>) => s.replace(/\{(\w+)\}/g, (_, k) => v[k] ?? '');
@@ -17,7 +22,7 @@ export function formatDistance(km: number, units: Units, locale: string): string
 export function alertMessage(q: Quake, place: { name: string; distanceKm: number } | null, strings: PushStrings, locale: string, units: Units, areaName?: string | null): PushMessage {
   const mag = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(q.mag);
   const title = place
-    ? fill(strings.title_near, { mag, dist: formatDistance(place.distanceKm, units, locale), place: place.name })
+    ? fill(strings.title_near, { mag, dist: formatDistance(place.distanceKm, units, locale), place: placeName(place.name, strings) })
     : areaName ? fill(strings.title_area, { mag, area: areaName }) : fill(strings.title_any, { mag });
   const body = fill(strings.body, { region: q.region, depth: formatDistance(q.depthKm, units, locale) });
   return { title, body, url: `/app/map?focus=${encodeURIComponent(q.id)}`, tag: `quake-${q.id}` };

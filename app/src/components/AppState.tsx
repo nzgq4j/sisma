@@ -131,6 +131,20 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   // Automatic felt maps: approximate position while the app is open (only with location allowed; Me can turn it off).
   usePresencePings(device);
 
+  // My location for alerts (public.device_locations, used like a saved place by alerts and tsunami pushes): the account
+  // keeps this device's last position, rounded to 0.01° (about 1 km; the database rounds it again). Sent when signed in
+  // and the position is known, again when it moves by that much or after 6 hours.
+  useEffect(() => {
+    if (!sb || !user || !device) return;
+    const lat = Math.round(device.lat * 100) / 100, lon = Math.round(device.lon * 100) / 100, key = `sisma.deviceSent.${user.id}`;
+    let last: { lat: number; lon: number; t: number } | null = null;
+    try { last = JSON.parse(localStorage.getItem(key) ?? 'null'); } catch { /* storage unavailable */ }
+    if (last && last.lat === lat && last.lon === lon && Date.now() - last.t < 6 * 3600_000) return;
+    void sb.from('device_locations').upsert({ user_id: user.id, lat, lon }).then(({ error }) => {
+      if (!error) try { localStorage.setItem(key, JSON.stringify({ lat, lon, t: Date.now() })); } catch { /* storage unavailable */ }
+    });
+  }, [sb, user, device]);
+
   // Never prompt on load (onboarding and Me ask with an explanation); only refresh when access was already granted.
   useEffect(() => {
     navigator.permissions?.query({ name: 'geolocation' }).then(s => { if (s.state === 'granted') void locateMe(false); }).catch(() => {});

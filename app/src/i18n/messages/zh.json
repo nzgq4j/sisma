@@ -360,7 +360,8 @@
     "done_btn": "完成",
     "err_reauth": "为了你的安全，请退出后重新登录，再更改密码。",
     "err_same": "请选择一个以前没用过的密码。",
-    "help": "帮助与支持"
+    "help": "帮助与支持",
+    "my_location_alerts": "也用于你的提醒，精确到约 1 公里"
   },
   "onboard": {
     "skip": "跳过",
@@ -486,7 +487,8 @@
     "area_selected": "已选",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · 距{place} {dist}。请听从当地有关部门的指示。",
-    "tsunami_body_nomag": "{region} · 距{place} {dist}。请听从当地有关部门的指示。"
+    "tsunami_body_nomag": "{region} · 距{place} {dist}。请听从当地有关部门的指示。",
+    "your_location": "你的位置"
   },
   "region_chip": "地区",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "无法打开账单页面，请重试。",
     "soon": "账单功能暂未开放。",
     "st_cancelled": "已取消",
-    "cancels_on": "{date} 取消"
+    "cancels_on": "{date} 取消",
+    "st_comp": "赠送",
+    "comp_line": "终身免费，无需订阅",
+    "comp_hint": "sisma 已免费为你的账户开通 sisma+，无需订阅。",
+    "comp_cancel_hint": "sisma 已免费为你的账户开通 sisma+，你可以取消此订阅，所有功能仍然保留。"
   },
   "ptr": {
     "pull": "下拉刷新",
@@ -609,7 +615,8 @@
     "delete_h": "删除此提醒？",
     "delete_p": "你将不再收到此提醒的通知。已发送的提醒会保留在记录中。",
     "cancel": "取消",
-    "not_found": "此提醒已不存在。"
+    "not_found": "此提醒已不存在。",
+    "near_device_note": "我的位置是登录期间这部手机的最后位置，精确到约 1 公里。"
   },
   "billing": {
     "subscribe": "订阅",
@@ -833,8 +840,8 @@
     "center_JMA": "日本气象厅",
     "legend_short": "海啸警报",
     "me_title": "海啸通知",
-    "me_hint": "登录用户免费：当保存的地点 1000 公里范围内的地震发布官方海啸警报、威胁、监视或注意报时通知你。",
+    "me_hint": "登录用户免费：当我的位置或保存的地点 1000 公里范围内的地震发布官方海啸警报、威胁、监视或注意报时通知你。",
     "me_signin": "免费登录，即可接收你保存地点的官方海啸通知。",
-    "me_no_place": "请在下方添加保存的地点：海啸通知针对你保存地点 1000 公里范围内的地震。"
+    "me_no_place": "请使用我的位置或在下方添加保存的地点：海啸通知针对这些地点 1000 公里范围内的地震。"
   }
 }

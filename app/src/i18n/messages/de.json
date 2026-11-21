@@ -360,7 +360,8 @@
     "done_btn": "Fertig",
     "err_reauth": "Melde dich zur Sicherheit ab und wieder an und ändere dann dein Passwort.",
     "err_same": "Wähle ein Passwort, das du noch nicht verwendet hast.",
-    "help": "Hilfe & Support"
+    "help": "Hilfe & Support",
+    "my_location_alerts": "Auch für deine Alarme genutzt, auf etwa 1 km gerundet"
   },
   "onboard": {
     "skip": "Überspringen",
@@ -486,7 +487,8 @@
     "area_selected": "Ausgewählt",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · {dist} von {place}. Folge den örtlichen Behörden.",
-    "tsunami_body_nomag": "{region} · {dist} von {place}. Folge den örtlichen Behörden."
+    "tsunami_body_nomag": "{region} · {dist} von {place}. Folge den örtlichen Behörden.",
+    "your_location": "deinem Standort"
   },
   "region_chip": "Region",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "Zahlungsseite konnte nicht geöffnet werden. Bitte versuche es erneut.",
     "soon": "Die Zahlung ist noch nicht verfügbar.",
     "st_cancelled": "Gekündigt",
-    "cancels_on": "Endet am {date}"
+    "cancels_on": "Endet am {date}",
+    "st_comp": "Geschenkt",
+    "comp_line": "Kostenlos auf Lebenszeit, ohne Abo",
+    "comp_hint": "sisma hat dir sisma+ geschenkt. Du brauchst kein Abo.",
+    "comp_cancel_hint": "sisma hat dir sisma+ geschenkt. Du kannst dieses Abo kündigen und behältst alles."
   },
   "ptr": {
     "pull": "Zum Aktualisieren ziehen",
@@ -609,7 +615,8 @@
     "delete_h": "Diese Warnung löschen?",
     "delete_p": "Du bekommst dafür keine Benachrichtigungen mehr. Bereits gesendete Warnungen bleiben im Verlauf.",
     "cancel": "Abbrechen",
-    "not_found": "Diese Warnung gibt es nicht mehr."
+    "not_found": "Diese Warnung gibt es nicht mehr.",
+    "near_device_note": "Mein Standort ist die letzte Position dieses Telefons, während du angemeldet bist, auf etwa 1 km gerundet."
   },
   "billing": {
     "subscribe": "Abonnieren",
@@ -833,8 +840,8 @@
     "center_JMA": "Japanischer Wetterdienst (JMA)",
     "legend_short": "Tsunamialarm",
     "me_title": "Tsunami-Benachrichtigungen",
-    "me_hint": "Kostenlos für alle Angemeldeten: eine Benachrichtigung, wenn eine offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder ein -hinweis für ein Erdbeben im Umkreis von 1.000 km um einen deiner gespeicherten Orte herausgegeben wird.",
+    "me_hint": "Kostenlos für alle Angemeldeten: eine Benachrichtigung, wenn eine offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder ein -hinweis für ein Erdbeben im Umkreis von 1.000 km um deinen Standort oder einen deiner gespeicherten Orte herausgegeben wird.",
     "me_signin": "Melde dich kostenlos an, um offizielle Tsunami-Benachrichtigungen für deine gespeicherten Orte zu erhalten.",
-    "me_no_place": "Füge unten einen gespeicherten Ort hinzu: Tsunami-Benachrichtigungen gelten für Erdbeben im Umkreis von 1.000 km um deine gespeicherten Orte."
+    "me_no_place": "Nutze deinen Standort oder füge unten einen gespeicherten Ort hinzu: Tsunami-Benachrichtigungen gelten für Erdbeben im Umkreis von 1.000 km darum."
   }
 }

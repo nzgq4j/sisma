@@ -221,6 +221,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>Google ile giriş yap</h3>
           <p><Ui>Google ile devam et</Ui> düğmesine dokun. Android uygulamasında, açılan listeden Google hesabını seç. Google e-postanın zaten bir sisma hesabı varsa Google aynı hesaba eklenir.</p>
+          <p>Hesap oluştururken de <Ui>Google ile devam et</Ui> en üsttedir: hesap şifre ve onay e-postası olmadan hemen oluşturulur.</p>
         </div>
         <Shot src="signin" alt="Giriş penceresi: Google ile devam et, e-posta ve şifre, Şifreni mi unuttun? ve Hesap oluştur" caption="Giriş yapma" />
       </div>
@@ -289,6 +290,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Konum ekle</Ui> ile bir şehir veya kasaba arayıp kaydedebilirsin.</li>
             <li>Mesafeler için kullanılacak konumu seçmek için ona dokun. Kaldırmak için <Ui>×</Ui> simgesine dokun.</li>
             <li><strong>Konumum</strong> seçiliyken sisma, cihazın verebildiği her an konumunu kullanır. Veremiyorsa (konum kapalı veya izin verilmemiş) ya da kayıtlı bir yer seçtiysen sisma o kayıtlı yeri kullanır: varsayılan yerini veya kaydettiğin ilk yeri.</li>
+            <li>Oturum açıkken <strong>Konumum</strong> uyarıların ve tsunami uyarıların için de kullanılır: sisma cihazının son konumunu yaklaşık 1 km’ye yuvarlayarak saklar ve son güncellemeden sonra 30 gün boyunca kullanır.</li>
           </ul>
           <p>Ücretsiz planda <strong>1 kayıtlı konum</strong>, sisma+’ta <strong>en fazla 10</strong> konum vardır. Hesap olmadan konumlar bu cihazda saklanır ve giriş yaptığında hesabına taşınır.</p>
         </div>
@@ -338,6 +340,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Web sitesinden satın alındıysa</strong>: <Ui>Faturalandırmayı yönet</Ui>, Stripe’ın sayfasını açar; burada kartını güncelleyebilir, faturaları görebilir veya iptal edebilirsin.</li>
             <li><strong>Android uygulamasından satın alındıysa</strong>: <Ui>Google Play’de yönet</Ui>, aboneliğini Google Play’de açar.</li>
           </ul>
+          <p>sisma hesabına sisma+’yı ücretsiz verdiyse planında <Ui>Ücretsiz hediye</Ui> yazar. Aboneliğe ihtiyacın yoktur ve başlattığın aboneliği sisma+’yı kaybetmeden iptal edebilirsin.</p>
         </div>
         <Shot src="subscription" alt="Abonelik sayfası: durum, plan, yenileme tarihi ve Google Play’de yönet" caption="Aboneliğin" />
       </div>
@@ -384,9 +387,10 @@ export const TOPICS: Topic[] = [
         <li><strong>Sessiz saatler</strong>: gece uyarı yok; istersen güçlü depremlerin (6 ve üzeri büyüklük) yine de gelmesine izin verebilirsin.</li>
         <li>Bir grafik, son 30 günde kaç depremin bu uyarıyı tetikleyeceğini gösterir; böylece uyarını ince ayarlayabilirsin.</li>
       </ul>
+      <p>Cihazın konumunu paylaştığında <strong>İzlenen</strong> <strong>Konumum</strong>’u da içerir: bkz. <Link href="/help/locations">Kayıtlı konumlar</Link>.</p>
       <p>Son 30 günde aldığın uyarılar <em>Uyarı geçmişi</em> altında listelenir.</p>
       <h3>Tsunami bildirimleri</h3>
-      <p>Tsunami bildirimleri oturum açan herkes için ücretsizdir. <Ui>Profil</Ui> bölümünde <Ui>Tsunami bildirimleri</Ui> seçeneğini açın ve <Ui>Bu cihazda bildirimleri aç</Ui> düğmesine dokunun. Kayıtlı yerlerinizden birine 1.000 km mesafedeki bir deprem için resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi yayımlandığında bildirim alırsınız. Sessiz saatler uygulanmaz ve her seviye deprem başına yalnızca bir kez gönderilir.</p>
+      <p>Tsunami bildirimleri oturum açan herkes için ücretsizdir. <Ui>Profil</Ui> bölümünde <Ui>Tsunami bildirimleri</Ui> seçeneğini açın ve <Ui>Bu cihazda bildirimleri aç</Ui> düğmesine dokunun. Kayıtlı yerlerinizden birine 1.000 km mesafedeki bir deprem için resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi yayımlandığında bildirim alırsınız. Sessiz saatler uygulanmaz ve her seviye deprem başına yalnızca bir kez gönderilir. Diğer uyarılarda olduğu gibi Konumum de sayılır.</p>
       <Callout kind="note"><p><strong>iPhone ve iPad:</strong> web bildirimleri yalnızca sisma’yı Ana Ekran’a ekledikten (Paylaş → Ana Ekrana Ekle) ve oradan açtıktan sonra çalışır. sisma’yı iPhone veya iPad’de tarayıcıda ilk kez açtığınızda bu adımlar bir açılır pencerede gösterilir; iki hafta sonra yeniden görmek için <Ui>Şimdi değil</Ui>, gizlemek için <Ui>Anladım</Ui> düğmesine dokunun.</p></Callout>
       </>
     ),

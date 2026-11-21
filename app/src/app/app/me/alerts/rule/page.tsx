@@ -34,7 +34,10 @@ function RuleEditor() {
   const k = m.rules;
   const id = useSearchParams().get('id');
   const router = useRouter();
-  const { plan, places } = useApp();
+  const { plan, places, locations } = useApp();
+  // My location counts as a place for alerts (public.device_locations), when this device has a position.
+  const here = locations.find(l => l.fromDevice);
+  const placeNames = [...(here ? [m.acct.my_location] : []), ...places.map(p => p.name)];
   const u = useDistance();
   const a = useAlertRules();
   const rule = a.rules.find(r => r.id === id) ?? null;
@@ -89,7 +92,7 @@ function RuleEditor() {
       <div className={me.card}>
         <button type="button" className={me.row} role="switch" aria-checked={rule.nearPlaces} onClick={() => save({ nearPlaces: !rule.nearPlaces })}>
           <span className="ms" aria-hidden="true">location_on</span>
-          <span className={me.grow}>{k.near_h}<span className={me.rowHint}>{places.length ? places.map(p => p.name).join(' · ') : k.near_none}</span></span>
+          <span className={me.grow}>{k.near_h}<span className={me.rowHint}>{placeNames.length ? placeNames.join(' · ') : k.near_none}{here && <><br />{k.near_device_note}</>}</span></span>
           <span className={me.switch} aria-hidden="true"><span /></span>
         </button>
         {rule.nearPlaces && (
@@ -166,14 +169,15 @@ function Last30({ rule }: { rule: Rule }) {
   const days = useMemo(() => {
     if (!data) return null;
     const start = data.at - 30 * 864e5, out = new Array<number>(30).fill(0);
-    const locs = places.map(p => ({ name: p.name, lat: p.lat, lon: p.lon }));
+    const here = locations.find(l => l.fromDevice);
+    const locs = [...places.map(p => ({ name: p.name, lat: p.lat, lon: p.lon })), ...(here ? [{ name: '@device', lat: here.lat, lon: here.lon }] : [])];
     for (const q of data.quakes) {
       if (q.time < start) continue;
       const area = () => ({ country: countryAt(q.lat, q.lon)?.code ?? null, region: worldRegion(q.lat, q.lon) });
       if (ruleMatch(rule, q, locs, area, q.time)) out[Math.min(29, Math.floor((q.time - start) / 864e5))]++;
     }
     return out;
-  }, [data, places, rule]);
+  }, [data, places, locations, rule]);
   const total = days?.reduce((s, n) => s + n, 0) ?? 0, max = Math.max(1, ...(days ?? [0]));
   const first = new Intl.DateTimeFormat(locale, { month: 'short', day: 'numeric' }).format((data?.at ?? 0) - 29 * 864e5);
   return (
