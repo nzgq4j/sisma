@@ -143,6 +143,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>La pestaña <Ui>Globo</Ui> muestra los mismos sismos sobre una Tierra en 3D. Arrastra para girarla y pellizca o usa la rueda para hacer zoom. Toca un marcador para ver su resumen. <Ui>Mi ubicación</Ui>, debajo del botón <Ui>−</Ui>, gira el globo hasta donde estás ahora y hace zoom (el giro se detiene para que sigas a la vista).</p>
+          <p>Al acercarte aparecen <strong>nombres de ciudades</strong> en tu idioma, como en el mapa, en la cara del globo que tienes delante, sin tapar los sismos ni los botones.</p>
           <p>En las capas del panel <Ui>Filtros</Ui>:</p>
           <ul>
             <li><strong>Profundidad</strong> colorea cada sismo según su profundidad y traza una línea hasta donde empezó, para que veas los sismos profundos bajo las zonas de subducción.</li>

@@ -39,7 +39,7 @@ export default function GlobePage() {
       <Globe ref={globe} quakes={list} center={locations[active]} selectedId={selId} onSelect={q => { setSelId(q?.id ?? null); setSheet(false); }}
         depthMode={depth} plates={plates} spin={spin} label={t('count', { n: list.length })}
         focus={regionView ? { key: `wr:${worldReg}`, lat: regionView.lat, lon: regionView.lon } : null} here={device} />
-      <div className={styles.zoomPill}>
+      <div className={styles.zoomPill} data-map-overlay="">
         <button type="button" onClick={() => globe.current?.zoomBy(1.6)} aria-label={m.dash.zoom_in} title={m.dash.zoom_in}><span className="ms">add</span></button>
         <hr />
         <button type="button" onClick={() => globe.current?.zoomBy(1 / 1.6)} aria-label={m.dash.zoom_out} title={m.dash.zoom_out}><span className="ms">remove</span></button>

@@ -143,6 +143,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p><Ui>Küre</Ui> sekmesi aynı depremleri 3B bir Dünya üzerinde gösterir. Çevirmek için sürükle; yakınlaştırmak için iki parmakla sıkıştır veya kaydır. Özeti için bir işarete dokun. <Ui>−</Ui> düğmesinin altındaki <Ui>Konumum</Ui>, küreyi şu an bulunduğun yere çevirir ve yakınlaştırır (görünümde kalman için dönme durur).</p>
+          <p>Yakınlaştırdığında, haritada olduğu gibi, kürenin sana bakan yüzünde <strong>şehir adları</strong> kendi dilinde görünür; depremlerin ve düğmelerin üstüne gelmez.</p>
           <p><Ui>Filtreler</Ui> panelindeki katmanlarda:</p>
           <ul>
             <li><strong>Derinlik</strong> her depremi derinliğine göre renklendirir ve başladığı noktaya kadar bir çizgi çizer; böylece dalma-batma zonlarının altındaki derin depremleri görebilirsin.</li>

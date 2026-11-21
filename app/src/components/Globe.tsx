@@ -3,18 +3,22 @@
 // (0.8–10×: scale changes only zoom, pans only rotate); auto-spin 0.12°/frame ÷ zoom; Depth mode draws radial
 // lines scaled 1 − depth/700 × 0.4 coloured by depthColor; plate boundaries. Events use the same markers as the 2D
 // maps, in the style chosen in Me → Map markers (lib/pin.ts, lib/marker-sprite.ts): numbered pins or circles sized by
-// magnitude, magnitude colour (Depth mode: depth colour); a tap picks the nearest marker.
+// magnitude, magnitude colour (Depth mode: depth colour); a tap picks the nearest marker. Zoomed in, city names as on
+// the map (lib/cities.ts), on the side facing the viewer and clear of the markers.
 import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { geoDistance, geoGraticule10, geoOrthographic, geoPath } from 'd3-geo';
 import { select } from 'd3-selection';
 import { zoom, zoomIdentity, zoomTransform, type ZoomBehavior } from 'd3-zoom';
 import { depthColor, depthInk, magIndex } from '@/lib/theme';
-import { markerHit } from '@/lib/pin';
+import { dotRadius, markerHit } from '@/lib/pin';
 import { tsunamiTone } from '@/lib/tsunami/view';
 import { markerSprite, stampSprite } from '@/lib/marker-sprite';
 import { useMarkerStyle } from '@/components/MarkerStyle';
 import { LAND, SPHERE, useLakes, usePlates } from '@/lib/world';
 import type { Quake } from '@/lib/quakes/types';
+import { useT } from '@/i18n/I18nProvider';
+import { CITIES_FROM, placeLabels, type Box, type City } from '@/lib/cities';
+import { loadCities, overlayBoxes } from '@/lib/use-cities';
 
 export interface GlobeHandle {
   zoomBy: (f: number) => void;
@@ -43,7 +47,7 @@ function readTheme() {
   return { sea: v('--map-sea'), land: v('--map-land'), line: v('--map-line'), grat: v('--map-grat'), plate: v('--map-plate'), glow: v('--map-glow'), ink: v('--ink'), violet: v('--violet'),
     // Marker colours by magnitude band, following light/dark mode (globals.css --mag-0 … --mag-5).
     mags: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-${i}`)), magInks: [0, 1, 2, 3, 4, 5].map(i => v(`--mag-ink-${i}`)),
-    surface: v('--surface'), font: getComputedStyle(document.body).fontFamily,
+    surface: v('--surface'), font: getComputedStyle(document.body).fontFamily, label: v('--map-label'), halo: v('--map-label-halo'),
     tsu: { warning: v('--tsu-warning'), threat: v('--tsu-threat'), watch: v('--tsu-watch'), ink: v('--tsu-ink') } };
 }
 
@@ -51,6 +55,8 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const live = useRef(props);
+  const { locale } = useT();
+  const localeRef = useRef(locale);
   const markerStyle = useMarkerStyle();
   const styleRef = useRef(markerStyle);
   const sorted = useRef<{ src: Quake[] | null; list: Quake[] }>({ src: null, list: [] });
@@ -60,7 +66,7 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
   const lakesRef = useRef(lakeData);
   const zoomRef = useRef<{ z: ZoomBehavior<HTMLCanvasElement, unknown>; el: HTMLCanvasElement } | null>(null);
   useEffect(() => {
-    live.current = props; platesRef.current = plateData; lakesRef.current = lakeData; styleRef.current = markerStyle;
+    live.current = props; localeRef.current = locale; platesRef.current = plateData; lakesRef.current = lakeData; styleRef.current = markerStyle;
     // Ascending magnitude so the strongest events are drawn last (on top); recomputed only when the data changes.
     if (sorted.current.src !== props.quakes) sorted.current = { src: props.quakes, list: [...props.quakes].sort((a, b) => a.mag - b.mag) };
   });
@@ -84,6 +90,10 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       focusKey: null as string | null,
       turn: null as { from: [number, number]; to: [number, number]; t0: number; k?: [number, number] } | null };
     const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // City names: the data is fetched the first time the globe is zoomed in far enough; widths are measured once each.
+    let cities: City[] | null = null, citiesAsked = false;
+    const widths = new Map<string, number>();
+    let overlays: Box[] = [];
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
@@ -223,6 +233,34 @@ export const Globe = forwardRef<GlobeHandle, Props>(function Globe(props, ref) {
       // The selected event on top, larger, with an ink outline (as on the 2D maps).
       if (selPt) stamp(selPt[0], selPt[1], selPt[2], true);
       const L = p.center;
+      // City names, as on the map from the same zoom: the globe's scale at the centre of the view gives the web-map
+      // zoom. Only places well inside the visible side, clear of the markers and the location dots.
+      const zw = Math.log2((2 * Math.PI * Rs) / 256);
+      if (zw >= CITIES_FROM - 0.5 && !citiesAsked) { citiesAsked = true; void loadCities().then(d => { cities = d; }); }
+      if (cities && zw >= CITIES_FROM) {
+        // The zoom buttons beside the globe (data-map-overlay in the page), measured now and then.
+        if (frameNo % 20 === 1 || !overlays.length) overlays = overlayBoxes(wrap.parentElement, cv);
+        const blocked: Box[] = [...overlays, ...pts.map(([x, y, q]) => styleRef.current === 'pins' ? [x - 16, y - 40, x + 16, y + 8] as Box
+          : [x - dotRadius(q.mag) - 4, y - dotRadius(q.mag) - 4, x + dotRadius(q.mag) + 4, y + dotRadius(q.mag) + 4] as Box)];
+        for (const D of [L, p.here]) {
+          const xy = D && geoDistance([D.lon, D.lat], c) < 1.55 ? proj([D.lon, D.lat]) : null;
+          if (xy) blocked.push([xy[0] - 14, xy[1] - 14, xy[0] + 14, xy[1] + 14]);
+        }
+        const at = (ct: City) => {
+          if (geoDistance([ct.lon, ct.lat], c) > 1.35) return null; // away from the rim, where names would crowd
+          const xy = proj([ct.lon, ct.lat]); return xy ? { x: xy[0], y: xy[1] } : null;
+        };
+        ctx.font = `600 11px ${theme.font}`; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+        const measure = (t: string) => { let w = widths.get(t); if (w == null) { w = ctx.measureText(t).width; widths.set(t, w); } return w; };
+        for (const l of placeLabels(cities, zw, localeRef.current, at, measure, { w: W, h: H }, undefined, blocked)) {
+          ctx.beginPath(); ctx.arc(l.x, l.y, 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = theme.label; ctx.strokeStyle = theme.halo; ctx.lineWidth = 1.5; ctx.fill(); ctx.stroke();
+          ctx.textAlign = l.w >= 0 ? 'left' : 'right';
+          const tx = l.w >= 0 ? l.x + 6 : l.x - 6;
+          ctx.lineWidth = 3; ctx.strokeText(l.text, tx, l.y); ctx.fillText(l.text, tx, l.y);
+        }
+        ctx.textAlign = 'left';
+      }
       if (geoDistance([L.lon, L.lat], c) < 1.55) {
         const xy = proj([L.lon, L.lat]);
         if (xy) {
