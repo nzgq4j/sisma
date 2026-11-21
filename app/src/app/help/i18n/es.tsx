@@ -189,6 +189,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Toca <Ui>Compartir</Ui> en un sismo para crear una tarjeta para compartir: una imagen con el mapa y los datos principales.</p>
+          <p>El mapa de la tarjeta también muestra <strong>nombres de ciudades</strong> alrededor del sismo, en tu idioma, como en la vista de región, donde caben sin tapar los sismos. En alta mar puede que no haya ninguno.</p>
           <p>Donde la gente informó haber sentido el sismo, el mapa de la tarjeta también lo muestra como en la vista de región: pequeños cuadrados con el color de la intensidad (grises si se desconoce), con la escala de intensidad abajo a la derecha. La descripción de imagen sugerida también lo menciona. Si desactivaste <Ui>Mapas de percepción</Ui> en <Ui>Capas</Ui> de la vista de región, la tarjeta tampoco los muestra.</p>
           <p>Cuando un centro de alerta de tsunamis ha emitido un mensaje oficial por el sismo, la tarjeta muestra su nivel y el centro en la esquina superior izquierda del mapa, por ejemplo <strong>Aviso de tsunami · PTWC</strong>, en color mientras está vigente un aviso, amenaza, vigilancia o advertencia. El texto de la publicación y la descripción de la imagen también lo incluyen.</p>
           <ul>

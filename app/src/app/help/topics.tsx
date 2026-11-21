@@ -202,6 +202,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tap <Ui>Share</Ui> on an earthquake to make a share card: a picture with the map and the main details.</p>
+          <p>The card’s map also shows <strong>city names</strong> around the earthquake, in your language, as in the region view, wherever they fit without covering the earthquakes. Far out at sea there may be none.</p>
           <p>Where people reported feeling the earthquake, the card’s map also shows it as in the region view: small squares coloured by intensity (grey where the intensity is unknown), with the intensity scale at the bottom right. The suggested image description then mentions them. If you’ve switched off <Ui>Felt maps</Ui> under <Ui>Layers</Ui> in the region view, the card leaves them out too.</p>
           <p>When a tsunami warning centre has issued an official message for the earthquake, the card shows its level and centre at the top left of the map, for example <strong>Tsunami warning · PTWC</strong>, coloured while a warning, threat, watch or advisory is in effect. The post text and the image description include it too.</p>
           <ul>

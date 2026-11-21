@@ -11,6 +11,8 @@ import { shareGrid, type ShareFelt } from './share-felt';
 import { FELT_CELL_DEG, feltColor } from './felt-grid';
 import type { Quake } from './quakes/types';
 import { KM_PER_MI, type Units } from './units';
+import { placeLabels, type Box, type City, type Label } from './cities';
+import { emWidth } from './share-text';
 
 const topo = world as unknown as Topology<{ countries: GeometryCollection }>;
 const LAND = feature(topo, topo.objects.countries);
@@ -38,6 +40,41 @@ export function shareMapScale({ q, w, h, span, units }: { q: Pick<Quake, 'lat'>;
   return { len, barW: len * pxPerUnit, bx: 32, by: h - 34, label: `${len} ${units}` };
 }
 
+/** The card map's projection: Mercator centred on the event, `span` degrees of longitude across the width. */
+function cardProjection(q: Pick<Quake, 'lat' | 'lon'>, w: number, h: number, span: number) {
+  const s = (w * 180) / (Math.PI * span);
+  return { s, proj: geoMercator().rotate([-q.lon, 0]).center([0, q.lat]).scale(s).translate([w / 2, h / 2]).clipExtent([[-20, -20], [w + 20, h + 20]]) };
+}
+
+/** City names on the card: twice the map's size (the card is about twice the size it is seen at). */
+export const CARD_CITY = { font: 22, dot: 5, gap: 12, max: 16 } as const;
+
+/** Radius of an event's dot on the card map (the event in focus adds its ring and halo, see shareMapSvg). */
+const dotR = (mag: number) => Math.max(7, (mag - 1.6) * 5);
+
+/**
+ * The city names to draw on the card map (lib/cities.ts): the places the region view would name at the same scale,
+ * in the card's language, clear of the events and of `blocked` (the card's scale bar, legend and pills).
+ * `w` of a label is negative when the name sits left of its dot.
+ */
+export function shareCityLabels(opts: { q: Quake; nearby: Quake[]; w: number; h: number; span: number; cities: City[]; locale: string; blocked?: Box[] }): Label[] {
+  const { q, nearby, w, h, span, cities, locale } = opts;
+  const { s, proj } = cardProjection(q, w, h, span);
+  // Web-map zoom of the card's scale, one step less because the card is seen at about half its pixel size.
+  const zw = Math.log2((2 * Math.PI * s) / 256) - 1;
+  const blocked: Box[] = [...(opts.blocked ?? [])];
+  for (const n of nearby) {
+    const p = proj([n.lon, n.lat]); if (!p) continue;
+    const r = n.id === q.id ? dotR(n.mag) + 30 : dotR(n.mag) + 4; // the event in focus: its ring and halo
+    blocked.push([p[0] - r, p[1] - r, p[0] + r, p[1] + r]);
+  }
+  if (!nearby.some(n => n.id === q.id)) { const r = dotR(q.mag) + 30; blocked.push([w / 2 - r, h / 2 - r, w / 2 + r, h / 2 + r]); }
+  const at = (c: City) => { const p = proj([c.lon, c.lat]); return p ? { x: p[0], y: p[1] } : null; };
+  // Estimated width (the server has no text measurement), with a little room so names never touch.
+  const measure = (t: string) => emWidth(t) * CARD_CITY.font * 1.08;
+  return placeLabels(cities, zw, locale, at, measure, { w, h }, CARD_CITY.max, blocked, 2);
+}
+
 export function shareMapSvg(opts: {
   q: Quake; nearby: Quake[]; w: number; h: number; span: number; units: Units; colors: ShareMapColors;
   plates?: GeoPermissibleObjects | null; lakes?: GeoPermissibleObjects | null; font?: string;
@@ -47,8 +84,7 @@ export function shareMapSvg(opts: {
   felt?: ShareFelt | null;
 }): string {
   const { q, nearby, w, h, span, units, colors: c } = opts;
-  const s = (w * 180) / (Math.PI * span);
-  const proj = geoMercator().rotate([-q.lon, 0]).center([0, q.lat]).scale(s).translate([w / 2, h / 2]).clipExtent([[-20, -20], [w + 20, h + 20]]);
+  const { proj } = cardProjection(q, w, h, span);
   const path = geoPath(proj);
   const d = (o: GeoPermissibleObjects | null | undefined) => (o ? path(o) ?? '' : '');
 
@@ -57,7 +93,7 @@ export function shareMapSvg(opts: {
     .map(n => ({ n, xy: proj([n.lon, n.lat]) }))
     .filter((x): x is { n: Quake; xy: [number, number] } => !!x.xy && x.xy[0] > -10 && x.xy[0] < w + 10 && x.xy[1] > -10 && x.xy[1] < h + 10)
     .sort((a, b) => a.n.mag - b.n.mag)
-    .map(({ n, xy }) => `<circle cx="${xy[0].toFixed(1)}" cy="${xy[1].toFixed(1)}" r="${Math.max(7, (n.mag - 1.6) * 5).toFixed(1)}" fill="${MAG_MARKER_LIGHT[magIndex(n.mag)]}" fill-opacity="0.9" stroke="${c.surface}" stroke-width="2"/>`)
+    .map(({ n, xy }) => `<circle cx="${xy[0].toFixed(1)}" cy="${xy[1].toFixed(1)}" r="${dotR(n.mag).toFixed(1)}" fill="${MAG_MARKER_LIGHT[magIndex(n.mag)]}" fill-opacity="0.9" stroke="${c.surface}" stroke-width="2"/>`)
     .join('');
 
   const felt = feltSvg(opts.felt, proj, w, h);
@@ -65,7 +101,7 @@ export function shareMapSvg(opts: {
   const [fx, fy] = proj([q.lon, q.lat]) ?? [w / 2, h / 2];
   const mc = MAG_MARKER_LIGHT[magIndex(q.mag)]; // the card is light, like the light-mode map
   // Same style as the app: the event's dot with a ring just outside it, scaled with the magnitude, plus a soft halo.
-  const fr = Math.max(7, (q.mag - 1.6) * 5), ring = fr + 10;
+  const fr = dotR(q.mag), ring = fr + 10;
   const marker = `<g transform="translate(${fx.toFixed(1)},${fy.toFixed(1)})">
 <circle r="${ring + 14}" fill="none" stroke="${mc}" stroke-opacity="0.35" stroke-width="6"/>
 <circle r="${fr}" fill="${mc}" stroke="${c.surface}" stroke-width="2"/>

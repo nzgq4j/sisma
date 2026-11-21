@@ -189,6 +189,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Ketuk <Ui>Bagikan</Ui> pada sebuah gempa untuk membuat kartu berbagi: gambar berisi peta dan detail utamanya.</p>
+          <p>Peta pada kartu juga menampilkan <strong>nama kota</strong> di sekitar gempa dalam bahasa Anda, seperti di tampilan wilayah, di tempat yang tidak menutupi gempa. Jauh di laut mungkin tidak ada nama sama sekali.</p>
           <p>Di tempat orang melaporkan merasakan gempa, peta pada kartu juga menunjukkannya seperti di tampilan wilayah: kotak kecil berwarna intensitas (abu-abu jika intensitas tidak diketahui), dengan skala intensitas di kanan bawah. Deskripsi gambar yang disarankan juga menyebutkannya. Jika Anda mematikan <Ui>Peta guncangan</Ui> di <Ui>Lapisan</Ui> pada tampilan wilayah, kartu juga tidak menampilkannya.</p>
           <p>Jika pusat peringatan tsunami telah mengeluarkan pesan resmi untuk gempa tersebut, kartu menampilkan tingkat dan pusatnya di kiri atas peta, misalnya <strong>Peringatan tsunami · PTWC</strong>, berwarna selama peringatan, ancaman, pemantauan, atau imbauan masih berlaku. Teks unggahan dan deskripsi gambar juga mencantumkannya.</p>
           <ul>
