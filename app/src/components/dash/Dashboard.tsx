@@ -19,6 +19,7 @@ import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
 import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
+import { REGION_SPAN } from '@/lib/world-regions';
 
 const SORT_LABEL = { time: 'sort_time', distance: 'sort_distance', mag: 'sort_mag' } as const;
 const MAG_BINS = [...MAG_SCALE].reverse().map(([min], i, a) => ({ min: i === 0 ? -99 : min, max: a[i + 1]?.[0] ?? 99 }));
@@ -42,6 +43,10 @@ export function Dashboard() {
     return s;
   }, [list, sort]);
   const sel = list.find(q => q.id === selId) ?? null;
+  // The map zooms to the selected event (about 7.5° across, like the region view), so its city names show. It stays
+  // there when the selection is cleared; the reset button returns to the world.
+  const [mapFocus, setMapFocus] = useState<{ key: string; lat: number; lon: number; span: number } | null>(null);
+  if (sel && mapFocus?.key !== sel.id) setMapFocus({ key: sel.id, lat: sel.lat, lon: sel.lon, span: REGION_SPAN });
 
   const strongest = useMemo(() => list.reduce<Row | null>((a, q) => (!a || q.mag > a.mag ? q : a), null), [list]);
   const nearest = useMemo(() => {
@@ -125,9 +130,9 @@ export function Dashboard() {
       <div className={styles.main}>
         <div className={styles.leftCol}>
           <section className={`${styles.card} ${styles.mapCard}`}>
-            <WorldMap projection="mercator" quakes={mapList} center={loc} selectedId={selId} onSelect={q => setSelId(q?.id ?? null)} />
-            <div className={styles.mapFilter}><MagFilterChip /><RegionFilterChip /></div>
-            <div className={styles.mapLegend} aria-hidden="true">
+            <WorldMap projection="mercator" quakes={mapList} center={loc} selectedId={selId} onSelect={q => setSelId(q?.id ?? null)} focus={mapFocus} />
+            <div className={styles.mapFilter} data-map-overlay=""><MagFilterChip /><RegionFilterChip /></div>
+            <div className={styles.mapLegend} aria-hidden="true" data-map-overlay="">
               <span>M</span>
               {[...MAG_SCALE].reverse().map(([min], i) => <i key={min} style={{ background: `var(--mag-${MAG_SCALE.length - 1 - i})` }} />)}
               <span>7+</span>

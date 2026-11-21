@@ -67,6 +67,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Strongest</strong>: highest magnitude first.</li>
           </ul>
           <p>Each row shows the magnitude in a coloured badge, the place, how long ago it happened, how far it is from you and how deep it was.</p>
+          <p>On a computer, the feed is on the <Ui>Overview</Ui> page, first in the menu on the left, with a map beside the list. Choose an earthquake in the list or on the map and the map zooms to it, with the names of nearby cities. It stays there when you close the earthquake; <Ui>Reset view</Ui> shows the whole world again.</p>
           <h3>Magnitude colours</h3>
           <p>The same colours are used in the feed, on the map and on the globe:</p>
           <MagLegend />

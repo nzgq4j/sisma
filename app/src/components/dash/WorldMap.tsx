@@ -500,7 +500,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
         }
         return null;
       };
-      const blocked: Box[] = overlayBoxes(wrap, cv); // the zoom buttons
+      const blocked: Box[] = overlayBoxes(wrap.parentElement, cv); // zoom buttons and the page's cards over the map
       for (const { p, r } of quakePts) {
         if (!p) continue;
         for (const off of W ? [0, -W, W] : [0]) {

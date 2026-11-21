@@ -54,6 +54,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Più forti</strong>: prima quelli di magnitudo più alta.</li>
           </ul>
           <p>Ogni riga mostra la magnitudo in un badge colorato, il luogo, quanto tempo fa è avvenuto, quanto dista da te e a che profondità.</p>
+          <p>Su un computer, l’elenco si trova nella pagina <Ui>Panoramica</Ui>, la prima del menu a sinistra, con una mappa accanto. Scegli un terremoto nell’elenco o sulla mappa e la mappa si ingrandisce su di esso, con i nomi delle città vicine. Resta lì quando chiudi il terremoto; <Ui>Ripristina vista</Ui> mostra di nuovo tutto il mondo.</p>
           <h3>Colori della magnitudo</h3>
           <p>Gli stessi colori sono usati nell’elenco, sulla mappa e sul globo:</p>
           <MagLegend words={{ label: 'Colori della magnitudo', magnitude: 'Magnitudo {range}', orMore: '{n} o superiore', below: 'inferiore a {n}', to: 'da {a} a {b}' }} />

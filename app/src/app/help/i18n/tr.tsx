@@ -54,6 +54,7 @@ export const TOPICS: Topic[] = [
             <li><strong>En güçlü</strong>: önce en büyük olanlar.</li>
           </ul>
           <p>Her satırda renkli bir rozet içinde büyüklük, yer, ne kadar önce olduğu, sana olan uzaklığı ve derinliği görünür.</p>
+          <p>Bilgisayarda akış, soldaki menünün ilk öğesi olan <Ui>Genel bakış</Ui> sayfasında, yanında bir haritayla yer alır. Listede veya haritada bir deprem seçtiğinde harita, yakındaki şehirlerin adlarıyla birlikte o depreme yakınlaşır. Depremi kapattığında harita orada kalır; <Ui>Görünümü sıfırla</Ui> yeniden tüm dünyayı gösterir.</p>
           <h3>Büyüklük renkleri</h3>
           <p>Akışta, haritada ve kürede aynı renkler kullanılır:</p>
           <MagLegend words={{ label: 'Büyüklük renkleri', magnitude: 'Büyüklük {range}', orMore: '{n} ve üzeri', below: '{n} altı', to: '{a} – {b}' }} />
