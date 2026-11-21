@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { PRICES, TRIAL_DAYS, type Billing } from '@/lib/entitlements';
 import { trialEligible } from '@/lib/billing';
-import { clearPendingUpgrade, setPendingUpgrade, takePendingUpgrade } from '@/lib/pending-upgrade';
+import { autoCheckoutUsed, clearPendingUpgrade, markAutoCheckout, setPendingUpgrade, takePendingUpgrade } from '@/lib/pending-upgrade';
 import { buyWithPlay, inApp, playBillingReady, playPrices, restorePlay, type PlayResult } from '@/lib/play-client';
 import { useApp } from './AppState';
 import { useAccount } from './Account';
@@ -94,15 +94,27 @@ export function PaywallSheet() {
   }, []);
 
   // Signed in (and the profile loaded) with an upgrade waiting: reopen the sheet on that plan and go on to checkout,
-  // unless the account already has sisma+. A plan saved on this device (sign-in in this tab, e.g. the Google round
+  // unless the account already has sisma+. It runs once per account on this device (a reopened app can be handed the
+  // old confirmation link again), never when the account already has a Google Play subscription on record, and in the
+  // app it first looks for a subscription this Google account already has (bought a moment ago, still being recorded). A plan saved on this device (sign-in in this tab, e.g. the Google round
   // trip) is taken only by a tab on screen; a background tab waits until it is shown, by when it is usually gone.
   useEffect(() => {
     if (!user || !profile) return;
     const go = () => {
       const pending = linkPlan.current ?? takePendingUpgrade();
       linkPlan.current = null;
-      if (!pending || plan === 'plus') return;
-      void Promise.resolve().then(() => { setBilling(pending); setSheet('paywall'); return checkout(pending); });
+      if (!pending || plan === 'plus' || autoCheckoutUsed(user.id) || profile.play_purchase_token) return;
+      markAutoCheckout(user.id);
+      void Promise.resolve().then(async () => {
+        setBilling(pending); setSheet('paywall');
+        if (app) {
+          setState('busy');
+          const token = await accessToken();
+          if (token && (await restorePlay(user.id, token)) === 'ok') return afterPlay('ok');
+          setState('idle');
+        }
+        return checkout(pending);
+      });
     };
     if (linkPlan.current || document.visibilityState === 'visible') { go(); return; }
     const shown = () => { if (document.visibilityState === 'visible') { document.removeEventListener('visibilitychange', shown); go(); } };

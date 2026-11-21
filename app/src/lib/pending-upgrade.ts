@@ -52,3 +52,17 @@ export function takePendingYearRange(now = Date.now()): boolean {
     return typeof at === 'number' && now - at >= 0 && now - at < TTL_MS;
   } catch { return false; }
 }
+
+// The automatic checkout after sign-up runs once per account on this device. Android can hand the app the same
+// confirmation link again when it is reopened (its ?upgrade= is then stale), which used to start a purchase again
+// without a tap.
+const DONE_KEY = 'sisma.autoCheckoutDone';
+const doneIds = (): string[] => { try { return JSON.parse(localStorage.getItem(DONE_KEY) ?? '[]') as string[]; } catch { return []; } };
+
+/** Whether this account's automatic checkout has already run on this device. */
+export const autoCheckoutUsed = (userId: string) => doneIds().includes(userId);
+
+/** Records that this account's automatic checkout has run (keeps the last 10 accounts). */
+export function markAutoCheckout(userId: string) {
+  try { localStorage.setItem(DONE_KEY, JSON.stringify([userId, ...doneIds().filter(x => x !== userId)].slice(0, 10))); } catch { /* storage unavailable */ }
+}

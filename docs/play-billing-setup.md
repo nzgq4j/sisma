@@ -64,3 +64,15 @@ Nothing here needs to be sent to Claude. The service account key is a secret: pu
 This code has been unit-tested (state mapping, Pub/Sub token check) but not run against Google Play. The first real
 check is step 5 with a license tester. One point to watch there: the plugin chooses the first offer Google returns
 for the base plan; confirm that an eligible new tester gets the free-trial offer.
+
+## Diagnosing purchase errors on phones
+
+When the billing plugin rejects a purchase or a restore (anything but the user closing Google's sheet), the app sends
+Google's response code and message to `POST /api/play/client-error`, which writes one line to the server log:
+`play client error {"user":"<id>","stage":"purchase","code":"…","message":"…"}`. Search the Vercel runtime logs for
+`play client error`. Nothing is stored in the database.
+
+After such an error the app first looks for the purchase on the phone (restore) and then on the account (Google's
+notification may have recorded it), and only shows an error if neither has it. The automatic checkout after sign-up
+runs once per account on a device, never when the account already has a Google Play subscription on record, and in
+the app it looks for an existing purchase before opening Google's sheet.

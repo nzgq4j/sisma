@@ -54,6 +54,13 @@ export async function playPrices(): Promise<Partial<Record<Billing, string>>> {
 
 export type PlayResult = 'ok' | 'cancelled' | 'none' | 'error' | 'mismatch' | 'unavailable';
 
+/** Sends a billing plugin error (code and message only) to the server log, so failures in the app can be diagnosed. */
+function reportError(stage: 'purchase' | 'restore', e: unknown, accessToken: string) {
+  const err = e as { code?: unknown; message?: unknown };
+  const body = JSON.stringify({ stage, code: String(err?.code ?? ''), message: String(err?.message ?? e ?? '') });
+  void fetch('/api/play/client-error', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${accessToken}` }, body }).catch(() => {});
+}
+
 async function report(token: string, accessToken: string): Promise<PlayResult> {
   const r = await fetch('/api/play/verify', { method: 'POST', headers: { 'content-type': 'application/json', authorization: `Bearer ${accessToken}` }, body: JSON.stringify({ purchaseToken: token }) }).catch(() => null);
   if (!r) return 'error';
@@ -75,6 +82,7 @@ export async function buyWithPlay(billing: Billing, userId: string, accessToken:
     const code = (e as { code?: string })?.code;
     if (code === 'USER_CANCELED') return 'cancelled';
     if (code === 'ITEM_ALREADY_OWNED') return restorePlay(userId, accessToken);
+    reportError('purchase', e, accessToken);
     // The subscription can't be bought in this build: products not set up in Play Console yet, or the app was not
     // installed from Google Play (the plugin rejects with "Product not found" before Google's sheet opens).
     const msg = String((e as Error)?.message ?? e);
@@ -92,7 +100,7 @@ export async function restorePlay(userId: string, accessToken: string): Promise<
   const p = plugin();
   if (!p) return 'error';
   let purchases: PlayTransaction[];
-  try { purchases = (await p.getPurchases({ productType: 'subs', appAccountToken: await accountId(userId) })).purchases; } catch { return 'error'; }
+  try { purchases = (await p.getPurchases({ productType: 'subs', appAccountToken: await accountId(userId) })).purchases; } catch (e) { reportError('restore', e, accessToken); return 'error'; }
   const ours = purchases.filter(x => x.purchaseToken && (!x.productIdentifier || playBilling(x.productIdentifier)));
   if (!ours.length) return 'none';
   let result: PlayResult = 'error';
