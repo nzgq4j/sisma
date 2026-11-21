@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { clearPendingUpgrade, setPendingUpgrade, takePendingUpgrade } from './pending-upgrade';
+import { autoCheckoutUsed, clearPendingUpgrade, markAutoCheckout, setPendingUpgrade, takePendingUpgrade } from './pending-upgrade';
 
 // Minimal localStorage for the node test environment.
 const store = new Map<string, string>();
@@ -31,5 +31,20 @@ describe('pending upgrade', () => {
   it('ignores bad data', () => {
     localStorage.setItem('sisma.pendingUpgrade', '{"billing":"weekly","at":1}');
     expect(takePendingUpgrade()).toBeNull();
+  });
+});
+
+describe('automatic checkout after sign-up', () => {
+  beforeEach(() => localStorage.clear());
+  it('runs once per account on this device', () => {
+    expect(autoCheckoutUsed('u1')).toBe(false);
+    markAutoCheckout('u1');
+    expect(autoCheckoutUsed('u1')).toBe(true);
+    expect(autoCheckoutUsed('u2')).toBe(false);
+  });
+  it('keeps the last 10 accounts', () => {
+    for (let i = 0; i < 12; i++) markAutoCheckout(`u${i}`);
+    expect(autoCheckoutUsed('u11')).toBe(true);
+    expect(autoCheckoutUsed('u0')).toBe(false);
   });
 });
