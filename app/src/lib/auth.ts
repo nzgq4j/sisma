@@ -22,6 +22,6 @@ export async function userForRequest(req: NextRequest): Promise<User | null> {
 export async function planForRequest(req: NextRequest): Promise<Plan> {
   const db = adminClient(), user = await userForRequest(req);
   if (!db || !user) return 'free';
-  const { data } = await db.from('profiles').select('plan, subscription_status, trial_ends_at').eq('id', user.id).single();
+  const { data } = await db.from('profiles').select('plan, subscription_status, trial_ends_at, complimentary').eq('id', user.id).single();
   return effectivePlan(data);
 }

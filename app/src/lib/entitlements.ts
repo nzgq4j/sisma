@@ -18,9 +18,10 @@ export type Entitlement = keyof (typeof ENTITLEMENTS)['free'];
 export const limits = (plan: Plan) => ENTITLEMENTS[plan];
 export const can = (plan: Plan, key: 'pushAlerts' | 'advancedFilters') => ENTITLEMENTS[plan][key];
 
-export interface ProfileBilling { plan: Plan | null; subscription_status: string | null; trial_ends_at: string | null }
+export interface ProfileBilling { plan: Plan | null; subscription_status: string | null; trial_ends_at: string | null; complimentary?: boolean | null }
 /** Mirrors public.effective_plan() in supabase/migrations. */
 export function effectivePlan(p: ProfileBilling | null): Plan {
+  if (p?.complimentary) return 'plus'; // sisma+ for life, set by an administrator
   if (!p || p.plan !== 'plus') return 'free';
   if (p.subscription_status && ['trialing', 'active', 'past_due'].includes(p.subscription_status)) return 'plus';
   if (p.trial_ends_at && new Date(p.trial_ends_at) > new Date()) return 'plus';

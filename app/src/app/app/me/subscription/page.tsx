@@ -64,7 +64,10 @@ export default function SubscriptionPage() {
   const stripe = profile.billing_source === 'stripe' || (!profile.billing_source && !!profile.stripe_customer_id);
   const play = profile.billing_source === 'play';
 
-  const statusText = onTrial ? s.st_trial.replace('{n}', String(daysLeft))
+  // sisma+ for life (set by an administrator): no subscription needed; a running one can be cancelled without losing it.
+  const comp = !!profile.complimentary;
+  const running = ['trialing', 'active', 'past_due'].includes(status ?? '') && !profile.cancel_at_period_end && (stripe || play);
+  const statusText = comp ? s.st_comp : onTrial ? s.st_trial.replace('{n}', String(daysLeft))
     : status === 'past_due' ? s.st_past_due
     : profile.cancel_at_period_end ? s.st_canceling.replace('{date}', date(profile.current_period_end) ?? '—')
     : s.st_active;
@@ -79,22 +82,23 @@ export default function SubscriptionPage() {
       <div className={styles.planPlus}>
         <div className={styles.planTop}><span>{t('current')}</span><span>{statusText}</span></div>
         <div className={styles.planH}>sisma+</div>
-        {(stripe || play) && <div className={styles.planSub}>{usd(PRICES.yearly.usd)} {t('per_year')}</div>}
+        {comp ? <div className={styles.planSub}>{s.comp_line}</div> : (stripe || play) && <div className={styles.planSub}>{usd(PRICES.yearly.usd)} {t('per_year')}</div>}
       </div>
 
       <div className={styles.card}>
-        <div className={styles.row}><span className="ms" aria-hidden="true">verified</span><span className={styles.grow}>{s.status}</span><span className={styles.meta}>{!onTrial && status !== 'past_due' && profile.cancel_at_period_end ? s.st_cancelled : statusText}</span></div>
-        {(stripe || play) && (
+        <div className={styles.row}><span className="ms" aria-hidden="true">verified</span><span className={styles.grow}>{s.status}</span><span className={styles.meta}>{!comp && !onTrial && status !== 'past_due' && profile.cancel_at_period_end ? s.st_cancelled : statusText}</span></div>
+        {!comp && (stripe || play) && (
           <div className={styles.row}><span className="ms" aria-hidden="true">event_repeat</span><span className={styles.grow}>{s.plan}</span><span className={styles.meta}>{t('yearly')}</span></div>
         )}
-        {dateValue && (
+        {!comp && dateValue && (
           <div className={styles.row}><span className="ms" aria-hidden="true">event</span><span className={styles.grow}>{dateLabel}</span><span className={styles.meta}>{dateValue}</span></div>
         )}
       </div>
 
-      {status === 'past_due' && <p className={sub.warn} role="status">{s.past_due_hint}</p>}
+      {comp && <p className={styles.hint} role="status">{running ? s.comp_cancel_hint : s.comp_hint}</p>}
+      {!comp && status === 'past_due' && <p className={sub.warn} role="status">{s.past_due_hint}</p>}
 
-      {stripe ? (
+      {comp && !running ? null : stripe ? (
         <div className={sub.action}>
           <button type="button" className={sub.primary} onClick={() => void openPortal()} disabled={state === 'busy'}>
             <span className="ms" aria-hidden="true">credit_card</span>{s.billing}<span className="ms" aria-hidden="true">open_in_new</span>

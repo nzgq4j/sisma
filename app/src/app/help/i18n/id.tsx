@@ -221,6 +221,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>Masuk dengan Google</h3>
           <p>Ketuk <Ui>Lanjutkan dengan Google</Ui>. Di aplikasi Android, pilih akun Google Anda dari daftar yang muncul. Jika email Google Anda sudah punya akun sisma, Google ditambahkan ke akun yang sama itu.</p>
+          <p>Saat membuat akun, <Ui>Lanjutkan dengan Google</Ui> juga ada di paling atas: akun langsung dibuat, tanpa kata sandi atau email konfirmasi.</p>
         </div>
         <Shot src="signin" alt="Lembar masuk: Lanjutkan dengan Google, email dan kata sandi, Lupa kata sandi, dan Buat akun" caption="Masuk" />
       </div>
@@ -289,6 +290,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Tambah lokasi</Ui> memungkinkan Anda mencari kota dan menyimpannya.</li>
             <li>Ketuk sebuah lokasi untuk menjadikannya acuan jarak. Ketuk <Ui>×</Ui> untuk menghapusnya.</li>
             <li>Jika <strong>Lokasi saya</strong> dipilih, sisma memakai posisi Anda setiap kali perangkat bisa memberikannya. Jika tidak bisa (lokasi dimatikan atau tidak diizinkan), atau Anda memilih tempat tersimpan, sisma memakai tempat tersimpan itu: tempat default Anda, atau tempat pertama yang Anda simpan.</li>
+            <li>Saat Anda masuk, <strong>Lokasi saya</strong> juga dipakai untuk peringatan dan peringatan tsunami Anda: sisma menyimpan posisi terakhir perangkat Anda, dibulatkan sekitar 1 km, dan memakainya selama 30 hari sejak terakhir diperbarui.</li>
           </ul>
           <p>Paket gratis punya <strong>1 lokasi tersimpan</strong>, dan sisma+ punya <strong>hingga 10</strong>. Tanpa akun, lokasi disimpan di perangkat ini dan dipindahkan ke akun Anda saat Anda masuk.</p>
         </div>
@@ -338,6 +340,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Dibeli di situs web</strong>: <Ui>Kelola tagihan</Ui> membuka halaman Stripe, tempat Anda bisa memperbarui kartu, melihat faktur, atau membatalkan.</li>
             <li><strong>Dibeli di aplikasi Android</strong>: <Ui>Kelola di Google Play</Ui> membuka langganan Anda di Google Play.</li>
           </ul>
+          <p>Jika sisma memberi akun Anda sisma+ secara gratis, paket Anda menampilkan <Ui>Gratis dari sisma</Ui>. Anda tidak perlu berlangganan, dan bisa membatalkan langganan yang sudah dimulai tanpa kehilangan sisma+.</p>
         </div>
         <Shot src="subscription" alt="Halaman langganan: status, paket, tanggal perpanjangan, dan Kelola di Google Play" caption="Langganan Anda" />
       </div>
@@ -384,9 +387,10 @@ export const TOPICS: Topic[] = [
         <li><strong>Jam tenang</strong>: tidak ada peringatan di malam hari, dengan pilihan untuk tetap meloloskan gempa kuat (magnitudo 6 atau lebih).</li>
         <li>Sebuah grafik menunjukkan berapa banyak gempa dalam 30 hari terakhir yang akan memicu peringatan itu, sehingga Anda bisa menyesuaikannya.</li>
       </ul>
+      <p><strong>Memantau</strong> juga mencakup <strong>Lokasi saya</strong> saat perangkat Anda membagikan posisinya: lihat <Link href="/help/locations">Lokasi tersimpan</Link>.</p>
       <p>Peringatan yang Anda terima dalam 30 hari terakhir tercantum di <em>Riwayat peringatan</em>.</p>
       <h3>Peringatan tsunami</h3>
-      <p>Peringatan tsunami gratis untuk semua yang masuk. Di <Ui>Saya</Ui>, aktifkan <Ui>Peringatan tsunami</Ui> lalu ketuk <Ui>Aktifkan notifikasi di perangkat ini</Ui>. Anda akan menerima notifikasi saat peringatan, ancaman, pemantauan, atau imbauan tsunami resmi dikeluarkan untuk gempa dalam radius 1.000 km dari salah satu tempat tersimpan Anda. Jam tenang tidak berlaku, dan setiap tingkat hanya dikirim sekali per gempa.</p>
+      <p>Peringatan tsunami gratis untuk semua yang masuk. Di <Ui>Saya</Ui>, aktifkan <Ui>Peringatan tsunami</Ui> lalu ketuk <Ui>Aktifkan notifikasi di perangkat ini</Ui>. Anda akan menerima notifikasi saat peringatan, ancaman, pemantauan, atau imbauan tsunami resmi dikeluarkan untuk gempa dalam radius 1.000 km dari salah satu tempat tersimpan Anda. Jam tenang tidak berlaku, dan setiap tingkat hanya dikirim sekali per gempa. Lokasi saya juga dihitung, seperti pada peringatan lainnya.</p>
       <Callout kind="note"><p><strong>iPhone dan iPad:</strong> notifikasi web hanya berfungsi setelah Anda menambahkan sisma ke Layar Utama (Bagikan → Tambah ke Layar Utama) dan membukanya dari sana. Saat pertama kali membuka sisma di browser iPhone atau iPad, jendela pop-up menampilkan langkah-langkah ini; ketuk <Ui>Nanti saja</Ui> untuk melihatnya lagi dalam dua minggu atau <Ui>Mengerti</Ui> untuk menyembunyikannya.</p></Callout>
       </>
     ),

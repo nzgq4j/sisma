@@ -360,7 +360,8 @@
     "done_btn": "Pronto",
     "err_reauth": "Por segurança, saia e entre novamente, depois altere sua senha.",
     "err_same": "Escolha uma senha que você ainda não usou.",
-    "help": "Ajuda e suporte"
+    "help": "Ajuda e suporte",
+    "my_location_alerts": "Também usada nos seus alertas, arredondada para cerca de 1 km"
   },
   "onboard": {
     "skip": "Pular",
@@ -486,7 +487,8 @@
     "area_selected": "Selecionados",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · a {dist} de {place}. Siga as autoridades locais.",
-    "tsunami_body_nomag": "{region} · a {dist} de {place}. Siga as autoridades locais."
+    "tsunami_body_nomag": "{region} · a {dist} de {place}. Siga as autoridades locais.",
+    "your_location": "sua localização"
   },
   "region_chip": "Região",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "Não foi possível abrir a cobrança. Tente novamente.",
     "soon": "A cobrança ainda não está disponível.",
     "st_cancelled": "Cancelada",
-    "cancels_on": "Termina em {date}"
+    "cancels_on": "Termina em {date}",
+    "st_comp": "Cortesia",
+    "comp_line": "Grátis para sempre, sem assinatura",
+    "comp_hint": "O sisma deu o sisma+ para sua conta de graça. Você não precisa de assinatura.",
+    "comp_cancel_hint": "O sisma deu o sisma+ para sua conta de graça, então você pode cancelar esta assinatura e manter tudo."
   },
   "ptr": {
     "pull": "Puxe para atualizar",
@@ -609,7 +615,8 @@
     "delete_h": "Excluir este alerta?",
     "delete_p": "Você não receberá mais notificações dele. Os alertas já enviados ficam no seu histórico.",
     "cancel": "Cancelar",
-    "not_found": "Este alerta não existe mais."
+    "not_found": "Este alerta não existe mais.",
+    "near_device_note": "Minha localização é a última posição deste telefone enquanto você está conectado, arredondada para cerca de 1 km."
   },
   "billing": {
     "subscribe": "Assinar",
@@ -833,8 +840,8 @@
     "center_JMA": "Agência Meteorológica do Japão",
     "legend_short": "Alerta de tsunami",
     "me_title": "Alertas de tsunami",
-    "me_hint": "Grátis para quem está conectado: uma notificação quando um alerta, ameaça, vigilância ou aviso oficial de tsunami é emitido para um terremoto a até 1.000 km de um dos seus locais salvos.",
+    "me_hint": "Grátis para quem está conectado: uma notificação quando um alerta, ameaça, vigilância ou aviso oficial de tsunami é emitido para um terremoto a até 1.000 km da sua localização ou de um dos seus locais salvos.",
     "me_signin": "Entre, é grátis, para receber alertas oficiais de tsunami para os seus locais salvos.",
-    "me_no_place": "Adicione um local salvo abaixo: os alertas de tsunami são para terremotos a até 1.000 km dos seus locais salvos."
+    "me_no_place": "Use sua localização ou adicione um local salvo abaixo: os alertas de tsunami são para terremotos a até 1.000 km deles."
   }
 }

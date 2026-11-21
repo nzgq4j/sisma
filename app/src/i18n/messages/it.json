@@ -360,7 +360,8 @@
     "done_btn": "Fatto",
     "err_reauth": "Per sicurezza, esci e accedi di nuovo, poi cambia la password.",
     "err_same": "Scegli una password che non hai mai usato.",
-    "help": "Aiuto e supporto"
+    "help": "Aiuto e supporto",
+    "my_location_alerts": "Usata anche per i tuoi avvisi, arrotondata a circa 1 km"
   },
   "onboard": {
     "skip": "Salta",
@@ -486,7 +487,8 @@
     "area_selected": "Selezionati",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · a {dist} da {place}. Segui le autorità locali.",
-    "tsunami_body_nomag": "{region} · a {dist} da {place}. Segui le autorità locali."
+    "tsunami_body_nomag": "{region} · a {dist} da {place}. Segui le autorità locali.",
+    "your_location": "te"
   },
   "region_chip": "Regione",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "Impossibile aprire la fatturazione. Riprova.",
     "soon": "La fatturazione non è ancora disponibile.",
     "st_cancelled": "Annullato",
-    "cancels_on": "Termina il {date}"
+    "cancels_on": "Termina il {date}",
+    "st_comp": "Omaggio",
+    "comp_line": "Gratis per sempre, senza abbonamento",
+    "comp_hint": "sisma ti ha regalato sisma+. Non ti serve un abbonamento.",
+    "comp_cancel_hint": "sisma ti ha regalato sisma+: puoi annullare questo abbonamento e mantenere tutto."
   },
   "ptr": {
     "pull": "Trascina per aggiornare",
@@ -609,7 +615,8 @@
     "delete_h": "Eliminare questo avviso?",
     "delete_p": "Non riceverai più notifiche per questo avviso. Gli avvisi già inviati restano nella cronologia.",
     "cancel": "Annulla",
-    "not_found": "Questo avviso non esiste più."
+    "not_found": "Questo avviso non esiste più.",
+    "near_device_note": "La mia posizione è l’ultima posizione di questo telefono mentre hai effettuato l’accesso, arrotondata a circa 1 km."
   },
   "billing": {
     "subscribe": "Abbonati",
@@ -833,8 +840,8 @@
     "center_JMA": "Agenzia meteorologica giapponese",
     "legend_short": "Allerta tsunami",
     "me_title": "Allerte tsunami",
-    "me_hint": "Gratis per chi ha effettuato l’accesso: una notifica quando viene emessa un’allerta, una minaccia, una sorveglianza o un avviso ufficiale di tsunami per un terremoto entro 1.000 km da uno dei tuoi luoghi salvati.",
+    "me_hint": "Gratis per chi ha effettuato l’accesso: una notifica quando viene emessa un’allerta, una minaccia, una sorveglianza o un avviso ufficiale di tsunami per un terremoto entro 1.000 km dalla tua posizione o da uno dei tuoi luoghi salvati.",
     "me_signin": "Accedi, è gratis, per ricevere le allerte ufficiali di tsunami per i tuoi luoghi salvati.",
-    "me_no_place": "Aggiungi un luogo salvato qui sotto: le allerte tsunami riguardano i terremoti entro 1.000 km dai tuoi luoghi salvati."
+    "me_no_place": "Usa la tua posizione o aggiungi un luogo salvato qui sotto: le allerte tsunami riguardano i terremoti entro 1.000 km da questi luoghi."
   }
 }

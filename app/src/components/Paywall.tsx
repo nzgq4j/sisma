@@ -44,6 +44,11 @@ export function PaywallSheet() {
 
   const afterPlay = async (r: PlayResult) => {
     if (r === 'ok') { await refreshProfile(); setState('idle'); setSheet(null); setDone(true); return; }
+    // Google's own notification (POST /api/play/rtdn) may have recorded the purchase already: check the account first.
+    if (r === 'error' || r === 'unavailable') {
+      const p = await refreshProfile();
+      if (p && (p.complimentary || (p.plan === 'plus' && ['trialing', 'active', 'past_due'].includes(p.subscription_status ?? '')))) { setState('idle'); setSheet(null); setDone(true); return; }
+    }
     setState(r === 'cancelled' ? 'idle' : r === 'none' ? 'restore_none' : r === 'mismatch' ? 'other_account' : r === 'unavailable' ? 'unavailable' : 'error');
   };
 
@@ -171,7 +176,7 @@ function ActivationSheet({ done, onDone }: { done: boolean; onDone: () => void }
       if (stop) return;
       const p = await refreshProfile();
       if (stop) return;
-      const live = p && p.plan === 'plus' && ['trialing', 'active', 'past_due'].includes(p.subscription_status ?? '');
+      const live = p && (p.complimentary || (p.plan === 'plus' && ['trialing', 'active', 'past_due'].includes(p.subscription_status ?? '')));
       if (live) { setPhase('done'); return; }
       if (++tries >= 15) { setPhase('slow'); return; }
       setTimeout(() => void tick(), 2000);

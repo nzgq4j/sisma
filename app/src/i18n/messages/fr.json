@@ -360,7 +360,8 @@
     "done_btn": "Terminé",
     "err_reauth": "Par sécurité, déconnectez-vous puis reconnectez-vous avant de changer votre mot de passe.",
     "err_same": "Choisissez un mot de passe que vous n’avez jamais utilisé.",
-    "help": "Aide et assistance"
+    "help": "Aide et assistance",
+    "my_location_alerts": "Aussi utilisée pour vos alertes, arrondie à environ 1 km"
   },
   "onboard": {
     "skip": "Passer",
@@ -486,7 +487,8 @@
     "area_selected": "Sélectionnés",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · à {dist} de {place}. Suivez les consignes des autorités locales.",
-    "tsunami_body_nomag": "{region} · à {dist} de {place}. Suivez les consignes des autorités locales."
+    "tsunami_body_nomag": "{region} · à {dist} de {place}. Suivez les consignes des autorités locales.",
+    "your_location": "votre position"
   },
   "region_chip": "Région",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "Impossible d’ouvrir la facturation. Réessayez.",
     "soon": "La facturation n’est pas encore disponible.",
     "st_cancelled": "Annulé",
-    "cancels_on": "Prend fin le {date}"
+    "cancels_on": "Prend fin le {date}",
+    "st_comp": "Offert",
+    "comp_line": "Gratuit à vie, sans abonnement",
+    "comp_hint": "sisma vous a offert sisma+. Vous n’avez pas besoin d’abonnement.",
+    "comp_cancel_hint": "sisma vous a offert sisma+ : vous pouvez résilier cet abonnement et tout garder."
   },
   "ptr": {
     "pull": "Tirez pour actualiser",
@@ -609,7 +615,8 @@
     "delete_h": "Supprimer cette alerte ?",
     "delete_p": "Vous ne recevrez plus de notifications pour elle. Les alertes déjà envoyées restent dans votre historique.",
     "cancel": "Annuler",
-    "not_found": "Cette alerte n’existe plus."
+    "not_found": "Cette alerte n’existe plus.",
+    "near_device_note": "Ma position est la dernière position de ce téléphone quand vous êtes connecté, arrondie à environ 1 km."
   },
   "billing": {
     "subscribe": "S’abonner",
@@ -833,8 +840,8 @@
     "center_JMA": "Agence météorologique du Japon",
     "legend_short": "Alerte tsunami",
     "me_title": "Alertes tsunami",
-    "me_hint": "Gratuit pour toute personne connectée : une notification quand une alerte, une menace, une veille ou un avis officiel de tsunami est émis pour un séisme à moins de 1 000 km de l’un de vos lieux enregistrés.",
+    "me_hint": "Gratuit pour toute personne connectée : une notification quand une alerte, une menace, une veille ou un avis officiel de tsunami est émis pour un séisme à moins de 1 000 km de Ma position ou de l’un de vos lieux enregistrés.",
     "me_signin": "Connectez-vous, c’est gratuit, pour recevoir les alertes officielles de tsunami pour vos lieux enregistrés.",
-    "me_no_place": "Ajoutez un lieu enregistré ci-dessous : les alertes tsunami concernent les séismes à moins de 1 000 km de vos lieux enregistrés."
+    "me_no_place": "Utilisez Ma position ou ajoutez un lieu enregistré ci-dessous : les alertes tsunami concernent les séismes à moins de 1 000 km de ces lieux."
   }
 }

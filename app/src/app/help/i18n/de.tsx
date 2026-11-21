@@ -221,6 +221,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>Mit Google anmelden</h3>
           <p>Tippe auf <Ui>Weiter mit Google</Ui>. Wähle in der Android-App dein Google-Konto aus der angezeigten Liste. Gibt es zu deiner Google-E-Mail schon ein sisma-Konto, wird Google genau diesem Konto hinzugefügt.</p>
+          <p>Wenn du ein Konto erstellst, steht <Ui>Weiter mit Google</Ui> ebenfalls oben: Das Konto wird sofort erstellt, ohne Passwort und ohne Bestätigungs-E-Mail.</p>
         </div>
         <Shot src="signin" alt="Anmeldefenster: Weiter mit Google, E-Mail und Passwort, Passwort vergessen? und Konto erstellen" caption="Anmelden" />
       </div>
@@ -289,6 +290,7 @@ export const TOPICS: Topic[] = [
             <li>Mit <Ui>Ort hinzufügen</Ui> suchst du eine Stadt oder einen Ort und speicherst ihn.</li>
             <li>Tippe auf einen Ort, um ihn für Entfernungen zu verwenden. Tippe auf <Ui>×</Ui>, um ihn zu entfernen.</li>
             <li>Wenn <strong>Mein Standort</strong> gewählt ist, verwendet sisma deine Position, sobald dein Gerät sie liefern kann. Wenn nicht (Standort ausgeschaltet oder nicht erlaubt) oder wenn du einen gespeicherten Ort gewählt hast, verwendet sisma diesen gespeicherten Ort: deinen Standardort oder den ersten, den du gespeichert hast.</li>
+            <li>Wenn du angemeldet bist, wird <strong>Mein Standort</strong> auch für deine Alarme und Tsunami-Benachrichtigungen verwendet: sisma speichert die letzte Position deines Geräts, auf etwa 1 km gerundet, und nutzt sie 30 Tage nach der letzten Aktualisierung.</li>
           </ul>
           <p>Der kostenlose Tarif hat <strong>1 gespeicherten Ort</strong>, sisma+ <strong>bis zu 10</strong>. Ohne Konto werden Orte auf diesem Gerät gespeichert und beim Anmelden in dein Konto übernommen.</p>
         </div>
@@ -338,6 +340,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Auf der Website gekauft</strong>: <Ui>Zahlung verwalten</Ui> öffnet die Seite von Stripe, wo du deine Karte aktualisieren, Rechnungen einsehen oder kündigen kannst.</li>
             <li><strong>In der Android-App gekauft</strong>: <Ui>In Google Play verwalten</Ui> öffnet dein Abo in Google Play.</li>
           </ul>
+          <p>Hat sisma deinem Konto sisma+ geschenkt, zeigt dein Tarif <Ui>Geschenkt</Ui>. Du brauchst kein Abo und kannst ein begonnenes Abo kündigen, ohne sisma+ zu verlieren.</p>
         </div>
         <Shot src="subscription" alt="Abo-Seite: Status, Tarif, Verlängerungsdatum und In Google Play verwalten" caption="Dein Abo" />
       </div>
@@ -384,9 +387,10 @@ export const TOPICS: Topic[] = [
         <li><strong>Ruhezeiten</strong>: keine Warnungen über Nacht, mit der Möglichkeit, starke Erdbeben (Magnitude 6 oder mehr) trotzdem durchzulassen.</li>
         <li>Ein Diagramm zeigt, wie viele Erdbeben der letzten 30 Tage die Warnung ausgelöst hätten, damit du sie anpassen kannst.</li>
       </ul>
+      <p><strong>Überwacht</strong> umfasst auch <strong>Mein Standort</strong>, wenn dein Gerät seine Position teilt: siehe <Link href="/help/locations">Gespeicherte Orte</Link>.</p>
       <p>Warnungen, die du in den letzten 30 Tagen erhalten hast, stehen unter <em>Warnverlauf</em>.</p>
       <h3>Tsunami-Benachrichtigungen</h3>
-      <p>Tsunami-Benachrichtigungen sind für alle Angemeldeten kostenlos. Schalte unter <Ui>Profil</Ui> <Ui>Tsunami-Benachrichtigungen</Ui> ein und tippe auf <Ui>Mitteilungen auf diesem Gerät einschalten</Ui>. Du wirst benachrichtigt, wenn eine offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder ein -hinweis für ein Erdbeben im Umkreis von 1.000 km um einen deiner gespeicherten Orte herausgegeben wird. Ruhezeiten gelten dafür nicht, und jede Stufe wird pro Erdbeben nur einmal gesendet.</p>
+      <p>Tsunami-Benachrichtigungen sind für alle Angemeldeten kostenlos. Schalte unter <Ui>Profil</Ui> <Ui>Tsunami-Benachrichtigungen</Ui> ein und tippe auf <Ui>Mitteilungen auf diesem Gerät einschalten</Ui>. Du wirst benachrichtigt, wenn eine offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder ein -hinweis für ein Erdbeben im Umkreis von 1.000 km um einen deiner gespeicherten Orte herausgegeben wird. Ruhezeiten gelten dafür nicht, und jede Stufe wird pro Erdbeben nur einmal gesendet. Mein Standort zählt auch, wie bei den anderen Alarmen.</p>
       <Callout kind="note"><p><strong>iPhone und iPad:</strong> Web-Mitteilungen funktionieren erst, wenn du sisma zum Home-Bildschirm hinzufügst (Teilen → Zum Home-Bildschirm) und es von dort öffnest. Wenn du sisma zum ersten Mal im Browser auf einem iPhone oder iPad öffnest, zeigt ein Fenster diese Schritte; tippe auf <Ui>Nicht jetzt</Ui>, um es in zwei Wochen wiederzusehen, oder auf <Ui>Verstanden</Ui>, um es auszublenden.</p></Callout>
       </>
     ),

@@ -221,6 +221,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>Se connecter avec Google</h3>
           <p>Touchez <Ui>Continuer avec Google</Ui>. Dans l’app Android, choisissez votre compte Google dans la liste qui s’affiche. Si votre adresse Google a déjà un compte sisma, Google est ajouté à ce même compte.</p>
+          <p>Quand vous créez un compte, <Ui>Continuer avec Google</Ui> est aussi en haut : le compte est créé tout de suite, sans mot de passe ni e-mail de confirmation.</p>
         </div>
         <Shot src="signin" alt="Fiche de connexion : Continuer avec Google, e-mail et mot de passe, Mot de passe oublié ? et Créer un compte" caption="Se connecter" />
       </div>
@@ -289,6 +290,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Ajouter un lieu</Ui> vous permet de rechercher une ville ou un village et de l’enregistrer.</li>
             <li>Touchez un lieu pour l’utiliser pour les distances. Touchez <Ui>×</Ui> pour le supprimer.</li>
             <li>Quand <strong>Ma position</strong> est choisie, sisma utilise votre position chaque fois que votre appareil peut la fournir. S’il ne le peut pas (localisation désactivée ou non autorisée), ou si vous avez choisi un lieu enregistré, sisma utilise ce lieu enregistré : votre lieu par défaut, ou le premier que vous avez enregistré.</li>
+            <li>Quand vous êtes connecté, <strong>Ma position</strong> sert aussi pour vos alertes et vos alertes tsunami : sisma garde la dernière position de votre appareil, arrondie à environ 1 km, et l’utilise pendant 30 jours après sa dernière mise à jour.</li>
           </ul>
           <p>La formule gratuite comprend <strong>1 lieu enregistré</strong>, et sisma+ <strong>jusqu’à 10</strong>. Sans compte, les lieux sont conservés sur cet appareil et passent dans votre compte quand vous vous connectez.</p>
         </div>
@@ -338,6 +340,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Acheté sur le site</strong> : <Ui>Gérer la facturation</Ui> ouvre la page de Stripe, où vous pouvez mettre à jour votre carte, consulter vos factures ou résilier.</li>
             <li><strong>Acheté dans l’app Android</strong> : <Ui>Gérer dans Google Play</Ui> ouvre votre abonnement dans Google Play.</li>
           </ul>
+          <p>Si sisma a offert sisma+ à votre compte, votre formule indique <Ui>Offert</Ui>. Vous n’avez pas besoin d’abonnement, et vous pouvez résilier celui que vous avez commencé sans perdre sisma+.</p>
         </div>
         <Shot src="subscription" alt="Page de l’abonnement : statut, formule, date de renouvellement et Gérer dans Google Play" caption="Votre abonnement" />
       </div>
@@ -384,9 +387,10 @@ export const TOPICS: Topic[] = [
         <li><strong>Heures calmes</strong> : pas d’alertes la nuit, avec la possibilité de laisser passer quand même les séismes forts (magnitude 6 ou plus).</li>
         <li>Un graphique montre combien de séismes des 30 derniers jours auraient déclenché l’alerte, pour vous aider à la régler.</li>
       </ul>
+      <p><strong>Surveillance</strong> inclut aussi <strong>Ma position</strong> quand votre appareil partage sa position : voir <Link href="/help/locations">Lieux enregistrés</Link>.</p>
       <p>Les alertes reçues au cours des 30 derniers jours sont listées sous <em>Historique des alertes</em>.</p>
       <h3>Alertes tsunami</h3>
-      <p>Les alertes tsunami sont gratuites pour toute personne connectée. Dans <Ui>Profil</Ui>, activez <Ui>Alertes tsunami</Ui> et touchez <Ui>Activer les notifications sur cet appareil</Ui>. Vous recevez une notification quand une alerte, une menace, une veille ou un avis officiel de tsunami est émis pour un séisme à moins de 1 000 km de l’un de vos lieux enregistrés. Les heures calmes ne s’appliquent pas, et chaque niveau n’est envoyé qu’une fois par séisme.</p>
+      <p>Les alertes tsunami sont gratuites pour toute personne connectée. Dans <Ui>Profil</Ui>, activez <Ui>Alertes tsunami</Ui> et touchez <Ui>Activer les notifications sur cet appareil</Ui>. Vous recevez une notification quand une alerte, une menace, une veille ou un avis officiel de tsunami est émis pour un séisme à moins de 1 000 km de l’un de vos lieux enregistrés. Les heures calmes ne s’appliquent pas, et chaque niveau n’est envoyé qu’une fois par séisme. Ma position compte aussi, comme pour les autres alertes.</p>
       <Callout kind="note"><p><strong>iPhone et iPad :</strong> les notifications web ne fonctionnent qu’après avoir ajouté sisma à l’écran d’accueil (Partager → Sur l’écran d’accueil) et l’avoir ouvert depuis celui-ci. La première fois que vous ouvrez sisma dans le navigateur d’un iPhone ou d’un iPad, une fenêtre affiche ces étapes ; touchez <Ui>Plus tard</Ui> pour la revoir dans deux semaines ou <Ui>Compris</Ui> pour la masquer.</p></Callout>
       </>
     ),

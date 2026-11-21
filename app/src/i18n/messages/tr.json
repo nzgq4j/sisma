@@ -360,7 +360,8 @@
     "done_btn": "Tamam",
     "err_reauth": "Güvenliğin için çıkış yapıp tekrar giriş yap, sonra şifreni değiştir.",
     "err_same": "Daha önce kullanmadığın bir şifre seç.",
-    "help": "Yardım ve destek"
+    "help": "Yardım ve destek",
+    "my_location_alerts": "Uyarıların için de kullanılır, yaklaşık 1 km'ye yuvarlanır"
   },
   "onboard": {
     "skip": "Atla",
@@ -486,7 +487,8 @@
     "area_selected": "Seçilenler",
     "tsunami_title": "{level} · {center}",
     "tsunami_body": "M{mag} · {region} · {place} konumuna {dist}. Yerel yetkililerin talimatlarına uyun.",
-    "tsunami_body_nomag": "{region} · {place} konumuna {dist}. Yerel yetkililerin talimatlarına uyun."
+    "tsunami_body_nomag": "{region} · {place} konumuna {dist}. Yerel yetkililerin talimatlarına uyun.",
+    "your_location": "senin"
   },
   "region_chip": "Bölge",
   "wr": {
@@ -530,7 +532,11 @@
     "err": "Faturalandırma açılamadı. Lütfen tekrar deneyin.",
     "soon": "Faturalandırma henüz kullanılamıyor.",
     "st_cancelled": "İptal edildi",
-    "cancels_on": "{date} tarihinde sona eriyor"
+    "cancels_on": "{date} tarihinde sona eriyor",
+    "st_comp": "Ücretsiz hediye",
+    "comp_line": "Ömür boyu ücretsiz, abonelik gerekmez",
+    "comp_hint": "sisma hesabına sisma+'yı ücretsiz verdi. Aboneliğe ihtiyacın yok.",
+    "comp_cancel_hint": "sisma hesabına sisma+'yı ücretsiz verdi; bu aboneliği iptal edip her şeyi koruyabilirsin."
   },
   "ptr": {
     "pull": "Yenilemek için çekin",
@@ -609,7 +615,8 @@
     "delete_h": "Bu uyarı silinsin mi?",
     "delete_p": "Bu uyarı için artık bildirim almayacaksınız. Daha önce gönderilen uyarılar geçmişinizde kalır.",
     "cancel": "İptal",
-    "not_found": "Bu uyarı artık yok."
+    "not_found": "Bu uyarı artık yok.",
+    "near_device_note": "Konumum, oturum açıkken bu telefonun son konumudur ve yaklaşık 1 km'ye yuvarlanır."
   },
   "billing": {
     "subscribe": "Abone ol",
@@ -833,8 +840,8 @@
     "center_JMA": "Japonya Meteoroloji Ajansı",
     "legend_short": "Tsunami uyarısı",
     "me_title": "Tsunami bildirimleri",
-    "me_hint": "Oturum açan herkes için ücretsiz: kayıtlı yerlerinizden birine 1.000 km mesafedeki bir deprem için resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi yayımlandığında bildirim alırsınız.",
+    "me_hint": "Oturum açan herkes için ücretsiz: Konumum’a veya kayıtlı yerlerinizden birine 1.000 km mesafedeki bir deprem için resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi yayımlandığında bildirim alırsınız.",
     "me_signin": "Kayıtlı yerleriniz için resmî tsunami bildirimleri almak üzere ücretsiz oturum açın.",
-    "me_no_place": "Aşağıya kayıtlı bir yer ekleyin: tsunami bildirimleri, kayıtlı yerlerinize 1.000 km mesafedeki depremler içindir."
+    "me_no_place": "Konumum’u kullanın veya aşağıya kayıtlı bir yer ekleyin: tsunami bildirimleri, bu yerlere 1.000 km mesafedeki depremler içindir."
   }
 }

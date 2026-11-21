@@ -109,10 +109,12 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    Google button shows when the provider is on in Supabase; Android: in-app account picker via @capgo/capacitor-social-login →
    signInWithIdToken with a nonce; Android OAuth clients per signing key, docs/android-setup.md §4), profile + plan, alerts saved to
    alerts (sisma+: master switch on alert_settings, up to 5 alert_rules at app/me/alerts — name, minimum magnitude, saved places + radius, countries/regions, quiet hours, 30-day match chart in alerts/rule; alert history from alert_deliveries), language, appearance (components/Theme.tsx), delete account (DELETE /api/account), saved locations (Supabase
-   saved_locations for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
+   saved_locations; My location = the device's last position, rounded to 0.01°, in device_locations while signed in,
+   used by alerts and tsunami pushes like a saved place for 30 days: public.alert_places, name '@device' → "your location") for accounts, localStorage for guests, moved into the account on sign-in) with place search (GET /api/places →
    Nominatim, lib/places.ts; search on submit only, credit OpenStreetMap). Subscription page (done): app/me/subscription — status,
    price, next date; Stripe customer portal via POST /api/stripe/portal, Google Play link for app purchases
-8. Billing (done): Stripe Checkout + webhook (web); Google Play Billing in the Android app (@capgo/native-purchases,
+8. Billing (done; complimentary sisma+ for life: profiles.complimentary, set by an administrator in the database, read by
+   effective_plan() and lib/entitlements.ts, never changed by Stripe or Play): Stripe Checkout + webhook (web); Google Play Billing in the Android app (@capgo/native-purchases,
    lib/play-client.ts → POST /api/play/verify, Pub/Sub notifications → POST /api/play/rtdn, lib/play.ts;
    docs/play-billing-setup.md); paywall sheet with trial-or-subscribe, restore and the post-payment activation step
    (components/Paywall.tsx); lib/billing.ts for trial eligibility and running subscriptions

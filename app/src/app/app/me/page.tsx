@@ -118,13 +118,14 @@ function PlanCard({ onUpgrade }: { onUpgrade: () => void }) {
   const trialLeft = profile?.trial_ends_at ? Math.max(0, Math.ceil((new Date(profile.trial_ends_at).getTime() - now) / 86_400_000)) : 0;
   // A cancelled subscription keeps sisma+ until the end of the paid period (or trial): say when it ends.
   const endIso = profile?.cancel_at_period_end ? (profile.subscription_status === 'trialing' ? profile.trial_ends_at : profile.current_period_end) ?? profile.current_period_end : null;
-  const status = endIso ? m.sub.cancels_on.replace('{date}', new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(new Date(endIso)))
+  const comp = !!profile?.complimentary;
+  const status = comp ? m.sub.st_comp : endIso ? m.sub.cancels_on.replace('{date}', new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(new Date(endIso)))
     : profile?.subscription_status === 'trialing' ? t('trial_active', { n: trialLeft }) : m.acct.active;
   return (
     <div className={styles.planPlus}>
       <div className={styles.planTop}><span>{t('current')}</span><span>{status}</span></div>
       <div className={styles.planH}>sisma+</div>
-      <div className={styles.planSub}>{new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(PRICES.yearly.usd)} {t('per_year')}</div>
+      <div className={styles.planSub}>{comp ? m.sub.comp_line : <>{new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(PRICES.yearly.usd)} {t('per_year')}</>}</div>
       <Link href="/app/me/subscription" className={styles.planManage}>{m.sub.manage}<span className="ms" aria-hidden="true">chevron_right</span></Link>
     </div>
   );
@@ -179,7 +180,8 @@ function TsunamiAlerts() {
   const push = usePushDevice();
   const [busy, setBusy] = useState(false);
   const on = profile?.tsunami_push !== false;
-  const hasPlace = locations.some(l => !l.fromDevice && !l.fallback);
+  // My location counts too (public.device_locations): it is sent with the account while signed in.
+  const hasPlace = locations.some(l => !l.fallback);
   return (
     <>
       <div className={styles.sectionLabel}>{k.me_title}</div>
@@ -210,6 +212,7 @@ function Locations({ onLocked }: { onLocked: () => void }) {
   const { t, m } = useT();
   const a = m.acct;
   const { plan, locations, active, setActive, locateMe, removePlace, canAddPlace } = useApp();
+  const { user } = useAccount();
   const [loc, setLoc] = useState<LocateResult | 'busy' | null>(null);
   const [addOpen, setAddOpen] = useState(false);
   const hasDevice = locations.some(l => l.fromDevice);
@@ -229,6 +232,7 @@ function Locations({ onLocked }: { onLocked: () => void }) {
                 <span className={styles.grow}>
                   <span className={styles.placeName}>{l.fromDevice ? a.my_location : l.name}</span>
                   {l.detail && <span className={styles.placeDetail}>{l.detail}</span>}
+                  {l.fromDevice && user && <span className={`${styles.placeDetail} ${styles.placeNote}`}>{a.my_location_alerts}</span>}
                 </span>
                 {i === active && <span className={`ms ${styles.check}`} aria-hidden="true">check</span>}
               </button>

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { alertMessage, formatDistance } from './message';
+import { alertMessage, DEVICE_PLACE, formatDistance } from './message';
 import type { Quake } from '../quakes/types';
 
-const S = { title_near: 'M{mag} earthquake · {dist} from {place}', title_any: 'M{mag} earthquake', title_area: 'M{mag} earthquake · {area}', body: '{region} · {depth} deep' };
+const S = { title_near: 'M{mag} earthquake · {dist} from {place}', title_any: 'M{mag} earthquake', title_area: 'M{mag} earthquake · {area}', body: '{region} · {depth} deep', your_location: 'your location' };
 const q: Quake = { id: 'usgs:us1', source: 'usgs', mag: 5.04, title: '', region: 'Japan', time: 0, lat: 0, lon: 0, depthKm: 12.3, tsunami: false };
 
 describe('alertMessage', () => {
@@ -16,6 +16,9 @@ describe('alertMessage', () => {
     expect(alertMessage(q, { name: 'Casa', distanceKm: 16.09 }, S, 'de', 'mi').title).toBe('M5,0 earthquake · 10 mi from Casa');
     expect(alertMessage(q, null, S, 'en', 'km').title).toBe('M5.0 earthquake');
     expect(alertMessage(q, null, S, 'en', 'km', 'Japan').title).toBe('M5.0 earthquake · Japan');
+  });
+  it('calls the account\'s own position "your location"', () => {
+    expect(alertMessage(q, { name: DEVICE_PLACE, distanceKm: 40 }, S, 'en', 'km').title).toBe('M5.0 earthquake · 40 km from your location');
   });
   it('rounds distances sensibly', () => {
     expect(formatDistance(4.26, 'km', 'en')).toBe('4.3 km');

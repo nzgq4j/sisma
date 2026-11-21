@@ -19,6 +19,8 @@ export interface Profile {
   billing_interval: Billing | null; subscription_status: string | null; trial_ends_at: string | null; current_period_end: string | null;
   cancel_at_period_end: boolean; stripe_customer_id: string | null; stripe_subscription_id: string | null;
   play_purchase_token: string | null; billing_source: 'stripe' | 'play' | null;
+  /** sisma+ for life, set by an administrator (billing never changes it). */
+  complimentary?: boolean;
   /** Tsunami alerts switch in Me (missing before the migration: treated as on). */
   tsunami_push?: boolean;
 }
@@ -37,7 +39,7 @@ interface AccountCtx {
   openPassword: () => void;
 }
 const Ctx = createContext<AccountCtx | null>(null);
-const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end, cancel_at_period_end, stripe_customer_id, stripe_subscription_id, play_purchase_token, billing_source, tsunami_push';
+const PROFILE_COLS = 'display_name, locale, theme, plan, billing_interval, subscription_status, trial_ends_at, current_period_end, cancel_at_period_end, stripe_customer_id, stripe_subscription_id, play_purchase_token, billing_source, tsunami_push, complimentary';
 
 export function AccountProvider({ children }: { children: ReactNode }) {
   const sb = supabaseBrowser();
@@ -112,7 +114,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
 
   const value = useMemo<AccountCtx>(() => ({
     configured: !!sb, ready, user, profile,
-    plan: effectivePlan(profile ? { plan: profile.plan, subscription_status: profile.subscription_status, trial_ends_at: profile.trial_ends_at } : null),
+    plan: effectivePlan(profile ? { plan: profile.plan, subscription_status: profile.subscription_status, trial_ends_at: profile.trial_ends_at, complimentary: profile.complimentary } : null),
     savePrefs, refreshProfile,
     accessToken: async () => (sb ? (await sb.auth.getSession()).data.session?.access_token ?? null : null),
     // Remove this device from the account's alert devices first (needs the session), then sign out.
@@ -215,7 +217,8 @@ function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () =
             </>
           ) : (
             <form onSubmit={submit} className={styles.form}>
-              {providers.includes('google') && mode !== 'signup' && (
+              {/* Google first, also when creating an account (it creates one on first use); email and password below. */}
+              {providers.includes('google') && (
                 <>
                   <button type="button" className={styles.google} onClick={google} disabled={status === 'oauth'}>
                     <GoogleMark />{a.continue_google}

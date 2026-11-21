@@ -7,7 +7,7 @@ import type { SupabaseClient } from '@supabase/supabase-js';
 import { asLocale, serverMessages, type Messages } from '@/i18n/server';
 import { sendPush } from '@/lib/alerts/send';
 import type { AlertDevice } from '@/lib/alerts/match';
-import { formatDistance, type PushMessage } from '@/lib/alerts/message';
+import { formatDistance, placeName, type PushMessage } from '@/lib/alerts/message';
 import type { Quake } from '@/lib/quakes/types';
 import { pollTsunami } from './poll';
 import { incidents, matches } from './alerts';
@@ -24,7 +24,7 @@ export function tsunamiMessage(m: TsunamiMessage, quakeId: string | null, place:
   const mag = m.mag == null ? '' : new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(m.mag);
   return {
     title: fill(t.notif.tsunami_title, { level, center: m.center }),
-    body: fill(mag ? t.notif.tsunami_body : t.notif.tsunami_body_nomag, { mag, region: m.place, dist: formatDistance(place.km, units, locale), place: place.name }),
+    body: fill(mag ? t.notif.tsunami_body : t.notif.tsunami_body_nomag, { mag, region: m.place, dist: formatDistance(place.km, units, locale), place: placeName(place.name, t.notif) }),
     url: quakeId ? `/app/map?focus=${encodeURIComponent(quakeId)}` : m.url,
     tag: `tsunami-${m.incident}`,
   };

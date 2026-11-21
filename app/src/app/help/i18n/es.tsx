@@ -221,6 +221,7 @@ export const TOPICS: Topic[] = [
           </ol>
           <h3>Iniciar sesión con Google</h3>
           <p>Toca <Ui>Continuar con Google</Ui>. En la app de Android, elige tu cuenta de Google en la lista que aparece. Si tu correo de Google ya tiene una cuenta de sisma, Google se añade a esa misma cuenta.</p>
+          <p>Al crear una cuenta, <Ui>Continuar con Google</Ui> también aparece arriba: crea la cuenta al instante, sin contraseña ni correo de confirmación.</p>
         </div>
         <Shot src="signin" alt="Hoja de inicio de sesión: Continuar con Google, correo y contraseña, ¿Olvidaste tu contraseña? y Crear una cuenta" caption="Iniciar sesión" />
       </div>
@@ -289,6 +290,7 @@ export const TOPICS: Topic[] = [
             <li><Ui>Añadir ubicación</Ui> te permite buscar una ciudad o un pueblo y guardarlo.</li>
             <li>Toca una ubicación para que sea la que se usa para las distancias. Toca <Ui>×</Ui> para quitarla.</li>
             <li>Cuando está elegida <strong>Mi ubicación</strong>, sisma usa tu posición siempre que tu dispositivo pueda darla. Si no puede (ubicación desactivada o sin permiso), o si elegiste un lugar guardado, sisma usa ese lugar guardado: tu lugar predeterminado o el primero que guardaste.</li>
+            <li>Con la sesión iniciada, <strong>Mi ubicación</strong> también se usa para tus alertas y alertas de tsunami: sisma guarda la última posición de tu dispositivo, redondeada a 1 km aprox., y la usa durante 30 días desde su última actualización.</li>
           </ul>
           <p>El plan gratuito incluye <strong>1 ubicación guardada</strong>, y sisma+ <strong>hasta 10</strong>. Sin cuenta, las ubicaciones se guardan en este dispositivo y pasan a tu cuenta cuando inicias sesión.</p>
         </div>
@@ -338,6 +340,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Comprado en la web</strong>: <Ui>Gestionar facturación</Ui> abre la página de Stripe, donde puedes actualizar tu tarjeta, ver las facturas o cancelar.</li>
             <li><strong>Comprado en la app de Android</strong>: <Ui>Gestionar en Google Play</Ui> abre tu suscripción en Google Play.</li>
           </ul>
+          <p>Si sisma le ha dado sisma+ gratis a tu cuenta, tu plan muestra <Ui>De cortesía</Ui>. No necesitas una suscripción, y puedes cancelar la que hayas empezado sin perder sisma+.</p>
         </div>
         <Shot src="subscription" alt="Página de suscripción: estado, plan, fecha de renovación y Gestionar en Google Play" caption="Tu suscripción" />
       </div>
@@ -384,9 +387,10 @@ export const TOPICS: Topic[] = [
         <li><strong>Horas de silencio</strong>: sin alertas por la noche, con la opción de dejar pasar igualmente los sismos fuertes (magnitud 6 o más).</li>
         <li>Un gráfico muestra cuántos sismos de los últimos 30 días habrían activado la alerta, para que puedas ajustarla.</li>
       </ul>
+      <p><strong>Vigilando</strong> también incluye <strong>Mi ubicación</strong> cuando tu dispositivo comparte su posición: consulta <Link href="/help/locations">Ubicaciones guardadas</Link>.</p>
       <p>Las alertas que recibiste en los últimos 30 días aparecen en <em>Historial de alertas</em>.</p>
       <h3>Alertas de tsunami</h3>
-      <p>Las alertas de tsunami son gratis para todas las personas con sesión iniciada. En <Ui>Perfil</Ui>, activa <Ui>Alertas de tsunami</Ui> y toca <Ui>Activar notificaciones en este dispositivo</Ui>. Recibirás una notificación cuando se emita un aviso, amenaza, vigilancia o advertencia oficial de tsunami por un sismo a menos de 1000 km de uno de tus lugares guardados. Las horas de silencio no se aplican y cada nivel se envía una sola vez por sismo.</p>
+      <p>Las alertas de tsunami son gratis para todas las personas con sesión iniciada. En <Ui>Perfil</Ui>, activa <Ui>Alertas de tsunami</Ui> y toca <Ui>Activar notificaciones en este dispositivo</Ui>. Recibirás una notificación cuando se emita un aviso, amenaza, vigilancia o advertencia oficial de tsunami por un sismo a menos de 1000 km de uno de tus lugares guardados. Las horas de silencio no se aplican y cada nivel se envía una sola vez por sismo. Mi ubicación también cuenta, como en las demás alertas.</p>
       <Callout kind="note"><p><strong>iPhone y iPad:</strong> las notificaciones web solo funcionan después de añadir sisma a la pantalla de inicio (Compartir → Añadir a pantalla de inicio) y abrirlo desde allí. La primera vez que abres sisma en el navegador de un iPhone o iPad, una ventana muestra estos pasos; toca <Ui>Ahora no</Ui> para volver a verla en dos semanas o <Ui>Entendido</Ui> para ocultarla.</p></Callout>
       </>
     ),
