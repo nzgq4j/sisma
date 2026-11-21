@@ -5,7 +5,8 @@
 /* eslint-disable @next/next/no-img-element -- Satori renders <img> */
 import { ImageResponse } from 'next/og';
 import type { Quake } from '@/lib/quakes/types';
-import { shareMapScale, shareMapSvg } from '@/lib/share-map';
+import { CARD_CITY, shareCityLabels, shareMapScale, shareMapSvg } from '@/lib/share-map';
+import { parseCities, type Box, type CityData } from '@/lib/cities';
 import { loadShareFelt, shareGrid, type ShareFelt } from '@/lib/share-felt';
 import { feltMarks } from '@/lib/felt-layers';
 import { FELT_NEUTRAL, MAG_INK_LIGHT, MAG_MARKER_LIGHT, MMI_COLORS, THEME, magIndex } from '@/lib/theme';
@@ -71,10 +72,10 @@ export interface ShareCardInput {
 export const FELT_HEADER = 'X-Felt-Layers';
 
 export async function shareCardResponse({ q, all, locale, units, tz, origin, felt: given }: ShareCardInput): Promise<Response> {
-  const [m, plates, lakes, felt] = await Promise.all([
+  const [m, plates, lakes, felt, cityData] = await Promise.all([
     messages(locale),
     json<GeoJSON.MultiLineString>(`${origin}/data/plate-boundaries.json`), json<GeoJSON.GeoJsonObject>(`${origin}/data/lakes.json`),
-    given ?? loadShareFelt(q),
+    given ?? loadShareFelt(q), json<CityData>(`${origin}/data/cities.json`),
   ]);
   const marks = feltMarks(shareGrid(felt));
   const since = Date.now() - 7 * 864e5;
@@ -115,10 +116,20 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
   const pillRoom = MAP_W - 44 - 66, besideRoom = pillRoom - (nearby.length > 1 ? emWidth(m.sharecard.nearby) * 22 + 40 + 16 : 0);
   const tsuBeside = !!tsu && emWidth(tsu.text) * 20 <= besideRoom;
   const tsuPill = tsu ? fitLine(tsu.text, { maxWidth: tsuBeside ? besideRoom : pillRoom, size: 26, min: 20 }) : null;
+  // City names (lib/cities.ts), as in the region view: clear of the events, the scale bar, the felt legend and the pills.
+  const legendW = marks.length ? 32 + emWidth(m.sharecard.felt) * 22 + (marks.includes('intensity') ? 12 + MMI_STEPS.length * 43 : 0)
+    + (marks.includes('unknown') ? 36 + emWidth(m.sharecard.felt_unknown) * 16 : 0) : 0;
+  const cardBlocked: Box[] = [
+    [scale.bx - 14, scale.by - 42, scale.bx + scale.barW + 14, scale.by + 20],
+    ...(legendW ? [[MAP_W - 22 - legendW, MAP_H - 22 - 62, MAP_W, MAP_H] as Box] : []),
+    ...(nearby.length > 1 ? [[MAP_W - 22 - (emWidth(m.sharecard.nearby) * 22 + 40), 0, MAP_W, 22 + 44] as Box] : []),
+    ...(tsuPill ? [[0, 0, 22 + 80 + emWidth(tsuPill.text) * tsuPill.size, (tsuBeside ? 22 : 80) + 58] as Box] : []),
+  ];
+  const cities = cityData ? shareCityLabels({ q, nearby, w: MAP_W, h: MAP_H, span: SPAN, cities: parseCities(cityData), locale, blocked: cardBlocked }) : [];
   const wave = (color: string) => `data:image/svg+xml;base64,${Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 10 10"><path d="${WAVE_PATH}" fill="none" stroke="${color}" stroke-width="1.3" stroke-linecap="round"/></svg>`).toString('base64')}`;
 
   // Every string on the card, so CJK fonts can be fetched as a small subset.
-  const text = [tsu?.text ?? '', m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_unknown, 'IVX', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
+  const text = [...cities.map(c => c.text), tsu?.text ?? '', m.sharecard.label, m.sharecard.nearby, m.sharecard.felt, m.sharecard.felt_unknown, 'IVX', m.sharecard.disclaimer, q.region, title, date, time, status, ...stats.flat(), `${nf.format(scale.len)} ${units}`].join('');
   const cjk = locale === 'ja' ? 'Noto Sans JP' : locale === 'zh' ? 'Noto Sans SC' : null;
   const [f500, f700, f800, c500, c700] = await Promise.all([
     googleFont('Figtree', 500), googleFont('Figtree', 700), googleFont('Figtree', 800),
@@ -146,6 +157,14 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
 
         <div style={{ display: 'flex', position: 'relative', marginTop: 28, width: MAP_W, height: MAP_H, borderRadius: 40, overflow: 'hidden', border: `2px solid ${C.line}` }}>
           <img src={`data:image/svg+xml;base64,${Buffer.from(map).toString('base64')}`} width={MAP_W} height={MAP_H} alt="" />
+          {cities.map(c => (
+            <div key={`${c.x},${c.y}`} style={{ position: 'absolute', left: c.x - CARD_CITY.dot - 2, top: c.y - CARD_CITY.dot - 2, display: 'flex', width: CARD_CITY.dot * 2 + 4, height: CARD_CITY.dot * 2 + 4,
+              borderRadius: 999, background: C.mapLabel, border: `2px solid ${C.mapLabelHalo}` }} />
+          ))}
+          {cities.map(c => (
+            <div key={`t${c.x},${c.y}`} style={{ position: 'absolute', top: c.y - CARD_CITY.font / 2 - 2, display: 'flex', whiteSpace: 'nowrap', fontSize: CARD_CITY.font, fontWeight: 700, lineHeight: 1.1,
+              color: C.mapLabel, textShadow: HALO, ...(c.w >= 0 ? { left: c.x + CARD_CITY.gap } : { right: MAP_W - c.x + CARD_CITY.gap }) }}>{c.text}</div>
+          ))}
           <div style={{ position: 'absolute', left: scale.bx, top: scale.by - 38, display: 'flex', fontSize: 22, fontWeight: 700, lineHeight: 1, color: C.ink }}>{nf.format(scale.len)} {units}</div>
           {marks.length > 0 && (
             <div style={{ position: 'absolute', bottom: 22, right: 22, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, padding: '10px 16px', borderRadius: 18, background: 'rgba(255,255,255,.88)', color: C.ink2, fontSize: 20, fontWeight: 700 }}>
@@ -215,6 +234,9 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
     { width: W, height: H, fonts, headers: { 'Cache-Control': 'public, max-age=300, s-maxage=300', [FELT_HEADER]: marks.join(','), 'Access-Control-Expose-Headers': FELT_HEADER } },
   );
 }
+
+/** A soft outline around the city names, so they read over land, sea, borders and felt cells. */
+const HALO = [[-2, 0], [2, 0], [0, -2], [0, 2], [-1.5, -1.5], [1.5, -1.5], [-1.5, 1.5], [1.5, 1.5]].map(([x, y]) => `${x}px ${y}px 0 ${C.mapLabelHalo}`).join(', ');
 
 /** The card legend's intensity steps: one per distinct cell colour (MMI_COLORS), labelled with the first MMI it covers. */
 const MMI_STEPS = [{ i: 0, label: 'I' }, { i: 2, label: 'III' }, { i: 4, label: 'V' }, { i: 5, label: 'VI' }, { i: 6, label: 'VII' }, { i: 8, label: 'IX' }];

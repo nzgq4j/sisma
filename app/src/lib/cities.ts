@@ -2,7 +2,7 @@
 // earthquake. Data: Natural Earth 1:10m populated places (public domain), reduced by scripts/build-cities.mjs to
 // public/data/cities.json — position, Natural Earth's MIN_ZOOM (the web-map zoom a place is first labelled at),
 // population and the name in the app's 10 languages. Labels are placed most important first and never overlap.
-import { useEffect, useState } from 'react';
+// Also used on the server for the share card (lib/share-map.ts); the fetching hook is lib/use-cities.ts.
 
 /** Web-map zoom from which city names are shown (a region, not the whole world). */
 export const CITIES_FROM = 4;
@@ -14,27 +14,8 @@ export const MAX_LABELS = 40;
 export interface CityData { langs: string[]; rows: (string | number)[][] }
 export interface City { lon: number; lat: number; minZoom: number; pop: number; names: string[] }
 
-let promise: Promise<City[] | null> | null = null;
-let cache: City[] | null = null;
-
 export function parseCities(d: CityData): City[] {
   return d.rows.map(r => ({ lon: +r[0], lat: +r[1], minZoom: +r[2], pop: +r[3], names: r.slice(4).map(String) }));
-}
-
-/** The cities, fetched the first time `wanted` (zoomed in far enough). Most important first. */
-export function useCities(wanted: boolean): City[] | null {
-  const [data, setData] = useState<City[] | null>(cache);
-  useEffect(() => {
-    if (!wanted || data) return;
-    let alive = true;
-    promise ??= fetch('/data/cities.json')
-      .then(r => (r.ok ? (r.json() as Promise<CityData>) : null))
-      .then(d => (cache = d ? parseCities(d) : null))
-      .catch(() => null);
-    promise.then(d => { if (alive) setData(d); });
-    return () => { alive = false; };
-  }, [wanted, data]);
-  return data;
 }
 
 const LANGS = ['en', 'es', 'fr', 'de', 'it', 'pt', 'ja', 'zh', 'id', 'tr'];
@@ -52,20 +33,21 @@ export type Box = [number, number, number, number];
  * Which names to draw: cities already labelled at web-map zoom `zw` (MIN_ZOOM ≤ zw + CITY_EARLY), on screen, in order of
  * importance, each skipped if its dot and name would overlap one already placed. `at` gives a city's screen position
  * (or null when off screen); `measure` the width of a name in px; `blocked`: screen areas already taken (event markers).
- * The name goes right of the dot, or left of it when the right is taken or off screen.
+ * The name goes right of the dot, or left of it when the right is taken or off screen. `k` scales the room around a
+ * label (1: the map's 11 px names; 2: the share card's 22 px names).
  */
 export function placeLabels(cities: City[], zw: number, locale: string, at: (c: City) => { x: number; y: number } | null,
-  measure: (text: string) => number, view: { w: number; h: number }, max = MAX_LABELS, blocked: Box[] = []): Label[] {
+  measure: (text: string) => number, view: { w: number; h: number }, max = MAX_LABELS, blocked: Box[] = [], k = 1): Label[] {
   const out: Label[] = [], boxes: Box[] = [...blocked];
   if (zw < CITIES_FROM) return out;
   for (const c of cities) {
     if (c.minZoom > zw + CITY_EARLY) break; // sorted by MIN_ZOOM
     const p = at(c);
-    if (!p || p.x < 0 || p.y < 0 || p.x > view.w || p.y > view.h) continue;
+    if (!p || p.x < 0 || p.y < 8 * k || p.x > view.w || p.y > view.h - 8 * k) continue;
     const text = cityName(c, locale), w = measure(text);
     const hits = (b: Box) => boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
-    const rightBox: Box = [p.x - 4, p.y - 8, p.x + 7 + w, p.y + 8], leftBox: Box = [p.x - 7 - w, p.y - 8, p.x + 4, p.y + 8];
-    const rightOk = rightBox[2] <= view.w - 2 && !hits(rightBox), leftOk = leftBox[0] >= 2 && !hits(leftBox);
+    const rightBox: Box = [p.x - 4 * k, p.y - 8 * k, p.x + 7 * k + w, p.y + 8 * k], leftBox: Box = [p.x - 7 * k - w, p.y - 8 * k, p.x + 4 * k, p.y + 8 * k];
+    const rightOk = rightBox[2] <= view.w - 2 * k && !hits(rightBox), leftOk = leftBox[0] >= 2 * k && !hits(leftBox);
     if (!rightOk && !leftOk) continue;
     boxes.push(rightOk ? rightBox : leftBox);
     out.push({ x: p.x, y: p.y, text, w: rightOk ? w : -w });

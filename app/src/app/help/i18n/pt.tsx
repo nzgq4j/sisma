@@ -189,6 +189,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Toque em <Ui>Compartilhar</Ui> em um terremoto para criar um cartão de compartilhamento: uma imagem com o mapa e os principais detalhes.</p>
+          <p>O mapa do cartão também mostra <strong>nomes de cidades</strong> ao redor do terremoto, no seu idioma, como na visão da região, onde cabem sem cobrir os terremotos. Em alto-mar pode não haver nenhum.</p>
           <p>Onde as pessoas relataram ter sentido o terremoto, o mapa do cartão também mostra isso como na visualização da região: pequenos quadrados nas cores de intensidade (cinza quando a intensidade é desconhecida), com a escala de intensidade no canto inferior direito. A descrição de imagem sugerida também menciona isso. Se você desativou <Ui>Mapas de tremores</Ui> em <Ui>Camadas</Ui> na visualização da região, o cartão também não os mostra.</p>
           <p>Quando um centro de alerta de tsunami emitiu uma mensagem oficial para o terremoto, o cartão mostra o nível e o centro no canto superior esquerdo do mapa, por exemplo <strong>Alerta de tsunami · PTWC</strong>, em cor enquanto um alerta, ameaça, vigilância ou aviso estiver em vigor. O texto da publicação e a descrição da imagem também incluem essa informação.</p>
           <ul>

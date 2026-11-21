@@ -189,6 +189,7 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Tocca <Ui>Condividi</Ui> su un terremoto per creare una scheda da condividere: un’immagine con la mappa e i dettagli principali.</p>
+          <p>La mappa della scheda mostra anche i <strong>nomi delle città</strong> intorno al terremoto, nella tua lingua, come nella vista della zona, dove c’è spazio senza coprire i terremoti. In mare aperto potrebbero non essercene.</p>
           <p>Dove le persone hanno segnalato di averlo avvertito, la mappa della scheda lo mostra anche come nella vista della zona: piccoli quadrati nei colori dell’intensità (grigi se l’intensità è sconosciuta), con la scala dell’intensità in basso a destra. Anche la descrizione dell’immagine proposta lo menziona. Se hai disattivato <Ui>Mappe del risentimento</Ui> in <Ui>Livelli</Ui> nella vista della zona, anche la scheda non li mostra.</p>
           <p>Quando un centro di allerta tsunami ha emesso un messaggio ufficiale per il terremoto, la scheda ne mostra il livello e il centro in alto a sinistra sulla mappa, per esempio <strong>Allerta tsunami · PTWC</strong>, a colori finché è in vigore un’allerta, una minaccia, una sorveglianza o un avviso. Anche il testo del post e la descrizione dell’immagine lo riportano.</p>
           <ul>
