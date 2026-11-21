@@ -53,7 +53,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Próximos</strong>: os mais perto da sua localização ou do local salvo escolhido primeiro.</li>
             <li><strong>Mais fortes</strong>: os de maior magnitude primeiro.</li>
           </ul>
-          <p>Cada linha mostra a magnitude em um selo colorido, o local, há quanto tempo aconteceu, a que distância fica de você e a profundidade.</p>
+          <p>Cada linha mostra a magnitude em um selo colorido, o local com a bandeira do país onde fica ou do qual está perto, há quanto tempo aconteceu, a que distância fica de você e a profundidade. Continue rolando e mais terremotos são adicionados ao chegar ao fim da lista.</p>
           <p>No computador, a lista fica na página <Ui>Visão geral</Ui>, a primeira do menu à esquerda, com um mapa ao lado. Escolha um terremoto na lista ou no mapa e o mapa se aproxima dele, com os nomes das cidades próximas. Ele fica ali quando você fecha o terremoto; <Ui>Redefinir visualização</Ui> mostra o mundo inteiro de novo.</p>
           <h3>Cores de magnitude</h3>
           <p>As mesmas cores são usadas na lista, no mapa e no globo:</p>

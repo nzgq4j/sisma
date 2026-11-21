@@ -29,7 +29,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)
-2. Feed (scaffolded): nearest card, sort segmented control, rows, detail sheet; filters in the pull-up FilterPanel (fixed mode)
+2. Feed (scaffolded): nearest card, sort segmented control, rows (country flag before the place: components/Flag.tsx;
+   infinite scroll, 100 rows at a time: components/useGrowingList.ts, also the desktop Overview list), detail sheet; filters in the pull-up FilterPanel (fixed mode)
    Region filter (sisma+): world regions (lib/world-regions.ts: country within 800 km, else ocean) — one setting in
    QuakeData for Feed, Map, Globe and dashboard (RegionFilterChip). Magnitude badges use the pin colours (--mag-N)
 3. Felt report sheet (done): "I felt it" on quakes < 6 h old (lib/quakes/report-window.ts), quick → details → thanks

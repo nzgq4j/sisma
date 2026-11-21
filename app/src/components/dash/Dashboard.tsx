@@ -2,7 +2,7 @@
 // Desktop /app: overview dashboard. Filters sit in one row above everything they affect;
 // map, charts, list and detail panel all read the same filtered set and share one selection.
 import { setPendingYearRange } from '@/lib/pending-upgrade';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { useT } from '@/i18n/I18nProvider';
 import { useApp } from '@/components/AppState';
 import { MagBadge } from '@/components/MagBadge';
@@ -20,6 +20,9 @@ import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
 import { REGION_SPAN } from '@/lib/world-regions';
+import { Flag, useCountryCode } from '@/components/Flag';
+import { useGrowingList } from '@/components/useGrowingList';
+import type { Quake } from '@/lib/quakes/types';
 
 const SORT_LABEL = { time: 'sort_time', distance: 'sort_distance', mag: 'sort_mag' } as const;
 const MAG_BINS = [...MAG_SCALE].reverse().map(([min], i, a) => ({ min: i === 0 ? -99 : min, max: a[i + 1]?.[0] ?? 99 }));
@@ -29,7 +32,7 @@ export function Dashboard() {
   const u = useDistance();
   const { locations, active, plan, setSheet } = useApp();
   const loc = locations[active];
-  const { range, setRange, region, setRegion, loaded, list, mapList, regions, loadedAt: now } = useQuakeData();
+  const { range, setRange, region, setRegion, loaded, list, mapList, regions, loadedAt: now, minMag, worldReg } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
   const [selId, setSelId] = useState<string | null>(null);
   const [detailOpen, setDetailOpen] = useState(false);
@@ -42,6 +45,9 @@ export function Dashboard() {
     else s.sort((a, b) => b.time - a.time);
     return s;
   }, [list, sort]);
+  // Infinite scroll: 100 rows, then 100 more as the end of the list comes into view; back to 100 on a new sort or filter.
+  const { shown, more, sentinel } = useGrowingList(sorted.length, `${sort}|${range}|${region}|${minMag}|${worldReg}`);
+  const listRef = useRef<HTMLUListElement>(null);
   const sel = list.find(q => q.id === selId) ?? null;
   // The map zooms to the selected event (about 7.5° across, like the region view), so its city names show. It stays
   // there when the selection is cleared; the reset button returns to the world.
@@ -166,17 +172,17 @@ export function Dashboard() {
               <h2 className={styles.cardTitle}>{m.dash.count_label.replace('{n}', nf.format(list.length))}</h2>
               <div className={styles.segSmall} role="group" aria-label={t('filters')}>
                 {(['time', 'distance', 'mag'] as SortKey[]).map(k => (
-                  <button key={k} type="button" aria-pressed={sort === k} onClick={() => setSort(k)}>{t(SORT_LABEL[k])}</button>
+                  <button key={k} type="button" aria-pressed={sort === k} onClick={() => { setSort(k); listRef.current?.scrollTo({ top: 0 }); }}>{t(SORT_LABEL[k])}</button>
                 ))}
               </div>
             </header>
-            <ul className={styles.list}>
-              {sorted.slice(0, 250).map(q => (
+            <ul className={styles.list} ref={listRef}>
+              {sorted.slice(0, shown).map(q => (
                 <li key={q.id} className={styles.rowItem}>
                   <button type="button" className={styles.row} aria-pressed={q.id === selId} onClick={() => setSelId(q.id)}>
                     <MagBadge mag={q.mag} size={38} />
                     <span className={styles.rowText}>
-                      <strong>{q.region}</strong>
+                      <RowPlace q={q} />
                       <span>{u.text(q.title)}</span>
                     </span>
                     <span className={styles.rowMeta}>
@@ -187,6 +193,7 @@ export function Dashboard() {
                   <FeltButton q={q} />
                 </li>
               ))}
+              {more && <li ref={sentinel} aria-hidden="true" style={{ height: 1, listStyle: 'none' }} />}
               {loaded && !list.length && <li className={styles.empty}>{m.dash.none}</li>}
             </ul>
           </section>
@@ -198,4 +205,10 @@ export function Dashboard() {
       <p className={styles.disclaimer}>{m.web.footer}</p>
     </div>
   );
+}
+
+/** The place in a list row, after the country's flag (as in the phone feed and the detail sheet). */
+function RowPlace({ q }: { q: Pick<Quake, 'lat' | 'lon' | 'region'> }) {
+  const code = useCountryCode(q.lat, q.lon);
+  return <strong className={styles.rowPlace}>{code && <Flag code={code} size={14} />}<b>{q.region}</b></strong>;
 }

@@ -4,6 +4,7 @@ import { MagBadge } from './MagBadge';
 import { useT } from '@/i18n/I18nProvider';
 import { useDistance } from './Units';
 import { TsunamiIcon } from './Tsunami';
+import { Flag, useCountryCode } from './Flag';
 
 export function timeAgo(t: (k: never, v?: Record<string, number>) => string, ms: number) {
   const m = Math.round((Date.now() - ms) / 6e4);
@@ -13,15 +14,19 @@ export function timeAgo(t: (k: never, v?: Record<string, number>) => string, ms:
   return h < 48 ? t('ago_h' as never, { n: h }) : t('ago_d' as never, { n: Math.round(h / 24) });
 }
 
-/** A Feed row. "I felt it" is offered in the event's detail sheet (and on the map card), not on the list. */
+/** A Feed row: magnitude badge, the country's flag and place, details. "I felt it" is offered in the event's detail sheet (and on the map card), not on the list. */
 export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | null }; onOpen: () => void }) {
   const { t } = useT();
   const u = useDistance();
+  const code = useCountryCode(q.lat, q.lon);
   return (
     <button type="button" data-quake-row="" onClick={onOpen} style={{ width: '100%', minWidth: 0, display: 'flex', alignItems: 'center', gap: 12, padding: 12, border: 0, background: 'var(--surface)', borderRadius: 18, textAlign: 'left', color: 'var(--ink)', font: 'inherit', cursor: 'pointer' }}>
       <MagBadge mag={q.mag} />
       <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
-        <div style={{ fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{q.region}</div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, minWidth: 0 }}>
+          {code && <Flag code={code} size={16} />}
+          <span style={{ fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{q.region}</span>
+        </div>
         <div style={{ fontSize: 13, color: 'var(--ink2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{u.text(q.title)}</div>
         <div style={{ fontSize: 12, color: 'var(--ink2)', display: 'flex', gap: 10 }}>
           <span>{timeAgo(t as never, q.time)}</span>
