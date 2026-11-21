@@ -64,6 +64,8 @@ export interface ShareCardInput {
   tz: string;
   /** Site origin for the bundled map data and flags. */
   origin: string;
+  /** Shown as the source instead of the event's feeds (a card drawn from a tsunami centre's message: "PTWC"). */
+  sourceLabel?: string;
   /** Felt layers, when already loaded; otherwise they are loaded here (lib/share-felt.ts). */
   felt?: ShareFelt;
 }
@@ -71,7 +73,7 @@ export interface ShareCardInput {
 /** Response header naming what the card's felt cells show (comma-separated FeltMark: intensity, unknown), for the alt text. */
 export const FELT_HEADER = 'X-Felt-Layers';
 
-export async function shareCardResponse({ q, all, locale, units, tz, origin, felt: given }: ShareCardInput): Promise<Response> {
+export async function shareCardResponse({ q, all, locale, units, tz, origin, felt: given, sourceLabel }: ShareCardInput): Promise<Response> {
   const [m, plates, lakes, felt, cityData] = await Promise.all([
     messages(locale),
     json<GeoJSON.MultiLineString>(`${origin}/data/plate-boundaries.json`), json<GeoJSON.GeoJsonObject>(`${origin}/data/lakes.json`),
@@ -91,11 +93,12 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
   const country = countryAt(q.lat, q.lon);
   const flag = country ? await asDataUri(`${origin}/flags/${country.code}.svg`, 'image/svg+xml') : null;
   const nf = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
-  const depth = units === 'mi' ? `${nf.format(q.depthKm / KM_PER_MI)} mi` : `${nf.format(q.depthKm)} km`;
+  // A depth the source didn't give (a tsunami centre's message) shows as a dash.
+  const depth = !Number.isFinite(q.depthKm) ? '—' : units === 'mi' ? `${nf.format(q.depthKm / KM_PER_MI)} mi` : `${nf.format(q.depthKm)} km`;
   const date = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeZone: tz }).format(q.time);
   const time = new Intl.DateTimeFormat(locale, { hour: 'numeric', minute: '2-digit', timeZone: tz, timeZoneName: 'short' }).format(q.time);
   const status = q.status ? m[`st_${q.status}` as const] : '—';
-  const source = [q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ');
+  const source = sourceLabel ?? [q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ');
   const title = convertKmInText(q.title, units, v => nf.format(v));
   // Some sources give the same text for the place and the region (e.g. "Fiji region" twice): show it once.
   const same = (a: string, b: string) => a.trim().toLocaleLowerCase('en') === b.trim().toLocaleLowerCase('en');
