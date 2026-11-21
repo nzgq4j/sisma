@@ -85,7 +85,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 5. Globe tab (done): canvas orthographic, drag-rotate, auto-spin, Depth mode (radial lines scaled by depth) — components/Globe.tsx
    Events are the same numbered pins as the maps (lib/pin.ts; Depth mode fills them by depth), drawn from cached sprites
    City names as on the map from the same web zoom (globe scale at the view centre), visible side only, clear of markers
-   and of controls marked data-map-overlay (lib/use-cities.ts overlayBoxes; the map uses it too)
+   and of controls marked data-map-overlay (lib/use-cities.ts overlayBoxes; the map uses it too: its tools, the region
+   view's top card, the dashboard's filter chips and legend). Desktop Overview (components/dash/Dashboard.tsx): the map
+   zooms to the selected event (REGION_SPAN, lib/world-regions.ts) and stays there when it is closed
 6. Science (done): list + article with the four canvas visuals (plates, faults, waves, tsunami) and the
    magnitude / depth / preparedness widgets — components/science/. Article text in all 10 languages (content/science.json
    + content/science/<locale>.json, lib/science.ts); SEO titles and descriptions stay English

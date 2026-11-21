@@ -54,6 +54,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Plus forts</strong> : la magnitude la plus élevée d’abord.</li>
           </ul>
           <p>Chaque ligne indique la magnitude dans une pastille colorée, le lieu, il y a combien de temps le séisme s’est produit, à quelle distance de vous et à quelle profondeur.</p>
+          <p>Sur un ordinateur, le fil se trouve sur la page <Ui>{"Vue d'ensemble"}</Ui>, la première du menu de gauche, avec une carte à côté de la liste. Choisissez un séisme dans la liste ou sur la carte et la carte zoome dessus, avec le nom des villes proches. Elle reste là quand vous fermez le séisme ; <Ui>Réinitialiser la vue</Ui> affiche à nouveau le monde entier.</p>
           <h3>Couleurs des magnitudes</h3>
           <p>Les mêmes couleurs sont utilisées dans le fil, sur la carte et sur le globe :</p>
           <MagLegend words={{ label: 'Couleurs des magnitudes', magnitude: 'Magnitude {range}', orMore: '{n} ou plus', below: 'moins de {n}', to: '{a} à {b}' }} />

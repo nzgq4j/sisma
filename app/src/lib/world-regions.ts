@@ -50,6 +50,9 @@ export function worldRegion(lat: number, lon: number): WorldRegion {
   return oceanRegion(lat, lon);
 }
 
+/** Degrees of longitude across the shorter side of the map when it zooms to one event (region view, dashboard; ~800 km at the equator). */
+export const REGION_SPAN = 7.5;
+
 /** Where the maps go when a region filter is chosen: centre and degrees of longitude across the shorter side of the
  *  view (MapFocus.span). Polar has no useful Mercator view, so the map stays as it is for it. */
 export const REGION_VIEW: Record<WorldRegion, { lat: number; lon: number; span: number } | null> = {

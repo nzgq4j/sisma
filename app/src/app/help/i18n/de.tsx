@@ -54,6 +54,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Stärkste</strong>: die mit der höchsten Magnitude zuerst.</li>
           </ul>
           <p>Jede Zeile zeigt die Magnitude in einem farbigen Kennzeichen, den Ort, wie lange es her ist, wie weit es von dir entfernt ist und wie tief es war.</p>
+          <p>Auf einem Computer steht die Liste auf der Seite <Ui>Übersicht</Ui>, dem ersten Eintrag im Menü links, mit einer Karte daneben. Wählst du ein Erdbeben in der Liste oder auf der Karte, zoomt die Karte dorthin, mit den Namen naher Städte. Sie bleibt dort, wenn du das Erdbeben schließt; <Ui>Ansicht zurücksetzen</Ui> zeigt wieder die ganze Welt.</p>
           <h3>Magnitudenfarben</h3>
           <p>Dieselben Farben gelten in der Liste, auf der Karte und auf dem Globus:</p>
           <MagLegend words={{ label: 'Magnitudenfarben', magnitude: 'Magnitude {range}', orMore: '{n} oder mehr', below: 'unter {n}', to: '{a} bis {b}' }} />

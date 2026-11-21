@@ -30,7 +30,7 @@ import { FitLine } from '@/components/FitLine';
 import { Legend, LocateNote, Selection, useLocateHere } from '@/components/stage/StageParts';
 import { FilterPanel, LayerToggle } from '@/components/stage/FilterPanel';
 import { Sheet } from '@/components/Sheet';
-import { REGION_VIEW } from '@/lib/world-regions';
+import { REGION_SPAN, REGION_VIEW } from '@/lib/world-regions';
 import { FELT_NEUTRAL, MMI_COLORS, ROMAN } from '@/lib/theme';
 import { feltGrid } from '@/lib/felt-grid';
 import { readFeltOn, writeFeltOn } from '@/lib/felt-pref';
@@ -40,8 +40,6 @@ import dash from '@/components/dash/dash.module.css';
 /** The legend's intensity steps: one per distinct cell colour (MMI_COLORS), labelled with the first MMI it covers. */
 const MMI_STEPS = [{ i: 0, label: 'I' }, { i: 2, label: 'III' }, { i: 4, label: 'V' }, { i: 5, label: 'VI' }, { i: 6, label: 'VII' }, { i: 8, label: 'IX' }];
 
-/** Region view: degrees of longitude across the shorter side of the map (~800 km at the equator). */
-const REGION_SPAN = 7.5;
 
 export default function MapPage() {
   return <Suspense><MapView /></Suspense>;
@@ -185,7 +183,7 @@ function MapView() {
         onLocate={locate.go} here={device} />
       <LocateNote note={locate.note} onClose={locate.dismiss} />
       {focusId && (
-        <div className={styles.feltCard} role="status">
+        <div className={styles.feltCard} role="status" data-map-overlay="">
           <div className={styles.regionTop}>
             <button type="button" className={styles.exitBtn} onClick={exitRegion}>
               <span className="ms" aria-hidden="true">arrow_back</span>{t('exit_region')}
