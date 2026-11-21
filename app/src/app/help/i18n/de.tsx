@@ -216,8 +216,8 @@ export const TOPICS: Topic[] = [
           <h3>Konto mit E-Mail erstellen</h3>
           <ol className={s.steps}>
             <li>Tippe unten im Anmeldefenster auf <Ui>Konto erstellen</Ui>.</li>
-            <li>Gib deine E-Mail und ein Passwort ein: mindestens 8 Zeichen, mit Buchstaben und Zahlen.</li>
-            <li>Öffne die Bestätigungs-E-Mail, die wir dir schicken, und tippe auf den Link. Danach bist du angemeldet.</li>
+            <li>Gib deine E-Mail und ein Passwort ein: mindestens 8 Zeichen, mit Buchstaben und Zahlen. Passwörter, die in bekannten Datenlecks vorkommen, werden abgelehnt.</li>
+            <li>Öffne die Bestätigungs-E-Mail, die wir dir schicken, und tippe auf den Link. Danach bist du angemeldet. Nach einer Minute noch nichts da? Sieh im Spam- oder Junk-Ordner nach.</li>
           </ol>
           <h3>Mit Google anmelden</h3>
           <p>Tippe auf <Ui>Weiter mit Google</Ui>. Wähle in der Android-App dein Google-Konto aus der angezeigten Liste. Gibt es zu deiner Google-E-Mail schon ein sisma-Konto, wird Google genau diesem Konto hinzugefügt.</p>

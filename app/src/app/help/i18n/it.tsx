@@ -216,8 +216,8 @@ export const TOPICS: Topic[] = [
           <h3>Crea un account con l’email</h3>
           <ol className={s.steps}>
             <li>Tocca <Ui>Crea un account</Ui> in fondo alla scheda di accesso.</li>
-            <li>Inserisci la tua email e una password: almeno 8 caratteri, con lettere e numeri.</li>
-            <li>Apri l’email di conferma che ti inviamo e tocca il link. A quel punto hai effettuato l’accesso.</li>
+            <li>Inserisci la tua email e una password: almeno 8 caratteri, con lettere e numeri. Le password comparse in violazioni di dati note vengono rifiutate.</li>
+            <li>Apri l’email di conferma che ti inviamo e tocca il link. A quel punto hai effettuato l’accesso. Non arriva entro un minuto? Controlla la cartella spam o posta indesiderata.</li>
           </ol>
           <h3>Accedi con Google</h3>
           <p>Tocca <Ui>Continua con Google</Ui>. Nell’app Android, scegli il tuo account Google dall’elenco che compare. Se alla tua email Google corrisponde già un account sisma, Google viene aggiunto a quello stesso account.</p>

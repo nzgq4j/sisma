@@ -344,7 +344,7 @@
     "have_account": "Vous avez un compte ? Connectez-vous",
     "create_account": "Créer le compte",
     "err_credentials": "E-mail ou mot de passe incorrect.",
-    "err_unconfirmed": "Confirmez d’abord votre e-mail : ouvrez le lien reçu dans votre boîte de réception.",
+    "err_unconfirmed": "Confirmez d’abord votre e-mail : ouvrez le lien reçu dans votre boîte de réception. Vous ne le trouvez pas ? Regardez dans vos courriers indésirables (spam).",
     "err_weak": "Choisissez un mot de passe plus sûr : au moins 8 caractères, avec lettres et chiffres.",
     "err_exists": "Un compte existe déjà avec cet e-mail. Connectez-vous.",
     "enter_email": "Saisissez d’abord votre adresse e-mail.",
@@ -361,7 +361,9 @@
     "err_reauth": "Par sécurité, déconnectez-vous puis reconnectez-vous avant de changer votre mot de passe.",
     "err_same": "Choisissez un mot de passe que vous n’avez jamais utilisé.",
     "help": "Aide et assistance",
-    "my_location_alerts": "Aussi utilisée pour vos alertes, arrondie à environ 1 km"
+    "my_location_alerts": "Aussi utilisée pour vos alertes, arrondie à environ 1 km",
+    "err_pwned": "Ce mot de passe est apparu dans une fuite de données sur un autre site : il n’est donc pas sûr. Choisissez-en un autre ou utilisez Continuer avec Google.",
+    "check_spam": "Rien après une minute ? Regardez dans vos courriers indésirables (spam) et marquez l’e-mail comme légitime pour recevoir les suivants."
   },
   "onboard": {
     "skip": "Passer",

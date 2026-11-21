@@ -344,7 +344,7 @@
     "have_account": "Already have an account? Sign in",
     "create_account": "Create account",
     "err_credentials": "Email or password is incorrect.",
-    "err_unconfirmed": "Please confirm your email first — check your inbox for the link.",
+    "err_unconfirmed": "Please confirm your email first — check your inbox for the link. Not there? Check your spam or junk folder.",
     "err_weak": "Choose a stronger password: at least 8 characters, with letters and numbers.",
     "err_exists": "An account with this email already exists. Sign in instead.",
     "enter_email": "Enter your email address first.",
@@ -361,7 +361,9 @@
     "err_reauth": "For your security, sign out and sign in again, then change your password.",
     "err_same": "Choose a password you haven’t used before.",
     "help": "Help & support",
-    "my_location_alerts": "Also used for your alerts, rounded to about 1 km"
+    "my_location_alerts": "Also used for your alerts, rounded to about 1 km",
+    "err_pwned": "This password has appeared in a data breach on another site, so it isn’t safe to use. Choose a different one, or use Continue with Google.",
+    "check_spam": "Not there after a minute? Check your spam or junk folder, and mark the email as not spam so the next one arrives."
   },
   "onboard": {
     "skip": "Skip",

@@ -216,8 +216,8 @@ export const TOPICS: Topic[] = [
           <h3>Membuat akun dengan email</h3>
           <ol className={s.steps}>
             <li>Ketuk <Ui>Buat akun</Ui> di bagian bawah lembar masuk.</li>
-            <li>Masukkan email Anda dan kata sandi: minimal 8 karakter, berisi huruf dan angka.</li>
-            <li>Buka email konfirmasi yang kami kirim dan ketuk tautannya. Setelah itu Anda sudah masuk.</li>
+            <li>Masukkan email Anda dan kata sandi: minimal 8 karakter, berisi huruf dan angka. Kata sandi yang ditemukan dalam kebocoran data yang diketahui akan ditolak.</li>
+            <li>Buka email konfirmasi yang kami kirim dan ketuk tautannya. Setelah itu Anda sudah masuk. Belum masuk dalam satu menit? Periksa folder spam atau sampah.</li>
           </ol>
           <h3>Masuk dengan Google</h3>
           <p>Ketuk <Ui>Lanjutkan dengan Google</Ui>. Di aplikasi Android, pilih akun Google Anda dari daftar yang muncul. Jika email Google Anda sudah punya akun sisma, Google ditambahkan ke akun yang sama itu.</p>

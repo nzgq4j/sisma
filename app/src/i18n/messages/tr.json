@@ -344,7 +344,7 @@
     "have_account": "Hesabın var mı? Giriş yap",
     "create_account": "Hesap oluştur",
     "err_credentials": "E-posta veya şifre yanlış.",
-    "err_unconfirmed": "Önce e-postanı onayla — gelen kutundaki bağlantıyı aç.",
+    "err_unconfirmed": "Önce e-postanı onayla — gelen kutundaki bağlantıyı aç. Bulamadın mı? Spam veya gereksiz klasörüne bak.",
     "err_weak": "Daha güçlü bir şifre seç: en az 8 karakter, harf ve rakam.",
     "err_exists": "Bu e-postayla bir hesap zaten var. Giriş yap.",
     "enter_email": "Önce e-posta adresini gir.",
@@ -361,7 +361,9 @@
     "err_reauth": "Güvenliğin için çıkış yapıp tekrar giriş yap, sonra şifreni değiştir.",
     "err_same": "Daha önce kullanmadığın bir şifre seç.",
     "help": "Yardım ve destek",
-    "my_location_alerts": "Uyarıların için de kullanılır, yaklaşık 1 km'ye yuvarlanır"
+    "my_location_alerts": "Uyarıların için de kullanılır, yaklaşık 1 km'ye yuvarlanır",
+    "err_pwned": "Bu şifre başka bir sitedeki veri sızıntısında ortaya çıktığı için güvenli değil. Başka bir şifre seç ya da Google ile devam et seçeneğini kullan.",
+    "check_spam": "Bir dakika içinde gelmedi mi? Spam veya gereksiz klasörüne bak ve sonrakilerin gelmesi için e-postayı spam değil olarak işaretle."
   },
   "onboard": {
     "skip": "Atla",
