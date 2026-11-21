@@ -13,6 +13,7 @@ import { Sheet } from '@/components/Sheet';
 import type { SortKey } from '@/lib/quakes/types';
 import { Dashboard } from '@/components/dash/Dashboard';
 import { useDesktop } from '@/components/dash/useDesktop';
+import { useGrowingList } from '@/components/useGrowingList';
 
 // Desktop renders the overview dashboard; phones (and the website's phone preview) get the feed.
 export default function FeedPage() {
@@ -22,7 +23,7 @@ export default function FeedPage() {
 function MobileFeed() {
   const { t } = useT();
   // mapList = the filtered list including the minimum magnitude (the same events as the Map and Globe).
-  const { mapList: list, refresh } = useQuakeData();
+  const { mapList: list, refresh, range, region, minMag, worldReg } = useQuakeData();
   const [sort, setSort] = useState<SortKey>('time');
   const [selId, setSelId] = useState<string | null>(null);
   const sel = list.find(q => q.id === selId) ?? null;
@@ -34,6 +35,8 @@ function MobileFeed() {
     else s.sort((a, b) => b.time - a.time);
     return s;
   }, [list, sort]);
+  // Infinite scroll: 100 rows, then 100 more as the end of the list comes near; back to 100 on a new sort or filter.
+  const { shown, more, sentinel } = useGrowingList(rows.length, `${sort}|${range}|${region}|${minMag}|${worldReg}`);
 
   return (
     // Bottom padding keeps the last rows clear of the collapsed filter panel. Pull down at the top to refresh.
@@ -49,7 +52,8 @@ function MobileFeed() {
         ))}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {rows.slice(0, 60).map(q => <QuakeRow key={q.id} q={q} onOpen={() => setSelId(q.id)} />)}
+        {rows.slice(0, shown).map(q => <QuakeRow key={q.id} q={q} onOpen={() => setSelId(q.id)} />)}
+        {more && <div ref={sentinel} aria-hidden="true" style={{ height: 1 }} />}
       </div>
       {!sel && <FilterPanel fixed />}
       <Sheet open={!!sel} onClose={() => setSelId(null)} label={sel?.region}>

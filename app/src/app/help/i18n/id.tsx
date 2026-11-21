@@ -53,7 +53,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Terdekat</strong>: yang paling dekat dengan lokasi Anda atau lokasi tersimpan pilihan Anda lebih dulu.</li>
             <li><strong>Terkuat</strong>: magnitudo tertinggi lebih dulu.</li>
           </ul>
-          <p>Setiap baris menampilkan magnitudo dalam lencana berwarna, tempatnya, berapa lama yang lalu terjadi, seberapa jauh dari Anda, dan seberapa dalam.</p>
+          <p>Setiap baris menampilkan magnitudo dalam lencana berwarna, tempatnya beserta bendera negara tempatnya berada atau yang terdekat, berapa lama yang lalu terjadi, seberapa jauh dari Anda, dan seberapa dalam. Terus gulir dan gempa lainnya ditambahkan saat Anda mencapai akhir daftar.</p>
           <p>Di komputer, daftar ada di halaman <Ui>Ringkasan</Ui>, item pertama di menu kiri, dengan peta di sampingnya. Pilih gempa di daftar atau di peta dan peta akan memperbesar ke gempa itu, dengan nama kota di sekitarnya. Peta tetap di sana saat Anda menutup gempa; <Ui>Atur ulang tampilan</Ui> menampilkan seluruh dunia lagi.</p>
           <h3>Warna magnitudo</h3>
           <p>Warna yang sama dipakai di daftar, di peta, dan di globe:</p>
