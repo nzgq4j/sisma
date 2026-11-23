@@ -1,4 +1,4 @@
-// Administrators: profiles.is_admin, set by the database owner only (migration 20261106000100_bluesky.sql). Every admin
+// Administrators: profiles.is_admin, set by the database owner only (migration 20261104100407_bluesky.sql). Every admin
 // API route calls requireAdmin, which checks the signed-in user's flag with the service role on each request.
 import type { NextRequest } from 'next/server';
 import type { SupabaseClient, User } from '@supabase/supabase-js';

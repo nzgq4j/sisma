@@ -11,7 +11,7 @@ earthquakes in the last 30 days would have sent that alert. Every alert sent is 
 
 The database enforces the plan and the limit (`enforce_alert_rules()`): creating or switching on an alert needs
 sisma+, and there are at most 5 per user. Switching off or deleting always works. When the
-`20261104000100_alert_rules` migration ran, each user's previous single setting became their first alert.
+`20261104041258_alert_rules` migration ran, each user's previous single setting became their first alert.
 
 ## How it runs
 
@@ -27,7 +27,7 @@ sisma+, and there are at most 5 per user. Switching off or deleting always works
    "M5.4 earthquake · 120 km from Home" / "Japan · 10 km deep". Tapping opens the event's region view.
    Devices that no longer exist are removed automatically.
 
-Database objects: migrations `supabase/migrations/20261103000200_alerts.sql` and `20261104000100_alert_rules.sql`.
+Database objects: migrations `supabase/migrations/20261103082331_alerts.sql` and `20261104041258_alert_rules.sql`.
 
 ## Setup (once)
 
