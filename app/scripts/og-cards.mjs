@@ -76,6 +76,7 @@ const LIBRARY_VISUAL = {
   'earth-interior-seismic-waves': 'waves', 'aftershocks-and-hazards': 'depth',
   // "article:Tab" picks a tab of the illustration first (English tab label).
   'surface-waves-and-damage': 'waves:Surface', 'magnitude-scales': 'mag',
+  'deep-focus-earthquakes': 'plates', 'volcano-seismology': 'ring',
 };
 /** The article's illustration (canvas or widget): the block after the intro. */
 async function articleVisual(spec) {

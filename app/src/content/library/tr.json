@@ -638,5 +638,175 @@
         "a": "Farklı büyüklük türleri, istasyonlar ve veri miktarları kullanıyor olabilirler. USGS, tek bir yöntem her depreme uymadığı için bir düzineye varan sayıda büyüklük türü hesaplar ve aynı olay için türler arasındaki tutarsızlıklar büyük olabilir."
       }
     ]
+  },
+  "deep-focus-earthquakes": {
+    "title": "600 Kilometre Derinlikte Depremler Nasıl Oluşur: Derin Odaklı Depremlerin Bilmecesi",
+    "dek": "600 kilometre derinlikte kaya muazzam bir basınç altındadır ve kırılmak yerine akması gerekir. Yine de büyük depremler orada başlar. En büyük iki derin olayın neleri ortaya koyduğunu ve neden tek bir açıklamanın yetmediğini burada anlatıyoruz.",
+    "sections": [
+      {
+        "h": "Gevrek zonun altındaki depremler",
+        "p": [
+          "Depremlerin çoğu yüzeyden birkaç on kilometre içinde başlar; burada soğuk kaya kırılır ve faylar boyunca kayar. Küçük bir kısmı ise çok daha derinde, mantoya batmakta olan okyanus levhalarının içinde başlar. Yaklaşık 70 kilometrenin altındaki depremler çoğu zaman derin olaylar olarak bir arada ele alınır (Wang et al. 2017). Dalan levhaların içinde 300 kilometreden sığ olaylar orta derinlikli depremler, 300 kilometreden derin olanlar ise derin odaklı depremler olarak tanımlanır (Hasegawa and Nakajima 2017). sisma.io da derinlik etiketlerinde aynı sınırları kullanır: 70 kilometreden sığ olanlar Sığ, 70 ile 300 kilometre arasındakiler Orta, 300 kilometreden derin olanlar ise Derin olarak etiketlenir.",
+          "En derin deprem topluluğu yaklaşık 325 ile 690 kilometre arasında yer alır; bu aralık, üst mantonun ana minerallerinin daha yoğun kristal yapılara dönüştüğü manto geçiş zonuyla yakından örtüşür (Kirby et al. 1996). Bu depremlerin varlığı bir sorun oluşturur. Green and Burnley (1989), 100 ile 200 kilometreden daha büyük derinliklerde gevrek kırılma ve sürtünmeli kaymanın gerçekçi olmayan kaya dayanımları gerektireceğine dikkat çeker. Hasegawa and Nakajima (2017) güçlüğü gerilme açısından ifade eder: bu derinliklerde bir deprem olması için makaslama gerilmesinin çok büyük bir sürtünme dayanımını aşması gerekir; oysa depremler meydana gelir, dolayısıyla özel bir mekanizmanın fayın dayanımını düşürmesi gerekir. Akla yatkın birkaç mekanizma önerilmiştir, ancak tam olarak hangisinin işlediği hâlâ çözülmemiştir (Hasegawa and Nakajima 2017)."
+        ]
+      },
+      {
+        "h": "Derin depremler nerede olur ve nasıl davranır",
+        "p": [
+          "Derin depremler, dalmakta olan ya da geçmişte dalmış okyanus litosferinde meydana gelir (Kirby et al. 1996). Batan levhaların soğuk, aşağı inen çekirdeklerini izleyen ve Wadati-Benioff zonları olarak bilinen eğimli düzlemsel kuşakları takip ederler (Wang et al. 2017). Deprem sayısı yaklaşık 300 kilometreye kadar derinlikle neredeyse üstel biçimde azalır, yaklaşık 300 ile 450 kilometre arasında en düşük düzeyine iner ve 550 ile 600 kilometrede yerel bir en yüksek düzeye yeniden çıkar (Hasegawa and Nakajima 2017). Etkinlik daha sonra 700 kilometre civarında aniden sona erer (Wang et al. 2017).",
+          "Zhan (2020) gözlemleri bir derleme makalesinde özetler: derin depremler sığ depremler gibi davranır, ancak temelden farklı fiziksel süreçlere sahip olmaları gerekir; kırılma davranışları, boyut istatistikleri ve artçı depremleri çeşitlidir ve levha sıcaklığı, derinlik ve büyüklük gibi etkenlere kusurlu bir biçimde bağlıdır. Derin olaylar genellikle az sayıda artçı deprem üretir, yüzey kırığı ya da jeodezik sinyal bırakmaz; bu da kırılmalarının boyutunu kestirmeyi zorlaştırır (Zhan et al. 2014).",
+          "Depremleri takip eden okurlar için pratik sonuç şudur: derin depremler bilimsel açıdan büyük ilgi çekse de yüzeyde genellikle tehlikeli olacak kadar sarsıntıya yol açmaz (University of California, Santa Cruz 2013). Bu nedenle 6 ya da 7 büyüklüğündeki derin bir olay, bir deprem izleme sitesinde büyük bir sayı olarak görünürken çok az hasar bildirilebilir ya da hiç hasar bildirilmeyebilir; çünkü kırılma yerin yüzlerce kilometre altındadır."
+        ]
+      },
+      {
+        "h": "Rekor kıran iki olay",
+        "p": [
+          "Tartışmaların çoğu iki depremin etrafında şekillenir. 9 Haziran 1994’te Bolivya’nın altında derin bir deprem meydana geldi. Silver et al. (1995) bu depremin moment büyüklüğünü 8,3, derinliğini 636 kilometre olarak verir ve onu o güne kadar kaydedilmiş en büyük derin odaklı deprem olarak tanımlar. USGS kataloğu aynı olayı 631 kilometre derinlikte 8,2 büyüklüğünde bir deprem olarak listeler (USGS n.d.a). 24 Mayıs 2013’te 8,3 büyüklüğünde bir deprem, Okhotsk Denizi’nin yaklaşık 609 kilometre altında, dalan Pasifik levhasının içinde 180 kilometre uzunluğunda bir fayı kırdı (Ye et al. 2013). USGS kataloğu bu depremi 598 kilometrede 8,3 büyüklüğünde olarak listeler (USGS n.d.b). Farklı yöntemler birkaç kilometre farklı derinlikler verdiğinden yayımlanan değerler biraz değişir.",
+          "Okhotsk depremi, Bolivya olayınınkinden yüzde 30 daha büyük bir sismik momente sahipti ve yaklaşık üç kat daha fazla enerji açığa çıkardı (University of California, Santa Cruz 2013). Ye et al. (2013), saniyede yaklaşık 4,0 ile 4,5 kilometrelik bir kırılma hızı ve yaklaşık 12 ile 15 megapaskallık bir statik gerilme düşümü ölçtü; bu değerler çatlak modelleri için kuramsal ışınım verimliliğiyle uyumludur. Yakındaki bir artçı depremin gerilme düşümü bir ila iki mertebe daha yüksekti; yazarlar bunu derin levhadaki büyük gerilme heterojenliği olarak yorumlar. Çalışmanın ortak yazarlarından Thorne Lay, kayanın, üzerindeki 610 kilometrelik kayanın basıncıyla sıkıştırılırken başka bir kayaya karşı bu kadar hızlı nasıl kayabildiğini bir gizem olarak nitelendirdi (University of California, Santa Cruz 2013).",
+          "İki olay farklı biçimlerde kırıldı. Zhan et al. (2014), Okhotsk depreminin büyük ölçüde tek yönlü olduğunu ve doğrultu boyunca saniyede 4 kilometreden yüksek bir hızla yaklaşık 90 kilometre kırıldığını; Bolivya depreminin ise bu mesafenin yaklaşık yarısını saniyede yaklaşık 1,5 kilometrelik yavaş bir hızla kırdığını ve kırılma yönünde büyük bir değişiklik gösterdiğini buldu. Bu fark önemlidir, çünkü aday mekanizmaların her biri kırılma hızı ve uzanımı bakımından farklı bir davranış öngörür. Orta düzeyde gerilme düşümüne sahip hızlı ve uzun bir kırılma, sığ bir depremi andırır; Lay, Okhotsk için sığ bir olaya çok benzediğini söyledi (University of California, Santa Cruz 2013). Yavaş Bolivya kırılması ise farklı davrandı; dolayısıyla tek bir tanım her ikisine birden uymaz."
+        ]
+      },
+      {
+        "h": "Birinci mekanizma: dönüşümsel faylanma",
+        "p": [
+          "Üst mantonun ana minerali olan olivin, basınç arttıkça daha yoğun yapılara dönüşür. Yaşlı ve soğuk levhalarda bu tepkime kinetik olarak engellenir; bu nedenle olivin içeren yarı kararlı (metastabil) kayadan oluşan kama biçimli zonlar muhtemelen 600 kilometreden fazla derinliklere kadar varlığını sürdürür (Kirby et al. 1996). Bazı yarı kararlı mineraller üzerinde yapılan laboratuvar deneyleri, dönüşümsel faylanma adı verilen bir makaslama kararsızlığı gösterir; bu süreçte ana mineral, daha yoğun ve daha ince taneli bir faza dönüştüğü ince makaslama zonlarında aniden yenilir (Kirby et al. 1996). Green and Burnley (1989) bu faylanmayı olivinin germanyumlu bir analoğu olan Mg2GeO4’te gözlemledi ve bunun, daha yoğun fazla dolu küçük kapanımların oluşması, ilerlemesi ve birbirine bağlanmasından kaynaklandığını öne sürdü. Hasegawa and Nakajima (2017) aynı fikri, yeni fazın küçük mercek biçimli kristallerinin büyüyüp bir düzlem boyunca dizilerek sonunda bir fay oluşturması şeklinde tanımlar.",
+          "Laboratuvar çalışmaları bu tabloyu destekler. Schubnel et al. (2013), sinkrotron X-ışını ölçümlerini akustik izlemeyle birleştirerek, 4 ile 5 gigapaskal basınçta deforme edilirken dönüşüm geçiren Mg2GeO4 olivinde derin depremlere benzeyen akustik emisyonlar kaydetti (Wang et al. 2017). 2022’de yapılan bir çalışmada, geçiş zonundaki levhalara denk koşullar olan 11 ile 17 gigapaskal ve 860 ile 1.350 kelvin aralığında doğal (Mg,Fe)2SiO4 olivin kullanıldı. Numuneyi baştan başa kesen faylanma yalnızca 1.100 ile 1.160 kelvin arasındaki dar bir sıcaklık aralığında gerçekleşti ve buna kırılmanın başlangıcında yoğun akustik emisyonlar eşlik etti. Makaslama ısınmasının yardımıyla fay kayması, nanokristalin olivin ve wadsleyitten oluşan mercek biçimli paketlerin birbirine bağlanmasıyla oluşan zayıf bir katman boyunca gerçekleşti (Ohuchi et al. 2022).",
+          "Hipotez iki gözlemle uyumludur: derin sismisite geçiş zonuyla yakından örtüşür ve yarı kararlı olivin kamalarının yalnızca yaşlı ve soğuk levhalarda bulunması beklenir (Kirby et al. 1996). Öte yandan itirazlarla da karşı karşıyadır. Mineralin daha yoğun bir biçime ani çöküşünün depremi ürettiği erken bir sürüm, kaynakta büyük bir izotropik, yani içe çöken (implozif) bileşen oluştururdu; oysa derin depremlerde genellikle böyle bir bileşen bulunmaz (Hasegawa and Nakajima 2017). Silver et al. (1995), Bolivya kırılmasının en az 30’a 50 kilometrelik bir alana yayıldığını, bunun da levhanın çekirdeğindeki yarı kararlı bir olivin kaması için beklenen boyutun üç katından fazla olduğunu buldu ve bunu dönüşümsel faylanma kökeniyle bağdaşmaz saydı."
+        ]
+      },
+      {
+        "h": "İkinci mekanizma: dehidrasyon gevrekleşmesi",
+        "p": [
+          "Dalan levhalar, basınç ve sıcaklık arttıkça bozunan su içeren mineraller taşır. Dehidrasyon gevrekleşmesi hipotezine göre bu minerallerden atılan su, kayadaki gözenek sıvısı basıncını artırarak depremlere yol açar. Hasegawa and Nakajima (2017), yerel aşırı gözenek basıncının kırılmaya nasıl yol açtığına dair ayrıntıların hâlâ tartışıldığını belirtir. Levhadan gelen suyun orta derinlikli depremlerin oluşumunda önemli bir rol oynadığı sonucuna varırlar; kırılma muhtemelen yerel aşırı gözenek basıncıyla başlar ve ardından ısıl makaslama kararsızlığıyla ilerler.",
+          "Fikri 300 kilometrenin altına taşımak daha zordur. UC Santa Cruz’un Okhotsk depremine ilişkin açıklamasında, sıvının bir fayı kayganlaştırabileceği, ancak levha o derinliğe ulaşmadan önce tüm sıvıların levhadan sıkılıp çıkmış olması gerektiği belirtildi (University of California, Santa Cruz 2013). Zhang et al. (2021) yine de dehidrasyon gevrekleşmesinin Okhotsk olayı için akla yatkın bir alternatif model olduğunu savunur. Argümanları, kırılan düzlemin yönelimine ve boyutuna, kırılma hızına ve ışınım verimliliğine, ayrıca suyun geçiş zonuna ve daha derine kadar taşındığına dair çeşitli kanıtlara dayanır. Bu, o depreme ilişkin birbiriyle yarışan birkaç yorumdan biridir."
+        ]
+      },
+      {
+        "h": "Üçüncü mekanizma: ısıl kaçak",
+        "p": [
+          "Üçüncü hipotez olan ısıl makaslama kararsızlığı, plastik deformasyonla başlar. Kaya, üretilen ısının uzaklaşabileceğinden daha hızlı deforme olursa, pozitif bir geri besleme daha fazla deformasyonu teşvik eder. Deformasyon bundan sonra levhanın o kesimindeki malzeme erimeye başlayana kadar hızla ilerler; bu da ani bir kaymaya, yani bir depreme yol açar (Hasegawa and Nakajima 2017).",
+          "Lay, Okhotsk için benzer bir tanım yaptı: fay yalnızca biraz kayarsa sürtünme kayayı eritebilir ve sıvıyı sağlayabilir, bu da kendi kendini besleyen bir ısıl kaçak etkisi doğurur. Kaymayı önce bir şeyin başlatması gerektiğini de ekledi (University of California, Santa Cruz 2013). Zhan et al. (2014), bu tür makaslama erimesinin bir kırılma tetiklendikten sonra sıcak levhaların içinde işlediğini öne sürer."
+        ]
+      },
+      {
+        "h": "Bilim insanlarının ayrıştığı noktalar",
+        "p": [
+          "Zhan (2020) tarafından yapılan bir derleme, önde gelen üç mekanizma hakkında açık bir sonuca varır. Dönüşümsel faylanma, dehidrasyon gevrekleşmesi ve ısıl kaçak, her biri gözlemlerin bir kısmını açıklayabilir ve her birinin geri kalanını açıklamakta potansiyel olarak temel güçlükleri vardır. Derleme, birden fazla mekanizmayı içeren hipotezlerin daha ciddi biçimde ele alınması çağrısında bulunur: derin bir deprem bir süreçle başlayıp tetiklendikten sonra başka bir süreçle ilerleyebilir.",
+          "En büyük iki olayın karşılaştırılması da aynı yöne işaret eder. Zhan et al. (2014), aralarındaki farkları, farklı ısıl durumlara sahip levhalarda işleyen temelden farklı iki faylanma mekanizmasının sonucu olarak açıklar: soğuk levha çekirdeklerindeki yarı kararlı olivin kamasının içinde dönüşümsel faylanma ve tetiklendikten sonra sıcak levhaların içinde makaslama erimesi. Lay, mineral biçimlerindeki bir dönüşümün ilk itkiyi verebileceğini, ancak bilim insanlarının bunu doğrudan saptayamadığını belirtti (University of California, Santa Cruz 2013). Bu saptama sorunu, kırılmaların ilerleyişinin daha iyi sınırlandığı durumlarda bile nasıl başladıkları sorusunu açık bırakır.",
+          "Ölçek de bir başka sınırlamadır. 2022 deneylerindeki olivin numuneleri 1,2 milimetre uzunluğundaydı (Ohuchi et al. 2022); Okhotsk kırılması ise fay üzerinde kilometrelerce uzanıyordu. Milimetre boyutundaki numunelerde laboratuvar kırılmalarını inceleyen araştırmacılar, laboratuvar olaylarıyla derin odaklı depremler arasındaki ölçekleme sorunlarının henüz çözülmediğini belirtmiştir (Wang et al. 2017). Her büyük derin olay, hiçbir sondajın ulaşamayacağı derinliklerde levha sıcaklığı, mineral içeriği ve dayanım üzerine yeni bir kısıt ekler. Bu nedenle canlı bir deprem akışını izleyen okurlar için büyük bir derin deprem her şeyden önce bir araştırma fırsatıdır; çünkü onu açıklamayı zorlaştıran derinlik, sarsıntısının büyük bölümünü de yüzeyden uzak tutar."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Derin odaklı deprem nedir?",
+        "a": "Derin odaklı bir deprem, mantoya batmakta olan bir okyanus levhasının içinde, yüzeyin 300 kilometreden daha fazla altında başlar. Yaklaşık 70 ile 300 kilometre arasındaki depremlere orta derinlikli depremler denir. En derin depremler yaklaşık 325 ile 690 kilometre arasında meydana gelir ve etkinlik 700 kilometre civarında aniden sona erer."
+      },
+      {
+        "q": "Derin depremleri açıklamak neden zordur?",
+        "a": "100 ile 200 kilometreyi aşan derinliklerde basınç o kadar büyüktür ki olağan gevrek kırılma ve sürtünmeli kayma, gerçekçi olmayan kaya dayanımları gerektirir. Bu derinliklerdeki kaya normalde kırılmak yerine yavaşça deforme olur; dolayısıyla özel bir mekanizmanın fayı zayıflatması gerekir."
+      },
+      {
+        "q": "Kaydedilmiş en büyük derin deprem hangisidir?",
+        "a": "Yaklaşık 600 kilometre derinlikte meydana gelen 24 Mayıs 2013 tarihli 8,3 büyüklüğündeki Okhotsk Denizi depremi. Sismik momenti, önceki rekor sahibi olan 1994 Bolivya depremininkinden yaklaşık yüzde 30 daha büyüktü ve yaklaşık üç kat daha fazla enerji açığa çıkardı."
+      },
+      {
+        "q": "Derin depremler tehlikeli midir?",
+        "a": "Derin depremler, kırılma yüzlerce kilometre aşağıda olduğu için yüzeyde genellikle tehlikeli olacak kadar sarsıntıya yol açmaz."
+      },
+      {
+        "q": "Derin depremlerin başlıca açıklamaları nelerdir?",
+        "a": "Önde gelen üç hipotez şunlardır: düşük basınç biçiminde kalmış olivinin ince zonlar boyunca aniden dönüştüğü dönüşümsel faylanma; minerallerden açığa çıkan suyun kayayı zayıflattığı dehidrasyon gevrekleşmesi; ve hızlı deformasyonun dar bir zonu ısıtıp erittiği ısıl kaçak. Her biri gözlemlerin bir kısmını açıklar."
+      },
+      {
+        "q": "Bilim insanları derin depremlerin nedeni konusunda hemfikir mi?",
+        "a": "Hayır. 2020 tarihli bir derleme, önde gelen mekanizmaların her birinin potansiyel olarak temel güçlükleri olduğu sonucuna vardı ve derin bir depremin bir mekanizmayla başlayıp başka bir mekanizmayla sürebileceğini öne sürdü. 1994 Bolivya ve 2013 Okhotsk olaylarına ilişkin çalışmalar, soğuk ve sıcak levhaların farklı biçimlerde yenilebileceğini düşündürüyor."
+      }
+    ]
+  },
+  "volcano-seismology": {
+    "title": "Magmayı Dinlemek: Volkanik Depremler, Tremor ve Deprem Fırtınaları Hareket Eden Akışkanları Nasıl Ele Verir",
+    "dek": "Volkanlar, sıradan fayların sarsılmadığı biçimlerde sarsılır. Çatlayan kaya, rezonansa giren çatlaklar ve sürekli tremor, gözlemcilere hareket hâlindeki magma ve gaz hakkında her biri farklı bir şey anlatır.",
+    "sections": [
+      {
+        "h": "Farklı türde bir sismik sinyal",
+        "p": [
+          "Volkanlar, sıradan fay zonlarına göre çok daha çeşitli sismik sinyaller üretir. İlk incelenenler volkano-tektonik (VT) depremler oldu, çünkü bunlar tektonik depremler gibi kayanın gevrek kırılmasıyla oluşur (Konstantinou 2024). Uzun periyotlu (LP) ya da hibrit depremler ve volkanik tremor ise akışkanların ve gazın katı kayayla karmaşık etkileşimi sonucunda oluşur; bu da kaynaklarını çözmeyi çok daha zorlaştırır (Konstantinou 2024). Chouet (1996), uzun periyotlu sismisiteyi tipik periyotları 0,2 ile 2 saniye arasında olan ve bir volkanın altındaki besleme sistemindeki düzensiz kütle taşınımının yol açtığı basınç dalgalanmalarını yansıtan bir etkinlik olarak tanımlar.",
+          "Bu ayrım, yazının geri kalanının çerçevesini oluşturur. VT depremler ve deprem fırtınaları, gözlemcilere magma ya da akışkan yeni bir alana doğru ilerlerken kayanın çatladığını söyler. LP olaylar ve tremor ise akışkanın zaten var olan çatlakların ve bacaların içinde hareket ettiğine işaret eder."
+        ]
+      },
+      {
+        "h": "Volkano-tektonik depremler ve deprem fırtınaları",
+        "p": [
+          "White and McCausland (2016), 83 volkanda 111 püskürmeden önce görülen 136 VT depremini ve deprem fırtınasını derledi. VT sismisitenin, onlarca yıl ya da daha uzun süre uykuda kalmış volkanlarda genellikle bildirilen en erken sismik öncü olduğunu ve veri kümelerindeki Volkanik Patlama İndeksi (VEI) 5 ya da daha büyük olan tüm patlayıcı püskürmelerden önce görüldüğünü buldular. Etkinlik fırtına benzeri bir nitelik taşıma eğilimindedir, püskürmeden günler ile yıllar önce başlar, ilk püskürme anında doruğa ulaşır ve odak mekanizmalarında büyük bir çift kuvvet çifti dışı bileşen içerir. Fırtınalar genellikle doğrudan sonradan oluşacak püskürme ağzının altında değil, ondan bir iki kilometreden onlarca kilometreye kadar uzaklıktaki tektonik faylarda başlar. Yazarlar ayrıca sokulan magmanın hacminin VT depremlerin birikimli sismik momentinden kestirilebileceğini gösterir (White and McCausland 2016).",
+          "Deprem fırtınaları, ardından bir püskürme gelmese bile magmanın hareketini haritalayabilir. Alaska’daki Iliamna Volkanı’nın altında Mayıs ve Ağustos 1996’da meydana gelen iki deprem fırtınası, büyüklükleri -0,9 ile 3,3 arasında değişen, sırasıyla 88 ve 2.833 konumu belirlenebilir olay içeriyordu. Hiposantrları, zirvenin güneyinde daha önce asismik olan bir kabuk hacminde bir küme oluşturdu ve kükürt dioksit ile karbon dioksit salımlarındaki artışlar ikinci fırtınayla aynı zamana denk geldi. Yazarlar bu örüntüyü dikeye yakın bir daykın yerleşmesi ve şişmesiyle açıkladı. Herhangi bir püskürme olmadı (Roman et al. 2004).",
+          "23 Ağustos 2021’de Hawaii Volkan Gözlemevi (HVO), Kilauea’nın zirve kalderasının güney kesiminin altında bir deprem fırtınası bildirdi. Ertesi sabahın erken saatlerinde fırtına, yakındaki bir eğimölçerde kaydedilen daha hızlı yer deformasyonuyla birlikte şiddetlendi. HVO, bu gözlemlerin güney kalderanın 1 ile 2 kilometre altında küçük bir dayk sokulumuna işaret edebileceğini belirtti. O zamana kadar 100’den fazla deprem kaydedilmişti; en büyüğü 3,3 büyüklüğündeydi ve çoğu 1 büyüklüğün altındaydı (USGS Hawaiian Volcano Observatory 2021).",
+          "Yorum bazen daha az doğrudandır. Alaska’daki Unalaska Adası’nda 15 Haziran 2020’de meydana gelen 4,2 büyüklüğündeki bir deprem, Makushin Volkanı’nın zirvesinin yaklaşık 12 kilometre güneydoğusunda, 7 ile 10 kilometre derinlikte yüzlerce depremden oluşan bir diziyi başlattı; herhangi bir püskürme etkinliği ya da yüzey değişikliği gözlenmedi. Lanza et al. (2022), böyle bir sismisitenin magmatik mi yoksa tektonik gerilmeleri mi yansıttığına karar vermenin tehlike değerlendirmesi için kritik olmakla birlikte çoğu zaman zor olduğunu belirtir. Analizleri, büyük olasılıkla magma sokulumunun yol açtığı yerel bir gerilme alanına ilişkin kanıt buldu ve yazarlar deprem fırtınasının magmatik ve tektonik gerilmelerin bir bileşimiyle yönlendirildiği sonucuna varır."
+        ]
+      },
+      {
+        "h": "Uzun periyotlu olaylar: rezonansa giren çatlaklar",
+        "p": [
+          "LP olaylar için önde gelen açıklamalardan biri, akışkanla dolu bir çatlağın rezonansıdır. Chouet (1988) tarafından geliştirilen modelde, viskoz ve sıkıştırılabilir bir akışkan içeren üç boyutlu bir çatlak, yüzeyinin küçük bir bölümüne uygulanan ani bir basınç geçişiyle rezonansa girer ve akışkanın içinde hapsolmuş, çatlak dalgası adı verilen çok yavaş bir dalga titreşimi sürdürür. Rezonans tepelerinin frekansı, bant genişliği ve aralığı büyük ölçüde çatlağın rijitliğine bağlıdır. Aynı modelde bir LP olay ile harmonik tremor aynı kaynağı paylaşır; aralarındaki fark, rezonansın nasıl tetiklendiğinde ve akışkan akışına ilişkin sınır koşullarındadır (Chouet 1988).",
+          "Model, akışkanları dalga biçimlerinden okumanın bir yolunu sunar. Kumagai and Chouet (2000), gaz-gaz karışımları, sıvı-gaz karışımları ve tozlu ya da sisli gazlar içeren bir çatlak için titreşimin ne kadar yavaş sönümlendiğinin bir ölçüsü olan kalite faktörünü kestirdi ve neredeyse 1’den birkaç yüze kadar uzanan değerler elde etti. Yazarlar, LP olayların karmaşık frekanslarındaki değişikliklerin volkanların altındaki akışkan bileşimindeki değişiklikler açısından yorumlanabileceğini öne sürer.",
+          "Kısa, atım benzeri LP olaylar, 2004 ve 2008’de İtalya’daki Etna Yanardağı’nda, 2009’da ise Kosta Rika’daki Turrialba Volkanı’nda ve Peru’daki Ubinas Volkanı’nda püskürme etkinliğine eşlik etti. Chouet and Dawson (2016), akışkanın ilerlettiği bir çatlağın bu atımları gerçekçi kaynak boyutları ve akışkan özellikleriyle açıkladığını ve kaynakların sığ, 1 kilometreden az derinlikte olduğunu buldu. Yavaş yırtılmalı bir kırılma olası bir alternatif olarak kalmaktadır, ancak bu modelde yazarların sentetik dalga biçimleri verilerle daha az uyum gösterir."
+        ]
+      },
+      {
+        "h": "Volkanik tremor: birden çok olası kaynağı olan sürekli bir sinyal",
+        "p": [
+          "Tremor, püskürmelerden önce ya da sonra ortaya çıkabilen ve birkaç dakikadan birkaç gün ya da aya kadar sürebilen sürekli bir titreşimdir. Kaynağı, volkana bağlı olarak birkaç yüz metreden 40 kilometreye kadar herhangi bir derinlikte bulunabilir. Konstantinou and Schlindwein (2003), önerilen kaynakları dört grupta toplar: magmatik akışkan taşıyan bacalarda akışkan akışının yol açtığı salınımlar, akışkanla dolu çatlakların rezonansı, yeraltı suyunun hidrotermal kaynaması sırasında kabarcıkların büyümesi ya da çökmesi ve magma kütlelerinin salınımları. Birçok yazarın tremor kaynağının tek olmadığını ve bir volkandan diğerine farklılık gösterebileceğini düşündüğünü belirtirler.",
+          "Julian (1994), müzikteki nefesli çalgıların ve insan ses tellerinin uyarılmasına benzeyen, hareketli elastik duvarlara sahip bir kanaldan akan akışkanın salınımlar ürettiği doğrusal olmayan bir süreç tanımladı. Bu modelde LP depremler, magma akış hızı sürekli tremoru sürdüremeyecek kadar düşük olduğunda ve bunun yerine geçici bir bozulma kanalı uyardığında ortaya çıkar. McNutt (2005), tremorun yarık püskürmelerinde, freatik püskürmelerde ve gaz içeriği daha yüksek olduğunda daha güçlü olduğunu bildirir.",
+          "St. Helens Dağı’nda 2 Ekim 2004’te kaydedilen püskürme dışı tremor üzerine bir çalışma farklı bir bakış sunar. Denlinger and Moran (2014), sinyalin tamamen Love ve Rayleigh dalgalarından oluştuğunu ve onu üreten kuvvetlerin büyük ölçüde baca duvarlarına dik olduğunu buldu. Tremorun oluşma biçiminin kaynağının doğasını maskelediği, dolayısıyla birden çok modelin aynı sinyali açıklayabileceği ve aralarında seçim yapmak için başka verilere gerek olduğu sonucuna vardılar. Magmanın hızla yükseldiğini destekleyen GPS ve arazi verilerine dayanarak, bu tremorun neredeyse katı magmanın yüzeye doğru zorlanırken pürüzlü baca duvarları boyunca sürüklenmesinden kaynaklandığı çıkarımında bulundular."
+        ]
+      },
+      {
+        "h": "St. Helens Dağı, 2004: sinyallerin sırası",
+        "p": [
+          "17 yıl 11 aylık bir sessizliğin ardından St. Helens Dağı, 23 Eylül 2004’te 2 kilometreden az derinliklerde meydana gelen sığ VT depremlerden oluşan bir deprem fırtınasıyla yeniden uyanmaya başladı. 29 Eylül’e gelindiğinde büyüklüğü 2’den fazla olan depremler dakikada yaklaşık bir tane hızla oluyordu. Şiddetlenmeye VT olaylardan hibrit ve düşük frekanslı olaylara doğru kademeli bir geçiş eşlik etti; bu, volkanın 1980’lerdeki lav kubbesi oluşturan püskürmelerinden önceki birçok öncü deprem fırtınasının da bir özelliğiydi. İlk patlama, ilk depremlerden 8,5 gün sonra, 1 Ekim’de gerçekleşti (Moran et al. 2008).",
+          "16 Ekim’e gelindiğinde olaylar arasındaki aralık o kadar düzenli hâle gelmişti ki bilim insanları bu depremlere “davul vuruşları” (drumbeats) adını verdi; bunlar 2005’in sonuna kadar sismisiteye egemen oldu. Boyutları, aralıkları ve spektrumları yüzeydeki ekstrüzyon biçimindeki değişikliklerle değişti, ancak magma akısındaki farklılıklarla değişmedi; bu da davul vuruşlarının boyutunun ve aralığının ekstrüzyon hızından çok ekstrüzyonun mekaniğine bağlı olduğunu düşündürür (Moran et al. 2008). Matoza and Chouet (2010), davul vuruşlarına eşlik eden daha küçük alt olayları inceledi ve volkanın altındaki hidrotermal ve magmatik sistemlerin etkileşiminin alt olaylar, LP olaylar, daha büyük olaylar ve freatik patlamalar da dahil olmak üzere gözlenen çok çeşitli olguları açıklayabileceği sonucuna vardı."
+        ]
+      },
+      {
+        "h": "Pinatubo Dağı, 1991: derin uzun periyotlu depremler",
+        "p": [
+          "Literatürde bildirilen LP olayların büyük çoğunluğu 3 kilometreden az derinliklerde kaynaklanır, ancak Pinatubo Dağı farklı bir şey üretti. Mayıs 1991’in sonu ile Haziran başında volkanın altında yaklaşık 600 derin uzun periyotlu deprem meydana geldi; bu sayı, daha önce dünya genelindeki tüm yakınsak levha sınırı volkanlarında bildirilenlerin toplamından fazlaydı (White 1996). White bunları, magma odasının tabanına enjekte edilen ve püskürme dizisini tetikleyen derin bazaltik magmanın sismik ifadesi olarak yorumlar. 26 Mayıs’ta derin etkinliğin başlamasından yalnızca 1 saat sonra sığ LP depremler, 4 saat içinde de sürekli sığ tremor ve büyük bir buhar salımı geldi (White 1996).",
+          "Sismik izleme, 15 Haziran’daki doruk püskürmeden önce gelişen püskürme potansiyelini değerlendirmenin başlıca aracıydı. Ekip, tırmanışı deprem hiposantrlarının yerindeki kaymalardan, toplam sismik enerji salımındaki artışlardan, dalga biçimlerinin karakterindeki değişikliklerden ve giderek artan sismik olmayan huzursuzluk belirtilerinden öngördü. Son günlerde, 12 ile 14 Haziran arasında giderek büyüyen LP olaylardan oluşan dikkat çekici bir ilerleme ve ardından yüksek genlikli, son derece çeşitli sismik etkinliğin görüldüğü 24 saatlik bir doruk öncesi dönem yaşandı (Harlow et al. 1996)."
+        ]
+      },
+      {
+        "h": "Henüz yanıtlanmamış sorular",
+        "p": [
+          "Volkan sismolojisi akışkanların hareket ettiğine dair güçlü kanıtlar sağlar, ancak birkaç soru açık kalmaktadır. McNutt (2005), derin LP olayların oldukça yaygın olduğunu, ancak birkaç farklı süreci temsil edebileceğini belirtir. St. Helens Dağı çalışmasının gösterdiği gibi, tremorun birbiriyle yarışan kaynak modelleri vardır. Makushin yakınındaki gibi deprem fırtınaları magmatik ve tektonik gerilmeleri birlikte yansıtabilir ve Iliamna’da olduğu gibi bir deprem fırtınası püskürme olmadan sona erebilir.",
+          "Deprem akışlarını izleyen okurlar için bu örnekler pratik bir ders sunar. Volkanik dizilerdeki olayların çoğu küçüktür ve anlamları çoğu zaman Kilauea’daki eğimölçer kaydı ve Iliamna’daki gaz salımları gibi başka ölçümlere bağlıdır. Deformasyon ve gaz verileriyle birleştirilen sismik sinyaller, gözlemevlerine magmanın yükselip yükselmediğine karar vermek için en sağlam temeli sağlar."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Volkano-tektonik deprem nedir?",
+        "a": "Volkano-tektonik (VT) deprem, sıradan bir tektonik deprem gibi kayanın gevrek kırılmasıyla oluşur, ancak bir volkanın yakınında yer kabuğuna doğru ilerleyen magmanın ya da akışkanların yarattığı gerilmelerle tetiklenir. VT deprem fırtınaları, onlarca yıldır uykuda olan volkanlarda genellikle en erken sismik uyarıdır."
+      },
+      {
+        "q": "Uzun periyotlu volkanik depremler nedir?",
+        "a": "Uzun periyotlu (LP) olayların tipik periyotları 0,2 ile 2 saniye arasındadır ve magma, gaz ya da buhar volkanın içinde hareket ederken oluşan basınç değişimlerinden kaynaklandıkları düşünülür. Yaygın bir model bunları akışkanla dolu bir çatlağın rezonansı olarak açıklar."
+      },
+      {
+        "q": "Volkanik tremor nedir?",
+        "a": "Volkanik tremor, etkin bir volkanın yakınında görülen ve dakikalardan günlere ya da aylara kadar sürebilen sürekli bir sismik sinyaldir. Önerilen kaynaklar arasında bacalardan geçen akışkan akışı, rezonansa giren çatlaklar, kaynayan yeraltı suyu ve salınan magma kütleleri bulunur; kaynak bir volkandan diğerine farklılık gösterebilir."
+      },
+      {
+        "q": "Bir volkanın altındaki deprem fırtınası, püskürmenin yaklaştığı anlamına mı gelir?",
+        "a": "Mutlaka değil. 1996’da Iliamna’daki ve 2020’de Makushin yakınındaki deprem fırtınaları püskürme olmadan sona erdi. Gözlemevleri, magmanın yüzeye doğru yükselip yükselmediğine karar vermeden önce deprem verilerini yer deformasyonu ve gaz ölçümleriyle birleştirir."
+      },
+      {
+        "q": "Sismoloji 1991 Pinatubo püskürmesinin öngörülmesine nasıl yardımcı oldu?",
+        "a": "Bilim insanları depremlerin meydana geldiği yerlerdeki kaymaları, açığa çıkan toplam sismik enerjiyi ve dalga biçimlerindeki değişiklikleri izledi. Mayıs sonundan itibaren görülen derin uzun periyotlu depremler yeni magmanın gelişine işaret etti ve 12 ile 14 Haziran arasında giderek büyüyen LP olaylar 15 Haziran’daki doruk püskürmeden önce geldi."
+      },
+      {
+        "q": "St. Helens Dağı’ndaki “davul vuruşu” depremleri neydi?",
+        "a": "2004’ten 2008’e kadar süren lav kubbesi oluşturan püskürme sırasında küçük depremler o kadar düzenli aralıklarla yinelendi ki bilim insanları onlara davul vuruşları (drumbeats) adını verdi. Boyutları ve aralıkları, magma beslemesinin hızına göre değil, lav ekstrüzyonunun biçimine göre değişti."
+      }
+    ]
   }
 }

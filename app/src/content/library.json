@@ -1315,5 +1315,321 @@
         "url": "https://www.usgs.gov/programs/earthquake-hazards/earthquake-magnitude-energy-release-and-shaking-intensity"
       }
     ]
+  },
+  {
+    "id": "deep-focus-earthquakes",
+    "icon": "vertical_align_bottom",
+    "tone": "violet",
+    "title": "How Earthquakes Happen 600 Kilometers Down: The Puzzle of Deep-Focus Seismicity",
+    "description": "Why earthquakes 300 to 700 km deep should not happen, the 1994 Bolivia and 2013 Okhotsk events, and three mechanisms: phase change, water and runaway heating.",
+    "dek": "Rock at 600 kilometers is under enormous pressure and should flow, not break. Yet large earthquakes start there. Here is what the two biggest deep events revealed and why no single explanation fits.",
+    "published": "2026-11-23",
+    "updated": "2026-11-23",
+    "mins": 9,
+    "hashtags": ["earthquake", "seismology", "subduction"],
+    "cardImage": "a cross-section of a convergent plate boundary: an oceanic plate sinks beneath a continental plate, with earthquakes tracing the slab down to about 700 km",
+    "sections": [
+      {
+        "h": "Earthquakes Below the Brittle Zone",
+        "p": [
+          "Most earthquakes begin within a few tens of kilometers of the surface, where cold rock breaks and slides along faults. A small share begins far deeper, inside oceanic plates that are sinking into the mantle. Earthquakes below about 70 kilometers are often grouped together as deep events (Wang et al. 2017). Within subducting plates, events shallower than 300 kilometers are defined as intermediate-depth earthquakes, and those deeper than 300 kilometers are considered deep-focus earthquakes (Hasegawa and Nakajima 2017). sisma.io uses the same boundaries in its depth labels: shallow above 70 kilometers, intermediate from 70 to 300, and deep below 300.",
+          "The deepest population occurs between about 325 and 690 kilometers, an interval that closely brackets the mantle transition zone, where the main minerals of the upper mantle change to denser crystal structures (Kirby et al. 1996). The existence of these earthquakes poses a problem. Green and Burnley (1989) point out that brittle fracture and frictional sliding at depths greater than 100 to 200 kilometers would require unrealistic rock strengths. Hasegawa and Nakajima (2017) put the difficulty in terms of stress: an earthquake at such depths would need shear stress to exceed a very large frictional strength, yet the earthquakes do occur, so some special mechanism must lower the strength of the fault. Several plausible mechanisms have been proposed, and the exact one remains unresolved (Hasegawa and Nakajima 2017)."
+        ]
+      },
+      {
+        "h": "Where Deep Earthquakes Occur and How They Behave",
+        "p": [
+          "Deep earthquakes occur in subducting or previously subducted oceanic lithosphere (Kirby et al. 1996). They follow dipping planar bands known as Wadati-Benioff zones, which trace the cold, down-going cores of the sinking plates (Wang et al. 2017). The number of earthquakes falls almost exponentially with depth to about 300 kilometers, reaches a minimum between about 300 and 450 kilometers, and rises again to a local maximum at 550 to 600 kilometers (Hasegawa and Nakajima 2017). Activity then ends abruptly near 700 kilometers (Wang et al. 2017).",
+          "Zhan (2020) summarizes the observations in a review: deep earthquakes behave like shallow earthquakes but must have fundamentally different physical processes, and their rupture behavior, size statistics and aftershocks are diverse and depend imperfectly on factors such as slab temperature, depth and magnitude. Deep events generally produce few aftershocks and leave no surface rupture or geodetic signal, which makes the size of their ruptures hard to estimate (Zhan et al. 2014).",
+          "For readers who follow earthquakes, the practical consequence is that deep earthquakes usually do not cause enough shaking at the surface to be hazardous, although they are of great scientific interest (University of California, Santa Cruz 2013). A deep event of magnitude 6 or 7 can therefore appear on a tracking site as a large number with little or no reported damage, because the rupture lies hundreds of kilometers below the ground."
+        ]
+      },
+      {
+        "h": "Two Record-Setting Events",
+        "p": [
+          "Two earthquakes anchor most discussion. On 9 June 1994, a deep earthquake struck beneath Bolivia. Silver et al. (1995) give its moment magnitude as 8.3 and its depth as 636 kilometers, and describe it as the largest deep-focus earthquake recorded up to that time. The USGS catalog lists the same event as magnitude 8.2 at a depth of 631 kilometers (USGS n.d.a). On 24 May 2013, a magnitude 8.3 earthquake ruptured a 180-kilometer-long fault within the subducting Pacific plate about 609 kilometers below the Sea of Okhotsk (Ye et al. 2013). The USGS catalog lists it as magnitude 8.3 at 598 kilometers (USGS n.d.b). Different methods give depths that differ by several kilometers, so published figures vary slightly.",
+          "The Okhotsk earthquake had a seismic moment 30 percent larger than that of the Bolivia event and released about three times as much energy (University of California, Santa Cruz 2013). Ye et al. (2013) measured a rupture velocity of about 4.0 to 4.5 kilometers per second and a static stress drop of about 12 to 15 megapascals, values compatible with theoretical radiation efficiency for crack models. A nearby aftershock had a stress drop one to two orders of magnitude higher, which the authors read as large stress heterogeneity in the deep slab. Thorne Lay, a coauthor of the study, called it a mystery how rock can slide against rock so fast while squeezed by the pressure of 610 kilometers of overlying rock (University of California, Santa Cruz 2013).",
+          "The two events ruptured differently. Zhan et al. (2014) found that the Okhotsk earthquake was mostly unilateral, rupturing about 90 kilometers along strike at more than 4 kilometers per second, while the Bolivia earthquake ruptured about half that distance at a slow velocity of about 1.5 kilometers per second and showed a major change in rupture direction. The difference matters because each candidate mechanism implies different behavior in rupture speed and extent. A fast, long rupture with a moderate stress drop resembles a shallow earthquake; Lay said of Okhotsk that it looks a lot like a shallow event (University of California, Santa Cruz 2013). The slow Bolivia rupture behaved differently, so no single description fits both."
+        ]
+      },
+      {
+        "h": "Mechanism One: Transformational Faulting",
+        "p": [
+          "Olivine, the main mineral of the upper mantle, converts to denser structures as pressure rises. In old, cold slabs that reaction is kinetically hindered, so wedge-shaped zones of metastable olivine-bearing rock probably persist to depths of more than 600 kilometers (Kirby et al. 1996). Laboratory experiments on some metastable minerals show a shear instability called transformational faulting, in which the host mineral fails suddenly in thin shear zones where it transforms to a denser, finer-grained phase (Kirby et al. 1996). Green and Burnley (1989) observed this faulting in a germanium analogue of olivine, Mg2GeO4, and proposed that it arises from the generation, propagation and linking-up of small inclusions filled with the denser phase. Hasegawa and Nakajima (2017) describe the same idea in terms of small lens-shaped crystals of the new phase that grow and align along a plane until they form a fault.",
+          "Laboratory work supports the picture. Schubnel et al. (2013) recorded acoustic emissions resembling deep earthquakes in Mg2GeO4 olivine deformed at pressures of 4 to 5 gigapascals while it transformed, combining synchrotron X-ray measurements with acoustic monitoring (Wang et al. 2017). A 2022 study used natural (Mg,Fe)2SiO4 olivine at 11 to 17 gigapascals and 860 to 1350 kelvin, conditions equivalent to slabs in the transition zone. Through-going faulting occurred only within a narrow temperature window of 1100 to 1160 kelvin, accompanied by intense acoustic emissions at the onset of rupture. Fault sliding, aided by shear heating, occurred along a weak layer formed by the linking-up of lens-shaped packets of nanocrystalline olivine and wadsleyite (Ohuchi et al. 2022).",
+          "The hypothesis fits two observations: deep seismicity closely brackets the transition zone, and metastable olivine wedges are expected only in old, cold slabs (Kirby et al. 1996). It also faces objections. An early version, in which a sudden collapse of the mineral to a denser form produces the earthquake, would create a large isotropic, or implosive, component in the source, and deep earthquakes generally lack one (Hasegawa and Nakajima 2017). Silver et al. (1995) found that the Bolivia rupture extended at least 30 by 50 kilometers, more than three times the size expected for a metastable olivine wedge at the core of the slab, which they considered incompatible with an origin by transformational faulting."
+        ]
+      },
+      {
+        "h": "Mechanism Two: Dehydration Embrittlement",
+        "p": [
+          "Subducting plates carry water-bearing minerals that break down as pressure and temperature rise. Under the dehydration embrittlement hypothesis, water expelled from these minerals generates earthquakes by raising the pore-fluid pressure in the rock. Hasegawa and Nakajima (2017) note that the details of how local excess pore pressure leads to rupture are still debated. They conclude that water from the slab plays an important role in generating intermediate-depth earthquakes, with rupture possibly starting through local excess pore pressure and then propagating through thermal shear instability.",
+          "Extending the idea below 300 kilometers is harder. The UC Santa Cruz release on the Okhotsk earthquake noted that fluid can lubricate a fault, but that all of the fluids should have been squeezed out of the slab before it reached that depth (University of California, Santa Cruz 2013). Zhang et al. (2021) nonetheless argue that dehydration embrittlement is a plausible alternative model for the Okhotsk event. Their argument rests on the orientation and size of the plane that ruptured, its rupture velocity and radiation efficiency, and diverse evidence that water is carried as deep as the transition zone and below. It is one of several competing interpretations of that earthquake."
+        ]
+      },
+      {
+        "h": "Mechanism Three: Thermal Runaway",
+        "p": [
+          "The third hypothesis, thermal shear instability, starts with plastic deformation. If the rock deforms faster than the heat generated can escape, a positive feedback promotes further deformation. Deformation then proceeds rapidly until material in that part of the slab starts to melt, which produces sudden slip, that is, an earthquake (Hasegawa and Nakajima 2017).",
+          "Lay gave a similar description for Okhotsk: if the fault slips just a little, friction could melt the rock and provide the fluid, producing a runaway thermal effect. He added that something must first start the sliding (University of California, Santa Cruz 2013). Zhan et al. (2014) propose that this kind of shear melting operates inside warm slabs once a rupture has been triggered."
+        ]
+      },
+      {
+        "h": "Where Scientists Disagree",
+        "p": [
+          "A review by Zhan (2020) reaches a plain conclusion about the three leading mechanisms. Transformational faulting, dehydration embrittlement and thermal runaway can each explain portions of the observations, and each has potentially fundamental difficulties explaining the rest. The review calls for more serious consideration of hypotheses that involve more than one mechanism: a deep earthquake might initiate by one process and propagate by another once triggered.",
+          "Comparison of the two largest events points the same way. Zhan et al. (2014) explain the differences between them as the result of two fundamentally different faulting mechanisms in slabs with different thermal states: transformational faulting inside the metastable olivine wedge in cold slab cores, and shear melting inside warm slabs once triggered. Lay noted that a transformation of mineral forms might give the initial kick, but that scientists cannot detect it directly (University of California, Santa Cruz 2013). That detection problem leaves the question of how ruptures begin open even where their propagation is better constrained.",
+          "Scale is another limit. The olivine samples in the 2022 experiments were 1.2 millimeters long (Ohuchi et al. 2022), while the Okhotsk rupture extended over many kilometers of fault. Researchers studying laboratory ruptures in millimeter-sized samples have noted that scaling issues between laboratory events and deep-focus earthquakes remain to be resolved (Wang et al. 2017). Each large deep event adds a constraint on slab temperature, mineral content and strength at depths no drill can reach. For readers watching a live earthquake feed, a large deep earthquake is therefore mainly a research opportunity, because the depth that makes it hard to explain also keeps most of its shaking far from the surface."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is a deep-focus earthquake?",
+        "a": "A deep-focus earthquake starts more than 300 kilometers below the surface, inside an oceanic plate that is sinking into the mantle. Earthquakes between about 70 and 300 kilometers are called intermediate-depth. The deepest earthquakes occur between about 325 and 690 kilometers, and activity ends abruptly near 700 kilometers."
+      },
+      {
+        "q": "Why are deep earthquakes hard to explain?",
+        "a": "At depths beyond 100 to 200 kilometers, the pressure is so great that ordinary brittle fracture and frictional sliding would require unrealistic rock strengths. Rock at those depths would normally deform slowly instead of breaking, so some special mechanism must weaken the fault."
+      },
+      {
+        "q": "What is the largest deep earthquake ever recorded?",
+        "a": "The magnitude 8.3 Sea of Okhotsk earthquake of 24 May 2013, about 600 kilometers deep. Its seismic moment was about 30 percent larger than that of the 1994 Bolivia earthquake, the previous record holder, and it released about three times as much energy."
+      },
+      {
+        "q": "Are deep earthquakes dangerous?",
+        "a": "Deep earthquakes usually do not cause enough shaking at the surface to be hazardous, because the rupture lies hundreds of kilometers down."
+      },
+      {
+        "q": "What are the main explanations for deep earthquakes?",
+        "a": "The three leading hypotheses are transformational faulting, where olivine that has stayed in its low-pressure form suddenly transforms along thin zones; dehydration embrittlement, where water released from minerals weakens the rock; and thermal runaway, where rapid deformation heats and melts a narrow zone. Each explains part of the observations."
+      },
+      {
+        "q": "Do scientists agree on what causes deep earthquakes?",
+        "a": "No. A 2020 review concluded that each leading mechanism has potentially fundamental difficulties and suggested that a deep earthquake might start by one mechanism and continue by another. Studies of the 1994 Bolivia and 2013 Okhotsk events suggest that cold and warm slabs may fail in different ways."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Green, Harry W., II, and Pamela C. Burnley. 1989. \"A New Self-Organizing Mechanism for Deep-Focus Earthquakes.\" Nature 341: 733–37. https://doi.org/10.1038/341733a0.",
+        "url": "https://doi.org/10.1038/341733a0"
+      },
+      {
+        "text": "Hasegawa, Akira, and Junichi Nakajima. 2017. \"Seismic Imaging of Slab Metamorphism and Genesis of Intermediate-Depth Intraslab Earthquakes.\" Progress in Earth and Planetary Science 4: 12. https://doi.org/10.1186/s40645-017-0126-9.",
+        "url": "https://doi.org/10.1186/s40645-017-0126-9"
+      },
+      {
+        "text": "Kirby, Stephen H., Seth Stein, Emile A. Okal, and David C. Rubie. 1996. \"Metastable Mantle Phase Transformations and Deep Earthquakes in Subducting Oceanic Lithosphere.\" Reviews of Geophysics 34 (2): 261–306. https://doi.org/10.1029/96RG01050.",
+        "url": "https://doi.org/10.1029/96RG01050"
+      },
+      {
+        "text": "Ohuchi, Tomohiro, Yuji Higo, Yoshinori Tange, Takeshi Sakai, Kohei Matsuda, and Tetsuo Irifune. 2022. \"In Situ X-Ray and Acoustic Observations of Deep Seismic Faulting upon Phase Transitions in Olivine.\" Nature Communications 13: 5213. https://doi.org/10.1038/s41467-022-32923-8.",
+        "url": "https://doi.org/10.1038/s41467-022-32923-8"
+      },
+      {
+        "text": "Schubnel, Alexandre, Fabrice Brunet, Nadège Hilairet, Julien Gasc, Yanbin Wang, and Harry W. Green II. 2013. \"Deep-Focus Earthquake Analogs Recorded at High Pressure and Temperature in the Laboratory.\" Science 341 (6152): 1377–80. https://doi.org/10.1126/science.1240206.",
+        "url": "https://doi.org/10.1126/science.1240206"
+      },
+      {
+        "text": "Silver, Paul G., Susan L. Beck, Terry C. Wallace, Charles Meade, Stephen C. Myers, David E. James, and Randy Kuehnel. 1995. \"Rupture Characteristics of the Deep Bolivian Earthquake of 9 June 1994 and the Mechanism of Deep-Focus Earthquakes.\" Science 268 (5207): 69–73. https://doi.org/10.1126/science.268.5207.69.",
+        "url": "https://doi.org/10.1126/science.268.5207.69"
+      },
+      {
+        "text": "University of California, Santa Cruz. 2013. \"Seismologists Puzzle over Largest Deep Earthquake Ever Recorded.\" News release, September 19, 2013. Reprinted by ScienceDaily. https://www.sciencedaily.com/releases/2013/09/130919142152.htm.",
+        "url": "https://www.sciencedaily.com/releases/2013/09/130919142152.htm"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.a. \"M 8.2 – 55 km NNW of Reyes, Bolivia.\" Earthquake Hazards Program event page, 9 June 1994. https://earthquake.usgs.gov/earthquakes/eventpage/usp0006dzc.",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0006dzc"
+      },
+      {
+        "text": "USGS (U.S. Geological Survey). n.d.b. \"M 8.3 – 2013 Sea of Okhotsk Earthquake.\" Earthquake Hazards Program event page, 24 May 2013. https://earthquake.usgs.gov/earthquakes/eventpage/usb000h4jh.",
+        "url": "https://earthquake.usgs.gov/earthquakes/eventpage/usb000h4jh"
+      },
+      {
+        "text": "Wang, Yanbin, Lupei Zhu, Feng Shi, Alexandre Schubnel, Nadège Hilairet, Tony Yu, Mark Rivers, Julien Gasc, Ahmed Addad, Damien Deldicque, Ziyu Li, and Fabrice Brunet. 2017. \"A Laboratory Nanoseismological Study on Deep-Focus Earthquake Micromechanics.\" Science Advances 3 (7): e1601896. https://doi.org/10.1126/sciadv.1601896.",
+        "url": "https://doi.org/10.1126/sciadv.1601896"
+      },
+      {
+        "text": "Ye, Lingling, Thorne Lay, Hiroo Kanamori, and Keith D. Koper. 2013. \"Energy Release of the 2013 Mw 8.3 Sea of Okhotsk Earthquake and Deep Slab Stress Heterogeneity.\" Science 341 (6152): 1380–84. https://doi.org/10.1126/science.1242032.",
+        "url": "https://doi.org/10.1126/science.1242032"
+      },
+      {
+        "text": "Zhan, Zhongwen. 2020. \"Mechanisms and Implications of Deep Earthquakes.\" Annual Review of Earth and Planetary Sciences 48: 147–74. https://doi.org/10.1146/annurev-earth-053018-060314.",
+        "url": "https://doi.org/10.1146/annurev-earth-053018-060314"
+      },
+      {
+        "text": "Zhan, Zhongwen, Hiroo Kanamori, Victor C. Tsai, Donald V. Helmberger, and Shengji Wei. 2014. \"Rupture Complexity of the 1994 Bolivia and 2013 Sea of Okhotsk Deep Earthquakes.\" Earth and Planetary Science Letters 385: 89–96. https://doi.org/10.1016/j.epsl.2013.10.028.",
+        "url": "https://doi.org/10.1016/j.epsl.2013.10.028"
+      },
+      {
+        "text": "Zhang, Hao, Suzan van der Lee, Craig R. Bina, and Zengxi Ge. 2021. \"Deep Dehydration as a Plausible Mechanism of the 2013 Mw 8.3 Sea of Okhotsk Deep-Focus Earthquake.\" Frontiers in Earth Science 9: 521220. https://doi.org/10.3389/feart.2021.521220.",
+        "url": "https://doi.org/10.3389/feart.2021.521220"
+      }
+    ]
+  },
+  {
+    "id": "volcano-seismology",
+    "icon": "volcano",
+    "tone": "warm",
+    "title": "Listening to Magma: How Volcanic Earthquakes, Tremor and Swarms Reveal Moving Fluids",
+    "description": "How volcano-tectonic earthquakes, long-period events and tremor track magma and fluids, with Mount St. Helens 2004, Pinatubo 1991, Iliamna and Kilauea swarms.",
+    "dek": "Volcanoes shake in ways ordinary faults do not. Cracking rock, resonating cracks and sustained tremor each tell observers something different about magma and gas on the move.",
+    "published": "2026-11-23",
+    "updated": "2026-11-23",
+    "mins": 8,
+    "hashtags": ["volcano", "seismology", "earthquake"],
+    "cardImage": "a world map of recent M4.5+ earthquakes, with those on the Ring of Fire, the belt of ocean trenches and volcanoes around the Pacific, highlighted",
+    "sections": [
+      {
+        "h": "A Different Kind of Seismic Signal",
+        "p": [
+          "Volcanoes produce a wider variety of seismic signals than ordinary fault zones do. Volcano-tectonic (VT) earthquakes were the first to be studied, because like tectonic earthquakes they are generated by brittle failure of rock (Konstantinou 2024). Long-period (LP) or hybrid earthquakes and volcanic tremor are generated through the complex interaction of fluids and gas with solid rock, which makes their source much harder to decipher (Konstantinou 2024). Chouet (1996) describes long-period seismicity as having typical periods of 0.2 to 2 seconds and as a reflection of pressure fluctuations caused by unsteady mass transport in the plumbing system beneath a volcano.",
+          "That distinction organizes the rest of this article. VT earthquakes and swarms tell observers that rock is cracking as magma or fluid pushes into new space. LP events and tremor suggest that fluid is moving inside cracks and conduits that already exist."
+        ]
+      },
+      {
+        "h": "Volcano-Tectonic Earthquakes and Swarms",
+        "p": [
+          "White and McCausland (2016) compiled 136 VT earthquakes and swarms that preceded 111 eruptions at 83 volcanoes. They found that VT seismicity is usually the earliest reported seismic precursor at volcanoes that have been dormant for decades or more, and that it preceded all explosive eruptions of Volcanic Explosivity Index (VEI) 5 or larger in their data set. The activity tends to be swarm-like, begins days to years before an eruption, peaks at the time of the initial eruption, and has a large non-double-couple component in its focal mechanisms. The swarms usually start on tectonic faults one or two to tens of kilometers from the eventual vent rather than directly beneath it. The authors also show that the volume of intruded magma can be estimated from the cumulative seismic moment of the VT earthquakes (White and McCausland 2016).",
+          "Swarms can map the movement of magma even when no eruption follows. Two swarms beneath Iliamna Volcano in Alaska in May and August 1996 contained 88 and 2,833 locatable events, with magnitudes from -0.9 to 3.3. Their hypocenters formed a cluster in a previously aseismic volume of crust south of the summit, and increases in sulfur dioxide and carbon dioxide emissions coincided with the second swarm. The authors explained the pattern by the emplacement and inflation of a subvertical dike. No eruption occurred (Roman et al. 2004).",
+          "On 23 August 2021, the Hawaiian Volcano Observatory (HVO) reported a swarm beneath the south part of Kilauea's summit caldera. Early the next morning the swarm intensified, together with a faster rate of ground deformation at a nearby tiltmeter. HVO said these observations may indicate a small dike intrusion 1 to 2 kilometers beneath the south caldera. Over 100 earthquakes had been recorded by then, the largest of magnitude 3.3 and most below magnitude 1 (USGS Hawaiian Volcano Observatory 2021).",
+          "Interpretation is sometimes less direct. A magnitude 4.2 earthquake on 15 June 2020 on Unalaska Island, Alaska, began a sequence of hundreds of earthquakes at 7 to 10 kilometers depth, about 12 kilometers southeast of the summit of Makushin Volcano, and no eruptive activity or surface change was observed. Lanza et al. (2022) note that deciding whether such seismicity reflects magmatic or tectonic stresses is often challenging, although critical for hazard assessment. Their analysis found evidence of a local stress field likely induced by magma intrusion, and they conclude that the swarm was driven by a combination of magmatic and tectonic stresses."
+        ]
+      },
+      {
+        "h": "Long-Period Events: Resonating Cracks",
+        "p": [
+          "A leading explanation for LP events is the resonance of a fluid-filled crack. In the model of Chouet (1988), a three-dimensional crack containing a viscous compressible fluid is set into resonance by an impulsive pressure transient applied over a small part of its surface, and a very slow wave trapped in the fluid, called the crack wave, sustains the vibration. The frequency, bandwidth and spacing of the resonant peaks depend strongly on the stiffness of the crack. In the same model, an LP event and harmonic tremor share the same source and differ in how the resonance is triggered and in the boundary conditions for fluid flow (Chouet 1988).",
+          "The model gives a way to read fluids from waveforms. Kumagai and Chouet (2000) estimated the quality factor, a measure of how slowly the vibration dies away, for a crack containing gas-gas mixtures, liquid-gas mixtures, and dusty or misty gases, and obtained values ranging from almost unity to several hundred. They suggest that changes in the complex frequencies of LP events could be interpreted in terms of changes in fluid composition beneath volcanoes.",
+          "Short, pulse-like LP events accompanied eruptive activity at Mount Etna in Italy in 2004 and 2008 and at Turrialba Volcano in Costa Rica and Ubinas Volcano in Peru in 2009. Chouet and Dawson (2016) found that a fluid-driven crack explains these pulses with realistic source sizes and fluid properties, and that the sources are shallow, less than 1 kilometer deep. A slow-rupture failure remains a possible alternative, though their synthetic waveforms fit the data less well under that model."
+        ]
+      },
+      {
+        "h": "Volcanic Tremor: A Sustained Signal With Several Candidate Sources",
+        "p": [
+          "Tremor is a sustained vibration that can occur before or after eruptions and last from several minutes to several days or months. Its source can lie anywhere from a few hundred meters to 40 kilometers deep, depending on the volcano. Konstantinou and Schlindwein (2003) group the proposed sources into four families: fluid-flow-induced oscillations of conduits carrying magmatic fluids, resonance of fluid-filled cracks, bubble growth or collapse during hydrothermal boiling of groundwater, and oscillations of magma bodies. They note that many authors consider that the source of tremor is not unique and may differ from one volcano to another.",
+          "Julian (1994) described a nonlinear process analogous to the excitation of musical wind instruments and human vocal cords, in which fluid flowing through a channel with movable elastic walls produces oscillations. In that model, LP earthquakes appear when the magma flow rate is too low to sustain continuous tremor and a transient disturbance excites the channel instead. McNutt (2005) reports that tremor is stronger for fissure eruptions, phreatic eruptions and higher gas contents.",
+          "A study of noneruptive tremor on 2 October 2004 at Mount St. Helens offers a different view. Denlinger and Moran (2014) found that the signal was composed entirely of Love and Rayleigh waves and that the forces producing it were largely normal to the conduit walls. They concluded that the way tremor is generated masks the nature of its source, so that multiple models can explain the same signal and other data are needed to choose between them. With GPS and field data supporting rapid rise of magma, they inferred that this tremor resulted from the drag of nearly solid magma along rough conduit walls as it was forced toward the surface."
+        ]
+      },
+      {
+        "h": "Mount St. Helens, 2004: The Signals in Sequence",
+        "p": [
+          "After 17 years and 11 months of quiet, Mount St. Helens began its reawakening on 23 September 2004 with a swarm of shallow VT earthquakes at depths of less than 2 kilometers. By 29 September, earthquakes of magnitude greater than 2 were occurring at about one per minute. A gradual transition from VT to hybrid and low-frequency events accompanied the intensification, a characteristic of many precursory swarms at the volcano before its dome-building eruptions in the 1980s. The first explosion occurred on 1 October, 8.5 days after the first earthquakes (Moran et al. 2008).",
+          "By 16 October the spacing between events had become so regular that the scientists called the earthquakes drumbeats, and these dominated seismicity through the end of 2005. Their size, spacing and spectra varied with changes in the style of extrusion at the surface but not with variations in magma flux, which suggests that drumbeat size and spacing depended more on the mechanics of extrusion than on the extrusion rate (Moran et al. 2008). Matoza and Chouet (2010) studied the smaller subevents that accompanied the drumbeats and concluded that the interaction of the hydrothermal and magmatic systems beneath the volcano could explain a wide range of observed phenomena, including subevents, LP events, larger events and phreatic explosions."
+        ]
+      },
+      {
+        "h": "Mount Pinatubo, 1991: Deep Long-Period Earthquakes",
+        "p": [
+          "The vast majority of LP events reported in the literature originate at depths of less than 3 kilometers, but Mount Pinatubo produced something different. About 600 deep long-period earthquakes occurred beneath the volcano in late May and early June 1991, more than the combined total previously reported at all convergent-margin volcanoes worldwide (White 1996). White interprets them as the seismic expression of deep basaltic magma injected into the base of the magma chamber, which triggered the eruptive sequence. The onset of the deep activity on 26 May was followed just 1 hour later by shallow LP earthquakes and within 4 hours by continuous shallow tremor and a large steam emission (White 1996).",
+          "Seismic monitoring was the primary tool for assessing the evolving eruptive potential before the climactic eruption on 15 June. The team forecast the escalation from shifts in the locus of earthquake hypocenters, increases in total seismic energy release, changes in the character of the waveforms and growing nonseismic signs of unrest. The final days included a remarkable progression of increasingly large LP events from 12 to 14 June, followed by a 24-hour preclimactic period of high-amplitude, widely diverse seismic activity (Harlow et al. 1996)."
+        ]
+      },
+      {
+        "h": "What Remains Unsettled",
+        "p": [
+          "Volcano seismology supplies strong evidence that fluids are moving, but several questions stay open. McNutt (2005) notes that deep LP events are fairly common but may represent several processes. Tremor has competing source models, as the Mount St. Helens study shows. Swarms such as the one near Makushin can reflect magmatic and tectonic stress together, and a swarm can end without an eruption, as at Iliamna.",
+          "For readers who watch earthquake feeds, these examples offer a practical lesson. Many events in volcanic sequences are small, and their meaning often depends on other measurements, such as the tiltmeter record at Kilauea and the gas emissions at Iliamna. Seismic signals combined with deformation and gas data give observatories the best basis for judging whether magma is rising."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What is a volcano-tectonic earthquake?",
+        "a": "A volcano-tectonic (VT) earthquake is caused by brittle failure of rock, like an ordinary tectonic earthquake, but it is driven by stresses from magma or fluids pushing into the crust near a volcano. VT swarms are usually the earliest seismic warning at volcanoes that have been dormant for decades."
+      },
+      {
+        "q": "What are long-period volcanic earthquakes?",
+        "a": "Long-period (LP) events have typical periods of 0.2 to 2 seconds and are thought to come from pressure changes as magma, gas or steam moves through the volcano. A common model explains them as the resonance of a fluid-filled crack."
+      },
+      {
+        "q": "What is volcanic tremor?",
+        "a": "Volcanic tremor is a sustained seismic signal near an active volcano that can last from minutes to days or months. Proposed sources include fluid flow through conduits, resonating cracks, boiling groundwater and oscillating magma bodies, and the source may differ from one volcano to another."
+      },
+      {
+        "q": "Does an earthquake swarm under a volcano mean an eruption is coming?",
+        "a": "Not necessarily. Swarms at Iliamna in 1996 and near Makushin in 2020 ended without an eruption. Observatories combine earthquake data with ground deformation and gas measurements before judging whether magma is rising toward the surface."
+      },
+      {
+        "q": "How did seismology help forecast the 1991 Pinatubo eruption?",
+        "a": "Scientists tracked shifts in where earthquakes occurred, the total seismic energy released and changes in waveforms. Deep long-period earthquakes from late May marked the arrival of new magma, and growing LP events from 12 to 14 June preceded the climactic eruption on 15 June."
+      },
+      {
+        "q": "What were the drumbeat earthquakes at Mount St. Helens?",
+        "a": "During the 2004 to 2008 dome-building eruption, small earthquakes repeated at such regular intervals that scientists called them drumbeats. Their size and spacing changed with the style of lava extrusion rather than with the rate of magma supply."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Chouet, Bernard. 1988. \"Resonance of a Fluid-Driven Crack: Radiation Properties and Implications for the Source of Long-Period Events and Harmonic Tremor.\" Journal of Geophysical Research 93 (B5): 4375–4400. https://doi.org/10.1029/JB093iB05p04375.",
+        "url": "https://doi.org/10.1029/JB093iB05p04375"
+      },
+      {
+        "text": "Chouet, Bernard A. 1996. \"Long-Period Volcano Seismicity: Its Source and Use in Eruption Forecasting.\" Nature 380: 309–16. https://doi.org/10.1038/380309a0.",
+        "url": "https://doi.org/10.1038/380309a0"
+      },
+      {
+        "text": "Chouet, Bernard A., and Phillip B. Dawson. 2016. \"Origin of the Pulse-Like Signature of Shallow Long-Period Volcano Seismicity.\" Journal of Geophysical Research: Solid Earth 121 (8): 5931–41. https://doi.org/10.1002/2016JB013152.",
+        "url": "https://doi.org/10.1002/2016JB013152"
+      },
+      {
+        "text": "Denlinger, Roger P., and Seth C. Moran. 2014. \"Volcanic Tremor Masks Its Seismogenic Source: Results from a Study of Noneruptive Tremor Recorded at Mount St. Helens, Washington.\" Journal of Geophysical Research: Solid Earth 119 (3): 2230–51. https://doi.org/10.1002/2013JB010698.",
+        "url": "https://doi.org/10.1002/2013JB010698"
+      },
+      {
+        "text": "Harlow, David H., John A. Power, Eduardo P. Laguerta, Gemme Ambubuyog, Randall A. White, and Richard P. Hoblitt. 1996. \"Precursory Seismicity and Forecasting of the June 15, 1991, Eruption of Mount Pinatubo.\" In Fire and Mud: Eruptions and Lahars of Mount Pinatubo, Philippines, edited by Christopher G. Newhall and Raymundo S. Punongbayan. Quezon City: Philippine Institute of Volcanology and Seismology; Seattle: University of Washington Press. https://pubs.usgs.gov/pinatubo/harlow/.",
+        "url": "https://pubs.usgs.gov/pinatubo/harlow/"
+      },
+      {
+        "text": "Julian, Bruce R. 1994. \"Volcanic Tremor: Nonlinear Excitation by Fluid Flow.\" Journal of Geophysical Research 99 (B6): 11859–77. https://doi.org/10.1029/93JB03129.",
+        "url": "https://doi.org/10.1029/93JB03129"
+      },
+      {
+        "text": "Konstantinou, Konstantinos I. 2024. \"A Review of the Source Characteristics and Physical Mechanisms of Very Long Period (VLP) Seismic Signals at Active Volcanoes.\" Surveys in Geophysics 45: 117–49. https://doi.org/10.1007/s10712-023-09800-0.",
+        "url": "https://doi.org/10.1007/s10712-023-09800-0"
+      },
+      {
+        "text": "Konstantinou, Konstantinos I., and Vera Schlindwein. 2003. \"Nature, Wavefield Properties and Source Mechanism of Volcanic Tremor: A Review.\" Journal of Volcanology and Geothermal Research 119 (1–4): 161–87. https://doi.org/10.1016/S0377-0273(02)00311-6.",
+        "url": "https://doi.org/10.1016/S0377-0273(02)00311-6"
+      },
+      {
+        "text": "Kumagai, Hiroyuki, and Bernard A. Chouet. 2000. \"Acoustic Properties of a Crack Containing Magmatic or Hydrothermal Fluids.\" Journal of Geophysical Research: Solid Earth 105 (B11): 25493–512. https://doi.org/10.1029/2000JB900273.",
+        "url": "https://doi.org/10.1029/2000JB900273"
+      },
+      {
+        "text": "Lanza, Federica, Diana C. Roman, John A. Power, Clifford H. Thurber, and Thomas Hudson. 2022. \"Complex Magmatic-Tectonic Interactions during the 2020 Makushin Volcano, Alaska, Earthquake Swarm.\" Earth and Planetary Science Letters 587: 117538. https://doi.org/10.1016/j.epsl.2022.117538.",
+        "url": "https://doi.org/10.1016/j.epsl.2022.117538"
+      },
+      {
+        "text": "Matoza, Robin S., and Bernard A. Chouet. 2010. \"Subevents of Long-Period Seismicity: Implications for Hydrothermal Dynamics during the 2004–2008 Eruption of Mount St. Helens.\" Journal of Geophysical Research 115 (B12). https://doi.org/10.1029/2010JB007839.",
+        "url": "https://doi.org/10.1029/2010JB007839"
+      },
+      {
+        "text": "McNutt, Stephen R. 2005. \"Volcanic Seismology.\" Annual Review of Earth and Planetary Sciences 33: 461–91. https://doi.org/10.1146/annurev.earth.33.092203.122459.",
+        "url": "https://doi.org/10.1146/annurev.earth.33.092203.122459"
+      },
+      {
+        "text": "Moran, Seth C., Stephen D. Malone, Anthony I. Qamar, Weston A. Thelen, Amy K. Wright, and Jacqueline Caplan-Auerbach. 2008. \"Seismicity Associated with Renewed Dome Building at Mount St. Helens, 2004–2005.\" In A Volcano Rekindled: The Renewed Eruption of Mount St. Helens, 2004–2006, U.S. Geological Survey Professional Paper 1750, chap. 2, 27–60. https://doi.org/10.3133/pp17502.",
+        "url": "https://doi.org/10.3133/pp17502"
+      },
+      {
+        "text": "Roman, Diana C., John A. Power, Seth C. Moran, Katharine V. Cashman, Michael P. Doukas, Christina A. Neal, and Terrence M. Gerlach. 2004. \"Evidence for Dike Emplacement beneath Iliamna Volcano, Alaska in 1996.\" Journal of Volcanology and Geothermal Research 130 (3–4): 265–84. https://doi.org/10.1016/S0377-0273(03)00302-0.",
+        "url": "https://doi.org/10.1016/S0377-0273(03)00302-0"
+      },
+      {
+        "text": "USGS Hawaiian Volcano Observatory. 2021. \"USGS HVO Information Statement: Kīlauea Summit South Caldera Earthquake Swarm, Island of Hawai'i.\" August 23, 2021. https://www.usgs.gov/news/usgs-hvo-information-statement-kilauea-summit-south-caldera-earthquake-swarm-island-hawaii.",
+        "url": "https://www.usgs.gov/news/usgs-hvo-information-statement-kilauea-summit-south-caldera-earthquake-swarm-island-hawaii"
+      },
+      {
+        "text": "White, Randall A. 1996. \"Precursory Deep Long-Period Earthquakes at Mount Pinatubo: Spatio-Temporal Link to a Basalt Trigger.\" In Fire and Mud: Eruptions and Lahars of Mount Pinatubo, Philippines, edited by Christopher G. Newhall and Raymundo S. Punongbayan. Quezon City: Philippine Institute of Volcanology and Seismology; Seattle: University of Washington Press. https://pubs.usgs.gov/pinatubo/white/.",
+        "url": "https://pubs.usgs.gov/pinatubo/white/"
+      },
+      {
+        "text": "White, Randall A., and Wendy McCausland. 2016. \"Volcano-Tectonic Earthquakes: A New Tool for Estimating Intrusive Volumes and Forecasting Eruptions.\" Journal of Volcanology and Geothermal Research 309: 139–55. https://doi.org/10.1016/j.jvolgeores.2015.10.020.",
+        "url": "https://doi.org/10.1016/j.jvolgeores.2015.10.020"
+      }
+    ]
   }
 ]
