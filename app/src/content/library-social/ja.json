@@ -2,7 +2,18 @@
   "alt": "sisma のシェアカード。左側に sisma のロゴ、「詳しく学ぶ」のラベル、タイトル「{title}」、リード文の冒頭、アドレス {address}。右側に、{image}。",
   "card": {
     "italy_title": "{year}年以降のアペニン山脈のM6以上の地震 {n} 件",
-    "italy_source": "INGV CPTI15 カタログ"
+    "italy_source": "INGV CPTI15 カタログ",
+    "phuket_title": "スマトラ・アンダマン地震（2004年12月26日）",
+    "phuket_epicentre": "震央",
+    "phuket_wave": "津波 ≈ 100分",
+    "phuket_area": "プーケットとパンガー",
+    "phuket_source": "USGS · OpenStreetMap",
+    "phuket_names": {
+      "phuket": "プーケット",
+      "khaolak": "カオラック",
+      "bangkok": "バンコク",
+      "bandaaceh": "バンダアチェ"
+    }
   },
   "articles": {
     "earthquake-prediction": {
@@ -84,6 +95,14 @@
         "地震学"
       ],
       "image": "イタリアの輪郭図に、INGV CPTI15 カタログによる1279年以降のアペニン山脈のM6以上の地震をマグニチュードに応じた大きさで表示し、ノルチャ2016年、ラクイラ2009年、イルピニア1980年、マルシカ1915年をラベル付け"
+    },
+    "phuket-tsunami-2004": {
+      "tags": [
+        "津波",
+        "地震",
+        "タイ"
+      ],
+      "image": "タイの輪郭地図。プーケット県とパンガー県が強調表示され、スマトラ島北部沖で起きたM9.1の地震のUSGSによる震央と、そこからプーケットへ延びる破線で約100分という津波の到達時間が示されている。カオラック、バンダアチェ、バンコクの地名入り"
     }
   }
 }

@@ -2,7 +2,18 @@
   "alt": "sisma share card. On the left, the sisma logo, the label In Depth, the title \"{title}\", the start of the standfirst and the address {address}. On the right, {image}.",
   "card": {
     "italy_title": "{n} M6+ earthquakes in the Apennines since {year}",
-    "italy_source": "INGV CPTI15 catalogue"
+    "italy_source": "INGV CPTI15 catalogue",
+    "phuket_title": "Sumatra-Andaman earthquake, 26 December 2004",
+    "phuket_epicentre": "Epicentre",
+    "phuket_wave": "Tsunami ≈ 100 min",
+    "phuket_area": "Phuket and Phang Nga",
+    "phuket_source": "USGS · OpenStreetMap",
+    "phuket_names": {
+      "phuket": "Phuket",
+      "khaolak": "Khao Lak",
+      "bangkok": "Bangkok",
+      "bandaaceh": "Banda Aceh"
+    }
   },
   "articles": {
     "earthquake-prediction": {
@@ -84,6 +95,14 @@
         "seismology"
       ],
       "image": "an outline of Italy with the M6+ earthquakes of the Apennines since 1279 from the INGV CPTI15 catalogue, sized by magnitude, with Norcia 2016, L'Aquila 2009, Irpinia 1980 and Marsica 1915 labelled"
+    },
+    "phuket-tsunami-2004": {
+      "tags": [
+        "tsunami",
+        "earthquake",
+        "Thailand"
+      ],
+      "image": "an outline map of Thailand with Phuket and Phang Nga provinces highlighted, the USGS epicentre of the M9.1 earthquake off northern Sumatra, and a dashed line to Phuket marking the tsunami's travel time of about 100 minutes; Khao Lak, Banda Aceh and Bangkok are labelled"
     }
   }
 }

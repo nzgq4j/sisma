@@ -2,7 +2,18 @@
   "alt": "Kartu bagikan sisma. Di kiri, logo sisma, label Mendalam, judul \"{title}\", awal paragraf pembuka, dan alamat {address}. Di kanan, {image}.",
   "card": {
     "italy_title": "{n} gempa M6+ di Pegunungan Apennine sejak {year}",
-    "italy_source": "Katalog INGV CPTI15"
+    "italy_source": "Katalog INGV CPTI15",
+    "phuket_title": "Gempa Sumatra–Andaman, 26 Desember 2004",
+    "phuket_epicentre": "Episentrum",
+    "phuket_wave": "Tsunami ≈ 100 menit",
+    "phuket_area": "Phuket dan Phang Nga",
+    "phuket_source": "USGS · OpenStreetMap",
+    "phuket_names": {
+      "phuket": "Phuket",
+      "khaolak": "Khao Lak",
+      "bangkok": "Bangkok",
+      "bandaaceh": "Banda Aceh"
+    }
   },
   "articles": {
     "earthquake-prediction": {
@@ -84,6 +95,14 @@
         "seismologi"
       ],
       "image": "garis luar Italia dengan gempa M6+ di Pegunungan Apennine sejak 1279 dari katalog INGV CPTI15, berukuran sesuai magnitudo, dengan label Norcia 2016, L'Aquila 2009, Irpinia 1980 dan Marsica 1915"
+    },
+    "phuket-tsunami-2004": {
+      "tags": [
+        "tsunami",
+        "gempabumi",
+        "Thailand"
+      ],
+      "image": "peta garis besar Thailand dengan Provinsi Phuket dan Phang Nga disorot, episentrum gempa M9,1 di lepas pantai Sumatra bagian utara menurut USGS, dan garis putus-putus ke Phuket yang menandai waktu tempuh tsunami sekitar 100 menit; Khao Lak, Banda Aceh, dan Bangkok diberi label"
     }
   }
 }

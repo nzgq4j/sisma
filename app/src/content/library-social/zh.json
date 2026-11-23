@@ -2,7 +2,18 @@
   "alt": "sisma 分享卡片。左侧是 sisma 标志、“深度阅读”标签、标题“{title}”、导语开头和网址 {address}。右侧是{image}。",
   "card": {
     "italy_title": "{year} 年以来亚平宁山脉的 {n} 次 M6+ 地震",
-    "italy_source": "INGV CPTI15 目录"
+    "italy_source": "INGV CPTI15 目录",
+    "phuket_title": "2004年12月26日苏门答腊—安达曼地震",
+    "phuket_epicentre": "震中",
+    "phuket_wave": "海啸 ≈ 100分钟",
+    "phuket_area": "普吉和攀牙",
+    "phuket_source": "USGS · OpenStreetMap",
+    "phuket_names": {
+      "phuket": "普吉",
+      "khaolak": "考拉",
+      "bangkok": "曼谷",
+      "bandaaceh": "班达亚齐"
+    }
   },
   "articles": {
     "earthquake-prediction": {
@@ -84,6 +95,14 @@
         "地震学"
       ],
       "image": "意大利轮廓图，显示 INGV CPTI15 目录中 1279 年以来亚平宁山脉的 M6+ 地震，圆点大小对应震级，并标注了诺尔恰 2016、拉奎拉 2009、伊尔皮尼亚 1980 和马尔西卡 1915"
+    },
+    "phuket-tsunami-2004": {
+      "tags": [
+        "海啸",
+        "地震",
+        "泰国"
+      ],
+      "image": "泰国轮廓地图：突出显示普吉府和攀牙府，标出美国地质调查局给出的苏门答腊北部近海M9.1地震震中，并以一条通往普吉的虚线表示约100分钟的海啸传播时间；图中标注了考拉、班达亚齐和曼谷"
     }
   }
 }

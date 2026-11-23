@@ -879,5 +879,80 @@
         "a": "La base de données macrosismique italienne DBMI15 contient 123 956 données macrosismiques pour 3 228 séismes, et une version antérieure couvrait les années 1000 à 2017. Le catalogue associé CPTI15 convertit ces informations en localisations et en magnitudes pour l’évaluation de l’aléa."
       }
     ]
+  },
+  "phuket-tsunami-2004": {
+    "title": "26 décembre 2004 : le séisme de Sumatra-Andaman et le tsunami qui a atteint Phuket",
+    "dek": "Le 26 décembre 2004, une rupture de mégachevauchement au large de Sumatra a soulevé le fond marin et envoyé un tsunami à travers la mer d’Andaman. À Phuket, la mer s’est d’abord retirée. Voici ce qui s’est passé, et ce qui a changé.",
+    "sections": [
+      {
+        "h": "Le séisme sous la mer d’Andaman",
+        "p": [
+          "Le 26 décembre 2004 à 00:58:53 UTC, un séisme de mégachevauchement a frappé au large de la côte ouest du nord de Sumatra. La Thaïlande a sept heures d’avance sur l’UTC : à Phuket, il était donc près de 8 h, le lendemain de Noël (Ioualalen et al. 2007). L’Institut d’études géologiques des États-Unis (USGS) décrit un séisme de magnitude 9,1 au cours duquel la plaque indienne, une plaque océanique, passe en subduction sous la microplaque birmane, qui fait partie de la plaque de la Sonde, plus vaste, la limite étant marquée par la fosse de la Sonde. La rupture s’est produite sur le chevauchement interplaques, avec très peu de mouvement oblique (U.S. Geological Survey n.d.).",
+          "La magnitude a mis des mois à se stabiliser. La première estimation, 9,0, provenait des ondes de surface. Stein and Okal (2005) ont analysé les modes propres de la planète entière et obtenu un moment sismique 2,5 fois plus grand que ne l’indiquaient les premiers rapports, soit l’équivalent de Mw 9,3, ce qui le place juste derrière le séisme du Chili de 1960. Lay et al. (2005) ont donné une fourchette de Mw 9,1 à 9,3. La taille dépend donc des ondes et des périodes utilisées pour la mesurer, et la fourchette publiée reste de 9,1 à 9,3.",
+          "La rupture de la faille a été gigantesque. Science News (2005) fait état d’une rupture longue de 1 200 à 1 300 kilomètres. Au cours de la première minute, le front de rupture a progressé vers le nord-ouest à environ 500 mètres par seconde, puis a accéléré jusqu’à environ 3 kilomètres par seconde pendant quatre minutes, avant de ralentir tout en continuant vers le nord pendant encore six minutes. Le glissement a varié le long de la rupture. Lay et al. (2005) font état d’un glissement atteignant 15 mètres près de Banda Aceh et d’un glissement bien plus faible et rapide plus au nord, le long des îles Nicobar et Andaman, tandis que le modèle de tsunami d’Ioualalen et al. (2007) utilise un glissement de 12 à 18 mètres avec un maximum d’environ 23 mètres. Les estimations du glissement maximal diffèrent donc d’une étude à l’autre. Shearer and Bürgmann (2010) ajoutent que les vitesses de convergence sont relativement lentes le long de cette marge, en particulier dans la partie nord de la zone de rupture."
+        ]
+      },
+      {
+        "h": "Comment le fond marin est devenu une vague",
+        "p": [
+          "Science News (2005) explique la situation de départ : des décennies de mouvement tectonique avant le séisme avaient entraîné le fond marin à l’ouest de Sumatra sous sa position normale, non fléchie, et la rupture l’a libéré. Ioualalen et al. (2007) ont modélisé environ 9 à 10 mètres de soulèvement du côté ouest de la fosse et environ 5 mètres d’affaissement du côté est. Papadopoulos et al. (2006) ont constaté que le tsunami s’est propagé vers l’ouest, au Sri Lanka et aux Maldives, avec une crête en tête, et vers l’est, en Thaïlande, avec un creux en tête. Sur les plages thaïlandaises, les gens ont donc vu la mer se retirer avant de la voir monter."
+        ]
+      },
+      {
+        "h": "Phuket au matin du 26 décembre",
+        "p": [
+          "La Thaïlande se trouve à environ 500 kilomètres à l’est de la source (Tsuji et al. 2006). Le tsunami a atteint l’île de Phuket environ 100 minutes après le séisme, ce qui situe son arrivée vers 9 h 40, heure locale, à marée haute et avec une onde de dépression en tête (Szczuciński et al. 2012). Sept enregistrements marégraphiques de la côte thaïlandaise montrent tous que le niveau de la mer s’est d’abord retiré pendant 30 à 60 minutes avant de monter, ce qui concorde avec les récits des survivants (Tsuji et al. 2006).",
+          "Les témoins ont décrit deux vagues majeures espacées d’environ 40 minutes, la seconde étant généralement décrite comme la plus grande, et certains ont fait état de jusqu’à sept vagues au total (Szczuciński et al. 2012). Le retrait de la mer était un signe d’alerte, et Ioualalen et al. (2007) notent que ce signe crucial a souvent été mal interprété. Plusieurs vagues de la série sont arrivées sans retrait entre elles, et la vitesse du front d’onde à Phuket a été estimée à 14,4 kilomètres par heure (Szczuciński et al. 2012).",
+          "La hauteur des vagues a fortement varié le long de la côte. Les équipes de terrain ont mesuré des hauteurs de tsunami supérieures à 5 mètres sur l’île de Phuket et à 10 mètres à Khao Lak, à environ 50 kilomètres au nord (Tsuji et al. 2006). Ioualalen et al. (2007) ont compilé les hauteurs de run-up observées en 58 sites thaïlandais, comprises entre 1,47 et 11,29 mètres, avec une moyenne de 6,11 mètres, et font état des plus grands run-up, de 11 à 14 mètres, près de Khao Lak. Leur simulation a reproduit les run-up observés avec une corrélation de 0,92, y compris la forte variation le long de la côte, ce qui conforte le modèle de source qu’ils ont utilisé. Szczuciński et al. (2012) ont constaté que le run-up sur leurs transects de Phuket était inférieur à 6 mètres et que les hauteurs de vague mesurées dépassaient 15 mètres au cap Pakarang, à Phang Nga. Un récif au large de l’île de Kho Khao a maintenu le run-up sous 3 mètres sur la portion de côte qu’il protégeait, alors que des secteurs voisins non protégés dépassaient 6 mètres (Szczuciński et al. 2012). La campagne de Tsuji a relevé la plus grande hauteur de tsunami, 19,6 mètres, à Ban Thung Dap, sur l’île de Phra Thong (Tsuji et al. 2006).",
+          "L’eau a aussi transporté des sédiments vers l’intérieur des terres. Les dépôts de tsunami ont atteint jusqu’à environ 1,5 kilomètre du rivage, jusqu’à environ 40 centimètres d’épaisseur, et mesuraient pour la plupart moins de 10 centimètres d’épaisseur (Szczuciński et al. 2012)."
+        ]
+      },
+      {
+        "h": "Des vies perdues et des bilans contestés",
+        "p": [
+          "Phuket a enregistré 259 décès confirmés, et des centaines de personnes sont toujours portées disparues (Thaiger 2024). La province de Phang Nga, au nord, a été bien plus touchée : Ioualalen et al. (2007) font état de 8 500 morts ou disparus en Thaïlande, dont 71 % à Phang Nga. Ils notent que la part de Phuket est indiquée comme 5 % à un endroit et 9 % à un autre dans la même source, si bien que la fraction de ce total revenant à Phuket est incertaine.",
+          "Le bilan régional varie lui aussi selon les sources. Lay et al. (2005) indiquent que le tsunami a fait plus de 283 000 morts. D’autres décomptes publiés sont plus bas, proches de 226 000 (Japan Times 2017), et les chiffres thaïlandais distinguent les décès confirmés des personnes disparues, comme le montrent les bilans de Phuket. Un bilan unique pour 2004 doit donc être lu comme une estimation."
+        ]
+      },
+      {
+        "h": "Pourquoi il n’y a pas eu d’alerte",
+        "p": [
+          "En 2004, il n’existait aucun système d’alerte aux tsunamis dans l’océan Indien, bien que des experts en aient recommandé un. Lorsque le séisme a été détecté, un certain temps s’est écoulé avant que son potentiel tsunamigène puisse être évalué (National Research Council 2006). Le personnel du Centre d’alerte aux tsunamis du Pacifique, à Hawaï, a déclaré avoir tenté d’avertir les pays de l’océan Indien, mais ne disposait ni de l’équipement nécessaire pour surveiller cette partie du monde ni des numéros de téléphone des responsables compétents (NBC News 2005). Avant 2004, seules six bouées de détection des tsunamis en eau profonde étaient en place dans le monde (NOAA Pacific Marine Environmental Laboratory n.d.). L’Australie, le Chili, l’Indonésie et la Thaïlande ont depuis déployé de telles bouées dans le cadre de leurs systèmes d’alerte (NOAA Pacific Marine Environmental Laboratory n.d.).",
+          "Les prévisionnistes thaïlandais avaient un précédent. Smith Thammasaroj, alors à la tête du département météorologique de Thaïlande, avait été accusé d’alarmisme en 1998 lorsqu’il avait averti que la côte sud-ouest pourrait subir un tsunami meurtrier (NBC News 2005)."
+        ]
+      },
+      {
+        "h": "Ce qui a changé",
+        "p": [
+          "La Thaïlande a créé un Centre national d’alerte aux catastrophes. En 2007, il disposait de 79 tours d’alerte dans les provinces côtières et d’une bouée en eau profonde dans l’océan Indien, même si les lignes d’autorité du centre restaient floues (The New Humanitarian 2007). En 2017, le directeur général adjoint du département thaïlandais de prévention des catastrophes a déclaré que jusqu’à 80 % du système d’alerte nécessitait une maintenance (Japan Times 2017). Vingt ans après l’événement, des militants en Thaïlande, en Indonésie et en Malaisie ont indiqué que les systèmes d’alerte précoce et les bouées sont en place, mais que la sensibilisation du public fait défaut. Le département météorologique de Malaisie a mis en place un Système national d’alerte précoce aux tsunamis, intégré à d’autres systèmes, dont le Centre d’alerte aux tsunamis du Pacifique, géré par les États-Unis à Hawaï (Radio Free Asia 2024)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qu’est-ce qui a provoqué le tsunami de l’océan Indien de 2004 ?",
+        "a": "Un séisme de mégachevauchement survenu le 26 décembre 2004 au large de la côte ouest du nord de Sumatra, là où la plaque indienne passe en subduction sous la microplaque birmane. La rupture a libéré un fond marin entraîné vers le bas pendant des décennies, le soulevant d’environ 9 à 10 mètres à l’ouest de la fosse et l’abaissant d’environ 5 mètres à l’est."
+      },
+      {
+        "q": "Quelle était la magnitude du séisme de Sumatra-Andaman de 2004 ?",
+        "a": "L’Institut d’études géologiques des États-Unis (USGS) indique une magnitude de 9,1. L’analyse des modes propres de la Terre entière a donné Mw 9,3, et d’autres études donnent 9,1 à 9,3 : la fourchette publiée reste donc de 9,1 à 9,3. La rupture mesurait 1 200 à 1 300 kilomètres de long."
+      },
+      {
+        "q": "Quand le tsunami a-t-il atteint Phuket ?",
+        "a": "Environ 100 minutes après le séisme, vers 9 h 40, heure locale. Les marégraphes de la côte thaïlandaise montrent que la mer s’est d’abord retirée pendant 30 à 60 minutes avant de monter, et les témoins ont décrit deux vagues majeures espacées d’environ 40 minutes."
+      },
+      {
+        "q": "Pourquoi la mer s’est-elle retirée avant que le tsunami ne frappe la Thaïlande ?",
+        "a": "Le tsunami s’est propagé vers l’est avec un creux en tête, parce que le fond marin du côté est de la rupture s’est affaissé. Sur les plages thaïlandaises, la mer s’est donc retirée avant de monter. Ce signe d’alerte a souvent été mal interprété."
+      },
+      {
+        "q": "Quelle hauteur le tsunami a-t-il atteint à Phuket et à Khao Lak ?",
+        "a": "Les relevés de terrain ont mesuré des hauteurs de tsunami supérieures à 5 mètres sur l’île de Phuket et à 10 mètres à Khao Lak, avec les plus grands run-up, de 11 à 14 mètres, près de Khao Lak, et une hauteur de tsunami maximale de 19,6 mètres sur l’île de Phra Thong."
+      },
+      {
+        "q": "La Thaïlande dispose-t-elle aujourd’hui d’un système d’alerte aux tsunamis ?",
+        "a": "Oui. La Thaïlande a créé un Centre national d’alerte aux catastrophes, qui disposait en 2007 de 79 tours d’alerte dans les provinces côtières et d’une bouée en eau profonde dans l’océan Indien. En 2017, des responsables ont déclaré que jusqu’à 80 % du système nécessitait une maintenance, et en 2024 des militants ont affirmé que la sensibilisation du public faisait toujours défaut."
+      }
+    ]
   }
 }

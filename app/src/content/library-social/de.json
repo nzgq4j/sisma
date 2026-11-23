@@ -2,7 +2,18 @@
   "alt": "sisma-Teilen-Karte. Links das sisma-Logo, das Label Im Detail, der Titel „{title}“, der Anfang des Vorspanns und die Adresse {address}. Rechts {image}.",
   "card": {
     "italy_title": "{n} Erdbeben M6+ im Apennin seit {year}",
-    "italy_source": "INGV-Katalog CPTI15"
+    "italy_source": "INGV-Katalog CPTI15",
+    "phuket_title": "Sumatra-Andamanen-Erdbeben, 26. Dezember 2004",
+    "phuket_epicentre": "Epizentrum",
+    "phuket_wave": "Tsunami ≈ 100 min",
+    "phuket_area": "Phuket und Phang Nga",
+    "phuket_source": "USGS · OpenStreetMap",
+    "phuket_names": {
+      "phuket": "Phuket",
+      "khaolak": "Khao Lak",
+      "bangkok": "Bangkok",
+      "bandaaceh": "Banda Aceh"
+    }
   },
   "articles": {
     "earthquake-prediction": {
@@ -84,6 +95,14 @@
         "Seismologie"
       ],
       "image": "ein Umriss Italiens mit den Erdbeben M6+ im Apennin seit 1279 aus dem INGV-Katalog CPTI15, nach Magnitude skaliert, beschriftet mit Norcia 2016, L’Aquila 2009, Irpinia 1980 und Marsica 1915"
+    },
+    "phuket-tsunami-2004": {
+      "tags": [
+        "Tsunami",
+        "Erdbeben",
+        "Thailand"
+      ],
+      "image": "eine Umrisskarte Thailands mit hervorgehobenen Provinzen Phuket und Phang Nga, dem USGS-Epizentrum des M9.1-Erdbebens vor Nordsumatra und einer gestrichelten Linie nach Phuket, die die Laufzeit des Tsunamis von etwa 100 Minuten markiert; Khao Lak, Banda Aceh und Bangkok sind beschriftet"
     }
   }
 }
