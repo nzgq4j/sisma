@@ -261,7 +261,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Changer d’adresse e-mail</strong> : ce n’est pas encore possible dans l’app. Écrivez à <a href={`mailto:${MAIL}`}>{MAIL}</a> depuis votre adresse actuelle.</li>
           </ul>
         </div>
-        <Shot src="me" alt="Section Compte dans Profil : nom affiché, e-mail, mot de passe, déconnexion, aide et assistance, et suppression du compte" caption="Le compte, en bas de Profil" />
+        <Shot src="me" alt="Section Compte dans Profil : aide et assistance, nom affiché, e-mail, mot de passe et déconnexion, avec la suppression du compte dans une carte à part, bordée de rouge" caption="Le compte, en bas de Profil" />
       </div>
 
       <h3 id="delete-account">Supprimer votre compte</h3>

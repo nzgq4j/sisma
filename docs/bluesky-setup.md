@@ -71,7 +71,8 @@ Ten posts about the Android app, each written in all 10 languages with its own h
   (e.g. 23 of 100) and **Post now** (a random unused post and language, or choose both and see the exact post first).
   Below it, the recent Play Store posts with links.
 - **Daily:** when on, the every-minute alert job (`lib/promo.ts autoPromo`) posts once a day at a random minute
-  (UTC), choosing a random post and language not yet posted this round. After all 100 have been posted, the next round
+  (UTC), choosing a random post and language not yet posted this round (never the previous post's language or post
+  while other unused combinations remain, so both vary from one post to the next). After all 100 have been posted, the next round
   starts. Switching it on schedules the first post at a random time later the same day.
 - **Post now** counts as that day's post: if the automatic post was still due later today, it moves to tomorrow.
   Choosing a combination already posted this round posts it again (the sheet says so).
@@ -95,7 +96,7 @@ the app applies for that visit without changing the reader's saved language). Ar
   **Post now** (a random unused article and language, or choose both and see the exact post first), then the recent posts.
 - **Twice a day:** when on, the every-minute alert job (`lib/library-posts.ts autoLibraryPost`) posts at a random minute
   in each half of the UTC day (00:00–12:00, 12:00–24:00), choosing a random article and language not yet posted this
-  round. When every combination has been posted, the next round starts. A new article joins the current round.
+  round, never the previous post's language or article while other unused combinations remain. When every combination has been posted, the next round starts. A new article joins the current round.
 - **Post now** counts as the post for that half-day: if the automatic post was still due in the same half, it moves to
   the next half.
 - Database: `library_post_settings` and `library_posts`, migration `supabase/migrations/20261123000100_library_posts.sql`.

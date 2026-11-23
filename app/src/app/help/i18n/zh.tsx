@@ -261,7 +261,7 @@ export const TOPICS: Topic[] = [
             <li><strong>更改邮箱地址</strong>：目前还无法在应用中更改。请用你当前的邮箱写信至 <a href={`mailto:${MAIL}`}>{MAIL}</a>。</li>
           </ul>
         </div>
-        <Shot src="me" alt="“我的”中的账户部分：显示名称、邮箱、密码、退出登录、帮助与支持以及删除账户" caption="账户，位于“我的”底部" />
+        <Shot src="me" alt="“我的”中的账户部分：帮助与支持、显示名称、邮箱、密码和退出登录；删除账户位于单独的红框卡片中" caption="账户，位于“我的”底部" />
       </div>
 
       <h3 id="delete-account">删除你的账户</h3>

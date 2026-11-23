@@ -61,7 +61,7 @@ export default function AdminGuidePage() {
         <h2 id="playstore">Play Store posts</h2>
         <p>Ten posts about the Android app, each written in all 10 languages, with that language’s Play Store picture, an image description and a link to the Play listing in that language: 100 combinations in all.</p>
         <ul>
-          <li><Ui>Post daily</Ui>: one post a day at a random time, a random post and language not yet posted this round. Switching it on schedules the first post later the same day.</li>
+          <li><Ui>Post daily</Ui>: one post a day at a random time, a random post and language not yet posted this round, never in the same language or the same post as the one before. Switching it on schedules the first post later the same day.</li>
           <li><Ui>Next post</Ui>: when the next automatic post is due.</li>
           <li><Ui>This round</Ui>: how many of the 100 have been posted. After all 100, a new round starts.</li>
           <li><Ui>Post now</Ui>: leave <Ui>Post</Ui> and <Ui>Language</Ui> on <Ui>Random</Ui> for the next unused combination, or choose both to see the picture, text and image description first. A combination already posted this round is marked; posting it again repeats it.</li>
@@ -71,7 +71,7 @@ export default function AdminGuidePage() {
         <h2 id="indepthposts">In Depth posts</h2>
         <p>Every In Depth article in all 10 languages, each with its title, standfirst and hashtags in that language plus #geosky and #sciencesky (the Bluesky science feeds), the share card in that language with an image description, and a link that opens the article in that language. Ten articles make 100 combinations; a new article joins the current round.</p>
         <ul>
-          <li><Ui>Post twice a day</Ui>: one post in each half of the day (00:00–12:00 and 12:00–24:00 UTC) at a random time, a random article and language not yet posted this round. Switching it on schedules the first post later in the current half of the day.</li>
+          <li><Ui>Post twice a day</Ui>: one post in each half of the day (00:00–12:00 and 12:00–24:00 UTC) at a random time, a random article and language not yet posted this round, never in the same language or about the same article as the one before. Switching it on schedules the first post later in the current half of the day.</li>
           <li><Ui>Next post</Ui>: when the next automatic post is due.</li>
           <li><Ui>This round</Ui>: how many combinations have been posted. When all of them have been posted, a new round starts.</li>
           <li><Ui>Post now</Ui>: leave <Ui>Article</Ui> and <Ui>Language</Ui> on <Ui>Random</Ui> for an unused combination, or choose both to see the card, text and image description first. A combination already posted this round is marked; posting it again repeats it.</li>

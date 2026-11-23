@@ -61,11 +61,11 @@ export default function MePage() {
         <TsunamiAlerts />
         <Locations onLocked={() => setSheet('paywall')} />
         <Preferences />
-        <AdminLink />
         {acct.user && (
           <>
             <div className={styles.sectionLabel}>{a.account}</div>
             <div className={styles.card}>
+              <HelpRow />
               <button type="button" className={styles.row} onClick={() => setNameOpen(true)}>
                 <span className="ms" aria-hidden="true">badge</span><span className={styles.grow}>{a.display_name}</span>
                 <span className={styles.meta}>{acct.profile?.display_name || a.not_set}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
@@ -75,12 +75,15 @@ export default function MePage() {
                 <span className="ms" aria-hidden="true">password</span><span className={styles.grow}>{a.password_row}</span><span className={`ms ${styles.chev}`} aria-hidden="true">chevron_right</span>
               </button>
               <button type="button" className={styles.row} onClick={() => void acct.signOut()}><span className="ms" aria-hidden="true">logout</span><span className={styles.grow}>{a.sign_out}</span></button>
-              <HelpRow />
+            </div>
+            {/* Deleting the account: on its own, outlined in red. */}
+            <div className={`${styles.card} ${styles.dangerCard}`}>
               <button type="button" className={`${styles.row} ${styles.dangerRow}`} onClick={() => setDelOpen(true)}><span className="ms" aria-hidden="true">delete</span><span className={styles.grow}>{a.delete}</span></button>
             </div>
           </>
         )}
         {!acct.user && acct.ready && <div className={styles.card}><HelpRow /></div>}
+        <AdminLink />
         <p className={`${styles.disclaimer} ${styles.phoneOnly}`}>{m.web.footer} <a href="/privacy" className={styles.privacyLink}>{m.web.privacy}</a> · <a href="/terms" className={styles.privacyLink}>{m.web.terms}</a></p>
       </div>
 

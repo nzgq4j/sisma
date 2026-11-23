@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { BLUESKY_MAX_GRAPHEMES, graphemes } from './bluesky';
-import { allCombos, comboKey, draftPromo, firstSlot, nextSlot, pickCombo, playUrl, PROMO_IDS, PROMO_LOCALES, PROMO_TOTAL, sameUtcDay } from './promo';
+import { allCombos, comboKey, draftPromo, firstSlot, nextSlot, pickCombo, playUrl, PROMO_IDS, PROMO_LOCALES, PROMO_TOTAL, sameUtcDay, type PromoId, type PromoLocale } from './promo';
 
 const enc = new TextEncoder();
 const slice = (s: string, a: number, b: number) => new TextDecoder().decode(enc.encode(s).slice(a, b));
@@ -41,6 +41,18 @@ describe('choosing a post', () => {
       used.add(k);
     }
     expect(pickCombo(used, rand)).toBeNull();
+  });
+});
+
+describe('spreading posts out', () => {
+  it('never repeats the previous language or post while others remain', () => {
+    const used = new Set<string>(); let last: { post: PromoId; locale: PromoLocale } | null = null;
+    for (let i = 0; i < PROMO_TOTAL; i++) {
+      const c: { post: PromoId; locale: PromoLocale } = pickCombo(used, Math.random, last)!;
+      if (last && i < PROMO_TOTAL - 20) { expect(c.locale).not.toBe(last.locale); expect(c.post).not.toBe(last.post); }
+      used.add(comboKey(c.post, c.locale)); last = c;
+    }
+    expect(used.size).toBe(PROMO_TOTAL);
   });
 });
 
