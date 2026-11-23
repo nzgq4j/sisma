@@ -100,7 +100,9 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
    title/description and references in content/library.json, translations (title, dek, sections, FAQ; same counts) in
    content/library/<locale>.json loaded per language (lib/library.ts). Static pages with Article + FAQPage + breadcrumbs
    JSON-LD, sitemap lastModified, share cards public/og/library[-<id>].jpg (og-cards.mjs). The 10-language rule applies;
-   references stay English. Facts and citations must be checked before publishing
+   references stay English. Facts and citations must be checked before publishing. For the In Depth posts on Bluesky a new
+   article also needs hashtags and a card description in all 10 content/library-social/<locale>.json and its cards in
+   every language: og-cards.mjs --locale=all library-<id> → public/og/<locale>/library-<id>.jpg
    Data (/app/science/data, sisma+, linked from the Science list): live charts of the USGS M4.5+ month feed (activity 24 h /
    7 d / 30 d, magnitudes, depth classes, world regions + Ring of Fire share, cumulative energy) and M7+ per year since 1900
    (USGS FDSN CSV), each with a short explanation; aggregation in lib/seismic-stats.ts (tested), GET /api/science/data
@@ -143,6 +145,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
     minimum magnitude, preview, Post now, log); In Depth articles posted by hand with editable text, hashtags and alt text
     (components/admin/LibraryBluesky.tsx, /api/admin/bluesky/library; also a Bluesky button on articles for administrators); daily Play Store posts
     (lib/promo.ts: 10 posts × 10 languages in content/promo/, store pictures in public/promo/, one a day at a random time, no
-    repeat until all 100 are used; components/admin/PromoPosts.tsx with Post now and recent posts; /api/admin/promo); admin-only English guide at
+    repeat until all 100 are used; components/admin/PromoPosts.tsx with Post now and recent posts; /api/admin/promo); twice-daily
+    In Depth posts (lib/library-posts.ts: every article × 10 languages with that language's card and ?lang= link, one in each
+    UTC half-day, no repeat until the round is done; components/admin/LibraryPosts.tsx; /api/admin/library-posts); admin-only English guide at
     app/me/admin/guide, linked from the top of the admin page — keep it current with admin changes). The card is drawn in-process (lib/share-card.tsx); a new event waits up to
     15 min for its card, then posts as text. docs/bluesky-setup.md

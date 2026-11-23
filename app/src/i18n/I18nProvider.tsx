@@ -14,6 +14,10 @@ const loaders: Record<Locale, () => Promise<{ default: Messages }>> = {
 };
 
 function detect(): Locale {
+  // A link in a given language (?lang=ja, e.g. from an In Depth post on Bluesky) opens the app in that language
+  // for this visit, without changing the language the reader chose.
+  const asked = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('lang') : null;
+  if (asked && asked in loaders) return asked as Locale;
   const saved = typeof localStorage !== 'undefined' ? (localStorage.getItem('sisma.locale') as Locale | null) : null;
   if (saved && saved in loaders) return saved;
   const nav = typeof navigator !== 'undefined' ? navigator.language.slice(0, 2) : 'en';
@@ -25,7 +29,7 @@ const Ctx = createContext<{ locale: Locale; m: Messages; setLocale: (l: Locale) 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('en');
   const [m, setM] = useState<Messages>(en);
-  useEffect(() => { setLocaleState(detect()); }, []);
+  useEffect(() => { void Promise.resolve().then(() => setLocaleState(detect())); }, []);
   useEffect(() => {
     loaders[locale]().then(mod => setM({ ...en, ...mod.default, web: { ...en.web, ...mod.default.web } }));
     document.documentElement.lang = locale;

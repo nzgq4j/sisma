@@ -82,6 +82,28 @@ Ten posts about the Android app, each written in all 10 languages with its own h
   within 300 characters including the link and hashtags). To change pictures, regenerate the store images
   (`mobile/store/compose-store.mjs`) and copy them to `app/public/promo/` at 720 × 1280 (feature graphic 1024 × 500).
 
+## In Depth posts (twice a day, automatic or by hand)
+
+Every In Depth article in all 10 languages: the title and standfirst from `app/src/content/library/<locale>.json`
+(English: `library.json`), hashtags (every post also carries `#geosky` and `#sciencesky`, `LIBRARY_FEED_TAGS` in
+`lib/bluesky.ts`, as do the English posts made by hand), the share card's image description and the alt-text wording from
+`app/src/content/library-social/<locale>.json`, the share card in that language (`app/public/og/<locale>/library-<id>.jpg`;
+English `app/public/og/library-<id>.jpg`) and a link that opens the article in that language (`?lang=<locale>`, which
+the app applies for that visit without changing the reader's saved language). Articles × 10 combinations per round.
+
+- **Me → Administration → In Depth posts:** *Post twice a day* on/off, the next post, progress this round and
+  **Post now** (a random unused article and language, or choose both and see the exact post first), then the recent posts.
+- **Twice a day:** when on, the every-minute alert job (`lib/library-posts.ts autoLibraryPost`) posts at a random minute
+  in each half of the UTC day (00:00–12:00, 12:00–24:00), choosing a random article and language not yet posted this
+  round. When every combination has been posted, the next round starts. A new article joins the current round.
+- **Post now** counts as the post for that half-day: if the automatic post was still due in the same half, it moves to
+  the next half.
+- Database: `library_post_settings` and `library_posts`, migration `supabase/migrations/20261123000100_library_posts.sql`.
+  API: `GET/PATCH/POST /api/admin/library-posts` (administrators only).
+- **New article:** add its hashtags and card description to all 10 `library-social` files, then make its cards in every
+  language: `node scripts/og-cards.mjs http://localhost:3100 --locale=all library-<id>` (server started with
+  `OG_CARDS=1`). `lib/library-posts.test.ts` checks that every post fits in 300 characters and that every card exists.
+
 ## Setup (once)
 
 Do not send the password to Claude.

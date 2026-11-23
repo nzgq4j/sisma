@@ -1,0 +1,89 @@
+{
+  "alt": "Tarjeta para compartir de sisma. A la izquierda, el logotipo de sisma, la etiqueta En profundidad, el título \"{title}\", el comienzo de la entradilla y la dirección {address}. A la derecha, {image}.",
+  "card": {
+    "italy_title": "{n} sismos M6+ en los Apeninos desde {year}",
+    "italy_source": "Catálogo CPTI15 del INGV"
+  },
+  "articles": {
+    "earthquake-prediction": {
+      "tags": [
+        "terremoto",
+        "sismología",
+        "ciencia"
+      ],
+      "image": "el widget de magnitud de la app en M6.0, con círculos para M4.0, M5.0 y M6.0 cuyas áreas muestran la energía liberada (cada paso unas 32 veces más), una energía estimada de unos 15 kilotones de TNT y unos 158 sismos así al año en el mundo"
+    },
+    "plate-tectonics-subduction": {
+      "tags": [
+        "TectónicaDePlacas",
+        "subducción",
+        "terremoto"
+      ],
+      "image": "un corte transversal de un límite de placas convergente: una placa oceánica se curva y se hunde bajo una placa continental, con un volcán en el continente sobre la placa que se hunde"
+    },
+    "faults-and-stress": {
+      "tags": [
+        "geología",
+        "fallas",
+        "terremoto"
+      ],
+      "image": "un corte transversal de una falla normal: capas de roca cortadas por una línea de falla discontinua, flechas que separan los dos lados y el bloque colgante que desciende junto al bloque yacente"
+    },
+    "earth-interior-seismic-waves": {
+      "tags": [
+        "sismología",
+        "geofísica",
+        "CienciasDeLaTierra"
+      ],
+      "image": "una cuadrícula de partículas que muestra una onda P: la roca se comprime y se estira en la dirección de avance, con una columna de partículas resaltada"
+    },
+    "aftershocks-and-hazards": {
+      "tags": [
+        "réplicas",
+        "terremoto",
+        "geología"
+      ],
+      "image": "dos gráficos: los sismos recientes agrupados por profundidad (superficiales, intermedios y profundos, la mayoría superficiales) y el número de réplicas por día tras un sismo principal, que cae rápidamente a lo largo de diez días como describe la ley de Omori"
+    },
+    "surface-waves-and-damage": {
+      "tags": [
+        "terremoto",
+        "sismología",
+        "IngenieríaSísmica"
+      ],
+      "image": "el widget de ondas sísmicas de la app en la pestaña Superficial: una cuadrícula de partículas que se mueven en una onda ondulante en la dirección de avance"
+    },
+    "magnitude-scales": {
+      "tags": [
+        "terremoto",
+        "sismología",
+        "magnitud"
+      ],
+      "image": "el widget de magnitud de la app en M6.0, con círculos para M4.0, M5.0 y M6.0 cuyas áreas muestran la energía liberada (cada paso unas 32 veces más), una energía estimada de unos 15 kilotones de TNT y unos 158 sismos así al año en el mundo"
+    },
+    "deep-focus-earthquakes": {
+      "tags": [
+        "terremoto",
+        "sismología",
+        "subducción"
+      ],
+      "image": "un corte transversal de un límite de placas convergente: una placa oceánica se hunde bajo una placa continental, con sismos que trazan la placa hasta unos 700 km de profundidad"
+    },
+    "volcano-seismology": {
+      "tags": [
+        "volcán",
+        "sismología",
+        "terremoto"
+      ],
+      "image": "un mapa del mundo con los sismos recientes de M4.5+, con los del Anillo de Fuego, el cinturón de fosas oceánicas y volcanes que rodea el Pacífico, resaltados"
+    },
+    "italian-earthquakes": {
+      "tags": [
+        "terremoto",
+        "Italia",
+        "sismología"
+      ],
+      "image": "un contorno de Italia con los sismos M6+ de los Apeninos desde 1279 del catálogo CPTI15 del INGV, con tamaño según la magnitud y con Norcia 2016, L'Aquila 2009, Irpinia 1980 y Marsica 1915 señalados"
+    }
+  }
+}

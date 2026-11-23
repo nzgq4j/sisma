@@ -4,11 +4,14 @@
 //
 //   OG_CARDS=1 npm run build && OG_CARDS=1 npx next start -p 3100     (in another terminal)
 //   node scripts/og-cards.mjs [http://localhost:3100] [card …]
+//   node scripts/og-cards.mjs [http://localhost:3100] --locale=es,ja|all [library-<id> …]
+//     In Depth cards in other languages (public/og/<locale>/library-<id>.jpg, for the In Depth posts on Bluesky,
+//     lib/library-posts.ts): translated title, standfirst and label, and the illustration in that language.
 //
 // Needs Playwright with Chromium (npx playwright install chromium). The home card (home.jpg) is kept as it is
 // unless "home" is named. Earthquake data is whatever the local server is serving.
 import { createRequire } from 'node:module';
-import { writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { geoMercator, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
@@ -16,7 +19,8 @@ import { feature } from 'topojson-client';
 // Playwright is not a project dependency: require() also finds a global install (NODE_PATH=$(npm root -g)).
 const { chromium } = createRequire(import.meta.url)('playwright');
 const BASE = process.argv[2]?.startsWith('http') ? process.argv[2] : 'http://localhost:3100';
-const ONLY = process.argv.slice(2).filter(a => !a.startsWith('http'));
+const LOCALE_ARG = process.argv.find(a => a.startsWith('--locale='))?.slice(9);
+const ONLY = process.argv.slice(2).filter(a => !a.startsWith('http') && !a.startsWith('--'));
 const OUT = fileURLToPath(new URL('../public/og/', import.meta.url));
 const BG = '#100c1d';
 
@@ -24,9 +28,9 @@ const browser = await chromium.launch();
 const cards = await (await fetch(BASE + '/api/og-cards')).json();
 
 /** A dark phone-sized page of the app, past onboarding and the splash. */
-async function appPage(path, { width = 412, height = 760, scale = 2 } = {}) {
+async function appPage(path, { width = 412, height = 760, scale = 2, lang = 'en' } = {}) {
   const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: scale, isMobile: true, hasTouch: true, colorScheme: 'dark', locale: 'en-US' });
-  await ctx.addInitScript(() => { localStorage.setItem('sisma.onboarded', '9'); sessionStorage.setItem('sisma.splash', '1'); });
+  await ctx.addInitScript(l => { localStorage.setItem('sisma.onboarded', '9'); sessionStorage.setItem('sisma.splash', '1'); localStorage.setItem('sisma.locale', l); }, lang);
   await ctx.route('https://tile.openstreetmap.org/**', r => r.abort());
   const page = await ctx.newPage();
   await page.goto(BASE + path, { waitUntil: 'networkidle' });
@@ -87,10 +91,10 @@ const LIBRARY_CUSTOM = { 'italian-earthquakes': italyMap };
  * Outline of Italy (world-atlas 50m) with the M6+ earthquakes of the Apennines since 1279 from the INGV CPTI15 v4.0
  * catalogue (scripts/data/italy-apennines-cpti15.json), sized by magnitude, in the app's dark map colours.
  */
-function italyMap() {
-  const req = createRequire(import.meta.url);
+function italyMap(lang = 'en') {
   const world = req('world-atlas/countries-50m.json');
   const { events } = req('./data/italy-apennines-cpti15.json');
+  const words = social(lang).card;
   const countries = feature(world, world.objects.countries).features;
   const italy = countries.find(f => f.id === '380');
   const W = 500, H = 560;
@@ -120,25 +124,39 @@ function italyMap() {
 <path d="${path(italy)}" fill="#1E4A35" stroke="#8FD1B0" stroke-width="2.5" stroke-linejoin="round"/>
 ${dots}${labels}
 <rect width="${W}" height="62" fill="#191431" fill-opacity="0.92"/>
-<text x="24" y="38" font-size="19" font-weight="700" fill="#CFC8F2">${events.length} M6+ earthquakes in the Apennines since ${Math.min(...events.map(e => e.year))}</text>
+<text x="24" y="38" font-size="19" font-weight="700" fill="#CFC8F2">${words.italy_title.replace('{n}', events.length).replace('{year}', Math.min(...events.map(e => e.year)))}</text>
 <rect y="${H - 52}" width="${W}" height="52" fill="#191431" fill-opacity="0.92"/>
 ${legend(H - 20, 30, 6.5, 'M6–6.9')}${legend(H - 20, 150, 7.1, 'M7+')}
-<text x="${W - 24}" y="${H - 20}" text-anchor="end" font-size="15" fill="#A9A2C6">INGV CPTI15 catalogue</text></svg>`;
+<text x="${W - 24}" y="${H - 20}" text-anchor="end" font-size="15" fill="#A9A2C6">${words.italy_source}</text></svg>`;
   return { svg };
 }
 
 /** The article's illustration (canvas or widget): the block after the intro. */
-async function articleVisual(spec) {
+async function articleVisual(spec, lang = 'en') {
   const [id, tab] = spec.split(':');
-  const p = await appPage('/app/science/' + id, { width: 412, height: 900 });
-  if (tab) await p.locator('article').getByRole('button', { name: tab, exact: true }).first().click();
+  const p = await appPage('/app/science/' + id, { width: 412, height: 900, lang });
+  if (tab) {
+    // The tab's English label gives its position, so the same tab is chosen in every language.
+    const tabs = p.locator('article button');
+    let at = tabIndex.get(spec);
+    if (at === undefined) {
+      const e = await appPage('/app/science/' + id, { width: 412, height: 900 });
+      at = (await e.locator('article button').allInnerTexts()).findIndex(t => t.trim() === tab);
+      await e.context().close(); tabIndex.set(spec, at);
+    }
+    await tabs.nth(at).click();
+  }
   await p.waitForTimeout(1500);
   const src = png(await p.locator('article > *').nth(3).screenshot());
   await p.context().close(); return { src };
 }
+const tabIndex = new Map();
+const req = createRequire(import.meta.url);
+/** Per-language wording for the In Depth cards and posts (content/library-social/<locale>.json). */
+const social = l => req(`../src/content/library-social/${l}.json`);
 
 /** Lays out one card: logo, kicker, heading, sub line and URL on the left; the picture on the right. */
-async function render(key, card, vis) {
+async function render(key, card, vis, { lang = 'en', out = OUT + key + '.jpg' } = {}) {
   const page = await (await browser.newContext({ viewport: { width: 1200, height: 630 } })).newPage();
   await page.goto(BASE + '/terms');
   const faces = await page.evaluate(() => [...document.styleSheets].flatMap(s => { try { return [...s.cssRules]; } catch { return []; } })
@@ -159,29 +177,48 @@ async function render(key, card, vis) {
   const hl = card.heading.length, headSize = hl <= 30 ? 58 : hl <= 48 ? 50 : 42;
   const sub = hl > 48 ? card.sub.replace(/^(.{0,90}\S*).*$/s, (m, a) => (a.length < card.sub.length ? a.replace(/[\s,;:.–—-]+$/, '') + '…' : a)) : card.sub;
   const urlSize = url.length > 44 ? 17 : 22;
-  await page.setContent(`<html><head><style>${faces} html,body{margin:0;font-family:Figtree,sans-serif}</style></head><body>
+  await page.setContent(`<html><head><style>${faces} html,body{margin:0;font-family:Figtree,${CJK[lang] ? `'${CJK[lang]}',` : ''}sans-serif}</style></head><body>
     <div style="position:fixed;inset:0;background:radial-gradient(circle at 900px 315px,#2e2275 0,${BG} 520px);overflow:hidden">
       ${picture}
       <div style="position:absolute;left:68px;top:64px;bottom:60px;width:${vis.bleed ? 600 : 540}px;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:14px"><div style="width:52px;height:52px">${icon}</div><div style="font-size:40px;font-weight:800;color:#fff">sisma</div></div>
         <div style="margin-top:auto;font-size:22px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#a996ff">${esc(card.kicker)}</div>
         <div style="margin-top:12px;font-size:${headSize}px;font-weight:800;color:#fff;line-height:1.05;letter-spacing:-1px">${esc(card.heading)}</div>
-        <div style="margin-top:20px;font-size:${hl > 48 ? 23 : 26}px;color:#cfc8f2;line-height:1.35">${esc(sub)}</div>
+        <div style="margin-top:20px;font-size:${hl > 48 ? 23 : 26}px;color:#cfc8f2;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:${hl > 48 ? 2 : 3};overflow:hidden">${esc(sub)}</div>
         <div style="margin-top:auto;padding-top:24px;font-size:${urlSize}px;font-weight:700;color:#a996ff;white-space:nowrap">${esc(url)}</div>
       </div>
     </div></body></html>`, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
-  writeFileSync(OUT + key + '.jpg', await page.screenshot({ type: 'jpeg', quality: 88 }));
+  writeFileSync(out, await page.screenshot({ type: 'jpeg', quality: 88 }));
   await page.context().close();
-  console.log('og/' + key + '.jpg');
+  console.log(out.slice(OUT.length - 3));
 }
+const CJK = { ja: 'Noto Sans CJK JP', zh: 'Noto Sans CJK SC' };
 
-for (const [key, card] of Object.entries(cards)) {
-  if (ONLY.length ? !ONLY.includes(key) : (key === 'home' || !card.heading)) continue;
-  const vis = key.startsWith('science-') ? await articleVisual(key.slice(8))
-    : key.startsWith('library-') ? (LIBRARY_CUSTOM[key.slice(8)]?.() ?? await articleVisual(LIBRARY_VISUAL[key.slice(8)] ?? 'plates'))
-      : await visuals[key]?.();
-  if (!vis) { console.warn('no picture for', key); continue; }
-  await render(key, card, vis);
+if (LOCALE_ARG) {
+  // In Depth cards in other languages: public/og/<locale>/library-<id>.jpg.
+  const langs = LOCALE_ARG === 'all' ? ['es', 'fr', 'de', 'it', 'pt', 'ja', 'zh', 'id', 'tr'] : LOCALE_ARG.split(',');
+  const library = req('../src/content/library.json');
+  for (const lang of langs) {
+    const text = req(`../src/content/library/${lang}.json`), label = req(`../src/i18n/messages/${lang}.json`).library.title;
+    mkdirSync(`${OUT}${lang}`, { recursive: true });
+    for (const a of library) {
+      const key = `library-${a.id}`;
+      if (ONLY.length && !ONLY.includes(key)) continue;
+      const t = text[a.id] ?? a;
+      const card = { ...cards[key], kicker: label, heading: t.title, sub: t.dek };
+      const vis = LIBRARY_CUSTOM[a.id]?.(lang) ?? await articleVisual(LIBRARY_VISUAL[a.id] ?? 'plates', lang);
+      await render(key, card, vis, { lang, out: `${OUT}${lang}/${key}.jpg` });
+    }
+  }
+} else {
+  for (const [key, card] of Object.entries(cards)) {
+    if (ONLY.length ? !ONLY.includes(key) : (key === 'home' || !card.heading)) continue;
+    const vis = key.startsWith('science-') ? await articleVisual(key.slice(8))
+      : key.startsWith('library-') ? (LIBRARY_CUSTOM[key.slice(8)]?.() ?? await articleVisual(LIBRARY_VISUAL[key.slice(8)] ?? 'plates'))
+        : await visuals[key]?.();
+    if (!vis) { console.warn('no picture for', key); continue; }
+    await render(key, card, vis);
+  }
 }
 await browser.close();

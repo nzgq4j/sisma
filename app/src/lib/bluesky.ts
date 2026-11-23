@@ -341,7 +341,7 @@ export function detectFacets(text: string): Facet[] {
 }
 
 /** Cuts a standfirst to at most `max` graphemes: whole sentences if they fit, else whole words and "…"; '' if nothing fits. */
-function fitDek(dek: string, max: number): string {
+export function fitDek(dek: string, max: number): string {
   if (graphemes(dek) <= max) return dek;
   const sentences = dek.match(/[^.!?]+[.!?]+(\s|$)/g) ?? [];
   let s = '';
@@ -353,13 +353,16 @@ function fitDek(dek: string, max: number): string {
   return w.length >= 20 ? w.replace(/[\s,;:.–—-]+$/, '') + '…' : '';
 }
 
+/** Bluesky community feeds every In Depth post is tagged for (after the article's own hashtags). */
+export const LIBRARY_FEED_TAGS = ['geosky', 'sciencesky'];
+
 /**
  * The suggested post for an In Depth article (English, the account's language): title, as much of the standfirst as
  * fits, the link and the article's hashtags, within 300 graphemes; and alt text describing its share card.
  */
 export function draftLibraryPost(a: LibraryArticle): { text: string; facets: Facet[]; alt: string; url: string; image: string } {
   const url = libraryUrl(a);
-  const tags = a.hashtags.map(t => `#${t}`).join(' ');
+  const tags = [...a.hashtags, ...LIBRARY_FEED_TAGS].map(t => `#${t}`).join(' ');
   const build = (dek: string) => [a.title, ...(dek ? [dek] : []), `Read: ${url}`, tags].join('\n\n');
   const room = BLUESKY_MAX_GRAPHEMES - graphemes(build('')) - 2;
   const text = build(room > 0 ? fitDek(a.dek, room) : '');

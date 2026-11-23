@@ -8,6 +8,7 @@ import { adminClient } from '@/lib/auth';
 import { recentQuakes } from '@/lib/quakes/find';
 import { autoPost } from '@/lib/bluesky';
 import { autoPromo } from '@/lib/promo';
+import { autoLibraryPost } from '@/lib/library-posts';
 import { runTsunami } from '@/lib/tsunami/push';
 import { withTsunami } from '@/lib/tsunami/attach';
 import { matchRules, type AlertRecipient, type AlertRule, type Delivered, type RuleRecipient } from '@/lib/alerts/match';
@@ -36,8 +37,8 @@ export async function POST(req: NextRequest) {
   const now = Date.now();
   // With their official tsunami alerts, for the Bluesky posts (stored by earlier runs of this job).
   const quakes = await withTsunami(await recentQuakes(1), 2);
-  // Automatic Bluesky posts (Me → Admin: earthquakes, then the daily Play Store post): run alongside the alerts below so they never delay or stop them.
-  const blueskyRun = autoPost(db, quakes, now).then(async posts => ({ quakes: posts, promo: await autoPromo(db, now) }));
+  // Automatic Bluesky posts (Me → Admin: earthquakes, then the daily Play Store post and the twice-daily In Depth post): run alongside the alerts below so they never delay or stop them.
+  const blueskyRun = autoPost(db, quakes, now).then(async posts => ({ quakes: posts, promo: await autoPromo(db, now), library: await autoLibraryPost(db, now) }));
   // Official tsunami messages (PTWC, NTWC, JMA): stored, and pushed to people near the earthquake (lib/tsunami/push.ts).
   const tsunamiRun = runTsunami(db, quakes, now).catch(() => ({ error: 'tsunami' }));
 

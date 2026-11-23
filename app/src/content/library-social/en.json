@@ -1,0 +1,89 @@
+{
+  "alt": "sisma share card. On the left, the sisma logo, the label In Depth, the title \"{title}\", the start of the standfirst and the address {address}. On the right, {image}.",
+  "card": {
+    "italy_title": "{n} M6+ earthquakes in the Apennines since {year}",
+    "italy_source": "INGV CPTI15 catalogue"
+  },
+  "articles": {
+    "earthquake-prediction": {
+      "tags": [
+        "earthquake",
+        "seismology",
+        "science"
+      ],
+      "image": "the app's magnitude widget at M6.0, with circles for M4.0, M5.0 and M6.0 whose areas show the energy released (each step about 32 times more), an estimated energy of about 15 kilotons of TNT and about 158 such earthquakes a year worldwide"
+    },
+    "plate-tectonics-subduction": {
+      "tags": [
+        "PlateTectonics",
+        "subduction",
+        "earthquake"
+      ],
+      "image": "a cross-section of a convergent plate boundary: an oceanic plate bends down beneath a continental plate, with a volcano on the continent above the sinking slab"
+    },
+    "faults-and-stress": {
+      "tags": [
+        "geology",
+        "faults",
+        "earthquake"
+      ],
+      "image": "a cross-section of a normal fault: layered rock cut by a dashed fault line, arrows pulling the two sides apart and the hanging wall sliding down past the footwall"
+    },
+    "earth-interior-seismic-waves": {
+      "tags": [
+        "seismology",
+        "geophysics",
+        "EarthScience"
+      ],
+      "image": "a grid of particles showing a P wave: the rock compresses and stretches along the direction of travel, with one column of particles highlighted"
+    },
+    "aftershocks-and-hazards": {
+      "tags": [
+        "aftershocks",
+        "earthquake",
+        "geology"
+      ],
+      "image": "two charts: recent earthquakes grouped by depth (shallow, intermediate and deep, most of them shallow) and the number of aftershocks per day after a mainshock, falling quickly over ten days as Omori's law describes"
+    },
+    "surface-waves-and-damage": {
+      "tags": [
+        "earthquake",
+        "seismology",
+        "EarthquakeEngineering"
+      ],
+      "image": "the app's seismic wave widget on the Surface tab: a grid of particles moving in a rolling wave along the direction of travel"
+    },
+    "magnitude-scales": {
+      "tags": [
+        "earthquake",
+        "seismology",
+        "magnitude"
+      ],
+      "image": "the app's magnitude widget at M6.0, with circles for M4.0, M5.0 and M6.0 whose areas show the energy released (each step about 32 times more), an estimated energy of about 15 kilotons of TNT and about 158 such earthquakes a year worldwide"
+    },
+    "deep-focus-earthquakes": {
+      "tags": [
+        "earthquake",
+        "seismology",
+        "subduction"
+      ],
+      "image": "a cross-section of a convergent plate boundary: an oceanic plate sinks beneath a continental plate, with earthquakes tracing the slab down to about 700 km"
+    },
+    "volcano-seismology": {
+      "tags": [
+        "volcano",
+        "seismology",
+        "earthquake"
+      ],
+      "image": "a world map of recent M4.5+ earthquakes, with those on the Ring of Fire, the belt of ocean trenches and volcanoes around the Pacific, highlighted"
+    },
+    "italian-earthquakes": {
+      "tags": [
+        "earthquake",
+        "Italy",
+        "seismology"
+      ],
+      "image": "an outline of Italy with the M6+ earthquakes of the Apennines since 1279 from the INGV CPTI15 catalogue, sized by magnitude, with Norcia 2016, L'Aquila 2009, Irpinia 1980 and Marsica 1915 labelled"
+    }
+  }
+}

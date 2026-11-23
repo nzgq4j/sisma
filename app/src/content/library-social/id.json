@@ -1,0 +1,89 @@
+{
+  "alt": "Kartu bagikan sisma. Di kiri, logo sisma, label Mendalam, judul \"{title}\", awal paragraf pembuka, dan alamat {address}. Di kanan, {image}.",
+  "card": {
+    "italy_title": "{n} gempa M6+ di Pegunungan Apennine sejak {year}",
+    "italy_source": "Katalog INGV CPTI15"
+  },
+  "articles": {
+    "earthquake-prediction": {
+      "tags": [
+        "gempabumi",
+        "seismologi",
+        "sains"
+      ],
+      "image": "widget magnitudo aplikasi pada M6.0, dengan lingkaran untuk M4.0, M5.0 dan M6.0 yang luasnya menunjukkan energi yang dilepas (tiap langkah ≈ 32× lebih besar), perkiraan energi sekitar 15 kt TNT dan sekitar 158 gempa seperti itu per tahun di seluruh dunia"
+    },
+    "plate-tectonics-subduction": {
+      "tags": [
+        "TektonikLempeng",
+        "subduksi",
+        "gempabumi"
+      ],
+      "image": "penampang batas lempeng konvergen: lempeng samudra melengkung turun ke bawah lempeng benua, dengan gunung api di benua di atas lempeng yang menunjam"
+    },
+    "faults-and-stress": {
+      "tags": [
+        "geologi",
+        "sesar",
+        "gempabumi"
+      ],
+      "image": "penampang sesar normal: batuan berlapis terpotong garis sesar putus-putus, panah menarik kedua sisi menjauh dan dinding gantung turun melewati dinding alas"
+    },
+    "earth-interior-seismic-waves": {
+      "tags": [
+        "seismologi",
+        "geofisika",
+        "IlmuBumi"
+      ],
+      "image": "kisi partikel yang menunjukkan gelombang P: batuan memampat dan meregang searah rambatan, dengan satu kolom partikel ditandai"
+    },
+    "aftershocks-and-hazards": {
+      "tags": [
+        "GempaSusulan",
+        "gempabumi",
+        "geologi"
+      ],
+      "image": "dua grafik: gempa terbaru dikelompokkan menurut kedalaman (dangkal, menengah dan dalam, sebagian besar dangkal) dan jumlah gempa susulan per hari setelah gempa utama, yang turun cepat selama sepuluh hari sesuai hukum Omori"
+    },
+    "surface-waves-and-damage": {
+      "tags": [
+        "gempabumi",
+        "seismologi",
+        "TeknikGempa"
+      ],
+      "image": "widget gelombang seismik aplikasi pada tab Permukaan: kisi partikel bergerak dalam gelombang bergulung searah rambatan"
+    },
+    "magnitude-scales": {
+      "tags": [
+        "gempabumi",
+        "seismologi",
+        "magnitudo"
+      ],
+      "image": "widget magnitudo aplikasi pada M6.0, dengan lingkaran untuk M4.0, M5.0 dan M6.0 yang luasnya menunjukkan energi yang dilepas (tiap langkah ≈ 32× lebih besar), perkiraan energi sekitar 15 kt TNT dan sekitar 158 gempa seperti itu per tahun di seluruh dunia"
+    },
+    "deep-focus-earthquakes": {
+      "tags": [
+        "gempabumi",
+        "seismologi",
+        "subduksi"
+      ],
+      "image": "penampang batas lempeng konvergen: lempeng samudra menunjam ke bawah lempeng benua, dengan gempa yang menelusuri lempeng hingga sekitar 700 km"
+    },
+    "volcano-seismology": {
+      "tags": [
+        "gunungapi",
+        "seismologi",
+        "gempabumi"
+      ],
+      "image": "peta dunia gempa M4.5+ terbaru, dengan gempa di Cincin Api, sabuk palung laut dan gunung api di sekeliling Pasifik, ditandai"
+    },
+    "italian-earthquakes": {
+      "tags": [
+        "gempabumi",
+        "Italia",
+        "seismologi"
+      ],
+      "image": "garis luar Italia dengan gempa M6+ di Pegunungan Apennine sejak 1279 dari katalog INGV CPTI15, berukuran sesuai magnitudo, dengan label Norcia 2016, L'Aquila 2009, Irpinia 1980 dan Marsica 1915"
+    }
+  }
+}

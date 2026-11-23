@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { LIBRARY } from './library';
-import { BLUESKY_MAX_GRAPHEMES, detectFacets, draftLibraryPost, graphemes, libraryUrl, postProblem } from './bluesky';
+import { BLUESKY_MAX_GRAPHEMES, detectFacets, draftLibraryPost, graphemes, LIBRARY_FEED_TAGS, libraryUrl, postProblem } from './bluesky';
 
 const enc = new TextEncoder();
 const sliceBytes = (s: string, a: number, b: number) => new TextDecoder().decode(enc.encode(s).slice(a, b));
@@ -16,7 +16,7 @@ describe('In Depth posts', () => {
       const link = d.facets.find(f => f.features[0].$type === 'app.bsky.richtext.facet#link');
       expect(link && sliceBytes(d.text, link.index.byteStart, link.index.byteEnd)).toBe(d.url);
       const tags = d.facets.flatMap(f => f.features).filter(f => f.$type === 'app.bsky.richtext.facet#tag').map(f => (f as { tag: string }).tag);
-      expect(tags).toEqual(a.hashtags);
+      expect(tags).toEqual([...a.hashtags, ...LIBRARY_FEED_TAGS]);
       expect(a.hashtags.length).toBeGreaterThan(0);
       expect(d.alt).toContain(a.title);
       expect(postProblem(d.text, d.alt)).toBeNull();

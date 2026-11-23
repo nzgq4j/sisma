@@ -1,0 +1,89 @@
+{
+  "alt": "sisma paylaşım kartı. Solda sisma logosu, Derinlemesine etiketi, \"{title}\" başlığı, giriş metninin başı ve {address} adresi. Sağda {image}.",
+  "card": {
+    "italy_title": "{year} yılından bu yana Apenninler’de {n} adet M6+ deprem",
+    "italy_source": "INGV CPTI15 kataloğu"
+  },
+  "articles": {
+    "earthquake-prediction": {
+      "tags": [
+        "deprem",
+        "sismoloji",
+        "bilim"
+      ],
+      "image": "uygulamanın M6.0’a ayarlı büyüklük aracı: alanları açığa çıkan enerjiyi gösteren M4.0, M5.0 ve M6.0 daireleri (her adım yaklaşık 32 kat fazla), yaklaşık 15 kiloton TNT’lik tahmini enerji ve dünya genelinde yılda yaklaşık 158 böyle deprem"
+    },
+    "plate-tectonics-subduction": {
+      "tags": [
+        "levhatektoniği",
+        "dalmabatma",
+        "deprem"
+      ],
+      "image": "yakınsak bir levha sınırının kesiti: bir okyanus levhası bükülerek bir kıta levhasının altına dalıyor, batan levhanın üstündeki kıtada bir volkan var"
+    },
+    "faults-and-stress": {
+      "tags": [
+        "jeoloji",
+        "fay",
+        "deprem"
+      ],
+      "image": "normal bir fayın kesiti: kesikli bir fay çizgisiyle bölünmüş katmanlı kaya, iki yanı birbirinden uzaklaştıran oklar ve taban bloğuna göre aşağı kayan tavan bloğu"
+    },
+    "earth-interior-seismic-waves": {
+      "tags": [
+        "sismoloji",
+        "jeofizik",
+        "yerbilimleri"
+      ],
+      "image": "bir P dalgasını gösteren parçacık ızgarası: kaya ilerleme yönünde sıkışıp genişliyor, bir parçacık sütunu vurgulanmış"
+    },
+    "aftershocks-and-hazards": {
+      "tags": [
+        "artçışok",
+        "deprem",
+        "jeoloji"
+      ],
+      "image": "iki grafik: derinliğe göre gruplanmış son depremler (sığ, orta ve derin; çoğu sığ) ve bir ana şoktan sonra günlük artçı sayısı, Omori yasasının tarif ettiği gibi on gün içinde hızla azalıyor"
+    },
+    "surface-waves-and-damage": {
+      "tags": [
+        "deprem",
+        "sismoloji",
+        "depremmühendisliği"
+      ],
+      "image": "uygulamanın sismik dalga aracı Yüzey sekmesinde: ilerleme yönünde yuvarlanan bir dalgayla hareket eden parçacık ızgarası"
+    },
+    "magnitude-scales": {
+      "tags": [
+        "deprem",
+        "sismoloji",
+        "büyüklük"
+      ],
+      "image": "uygulamanın M6.0’a ayarlı büyüklük aracı: alanları açığa çıkan enerjiyi gösteren M4.0, M5.0 ve M6.0 daireleri (her adım yaklaşık 32 kat fazla), yaklaşık 15 kiloton TNT’lik tahmini enerji ve dünya genelinde yılda yaklaşık 158 böyle deprem"
+    },
+    "deep-focus-earthquakes": {
+      "tags": [
+        "deprem",
+        "sismoloji",
+        "dalmabatma"
+      ],
+      "image": "yakınsak bir levha sınırının kesiti: bir okyanus levhası bir kıta levhasının altına dalıyor, depremler levhayı yaklaşık 700 km derinliğe kadar izliyor"
+    },
+    "volcano-seismology": {
+      "tags": [
+        "volkan",
+        "sismoloji",
+        "deprem"
+      ],
+      "image": "son M4.5+ depremlerin dünya haritası; Pasifik’i çevreleyen okyanus çukurları ve volkanlar kuşağı olan Ateş Çemberi’ndekiler vurgulanmış"
+    },
+    "italian-earthquakes": {
+      "tags": [
+        "deprem",
+        "İtalya",
+        "sismoloji"
+      ],
+      "image": "INGV CPTI15 kataloğuna göre 1279’dan bu yana Apenninler’deki M6+ depremlerle İtalya’nın ana hatları; daireler büyüklüğe göre boyutlandırılmış, Norcia 2016, L'Aquila 2009, Irpinia 1980 ve Marsica 1915 etiketli"
+    }
+  }
+}

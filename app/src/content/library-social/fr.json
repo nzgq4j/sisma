@@ -1,0 +1,89 @@
+{
+  "alt": "Carte de partage sisma. À gauche, le logo sisma, l’étiquette En profondeur, le titre « {title} », le début du chapeau et l’adresse {address}. À droite, {image}.",
+  "card": {
+    "italy_title": "{n} séismes M6+ dans les Apennins depuis {year}",
+    "italy_source": "Catalogue CPTI15 de l’INGV"
+  },
+  "articles": {
+    "earthquake-prediction": {
+      "tags": [
+        "séisme",
+        "sismologie",
+        "science"
+      ],
+      "image": "le widget de magnitude de l’app à M6.0, avec des cercles pour M4.0, M5.0 et M6.0 dont l’aire montre l’énergie libérée (chaque pas environ 32 fois plus), une énergie estimée d’environ 15 kilotonnes de TNT et environ 158 séismes de ce type par an dans le monde"
+    },
+    "plate-tectonics-subduction": {
+      "tags": [
+        "TectoniqueDesPlaques",
+        "subduction",
+        "séisme"
+      ],
+      "image": "une coupe d’une limite de plaques convergente : une plaque océanique plonge sous une plaque continentale, avec un volcan sur le continent au-dessus de la plaque plongeante"
+    },
+    "faults-and-stress": {
+      "tags": [
+        "géologie",
+        "failles",
+        "séisme"
+      ],
+      "image": "une coupe d’une faille normale : des couches de roche traversées par une ligne de faille en pointillés, des flèches qui écartent les deux côtés et le toit qui glisse vers le bas le long du mur"
+    },
+    "earth-interior-seismic-waves": {
+      "tags": [
+        "sismologie",
+        "géophysique",
+        "SciencesDeLaTerre"
+      ],
+      "image": "une grille de particules montrant une onde P : la roche se comprime et s’étire dans le sens de propagation, avec une colonne de particules mise en évidence"
+    },
+    "aftershocks-and-hazards": {
+      "tags": [
+        "répliques",
+        "séisme",
+        "géologie"
+      ],
+      "image": "deux graphiques : les séismes récents regroupés par profondeur (superficiels, intermédiaires et profonds, la plupart superficiels) et le nombre de répliques par jour après un choc principal, qui chute rapidement en dix jours comme le décrit la loi d’Omori"
+    },
+    "surface-waves-and-damage": {
+      "tags": [
+        "séisme",
+        "sismologie",
+        "GénieParasismique"
+      ],
+      "image": "le widget d’ondes sismiques de l’app sur l’onglet Surface : une grille de particules qui ondulent en roulant dans le sens de propagation"
+    },
+    "magnitude-scales": {
+      "tags": [
+        "séisme",
+        "sismologie",
+        "magnitude"
+      ],
+      "image": "le widget de magnitude de l’app à M6.0, avec des cercles pour M4.0, M5.0 et M6.0 dont l’aire montre l’énergie libérée (chaque pas environ 32 fois plus), une énergie estimée d’environ 15 kilotonnes de TNT et environ 158 séismes de ce type par an dans le monde"
+    },
+    "deep-focus-earthquakes": {
+      "tags": [
+        "séisme",
+        "sismologie",
+        "subduction"
+      ],
+      "image": "une coupe d’une limite de plaques convergente : une plaque océanique plonge sous une plaque continentale, avec des séismes qui suivent la plaque jusqu’à environ 700 km de profondeur"
+    },
+    "volcano-seismology": {
+      "tags": [
+        "volcan",
+        "sismologie",
+        "séisme"
+      ],
+      "image": "une carte du monde des séismes récents de M4.5+, où ceux de la Ceinture de feu, l’arc de fosses océaniques et de volcans qui entoure le Pacifique, sont mis en évidence"
+    },
+    "italian-earthquakes": {
+      "tags": [
+        "séisme",
+        "Italie",
+        "sismologie"
+      ],
+      "image": "un contour de l’Italie avec les séismes M6+ des Apennins depuis 1279 du catalogue CPTI15 de l’INGV, dimensionnés selon la magnitude, avec Norcia 2016, L’Aquila 2009, Irpinia 1980 et Marsica 1915 indiqués"
+    }
+  }
+}
