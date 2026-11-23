@@ -1,0 +1,365 @@
+{
+ "source": "CPTI15 v4.0, INGV (https://doi.org/10.13127/cpti/cpti15.4), via the INGV FDSN event service https://emidius.mi.ingv.it/fdsnws/event/1/query?format=text&minmag=6.0&starttime=1000-01-01, retrieved 2026-11-23. Apennine events selected by CPTI15 epicentral area name.",
+ "events": [
+  {
+   "year": 2016,
+   "date": "2016-10-30",
+   "lat": 42.83,
+   "lon": 13.109,
+   "mw": 6.61,
+   "area": "Valnerina"
+  },
+  {
+   "year": 2016,
+   "date": "2016-10-26",
+   "lat": 42.904,
+   "lon": 13.09,
+   "mw": 6.07,
+   "area": "Valnerina"
+  },
+  {
+   "year": 2016,
+   "date": "2016-08-24",
+   "lat": 42.698,
+   "lon": 13.233,
+   "mw": 6.18,
+   "area": "Monti della Laga"
+  },
+  {
+   "year": 2009,
+   "date": "2009-04-06",
+   "lat": 42.309,
+   "lon": 13.51,
+   "mw": 6.29,
+   "area": "Aquilano"
+  },
+  {
+   "year": 1980,
+   "date": "1980-11-23",
+   "lat": 40.842,
+   "lon": 15.283,
+   "mw": 6.81,
+   "area": "Irpinia-Basilicata"
+  },
+  {
+   "year": 1962,
+   "date": "1962-08-21",
+   "lat": 41.23,
+   "lon": 14.953,
+   "mw": 6.15,
+   "area": "Irpinia"
+  },
+  {
+   "year": 1930,
+   "date": "1930-07-23",
+   "lat": 41.068,
+   "lon": 15.318,
+   "mw": 6.67,
+   "area": "Irpinia"
+  },
+  {
+   "year": 1920,
+   "date": "1920-09-07",
+   "lat": 44.185,
+   "lon": 10.278,
+   "mw": 6.53,
+   "area": "Garfagnana"
+  },
+  {
+   "year": 1919,
+   "date": "1919-06-29",
+   "lat": 43.957,
+   "lon": 11.482,
+   "mw": 6.38,
+   "area": "Mugello"
+  },
+  {
+   "year": 1915,
+   "date": "1915-01-13",
+   "lat": 42.014,
+   "lon": 13.53,
+   "mw": 7.08,
+   "area": "Marsica"
+  },
+  {
+   "year": 1857,
+   "date": "1857-12-16",
+   "lat": 40.352,
+   "lon": 15.842,
+   "mw": 7.12,
+   "area": "Basilicata"
+  },
+  {
+   "year": 1851,
+   "date": "1851-08-14",
+   "lat": 40.96,
+   "lon": 15.669,
+   "mw": 6.52,
+   "area": "Vulture"
+  },
+  {
+   "year": 1832,
+   "date": "1832-01-13",
+   "lat": 42.98,
+   "lon": 12.605,
+   "mw": 6.43,
+   "area": "Valle Umbra"
+  },
+  {
+   "year": 1805,
+   "date": "1805-07-26",
+   "lat": 41.5,
+   "lon": 14.474,
+   "mw": 6.68,
+   "area": "Molise"
+  },
+  {
+   "year": 1799,
+   "date": "1799-07-28",
+   "lat": 43.193,
+   "lon": 13.151,
+   "mw": 6.18,
+   "area": "Appennino marchigiano"
+  },
+  {
+   "year": 1781,
+   "date": "1781-06-03",
+   "lat": 43.596,
+   "lon": 12.512,
+   "mw": 6.51,
+   "area": "Cagliese"
+  },
+  {
+   "year": 1781,
+   "date": "1781-04-04",
+   "lat": 44.251,
+   "lon": 11.798,
+   "mw": 6.12,
+   "area": "Faentino"
+  },
+  {
+   "year": 1751,
+   "date": "1751-07-27",
+   "lat": 43.225,
+   "lon": 12.739,
+   "mw": 6.38,
+   "area": "Appennino umbro-marchigiano"
+  },
+  {
+   "year": 1747,
+   "date": "1747-04-17",
+   "lat": 43.204,
+   "lon": 12.769,
+   "mw": 6.05,
+   "area": "Appennino umbro-marchigiano"
+  },
+  {
+   "year": 1741,
+   "date": "1741-04-24",
+   "lat": 43.425,
+   "lon": 13.005,
+   "mw": 6.17,
+   "area": "Fabrianese"
+  },
+  {
+   "year": 1732,
+   "date": "1732-11-29",
+   "lat": 41.064,
+   "lon": 15.059,
+   "mw": 6.75,
+   "area": "Irpinia"
+  },
+  {
+   "year": 1730,
+   "date": "1730-05-12",
+   "lat": 42.753,
+   "lon": 13.12,
+   "mw": 6.04,
+   "area": "Valnerina"
+  },
+  {
+   "year": 1706,
+   "date": "1706-11-03",
+   "lat": 42.076,
+   "lon": 14.08,
+   "mw": 6.84,
+   "area": "Maiella"
+  },
+  {
+   "year": 1703,
+   "date": "1703-02-02",
+   "lat": 42.434,
+   "lon": 13.292,
+   "mw": 6.67,
+   "area": "Aquilano"
+  },
+  {
+   "year": 1703,
+   "date": "1703-01-14",
+   "lat": 42.708,
+   "lon": 13.071,
+   "mw": 6.92,
+   "area": "Valnerina"
+  },
+  {
+   "year": 1702,
+   "date": "1702-03-14",
+   "lat": 41.12,
+   "lon": 14.989,
+   "mw": 6.56,
+   "area": "Sannio-Irpinia"
+  },
+  {
+   "year": 1694,
+   "date": "1694-09-08",
+   "lat": 40.862,
+   "lon": 15.406,
+   "mw": 6.73,
+   "area": "Irpinia-Basilicata"
+  },
+  {
+   "year": 1688,
+   "date": "1688-06-05",
+   "lat": 41.283,
+   "lon": 14.561,
+   "mw": 7.06,
+   "area": "Sannio"
+  },
+  {
+   "year": 1661,
+   "date": "1661-03-22",
+   "lat": 44.021,
+   "lon": 11.898,
+   "mw": 6.05,
+   "area": "Appennino forlivese"
+  },
+  {
+   "year": 1654,
+   "date": "1654-07-24",
+   "lat": 41.635,
+   "lon": 13.683,
+   "mw": 6.33,
+   "area": "Sorano"
+  },
+  {
+   "year": 1639,
+   "date": "1639-10-07",
+   "lat": 42.639,
+   "lon": 13.261,
+   "mw": 6.21,
+   "area": "Monti della Laga"
+  },
+  {
+   "year": 1599,
+   "date": "1599-11-06",
+   "lat": 42.724,
+   "lon": 13.021,
+   "mw": 6.07,
+   "area": "Valnerina"
+  },
+  {
+   "year": 1561,
+   "date": "1561-08-19",
+   "lat": 40.563,
+   "lon": 15.505,
+   "mw": 6.72,
+   "area": "Vallo di Diano"
+  },
+  {
+   "year": 1561,
+   "date": "1561-07-31",
+   "lat": 40.65,
+   "lon": 15.389,
+   "mw": 6.34,
+   "area": "Vallo di Diano"
+  },
+  {
+   "year": 1542,
+   "date": "1542-06-13",
+   "lat": 44.006,
+   "lon": 11.385,
+   "mw": 6.02,
+   "area": "Mugello"
+  },
+  {
+   "year": 1461,
+   "date": "1461-11-27",
+   "lat": 42.308,
+   "lon": 13.543,
+   "mw": 6.5,
+   "area": "Aquilano"
+  },
+  {
+   "year": 1456,
+   "date": "1456-12-05",
+   "lat": 41.302,
+   "lon": 14.711,
+   "mw": 7.19,
+   "area": "Appennino centro-meridionale"
+  },
+  {
+   "year": 1389,
+   "date": "1389-10-18",
+   "lat": 43.527,
+   "lon": 12.299,
+   "mw": 6.03,
+   "area": "Alta Valtiberina"
+  },
+  {
+   "year": 1361,
+   "date": "1361-07-17",
+   "lat": 41.205,
+   "lon": 15.561,
+   "mw": 6.03,
+   "area": "Subappennino dauno"
+  },
+  {
+   "year": 1352,
+   "date": "1352-12-25",
+   "lat": 43.469,
+   "lon": 12.127,
+   "mw": 6.31,
+   "area": "Alta Valtiberina"
+  },
+  {
+   "year": 1349,
+   "date": "1349-09-09",
+   "lat": 41.554,
+   "lon": 13.942,
+   "mw": 6.8,
+   "area": "Lazio-Molise"
+  },
+  {
+   "year": 1349,
+   "date": "1349-09-09",
+   "lat": 42.27,
+   "lon": 13.118,
+   "mw": 6.27,
+   "area": "Appennino laziale-abruzzese"
+  },
+  {
+   "year": 1328,
+   "date": "1328-12-01",
+   "lat": 42.857,
+   "lon": 13.018,
+   "mw": 6.49,
+   "area": "Valnerina"
+  },
+  {
+   "year": 1298,
+   "date": "1298-12-01",
+   "lat": 42.575,
+   "lon": 12.902,
+   "mw": 6.26,
+   "area": "Monti Reatini"
+  },
+  {
+   "year": 1279,
+   "date": "1279-04-30",
+   "lat": 43.093,
+   "lon": 12.872,
+   "mw": 6.2,
+   "area": "Appennino umbro-marchigiano"
+  }
+ ]
+}

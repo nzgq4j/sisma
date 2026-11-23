@@ -808,5 +808,76 @@
         "a": "Selama erupsi pembentukan kubah lava pada 2004 hingga 2008, gempa-gempa kecil berulang dengan selang waktu yang begitu teratur sehingga para ilmuwan menyebutnya drumbeat (dentuman genderang). Ukuran dan jarak waktunya berubah mengikuti gaya ekstrusi lava, bukan mengikuti laju pasokan magma."
       }
     ]
+  },
+  "italian-earthquakes": {
+    "title": "Mengapa Italia Sering Diguncang Gempa: Pegunungan Apennine, L'Aquila, dan Rangkaian Amatrice-Visso-Norcia",
+    "dek": "Gempa-gempa paling mematikan di Italia dalam beberapa waktu terakhir melanda sebuah jajaran pegunungan yang sedang tertarik terpisah. Inilah yang diungkapkan L'Aquila dan rangkaian gempa 2016 tentang sesar, fluida, dan pertanyaan-pertanyaan yang masih terbuka.",
+    "sections": [
+      {
+        "h": "Jajaran Pegunungan yang Sedang Tertarik Terpisah",
+        "p": [
+          "Gempa yang melanda L'Aquila pada 2009 dan kawasan Visso pada 2016 memiliki gaya yang sama, dan hal ini mengejutkan banyak pembaca. Keduanya terjadi pada sesar normal, yang mengakomodasi peregangan kerak, di sebuah sabuk pegunungan yang terbentuk oleh kompresi. Mekanisme sesar pada rangkaian gempa 2016 konsisten dengan ekstensi Apennine tengah, yang berlangsung bersamaan dengan terbukanya cekungan busur belakang Laut Tirenia (Gabrielli et al. 2022). Untuk memahami alasannya, kita perlu menengok sejarah lempeng di bawah semenanjung itu.",
+          "Italia terletak di antara dua lempeng besar dan di atas sebuah lempeng yang lebih kecil. Afrika dan Eropa telah lama saling mendekat, dan lempeng mikro Adriatik, yang biasa disebut Adria, berada di antara keduanya. Le Breton et al. (2017) menggambarkan Adria sebagai pemain kunci dalam geodinamika Mediterania barat, dengan batas-batas yang sangat terdeformasi, termasuk Pegunungan Alpen, Apennine, Dinarides, Hellenides, dan Busur Calabria. Pegunungan Apennine telah menjadi lokasi subduksi dengan pemunduran (rollback) pada Oligosen-Miosen, tumbukan lunak, dan ekstensi busur belakang yang nyata (Le Breton et al. 2017).",
+          "Pemunduran adalah gagasan utamanya. Lempengan yang tenggelam mundur ke dalam mantel, dan kerak di atasnya pun teregang. Rosenbaum and Lister (2004) merekonstruksi terbukanya Laut Tirenia dan menemukan bahwa peretakan utamanya dimulai sekitar 10 juta tahun lalu, dalam dua episode ekstensi busur belakang yang dipicu oleh pemunduran lempengan yang menunjam ke arah barat. Periode ekstensi pertama, dari 10 hingga 6 juta tahun lalu, menonjol di Laut Tirenia bagian utara dan di bagian barat Laut Tirenia selatan, sedangkan periode kedua terutama memengaruhi Laut Tirenia bagian selatan. Mereka juga mengidentifikasi sebuah lempengan sempit di bawah Laut Ionia yang mengalami pemunduran lebih cepat dan laju ekstensi yang ekstrem.",
+          "Akibatnya bagi kegempaan adalah sebuah sabuk pegunungan yang teregang di sepanjang punggungnya. Fonteijn et al. (2026) mencatat bahwa Apennine tengah telah mengalami beberapa gempa sesar normal yang merusak dalam satu dekade terakhir, dan bahwa pertanyaan mendasar tentang apa yang mendorong ekstensi itu masih ada. Model mereka hanya dapat mereproduksi gempa sesar normal, serta kecepatan permukaan horizontal yang naik secara bertahap hingga 3 milimeter per tahun, apabila lempengan di bawah Apennine tengah terlepas. Le Breton et al. (2017) sebaliknya mengajukan pemisahan kerak dan mantel, atau delaminasi, selama pemunduran di Apennine. Pemunduran, delaminasi, dan lempengan yang terlepas masing-masing memiliki pendukung, sehingga pendorong ekstensi itu masih diperdebatkan."
+        ]
+      },
+      {
+        "h": "L'Aquila, April 2009",
+        "p": [
+          "Pada 6 April 2009 pukul 01:32 UTC, gempa sesar normal bermagnitudo Mw 6,1 melanda wilayah Abruzzo. Gempa ini menyebabkan 308 korban jiwa dan 70.000 pengungsi, serta merusak parah kota L'Aquila dan warisan budayanya (Chiaraluce 2012). Chiarabba et al. (2009) melaporkan peristiwa yang sama sebagai Mw 6,3, pengingat bahwa lembaga yang berbeda dapat menetapkan magnitudo momen yang berbeda untuk satu gempa.",
+          "Gempa utama bermula sekitar 9,3 kilometer di bawah L'Aquila dan mengaktifkan sesar sepanjang sekitar 16 kilometer yang berarah barat laut dan miring sekitar 50 derajat ke arah barat daya. Rangkaian gempa pendahuluan yang memuncak dengan peristiwa Mw 4,0 pada 30 Maret telah mengaktifkan bidang sesar yang sama. Hampir 3.000 gempa dengan magnitudo lokal 1,9 atau lebih terjadi sepanjang 2009, dan sistem sesar itu mencapai panjang sekitar 40 kilometer pada akhir Desember (Chiaraluce 2012). Gempa-gempa susulan bertepatan dengan jejak permukaan Sesar Paganica, sebuah sesar normal yang kurang dikenal sebelum peristiwa itu, dan kegempaan bermigrasi ke utara ke sebuah sesar en echelon yang dapat patah dalam gempa besar di masa depan (Chiarabba et al. 2009). Gempa-gempa kuat pernah melanda kawasan yang sama pada 1461 dan 1703 (Chiaraluce 2010).",
+          "Sistem sesar itu lebih rumit daripada satu bidang tunggal. Kegempaan bermula di bagian atas kerak hingga kedalaman 10 sampai 12 kilometer, dan sebuah peristiwa Mw 5,4 pada 7 April bermula beberapa kilometer lebih dalam pada sesar normal bersudut tinggi yang antitetik terhadap sistem utama; perannya masih belum jelas (Chiaraluce 2010). Struktur lain memiliki kemiringan yang lebih landai, sekitar 35 derajat, yang cenderung mendatar seiring bertambahnya kedalaman, dan kegempaan menyoroti aktifnya banyak segmen sesar normal kecil di seluruh sistem (Chiaraluce 2012)."
+        ]
+      },
+      {
+        "h": "Amatrice, Visso, dan Norcia, 2016",
+        "p": [
+          "Rangkaian besar berikutnya dimulai pada 24 Agustus 2016 dengan gempa Mw 6,0 di dekat Amatrice yang menewaskan 299 orang. Gempa Mw 5,9 di dekat Visso menyusul pada 26 Oktober, lalu gempa Mw 6,5 di dekat Norcia pada 30 Oktober (Tan et al. 2021). Dengan demikian, gempa Visso datang dua bulan setelah Amatrice, dan gempa Norcia empat hari setelah Visso. Bersama-sama, ketiga gempa utama itu mengaktifkan sistem sesar normal sepanjang 80 kilometer (Tan et al. 2021). Antara Agustus dan Oktober 2016, tercatat 25.600 gempa bermagnitudo 0,1 hingga 6,5, dan jaringan digital yang dipasang segera setelah gempa Amatrice menjadikannya rangkaian gempa yang paling baik dipantau di Italia. Delapan peristiwa melampaui Mw 5,0 (Gabrielli et al. 2022). Sebuah katalog gempa berbasis pembelajaran mesin menunjukkan bahwa struktur sesar yang rumit teraktifkan selama rangkaian itu (Tan et al. 2021).",
+          "Struktur kompresi yang lebih tua memengaruhi perkembangan patahan-patahan itu. Improta et al. (2019) menggunakan katalog gempa susulan awal berkualitas tinggi untuk menunjukkan bahwa sebuah ramp lateral dari sesar sungkup Monti Sibillini berperan sebagai penghalang bagi gempa utama Amatrice dan Visso, dan kemudian sebagai asperitas bagi gempa utama Norcia. Dengan demikian, zona sesar yang terbentuk oleh kompresi jutaan tahun lalu turut menentukan di mana patahan ekstensional berhenti dan di mana gelincirannya terpusat."
+        ]
+      },
+      {
+        "h": "Peran Fluida Dalam",
+        "p": [
+          "Banyak peneliti berpendapat bahwa fluida ikut mendorong rangkaian gempa itu. Gabrielli et al. (2022) menyimpulkan bahwa fluida kemungkinan besar memicu rangkaian itu dan menurunkan kestabilan jaringan sesar setelah gempa Amatrice, dengan migrasi fluida yang memulai gempa Visso dan Norcia. Mereka mengaitkan meluasnya wilayah yang terdampak dengan migrasi dalam fluida yang mengandung karbon dioksida dari sumber CO2 yang terperangkap di dekat Amatrice.",
+          "Studi-studi lain mendekati pertanyaan ini dari pengukuran yang berbeda. Convertito et al. (2020) memodelkan gempa-gempa Visso yang tertunda dan menemukan bahwa perpindahan tegangan statis Coulomb dari gempa Amatrice tidak serta-merta memicu dua gempa susulan besar di Visso, sedangkan difusi tekanan pori yang dipicu oleh deformasi akibat gempa Amatrice memicunya. Convertito et al. juga menekankan bahwa konduktivitas hidraulik yang anisotropik harus diperhitungkan saat menghitung difusi tekanan pori dalam tatanan geologi seperti ini. Chiodini et al. (2020) menghimpun catatan 10 tahun fluks CO2 tektonik di Apennine dan melaporkan emisi besar-besaran CO2 dari kedalaman yang berkaitan dengan gempa-gempa Italia Tengah tahun 2009 hingga 2018. Studi-studi ini menunjuk ke arah yang sama, tetapi Gabrielli et al. (2022) mencatat bahwa luas sebaran dan mekanisme migrasi serta difusi fluida melalui jaringan sesar masih belum jelas."
+        ]
+      },
+      {
+        "h": "Apa yang Membuat Italia Istimewa",
+        "p": [
+          "Italia memiliki catatan tertulis tentang gempanya yang luar biasa panjang. Basis Data Makroseismik Italia DBMI15, versi 3.0, memuat 123.956 titik data makroseismik untuk 3.228 gempa dan menyediakan riwayat kegempaan bagi 15.332 lokasi, sementara rilis sebelumnya mencakup tahun 1000 hingga 2017 (Istituto Nazionale di Geofisica e Vulcanologia 2021). Katalog parametrik pendampingnya, CPTI15, mengubah bukti itu menjadi lokasi dan magnitudo untuk penilaian bahaya (Rovida et al. 2020). Hanya sedikit negara yang dapat membandingkan sebuah rangkaian gempa modern dengan guncangan yang terdokumentasi selama seribu tahun.",
+          "Catatan itu menunjukkan pola gempa utama yang lebih dari satu. Gabrielli et al. (2022) menggambarkan rangkaian semacam itu sebagai ciri umum Apennine, dengan menyebut gempa Irpinia 1980 (Ms 6,9), gempa Umbria-Marche 1997 (Mw 6,0), gempa L'Aquila 2009 (Mw 6,1), dan rangkaian 2016. Chiaraluce (2018) mencatat bahwa pemetaan anatomi sesar dengan gempa-gempa kecil bermagnitudo lokal di atas 0,5 membantu mencirikan struktur zona sesar dan evolusinya, dan bahwa tiga rangkaian dalam 20 tahun (Colfiorito pada 1997, L'Aquila pada 2009, dan Amatrice-Norcia-Visso pada 2016 dan 2017) mengaktifkan sistem sesar normal berarah barat laut sepanjang sekitar 130 kilometer. Bagi pembaca yang mengikuti umpan data langsung, rangkaian 2016 menunjukkan bahwa gempa bermagnitudo 6 di Apennine dapat disusul dalam hitungan minggu atau bulan oleh guncangan yang lebih besar pada segmen sesar yang berdekatan.",
+          "Tiga pertanyaan masih terbuka: apa yang mendorong ekstensi, bagaimana fluida bergerak melalui jaringan sesar, dan mengapa sesar sungkup yang lebih tua berperan sebagai penghalang dalam sebagian gempa dan sebagai asperitas dalam gempa lainnya. Masing-masing memengaruhi cara rangkaian gempa di masa depan ditafsirkan selagi rangkaian itu berlangsung."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Mengapa Italia sering dilanda gempa?",
+        "a": "Italia terletak di antara lempeng Afrika dan lempeng Eropa yang saling mendekat, di atas lempeng mikro Adriatik (Adria) yang lebih kecil. Pemunduran lempengan yang tenggelam telah membuka Laut Tirenia dan meregangkan kerak di sepanjang punggung Pegunungan Apennine, dan gempa-gempa merusak dalam beberapa dekade terakhir di Apennine tengah terjadi pada sesar normal."
+      },
+      {
+        "q": "Jenis sesar apa yang menyebabkan gempa L'Aquila dan Norcia?",
+        "a": "Keduanya adalah gempa sesar normal, yang mengakomodasi peregangan kerak. Mekanisme sesar pada rangkaian gempa 2016 konsisten dengan ekstensi Apennine tengah, meskipun sabuk pegunungan itu awalnya terbentuk oleh kompresi."
+      },
+      {
+        "q": "Seberapa kuat gempa L'Aquila 2009?",
+        "a": "Gempa 6 April 2009 memiliki magnitudo momen 6,1 menurut satu studi dan 6,3 menurut studi lain. Gempa ini menyebabkan 308 korban jiwa dan 70.000 pengungsi, serta merusak parah kota L'Aquila. Gempa-gempa susulannya menggambarkan Sesar Paganica, sebuah sesar normal yang kurang dikenal sebelum peristiwa itu."
+      },
+      {
+        "q": "Apa yang terjadi dalam rangkaian gempa Amatrice-Visso-Norcia 2016?",
+        "a": "Gempa Mw 6,0 di dekat Amatrice pada 24 Agustus 2016 menewaskan 299 orang. Gempa itu disusul gempa Mw 5,9 di dekat Visso pada 26 Oktober dan gempa Mw 6,5 di dekat Norcia pada 30 Oktober. Bersama-sama, ketiga gempa utama itu mengaktifkan sistem sesar normal sepanjang 80 kilometer."
+      },
+      {
+        "q": "Apakah fluida memicu gempa-gempa 2016?",
+        "a": "Beberapa studi mengarah ke sana. Satu studi menyimpulkan bahwa fluida dalam yang mengandung karbon dioksida kemungkinan besar memicu rangkaian itu dan membantu memulai gempa Visso dan Norcia, dan studi lain menemukan bahwa difusi tekanan pori, bukan perpindahan tegangan statis, yang memicu gempa-gempa susulan besar di Visso. Bagaimana fluida bergerak melalui jaringan sesar masih belum jelas."
+      },
+      {
+        "q": "Seberapa jauh ke belakang catatan gempa Italia?",
+        "a": "Basis Data Makroseismik Italia DBMI15 memuat 123.956 titik data makroseismik untuk 3.228 gempa, dan rilis sebelumnya mencakup tahun 1000 hingga 2017. Katalog pendampingnya, CPTI15, mengubah bukti itu menjadi lokasi dan magnitudo untuk penilaian bahaya."
+      }
+    ]
   }
 }

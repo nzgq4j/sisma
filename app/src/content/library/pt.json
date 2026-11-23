@@ -808,5 +808,76 @@
         "a": "Durante a erupção de formação de domo de 2004 a 2008, pequenos terremotos se repetiram em intervalos tão regulares que os cientistas os chamaram de batidas de tambor (drumbeats). Seu tamanho e espaçamento mudavam com o estilo de extrusão da lava, e não com a taxa de suprimento de magma."
       }
     ]
+  },
+  "italian-earthquakes": {
+    "title": "Por que a Itália treme: os Apeninos, L’Aquila e a sequência Amatrice-Visso-Norcia",
+    "dek": "Os terremotos recentes mais mortais da Itália atingiram uma cordilheira que está sendo estirada. Veja o que L’Aquila e a sequência de 2016 revelaram sobre as falhas, os fluidos e as perguntas ainda em aberto.",
+    "sections": [
+      {
+        "h": "Uma cordilheira sendo estirada",
+        "p": [
+          "Os terremotos que atingiram L’Aquila em 2009 e a região de Visso em 2016 têm em comum um estilo que surpreende muitos leitores. Ambos ocorreram em falhas normais, que acomodam o estiramento da crosta, num cinturão montanhoso construído por compressão. Os mecanismos de falha da sequência de 2016 foram compatíveis com a extensão dos Apeninos centrais, que coexiste com a abertura da bacia de retroarco do Tirreno (Gabrielli et al. 2022). Para entender por quê, é preciso olhar para a história das placas sob a península.",
+          "A Itália fica entre duas grandes placas e sobre uma menor. A África e a Europa convergem há muito tempo, e a microplaca adriática, geralmente chamada de Adria, está situada entre elas. Le Breton et al. (2017) descrevem a Adria como peça-chave na geodinâmica do Mediterrâneo ocidental, com limites altamente deformados que incluem os Alpes, os Apeninos, os Dinarides, os Helênides e o Arco Calabriano. Os Apeninos foram palco de uma subducção oligo-miocênica com recuo da placa (rollback), de uma colisão suave e de uma pronunciada extensão de retroarco (Le Breton et al. 2017).",
+          "O recuo é a ideia central. Uma placa que afunda recua para dentro do manto, e a crosta acima dela é estirada. Rosenbaum and Lister (2004) reconstruíram a abertura do Mar Tirreno e constataram que seu principal rifteamento começou há cerca de 10 milhões de anos, em dois episódios de extensão de retroarco induzidos pelo recuo de uma placa com mergulho para oeste. O primeiro período de extensão, de 10 a 6 milhões de anos atrás, foi proeminente no norte do Mar Tirreno e na parte ocidental do sul do Mar Tirreno, e o segundo afetou principalmente o sul do Mar Tirreno. Os autores também identificam uma placa estreita sob o Mar Jônico que sofreu um recuo mais rápido e taxas extremas de extensão.",
+          "A consequência para os terremotos é um cinturão montanhoso que se estira ao longo de sua crista. Fonteijn et al. (2026) observam que os Apeninos centrais sofreram vários terremotos destrutivos de falha normal na última década e que persistem questões fundamentais sobre o que impulsiona a extensão. A modelagem dos autores reproduz terremotos de falha normal, e velocidades horizontais de superfície que aumentam gradualmente até 3 milímetros por ano, somente quando a placa sob os Apeninos centrais está destacada. Le Breton et al. (2017), por sua vez, invocam o desacoplamento entre crosta e manto, ou delaminação, durante o recuo nos Apeninos. O recuo, a delaminação e uma placa destacada têm cada um seus defensores, de modo que o motor da extensão continua em disputa."
+        ]
+      },
+      {
+        "h": "L’Aquila, abril de 2009",
+        "p": [
+          "Em 6 de abril de 2009, às 01:32 UTC, um terremoto de falha normal de Mw 6,1 atingiu a região de Abruzzo. Ele causou 308 vítimas e 70.000 desalojados e danificou gravemente a cidade de L’Aquila e seu patrimônio cultural (Chiaraluce 2012). Chiarabba et al. (2009) registram o mesmo evento como Mw 6,3, um lembrete de que agências diferentes podem atribuir magnitudes de momento diferentes a um mesmo terremoto.",
+          "O tremor principal começou cerca de 9,3 quilômetros abaixo de L’Aquila e ativou uma falha de cerca de 16 quilômetros de comprimento, com direção noroeste e mergulho de cerca de 50 graus para sudoeste. Uma sequência de tremores precursores que culminou num evento de Mw 4,0 em 30 de março havia ativado o mesmo plano de falha. Quase 3.000 eventos de magnitude local igual ou superior a 1,9 ocorreram em 2009, e o sistema de falhas atingiu cerca de 40 quilômetros de comprimento até o fim de dezembro (Chiaraluce 2012). As réplicas coincidiram com o traço superficial da falha de Paganica, uma falha normal pouco conhecida antes do evento, e a sismicidade migrou para o norte, para uma falha en échelon que poderia se romper num futuro grande terremoto (Chiarabba et al. 2009). Terremotos fortes haviam atingido a mesma área em 1461 e 1703 (Chiaraluce 2010).",
+          "O sistema de falhas era mais complexo do que um único plano. A sismicidade se nucleou nos 10 a 12 quilômetros superiores da crosta, e um evento de Mw 5,4 em 7 de abril se nucleou um par de quilômetros mais fundo, numa falha normal de alto ângulo antitética ao sistema principal; seu papel ainda não está claro (Chiaraluce 2010). Outra estrutura tinha um mergulho menor, de cerca de 35 graus, que tende a diminuir com a profundidade, e a sismicidade evidenciou a ativação de numerosos segmentos menores de falha normal em todo o sistema (Chiaraluce 2012)."
+        ]
+      },
+      {
+        "h": "Amatrice, Visso e Norcia, 2016",
+        "p": [
+          "A grande sequência seguinte começou em 24 de agosto de 2016 com um terremoto de Mw 6,0 perto de Amatrice que matou 299 pessoas. Seguiram-se um terremoto de Mw 5,9 perto de Visso em 26 de outubro e um de Mw 6,5 perto de Norcia em 30 de outubro (Tan et al. 2021). O terremoto de Visso chegou, portanto, dois meses depois do de Amatrice, e o de Norcia, quatro dias depois do de Visso. Juntos, os três tremores principais ativaram um sistema de falhas normais de 80 quilômetros (Tan et al. 2021). Entre agosto e outubro de 2016 foram registrados 25.600 terremotos de magnitude 0,1 a 6,5, e as redes digitais instaladas logo após Amatrice fizeram dela a sequência mais bem monitorada a atingir a Itália. Oito eventos superaram Mw 5,0 (Gabrielli et al. 2022). Um catálogo de terremotos elaborado com aprendizado de máquina mostrou que estruturas de falha complexas foram ativadas durante a sequência (Tan et al. 2021).",
+          "Estruturas compressivas mais antigas influenciaram o desenvolvimento das rupturas. Improta et al. (2019) usaram um catálogo de alta qualidade das primeiras réplicas para mostrar que uma rampa lateral da falha de empurrão dos Montes Sibillini atuou como barreira para os tremores principais de Amatrice e Visso e, mais tarde, como aspereza para o tremor principal de Norcia. Uma zona de falha criada por compressão há milhões de anos ajudou, portanto, a determinar onde as rupturas extensionais pararam e onde concentraram seu deslizamento."
+        ]
+      },
+      {
+        "h": "O papel dos fluidos profundos",
+        "p": [
+          "Muitos pesquisadores acreditam que os fluidos ajudaram a impulsionar a sequência. Gabrielli et al. (2022) concluem que fluidos provavelmente desencadearam a sequência e reduziram a estabilidade da rede de falhas após o terremoto de Amatrice, com a migração de fluidos nucleando os eventos de Visso e Norcia. Eles atribuem a expansão espacial da área afetada à migração profunda de fluidos contendo dióxido de carbono a partir de uma fonte de CO2 aprisionado perto de Amatrice.",
+          "Outros estudos abordam a questão a partir de medições diferentes. Convertito et al. (2020) modelaram os eventos tardios de Visso e constataram que a transferência de tensão estática de Coulomb a partir do terremoto de Amatrice não desencadeou instantaneamente as duas grandes réplicas de Visso, ao passo que a difusão da pressão de poros iniciada pela deformação de Amatrice as desencadeou. Convertito et al. também ressaltam que a condutividade hidráulica anisotrópica precisa ser incluída no cálculo da difusão da pressão de poros nesse contexto. Chiodini et al. (2020) reuniram um registro de 10 anos do fluxo de CO2 tectônico nos Apeninos e relatam emissões maciças de CO2 profundo acopladas aos terremotos de 2009 a 2018 no centro da Itália. Os estudos apontam na mesma direção, mas Gabrielli et al. (2022) observam que a extensão espacial e os mecanismos da migração e da difusão de fluidos pela rede de falhas continuam pouco claros."
+        ]
+      },
+      {
+        "h": "O que torna a Itália singular",
+        "p": [
+          "A Itália tem um registro escrito de seus terremotos excepcionalmente longo. O Banco de Dados Macrossísmico Italiano DBMI15, versão 3.0, reúne 123.956 dados macrossísmicos de 3.228 terremotos e fornece histórias sísmicas de 15.332 localidades, e uma versão anterior cobria os anos de 1000 a 2017 (Istituto Nazionale di Geofisica e Vulcanologia 2021). O catálogo paramétrico que o acompanha, o CPTI15, converte essas evidências em localizações e magnitudes para a avaliação do risco sísmico (Rovida et al. 2020). Poucos países podem comparar uma sequência moderna com mil anos de tremores documentados.",
+          "O registro mostra um padrão de múltiplos tremores principais. Gabrielli et al. (2022) descrevem essas sequências como características comuns dos Apeninos, citando o terremoto de Irpinia de 1980 (Ms 6,9), o terremoto de Úmbria-Marcas de 1997 (Mw 6,0), o terremoto de L’Aquila de 2009 (Mw 6,1) e a sequência de 2016. Chiaraluce (2018) observa que mapear a anatomia das falhas com pequenos terremotos de magnitude local acima de 0,5 ajuda a caracterizar a estrutura das zonas de falha e sua evolução, e que três sequências em 20 anos (Colfiorito em 1997, L’Aquila em 2009 e Amatrice-Norcia-Visso em 2016 e 2017) ativaram um sistema de falhas normais com direção noroeste e cerca de 130 quilômetros de comprimento. Para quem acompanha um feed ao vivo, a sequência de 2016 mostra que um terremoto de magnitude 6 nos Apeninos pode ser seguido, em semanas ou meses, por tremores maiores em segmentos de falha adjacentes.",
+          "Três perguntas continuam em aberto: o que impulsiona a extensão, como os fluidos se movem pela rede de falhas e por que falhas de empurrão mais antigas atuam como barreiras em alguns terremotos e como asperezas em outros. Cada uma delas afeta a forma como as sequências futuras serão interpretadas à medida que se desenrolam."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Por que a Itália tem tantos terremotos?",
+        "a": "A Itália fica entre as placas africana e europeia, que convergem, sobre a microplaca adriática (Adria), menor. O recuo de uma placa que afunda abriu o Mar Tirreno e estira a crosta ao longo da crista dos Apeninos, e os terremotos destrutivos das últimas décadas nos Apeninos centrais ocorreram em falhas normais."
+      },
+      {
+        "q": "Que tipo de falha causou os terremotos de L’Aquila e Norcia?",
+        "a": "Ambos foram terremotos de falha normal, um tipo de falha que acomoda o estiramento da crosta. Os mecanismos de falha da sequência de 2016 foram compatíveis com a extensão dos Apeninos centrais, embora o cinturão montanhoso tenha sido construído originalmente por compressão."
+      },
+      {
+        "q": "Qual foi a força do terremoto de L’Aquila de 2009?",
+        "a": "O terremoto de 6 de abril de 2009 teve magnitude de momento de 6,1 segundo um estudo e de 6,3 segundo outro. Ele causou 308 vítimas e 70.000 desalojados e danificou gravemente a cidade de L’Aquila. Suas réplicas delinearam a falha de Paganica, uma falha normal pouco conhecida antes do evento."
+      },
+      {
+        "q": "O que aconteceu na sequência Amatrice-Visso-Norcia de 2016?",
+        "a": "Um terremoto de Mw 6,0 perto de Amatrice em 24 de agosto de 2016 matou 299 pessoas. Ele foi seguido por um terremoto de Mw 5,9 perto de Visso em 26 de outubro e por um de Mw 6,5 perto de Norcia em 30 de outubro. Juntos, os três tremores principais ativaram um sistema de falhas normais de 80 quilômetros."
+      },
+      {
+        "q": "Os fluidos desencadearam os terremotos de 2016?",
+        "a": "Vários estudos apontam nessa direção. Um conclui que fluidos profundos contendo dióxido de carbono provavelmente desencadearam a sequência e ajudaram a nuclear os eventos de Visso e Norcia, e outro constatou que a difusão da pressão de poros, e não a transferência de tensão estática, desencadeou as grandes réplicas de Visso. Como os fluidos se movem pela rede de falhas continua pouco claro."
+      },
+      {
+        "q": "Até quando remonta o registro de terremotos da Itália?",
+        "a": "O Banco de Dados Macrossísmico Italiano DBMI15 reúne 123.956 dados macrossísmicos de 3.228 terremotos, e uma versão anterior cobria os anos de 1000 a 2017. O catálogo que o acompanha, o CPTI15, transforma essas evidências em localizações e magnitudes para a avaliação do risco sísmico."
+      }
+    ]
   }
 }
