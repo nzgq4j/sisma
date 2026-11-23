@@ -1631,5 +1631,143 @@
         "url": "https://doi.org/10.1016/j.jvolgeores.2015.10.020"
       }
     ]
+  },
+  {
+    "id": "italian-earthquakes",
+    "icon": "terrain",
+    "tone": "warm",
+    "title": "Why Italy Shakes: The Apennines, L'Aquila and the Amatrice-Visso-Norcia Sequence",
+    "description": "Why the Apennines produce normal-fault earthquakes: Adria, Tyrrhenian rollback, L'Aquila 2009, the 2016 Amatrice-Visso-Norcia sequence and deep CO2 fluids.",
+    "dek": "Italy's deadliest recent earthquakes struck a mountain range that is being pulled apart. Here is what L'Aquila and the 2016 sequence revealed about the faults, the fluids and the open questions.",
+    "published": "2026-11-23",
+    "updated": "2026-11-23",
+    "mins": 7,
+    "hashtags": ["earthquake", "Italy", "seismology"],
+    "cardImage": "an outline of Italy with the M6+ earthquakes of the Apennines since 1279 from the INGV CPTI15 catalogue, sized by magnitude, with Norcia 2016, L'Aquila 2009, Irpinia 1980 and Marsica 1915 labelled",
+    "sections": [
+      {
+        "h": "A Mountain Range Being Pulled Apart",
+        "p": [
+          "The earthquakes that hit L'Aquila in 2009 and the Visso area in 2016 share a style that surprises many readers. Both occurred on normal faults, which accommodate stretching of the crust, in a mountain belt that was built by compression. The fault mechanisms of the 2016 sequence were consistent with extension of the central Apennines, which coexists with the opening of the Tyrrhenian back-arc basin (Gabrielli et al. 2022). Understanding why requires a look at the plate history beneath the peninsula.",
+          "Italy lies between two large plates and over a smaller one. Africa and Europe have been converging for a long time, and the Adriatic microplate, usually called Adria, is located between them. Le Breton et al. (2017) describe Adria as a key player in the geodynamics of the western Mediterranean, with highly deformed boundaries that include the Alps, the Apennines, the Dinarides, the Hellenides and the Calabrian Arc. The Apennines have been the site of Oligo-Miocene rollback subduction, a soft collision and pronounced back-arc extension (Le Breton et al. 2017).",
+          "Rollback is the central idea. A sinking slab retreats into the mantle, and the crust above it is stretched. Rosenbaum and Lister (2004) reconstructed the opening of the Tyrrhenian Sea and found that its major rifting began around 10 million years ago, in two episodes of back-arc extension induced by rollback of a west-dipping slab. The first period of extension, from 10 to 6 million years ago, was prominent in the northern Tyrrhenian Sea and the western part of the southern Tyrrhenian Sea, and the second mainly affected the southern Tyrrhenian Sea. They also identify a narrow slab beneath the Ionian Sea that underwent faster rollback and extreme rates of extension.",
+          "The consequence for earthquakes is a mountain belt that is stretching along its crest. Fonteijn et al. (2026) note that the central Apennines have experienced several destructive normal-faulting earthquakes in the last decade, and that fundamental questions persist about what drives the extension. Their modeling reproduces normal-faulting earthquakes, and horizontal surface velocities rising gradually to 3 millimeters per year, only when the slab beneath the central Apennines is detached. Le Breton et al. (2017) instead invoke crust-mantle decoupling, or delamination, during rollback in the Apennines. Rollback, delamination and a detached slab each have supporters, so the driver of extension remains contested."
+        ]
+      },
+      {
+        "h": "L'Aquila, April 2009",
+        "p": [
+          "On 6 April 2009 at 01:32 UTC, a normal-faulting earthquake of Mw 6.1 struck the Abruzzo region. It caused 308 casualties and 70,000 evacuees and heavily damaged the city of L'Aquila and its cultural heritage (Chiaraluce 2012). Chiarabba et al. (2009) report the same event as Mw 6.3, a reminder that agencies can assign different moment magnitudes to one earthquake.",
+          "The mainshock began about 9.3 kilometers beneath L'Aquila and activated a fault about 16 kilometers long, trending northwest and dipping about 50 degrees to the southwest. A foreshock sequence that culminated in an Mw 4.0 event on 30 March had activated the same fault plane. Almost 3,000 events with a local magnitude of 1.9 or greater occurred in 2009, and the fault system reached about 40 kilometers in length by the end of December (Chiaraluce 2012). The aftershocks coincided with the surface trace of the Paganica fault, a poorly known normal fault before the event, and seismicity migrated northward onto an en echelon fault that could rupture in a future large earthquake (Chiarabba et al. 2009). Strong earthquakes had struck the same area in 1461 and 1703 (Chiaraluce 2010).",
+          "The fault system was more complex than a single plane. Seismicity nucleated within the upper 10 to 12 kilometers of the crust, and an Mw 5.4 event on 7 April nucleated a couple of kilometers deeper on a high-angle normal fault antithetic to the main system; its role is still unclear (Chiaraluce 2010). Another structure had a shallower dip of about 35 degrees that tends to flatten with depth, and the seismicity highlighted the activation of numerous minor normal fault segments within the whole system (Chiaraluce 2012)."
+        ]
+      },
+      {
+        "h": "Amatrice, Visso and Norcia, 2016",
+        "p": [
+          "The next major sequence began on 24 August 2016 with an Mw 6.0 earthquake near Amatrice that killed 299 people. An Mw 5.9 earthquake near Visso followed on 26 October, and an Mw 6.5 earthquake near Norcia on 30 October (Tan et al. 2021). The Visso earthquake therefore arrived two months after Amatrice, and Norcia four days after Visso. Together the three mainshocks activated an 80-kilometer normal-fault system (Tan et al. 2021). Between August and October 2016, 25,600 earthquakes from magnitude 0.1 to 6.5 were recorded, and digital networks installed immediately after Amatrice made it the best-monitored sequence to strike Italy. Eight events exceeded Mw 5.0 (Gabrielli et al. 2022). A machine-learning earthquake catalog showed that complex fault structures were activated during the sequence (Tan et al. 2021).",
+          "Older compressional structures influenced how the ruptures developed. Improta et al. (2019) used a high-quality catalog of early aftershocks to show that a lateral ramp of the Mount Sibillini thrust acted as a barrier for the Amatrice and Visso mainshocks and later as an asperity for the Norcia mainshock. A fault zone created by compression millions of years ago therefore helped decide where the extensional ruptures stopped and where they concentrated their slip."
+        ]
+      },
+      {
+        "h": "The Role of Deep Fluids",
+        "p": [
+          "Many researchers think fluids helped drive the sequence. Gabrielli et al. (2022) conclude that fluids likely triggered the sequence and reduced the stability of the fault network after the Amatrice earthquake, with fluid migration nucleating the Visso and Norcia events. They attribute the spatial expansion of the affected area to deep migration of carbon-dioxide-bearing fluids from a source of trapped CO2 near Amatrice.",
+          "Other studies approach the question from different measurements. Convertito et al. (2020) modeled the delayed Visso events and found that Coulomb static stress transfer from the Amatrice earthquake did not instantaneously trigger the two large Visso aftershocks, whereas pore pressure diffusion initiated by the Amatrice deformation did. Convertito et al. also stress that anisotropic hydraulic conductivity must be included when computing pore pressure diffusion in this setting. Chiodini et al. (2020) assembled a 10-year record of tectonic CO2 flux in the Apennines and report massive emissions of deep CO2 coupled to the 2009 to 2018 Central Italy earthquakes. The studies point in the same direction, but Gabrielli et al. (2022) note that the spatial extent and mechanisms of fluid migration and diffusion through the fault network remain unclear."
+        ]
+      },
+      {
+        "h": "What Makes Italy Distinctive",
+        "p": [
+          "Italy has an unusually long written record of its earthquakes. The Italian Macroseismic Database DBMI15, version 3.0, holds 123,956 macroseismic data points for 3,228 earthquakes and provides seismic histories for 15,332 localities, and an earlier release covered the years 1000 to 2017 (Istituto Nazionale di Geofisica e Vulcanologia 2021). The companion parametric catalogue, CPTI15, converts that evidence into locations and magnitudes for hazard assessment (Rovida et al. 2020). Few countries can compare a modern sequence with a thousand years of documented shaking.",
+          "The record shows a pattern of multiple mainshocks. Gabrielli et al. (2022) describe such sequences as common features of the Apennines, citing the 1980 Irpinia earthquake (Ms 6.9), the 1997 Umbria-Marche earthquake (Mw 6.0), the 2009 L'Aquila earthquake (Mw 6.1) and the 2016 sequence. Chiaraluce (2018) notes that mapping fault anatomy with small earthquakes of local magnitude above 0.5 helps characterize fault zone structure and its evolution, and that three sequences in 20 years (Colfiorito in 1997, L'Aquila in 2009 and Amatrice-Norcia-Visso in 2016 and 2017) activated a northwest-trending system of normal faults about 130 kilometers long. For readers watching a live feed, the 2016 sequence shows that a magnitude 6 earthquake in the Apennines can be followed within weeks or months by larger shocks on adjacent fault segments.",
+          "Three questions remain open: what drives the extension, how fluids move through the fault network, and why older thrusts act as barriers in some earthquakes and asperities in others. Each affects how future sequences are interpreted as they unfold."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Why does Italy have so many earthquakes?",
+        "a": "Italy sits between the converging African and European plates, above the smaller Adriatic microplate (Adria). Rollback of a sinking slab opened the Tyrrhenian Sea and stretches the crust along the crest of the Apennines, and the destructive earthquakes of recent decades in the central Apennines have occurred on normal faults."
+      },
+      {
+        "q": "What kind of faults caused the L'Aquila and Norcia earthquakes?",
+        "a": "Both were normal-fault earthquakes, which accommodate stretching of the crust. The fault mechanisms of the 2016 sequence were consistent with extension of the central Apennines, even though the mountain belt was originally built by compression."
+      },
+      {
+        "q": "How strong was the 2009 L'Aquila earthquake?",
+        "a": "The 6 April 2009 earthquake had a moment magnitude of 6.1 in one study and 6.3 in another. It caused 308 casualties and 70,000 evacuees and heavily damaged the city of L'Aquila. Its aftershocks outlined the Paganica fault, a poorly known normal fault before the event."
+      },
+      {
+        "q": "What happened in the 2016 Amatrice-Visso-Norcia sequence?",
+        "a": "An Mw 6.0 earthquake near Amatrice on 24 August 2016 killed 299 people. It was followed by an Mw 5.9 earthquake near Visso on 26 October and an Mw 6.5 earthquake near Norcia on 30 October. Together the three mainshocks activated an 80-kilometer normal-fault system."
+      },
+      {
+        "q": "Did fluids trigger the 2016 earthquakes?",
+        "a": "Several studies point that way. One concludes that deep carbon-dioxide-bearing fluids likely triggered the sequence and helped nucleate the Visso and Norcia events, and another found that pore pressure diffusion, rather than static stress transfer, triggered the large Visso aftershocks. How fluids move through the fault network remains unclear."
+      },
+      {
+        "q": "How far back does Italy's earthquake record go?",
+        "a": "The Italian Macroseismic Database DBMI15 holds 123,956 macroseismic data points for 3,228 earthquakes, and an earlier release covered the years 1000 to 2017. The companion catalogue CPTI15 turns that evidence into locations and magnitudes for hazard assessment."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Chiarabba, Claudio, Alessandro Amato, et al. 2009. \"The 2009 L'Aquila (Central Italy) MW6.3 Earthquake: Main Shock and Aftershocks.\" Geophysical Research Letters 36: L18308. https://doi.org/10.1029/2009GL039627.",
+        "url": "https://doi.org/10.1029/2009GL039627"
+      },
+      {
+        "text": "Chiaraluce, Lauro. 2010. \"The 2009 L'Aquila Sequence (Central Italy): Fault System Anatomy by Aftershock Distribution.\" EGU General Assembly abstract EGU2010–13528.",
+        "url": null
+      },
+      {
+        "text": "Chiaraluce, Lauro. 2012. \"The 2009 L'Aquila (Central Italy) Seismic Sequence.\" Bollettino di Geofisica Teorica ed Applicata.",
+        "url": null
+      },
+      {
+        "text": "Chiaraluce, Lauro. 2018. \"The 2016–17 Seismic Sequence as a Tile of the Normal Faults System Activated in the Last 20 Years in the Central-Northern Apennines.\" EGU General Assembly abstract EGU2018–15270.",
+        "url": null
+      },
+      {
+        "text": "Chiodini, Giovanni, Carlo Cardellini, Francesca Di Luccio, et al. 2020. \"Correlation between Tectonic CO2 Earth Degassing and Seismicity Is Revealed by a 10-Year Record in the Apennines, Italy.\" Science Advances 6 (35): eabc2938. https://doi.org/10.1126/sciadv.abc2938.",
+        "url": "https://doi.org/10.1126/sciadv.abc2938"
+      },
+      {
+        "text": "Convertito, Vincenzo, Raffaella De Matteis, Luigi Improta, and Nicola Alessandro Pino. 2020. \"Fluid-Triggered Aftershocks in an Anisotropic Hydraulic Conductivity Geological Complex: The Case of the 2016 Amatrice Sequence, Italy.\" Frontiers in Earth Science 8: 541323. https://doi.org/10.3389/feart.2020.541323.",
+        "url": "https://doi.org/10.3389/feart.2020.541323"
+      },
+      {
+        "text": "Fonteijn, Maaike, Erwan Pathier, Anne Socquet, and Ylona van Dinther. 2026. \"What Drives Extension and Seismicity in the Central Apennines (Italy)? Insights from 2D Seismo-Thermo-Mechanical Modeling.\" EGU General Assembly abstract EGU26–20670.",
+        "url": null
+      },
+      {
+        "text": "Gabrielli, Simona, Aybige Akinci, Guido Ventura, Ferdinando Napolitano, Edoardo Del Pezzo, and Luca De Siena. 2022. \"Fast Changes in Seismic Attenuation of the Upper Crust due to Fracturing and Fluid Migration: The 2016–2017 Central Italy Seismic Sequence.\" Frontiers in Earth Science 10. https://doi.org/10.3389/feart.2022.909698.",
+        "url": "https://doi.org/10.3389/feart.2022.909698"
+      },
+      {
+        "text": "Improta, Luigi, et al. 2019. \"Multi-Segment Rupture of the 2016 Amatrice-Visso-Norcia Seismic Sequence (Central Italy) Constrained by the First High-Quality Catalog of Early Aftershocks.\" Scientific Reports 9.",
+        "url": null
+      },
+      {
+        "text": "Istituto Nazionale di Geofisica e Vulcanologia. 2021. Italian Macroseismic Database DBMI15, Version 3.0. https://emidius.mi.ingv.it/CPTI15-DBMI15.",
+        "url": "https://emidius.mi.ingv.it/CPTI15-DBMI15"
+      },
+      {
+        "text": "Le Breton, Eline, Mark R. Handy, Giancarlo Molli, and Kamil Ustaszewski. 2017. \"Post-20 Ma Motion of the Adriatic Plate: New Constraints from Surrounding Orogens and Implications for Crust-Mantle Decoupling.\" Tectonics 36 (12): 3135–54.",
+        "url": null
+      },
+      {
+        "text": "Rosenbaum, Gideon, and Gordon S. Lister. 2004. \"Neogene and Quaternary Rollback Evolution of the Tyrrhenian Sea, the Apennines, and the Sicilian Maghrebides.\" Tectonics 23: TC1013.",
+        "url": null
+      },
+      {
+        "text": "Rovida, Andrea, Mario Locati, Romano Camassi, Barbara Lolli, and Paolo Gasperini. 2020. \"The Italian Earthquake Catalogue CPTI15.\" Bulletin of Earthquake Engineering 18 (7): 2953–84. https://doi.org/10.1007/s10518–020–00818-y.",
+        "url": "https://doi.org/10.1007/s10518-020-00818-y"
+      },
+      {
+        "text": "Tan, Yen Joe, Felix Waldhauser, William L. Ellsworth, Miao Zhang, Weiqiang Zhu, et al. 2021. \"Machine-Learning-Based High-Resolution Earthquake Catalog Reveals How Complex Fault Structures Were Activated during the 2016–2017 Central Italy Sequence.\" The Seismic Record 1: 11–19. https://doi.org/10.1785/0320210001.",
+        "url": "https://doi.org/10.1785/0320210001"
+      }
+    ]
   }
 ]

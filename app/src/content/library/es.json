@@ -808,5 +808,76 @@
         "a": "Durante la erupción de crecimiento de domo de 2004 a 2008, pequeños terremotos se repitieron a intervalos tan regulares que los científicos los llamaron «golpes de tambor» (drumbeats). Su tamaño y su intervalo cambiaban con el estilo de extrusión de la lava y no con el ritmo de aporte de magma."
       }
     ]
+  },
+  "italian-earthquakes": {
+    "title": "Por qué tiembla Italia: los Apeninos, L’Aquila y la secuencia de Amatrice, Visso y Norcia",
+    "dek": "Los terremotos recientes más mortíferos de Italia afectaron a una cordillera que se está estirando. Esto es lo que L’Aquila y la secuencia de 2016 revelaron sobre las fallas, los fluidos y las preguntas que siguen abiertas.",
+    "sections": [
+      {
+        "h": "Una cordillera que se está estirando",
+        "p": [
+          "Los terremotos que sacudieron L’Aquila en 2009 y la zona de Visso en 2016 comparten un rasgo que sorprende a muchos lectores. Ambos se produjeron en fallas normales, que acomodan el estiramiento de la corteza, en una cordillera que se formó por compresión. Los mecanismos de falla de la secuencia de 2016 eran coherentes con la extensión de los Apeninos centrales, que coexiste con la apertura de la cuenca de retroarco del Tirreno (Gabrielli et al. 2022). Para entender por qué, hay que repasar la historia de las placas bajo la península.",
+          "Italia se encuentra entre dos grandes placas y sobre una más pequeña. África y Europa convergen desde hace mucho tiempo, y entre ellas se sitúa la microplaca adriática, conocida habitualmente como Adria. Le Breton et al. (2017) describen Adria como un actor clave en la geodinámica del Mediterráneo occidental, con límites muy deformados que incluyen los Alpes, los Apeninos, los Dináridos, los Helénides y el Arco Calabro. Los Apeninos han sido escenario de una subducción con retroceso de la placa (rollback) durante el Oligoceno-Mioceno, de una colisión suave y de una marcada extensión de retroarco (Le Breton et al. 2017).",
+          "El retroceso de la placa es la idea central. Una placa que se hunde retrocede en el manto, y la corteza situada encima se estira. Rosenbaum and Lister (2004) reconstruyeron la apertura del mar Tirreno y determinaron que su principal fase de rifting comenzó hace unos 10 millones de años, en dos episodios de extensión de retroarco inducidos por el retroceso de una placa que buza hacia el oeste. El primer periodo de extensión, de hace 10 a 6 millones de años, fue destacado en el norte del Tirreno y en la parte occidental del Tirreno meridional, y el segundo afectó sobre todo al Tirreno meridional. También identifican bajo el mar Jónico una placa estrecha que experimentó un retroceso más rápido y tasas de extensión extremas.",
+          "La consecuencia para los terremotos es una cordillera que se estira a lo largo de su cresta. Fonteijn et al. (2026) señalan que los Apeninos centrales han sufrido varios terremotos destructivos de falla normal en la última década y que persisten preguntas fundamentales sobre qué impulsa la extensión. Su modelización reproduce los terremotos de falla normal, y velocidades horizontales en superficie que aumentan gradualmente hasta 3 milímetros al año, solo cuando la placa situada bajo los Apeninos centrales está desprendida. Le Breton et al. (2017), en cambio, recurren a un desacoplamiento entre corteza y manto, o delaminación, durante el retroceso de la placa en los Apeninos. El retroceso de la placa, la delaminación y el desprendimiento de la placa tienen cada uno sus defensores, de modo que el motor de la extensión sigue siendo objeto de debate."
+        ]
+      },
+      {
+        "h": "L’Aquila, abril de 2009",
+        "p": [
+          "El 6 de abril de 2009, a las 01:32 UTC, un terremoto de falla normal de Mw 6,1 sacudió la región de los Abruzos. Causó 308 víctimas y 70 000 evacuados, y dañó gravemente la ciudad de L’Aquila y su patrimonio cultural (Chiaraluce 2012). Chiarabba et al. (2009) dan para el mismo evento una magnitud de Mw 6,3, un recordatorio de que distintas agencias pueden asignar magnitudes de momento diferentes a un mismo terremoto.",
+          "El sismo principal se inició a unos 9,3 kilómetros bajo L’Aquila y activó una falla de unos 16 kilómetros de longitud, de dirección noroeste y con un buzamiento de unos 50 grados hacia el suroeste. Una secuencia de sismos precursores que culminó en un evento de Mw 4,0 el 30 de marzo había activado el mismo plano de falla. En 2009 se produjeron casi 3000 eventos de magnitud local igual o superior a 1,9, y a finales de diciembre el sistema de fallas alcanzaba unos 40 kilómetros de longitud (Chiaraluce 2012). Las réplicas coincidieron con la traza superficial de la falla de Paganica, una falla normal poco conocida antes del evento, y la sismicidad migró hacia el norte, a una falla en échelon que podría romperse en un futuro gran terremoto (Chiarabba et al. 2009). La misma zona ya había sufrido fuertes terremotos en 1461 y 1703 (Chiaraluce 2010).",
+          "El sistema de fallas era más complejo que un único plano. La sismicidad se nucleó en los 10 a 12 kilómetros superiores de la corteza, y un evento de Mw 5,4 ocurrido el 7 de abril se nucleó un par de kilómetros más abajo, en una falla normal de alto ángulo antitética respecto al sistema principal; su papel sigue sin estar claro (Chiaraluce 2010). Otra estructura tenía un buzamiento menor, de unos 35 grados, que tiende a suavizarse en profundidad, y la sismicidad puso de manifiesto la activación de numerosos segmentos menores de falla normal en todo el sistema (Chiaraluce 2012)."
+        ]
+      },
+      {
+        "h": "Amatrice, Visso y Norcia, 2016",
+        "p": [
+          "La siguiente gran secuencia comenzó el 24 de agosto de 2016 con un terremoto de Mw 6,0 cerca de Amatrice que mató a 299 personas. Le siguieron un terremoto de Mw 5,9 cerca de Visso el 26 de octubre y otro de Mw 6,5 cerca de Norcia el 30 de octubre (Tan et al. 2021). El terremoto de Visso llegó, por tanto, dos meses después del de Amatrice, y el de Norcia cuatro días después del de Visso. En conjunto, los tres sismos principales activaron un sistema de fallas normales de 80 kilómetros (Tan et al. 2021). Entre agosto y octubre de 2016 se registraron 25 600 terremotos de magnitud 0,1 a 6,5, y las redes digitales instaladas inmediatamente después del terremoto de Amatrice la convirtieron en la secuencia mejor monitorizada de las que han afectado a Italia. Ocho eventos superaron Mw 5,0 (Gabrielli et al. 2022). Un catálogo sísmico elaborado con aprendizaje automático mostró que durante la secuencia se activaron estructuras de falla complejas (Tan et al. 2021).",
+          "Estructuras compresivas más antiguas influyeron en el desarrollo de las rupturas. Improta et al. (2019) utilizaron un catálogo de alta calidad de las primeras réplicas para mostrar que una rampa lateral del cabalgamiento de los Monti Sibillini actuó como barrera para los sismos principales de Amatrice y Visso, y más tarde como aspereza para el sismo principal de Norcia. Una zona de falla creada por compresión hace millones de años contribuyó así a decidir dónde se detuvieron las rupturas extensionales y dónde concentraron su deslizamiento."
+        ]
+      },
+      {
+        "h": "El papel de los fluidos profundos",
+        "p": [
+          "Muchos investigadores piensan que los fluidos contribuyeron a impulsar la secuencia. Gabrielli et al. (2022) concluyen que los fluidos probablemente desencadenaron la secuencia y redujeron la estabilidad de la red de fallas tras el terremoto de Amatrice, y que la migración de fluidos nucleó los eventos de Visso y Norcia. Atribuyen la expansión espacial de la zona afectada a la migración profunda de fluidos ricos en dióxido de carbono procedentes de una fuente de CO2 atrapado cerca de Amatrice.",
+          "Otros estudios abordan la cuestión a partir de mediciones distintas. Convertito et al. (2020) modelizaron los eventos diferidos de Visso y concluyeron que la transferencia de esfuerzo estático de Coulomb del terremoto de Amatrice no desencadenó de forma instantánea las dos grandes réplicas de Visso, mientras que la difusión de la presión de poro iniciada por la deformación de Amatrice sí lo hizo. Convertito et al. subrayan además que, en este contexto, es necesario incluir la conductividad hidráulica anisótropa al calcular la difusión de la presión de poro. Chiodini et al. (2020) reunieron un registro de 10 años del flujo tectónico de CO2 en los Apeninos y describen emisiones masivas de CO2 profundo asociadas a los terremotos de Italia central de 2009 a 2018. Los estudios apuntan en la misma dirección, pero Gabrielli et al. (2022) señalan que la extensión espacial y los mecanismos de la migración y la difusión de fluidos a través de la red de fallas siguen sin estar claros."
+        ]
+      },
+      {
+        "h": "Qué hace singular a Italia",
+        "p": [
+          "Italia cuenta con un registro escrito de sus terremotos excepcionalmente largo. La Base de Datos Macrosísmica Italiana DBMI15, versión 3.0, reúne 123 956 datos macrosísmicos de 3228 terremotos y ofrece historias sísmicas de 15 332 localidades, y una versión anterior abarcaba los años 1000 a 2017 (Istituto Nazionale di Geofisica e Vulcanologia 2021). El catálogo paramétrico asociado, CPTI15, convierte esa información en localizaciones y magnitudes para la evaluación de la peligrosidad (Rovida et al. 2020). Pocos países pueden comparar una secuencia moderna con mil años de sacudidas documentadas.",
+          "El registro muestra un patrón de múltiples sismos principales. Gabrielli et al. (2022) describen estas secuencias como rasgos habituales de los Apeninos y citan el terremoto de Irpinia de 1980 (Ms 6,9), el de Umbría-Marcas de 1997 (Mw 6,0), el de L’Aquila de 2009 (Mw 6,1) y la secuencia de 2016. Chiaraluce (2018) señala que cartografiar la anatomía de las fallas con pequeños terremotos de magnitud local superior a 0,5 ayuda a caracterizar la estructura de la zona de falla y su evolución, y que tres secuencias en 20 años (Colfiorito en 1997, L’Aquila en 2009 y Amatrice-Norcia-Visso en 2016 y 2017) activaron un sistema de fallas normales de dirección noroeste de unos 130 kilómetros de longitud. Para quien sigue un registro en directo, la secuencia de 2016 muestra que un terremoto de magnitud 6 en los Apeninos puede ir seguido, en cuestión de semanas o meses, de sacudidas mayores en segmentos de falla adyacentes.",
+          "Quedan tres preguntas abiertas: qué impulsa la extensión, cómo se mueven los fluidos a través de la red de fallas y por qué los cabalgamientos más antiguos actúan como barreras en algunos terremotos y como asperezas en otros. Cada una influye en cómo se interpretarán las futuras secuencias a medida que se desarrollen."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Por qué hay tantos terremotos en Italia?",
+        "a": "Italia se sitúa entre las placas africana y europea, que convergen, y sobre la microplaca adriática (Adria), más pequeña. El retroceso de una placa que se hunde abrió el mar Tirreno y estira la corteza a lo largo de la cresta de los Apeninos, y los terremotos destructivos de las últimas décadas en los Apeninos centrales se han producido en fallas normales."
+      },
+      {
+        "q": "¿Qué tipo de fallas causaron los terremotos de L’Aquila y Norcia?",
+        "a": "Ambos fueron terremotos de falla normal, un tipo de falla que acomoda el estiramiento de la corteza. Los mecanismos de falla de la secuencia de 2016 eran coherentes con la extensión de los Apeninos centrales, aunque la cordillera se formó originalmente por compresión."
+      },
+      {
+        "q": "¿Qué magnitud tuvo el terremoto de L’Aquila de 2009?",
+        "a": "El terremoto del 6 de abril de 2009 tuvo una magnitud de momento de 6,1 según un estudio y de 6,3 según otro. Causó 308 víctimas y 70 000 evacuados, y dañó gravemente la ciudad de L’Aquila. Sus réplicas delinearon la falla de Paganica, una falla normal poco conocida antes del evento."
+      },
+      {
+        "q": "¿Qué ocurrió en la secuencia de Amatrice, Visso y Norcia de 2016?",
+        "a": "Un terremoto de Mw 6,0 cerca de Amatrice el 24 de agosto de 2016 mató a 299 personas. Le siguieron un terremoto de Mw 5,9 cerca de Visso el 26 de octubre y otro de Mw 6,5 cerca de Norcia el 30 de octubre. En conjunto, los tres sismos principales activaron un sistema de fallas normales de 80 kilómetros."
+      },
+      {
+        "q": "¿Desencadenaron los fluidos los terremotos de 2016?",
+        "a": "Varios estudios apuntan en esa dirección. Uno concluye que fluidos profundos ricos en dióxido de carbono probablemente desencadenaron la secuencia y contribuyeron a nuclear los eventos de Visso y Norcia, y otro determinó que fue la difusión de la presión de poro, y no la transferencia de esfuerzo estático, lo que desencadenó las grandes réplicas de Visso. Cómo se mueven los fluidos a través de la red de fallas sigue sin estar claro."
+      },
+      {
+        "q": "¿Hasta cuándo se remonta el registro sísmico de Italia?",
+        "a": "La Base de Datos Macrosísmica Italiana DBMI15 reúne 123 956 datos macrosísmicos de 3228 terremotos, y una versión anterior abarcaba los años 1000 a 2017. El catálogo asociado CPTI15 convierte esa información en localizaciones y magnitudes para la evaluación de la peligrosidad."
+      }
+    ]
   }
 }

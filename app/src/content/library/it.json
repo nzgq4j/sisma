@@ -808,5 +808,76 @@
         "a": "Durante l’eruzione di crescita del duomo dal 2004 al 2008, piccoli terremoti si ripeterono a intervalli così regolari che gli scienziati li chiamarono colpi di tamburo (drumbeats). Le loro dimensioni e la loro spaziatura cambiavano con lo stile di estrusione della lava anziché con il tasso di alimentazione del magma."
       }
     ]
+  },
+  "italian-earthquakes": {
+    "title": "Perché l’Italia trema: l’Appennino, L’Aquila e la sequenza Amatrice-Visso-Norcia",
+    "dek": "I terremoti recenti più letali d’Italia hanno colpito una catena montuosa che si sta stirando. Ecco che cosa hanno rivelato L’Aquila e la sequenza del 2016 sulle faglie, sui fluidi e sulle questioni ancora aperte.",
+    "sections": [
+      {
+        "h": "Una catena montuosa in estensione",
+        "p": [
+          "I terremoti che hanno colpito L’Aquila nel 2009 e l’area di Visso nel 2016 hanno in comune uno stile che sorprende molti lettori. Entrambi sono avvenuti su faglie dirette, che accomodano lo stiramento della crosta, in una catena montuosa costruita dalla compressione. I meccanismi di faglia della sequenza del 2016 erano coerenti con l’estensione dell’Appennino centrale, che coesiste con l’apertura del bacino di retroarco tirrenico (Gabrielli et al. 2022). Per capirne il perché bisogna guardare alla storia delle placche sotto la penisola.",
+          "L’Italia si trova tra due grandi placche e sopra una più piccola. L’Africa e l’Europa convergono da molto tempo, e tra le due si trova la microplacca adriatica, chiamata di solito Adria. Le Breton et al. (2017) descrivono Adria come un attore chiave nella geodinamica del Mediterraneo occidentale, con margini fortemente deformati che comprendono le Alpi, l’Appennino, le Dinaridi, le Ellenidi e l’Arco Calabro. L’Appennino è stato sede di una subduzione oligo-miocenica con arretramento della lastra (rollback), di una collisione morbida e di una marcata estensione di retroarco (Le Breton et al. 2017).",
+          "Il concetto centrale è l’arretramento. Una lastra che sprofonda arretra nel mantello, e la crosta sovrastante viene stirata. Rosenbaum and Lister (2004) hanno ricostruito l’apertura del Mar Tirreno e hanno rilevato che il suo rifting principale iniziò circa 10 milioni di anni fa, in due episodi di estensione di retroarco indotti dall’arretramento di una lastra immersa verso ovest. Il primo periodo di estensione, tra 10 e 6 milioni di anni fa, fu marcato nel Tirreno settentrionale e nella parte occidentale del Tirreno meridionale, mentre il secondo interessò soprattutto il Tirreno meridionale. Gli autori individuano anche una lastra stretta sotto il Mar Ionio, che ha subito un arretramento più rapido e tassi di estensione estremi.",
+          "La conseguenza per i terremoti è una catena montuosa che si sta stirando lungo la sua cresta. Fonteijn et al. (2026) osservano che l’Appennino centrale ha subito diversi terremoti distruttivi di faglia diretta nell’ultimo decennio e che restano aperte domande fondamentali su che cosa guidi l’estensione. La loro modellazione riproduce terremoti di faglia diretta, e velocità orizzontali in superficie che crescono gradualmente fino a 3 millimetri l’anno, solo quando la lastra sotto l’Appennino centrale è distaccata. Le Breton et al. (2017) invocano invece un disaccoppiamento tra crosta e mantello, o delaminazione, durante l’arretramento nell’Appennino. Arretramento, delaminazione e lastra distaccata hanno ciascuno i propri sostenitori, per cui il motore dell’estensione resta controverso."
+        ]
+      },
+      {
+        "h": "L’Aquila, aprile 2009",
+        "p": [
+          "Il 6 aprile 2009 alle 01:32 UTC un terremoto di faglia diretta di Mw 6,1 colpì l’Abruzzo. Causò 308 vittime e 70.000 sfollati e danneggiò gravemente la città dell’Aquila e il suo patrimonio culturale (Chiaraluce 2012). Chiarabba et al. (2009) riportano lo stesso evento come Mw 6,3, a ricordare che enti diversi possono attribuire magnitudo momento diverse allo stesso terremoto.",
+          "La scossa principale ebbe origine a circa 9,3 chilometri di profondità sotto L’Aquila e attivò una faglia lunga circa 16 chilometri, orientata verso nord-ovest e immersa di circa 50 gradi verso sud-ovest. Una sequenza di scosse premonitrici, culminata in un evento di Mw 4,0 il 30 marzo, aveva attivato lo stesso piano di faglia. Nel 2009 si verificarono quasi 3.000 eventi di magnitudo locale pari o superiore a 1,9, e alla fine di dicembre il sistema di faglie aveva raggiunto una lunghezza di circa 40 chilometri (Chiaraluce 2012). Le repliche coincisero con la traccia in superficie della faglia di Paganica, una faglia diretta poco conosciuta prima dell’evento, e la sismicità migrò verso nord su una faglia disposta en échelon che potrebbe rompersi in un futuro forte terremoto (Chiarabba et al. 2009). Forti terremoti avevano colpito la stessa area nel 1461 e nel 1703 (Chiaraluce 2010).",
+          "Il sistema di faglie era più complesso di un singolo piano. La sismicità nucleò entro i primi 10–12 chilometri della crosta, e un evento di Mw 5,4 il 7 aprile nucleò un paio di chilometri più in profondità, su una faglia diretta ad alto angolo antitetica al sistema principale; il suo ruolo è ancora poco chiaro (Chiaraluce 2010). Un’altra struttura aveva un’immersione minore, di circa 35 gradi, che tende a diminuire con la profondità, e la sismicità evidenziò l’attivazione di numerosi segmenti minori di faglia diretta all’interno dell’intero sistema (Chiaraluce 2012)."
+        ]
+      },
+      {
+        "h": "Amatrice, Visso e Norcia, 2016",
+        "p": [
+          "La successiva grande sequenza iniziò il 24 agosto 2016 con un terremoto di Mw 6,0 vicino ad Amatrice, che causò 299 morti. Seguirono un terremoto di Mw 5,9 vicino a Visso il 26 ottobre e uno di Mw 6,5 vicino a Norcia il 30 ottobre (Tan et al. 2021). Il terremoto di Visso arrivò quindi due mesi dopo quello di Amatrice, e quello di Norcia quattro giorni dopo quello di Visso. Nel complesso le tre scosse principali attivarono un sistema di faglie dirette lungo 80 chilometri (Tan et al. 2021). Tra agosto e ottobre 2016 furono registrati 25.600 terremoti di magnitudo da 0,1 a 6,5, e le reti digitali installate subito dopo Amatrice ne fecero la sequenza meglio monitorata mai avvenuta in Italia. Otto eventi superarono Mw 5,0 (Gabrielli et al. 2022). Un catalogo sismico ottenuto con l’apprendimento automatico ha mostrato che durante la sequenza si attivarono strutture di faglia complesse (Tan et al. 2021).",
+          "Strutture compressive più antiche influenzarono lo sviluppo delle rotture. Improta et al. (2019) hanno usato un catalogo di alta qualità delle prime repliche per mostrare che una rampa laterale del sovrascorrimento dei Monti Sibillini agì da barriera per le scosse principali di Amatrice e di Visso e in seguito da asperità per la scossa principale di Norcia. Una zona di faglia creata dalla compressione milioni di anni fa contribuì quindi a stabilire dove le rotture estensionali si arrestarono e dove concentrarono il loro scorrimento."
+        ]
+      },
+      {
+        "h": "Il ruolo dei fluidi profondi",
+        "p": [
+          "Molti ricercatori ritengono che i fluidi abbiano contribuito a guidare la sequenza. Gabrielli et al. (2022) concludono che probabilmente furono i fluidi a innescare la sequenza e a ridurre la stabilità della rete di faglie dopo il terremoto di Amatrice, e che la migrazione dei fluidi fece nucleare gli eventi di Visso e di Norcia. Attribuiscono l’espansione spaziale dell’area interessata alla migrazione profonda di fluidi contenenti anidride carbonica, provenienti da una sorgente di CO2 intrappolata vicino ad Amatrice.",
+          "Altri studi affrontano la questione a partire da misure diverse. Convertito et al. (2020) hanno modellato gli eventi ritardati di Visso e hanno rilevato che il trasferimento dello sforzo statico di Coulomb dal terremoto di Amatrice non innescò istantaneamente le due forti repliche di Visso, mentre le innescò la diffusione della pressione di poro avviata dalla deformazione di Amatrice. Convertito et al. sottolineano inoltre che, in questo contesto, nel calcolo della diffusione della pressione di poro occorre includere una conducibilità idraulica anisotropa. Chiodini et al. (2020) hanno ricostruito una serie di 10 anni del flusso di CO2 tettonica nell’Appennino e riportano emissioni massicce di CO2 profonda accoppiate ai terremoti dell’Italia centrale dal 2009 al 2018. Gli studi puntano nella stessa direzione, ma Gabrielli et al. (2022) osservano che l’estensione spaziale e i meccanismi della migrazione e della diffusione dei fluidi attraverso la rete di faglie restano poco chiari."
+        ]
+      },
+      {
+        "h": "Che cosa distingue l’Italia",
+        "p": [
+          "L’Italia possiede una documentazione scritta dei propri terremoti insolitamente lunga. Il Database Macrosismico Italiano DBMI15, versione 3.0, contiene 123.956 dati macrosismici relativi a 3.228 terremoti e fornisce le storie sismiche di 15.332 località, e una versione precedente copriva gli anni dal 1000 al 2017 (Istituto Nazionale di Geofisica e Vulcanologia 2021). Il catalogo parametrico che lo accompagna, CPTI15, converte queste testimonianze in localizzazioni e magnitudo per la valutazione della pericolosità (Rovida et al. 2020). Pochi paesi possono confrontare una sequenza moderna con mille anni di scuotimenti documentati.",
+          "La documentazione mostra un andamento ricorrente di scosse principali multiple. Gabrielli et al. (2022) descrivono queste sequenze come una caratteristica comune dell’Appennino, citando il terremoto dell’Irpinia del 1980 (Ms 6,9), il terremoto umbro-marchigiano del 1997 (Mw 6,0), il terremoto dell’Aquila del 2009 (Mw 6,1) e la sequenza del 2016. Chiaraluce (2018) osserva che mappare l’anatomia delle faglie con piccoli terremoti di magnitudo locale superiore a 0,5 aiuta a caratterizzare la struttura delle zone di faglia e la sua evoluzione, e che tre sequenze in 20 anni (Colfiorito nel 1997, L’Aquila nel 2009 e Amatrice-Norcia-Visso nel 2016 e 2017) hanno attivato un sistema di faglie dirette orientato verso nord-ovest e lungo circa 130 chilometri. Per chi segue un feed in tempo reale, la sequenza del 2016 mostra che un terremoto di magnitudo 6 nell’Appennino può essere seguito, entro settimane o mesi, da scosse più forti su segmenti di faglia adiacenti.",
+          "Restano aperte tre domande: che cosa guida l’estensione, come si muovono i fluidi attraverso la rete di faglie e perché i sovrascorrimenti più antichi agiscono da barriere in alcuni terremoti e da asperità in altri. Ognuna influisce sul modo in cui verranno interpretate le sequenze future mentre sono in corso."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Perché in Italia ci sono così tanti terremoti?",
+        "a": "L’Italia si trova tra la placca africana e quella europea, che convergono, sopra la più piccola microplacca adriatica (Adria). L’arretramento di una lastra che sprofonda ha aperto il Mar Tirreno e stira la crosta lungo la cresta dell’Appennino, e i terremoti distruttivi degli ultimi decenni nell’Appennino centrale sono avvenuti su faglie dirette."
+      },
+      {
+        "q": "Che tipo di faglie ha causato i terremoti dell’Aquila e di Norcia?",
+        "a": "In entrambi i casi si è trattato di terremoti di faglia diretta, faglie che accomodano lo stiramento della crosta. I meccanismi di faglia della sequenza del 2016 erano coerenti con l’estensione dell’Appennino centrale, anche se la catena montuosa si è formata in origine per compressione."
+      },
+      {
+        "q": "Quanto fu forte il terremoto dell’Aquila del 2009?",
+        "a": "Il terremoto del 6 aprile 2009 ebbe una magnitudo momento di 6,1 secondo uno studio e di 6,3 secondo un altro. Causò 308 vittime e 70.000 sfollati e danneggiò gravemente la città dell’Aquila. Le sue repliche delinearono la faglia di Paganica, una faglia diretta poco conosciuta prima dell’evento."
+      },
+      {
+        "q": "Che cosa è successo nella sequenza Amatrice-Visso-Norcia del 2016?",
+        "a": "Un terremoto di Mw 6,0 vicino ad Amatrice, il 24 agosto 2016, causò 299 morti. Fu seguito da un terremoto di Mw 5,9 vicino a Visso il 26 ottobre e da uno di Mw 6,5 vicino a Norcia il 30 ottobre. Nel complesso le tre scosse principali attivarono un sistema di faglie dirette lungo 80 chilometri."
+      },
+      {
+        "q": "Sono stati i fluidi a innescare i terremoti del 2016?",
+        "a": "Diversi studi vanno in questa direzione. Uno conclude che fluidi profondi contenenti anidride carbonica probabilmente innescarono la sequenza e contribuirono a far nucleare gli eventi di Visso e di Norcia, e un altro ha rilevato che a innescare le forti repliche di Visso fu la diffusione della pressione di poro, e non il trasferimento dello sforzo statico. Come si muovano i fluidi attraverso la rete di faglie resta poco chiaro."
+      },
+      {
+        "q": "Quanto indietro nel tempo arriva la documentazione dei terremoti italiani?",
+        "a": "Il Database Macrosismico Italiano DBMI15 contiene 123.956 dati macrosismici relativi a 3.228 terremoti, e una versione precedente copriva gli anni dal 1000 al 2017. Il catalogo che lo accompagna, CPTI15, trasforma queste testimonianze in localizzazioni e magnitudo per la valutazione della pericolosità."
+      }
+    ]
   }
 }

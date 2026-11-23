@@ -808,5 +808,76 @@
         "a": "Pendant l’éruption de croissance de dôme de 2004 à 2008, de petits séismes se sont répétés à des intervalles si réguliers que les scientifiques les ont appelés « battements de tambour » (drumbeats). Leur taille et leur espacement variaient avec le style d’extrusion de la lave plutôt qu’avec le débit d’alimentation en magma."
       }
     ]
+  },
+  "italian-earthquakes": {
+    "title": "Pourquoi l’Italie tremble : les Apennins, L’Aquila et la séquence d’Amatrice, Visso et Norcia",
+    "dek": "Les séismes récents les plus meurtriers d’Italie ont frappé une chaîne de montagnes en cours d’étirement. Voici ce que L’Aquila et la séquence de 2016 ont révélé sur les failles, les fluides et les questions qui restent ouvertes.",
+    "sections": [
+      {
+        "h": "Une chaîne de montagnes en cours d’étirement",
+        "p": [
+          "Les séismes qui ont frappé L’Aquila en 2009 et la région de Visso en 2016 ont un point commun qui surprend de nombreux lecteurs. Tous deux se sont produits sur des failles normales, qui accommodent l’étirement de la croûte, dans une chaîne de montagnes édifiée par compression. Les mécanismes de faille de la séquence de 2016 étaient cohérents avec l’extension des Apennins centraux, qui coexiste avec l’ouverture du bassin d’arrière-arc tyrrhénien (Gabrielli et al. 2022). Pour comprendre pourquoi, il faut se pencher sur l’histoire des plaques sous la péninsule.",
+          "L’Italie se trouve entre deux grandes plaques et au-dessus d’une plus petite. L’Afrique et l’Europe convergent depuis longtemps, et la microplaque adriatique, généralement appelée Adria, se situe entre elles. Le Breton et al. (2017) décrivent Adria comme un acteur clé de la géodynamique de la Méditerranée occidentale, aux limites fortement déformées qui comprennent les Alpes, les Apennins, les Dinarides, les Hellénides et l’arc calabrais. Les Apennins ont été le siège d’une subduction avec recul du panneau plongeant (rollback) à l’Oligo-Miocène, d’une collision douce et d’une extension d’arrière-arc prononcée (Le Breton et al. 2017).",
+          "Le recul du panneau plongeant est l’idée centrale. Un panneau qui s’enfonce recule dans le manteau, et la croûte située au-dessus s’étire. Rosenbaum and Lister (2004) ont reconstitué l’ouverture de la mer Tyrrhénienne et constaté que son principal rifting a commencé il y a environ 10 millions d’années, en deux épisodes d’extension d’arrière-arc induits par le recul d’un panneau plongeant vers l’ouest. La première période d’extension, de 10 à 6 millions d’années, a été marquée dans le nord de la mer Tyrrhénienne et dans la partie occidentale du sud de la mer Tyrrhénienne, et la seconde a surtout affecté le sud de la mer Tyrrhénienne. Ils identifient aussi, sous la mer Ionienne, un panneau étroit qui a connu un recul plus rapide et des taux d’extension extrêmes.",
+          "La conséquence pour les séismes est une chaîne de montagnes qui s’étire le long de sa crête. Fonteijn et al. (2026) notent que les Apennins centraux ont connu plusieurs séismes destructeurs en faille normale au cours de la dernière décennie, et que des questions fondamentales subsistent sur ce qui provoque l’extension. Leur modélisation ne reproduit les séismes en faille normale, et des vitesses horizontales en surface qui augmentent progressivement jusqu’à 3 millimètres par an, que lorsque le panneau situé sous les Apennins centraux est détaché. Le Breton et al. (2017) invoquent plutôt un découplage entre croûte et manteau, ou délamination, pendant le recul du panneau dans les Apennins. Le recul du panneau, la délamination et le détachement du panneau ont chacun leurs partisans, si bien que le moteur de l’extension reste débattu."
+        ]
+      },
+      {
+        "h": "L’Aquila, avril 2009",
+        "p": [
+          "Le 6 avril 2009 à 01:32 UTC, un séisme en faille normale de Mw 6,1 a frappé la région des Abruzzes. Il a fait 308 victimes et 70 000 évacués, et a gravement endommagé la ville de L’Aquila et son patrimoine culturel (Chiaraluce 2012). Chiarabba et al. (2009) attribuent au même événement une magnitude de Mw 6,3, ce qui rappelle que différentes agences peuvent attribuer des magnitudes de moment différentes à un même séisme.",
+          "Le choc principal a débuté à environ 9,3 kilomètres sous L’Aquila et a activé une faille d’environ 16 kilomètres de long, orientée nord-ouest et pentée d’environ 50 degrés vers le sud-ouest. Une séquence de précurseurs culminant avec un événement de Mw 4,0 le 30 mars avait activé le même plan de faille. Près de 3 000 événements de magnitude locale égale ou supérieure à 1,9 se sont produits en 2009, et le système de failles atteignait environ 40 kilomètres de long à la fin du mois de décembre (Chiaraluce 2012). Les répliques coïncidaient avec la trace en surface de la faille de Paganica, une faille normale mal connue avant l’événement, et la sismicité a migré vers le nord sur une faille en échelon qui pourrait rompre lors d’un futur grand séisme (Chiarabba et al. 2009). De forts séismes avaient frappé la même zone en 1461 et en 1703 (Chiaraluce 2010).",
+          "Le système de failles était plus complexe qu’un simple plan. La sismicité s’est amorcée dans les 10 à 12 kilomètres supérieurs de la croûte, et un événement de Mw 5,4 le 7 avril s’est amorcé quelques kilomètres plus bas, sur une faille normale à fort pendage antithétique du système principal ; son rôle reste incertain (Chiaraluce 2010). Une autre structure présentait un pendage plus faible, d’environ 35 degrés, qui tend à s’aplatir en profondeur, et la sismicité a mis en évidence l’activation de nombreux segments mineurs de failles normales dans l’ensemble du système (Chiaraluce 2012)."
+        ]
+      },
+      {
+        "h": "Amatrice, Visso et Norcia, 2016",
+        "p": [
+          "La grande séquence suivante a commencé le 24 août 2016 avec un séisme de Mw 6,0 près d’Amatrice, qui a tué 299 personnes. Un séisme de Mw 5,9 près de Visso a suivi le 26 octobre, puis un séisme de Mw 6,5 près de Norcia le 30 octobre (Tan et al. 2021). Le séisme de Visso est donc survenu deux mois après celui d’Amatrice, et celui de Norcia quatre jours après celui de Visso. Ensemble, les trois chocs principaux ont activé un système de failles normales de 80 kilomètres (Tan et al. 2021). Entre août et octobre 2016, 25 600 séismes de magnitude 0,1 à 6,5 ont été enregistrés, et les réseaux numériques installés immédiatement après le séisme d’Amatrice en ont fait la séquence la mieux surveillée ayant frappé l’Italie. Huit événements ont dépassé Mw 5,0 (Gabrielli et al. 2022). Un catalogue sismique établi par apprentissage automatique a montré que des structures de failles complexes avaient été activées pendant la séquence (Tan et al. 2021).",
+          "Des structures compressives plus anciennes ont influencé le développement des ruptures. Improta et al. (2019) ont utilisé un catalogue de haute qualité des premières répliques pour montrer qu’une rampe latérale du chevauchement des Monti Sibillini a joué le rôle de barrière pour les chocs principaux d’Amatrice et de Visso, puis d’aspérité pour le choc principal de Norcia. Une zone de faille créée par compression il y a des millions d’années a ainsi contribué à déterminer où les ruptures extensives se sont arrêtées et où elles ont concentré leur glissement."
+        ]
+      },
+      {
+        "h": "Le rôle des fluides profonds",
+        "p": [
+          "De nombreux chercheurs pensent que des fluides ont contribué à entraîner la séquence. Gabrielli et al. (2022) concluent que des fluides ont probablement déclenché la séquence et réduit la stabilité du réseau de failles après le séisme d’Amatrice, la migration des fluides ayant amorcé les événements de Visso et de Norcia. Ils attribuent l’expansion spatiale de la zone touchée à la migration en profondeur de fluides chargés de dioxyde de carbone, provenant d’une source de CO2 piégé près d’Amatrice.",
+          "D’autres études abordent la question à partir de mesures différentes. Convertito et al. (2020) ont modélisé les événements différés de Visso et constaté que le transfert de contrainte statique de Coulomb dû au séisme d’Amatrice n’a pas déclenché instantanément les deux grandes répliques de Visso, alors que la diffusion de la pression de pore amorcée par la déformation d’Amatrice l’a fait. Convertito et al. soulignent aussi que la conductivité hydraulique anisotrope doit être prise en compte dans le calcul de la diffusion de la pression de pore dans ce contexte. Chiodini et al. (2020) ont rassemblé un enregistrement de 10 ans du flux tectonique de CO2 dans les Apennins et font état d’émissions massives de CO2 profond associées aux séismes d’Italie centrale de 2009 à 2018. Ces études vont dans le même sens, mais Gabrielli et al. (2022) notent que l’étendue spatiale et les mécanismes de la migration et de la diffusion des fluides à travers le réseau de failles restent mal compris."
+        ]
+      },
+      {
+        "h": "Ce qui distingue l’Italie",
+        "p": [
+          "L’Italie dispose d’un registre écrit de ses séismes d’une longueur exceptionnelle. La base de données macrosismique italienne DBMI15, version 3.0, contient 123 956 données macrosismiques pour 3 228 séismes et fournit l’histoire sismique de 15 332 localités, et une version antérieure couvrait les années 1000 à 2017 (Istituto Nazionale di Geofisica e Vulcanologia 2021). Le catalogue paramétrique associé, CPTI15, convertit ces informations en localisations et en magnitudes pour l’évaluation de l’aléa (Rovida et al. 2020). Peu de pays peuvent comparer une séquence moderne à mille ans de secousses documentées.",
+          "Ce registre révèle un schéma de chocs principaux multiples. Gabrielli et al. (2022) décrivent ces séquences comme des caractéristiques courantes des Apennins, en citant le séisme d’Irpinia de 1980 (Ms 6,9), le séisme d’Ombrie-Marches de 1997 (Mw 6,0), le séisme de L’Aquila de 2009 (Mw 6,1) et la séquence de 2016. Chiaraluce (2018) note que cartographier l’anatomie des failles à l’aide de petits séismes de magnitude locale supérieure à 0,5 aide à caractériser la structure de la zone de faille et son évolution, et que trois séquences en 20 ans (Colfiorito en 1997, L’Aquila en 2009 et Amatrice-Norcia-Visso en 2016 et 2017) ont activé un système de failles normales orienté nord-ouest d’environ 130 kilomètres de long. Pour qui suit un flux en direct, la séquence de 2016 montre qu’un séisme de magnitude 6 dans les Apennins peut être suivi, en quelques semaines ou quelques mois, de secousses plus fortes sur des segments de faille adjacents.",
+          "Trois questions restent ouvertes : ce qui provoque l’extension, comment les fluides circulent dans le réseau de failles, et pourquoi d’anciens chevauchements jouent le rôle de barrières lors de certains séismes et d’aspérités lors d’autres. Chacune influe sur la manière dont les futures séquences seront interprétées à mesure qu’elles se dérouleront."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Pourquoi l’Italie connaît-elle autant de séismes ?",
+        "a": "L’Italie se situe entre les plaques africaine et européenne, qui convergent, au-dessus de la microplaque adriatique (Adria), plus petite. Le recul d’un panneau plongeant a ouvert la mer Tyrrhénienne et étire la croûte le long de la crête des Apennins, et les séismes destructeurs des dernières décennies dans les Apennins centraux se sont produits sur des failles normales."
+      },
+      {
+        "q": "Quel type de failles a provoqué les séismes de L’Aquila et de Norcia ?",
+        "a": "Il s’agissait dans les deux cas de séismes en faille normale, un type de faille qui accommode l’étirement de la croûte. Les mécanismes de faille de la séquence de 2016 étaient cohérents avec l’extension des Apennins centraux, alors même que la chaîne de montagnes a été édifiée à l’origine par compression."
+      },
+      {
+        "q": "Quelle était la magnitude du séisme de L’Aquila de 2009 ?",
+        "a": "Le séisme du 6 avril 2009 avait une magnitude de moment de 6,1 selon une étude et de 6,3 selon une autre. Il a fait 308 victimes et 70 000 évacués, et a gravement endommagé la ville de L’Aquila. Ses répliques ont dessiné la faille de Paganica, une faille normale mal connue avant l’événement."
+      },
+      {
+        "q": "Que s’est-il passé lors de la séquence d’Amatrice, Visso et Norcia de 2016 ?",
+        "a": "Un séisme de Mw 6,0 près d’Amatrice, le 24 août 2016, a tué 299 personnes. Il a été suivi d’un séisme de Mw 5,9 près de Visso le 26 octobre et d’un séisme de Mw 6,5 près de Norcia le 30 octobre. Ensemble, les trois chocs principaux ont activé un système de failles normales de 80 kilomètres."
+      },
+      {
+        "q": "Des fluides ont-ils déclenché les séismes de 2016 ?",
+        "a": "Plusieurs études vont dans ce sens. L’une conclut que des fluides profonds chargés de dioxyde de carbone ont probablement déclenché la séquence et contribué à amorcer les événements de Visso et de Norcia, et une autre a constaté que c’est la diffusion de la pression de pore, et non le transfert de contrainte statique, qui a déclenché les grandes répliques de Visso. La façon dont les fluides circulent dans le réseau de failles reste mal comprise."
+      },
+      {
+        "q": "Jusqu’où remonte le registre sismique de l’Italie ?",
+        "a": "La base de données macrosismique italienne DBMI15 contient 123 956 données macrosismiques pour 3 228 séismes, et une version antérieure couvrait les années 1000 à 2017. Le catalogue associé CPTI15 convertit ces informations en localisations et en magnitudes pour l’évaluation de l’aléa."
+      }
+    ]
   }
 }

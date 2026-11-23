@@ -808,5 +808,76 @@
         "a": "Während der domaufbauenden Eruption von 2004 bis 2008 wiederholten sich kleine Erdbeben in so regelmäßigen Abständen, dass die Wissenschaftler sie „Trommelschläge“ (drumbeats) nannten. Ihre Größe und ihre Abstände änderten sich mit dem Stil der Lavaextrusion und nicht mit der Rate der Magmazufuhr."
       }
     ]
+  },
+  "italian-earthquakes": {
+    "title": "Warum Italien bebt: der Apennin, L’Aquila und die Sequenz von Amatrice, Visso und Norcia",
+    "dek": "Die tödlichsten Erdbeben der jüngeren Zeit in Italien trafen ein Gebirge, das auseinandergezogen wird. Hier steht, was L’Aquila und die Sequenz von 2016 über die Verwerfungen, die Fluide und die offenen Fragen gezeigt haben.",
+    "sections": [
+      {
+        "h": "Ein Gebirge, das auseinandergezogen wird",
+        "p": [
+          "Die Erdbeben, die 2009 L’Aquila und 2016 das Gebiet um Visso trafen, haben eine Gemeinsamkeit, die viele Leserinnen und Leser überrascht. Beide ereigneten sich an Abschiebungen, die eine Dehnung der Kruste aufnehmen, und zwar in einem Gebirge, das durch Kompression entstanden ist. Die Herdmechanismen der Sequenz von 2016 passten zu einer Dehnung des zentralen Apennins, die mit der Öffnung des tyrrhenischen Backarc-Beckens einhergeht (Gabrielli et al. 2022). Um zu verstehen, warum, lohnt ein Blick auf die Plattengeschichte unter der Halbinsel.",
+          "Italien liegt zwischen zwei großen Platten und über einer kleineren. Afrika und Europa konvergieren seit langer Zeit, und zwischen ihnen liegt die Adriatische Mikroplatte, meist Adria genannt. Le Breton et al. (2017) beschreiben Adria als Schlüsselakteur der Geodynamik des westlichen Mittelmeerraums, mit stark deformierten Rändern, zu denen die Alpen, der Apennin, die Dinariden, die Helleniden und der Kalabrische Bogen gehören. Der Apennin war Schauplatz einer oligo-miozänen Subduktion mit Zurückweichen der abtauchenden Platte (Rollback), einer sanften Kollision und einer ausgeprägten Backarc-Dehnung (Le Breton et al. 2017).",
+          "Das Zurückweichen der Platte ist der zentrale Gedanke. Eine absinkende Platte weicht im Mantel zurück, und die darüberliegende Kruste wird gedehnt. Rosenbaum and Lister (2004) rekonstruierten die Öffnung des Tyrrhenischen Meeres und stellten fest, dass dessen wichtigste Riftphase vor etwa 10 Millionen Jahren begann, in zwei Episoden von Backarc-Dehnung, ausgelöst durch das Zurückweichen einer nach Westen einfallenden Platte. Die erste Dehnungsphase, vor 10 bis 6 Millionen Jahren, war im nördlichen Tyrrhenischen Meer und im westlichen Teil des südlichen Tyrrhenischen Meeres ausgeprägt, die zweite betraf vor allem das südliche Tyrrhenische Meer. Sie identifizieren außerdem unter dem Ionischen Meer eine schmale Platte, die schneller zurückwich und extreme Dehnungsraten erfuhr.",
+          "Für Erdbeben bedeutet das ein Gebirge, das entlang seines Kamms gedehnt wird. Fonteijn et al. (2026) weisen darauf hin, dass der zentrale Apennin im letzten Jahrzehnt mehrere zerstörerische Abschiebungsbeben erlebt hat und dass grundlegende Fragen dazu offen sind, was die Dehnung antreibt. Ihre Modellierung reproduziert Abschiebungsbeben und horizontale Oberflächengeschwindigkeiten, die allmählich auf 3 Millimeter pro Jahr ansteigen, nur dann, wenn die Platte unter dem zentralen Apennin abgerissen ist. Le Breton et al. (2017) führen stattdessen eine Entkopplung von Kruste und Mantel, also Delamination, während des Zurückweichens der Platte im Apennin an. Rollback, Delamination und eine abgerissene Platte haben jeweils ihre Befürworter, und so bleibt umstritten, was die Dehnung antreibt."
+        ]
+      },
+      {
+        "h": "L’Aquila, April 2009",
+        "p": [
+          "Am 6. April 2009 um 01:32 UTC traf ein Abschiebungsbeben der Stärke Mw 6,1 die Region Abruzzen. Es forderte 308 Opfer, 70.000 Menschen wurden evakuiert, und die Stadt L’Aquila und ihr Kulturerbe wurden schwer beschädigt (Chiaraluce 2012). Chiarabba et al. (2009) geben dasselbe Ereignis mit Mw 6,3 an – eine Erinnerung daran, dass verschiedene Institutionen einem Erdbeben unterschiedliche Momenten-Magnituden zuweisen können.",
+          "Das Hauptbeben begann in etwa 9,3 Kilometern Tiefe unter L’Aquila und aktivierte eine etwa 16 Kilometer lange Verwerfung, die nach Nordwesten streicht und mit etwa 50 Grad nach Südwesten einfällt. Eine Vorbebensequenz, die am 30. März in einem Ereignis der Stärke Mw 4,0 gipfelte, hatte dieselbe Verwerfungsfläche aktiviert. Im Jahr 2009 ereigneten sich fast 3.000 Ereignisse mit einer Lokalmagnitude von 1,9 oder mehr, und bis Ende Dezember erreichte das Verwerfungssystem eine Länge von etwa 40 Kilometern (Chiaraluce 2012). Die Nachbeben fielen mit der Oberflächenspur der Paganica-Verwerfung zusammen, einer vor dem Ereignis wenig bekannten Abschiebung, und die Seismizität wanderte nach Norden auf eine en échelon angeordnete Verwerfung, die in einem künftigen starken Erdbeben brechen könnte (Chiarabba et al. 2009). Starke Erdbeben hatten dasselbe Gebiet bereits 1461 und 1703 getroffen (Chiaraluce 2010).",
+          "Das Verwerfungssystem war komplexer als eine einzelne Fläche. Die Seismizität setzte in den oberen 10 bis 12 Kilometern der Kruste ein, und ein Ereignis der Stärke Mw 5,4 am 7. April begann einige Kilometer tiefer an einer steil einfallenden Abschiebung, die antithetisch zum Hauptsystem verläuft; ihre Rolle ist noch unklar (Chiaraluce 2010). Eine weitere Struktur fiel flacher, mit etwa 35 Grad, ein und verflacht tendenziell mit der Tiefe, und die Seismizität zeigte die Aktivierung zahlreicher kleinerer Abschiebungssegmente im gesamten System (Chiaraluce 2012)."
+        ]
+      },
+      {
+        "h": "Amatrice, Visso und Norcia, 2016",
+        "p": [
+          "Die nächste große Sequenz begann am 24. August 2016 mit einem Erdbeben der Stärke Mw 6,0 bei Amatrice, das 299 Menschen tötete. Am 26. Oktober folgte ein Erdbeben der Stärke Mw 5,9 bei Visso und am 30. Oktober ein Erdbeben der Stärke Mw 6,5 bei Norcia (Tan et al. 2021). Das Visso-Beben kam also zwei Monate nach Amatrice, und Norcia vier Tage nach Visso. Zusammen aktivierten die drei Hauptbeben ein 80 Kilometer langes Abschiebungssystem (Tan et al. 2021). Zwischen August und Oktober 2016 wurden 25.600 Erdbeben der Magnitude 0,1 bis 6,5 aufgezeichnet, und digitale Messnetze, die unmittelbar nach Amatrice installiert wurden, machten sie zur am besten überwachten Sequenz, die Italien je getroffen hat. Acht Ereignisse überschritten Mw 5,0 (Gabrielli et al. 2022). Ein mit maschinellem Lernen erstellter Erdbebenkatalog zeigte, dass während der Sequenz komplexe Verwerfungsstrukturen aktiviert wurden (Tan et al. 2021).",
+          "Ältere Kompressionsstrukturen beeinflussten, wie sich die Brüche entwickelten. Improta et al. (2019) nutzten einen hochwertigen Katalog früher Nachbeben, um zu zeigen, dass eine laterale Rampe der Monti-Sibillini-Überschiebung für die Hauptbeben von Amatrice und Visso als Barriere und später für das Hauptbeben von Norcia als Asperität wirkte. Eine Verwerfungszone, die vor Millionen Jahren durch Kompression entstanden war, entschied also mit darüber, wo die Dehnungsbrüche stoppten und wo sie ihren Versatz konzentrierten."
+        ]
+      },
+      {
+        "h": "Die Rolle tiefer Fluide",
+        "p": [
+          "Viele Forschende gehen davon aus, dass Fluide die Sequenz mit vorangetrieben haben. Gabrielli et al. (2022) folgern, dass Fluide die Sequenz wahrscheinlich ausgelöst und die Stabilität des Verwerfungsnetzes nach dem Amatrice-Beben verringert haben, wobei die Migration von Fluiden die Ereignisse von Visso und Norcia einleitete. Die räumliche Ausdehnung des betroffenen Gebiets führen sie auf die Migration kohlendioxidhaltiger Fluide in der Tiefe zurück, die aus einem Reservoir eingeschlossenen CO2 nahe Amatrice stammen.",
+          "Andere Studien nähern sich der Frage über andere Messungen. Convertito et al. (2020) modellierten die verzögerten Visso-Ereignisse und fanden, dass die statische Coulomb-Spannungsübertragung durch das Amatrice-Beben die beiden großen Visso-Nachbeben nicht unmittelbar auslöste, die durch die Amatrice-Deformation in Gang gesetzte Porendruckdiffusion dagegen schon. Convertito et al. betonen außerdem, dass in diesem Umfeld bei der Berechnung der Porendruckdiffusion eine anisotrope hydraulische Leitfähigkeit berücksichtigt werden muss. Chiodini et al. (2020) stellten eine 10-jährige Messreihe des tektonischen CO2-Flusses im Apennin zusammen und berichten von massiven Emissionen tiefen CO2, die mit den Erdbeben in Mittelitalien von 2009 bis 2018 gekoppelt waren. Die Studien weisen in dieselbe Richtung, doch Gabrielli et al. (2022) stellen fest, dass die räumliche Ausdehnung und die Mechanismen der Fluidmigration und -diffusion durch das Verwerfungsnetz unklar bleiben."
+        ]
+      },
+      {
+        "h": "Was Italien besonders macht",
+        "p": [
+          "Italien verfügt über eine ungewöhnlich lange schriftliche Überlieferung seiner Erdbeben. Die italienische makroseismische Datenbank DBMI15, Version 3.0, enthält 123.956 makroseismische Datenpunkte zu 3.228 Erdbeben und liefert Erdbebengeschichten für 15.332 Orte, und eine frühere Ausgabe deckte die Jahre 1000 bis 2017 ab (Istituto Nazionale di Geofisica e Vulcanologia 2021). Der zugehörige parametrische Katalog CPTI15 übersetzt diese Belege in Lokalisierungen und Magnituden für die Gefährdungsabschätzung (Rovida et al. 2020). Nur wenige Länder können eine moderne Sequenz mit tausend Jahren dokumentierter Erschütterungen vergleichen.",
+          "Die Überlieferung zeigt ein Muster mehrerer Hauptbeben. Gabrielli et al. (2022) beschreiben solche Sequenzen als typische Merkmale des Apennins und nennen das Irpinia-Erdbeben von 1980 (Ms 6,9), das Erdbeben in Umbrien und den Marken von 1997 (Mw 6,0), das Erdbeben von L’Aquila 2009 (Mw 6,1) und die Sequenz von 2016. Chiaraluce (2018) weist darauf hin, dass die Kartierung der Anatomie von Verwerfungen mithilfe kleiner Erdbeben mit Lokalmagnituden über 0,5 hilft, den Aufbau von Verwerfungszonen und ihre Entwicklung zu charakterisieren, und dass drei Sequenzen in 20 Jahren (Colfiorito 1997, L’Aquila 2009 und Amatrice-Norcia-Visso 2016 und 2017) ein nach Nordwesten streichendes, etwa 130 Kilometer langes System von Abschiebungen aktivierten. Wer einen Live-Feed verfolgt, sieht an der Sequenz von 2016, dass auf ein Erdbeben der Magnitude 6 im Apennin innerhalb von Wochen oder Monaten stärkere Erdstöße an benachbarten Verwerfungssegmenten folgen können.",
+          "Drei Fragen bleiben offen: was die Dehnung antreibt, wie sich Fluide durch das Verwerfungsnetz bewegen und warum ältere Überschiebungen bei manchen Erdbeben als Barrieren und bei anderen als Asperitäten wirken. Jede davon beeinflusst, wie künftige Sequenzen gedeutet werden, während sie ablaufen."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Warum gibt es in Italien so viele Erdbeben?",
+        "a": "Italien liegt zwischen der Afrikanischen und der Europäischen Platte, die konvergieren, und über der kleineren Adriatischen Mikroplatte (Adria). Das Zurückweichen einer absinkenden Platte hat das Tyrrhenische Meer geöffnet und dehnt die Kruste entlang des Apenninkamms, und die zerstörerischen Erdbeben der letzten Jahrzehnte im zentralen Apennin ereigneten sich an Abschiebungen."
+      },
+      {
+        "q": "Welche Art von Verwerfungen verursachte die Erdbeben von L’Aquila und Norcia?",
+        "a": "Beide waren Abschiebungsbeben, also Beben an Verwerfungen, die eine Dehnung der Kruste aufnehmen. Die Herdmechanismen der Sequenz von 2016 passten zu einer Dehnung des zentralen Apennins, obwohl das Gebirge ursprünglich durch Kompression entstanden ist."
+      },
+      {
+        "q": "Wie stark war das Erdbeben von L’Aquila 2009?",
+        "a": "Das Erdbeben vom 6. April 2009 hatte nach einer Studie eine Momenten-Magnitude von 6,1, nach einer anderen von 6,3. Es forderte 308 Opfer, 70.000 Menschen wurden evakuiert, und die Stadt L’Aquila wurde schwer beschädigt. Seine Nachbeben zeichneten die Paganica-Verwerfung nach, eine vor dem Ereignis wenig bekannte Abschiebung."
+      },
+      {
+        "q": "Was geschah bei der Sequenz von Amatrice, Visso und Norcia 2016?",
+        "a": "Ein Erdbeben der Stärke Mw 6,0 bei Amatrice am 24. August 2016 tötete 299 Menschen. Es folgten ein Erdbeben der Stärke Mw 5,9 bei Visso am 26. Oktober und ein Erdbeben der Stärke Mw 6,5 bei Norcia am 30. Oktober. Zusammen aktivierten die drei Hauptbeben ein 80 Kilometer langes Abschiebungssystem."
+      },
+      {
+        "q": "Haben Fluide die Erdbeben von 2016 ausgelöst?",
+        "a": "Mehrere Studien deuten darauf hin. Eine folgert, dass tiefe, kohlendioxidhaltige Fluide die Sequenz wahrscheinlich ausgelöst und die Ereignisse von Visso und Norcia mit eingeleitet haben; eine andere fand, dass die Porendruckdiffusion und nicht die statische Spannungsübertragung die großen Visso-Nachbeben auslöste. Wie sich Fluide durch das Verwerfungsnetz bewegen, bleibt unklar."
+      },
+      {
+        "q": "Wie weit reicht die Erdbebenüberlieferung Italiens zurück?",
+        "a": "Die italienische makroseismische Datenbank DBMI15 enthält 123.956 makroseismische Datenpunkte zu 3.228 Erdbeben, und eine frühere Ausgabe deckte die Jahre 1000 bis 2017 ab. Der zugehörige Katalog CPTI15 übersetzt diese Belege in Lokalisierungen und Magnituden für die Gefährdungsabschätzung."
+      }
+    ]
   }
 }
