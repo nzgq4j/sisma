@@ -114,10 +114,11 @@ export function MagFilterSheet({ open, onClose }: { open: boolean; onClose: () =
 /** World-region choices with event counts (used by the chip and the map filter panel). */
 export function RegionFilterSheet({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { t, m, nf } = useT();
-  const { worldReg, setWorldReg, worldCounts, all } = useQuakeData();
+  const { worldReg, setWorldReg, worldCounts, all, setRegion } = useQuakeData();
   return (
     <Sheet open={open} onClose={onClose} title={t('region_chip')}>
-      <SheetOptions value={worldReg ?? 'all'} onPick={v => { setWorldReg(v === 'all' ? null : (v as typeof worldCounts[number][0])); onClose(); }}
+      {/* A new world region starts from all of its places (a place from another region would leave nothing). */}
+      <SheetOptions value={worldReg ?? 'all'} onPick={v => { const next = v === 'all' ? null : (v as typeof worldCounts[number][0]); if (next !== worldReg) setRegion('all'); setWorldReg(next); onClose(); }}
         options={[
           { value: 'all', label: m.all_regions, meta: nf.format(all.length) },
           ...worldCounts.map(([r, n]) => ({ value: r, label: m.wr[r], meta: nf.format(n) })),

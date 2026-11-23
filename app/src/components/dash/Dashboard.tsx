@@ -13,13 +13,13 @@ import { useQuakeData, VIEW_RANGES, RANGE_LABEL, type Row } from '@/components/Q
 import { QuakeDetail, QuakeSummary } from '@/components/QuakeDetail';
 import { FeltButton } from '@/components/FeltReport';
 import { Sheet, SheetOptions } from '@/components/Sheet';
-import { WorldMap } from './WorldMap';
+import { WorldMap, type MapFocus } from './WorldMap';
 import { MagFilterChip, RegionFilterChip } from '@/components/stage/StageParts';
 import { ChartCard, ColumnChart, RankBars, type Bar } from './Charts';
 import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
-import { REGION_SPAN } from '@/lib/world-regions';
+import { REGION_SPAN, REGION_VIEW } from '@/lib/world-regions';
 import { FIT_Y, fitArea } from '@/lib/map-fit';
 import { Flag, useCountryCode } from '@/components/Flag';
 import { useGrowingList } from '@/components/useGrowingList';
@@ -52,14 +52,21 @@ export function Dashboard() {
   const sel = list.find(q => q.id === selId) ?? null;
   // The map zooms to the selected event (about 7.5° across, like the region view), so its city names show. It stays
   // there when the selection is cleared; the reset button returns to the world.
-  const [mapFocus, setMapFocus] = useState<{ key: string; lat: number; lon: number; span: number; y?: number } | null>(null);
+  const [mapFocus, setMapFocus] = useState<MapFocus | null>(null);
   if (sel && mapFocus?.key !== sel.id) setMapFocus({ key: sel.id, lat: sel.lat, lon: sel.lon, span: REGION_SPAN });
-  // Choosing a place (top-right picker or Top regions) zooms the map to its events; "All regions" returns to the world.
-  const [fitted, setFitted] = useState('all');
-  if (region !== fitted && (region === 'all' || list.length)) {
-    setFitted(region);
-    const area = region === 'all' ? null : fitArea(list);
-    setMapFocus(area && { key: `place:${region}`, ...area, y: FIT_Y });
+  // Choosing a place (top-right picker or Top regions) zooms the map to the width of its earthquakes; choosing a world
+  // region (the Region chip, sisma+) to the width of that region as the Map page frames it (REGION_VIEW). With neither,
+  // back to the world. A place inside a region is the narrower view.
+  const fitKey = `${worldReg ?? ''}|${region}`;
+  const [fitted, setFitted] = useState('|all');
+  if (fitKey !== fitted && (region === 'all' || list.length)) {
+    setFitted(fitKey);
+    const area = fitArea(list);
+    const view = region === 'all' && worldReg ? REGION_VIEW[worldReg] : null;
+    setMapFocus(region !== 'all' && area ? { key: `place:${fitKey}`, lat: area.lat, lon: area.lon, spanX: area.spanX, spanY: area.spanY, y: FIT_Y }
+      // The region's defined width; vertically, centred on its earthquakes and tall enough for them.
+      : view ? { key: `region:${worldReg}`, lon: view.lon, spanX: view.span, ...(area ? { lat: area.lat, spanY: area.spanY, y: FIT_Y } : { lat: view.lat }) }
+      : null);
   }
 
   const strongest = useMemo(() => list.reduce<Row | null>((a, q) => (!a || q.mag > a.mag ? q : a), null), [list]);

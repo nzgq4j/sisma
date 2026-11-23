@@ -11,7 +11,7 @@ const PAD = 1.35;
 /** Where the middle of the events sits on the map (0 top, 1 bottom): a little low, as pins stand above their point. */
 export const FIT_Y = 0.55;
 
-export function fitArea(points: { lat: number; lon: number }[]): { lat: number; lon: number; span: number } | null {
+export function fitArea(points: { lat: number; lon: number }[]): { lat: number; lon: number; span: number; spanX: number; spanY: number } | null {
   if (!points.length) return null;
   const lats = points.map(p => p.lat);
   const minLat = Math.min(...lats), maxLat = Math.max(...lats);
@@ -26,5 +26,7 @@ export function fitArea(points: { lat: number; lon: number }[]): { lat: number; 
   const y1 = y(minLat), y2 = y(maxLat);
   const lat = (Math.atan(Math.exp((((y1 + y2) / 2) * Math.PI) / 180)) * 360) / Math.PI - 90;
   const span = Math.min(160, Math.max(REGION_SPAN, PAD * Math.max(y2 - y1, lonRange / ASPECT)));
-  return { lat, lon, span };
+  // For a map that knows its shape (WorldMap spanX / spanY): the area's own width and height with the margin.
+  const spanX = Math.max(REGION_SPAN, PAD * lonRange), spanY = Math.max(REGION_SPAN * 0.6, PAD * (y2 - y1));
+  return { lat, lon, span, spanX, spanY };
 }

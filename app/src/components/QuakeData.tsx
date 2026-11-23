@@ -80,12 +80,13 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
     // Defensive: one row per id and only plottable coordinates, so map keys stay unique.
     const seen = new Set<string>();
     const all = (rows ?? []).filter(q => !seen.has(q.id) && seen.add(q.id) && Math.abs(q.lat) <= 90 && Math.abs(q.lon) <= 180);
-    const counts = new Map<string, number>();
-    all.forEach(q => counts.set(q.region, (counts.get(q.region) ?? 0) + 1));
-    const regions = [...counts.entries()].sort((a, b) => b[1] - a[1]);
     // Advanced filters are sisma+ (lib/entitlements.ts); the settings are kept but not applied on Free.
     const plus = can(plan, 'advancedFilters');
     const wr = plus ? worldRegState : null;
+    // Places (the Place picker and Top regions) within the chosen world region, so every place listed has events.
+    const counts = new Map<string, number>();
+    all.forEach(q => { if (!wr || regionOf.get(q.id) === wr) counts.set(q.region, (counts.get(q.region) ?? 0) + 1); });
+    const regions = [...counts.entries()].sort((a, b) => b[1] - a[1]);
     const wcount = new Map<WorldRegion, number>();
     all.forEach(q => { const r = regionOf.get(q.id); if (r) wcount.set(r, (wcount.get(r) ?? 0) + 1); });
     const worldCounts = WORLD_REGIONS.map(r => [r, wcount.get(r) ?? 0] as [WorldRegion, number]);
