@@ -20,6 +20,7 @@ import { useDistance } from '@/components/Units';
 import styles from './dash.module.css';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
 import { REGION_SPAN } from '@/lib/world-regions';
+import { FIT_Y, fitArea } from '@/lib/map-fit';
 import { Flag, useCountryCode } from '@/components/Flag';
 import { useGrowingList } from '@/components/useGrowingList';
 import type { Quake } from '@/lib/quakes/types';
@@ -51,8 +52,15 @@ export function Dashboard() {
   const sel = list.find(q => q.id === selId) ?? null;
   // The map zooms to the selected event (about 7.5° across, like the region view), so its city names show. It stays
   // there when the selection is cleared; the reset button returns to the world.
-  const [mapFocus, setMapFocus] = useState<{ key: string; lat: number; lon: number; span: number } | null>(null);
+  const [mapFocus, setMapFocus] = useState<{ key: string; lat: number; lon: number; span: number; y?: number } | null>(null);
   if (sel && mapFocus?.key !== sel.id) setMapFocus({ key: sel.id, lat: sel.lat, lon: sel.lon, span: REGION_SPAN });
+  // Choosing a place (top-right picker or Top regions) zooms the map to its events; "All regions" returns to the world.
+  const [fitted, setFitted] = useState('all');
+  if (region !== fitted && (region === 'all' || list.length)) {
+    setFitted(region);
+    const area = region === 'all' ? null : fitArea(list);
+    setMapFocus(area && { key: `place:${region}`, ...area, y: FIT_Y });
+  }
 
   const strongest = useMemo(() => list.reduce<Row | null>((a, q) => (!a || q.mag > a.mag ? q : a), null), [list]);
   const nearest = useMemo(() => {
@@ -98,14 +106,15 @@ export function Dashboard() {
                 : <button key={r} type="button" className={styles.segBtn} aria-pressed={range === r} onClick={() => setRange(r)}>{t(RANGE_LABEL[r])}</button>;
             })}
           </div>
-          <button type="button" className={styles.selectWrap} onClick={() => setRegionSheet(true)} aria-haspopup="dialog" aria-label={`${t('regions')}: ${region === 'all' ? t('all_regions') : region}`}>
+          {/* Place (country or region of the events; free), as on mobile — not the sisma+ world-region filter on the map. */}
+          <button type="button" className={styles.selectWrap} onClick={() => setRegionSheet(true)} aria-haspopup="dialog" aria-label={`${m.map.place}: ${region === 'all' ? m.map.all_places : region}`}>
             <span className="ms" aria-hidden="true">location_on</span>
-            <span className={styles.selectLabel}>{region === 'all' ? t('all_regions') : `${region} (${nf.format(list.length)})`}</span>
+            <span className={styles.selectLabel}>{region === 'all' ? m.map.all_places : `${region} (${nf.format(list.length)})`}</span>
             <span className="ms" aria-hidden="true">expand_more</span>
           </button>
-          <Sheet open={regionSheet} onClose={() => setRegionSheet(false)} title={t('regions')}>
+          <Sheet open={regionSheet} onClose={() => setRegionSheet(false)} title={m.map.place}>
             <SheetOptions value={region} onPick={r => { setRegion(r); setSelId(null); setRegionSheet(false); }}
-              options={[{ value: 'all', label: t('all_regions') }, ...regions.map(([r, n]) => ({ value: r, label: r, meta: nf.format(n) }))]} />
+              options={[{ value: 'all', label: m.map.all_places }, ...regions.map(([r, n]) => ({ value: r, label: r, meta: nf.format(n) }))]} />
           </Sheet>
         </div>
       </header>
