@@ -37,6 +37,26 @@ export function localLibrary(a: LibraryArticle, tr: LibraryTranslation | null, l
   return fitsEnglish(a, t) ? { ...a, title: t.title, dek: t.dek, sections: t.sections, faq: t.faq, lang: locale } : { ...a, lang: 'en' };
 }
 
+/** The share card shown under an article's title, in the language the text is in (scripts/og-cards.mjs; 1200 × 630). */
+export const libraryCardSrc = (id: string, lang: Locale) => (lang === 'en' ? `/og/library-${id}.jpg` : `/og/${lang}/library-${id}.jpg`);
+
+/** What each article's share card shows, per language (content/library-social/<locale>.json; also used for Bluesky alt text). */
+export type LibraryCardText = Record<string, { image: string }>;
+export async function loadLibraryCardText(locale: Locale): Promise<LibraryCardText | null> {
+  switch (locale) {
+    case 'es': return (await import('@/content/library-social/es.json')).default.articles;
+    case 'fr': return (await import('@/content/library-social/fr.json')).default.articles;
+    case 'de': return (await import('@/content/library-social/de.json')).default.articles;
+    case 'it': return (await import('@/content/library-social/it.json')).default.articles;
+    case 'pt': return (await import('@/content/library-social/pt.json')).default.articles;
+    case 'ja': return (await import('@/content/library-social/ja.json')).default.articles;
+    case 'zh': return (await import('@/content/library-social/zh.json')).default.articles;
+    case 'id': return (await import('@/content/library-social/id.json')).default.articles;
+    case 'tr': return (await import('@/content/library-social/tr.json')).default.articles;
+    default: return null;
+  }
+}
+
 /** Each language's file is its own chunk, fetched only when that language is in use. */
 export async function loadLibraryTranslation(locale: Locale): Promise<LibraryTranslation | null> {
   switch (locale) {

@@ -108,7 +108,9 @@ function useDark() {
 
 /** Zoom target. `span` (degrees of longitude across the shorter side of the view) sets the zoom; `zoom` is a fixed
  *  factor used when no span is given. `y` places the point at that fraction of the height (0.5 = centre). */
-export interface MapFocus { key: string; lat: number; lon: number; zoom?: number; span?: number; y?: number }
+/** span: degrees of longitude across the shorter side; spanX / spanY: an area to fit, degrees of longitude across the
+ *  width and Mercator degrees across the height (whichever is tighter wins). */
+export interface MapFocus { key: string; lat: number; lon: number; zoom?: number; span?: number; spanX?: number; spanY?: number; y?: number }
 
 /** Width of a map callout in px (kept fixed so it can be clamped inside the view before it is measured). */
 const CALLOUT_W = 268;
@@ -235,7 +237,9 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
     const fp = focus ? project(focus.lon, focus.lat) : null;
     if (focus && fp) {
       // Mercator draws `sc·π/180` map units per degree of longitude at every latitude.
-      const fz = focus.span && sc ? (Math.min(size.w, size.h) * 180) / (Math.PI * sc * focus.span) : focus.zoom ?? 8;
+      const per = (px: number, deg: number) => (px * 180) / (Math.PI * sc * deg);
+      const fz = sc && (focus.spanX || focus.spanY) ? Math.min(focus.spanX ? per(size.w, focus.spanX) : Infinity, focus.spanY ? per(size.h, focus.spanY) : Infinity)
+        : focus.span && sc ? per(Math.min(size.w, size.h), focus.span) : focus.zoom ?? 8;
       const fk = Math.min(mercator ? MAX_K_OUTLINES : 12, Math.max(1, fz));
       start = zoomIdentity.translate(size.w / 2 - fk * fp[0], size.h * (focus.y ?? 0.5) - fk * fp[1]).scale(fk);
     }

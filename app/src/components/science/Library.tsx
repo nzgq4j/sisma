@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useT, type Locale } from '@/i18n/I18nProvider';
-import { LIBRARY, libraryHref, loadLibraryTranslation, localLibrary, type LibraryTranslation } from '@/lib/library';
+import { LIBRARY, libraryHref, loadLibraryCardText, loadLibraryTranslation, localLibrary, type LibraryCardText, type LibraryTranslation } from '@/lib/library';
 import styles from './science.module.css';
 
 /** The library text for the current language: English straight away, the translation once its file has loaded. */
@@ -18,6 +18,19 @@ export function useLibraryTranslation(): LibraryTranslation | null {
     return () => { alive = false; };
   }, [locale]);
   return loaded?.locale === locale ? loaded.tr : null;
+}
+
+/** The share card's picture description in the current language (English straight away). */
+export function useLibraryCardText(): LibraryCardText | null {
+  const { locale } = useT();
+  const [loaded, setLoaded] = useState<{ locale: Locale; text: LibraryCardText | null } | null>(null);
+  useEffect(() => {
+    let alive = true;
+    if (locale === 'en') return;
+    loadLibraryCardText(locale).then(text => { if (alive) setLoaded({ locale, text }); }).catch(() => { /* English */ });
+    return () => { alive = false; };
+  }, [locale]);
+  return loaded?.locale === locale ? loaded.text : null;
 }
 
 /** A date such as "16 November 2026" in the reader's language (dates in the content are UTC calendar days). */

@@ -1,13 +1,14 @@
 'use client';
-// In Depth article (lib/library.ts): header with reading time and Share, title, standfirst, updated date, sections,
+// In Depth article (lib/library.ts): header with reading time and Share, title, its share card (in the language of the
+// text, with a description of its picture), standfirst, updated date, sections,
 // frequently asked questions, references (English, as published) and the next article. Text in the reader's
 // language once its file has loaded (administrators also see a Bluesky button to post it); English is what the server renders and what search engines index.
 import Link from 'next/link';
 import { use } from 'react';
 import { notFound } from 'next/navigation';
 import { useT } from '@/i18n/I18nProvider';
-import { LIBRARY, LIBRARY_PATH, libraryHref, localLibrary } from '@/lib/library';
-import { formatDay, useLibraryTranslation } from '@/components/science/Library';
+import { LIBRARY, LIBRARY_PATH, libraryCardSrc, libraryHref, localLibrary } from '@/lib/library';
+import { formatDay, useLibraryCardText, useLibraryTranslation } from '@/components/science/Library';
 import { ShareArticle } from '@/components/science/ShareArticle';
 import { LibraryBlueskyButton } from '@/components/admin/LibraryBluesky';
 import styles from '@/components/science/science.module.css';
@@ -22,7 +23,10 @@ export default function LibraryArticlePage({ params }: { params: Promise<{ slug:
 function ArticleView({ i }: { i: number }) {
   const { t, m, locale } = useT();
   const tr = useLibraryTranslation();
+  const cardText = useLibraryCardText();
   const a = localLibrary(LIBRARY[i], tr, locale);
+  // The card in the language the text is shown in; its description in that language once loaded, else English.
+  const cardAlt = (a.lang !== 'en' && cardText?.[a.id]?.image) || LIBRARY[i].cardImage;
   const next = localLibrary(LIBRARY[(i + 1) % LIBRARY.length], tr, locale);
   return (
     <article className={styles.article}>
@@ -34,6 +38,8 @@ function ArticleView({ i }: { i: number }) {
       </div>
       <div lang={a.lang} className={styles.longform}>
         <h1 className={styles.h1}>{a.title}</h1>
+        {/* eslint-disable-next-line @next/next/no-img-element -- static share card, already sized (1200 × 630 JPEG) */}
+        <img className={styles.cover} src={libraryCardSrc(a.id, a.lang)} alt={cardAlt} width={1200} height={630} fetchPriority="high" />
         <p className={styles.intro}>{a.dek}</p>
         <p className={styles.dateline}><time dateTime={a.updated}>{m.library.updated.replace('{d}', formatDay(a.updated, locale))}</time></p>
         {a.sections.map(s => (
