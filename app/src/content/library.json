@@ -1769,5 +1769,155 @@
         "url": "https://doi.org/10.1785/0320210001"
       }
     ]
+  },
+  {
+    "id": "phuket-tsunami-2004",
+    "icon": "tsunami",
+    "tone": "mint",
+    "title": "Boxing Day 2004: The Sumatra-Andaman Earthquake and the Tsunami That Reached Phuket",
+    "description": "How the 2004 Mw 9.1–9.3 Sumatra-Andaman earthquake made the tsunami that hit Phuket and Khao Lak: timing, wave heights, deaths and Thailand’s warning system.",
+    "dek": "On 26 December 2004 a megathrust rupture off Sumatra lifted the seafloor and sent a tsunami across the Andaman Sea. In Phuket the sea drew back first. Here is what happened, and what changed.",
+    "published": "2026-11-23",
+    "updated": "2026-11-23",
+    "mins": 7,
+    "hashtags": ["tsunami", "earthquake", "Thailand"],
+    "cardImage": "an outline map of Thailand with Phuket and Phang Nga provinces highlighted, the USGS epicentre of the M9.1 earthquake off northern Sumatra, and a dashed line to Phuket marking the tsunami's travel time of about 100 minutes; Khao Lak, Banda Aceh and Bangkok are labelled",
+    "sections": [
+      {
+        "h": "The Earthquake Beneath the Andaman Sea",
+        "p": [
+          "At 00:58:53 UTC on 26 December 2004, a megathrust earthquake struck off the west coast of northern Sumatra. Thailand is seven hours ahead of UTC, so the time in Phuket was close to 8 a.m., on the morning after Christmas (Ioualalen et al. 2007). The U.S. Geological Survey describes a magnitude 9.1 earthquake in which the India Plate, an oceanic plate, is subducted beneath the Burma microplate, part of the larger Sunda plate, with the boundary marked by the Sunda Trench. The rupture occurred on the interplate thrust with very little oblique motion (U.S. Geological Survey n.d.).",
+          "The magnitude took months to settle. The first estimate of 9.0 came from surface waves. Stein and Okal (2005) analyzed the normal modes of the whole planet and reported a seismic moment 2.5 times larger than initial reports suggested, equivalent to Mw 9.3 and second only to the 1960 Chile earthquake. Lay et al. (2005) gave a range of Mw 9.1 to 9.3. The size therefore depends on the waves and periods used to measure it, and the published range remains 9.1 to 9.3.",
+          "The fault break was enormous. Science News (2005) reports a rupture 1,200 to 1,300 kilometers long. In the first minute the rupture front advanced northwest at about 500 meters per second, then accelerated to about 3 kilometers per second for four minutes, and then slowed but continued north for another six minutes. Slip varied along the rupture. Lay et al. (2005) report up to 15 meters of slip near Banda Aceh and much smaller, rapid slip farther north along the Nicobar and Andaman Islands, while the tsunami model of Ioualalen et al. (2007) uses slip of 12 to 18 meters with a maximum of about 23 meters. Estimates of peak slip therefore differ between studies. Shearer and Bürgmann (2010) add that convergence rates are relatively slow along this margin, particularly in the northern part of the rupture zone."
+        ]
+      },
+      {
+        "h": "How the Seafloor Became a Wave",
+        "p": [
+          "Science News (2005) explains the setup: decades of tectonic motion before the earthquake had dragged the seafloor west of Sumatra below its normal, unflexed position, and the rupture released it. Ioualalen et al. (2007) modeled about 9 to 10 meters of uplift on the western side of the trench and about 5 meters of subsidence on the eastern side. Papadopoulos et al. (2006) found that the tsunami propagated as a leading crest to the west, in Sri Lanka and the Maldives, and as a leading trough to the east, in Thailand. People on Thai beaches therefore saw the sea retreat before they saw it rise."
+        ]
+      },
+      {
+        "h": "Phuket on the Morning of 26 December",
+        "p": [
+          "Thailand lies about 500 kilometers east of the source (Tsuji et al. 2006). The tsunami reached Phuket Island about 100 minutes after the earthquake, which places its arrival near 9:40 a.m. local time, during high tide and with a leading depression wave (Szczuciński et al. 2012). Seven tide gauge records from the Thai coast all show the sea level withdrawing first for 30 to 60 minutes, followed by a rise, which matches survivors' accounts (Tsuji et al. 2006).",
+          "Eyewitnesses described two major waves about 40 minutes apart, with the second generally reported as the larger, and some reported up to seven waves in total (Szczuciński et al. 2012). The withdrawal was a warning sign, and Ioualalen et al. (2007) note that this crucial sign was often misread. Several waves in the sequence arrived without a retreat between them, and the wavefront speed at Phuket was estimated at 14.4 kilometers per hour (Szczuciński et al. 2012).",
+          "Wave heights varied sharply along the coast. Field teams measured tsunami heights above 5 meters on Phuket Island and above 10 meters at Khao Lak, about 50 kilometers to the north (Tsuji et al. 2006). Ioualalen et al. (2007) compiled observed runups at 58 Thai locations ranging from 1.47 to 11.29 meters with a mean of 6.11 meters, and they report the largest runups of 11 to 14 meters near Khao Lak. Their simulation reproduced the observed runups with a correlation of 0.92, including the strong variation along the coast, which supports the source model they used. Szczuciński et al. (2012) found that runup on their Phuket transects was below 6 meters and that measured wave heights exceeded 15 meters at Pakarang Cape in Phang Nga. A reef offshore of Kho Khao Island held runup below 3 meters along the part of the coast it protected, while nearby unprotected sectors exceeded 6 meters (Szczuciński et al. 2012). The Tsuji survey found the highest tsunami height, 19.6 meters, at Ban Thung Dap on Phra Thong Island (Tsuji et al. 2006).",
+          "The water also moved sediment inland. Tsunami deposits reached up to about 1.5 kilometers from the shore, reached up to about 40 centimeters in thickness, and were mostly under 10 centimeters thick (Szczuciński et al. 2012)."
+        ]
+      },
+      {
+        "h": "Lives Lost and Contested Counts",
+        "p": [
+          "Phuket recorded 259 confirmed deaths, and hundreds of people remain unaccounted for (Thaiger 2024). Phang Nga province to the north suffered far more: Ioualalen et al. (2007) report 8,500 people dead or missing in Thailand, with Phang Nga accounting for 71 percent. They note that Phuket's share is given as 5 percent in one place and 9 percent in another in the same source, so the Phuket fraction of that total is uncertain.",
+          "The regional toll also varies by source. Lay et al. (2005) state that the tsunami caused more than 283,000 deaths. Other published tallies are lower, near 226,000 (Japan Times 2017), and Thai figures separate confirmed deaths from missing people, as the Phuket counts show. A single death toll for 2004 should therefore be read as an estimate."
+        ]
+      },
+      {
+        "h": "Why There Was No Warning",
+        "p": [
+          "There was no tsunami warning system in the Indian Ocean in 2004, although experts had recommended one. When the earthquake was detected, some time elapsed before its tsunami potential could be assessed (National Research Council 2006). Staff at the Pacific Tsunami Warning Center in Hawaii said they tried to warn Indian Ocean nations but lacked the equipment to monitor that part of the world and the phone numbers of the right officials (NBC News 2005). Before 2004 only six deep-ocean tsunami buoys were in place worldwide (NOAA Pacific Marine Environmental Laboratory n.d.). Australia, Chile, Indonesia and Thailand have since deployed such buoys as part of their warning systems (NOAA Pacific Marine Environmental Laboratory n.d.).",
+          "Thai forecasters had a precedent. Smith Thammasaroj, then head of Thailand's meteorological department, was accused of scare-mongering in 1998 when he warned that the southwest coast could face a deadly tsunami (NBC News 2005)."
+        ]
+      },
+      {
+        "h": "What Changed",
+        "p": [
+          "Thailand built a National Disaster Warning Center. By 2007 it had 79 warning towers in coastal provinces and a deep-sea buoy in the Indian Ocean, although the center's lines of authority were still unclear (The New Humanitarian 2007). In 2017 the deputy director-general of Thailand's disaster prevention department said that up to 80 percent of the warning system needed maintenance (Japan Times 2017). Twenty years after the event, activists in Thailand, Indonesia and Malaysia reported that early warning systems and buoys are in place, while public awareness is lacking. Malaysia's meteorological department established a National Tsunami Early Warning System that is integrated with systems including the U.S.-run Pacific Tsunami Warning Center in Hawaii (Radio Free Asia 2024)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "What caused the 2004 Indian Ocean tsunami?",
+        "a": "A megathrust earthquake on 26 December 2004 off the west coast of northern Sumatra, where the India Plate is subducted beneath the Burma microplate. The rupture released seafloor that had been dragged down for decades, lifting it by about 9 to 10 meters west of the trench and lowering it by about 5 meters to the east."
+      },
+      {
+        "q": "How strong was the 2004 Sumatra-Andaman earthquake?",
+        "a": "The U.S. Geological Survey gives magnitude 9.1. Analysis of the whole Earth's normal modes gave Mw 9.3, and other studies give 9.1 to 9.3, so the published range remains 9.1 to 9.3. The rupture was 1,200 to 1,300 kilometers long."
+      },
+      {
+        "q": "When did the tsunami reach Phuket?",
+        "a": "About 100 minutes after the earthquake, near 9:40 a.m. local time. Tide gauges on the Thai coast show the sea withdrawing first for 30 to 60 minutes before it rose, and eyewitnesses described two major waves about 40 minutes apart."
+      },
+      {
+        "q": "Why did the sea go out before the tsunami hit Thailand?",
+        "a": "The tsunami travelled east as a leading trough, because the seafloor on the eastern side of the rupture dropped. On Thai beaches the sea therefore retreated before it rose. This warning sign was often misread."
+      },
+      {
+        "q": "How high was the tsunami in Phuket and Khao Lak?",
+        "a": "Field surveys measured tsunami heights above 5 meters on Phuket Island and above 10 meters at Khao Lak, with the largest runups of 11 to 14 meters near Khao Lak and a highest tsunami height of 19.6 meters on Phra Thong Island."
+      },
+      {
+        "q": "Does Thailand have a tsunami warning system now?",
+        "a": "Yes. Thailand built a National Disaster Warning Center, which by 2007 had 79 warning towers in coastal provinces and a deep-sea buoy in the Indian Ocean. In 2017 officials said up to 80 percent of the system needed maintenance, and activists in 2024 said public awareness is still lacking."
+      }
+    ],
+    "refs": [
+      {
+        "text": "Ioualalen, Mansour, Pairoj Asavanant, Narong Kaewbanjak, Stephan T. Grilli, James T. Kirby, and Philip Watts. 2007. \"Modeling the 26th December 2004 Indian Ocean Tsunami: Case Study of Impact in Thailand.\" Journal of Geophysical Research 112: C07024. https://doi.org/10.1029/2006JC003850.",
+        "url": "https://doi.org/10.1029/2006JC003850"
+      },
+      {
+        "text": "Japan Times. 2017. Report on maintenance needs of Thailand's tsunami warning system. July 31, 2017. https://www.japantimes.co.jp/news/2017/07/31/world/80-thai-warning-system-crumbling-12-years-surprise-tsunami/.",
+        "url": "https://www.japantimes.co.jp/news/2017/07/31/world/80-thai-warning-system-crumbling-12-years-surprise-tsunami/"
+      },
+      {
+        "text": "Lay, Thorne, Hiroo Kanamori, Charles J. Ammon, et al. 2005. \"The Great Sumatra-Andaman Earthquake of 26 December 2004.\" Science 308: 1127–33. https://doi.org/10.1126/science.1112250.",
+        "url": "https://doi.org/10.1126/science.1112250"
+      },
+      {
+        "text": "National Research Council. 2006. Extreme Waves. Washington, DC: National Academies Press. https://www.nationalacademies.org/read/11635.",
+        "url": "https://www.nationalacademies.org/read/11635"
+      },
+      {
+        "text": "NBC News. 2005. Article on Smith Thammasaroj and Thailand's 1998 tsunami warning. https://www.nbcnews.com/news/amp/wbna6813771.",
+        "url": "https://www.nbcnews.com/news/amp/wbna6813771"
+      },
+      {
+        "text": "NOAA Pacific Marine Environmental Laboratory. n.d. \"Indian Ocean Tsunami Fuels Completion of NOAA Tsunami Warning System.\" https://nctr.pmel.noaa.gov/Articles/5th_anniversary.html.",
+        "url": "https://nctr.pmel.noaa.gov/Articles/5th_anniversary.html"
+      },
+      {
+        "text": "Papadopoulos, Gerassimos A., Riccardo Caputo, Brian McAdoo, et al. 2006. \"The Large Tsunami of 26 December 2004: Field Observations and Eyewitnesses Accounts from Sri Lanka, Maldives Is. and Thailand.\" Earth, Planets and Space 58: 233–41.",
+        "url": null
+      },
+      {
+        "text": "Radio Free Asia. 2024. \"On 20th Anniversary of Indian Ocean Tsunami, Disaster Preparedness Questioned.\" December 23, 2024.",
+        "url": null
+      },
+      {
+        "text": "Science News. 2005. \"Earthshaking Event.\" https://www.sciencenews.org/article/earthshaking-event.",
+        "url": "https://www.sciencenews.org/article/earthshaking-event"
+      },
+      {
+        "text": "Shearer, Peter, and Roland Bürgmann. 2010. \"Lessons Learned from the 2004 Sumatra-Andaman Megathrust Rupture.\" Annual Review of Earth and Planetary Sciences 38: 103–31.",
+        "url": null
+      },
+      {
+        "text": "Stein, Seth, and Emile A. Okal. 2005. \"Speed and Size of the Sumatra Earthquake.\" Nature 434: 581–82.",
+        "url": null
+      },
+      {
+        "text": "Szczuciński, Witold, Grzegorz Rachlewicz, Niran Chaimanee, Darunee Saisuttichai, et al. 2012. \"26 December 2004 Tsunami Deposits Left in Areas of Various Tsunami Runup in Coastal Zone of Thailand.\" Earth, Planets and Space 64: 843–58.",
+        "url": null
+      },
+      {
+        "text": "The New Humanitarian. 2007. \"Disaster Warning Operations Established but Problems Remain.\" https://www.thenewhumanitarian.org/report/75980/thailand-disaster-warning-operations-established-problems-remain.",
+        "url": "https://www.thenewhumanitarian.org/report/75980/thailand-disaster-warning-operations-established-problems-remain"
+      },
+      {
+        "text": "The Thaiger. 2024. \"20th Anniversary: Phuket Looks Back on Boxing Day Tsunami.\" December 26, 2024.",
+        "url": null
+      },
+      {
+        "text": "Tsuji, Yoshinobu, Yuichi Namegaya, Hiroyuki Matsumoto, et al. 2006. \"The 2004 Indian Tsunami in Thailand: Surveyed Runup Heights and Tide Gauge Records.\" Earth, Planets and Space 58: 223–32.",
+        "url": null
+      },
+      {
+        "text": "U.S. Geological Survey. n.d. \"Tsunami Generation from the 2004 M=9.1 Sumatra-Andaman Earthquake.\" Pacific Coastal and Marine Science Center. https://www.usgs.gov/centers/pcmsc/science/tsunami-generation-2004-m91-sumatra-andaman-earthquake.",
+        "url": "https://www.usgs.gov/centers/pcmsc/science/tsunami-generation-2004-m91-sumatra-andaman-earthquake"
+      }
+    ]
   }
 ]

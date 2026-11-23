@@ -879,5 +879,80 @@
         "a": "Die italienische makroseismische Datenbank DBMI15 enthält 123.956 makroseismische Datenpunkte zu 3.228 Erdbeben, und eine frühere Ausgabe deckte die Jahre 1000 bis 2017 ab. Der zugehörige Katalog CPTI15 übersetzt diese Belege in Lokalisierungen und Magnituden für die Gefährdungsabschätzung."
       }
     ]
+  },
+  "phuket-tsunami-2004": {
+    "title": "26. Dezember 2004: Das Sumatra-Andamanen-Erdbeben und der Tsunami, der Phuket erreichte",
+    "dek": "Am 26. Dezember 2004 hob ein Bruch an der Megaüberschiebung vor Sumatra den Meeresboden an und schickte einen Tsunami über die Andamanensee. In Phuket zog sich das Meer zuerst zurück. Hier steht, was geschah und was sich danach änderte.",
+    "sections": [
+      {
+        "h": "Das Erdbeben unter der Andamanensee",
+        "p": [
+          "Am 26. Dezember 2004 um 00:58:53 UTC ereignete sich vor der Westküste Nordsumatras ein Megaüberschiebungsbeben. Thailand ist der UTC sieben Stunden voraus, in Phuket war es also kurz vor 8 Uhr morgens, am Morgen nach Weihnachten (Ioualalen et al. 2007). Der U.S. Geological Survey (USGS) beschreibt ein Erdbeben der Magnitude 9,1, bei dem die Indische Platte, eine ozeanische Platte, unter die Burma-Mikroplatte subduziert wird, einen Teil der größeren Sunda-Platte; die Grenze markiert der Sundagraben. Der Bruch ereignete sich auf der Überschiebung zwischen den Platten, mit sehr geringer schräger Bewegung (U.S. Geological Survey n.d.).",
+          "Es dauerte Monate, bis die Magnitude feststand. Die erste Schätzung von 9,0 beruhte auf Oberflächenwellen. Stein and Okal (2005) analysierten die Eigenschwingungen des gesamten Planeten und ermittelten ein seismisches Moment, das 2,5-mal größer war, als die ersten Berichte nahegelegt hatten; das entspricht Mw 9,3 und wird nur vom Chile-Erdbeben von 1960 übertroffen. Lay et al. (2005) gaben eine Spanne von Mw 9,1 bis 9,3 an. Die Größe hängt also davon ab, welche Wellen und Perioden zur Messung verwendet werden, und die veröffentlichte Spanne liegt weiterhin bei 9,1 bis 9,3.",
+          "Der Bruch der Verwerfung war gewaltig. Science News (2005) berichtet von einem 1.200 bis 1.300 Kilometer langen Bruch. In der ersten Minute rückte die Bruchfront mit etwa 500 Metern pro Sekunde nach Nordwesten vor, beschleunigte dann vier Minuten lang auf etwa 3 Kilometer pro Sekunde und verlangsamte sich danach, setzte sich aber weitere sechs Minuten nach Norden fort. Der Versatz variierte entlang des Bruchs. Lay et al. (2005) berichten von bis zu 15 Metern Versatz nahe Banda Aceh und von wesentlich geringerem, schnellem Versatz weiter nördlich entlang der Nikobaren und Andamanen, während das Tsunami-Modell von Ioualalen et al. (2007) einen Versatz von 12 bis 18 Metern mit einem Maximum von etwa 23 Metern verwendet. Die Schätzungen des maximalen Versatzes unterscheiden sich also zwischen den Studien. Shearer and Bürgmann (2010) ergänzen, dass die Konvergenzraten entlang dieses Plattenrands relativ gering sind, besonders im nördlichen Teil der Bruchzone."
+        ]
+      },
+      {
+        "h": "Wie aus dem Meeresboden eine Welle wurde",
+        "p": [
+          "Science News (2005) erklärt die Ausgangslage: Jahrzehnte tektonischer Bewegung vor dem Erdbeben hatten den Meeresboden westlich von Sumatra unter seine normale, unverbogene Lage gezogen, und der Bruch gab ihn frei. Ioualalen et al. (2007) modellierten etwa 9 bis 10 Meter Hebung auf der Westseite des Grabens und etwa 5 Meter Absenkung auf der Ostseite. Papadopoulos et al. (2006) stellten fest, dass sich der Tsunami nach Westen, nach Sri Lanka und zu den Malediven, mit einem vorauslaufenden Wellenberg ausbreitete und nach Osten, nach Thailand, mit einem vorauslaufenden Wellental. Deshalb sahen die Menschen an thailändischen Stränden das Meer zurückweichen, bevor sie es steigen sahen."
+        ]
+      },
+      {
+        "h": "Phuket am Morgen des 26. Dezember",
+        "p": [
+          "Thailand liegt etwa 500 Kilometer östlich der Quelle (Tsuji et al. 2006). Der Tsunami erreichte die Insel Phuket etwa 100 Minuten nach dem Erdbeben, seine Ankunft lag also gegen 9:40 Uhr Ortszeit, bei Flut und mit einer vorauslaufenden Senkungswelle (Szczuciński et al. 2012). Sieben Pegelaufzeichnungen von der thailändischen Küste zeigen übereinstimmend, dass der Meeresspiegel zuerst 30 bis 60 Minuten lang zurückging und dann anstieg, was zu den Berichten der Überlebenden passt (Tsuji et al. 2006).",
+          "Augenzeugen beschrieben zwei große Wellen im Abstand von etwa 40 Minuten, wobei die zweite meist als die größere geschildert wurde, und manche berichteten von insgesamt bis zu sieben Wellen (Szczuciński et al. 2012). Der Rückzug des Meeres war ein Warnzeichen, und Ioualalen et al. (2007) merken an, dass dieses entscheidende Zeichen oft falsch gedeutet wurde. Mehrere Wellen der Abfolge kamen ohne Rückzug dazwischen an, und die Geschwindigkeit der Wellenfront in Phuket wurde auf 14,4 Kilometer pro Stunde geschätzt (Szczuciński et al. 2012).",
+          "Die Wellenhöhen schwankten entlang der Küste stark. Feldteams maßen Tsunamihöhen von über 5 Metern auf der Insel Phuket und von über 10 Metern in Khao Lak, etwa 50 Kilometer weiter nördlich (Tsuji et al. 2006). Ioualalen et al. (2007) stellten beobachtete Auflaufhöhen an 58 Orten in Thailand zusammen, die von 1,47 bis 11,29 Metern reichten, mit einem Mittelwert von 6,11 Metern, und berichten von den größten Auflaufhöhen von 11 bis 14 Metern nahe Khao Lak. Ihre Simulation gab die beobachteten Auflaufhöhen mit einer Korrelation von 0,92 wieder, einschließlich der starken Schwankung entlang der Küste, was das von ihnen verwendete Quellmodell stützt. Szczuciński et al. (2012) stellten fest, dass die Auflaufhöhe auf ihren Profilen in Phuket unter 6 Metern lag und die gemessenen Wellenhöhen am Kap Pakarang in Phang Nga 15 Meter überstiegen. Ein Riff vor der Insel Kho Khao hielt die Auflaufhöhe entlang des von ihm geschützten Küstenabschnitts unter 3 Metern, während benachbarte ungeschützte Abschnitte 6 Meter überschritten (Szczuciński et al. 2012). Die Tsuji-Erhebung fand die größte Tsunamihöhe, 19,6 Meter, in Ban Thung Dap auf der Insel Phra Thong (Tsuji et al. 2006).",
+          "Das Wasser trug auch Sediment landeinwärts. Tsunamiablagerungen reichten bis zu etwa 1,5 Kilometer weit von der Küste, waren bis zu etwa 40 Zentimeter dick und meist weniger als 10 Zentimeter dick (Szczuciński et al. 2012)."
+        ]
+      },
+      {
+        "h": "Verlorene Leben und umstrittene Zahlen",
+        "p": [
+          "Phuket verzeichnete 259 bestätigte Todesopfer, und Hunderte Menschen gelten weiterhin als vermisst (Thaiger 2024). Die Provinz Phang Nga im Norden traf es weit schwerer: Ioualalen et al. (2007) nennen 8.500 Tote oder Vermisste in Thailand, davon 71 Prozent in Phang Nga. Sie merken an, dass der Anteil Phukets in derselben Quelle an einer Stelle mit 5 Prozent und an einer anderen mit 9 Prozent angegeben wird, sodass der auf Phuket entfallende Anteil an dieser Gesamtzahl unsicher ist.",
+          "Auch die Zahl der Opfer in der Region variiert je nach Quelle. Lay et al. (2005) geben an, dass der Tsunami mehr als 283.000 Todesopfer forderte. Andere veröffentlichte Zählungen liegen niedriger, bei etwa 226.000 (Japan Times 2017), und thailändische Zahlen trennen bestätigte Todesopfer von Vermissten, wie die Zahlen für Phuket zeigen. Eine einzelne Opferzahl für 2004 ist daher als Schätzung zu verstehen."
+        ]
+      },
+      {
+        "h": "Warum es keine Warnung gab",
+        "p": [
+          "2004 gab es im Indischen Ozean kein Tsunami-Warnsystem, obwohl Fachleute eines empfohlen hatten. Als das Erdbeben erfasst wurde, verging einige Zeit, bis sein Tsunamipotenzial beurteilt werden konnte (National Research Council 2006). Mitarbeitende des Pacific Tsunami Warning Center auf Hawaii sagten, sie hätten versucht, die Anrainerstaaten des Indischen Ozeans zu warnen, doch ihnen hätten die Geräte zur Überwachung dieses Teils der Welt und die Telefonnummern der zuständigen Behördenvertreter gefehlt (NBC News 2005). Vor 2004 waren weltweit nur sechs Tiefsee-Tsunamibojen im Einsatz (NOAA Pacific Marine Environmental Laboratory n.d.). Australien, Chile, Indonesien und Thailand haben seitdem solche Bojen als Teil ihrer Warnsysteme ausgebracht (NOAA Pacific Marine Environmental Laboratory n.d.).",
+          "Thailändische Meteorologen hatten einen Präzedenzfall. Smith Thammasaroj, damals Leiter des thailändischen Wetterdienstes, war 1998 Panikmache vorgeworfen worden, als er warnte, dass der Südwestküste ein tödlicher Tsunami drohen könnte (NBC News 2005)."
+        ]
+      },
+      {
+        "h": "Was sich geändert hat",
+        "p": [
+          "Thailand richtete ein Nationales Katastrophenwarnzentrum ein. Bis 2007 verfügte es über 79 Warntürme in den Küstenprovinzen und eine Tiefseeboje im Indischen Ozean, auch wenn die Zuständigkeiten des Zentrums noch unklar waren (The New Humanitarian 2007). 2017 sagte der stellvertretende Generaldirektor der thailändischen Behörde für Katastrophenvorsorge, dass bis zu 80 Prozent des Warnsystems gewartet werden müssten (Japan Times 2017). Zwanzig Jahre nach dem Ereignis berichteten Aktivistinnen und Aktivisten in Thailand, Indonesien und Malaysia, dass Frühwarnsysteme und Bojen vorhanden sind, es aber an Bewusstsein in der Bevölkerung fehlt. Der malaysische Wetterdienst richtete ein Nationales Tsunami-Frühwarnsystem ein, das mit anderen Systemen verknüpft ist, darunter das von den USA betriebene Pacific Tsunami Warning Center auf Hawaii (Radio Free Asia 2024)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Was verursachte den Tsunami im Indischen Ozean von 2004?",
+        "a": "Ein Megaüberschiebungsbeben am 26. Dezember 2004 vor der Westküste Nordsumatras, wo die Indische Platte unter die Burma-Mikroplatte subduziert wird. Der Bruch gab Meeresboden frei, der jahrzehntelang nach unten gezogen worden war, und hob ihn westlich des Grabens um etwa 9 bis 10 Meter an und senkte ihn östlich davon um etwa 5 Meter ab."
+      },
+      {
+        "q": "Wie stark war das Sumatra-Andamanen-Erdbeben von 2004?",
+        "a": "Der U.S. Geological Survey gibt die Magnitude 9,1 an. Die Analyse der Eigenschwingungen der gesamten Erde ergab Mw 9,3, und andere Studien nennen 9,1 bis 9,3, sodass die veröffentlichte Spanne weiterhin bei 9,1 bis 9,3 liegt. Der Bruch war 1.200 bis 1.300 Kilometer lang."
+      },
+      {
+        "q": "Wann erreichte der Tsunami Phuket?",
+        "a": "Etwa 100 Minuten nach dem Erdbeben, gegen 9:40 Uhr Ortszeit. Pegel an der thailändischen Küste zeigen, dass das Meer sich zuerst 30 bis 60 Minuten lang zurückzog, bevor es anstieg, und Augenzeugen beschrieben zwei große Wellen im Abstand von etwa 40 Minuten."
+      },
+      {
+        "q": "Warum zog sich das Meer zurück, bevor der Tsunami Thailand traf?",
+        "a": "Der Tsunami lief mit einem vorauslaufenden Wellental nach Osten, weil der Meeresboden auf der Ostseite des Bruchs absank. An thailändischen Stränden wich das Meer daher zurück, bevor es stieg. Dieses Warnzeichen wurde oft falsch gedeutet."
+      },
+      {
+        "q": "Wie hoch war der Tsunami in Phuket und Khao Lak?",
+        "a": "Feldmessungen ergaben Tsunamihöhen von über 5 Metern auf der Insel Phuket und von über 10 Metern in Khao Lak, mit den größten Auflaufhöhen von 11 bis 14 Metern nahe Khao Lak und einer maximalen Tsunamihöhe von 19,6 Metern auf der Insel Phra Thong."
+      },
+      {
+        "q": "Hat Thailand heute ein Tsunami-Warnsystem?",
+        "a": "Ja. Thailand richtete ein Nationales Katastrophenwarnzentrum ein, das bis 2007 über 79 Warntürme in den Küstenprovinzen und eine Tiefseeboje im Indischen Ozean verfügte. 2017 sagten Behördenvertreter, dass bis zu 80 Prozent des Systems gewartet werden müssten, und 2024 erklärten Aktivistinnen und Aktivisten, dass es weiterhin an Bewusstsein in der Bevölkerung fehle."
+      }
+    ]
   }
 }

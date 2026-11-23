@@ -879,5 +879,80 @@
         "a": "La Base de Datos Macrosísmica Italiana DBMI15 reúne 123 956 datos macrosísmicos de 3228 terremotos, y una versión anterior abarcaba los años 1000 a 2017. El catálogo asociado CPTI15 convierte esa información en localizaciones y magnitudes para la evaluación de la peligrosidad."
       }
     ]
+  },
+  "phuket-tsunami-2004": {
+    "title": "26 de diciembre de 2004: el terremoto de Sumatra-Andamán y el tsunami que llegó a Phuket",
+    "dek": "El 26 de diciembre de 2004, una ruptura de megacabalgamiento frente a Sumatra levantó el fondo marino y envió un tsunami a través del mar de Andamán. En Phuket, el mar se retiró primero. Esto es lo que ocurrió y lo que cambió.",
+    "sections": [
+      {
+        "h": "El terremoto bajo el mar de Andamán",
+        "p": [
+          "A las 00:58:53 UTC del 26 de diciembre de 2004, un terremoto de megacabalgamiento se produjo frente a la costa occidental del norte de Sumatra. Tailandia va siete horas por delante de la hora UTC, de modo que en Phuket eran cerca de las 8 de la mañana, la mañana siguiente a Navidad (Ioualalen et al. 2007). El Servicio Geológico de Estados Unidos (USGS) describe un terremoto de magnitud 9,1 en el que la placa India, una placa oceánica, subduce bajo la microplaca de Birmania, parte de la placa de la Sonda, más grande, con el límite marcado por la fosa de la Sonda. La ruptura se produjo en el cabalgamiento interplaca, con muy poco movimiento oblicuo (U.S. Geological Survey n.d.).",
+          "La magnitud tardó meses en fijarse. La primera estimación, de 9,0, se obtuvo a partir de ondas superficiales. Stein and Okal (2005) analizaron los modos normales de todo el planeta y obtuvieron un momento sísmico 2,5 veces mayor de lo que indicaban los primeros informes, equivalente a Mw 9,3 y solo superado por el terremoto de Chile de 1960. Lay et al. (2005) dieron un intervalo de Mw 9,1 a 9,3. Por tanto, el tamaño depende de las ondas y los periodos que se usan para medirlo, y el intervalo publicado sigue siendo de 9,1 a 9,3.",
+          "La rotura de la falla fue enorme. Science News (2005) informa de una ruptura de 1200 a 1300 kilómetros de longitud. En el primer minuto, el frente de ruptura avanzó hacia el noroeste a unos 500 metros por segundo, después se aceleró hasta unos 3 kilómetros por segundo durante cuatro minutos y luego se ralentizó, pero siguió avanzando hacia el norte durante otros seis minutos. El deslizamiento varió a lo largo de la ruptura. Lay et al. (2005) señalan hasta 15 metros de deslizamiento cerca de Banda Aceh y un deslizamiento mucho menor y rápido más al norte, a lo largo de las islas Nicobar y Andamán, mientras que el modelo de tsunami de Ioualalen et al. (2007) usa un deslizamiento de 12 a 18 metros con un máximo de unos 23 metros. Las estimaciones del deslizamiento máximo difieren, por tanto, entre estudios. Shearer and Bürgmann (2010) añaden que las velocidades de convergencia son relativamente lentas a lo largo de este margen, sobre todo en la parte norte de la zona de ruptura."
+        ]
+      },
+      {
+        "h": "Cómo el fondo marino se convirtió en una ola",
+        "p": [
+          "Science News (2005) explica el punto de partida: décadas de movimiento tectónico antes del terremoto habían arrastrado el fondo marino al oeste de Sumatra por debajo de su posición normal, sin flexionar, y la ruptura lo liberó. Ioualalen et al. (2007) modelaron unos 9 a 10 metros de levantamiento en el lado occidental de la fosa y unos 5 metros de hundimiento en el lado oriental. Papadopoulos et al. (2006) comprobaron que el tsunami se propagó hacia el oeste, hacia Sri Lanka y las Maldivas, encabezado por una cresta, y hacia el este, hacia Tailandia, encabezado por un seno. Por eso, quienes estaban en las playas tailandesas vieron retirarse el mar antes de verlo subir."
+        ]
+      },
+      {
+        "h": "Phuket en la mañana del 26 de diciembre",
+        "p": [
+          "Tailandia se encuentra a unos 500 kilómetros al este de la fuente (Tsuji et al. 2006). El tsunami llegó a la isla de Phuket unos 100 minutos después del terremoto, lo que sitúa su llegada hacia las 9:40 hora local, con marea alta y con una onda inicial de depresión (Szczuciński et al. 2012). Siete registros de mareógrafos de la costa tailandesa muestran que el nivel del mar se retiró primero durante 30 a 60 minutos y después subió, lo que coincide con los relatos de los supervivientes (Tsuji et al. 2006).",
+          "Los testigos describieron dos grandes olas separadas por unos 40 minutos, la segunda en general descrita como la mayor, y algunos hablaron de hasta siete olas en total (Szczuciński et al. 2012). La retirada del mar era una señal de alerta, y Ioualalen et al. (2007) señalan que esta señal crucial a menudo se interpretó mal. Varias olas de la secuencia llegaron sin retirada entre ellas, y la velocidad del frente de onda en Phuket se estimó en 14,4 kilómetros por hora (Szczuciński et al. 2012).",
+          "La altura de las olas varió mucho a lo largo de la costa. Los equipos de campo midieron alturas de tsunami de más de 5 metros en la isla de Phuket y de más de 10 metros en Khao Lak, unos 50 kilómetros al norte (Tsuji et al. 2006). Ioualalen et al. (2007) recopilaron alturas de remonte (runup) observadas en 58 lugares de Tailandia, de 1,47 a 11,29 metros, con una media de 6,11 metros, y señalan los mayores remontes, de 11 a 14 metros, cerca de Khao Lak. Su simulación reprodujo los remontes observados con una correlación de 0,92, incluida la fuerte variación a lo largo de la costa, lo que respalda el modelo de fuente que usaron. Szczuciński et al. (2012) comprobaron que el remonte en sus transectos de Phuket fue inferior a 6 metros y que las alturas de ola medidas superaron los 15 metros en el cabo Pakarang, en Phang Nga. Un arrecife frente a la isla de Kho Khao mantuvo el remonte por debajo de 3 metros en el tramo de costa que protegía, mientras que en sectores cercanos sin protección superó los 6 metros (Szczuciński et al. 2012). La campaña de Tsuji encontró la mayor altura de tsunami, 19,6 metros, en Ban Thung Dap, en la isla de Phra Thong (Tsuji et al. 2006).",
+          "El agua también desplazó sedimentos tierra adentro. Los depósitos de tsunami llegaron hasta unos 1,5 kilómetros de la orilla, alcanzaron hasta unos 40 centímetros de espesor y en su mayoría tenían menos de 10 centímetros (Szczuciński et al. 2012)."
+        ]
+      },
+      {
+        "h": "Vidas perdidas y cifras discutidas",
+        "p": [
+          "Phuket registró 259 muertes confirmadas, y cientos de personas siguen desaparecidas (Thaiger 2024). La provincia de Phang Nga, al norte, sufrió mucho más: Ioualalen et al. (2007) indican 8500 personas muertas o desaparecidas en Tailandia, el 71 % de ellas en Phang Nga. Señalan que la proporción de Phuket figura como el 5 % en un lugar y como el 9 % en otro dentro de la misma fuente, por lo que la fracción de Phuket en ese total es incierta.",
+          "El balance regional también varía según la fuente. Lay et al. (2005) afirman que el tsunami causó más de 283 000 muertes. Otros recuentos publicados son menores, cercanos a 226 000 (Japan Times 2017), y las cifras tailandesas separan las muertes confirmadas de las personas desaparecidas, como muestran los recuentos de Phuket. Por tanto, cualquier cifra única de muertos de 2004 debe leerse como una estimación."
+        ]
+      },
+      {
+        "h": "Por qué no hubo alerta",
+        "p": [
+          "En 2004 no existía un sistema de alerta de tsunamis en el océano Índico, aunque los expertos lo habían recomendado. Cuando se detectó el terremoto, pasó cierto tiempo antes de poder evaluar su potencial para generar un tsunami (National Research Council 2006). El personal del Centro de Alerta de Tsunamis del Pacífico, en Hawái, dijo que intentó avisar a los países del océano Índico, pero carecía de equipos para vigilar esa parte del mundo y de los números de teléfono de los responsables adecuados (NBC News 2005). Antes de 2004 solo había seis boyas de tsunami de aguas profundas en todo el mundo (NOAA Pacific Marine Environmental Laboratory n.d.). Desde entonces, Australia, Chile, Indonesia y Tailandia han desplegado boyas de este tipo como parte de sus sistemas de alerta (NOAA Pacific Marine Environmental Laboratory n.d.).",
+          "Los meteorólogos tailandeses tenían un precedente. Smith Thammasaroj, entonces director del departamento meteorológico de Tailandia, fue acusado de alarmismo en 1998 cuando advirtió de que la costa suroccidental podía sufrir un tsunami mortífero (NBC News 2005)."
+        ]
+      },
+      {
+        "h": "Qué cambió",
+        "p": [
+          "Tailandia creó un Centro Nacional de Alerta de Desastres. En 2007 contaba con 79 torres de alerta en las provincias costeras y una boya de aguas profundas en el océano Índico, aunque las líneas de autoridad del centro aún no estaban claras (The New Humanitarian 2007). En 2017, el director general adjunto del departamento de prevención de desastres de Tailandia dijo que hasta el 80 % del sistema de alerta necesitaba mantenimiento (Japan Times 2017). Veinte años después del suceso, activistas de Tailandia, Indonesia y Malasia informaron de que los sistemas de alerta temprana y las boyas están instalados, pero falta concienciación pública. El departamento meteorológico de Malasia creó un Sistema Nacional de Alerta Temprana de Tsunamis integrado con otros sistemas, entre ellos el Centro de Alerta de Tsunamis del Pacífico, gestionado por Estados Unidos en Hawái (Radio Free Asia 2024)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Qué causó el tsunami del océano Índico de 2004?",
+        "a": "Un terremoto de megacabalgamiento el 26 de diciembre de 2004 frente a la costa occidental del norte de Sumatra, donde la placa India subduce bajo la microplaca de Birmania. La ruptura liberó un fondo marino que había sido arrastrado hacia abajo durante décadas, y lo elevó unos 9 a 10 metros al oeste de la fosa y lo hundió unos 5 metros al este."
+      },
+      {
+        "q": "¿Qué magnitud tuvo el terremoto de Sumatra-Andamán de 2004?",
+        "a": "El Servicio Geológico de Estados Unidos (USGS) le asigna una magnitud de 9,1. El análisis de los modos normales de toda la Tierra dio Mw 9,3, y otros estudios dan de 9,1 a 9,3, por lo que el intervalo publicado sigue siendo de 9,1 a 9,3. La ruptura tuvo de 1200 a 1300 kilómetros de longitud."
+      },
+      {
+        "q": "¿Cuándo llegó el tsunami a Phuket?",
+        "a": "Unos 100 minutos después del terremoto, hacia las 9:40 hora local. Los mareógrafos de la costa tailandesa muestran que el mar se retiró primero durante 30 a 60 minutos antes de subir, y los testigos describieron dos grandes olas separadas por unos 40 minutos."
+      },
+      {
+        "q": "¿Por qué se retiró el mar antes de que el tsunami llegara a Tailandia?",
+        "a": "El tsunami viajó hacia el este encabezado por un seno, porque el fondo marino del lado oriental de la ruptura se hundió. Por eso, en las playas tailandesas el mar se retiró antes de subir. Esta señal de alerta a menudo se interpretó mal."
+      },
+      {
+        "q": "¿Qué altura alcanzó el tsunami en Phuket y Khao Lak?",
+        "a": "Las campañas de campo midieron alturas de tsunami de más de 5 metros en la isla de Phuket y de más de 10 metros en Khao Lak, con los mayores remontes, de 11 a 14 metros, cerca de Khao Lak y una altura máxima de tsunami de 19,6 metros en la isla de Phra Thong."
+      },
+      {
+        "q": "¿Tiene Tailandia ahora un sistema de alerta de tsunamis?",
+        "a": "Sí. Tailandia creó un Centro Nacional de Alerta de Desastres, que en 2007 contaba con 79 torres de alerta en las provincias costeras y una boya de aguas profundas en el océano Índico. En 2017, las autoridades dijeron que hasta el 80 % del sistema necesitaba mantenimiento, y en 2024 activistas afirmaron que sigue faltando concienciación pública."
+      }
+    ]
   }
 }

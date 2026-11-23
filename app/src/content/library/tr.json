@@ -879,5 +879,80 @@
         "a": "İtalya Makrosismik Veritabanı DBMI15, 3.228 depreme ait 123.956 makrosismik veri noktası içerir; daha önceki bir sürüm 1000 ile 2017 arasındaki yılları kapsıyordu. Buna eşlik eden katalog CPTI15, bu kanıtları tehlike değerlendirmesi için konum ve büyüklüklere dönüştürür."
       }
     ]
+  },
+  "phuket-tsunami-2004": {
+    "title": "26 Aralık 2004: Sumatra-Andaman Depremi ve Phuket’e Ulaşan Tsunami",
+    "dek": "26 Aralık 2004’te Sumatra açıklarında meydana gelen bir megabindirme kırılması deniz tabanını yükseltti ve Andaman Denizi boyunca bir tsunami gönderdi. Phuket’te deniz önce çekildi. Neler olduğunu ve neyin değiştiğini burada anlatıyoruz.",
+    "sections": [
+      {
+        "h": "Andaman Denizi’nin altındaki deprem",
+        "p": [
+          "26 Aralık 2004’te saat 00:58:53 UTC’de kuzey Sumatra’nın batı kıyısı açıklarında bir megabindirme depremi meydana geldi. Tayland, UTC’nin yedi saat ilerisindedir; bu nedenle Phuket’te, Noel’in ertesi sabahı, saat 8’e yaklaşıyordu (Ioualalen et al. 2007). ABD Jeolojik Araştırmalar Kurumu, bir okyanus levhası olan Hindistan Levhası’nın, daha büyük Sunda Levhası’nın parçası olan Burma mikrolevhasının altına daldığı 9,1 büyüklüğünde bir deprem tanımlar; iki levha arasındaki sınırı Sunda Çukuru belirler. Kırılma, levhalar arası bindirme fayı üzerinde, çok az eğik hareketle gerçekleşti (U.S. Geological Survey n.d.).",
+          "Büyüklüğün netleşmesi aylar sürdü. 9,0’lık ilk tahmin yüzey dalgalarından elde edildi. Stein and Okal (2005) tüm gezegenin normal modlarını analiz etti ve ilk raporların öngördüğünden 2,5 kat büyük bir sismik moment bildirdi; bu değer Mw 9,3’e karşılık geliyor ve depremi yalnızca 1960 Şili depreminin ardından ikinci sıraya yerleştiriyordu. Lay et al. (2005) Mw 9,1 ile 9,3 arasında bir aralık verdi. Dolayısıyla büyüklük, ölçmek için kullanılan dalgalara ve periyotlara bağlıdır ve yayımlanmış aralık 9,1 ile 9,3 arasında kalmaktadır.",
+          "Fay kırığı muazzamdı. Science News (2005), 1.200 ile 1.300 kilometre uzunluğunda bir kırılma bildirir. İlk dakikada kırılma cephesi saniyede yaklaşık 500 metre hızla kuzeybatıya ilerledi, ardından dört dakika boyunca saniyede yaklaşık 3 kilometreye hızlandı, sonra yavaşladı ama altı dakika daha kuzeye doğru sürdü. Kayma miktarı kırılma boyunca değişti. Lay et al. (2005), Banda Aceh yakınında 15 metreye varan kayma, daha kuzeyde Nikobar ve Andaman Adaları boyunca ise çok daha küçük ve hızlı kayma bildirir; Ioualalen et al. (2007) ise tsunami modellerinde 12 ile 18 metre arasında, en fazla yaklaşık 23 metreye ulaşan bir kayma kullanır. Dolayısıyla en büyük kayma tahminleri çalışmadan çalışmaya farklılık gösterir. Shearer and Bürgmann (2010), bu levha kenarı boyunca, özellikle kırılma zonunun kuzey kesiminde, yakınsama hızlarının görece yavaş olduğunu ekler."
+        ]
+      },
+      {
+        "h": "Deniz tabanı nasıl dalgaya dönüştü",
+        "p": [
+          "Science News (2005) ön koşulları şöyle açıklar: depremden önceki on yıllar boyunca süren tektonik hareket, Sumatra’nın batısındaki deniz tabanını normal, bükülmemiş konumunun altına çekmişti ve kırılma onu serbest bıraktı. Ioualalen et al. (2007), çukurun batı tarafında yaklaşık 9 ile 10 metre yükselme, doğu tarafında ise yaklaşık 5 metre çökme modelledi. Papadopoulos et al. (2006), tsunaminin batıya, Sri Lanka ve Maldivler’e önde bir dalga tepesiyle, doğuya, Tayland’a ise önde bir dalga çukuruyla yayıldığını buldu. Bu nedenle Tayland plajlarındaki insanlar denizin yükseldiğini görmeden önce çekildiğini gördü."
+        ]
+      },
+      {
+        "h": "26 Aralık sabahı Phuket",
+        "p": [
+          "Tayland, kaynağın yaklaşık 500 kilometre doğusunda yer alır (Tsuji et al. 2006). Tsunami Phuket Adası’na depremden yaklaşık 100 dakika sonra ulaştı; bu da varışını yerel saatle 9.40 civarına yerleştirir. Dalgalar yüksek gelgit sırasında ve önde bir alçalma dalgasıyla geldi (Szczuciński et al. 2012). Tayland kıyısından alınan yedi gelgit ölçer kaydının tümü, deniz seviyesinin önce 30 ile 60 dakika boyunca çekildiğini, ardından yükseldiğini gösterir; bu, hayatta kalanların anlatımlarıyla örtüşür (Tsuji et al. 2006).",
+          "Görgü tanıkları yaklaşık 40 dakika arayla gelen iki büyük dalga tarif etti; ikincisi genellikle daha büyük olarak anlatıldı ve bazı tanıklar toplamda yediye kadar dalga bildirdi (Szczuciński et al. 2012). Denizin çekilmesi bir uyarı işaretiydi ve Ioualalen et al. (2007), bu hayati işaretin çoğu zaman yanlış yorumlandığını belirtir. Dizideki dalgaların birkaçı aralarında bir çekilme olmadan geldi ve Phuket’te dalga cephesinin hızı saatte 14,4 kilometre olarak tahmin edildi (Szczuciński et al. 2012).",
+          "Dalga yükseklikleri kıyı boyunca keskin biçimde değişti. Saha ekipleri Phuket Adası’nda 5 metrenin, yaklaşık 50 kilometre kuzeydeki Khao Lak’ta ise 10 metrenin üzerinde tsunami yükseklikleri ölçtü (Tsuji et al. 2006). Ioualalen et al. (2007), Tayland’daki 58 noktada gözlenen, 1,47 ile 11,29 metre arasında değişen ve ortalaması 6,11 metre olan tırmanma yüksekliklerini derledi ve 11 ile 14 metrelik en büyük tırmanma yüksekliklerinin Khao Lak yakınında görüldüğünü bildirdi. Simülasyonları, kıyı boyunca görülen güçlü değişkenlik de dahil olmak üzere gözlenen tırmanma yüksekliklerini 0,92’lik bir korelasyonla yeniden üretti; bu da kullandıkları kaynak modelini destekler. Szczuciński et al. (2012), Phuket’teki kesitlerinde tırmanma yüksekliğinin 6 metrenin altında kaldığını ve Phang Nga’daki Pakarang Burnu’nda ölçülen dalga yüksekliklerinin 15 metreyi aştığını buldu. Kho Khao Adası açıklarındaki bir resif, koruduğu kıyı kesiminde tırmanma yüksekliğini 3 metrenin altında tutarken, yakındaki korumasız kesimlerde bu değer 6 metreyi aştı (Szczuciński et al. 2012). Tsuji araştırması, 19,6 metrelik en yüksek tsunami yüksekliğini Phra Thong Adası’ndaki Ban Thung Dap’ta saptadı (Tsuji et al. 2006).",
+          "Su, tortuları da iç kesimlere taşıdı. Tsunami çökelleri kıyıdan yaklaşık 1,5 kilometre içeriye kadar ulaştı, kalınlıkları yaklaşık 40 santimetreye kadar çıktı ve çoğunlukla 10 santimetreden inceydi (Szczuciński et al. 2012)."
+        ]
+      },
+      {
+        "h": "Kaybedilen canlar ve tartışmalı sayımlar",
+        "p": [
+          "Phuket’te 259 ölüm doğrulandı ve yüzlerce kişiden hâlâ haber alınamıyor (Thaiger 2024). Kuzeydeki Phang Nga ili çok daha ağır kayıplar verdi: Ioualalen et al. (2007), Tayland’da 8.500 kişinin öldüğünü ya da kaybolduğunu ve bunların yüzde 71’inin Phang Nga’da olduğunu bildirir. Yazarlar, aynı kaynakta Phuket’in payının bir yerde yüzde 5, başka bir yerde yüzde 9 olarak verildiğini belirtir; dolayısıyla Phuket’in bu toplamdaki payı belirsizdir.",
+          "Bölgesel bilanço da kaynağa göre değişir. Lay et al. (2005), tsunaminin 283.000’den fazla ölüme yol açtığını belirtir. Yayımlanmış diğer sayımlar daha düşüktür ve 226.000 civarındadır (Japan Times 2017); Tayland verileri ise Phuket sayımlarında görüldüğü gibi doğrulanmış ölümleri kayıp kişilerden ayırır. Bu nedenle 2004 için verilen tek bir ölü sayısı bir tahmin olarak okunmalıdır."
+        ]
+      },
+      {
+        "h": "Neden uyarı yapılmadı",
+        "p": [
+          "Uzmanlar böyle bir sistem önermiş olsa da 2004’te Hint Okyanusu’nda bir tsunami uyarı sistemi yoktu. Deprem algılandığında, tsunami oluşturma potansiyelinin değerlendirilebilmesi için bir süre geçti (National Research Council 2006). Hawaii’deki Pacific Tsunami Warning Center çalışanları, Hint Okyanusu ülkelerini uyarmaya çalıştıklarını, ancak dünyanın o bölgesini izleyecek donanımdan ve doğru yetkililerin telefon numaralarından yoksun olduklarını söyledi (NBC News 2005). 2004’ten önce dünya genelinde yalnızca altı derin okyanus tsunami şamandırası bulunuyordu (NOAA Pacific Marine Environmental Laboratory n.d.). O zamandan bu yana Avustralya, Şili, Endonezya ve Tayland, uyarı sistemlerinin bir parçası olarak bu tür şamandıralar yerleştirdi (NOAA Pacific Marine Environmental Laboratory n.d.).",
+          "Taylandlı tahminciler için bir emsal vardı. O dönem Tayland meteoroloji dairesinin başında bulunan Smith Thammasaroj, 1998’de güneybatı kıyısının ölümcül bir tsunamiyle karşılaşabileceği uyarısında bulunduğunda korku yaymakla suçlanmıştı (NBC News 2005)."
+        ]
+      },
+      {
+        "h": "Neler değişti",
+        "p": [
+          "Tayland bir Ulusal Afet Uyarı Merkezi (National Disaster Warning Center) kurdu. Merkezin 2007’ye gelindiğinde kıyı illerinde 79 uyarı kulesi ve Hint Okyanusu’nda bir derin deniz şamandırası vardı; ancak merkezin yetki hatları hâlâ belirsizdi (The New Humanitarian 2007). 2017’de Tayland afet önleme dairesinin genel müdür yardımcısı, uyarı sisteminin yüzde 80’e varan kısmının bakıma ihtiyaç duyduğunu söyledi (Japan Times 2017). Olaydan yirmi yıl sonra Tayland, Endonezya ve Malezya’daki aktivistler, erken uyarı sistemlerinin ve şamandıraların yerinde olduğunu, ancak halkta farkındalığın eksik kaldığını bildirdi. Malezya meteoroloji dairesi, Hawaii’deki ABD işletimindeki Pacific Tsunami Warning Center da dahil olmak üzere çeşitli sistemlerle entegre bir Ulusal Tsunami Erken Uyarı Sistemi kurdu (Radio Free Asia 2024)."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "2004 Hint Okyanusu tsunamisine ne yol açtı?",
+        "a": "26 Aralık 2004’te kuzey Sumatra’nın batı kıyısı açıklarında, Hindistan Levhası’nın Burma mikrolevhasının altına daldığı yerde meydana gelen bir megabindirme depremi. Kırılma, on yıllardır aşağı çekilmiş olan deniz tabanını serbest bıraktı; tabanı çukurun batısında yaklaşık 9 ile 10 metre yükseltti, doğusunda ise yaklaşık 5 metre alçalttı."
+      },
+      {
+        "q": "2004 Sumatra-Andaman depremi ne kadar güçlüydü?",
+        "a": "ABD Jeolojik Araştırmalar Kurumu büyüklüğü 9,1 olarak verir. Tüm Dünya’nın normal modlarının analizi Mw 9,3 sonucunu verdi, diğer çalışmalar ise 9,1 ile 9,3 arasında değerler verir; dolayısıyla yayımlanmış aralık 9,1 ile 9,3 arasında kalmaktadır. Kırılma 1.200 ile 1.300 kilometre uzunluğundaydı."
+      },
+      {
+        "q": "Tsunami Phuket’e ne zaman ulaştı?",
+        "a": "Depremden yaklaşık 100 dakika sonra, yerel saatle 9.40 civarında. Tayland kıyısındaki gelgit ölçerler, denizin yükselmeden önce 30 ile 60 dakika boyunca çekildiğini gösterir; görgü tanıkları da yaklaşık 40 dakika arayla gelen iki büyük dalga tarif etti."
+      },
+      {
+        "q": "Tsunami Tayland’ı vurmadan önce deniz neden çekildi?",
+        "a": "Kırılmanın doğu tarafındaki deniz tabanı çöktüğü için tsunami doğuya önde bir dalga çukuruyla ilerledi. Bu nedenle Tayland plajlarında deniz yükselmeden önce çekildi. Bu uyarı işareti çoğu zaman yanlış yorumlandı."
+      },
+      {
+        "q": "Tsunami Phuket ve Khao Lak’ta ne kadar yüksekti?",
+        "a": "Saha araştırmaları Phuket Adası’nda 5 metrenin, Khao Lak’ta ise 10 metrenin üzerinde tsunami yükseklikleri ölçtü; 11 ile 14 metrelik en büyük tırmanma yükseklikleri Khao Lak yakınında görüldü ve 19,6 metrelik en yüksek tsunami yüksekliği Phra Thong Adası’nda kaydedildi."
+      },
+      {
+        "q": "Tayland’ın artık bir tsunami uyarı sistemi var mı?",
+        "a": "Evet. Tayland, 2007’ye gelindiğinde kıyı illerinde 79 uyarı kulesine ve Hint Okyanusu’nda bir derin deniz şamandırasına sahip olan bir Ulusal Afet Uyarı Merkezi kurdu. 2017’de yetkililer sistemin yüzde 80’e varan kısmının bakıma ihtiyaç duyduğunu söyledi; 2024’te ise aktivistler halkta farkındalığın hâlâ eksik olduğunu belirtti."
+      }
+    ]
   }
 }

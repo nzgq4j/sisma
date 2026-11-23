@@ -2,7 +2,18 @@
   "alt": "sisma paylaşım kartı. Solda sisma logosu, Derinlemesine etiketi, \"{title}\" başlığı, giriş metninin başı ve {address} adresi. Sağda {image}.",
   "card": {
     "italy_title": "{year} yılından bu yana Apenninler’de {n} adet M6+ deprem",
-    "italy_source": "INGV CPTI15 kataloğu"
+    "italy_source": "INGV CPTI15 kataloğu",
+    "phuket_title": "Sumatra-Andaman depremi, 26 Aralık 2004",
+    "phuket_epicentre": "Dış merkez",
+    "phuket_wave": "Tsunami ≈ 100 dk",
+    "phuket_area": "Phuket ve Phang Nga",
+    "phuket_source": "USGS · OpenStreetMap",
+    "phuket_names": {
+      "phuket": "Phuket",
+      "khaolak": "Khao Lak",
+      "bangkok": "Bangkok",
+      "bandaaceh": "Banda Aceh"
+    }
   },
   "articles": {
     "earthquake-prediction": {
@@ -84,6 +95,14 @@
         "sismoloji"
       ],
       "image": "INGV CPTI15 kataloğuna göre 1279’dan bu yana Apenninler’deki M6+ depremlerle İtalya’nın ana hatları; daireler büyüklüğe göre boyutlandırılmış, Norcia 2016, L'Aquila 2009, Irpinia 1980 ve Marsica 1915 etiketli"
+    },
+    "phuket-tsunami-2004": {
+      "tags": [
+        "tsunami",
+        "deprem",
+        "Tayland"
+      ],
+      "image": "Phuket ve Phang Nga illerinin vurgulandığı bir Tayland ana hat haritası; kuzey Sumatra açıklarındaki M9.1 depreminin USGS dış merkezi ve tsunaminin yaklaşık 100 dakikalık yol süresini gösteren, Phuket’e uzanan kesikli bir çizgi; Khao Lak, Banda Aceh ve Bangkok etiketli"
     }
   }
 }

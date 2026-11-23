@@ -13,7 +13,7 @@
 import { createRequire } from 'node:module';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { geoMercator, geoPath } from 'd3-geo';
+import { geoArea, geoMercator, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 
 // Playwright is not a project dependency: require() also finds a global install (NODE_PATH=$(npm root -g)).
@@ -85,7 +85,7 @@ const LIBRARY_VISUAL = {
   'deep-focus-earthquakes': 'plates', 'volcano-seismology': 'ring',
 };
 /** In Depth articles with a picture of their own instead of a science illustration. */
-const LIBRARY_CUSTOM = { 'italian-earthquakes': italyMap };
+const LIBRARY_CUSTOM = { 'italian-earthquakes': italyMap, 'phuket-tsunami-2004': phuketMap };
 
 /**
  * Outline of Italy (world-atlas 50m) with the M6+ earthquakes of the Apennines since 1279 from the INGV CPTI15 v4.0
@@ -128,6 +128,55 @@ ${dots}${labels}
 <rect y="${H - 52}" width="${W}" height="52" fill="#191431" fill-opacity="0.92"/>
 ${legend(H - 20, 30, 6.5, 'M6–6.9')}${legend(H - 20, 150, 7.1, 'M7+')}
 <text x="${W - 24}" y="${H - 20}" text-anchor="end" font-size="15" fill="#A9A2C6">${words.italy_source}</text></svg>`;
+  return { svg };
+}
+
+/**
+ * Thailand outline (world-atlas 50m) with Phuket and Phang Nga provinces (OpenStreetMap, land only) highlighted, the
+ * USGS epicentre of the 26 December 2004 earthquake off Sumatra, a dashed line to Phuket with the tsunami's travel
+ * time (about 100 minutes, per the article), and Phuket, Khao Lak, Banda Aceh and Bangkok (scripts/data/phuket-2004.json).
+ */
+function phuketMap(lang = 'en') {
+  const world = req('world-atlas/countries-50m.json');
+  const data = req('./data/phuket-2004.json');
+  const words = social(lang).card;
+  const countries = feature(world, world.objects.countries).features;
+  const thai = countries.find(f => f.id === '764');
+  // d3-geo wants clockwise outer rings; GeoJSON from OpenStreetMap is counter-clockwise.
+  const provinces = data.provinces.features.map(f => geoArea(f) > 2 * Math.PI ? { ...f, geometry: { ...f.geometry, coordinates: f.geometry.coordinates.map(r => [...r].reverse()) } } : f);
+  const W = 500, H = 560, { epicentre: ep, places } = data;
+  const frame = { type: 'MultiPoint', coordinates: [[93.6, ep.lat - 2.6], [105.7, 20.5], [93.6, 20.5], [105.7, ep.lat - 2.6]] };
+  const proj = geoMercator().fitExtent([[10, 66], [W - 10, H - 56]], frame);
+  const path = geoPath(proj);
+  const others = countries.filter(f => f !== thai).map(f => path(f)).filter(Boolean).join('');
+  const [ex, ey] = proj([ep.lon, ep.lat]), [px, py] = proj([places.phuket.lon, places.phuket.lat]);
+  const halo = 'stroke="#0C1E36" stroke-width="4" paint-order="stroke"';
+  const place = (p, name, dx, dy, anchor = 'start', size = 17) => {
+    const [x, y] = proj([p.lon, p.lat]);
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="4.5" fill="#F2EFFB" stroke="#0C1E36" stroke-width="1.5"/>
+<text x="${(x + dx).toFixed(1)}" y="${(y + dy).toFixed(1)}" text-anchor="${anchor}" font-size="${size}" font-weight="700" fill="#F2EFFB" ${halo}>${name}</text>`;
+  };
+  const n = words.phuket_names;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" style="display:block">
+<defs><clipPath id="thai"><path d="${path(thai)}"/></clipPath></defs>
+<rect width="${W}" height="${H}" fill="#0C1E36"/>
+<path d="${others}" fill="#173A2A" fill-opacity="0.55" stroke="#2C5443" stroke-width="1"/>
+<path d="${path(thai)}" fill="#1E4A35" stroke="#8FD1B0" stroke-width="2.5" stroke-linejoin="round"/>
+<g clip-path="url(#thai)">${provinces.map(f => `<path d="${path(f)}" fill="#FF7A59" fill-opacity="0.95"/>`).join('')}</g>
+${(() => { const [[x0, y0], [x1, y1]] = path.bounds({ type: 'FeatureCollection', features: provinces }); const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, r = Math.max(x1 - x0, y1 - y0) / 2 + 9;
+  return `<circle cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" r="${r.toFixed(1)}" fill="#FF7A59" fill-opacity="0.12" stroke="#FF7A59" stroke-width="2.5"/>`; })()}
+<path d="M${ex.toFixed(1)} ${ey.toFixed(1)}Q${((ex + px) / 2 - 30).toFixed(1)} ${((ey + py) / 2 - 10).toFixed(1)} ${(px - 6).toFixed(1)} ${(py + 4).toFixed(1)}" fill="none" stroke="#7FD3FF" stroke-width="2.5" stroke-dasharray="7 6"/>
+<text x="${((ex + px) / 2 + 2).toFixed(1)}" y="${((ey + py) / 2 + 22).toFixed(1)}" font-size="16" font-weight="700" fill="#7FD3FF" ${halo}>${words.phuket_wave}</text>
+${place(places.bangkok, n.bangkok, 9, 6)}${place(places.bandaaceh, n.bandaaceh, -10, 5, 'end', 15)}
+${place(places.khaolak, n.khaolak, -10, 0, 'end')}${place(places.phuket, n.phuket, 10, 14)}
+<g transform="translate(${ex.toFixed(1)},${ey.toFixed(1)})"><circle r="26" fill="none" stroke="#B5179E" stroke-opacity="0.45" stroke-width="6"/><circle r="10" fill="#B5179E" stroke="#0C1E36" stroke-width="2"/><circle r="17" fill="none" stroke="#F2EFFB" stroke-width="3"/></g>
+<text x="${(ex + 32).toFixed(1)}" y="${(ey - 4).toFixed(1)}" font-size="18" font-weight="800" fill="#F2EFFB" ${halo}>${words.phuket_epicentre}</text>
+<text x="${(ex + 32).toFixed(1)}" y="${(ey + 17).toFixed(1)}" font-size="15" font-weight="600" fill="#A9A2C6" ${halo}>Mw ${ep.mag.toFixed(1)} · ${ep.depthKm} km</text>
+<rect width="${W}" height="62" fill="#191431" fill-opacity="0.92"/>
+<text x="24" y="38" font-size="19" font-weight="700" fill="#CFC8F2">${words.phuket_title}</text>
+<rect y="${H - 52}" width="${W}" height="52" fill="#191431" fill-opacity="0.92"/>
+<circle cx="35" cy="${H - 26}" r="9" fill="#FF7A59" fill-opacity="0.35" stroke="#FF7A59" stroke-width="2.5"/><text x="54" y="${H - 20}" font-size="16" font-weight="600" fill="#E4DFF5">${words.phuket_area}</text>
+<text x="${W - 24}" y="${H - 20}" text-anchor="end" font-size="14" fill="#A9A2C6">${words.phuket_source}</text></svg>`;
   return { svg };
 }
 
