@@ -3,7 +3,7 @@
 // (public/og/<locale>/library-<id>.jpg; English: public/og/library-<id>.jpg) and a link that opens the article in that
 // language (?lang=), tagged #geosky and #sciencesky. When switched on, the every-minute alert job posts twice a day, at a random minute in each half of
 // the UTC day (00:00–12:00 and 12:00–24:00), choosing a random article and language among the combinations not yet
-// posted in the current round; once every combination has been posted the next round starts. An article added later
+// posted in the current round (never the previous post's language or article while others remain); once every combination has been posted the next round starts. An article added later
 // joins the current round. A post made by hand from the admin page counts as the post for that half-day.
 // Hashtags, card descriptions and the alt-text wording per language: content/library-social/<locale>.json.
 import type { SupabaseClient } from '@supabase/supabase-js';
@@ -76,9 +76,19 @@ export function draftLibraryPostIn(article: string, l: LibraryPostLocale): Libra
 }
 
 /** A random combination not in `used` (keys from comboKey), or null when every one has been posted. */
-export function pickCombo(used: Set<string>, rand = Math.random, ids?: string[]) {
-  const left = allCombos(ids).filter(c => !used.has(comboKey(c.article, c.locale)));
-  return left.length ? left[Math.min(left.length - 1, Math.floor(rand() * left.length))] : null;
+export function pickCombo(used: Set<string>, rand = Math.random, ids?: string[], last?: { article: string; locale: string } | null) {
+  return spread(allCombos(ids).filter(c => !used.has(comboKey(c.article, c.locale))), last, rand);
+}
+
+/**
+ * A random one of `left`, avoiding the language and the article of the previous post while other choices remain, so
+ * both the article and the language vary from one post to the next.
+ */
+export function spread<T extends { article: string; locale: string }>(left: T[], last: { article: string; locale: string } | null | undefined, rand = Math.random): T | null {
+  if (!left.length) return null;
+  const tiers = last ? [left.filter(c => c.locale !== last.locale && c.article !== last.article), left.filter(c => c.locale !== last.locale), left] : [left];
+  const pool = tiers.find(t => t.length)!;
+  return pool[Math.min(pool.length - 1, Math.floor(rand() * pool.length))];
 }
 
 // --- Two posts a day: one at a random minute in each half of the UTC day ---
@@ -122,7 +132,9 @@ async function chooseCombo(db: SupabaseClient, s: LibraryPostSettings, want?: { 
     left = allCombos().filter(fits);
   }
   if (!left.length) left = allCombos().filter(fits); // that article (or language) is done this round: a repeat by hand
-  const c = left[Math.floor(Math.random() * left.length)];
+  const { data: prev } = await db.from('library_posts').select('article_id, locale').neq('status', 'failed').order('created_at', { ascending: false }).limit(1);
+  const last = (prev as { article_id: string; locale: string }[] | null)?.[0];
+  const c = spread(left, last ? { article: last.article_id, locale: last.locale } : null)!;
   return { ...c, cycle };
 }
 

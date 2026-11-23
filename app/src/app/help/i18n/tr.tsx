@@ -261,7 +261,7 @@ export const TOPICS: Topic[] = [
             <li><strong>E-posta adresini değiştirme</strong>: bu henüz uygulamada mümkün değil. Mevcut adresinden <a href={`mailto:${MAIL}`}>{MAIL}</a> adresine yaz.</li>
           </ul>
         </div>
-        <Shot src="me" alt="Profil’deki Hesap bölümü: görünen ad, e-posta, şifre, çıkış, yardım ve destek, hesabı silme" caption="Hesap, Profil’in en altında" />
+        <Shot src="me" alt="Profil’deki Hesap bölümü: yardım ve destek, görünen ad, e-posta, şifre ve çıkış; hesabı silme ise kırmızı çerçeveli ayrı bir kartta" caption="Hesap, Profil’in en altında" />
       </div>
 
       <h3 id="delete-account">Hesabını sil</h3>

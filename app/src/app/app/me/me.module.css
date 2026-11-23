@@ -37,6 +37,8 @@ div.row { cursor: default; }
 .check { font-size: 20px; color: var(--violet-text); }
 .accent { color: var(--violet-text); font-weight: 700; }
 .dangerRow, .dangerRow > :global(.ms):first-child { color: var(--warm-text) !important; }
+/* Delete account: its own card, outlined in red (the tsunami-warning red, light and dark). */
+.dangerCard { border: 1.5px solid var(--tsu-warning); }
 .lock { font-size: 11px; font-weight: 800; color: var(--violet-text); background: var(--violet-soft); padding: 4px 8px; border-radius: 8px; display: flex; align-items: center; gap: 3px; }
 .lock :global(.ms) { font-size: 13px; }
 .switch { width: 48px; height: 28px; border-radius: 14px; background: var(--line); display: flex; align-items: center; padding: 3px; box-sizing: border-box; transition: background .15s; flex: none; }

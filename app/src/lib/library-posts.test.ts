@@ -5,7 +5,7 @@ import { BLUESKY_MAX_ALT, BLUESKY_MAX_GRAPHEMES, graphemes } from './bluesky';
 import { LIBRARY } from './library';
 import {
   allCombos, comboKey, draftLibraryPostIn, firstSlot, libraryPostImage, libraryPostTotal, libraryPostUrl, LIBRARY_POST_LOCALES,
-  nextSlot, pickCombo, sameHalfDay,
+  nextSlot, pickCombo, sameHalfDay, type LibraryPostLocale,
 } from './library-posts';
 
 const enc = new TextEncoder();
@@ -58,6 +58,25 @@ describe('choosing a post', () => {
       used.add(k);
     }
     expect(pickCombo(used, rand)).toBeNull();
+  });
+  it('varies both the article and the language from one post to the next', () => {
+    const used = new Set<string>();
+    let last: { article: string; locale: LibraryPostLocale } | null = null, seq = 0.11;
+    const rand = () => (seq = (seq * 9301 + 49297) % 233280 / 233280);
+    const total = libraryPostTotal();
+    for (let i = 0; i < total; i++) {
+      const c: { article: string; locale: LibraryPostLocale } = pickCombo(used, rand, undefined, last)!;
+      // Until the very end of a round there is always an unused pair in another language and article.
+      if (last && i < total - 20) { expect(c.locale, `post ${i}`).not.toBe(last.locale); expect(c.article, `post ${i}`).not.toBe(last.article); }
+      used.add(comboKey(c.article, c.locale)); last = c;
+    }
+    expect(used.size).toBe(total);
+  });
+  it('uses every language and article early in a round', () => {
+    const used = new Set<string>(); let last: { article: string; locale: LibraryPostLocale } | null = null;
+    const seen = { l: new Set<string>(), a: new Set<string>() };
+    for (let i = 0; i < 30; i++) { const c: { article: string; locale: LibraryPostLocale } = pickCombo(used, Math.random, undefined, last)!; used.add(comboKey(c.article, c.locale)); last = c; seen.l.add(c.locale); seen.a.add(c.article); }
+    expect(seen.l.size).toBeGreaterThanOrEqual(8);
   });
   it('a new article joins the round', () => {
     const ids = LIBRARY.slice(0, 2).map(a => a.id);

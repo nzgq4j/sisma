@@ -261,7 +261,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Mengubah alamat email</strong>: belum bisa dilakukan di aplikasi. Kirim email ke <a href={`mailto:${MAIL}`}>{MAIL}</a> dari alamat Anda saat ini.</li>
           </ul>
         </div>
-        <Shot src="me" alt="Bagian Akun di Saya: nama tampilan, email, kata sandi, keluar, bantuan dan dukungan, serta hapus akun" caption="Akun, di bagian bawah Saya" />
+        <Shot src="me" alt="Bagian Akun di Saya: bantuan dan dukungan, nama tampilan, email, kata sandi, dan keluar, dengan hapus akun di kartu tersendiri berbingkai merah" caption="Akun, di bagian bawah Saya" />
       </div>
 
       <h3 id="delete-account">Menghapus akun Anda</h3>

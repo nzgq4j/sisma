@@ -2,7 +2,8 @@
 // with its own hashtags and image description (content/promo/<locale>.json), illustrated with that language's Play
 // Store screenshot or feature graphic (public/promo/<locale>/<image>.jpg) and linked to the Play listing in that
 // language. When switched on, the every-minute alert job posts one a day at a random time (UTC), choosing a random
-// post and language among the combinations not yet posted in the current round; after all 100 the next round starts.
+// post and language among the combinations not yet posted in the current round (not the previous post's language or post
+// while others remain); after all 100 the next round starts.
 // A post made by hand from the admin page counts as that day's post. docs/bluesky-setup.md
 import type { SupabaseClient } from '@supabase/supabase-js';
 import en from '@/content/promo/en.json';
@@ -56,9 +57,16 @@ export function draftPromo(p: PromoId, l: PromoLocale): PromoDraft {
 export const allCombos = () => PROMO_IDS.flatMap(p => PROMO_LOCALES.map(l => ({ post: p, locale: l })));
 
 /** A random combination not in `used` (keys from comboKey), or null when every one has been posted. */
-export function pickCombo(used: Set<string>, rand = Math.random) {
-  const left = allCombos().filter(c => !used.has(comboKey(c.post, c.locale)));
-  return left.length ? left[Math.min(left.length - 1, Math.floor(rand() * left.length))] : null;
+export function pickCombo(used: Set<string>, rand = Math.random, last?: { post: string; locale: string } | null) {
+  return spread(allCombos().filter(c => !used.has(comboKey(c.post, c.locale))), last, rand);
+}
+
+/** A random one of `left`, avoiding the language and the post of the previous one while other choices remain. */
+export function spread<T extends { post: string; locale: string }>(left: T[], last: { post: string; locale: string } | null | undefined, rand = Math.random): T | null {
+  if (!left.length) return null;
+  const tiers = last ? [left.filter(c => c.locale !== last.locale && c.post !== last.post), left.filter(c => c.locale !== last.locale), left] : [left];
+  const pool = tiers.find(t => t.length)!;
+  return pool[Math.min(pool.length - 1, Math.floor(rand() * pool.length))];
 }
 
 const DAY = 86_400_000, MINUTE = 60_000;
@@ -101,7 +109,9 @@ async function chooseCombo(db: SupabaseClient, s: PromoSettings, want?: { post?:
     left = allCombos().filter(fits);
   }
   if (!left.length) left = allCombos().filter(fits); // that post (or language) is done this round: allow a repeat by hand
-  const c = left[Math.floor(Math.random() * left.length)];
+  const { data: prev } = await db.from('promo_posts').select('post_id, locale').neq('status', 'failed').order('created_at', { ascending: false }).limit(1);
+  const last = (prev as { post_id: string; locale: string }[] | null)?.[0];
+  const c = spread(left, last ? { post: last.post_id, locale: last.locale } : null)!;
   return { ...c, cycle };
 }
 
