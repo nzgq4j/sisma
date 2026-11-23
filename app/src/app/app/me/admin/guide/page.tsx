@@ -2,7 +2,7 @@
 // Me → Administration → Admin guide: how the administration features work, for the sisma team only. English (the
 // team's working language), shown to administrators only, and kept out of search like every page under /app/me
 // (noindex in app/app/me/layout.tsx and the X-Robots-Tag header). Keep it in step with app/me/admin, components/admin,
-// lib/bluesky.ts, lib/promo.ts and docs/bluesky-setup.md.
+// lib/bluesky.ts, lib/promo.ts, lib/library-posts.ts and docs/bluesky-setup.md.
 import Link from 'next/link';
 import { useT } from '@/i18n/I18nProvider';
 import { useIsAdmin } from '@/components/admin/LibraryBluesky';
@@ -22,7 +22,7 @@ export default function AdminGuidePage() {
       <h1 className={sub.h1} lang="en">Admin guide</h1>
       <div className={help.doc} lang="en">
         <p>Everything in <Ui>Me → Administration</Ui> posts to sisma’s Bluesky account. Only accounts marked as administrators see the page, and the server checks again on every action. Nothing is posted until you switch a feed on or press <Ui>Post now</Ui>.</p>
-        <p>Sections: <a href="#connect">Bluesky account</a> · <a href="#quakes">Automatic earthquake posts</a> · <a href="#indepth">In Depth on Bluesky</a> · <a href="#playstore">Play Store posts</a> · <a href="#lists">Lists</a></p>
+        <p>Sections: <a href="#connect">Bluesky account</a> · <a href="#quakes">Automatic earthquake posts</a> · <a href="#indepth">In Depth on Bluesky</a> · <a href="#playstore">Play Store posts</a> · <a href="#indepthposts">In Depth posts</a> · <a href="#lists">Lists</a></p>
 
         <h2 id="connect">Bluesky account</h2>
         <ol>
@@ -56,7 +56,7 @@ export default function AdminGuidePage() {
           <li>Check the card, the text (title, opening, link and hashtags) and the image description. Edit either one if you want; the counts show the limits (300 characters for the text, 2,000 for the description), and <Ui>Post now</Ui> stays off while either is over.</li>
           <li><Ui>Reset</Ui> brings back the suggested text and description. <Ui>Post now</Ui> publishes it with the card.</li>
         </ol>
-        <p>On each In Depth article, administrators also see a Bluesky button next to <Ui>Share</Ui> that opens the same editor. Posts are in English. Links and #hashtags in your text become clickable. These posts aren’t logged, so posting an article twice makes two posts.</p>
+        <p>On each In Depth article, administrators also see a Bluesky button next to <Ui>Share</Ui> that opens the same editor. Posts are in English, and the suggested text ends with the article’s hashtags plus #geosky and #sciencesky. Links and #hashtags in your text become clickable. These posts aren’t logged, so posting an article twice makes two posts.</p>
 
         <h2 id="playstore">Play Store posts</h2>
         <p>Ten posts about the Android app, each written in all 10 languages, with that language’s Play Store picture, an image description and a link to the Play listing in that language: 100 combinations in all.</p>
@@ -68,8 +68,18 @@ export default function AdminGuidePage() {
         </ul>
         <Callout kind="note"><p>A post made with <Ui>Post now</Ui> counts as that day’s post: if the automatic one was still due today, it moves to tomorrow. A post that fails stays unused and can come up again.</p></Callout>
 
+        <h2 id="indepthposts">In Depth posts</h2>
+        <p>Every In Depth article in all 10 languages, each with its title, standfirst and hashtags in that language plus #geosky and #sciencesky (the Bluesky science feeds), the share card in that language with an image description, and a link that opens the article in that language. Ten articles make 100 combinations; a new article joins the current round.</p>
+        <ul>
+          <li><Ui>Post twice a day</Ui>: one post in each half of the day (00:00–12:00 and 12:00–24:00 UTC) at a random time, a random article and language not yet posted this round. Switching it on schedules the first post later in the current half of the day.</li>
+          <li><Ui>Next post</Ui>: when the next automatic post is due.</li>
+          <li><Ui>This round</Ui>: how many combinations have been posted. When all of them have been posted, a new round starts.</li>
+          <li><Ui>Post now</Ui>: leave <Ui>Article</Ui> and <Ui>Language</Ui> on <Ui>Random</Ui> for an unused combination, or choose both to see the card, text and image description first. A combination already posted this round is marked; posting it again repeats it.</li>
+        </ul>
+        <Callout kind="note"><p>A post made with <Ui>Post now</Ui> counts as the post for that half of the day: if the automatic one was still due in the same half, it moves to the next half. A post that fails stays unused and can come up again.</p></Callout>
+
         <h2 id="lists">Lists</h2>
-        <p><Ui>Last 24 hours (M4.5+)</Ui>, <Ui>Posts</Ui> and <Ui>Recent Play Store posts</Ui> start closed, with the number of items on the right. Tap a header to open or close the list.</p>
+        <p><Ui>Last 24 hours (M4.5+)</Ui>, <Ui>Posts</Ui>, <Ui>Recent Play Store posts</Ui> and <Ui>Recent In Depth posts</Ui> start closed, with the number of items on the right. Tap a header to open or close the list.</p>
 
         <h2>Good practice</h2>
         <ul>

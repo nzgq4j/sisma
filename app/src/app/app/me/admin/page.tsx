@@ -2,7 +2,8 @@
 // Me → Administration (profiles.is_admin only; every request is re-checked by /api/admin/*): automatic Bluesky posts —
 // on/off, minimum magnitude, the last 24 hours of M4.5+ events with a preview of each post (card image, text, alt text)
 // and "Post now", the log of posts with links, In Depth articles to post by hand (components/admin/LibraryBluesky) and
-// the daily Play Store posts (components/admin/PromoPosts).
+// the daily Play Store posts (components/admin/PromoPosts) and the twice-daily In Depth posts in 10 languages
+// (components/admin/LibraryPosts).
 // Posting itself is in lib/bluesky.ts (every-minute alert job).
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
@@ -12,6 +13,7 @@ import { MagBadge } from '@/components/MagBadge';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import { LibraryBlueskyComposer } from '@/components/admin/LibraryBluesky';
 import { PromoPosts } from '@/components/admin/PromoPosts';
+import { LibraryPosts } from '@/components/admin/LibraryPosts';
 import { Collapsible } from '@/components/admin/Collapsible';
 import { useLibraryTranslation } from '@/components/science/Library';
 import { LIBRARY, localLibrary } from '@/lib/library';
@@ -148,6 +150,8 @@ export default function AdminPage() {
       </Collapsible>
 
       <PromoPosts />
+
+      <LibraryPosts />
 
       <Sheet open={magOpen} onClose={() => setMagOpen(false)} title={k.min}>
         <SheetOptions value={String(s.minMagnitude)} onPick={v => { setMagOpen(false); void save({ minMagnitude: Number(v) }); }}

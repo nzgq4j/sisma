@@ -1,0 +1,89 @@
+{
+  "alt": "sisma-Teilen-Karte. Links das sisma-Logo, das Label Im Detail, der Titel „{title}“, der Anfang des Vorspanns und die Adresse {address}. Rechts {image}.",
+  "card": {
+    "italy_title": "{n} Erdbeben M6+ im Apennin seit {year}",
+    "italy_source": "INGV-Katalog CPTI15"
+  },
+  "articles": {
+    "earthquake-prediction": {
+      "tags": [
+        "Erdbeben",
+        "Seismologie",
+        "Wissenschaft"
+      ],
+      "image": "das Magnituden-Widget der App bei M6.0 mit Kreisen für M4.0, M5.0 und M6.0, deren Flächen die freigesetzte Energie zeigen (jede Stufe etwa 32-mal mehr), einer geschätzten Energie von etwa 15 Kilotonnen TNT und etwa 158 solchen Erdbeben pro Jahr weltweit"
+    },
+    "plate-tectonics-subduction": {
+      "tags": [
+        "Plattentektonik",
+        "Subduktion",
+        "Erdbeben"
+      ],
+      "image": "ein Querschnitt durch eine konvergente Plattengrenze: Eine ozeanische Platte biegt sich nach unten unter eine kontinentale Platte, mit einem Vulkan auf dem Kontinent über der abtauchenden Platte"
+    },
+    "faults-and-stress": {
+      "tags": [
+        "Geologie",
+        "Verwerfungen",
+        "Erdbeben"
+      ],
+      "image": "ein Querschnitt durch eine Abschiebung: geschichtetes Gestein, durchschnitten von einer gestrichelten Verwerfungslinie, Pfeile, die die beiden Seiten auseinanderziehen, und die hangende Scholle, die an der liegenden Scholle hinabgleitet"
+    },
+    "earth-interior-seismic-waves": {
+      "tags": [
+        "Seismologie",
+        "Geophysik",
+        "Geowissenschaften"
+      ],
+      "image": "ein Gitter aus Teilchen, das eine P-Welle zeigt: Das Gestein wird in Ausbreitungsrichtung gestaucht und gedehnt, eine Teilchenspalte ist hervorgehoben"
+    },
+    "aftershocks-and-hazards": {
+      "tags": [
+        "Nachbeben",
+        "Erdbeben",
+        "Geologie"
+      ],
+      "image": "zwei Diagramme: aktuelle Erdbeben nach Tiefe gruppiert (flach, mitteltief und tief, die meisten flach) und die Zahl der Nachbeben pro Tag nach einem Hauptbeben, die über zehn Tage rasch abnimmt, wie das Omori-Gesetz beschreibt"
+    },
+    "surface-waves-and-damage": {
+      "tags": [
+        "Erdbeben",
+        "Seismologie",
+        "Erdbebeningenieurwesen"
+      ],
+      "image": "das Seismikwellen-Widget der App im Tab Oberfläche: ein Gitter aus Teilchen, die sich in einer rollenden Welle in Ausbreitungsrichtung bewegen"
+    },
+    "magnitude-scales": {
+      "tags": [
+        "Erdbeben",
+        "Seismologie",
+        "Magnitude"
+      ],
+      "image": "das Magnituden-Widget der App bei M6.0 mit Kreisen für M4.0, M5.0 und M6.0, deren Flächen die freigesetzte Energie zeigen (jede Stufe etwa 32-mal mehr), einer geschätzten Energie von etwa 15 Kilotonnen TNT und etwa 158 solchen Erdbeben pro Jahr weltweit"
+    },
+    "deep-focus-earthquakes": {
+      "tags": [
+        "Erdbeben",
+        "Seismologie",
+        "Subduktion"
+      ],
+      "image": "ein Querschnitt durch eine konvergente Plattengrenze: Eine ozeanische Platte taucht unter eine kontinentale Platte ab, Erdbeben zeichnen die abtauchende Platte bis in etwa 700 km Tiefe nach"
+    },
+    "volcano-seismology": {
+      "tags": [
+        "Vulkan",
+        "Seismologie",
+        "Erdbeben"
+      ],
+      "image": "eine Weltkarte aktueller Erdbeben ab M4.5, auf der die am Feuerring, dem Gürtel aus Tiefseegräben und Vulkanen rund um den Pazifik, hervorgehoben sind"
+    },
+    "italian-earthquakes": {
+      "tags": [
+        "Erdbeben",
+        "Italien",
+        "Seismologie"
+      ],
+      "image": "ein Umriss Italiens mit den Erdbeben M6+ im Apennin seit 1279 aus dem INGV-Katalog CPTI15, nach Magnitude skaliert, beschriftet mit Norcia 2016, L’Aquila 2009, Irpinia 1980 und Marsica 1915"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "alt": "Scheda di condivisione di sisma. A sinistra, il logo di sisma, l’etichetta Approfondimenti, il titolo \"{title}\", l’inizio del sommario e l’indirizzo {address}. A destra, {image}.",
+  "card": {
+    "italy_title": "{n} terremoti M6+ nell’Appennino dal {year}",
+    "italy_source": "Catalogo INGV CPTI15"
+  },
+  "articles": {
+    "earthquake-prediction": {
+      "tags": [
+        "terremoto",
+        "sismologia",
+        "scienza"
+      ],
+      "image": "il widget della magnitudo dell’app su M6.0, con cerchi per M4.0, M5.0 e M6.0 la cui area mostra l’energia rilasciata (ogni passo circa 32 volte di più), un’energia stimata di circa 15 kilotoni di TNT e circa 158 terremoti di questo tipo all’anno nel mondo"
+    },
+    "plate-tectonics-subduction": {
+      "tags": [
+        "tettonica",
+        "subduzione",
+        "terremoto"
+      ],
+      "image": "una sezione di un margine convergente: una placca oceanica si piega e scende sotto una placca continentale, con un vulcano sul continente sopra la placca che sprofonda"
+    },
+    "faults-and-stress": {
+      "tags": [
+        "geologia",
+        "faglie",
+        "terremoto"
+      ],
+      "image": "una sezione di una faglia diretta: roccia stratificata tagliata da una linea di faglia tratteggiata, frecce che allontanano i due lati e il tetto che scivola verso il basso rispetto al letto"
+    },
+    "earth-interior-seismic-waves": {
+      "tags": [
+        "sismologia",
+        "geofisica",
+        "scienzedellaterra"
+      ],
+      "image": "una griglia di particelle che mostra un’onda P: la roccia si comprime e si dilata nella direzione di propagazione, con una colonna di particelle evidenziata"
+    },
+    "aftershocks-and-hazards": {
+      "tags": [
+        "repliche",
+        "terremoto",
+        "geologia"
+      ],
+      "image": "due grafici: i terremoti recenti raggruppati per profondità (superficiali, intermedi e profondi, la maggior parte superficiali) e il numero di repliche al giorno dopo una scossa principale, che cala rapidamente in dieci giorni come descrive la legge di Omori"
+    },
+    "surface-waves-and-damage": {
+      "tags": [
+        "terremoto",
+        "sismologia",
+        "ingegneriasismica"
+      ],
+      "image": "il widget delle onde sismiche dell’app sulla scheda Superficiale: una griglia di particelle che si muovono in un’onda ondulata nella direzione di propagazione"
+    },
+    "magnitude-scales": {
+      "tags": [
+        "terremoto",
+        "sismologia",
+        "magnitudo"
+      ],
+      "image": "il widget della magnitudo dell’app su M6.0, con cerchi per M4.0, M5.0 e M6.0 la cui area mostra l’energia rilasciata (ogni passo circa 32 volte di più), un’energia stimata di circa 15 kilotoni di TNT e circa 158 terremoti di questo tipo all’anno nel mondo"
+    },
+    "deep-focus-earthquakes": {
+      "tags": [
+        "terremoto",
+        "sismologia",
+        "subduzione"
+      ],
+      "image": "una sezione di un margine convergente: una placca oceanica sprofonda sotto una placca continentale, con terremoti che seguono la placca fino a circa 700 km"
+    },
+    "volcano-seismology": {
+      "tags": [
+        "vulcani",
+        "sismologia",
+        "terremoto"
+      ],
+      "image": "una mappa del mondo con i terremoti recenti di M4.5+, con evidenziati quelli sull’Anello di Fuoco, la fascia di fosse oceaniche e vulcani attorno al Pacifico"
+    },
+    "italian-earthquakes": {
+      "tags": [
+        "terremoto",
+        "Italia",
+        "sismologia"
+      ],
+      "image": "il profilo dell’Italia con i terremoti M6+ dell’Appennino dal 1279 secondo il catalogo INGV CPTI15, di dimensioni proporzionali alla magnitudo, con le etichette Norcia 2016, L’Aquila 2009, Irpinia 1980 e Marsica 1915"
+    }
+  }
+}
