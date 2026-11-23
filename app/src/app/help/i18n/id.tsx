@@ -54,7 +54,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Terkuat</strong>: magnitudo tertinggi lebih dulu.</li>
           </ul>
           <p>Setiap baris menampilkan magnitudo dalam lencana berwarna, tempatnya beserta bendera negara tempatnya berada atau yang terdekat, berapa lama yang lalu terjadi, seberapa jauh dari Anda, dan seberapa dalam. Terus gulir dan gempa lainnya ditambahkan saat Anda mencapai akhir daftar.</p>
-          <p>Di komputer, daftar ada di halaman <Ui>Ringkasan</Ui>, item pertama di menu kiri, dengan peta di sampingnya. Pilih gempa di daftar atau di peta dan peta akan memperbesar ke gempa itu, dengan nama kota di sekitarnya. Peta tetap di sana saat Anda menutup gempa; <Ui>Atur ulang tampilan</Ui> menampilkan seluruh dunia lagi.</p>
+          <p>Di komputer, daftar ada di halaman <Ui>Ringkasan</Ui>, item pertama di menu kiri, dengan peta di sampingnya. Pilih gempa di daftar atau di peta dan peta akan memperbesar ke gempa itu, dengan nama kota di sekitarnya. Peta tetap di sana saat Anda menutup gempa; <Ui>Atur ulang tampilan</Ui> menampilkan seluruh dunia lagi. Pilih negara atau wilayah di <Ui>Tempat</Ui> di kanan atas, atau ketuk salah satu di <Ui>Wilayah teratas</Ui>, dan peta memperbesar ke gempa-gempanya; <Ui>Semua tempat</Ui> menampilkan seluruh dunia lagi.</p>
           <h3>Warna magnitudo</h3>
           <p>Warna yang sama dipakai di daftar, di peta, dan di globe:</p>
           <MagLegend words={{ label: 'Warna magnitudo', magnitude: 'Magnitudo {range}', orMore: '{n} atau lebih', below: 'di bawah {n}', to: '{a} hingga {b}' }} />

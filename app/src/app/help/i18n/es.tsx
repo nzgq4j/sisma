@@ -54,7 +54,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Más fuertes</strong>: primero los de mayor magnitud.</li>
           </ul>
           <p>Cada fila muestra la magnitud en una insignia de color, el lugar con la bandera del país en el que está o del más cercano, hace cuánto ocurrió, a qué distancia está de ti y a qué profundidad fue. Sigue desplazándote y se añaden más sismos al llegar al final de la lista.</p>
-          <p>En un ordenador, la lista está en la página <Ui>Resumen</Ui>, la primera del menú de la izquierda, con un mapa junto a ella. Elige un sismo en la lista o en el mapa y el mapa se acerca a él, con los nombres de las ciudades cercanas. Se queda ahí al cerrar el sismo; <Ui>Restablecer vista</Ui> vuelve a mostrar todo el mundo.</p>
+          <p>En un ordenador, la lista está en la página <Ui>Resumen</Ui>, la primera del menú de la izquierda, con un mapa junto a ella. Elige un sismo en la lista o en el mapa y el mapa se acerca a él, con los nombres de las ciudades cercanas. Se queda ahí al cerrar el sismo; <Ui>Restablecer vista</Ui> vuelve a mostrar todo el mundo. Elige un país o región en <Ui>Lugar</Ui>, arriba a la derecha, o toca uno en <Ui>Regiones principales</Ui>, y el mapa se acerca a sus sismos; <Ui>Todos los lugares</Ui> vuelve a mostrar todo el mundo.</p>
           <h3>Colores de magnitud</h3>
           <p>Los mismos colores se usan en la lista, en el mapa y en el globo:</p>
           <MagLegend words={{ label: 'Colores de magnitud', magnitude: 'Magnitud {range}', orMore: '{n} o más', below: 'menos de {n}', to: '{a} a {b}' }} />
