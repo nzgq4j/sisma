@@ -36,7 +36,7 @@ create index tsunami_deliveries_sent_idx on public.tsunami_deliveries (sent_at);
 alter table public.tsunami_deliveries enable row level security;
 
 -- People with notifications on (a push token) and a saved place within p_km of the earthquake, free or sisma+.
--- People who switched alerts off in Me → Alerts are left out. (Replaced in 20261119000200_tsunami_switch.sql.)
+-- People who switched alerts off in Me → Alerts are left out. (Replaced in 20261119192508_tsunami_switch.sql.)
 create or replace function public.tsunami_recipients(p_lat double precision, p_lon double precision, p_km double precision)
 returns table (user_id uuid, place text, km double precision, devices jsonb)
 language sql stable security definer set search_path = '' as $$

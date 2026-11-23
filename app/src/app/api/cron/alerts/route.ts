@@ -1,4 +1,4 @@
-// POST /api/cron/alerts { ticket } — called every minute by pg_cron (migration 20261103000200_alerts.sql).
+// POST /api/cron/alerts { ticket } — called every minute by pg_cron (migration 20261103082331_alerts.sql).
 // The single-use ticket is checked against the database, so only the scheduled job can trigger a run.
 // Matches recent quakes to each sisma+ user's alert rules (lib/alerts/match.ts, up to 5 rules, first match wins) and
 // pushes each new match to the user's devices, recording the rule and place for the user's alert history.

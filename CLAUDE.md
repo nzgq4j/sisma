@@ -26,6 +26,10 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
   structure; app labels exactly as in messages/<locale>.json; help-i18n.test.ts checks the structure) in the same PR.
   When a pictured screen changes, retake its screenshots in both themes and every language with scripts/help-shots.mjs
   (--locale=all; public/help/<name>-<theme>.webp and public/help/<locale>/…) and check them.
+- Database changes: a migration in supabase/migrations/ whose version (the number before _) is the version recorded in
+  the database. When a migration is applied with the Supabase MCP (apply_migration), the database records the time it
+  ran as the version: name the file <that version>_<name>.sql (check with list_migrations). The Supabase Preview check
+  fails when the database has a version with no matching file.
 
 ## Suggested build order
 1. App shell /app/layout.tsx + BottomNav + top app bar + Sheet (done as scaffolds — polish to the design)

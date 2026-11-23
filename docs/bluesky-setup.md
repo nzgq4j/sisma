@@ -78,7 +78,7 @@ Ten posts about the Android app, each written in all 10 languages with its own h
   Choosing a combination already posted this round posts it again (the sheet says so).
 - A failed post is logged with Bluesky's error; that combination stays unused and can come up again.
 - Database: `promo_settings` (one row: enabled, next_at, cycle) and `promo_posts` (every post), migration
-  `supabase/migrations/20261118000100_promo_posts.sql`. API: `GET/PATCH/POST /api/admin/promo` (administrators only).
+  `supabase/migrations/20261118064745_promo_posts.sql`. API: `GET/PATCH/POST /api/admin/promo` (administrators only).
 - To change the wording, edit the language files and run the length check in `lib/promo.test.ts` (every post must stay
   within 300 characters including the link and hashtags). To change pictures, regenerate the store images
   (`mobile/store/compose-store.mjs`) and copy them to `app/public/promo/` at 720 × 1280 (feature graphic 1024 × 500).
@@ -99,7 +99,7 @@ the app applies for that visit without changing the reader's saved language). Ar
   round, never the previous post's language or article while other unused combinations remain. When every combination has been posted, the next round starts. A new article joins the current round.
 - **Post now** counts as the post for that half-day: if the automatic post was still due in the same half, it moves to
   the next half.
-- Database: `library_post_settings` and `library_posts`, migration `supabase/migrations/20261123000100_library_posts.sql`.
+- Database: `library_post_settings` and `library_posts`, migration `supabase/migrations/20261123023646_library_posts.sql`.
   API: `GET/PATCH/POST /api/admin/library-posts` (administrators only).
 - **New article:** add its hashtags and card description to all 10 `library-social` files, then make its cards in every
   language: `node scripts/og-cards.mjs http://localhost:3100 --locale=all library-<id>` (server started with
@@ -136,8 +136,8 @@ Verified with a DNS TXT record (`_atproto.sisma.io`) in Vercel DNS.
 
 ## Database
 
-Migrations `20261106000100_bluesky.sql`: `profiles.is_admin` (with the `protect_is_admin` trigger),
-`bluesky_settings` (one row) and `bluesky_posts` (the log); `20261107000100_bluesky_login.sql`: the signed-in account's
+Migrations `20261104100407_bluesky.sql`: `profiles.is_admin` (with the `protect_is_admin` trigger),
+`bluesky_settings` (one row) and `bluesky_posts` (the log); `20261104103553_bluesky_login.sql`: the signed-in account's
 handle and status on `bluesky_settings`, and `bluesky_session_get` / `bluesky_session_set` (service role only) for the
 session in Supabase Vault. Both tables have row-level security with no policies:
 only the server (service role) reads and writes them, for administrators (`lib/admin.ts` checks `is_admin` on every
