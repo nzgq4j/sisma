@@ -638,5 +638,175 @@
         "a": "Possono usare tipi di magnitudo, stazioni e quantità di dati diversi. Lo USGS calcola fino a una dozzina di tipi di magnitudo perché nessun metodo singolo è adatto a ogni terremoto, e le discrepanze tra tipi per lo stesso evento possono essere grandi."
       }
     ]
+  },
+  "deep-focus-earthquakes": {
+    "title": "Come nascono i terremoti a 600 chilometri di profondità: l’enigma della sismicità profonda",
+    "dek": "A 600 chilometri la roccia è sottoposta a una pressione enorme e dovrebbe fluire, non rompersi. Eppure lì hanno origine grandi terremoti. Ecco che cosa hanno rivelato i due maggiori eventi profondi e perché nessuna spiegazione da sola è sufficiente.",
+    "sections": [
+      {
+        "h": "Terremoti al di sotto della zona fragile",
+        "p": [
+          "La maggior parte dei terremoti ha inizio entro poche decine di chilometri dalla superficie, dove la roccia fredda si rompe e scorre lungo le faglie. Una piccola parte comincia molto più in profondità, all’interno di placche oceaniche che stanno sprofondando nel mantello. I terremoti al di sotto di circa 70 chilometri vengono spesso raggruppati come eventi profondi (Wang et al. 2017). All’interno delle placche in subduzione, gli eventi meno profondi di 300 chilometri sono definiti terremoti di profondità intermedia, mentre quelli più profondi di 300 chilometri sono considerati terremoti a fuoco profondo (Hasegawa and Nakajima 2017). sisma.io usa gli stessi limiti nelle proprie etichette di profondità: Superficiale sopra i 70 chilometri, Intermedio da 70 a 300 e Profondo oltre i 300.",
+          "La popolazione più profonda si colloca tra circa 325 e 690 chilometri, un intervallo che coincide da vicino con la zona di transizione del mantello, dove i principali minerali del mantello superiore passano a strutture cristalline più dense (Kirby et al. 1996). L’esistenza di questi terremoti pone un problema. Green and Burnley (1989) fanno notare che la frattura fragile e lo scorrimento per attrito a profondità superiori a 100-200 chilometri richiederebbero resistenze della roccia irrealistiche. Hasegawa and Nakajima (2017) formulano la difficoltà in termini di sforzo: un terremoto a tali profondità richiederebbe che lo sforzo di taglio superasse una resistenza d’attrito molto elevata, eppure i terremoti avvengono, quindi un meccanismo particolare deve ridurre la resistenza della faglia. Sono stati proposti diversi meccanismi plausibili, ma quale sia quello effettivo resta una questione irrisolta (Hasegawa and Nakajima 2017)."
+        ]
+      },
+      {
+        "h": "Dove avvengono i terremoti profondi e come si comportano",
+        "p": [
+          "I terremoti profondi avvengono nella litosfera oceanica in subduzione o subdotta in passato (Kirby et al. 1996). Seguono fasce planari inclinate note come zone di Wadati-Benioff, che tracciano i nuclei freddi e discendenti delle placche che sprofondano (Wang et al. 2017). Il numero di terremoti diminuisce in modo quasi esponenziale con la profondità fino a circa 300 chilometri, raggiunge un minimo tra circa 300 e 450 chilometri e risale fino a un massimo locale a 550-600 chilometri (Hasegawa and Nakajima 2017). L’attività poi cessa bruscamente intorno ai 700 chilometri (Wang et al. 2017).",
+          "Zhan (2020) riassume le osservazioni in un articolo di rassegna: i terremoti profondi si comportano come quelli superficiali ma devono avere processi fisici fondamentalmente diversi, e il loro comportamento di rottura, la statistica delle dimensioni e le repliche sono vari e dipendono in modo imperfetto da fattori come la temperatura della lastra, la profondità e la magnitudo. Gli eventi profondi producono in genere poche repliche e non lasciano rotture in superficie né segnali geodetici, il che rende difficile stimare le dimensioni delle loro rotture (Zhan et al. 2014).",
+          "Per chi segue i terremoti, la conseguenza pratica è che i terremoti profondi di solito non causano in superficie uno scuotimento sufficiente a renderli pericolosi, anche se rivestono un grande interesse scientifico (University of California, Santa Cruz 2013). Un evento profondo di magnitudo 6 o 7 può quindi comparire su un sito di monitoraggio come un numero elevato con danni segnalati scarsi o nulli, perché la rottura si trova centinaia di chilometri sotto il suolo."
+        ]
+      },
+      {
+        "h": "Due eventi da record",
+        "p": [
+          "Due terremoti sono al centro della maggior parte delle discussioni. Il 9 giugno 1994 un terremoto profondo colpì sotto la Bolivia. Silver et al. (1995) ne indicano la magnitudo momento in 8,3 e la profondità in 636 chilometri, e lo descrivono come il più forte terremoto a fuoco profondo registrato fino ad allora. Il catalogo dello USGS riporta lo stesso evento con magnitudo 8,2 a una profondità di 631 chilometri (USGS n.d.a). Il 24 maggio 2013 un terremoto di magnitudo 8,3 ruppe una faglia lunga 180 chilometri all’interno della placca pacifica in subduzione, circa 609 chilometri sotto il Mare di Ochotsk (Ye et al. 2013). Il catalogo dello USGS lo riporta con magnitudo 8,3 a 598 chilometri (USGS n.d.b). Metodi diversi forniscono profondità che differiscono di diversi chilometri, per cui i valori pubblicati variano leggermente.",
+          "Il terremoto di Ochotsk ebbe un momento sismico superiore del 30 per cento a quello dell’evento boliviano e liberò circa tre volte più energia (University of California, Santa Cruz 2013). Ye et al. (2013) misurarono una velocità di rottura di circa 4,0-4,5 chilometri al secondo e una caduta di sforzo statica di circa 12-15 megapascal, valori compatibili con l’efficienza di radiazione teorica dei modelli a frattura. Una replica vicina ebbe una caduta di sforzo da uno a due ordini di grandezza più elevata, che gli autori interpretano come una forte eterogeneità dello sforzo nella lastra profonda. Thorne Lay, coautore dello studio, definì un mistero il modo in cui la roccia possa scorrere contro altra roccia così velocemente mentre è schiacciata dalla pressione di 610 chilometri di roccia sovrastante (University of California, Santa Cruz 2013).",
+          "Le rotture dei due eventi si svilupparono in modo diverso. Zhan et al. (2014) hanno rilevato che il terremoto di Ochotsk fu per lo più unilaterale, con una rottura di circa 90 chilometri lungo la direzione della faglia a più di 4 chilometri al secondo, mentre quello della Bolivia si propagò per circa la metà di quella distanza, alla velocità lenta di circa 1,5 chilometri al secondo, e mostrò un forte cambiamento nella direzione di rottura. La differenza è importante perché ciascun meccanismo candidato implica un comportamento diverso per velocità ed estensione della rottura. Una rottura veloce e lunga con una caduta di sforzo moderata somiglia a quella di un terremoto superficiale; Lay disse di Ochotsk che assomiglia molto a un evento superficiale (University of California, Santa Cruz 2013). La lenta rottura della Bolivia si comportò diversamente, quindi nessuna descrizione unica si adatta a entrambi."
+        ]
+      },
+      {
+        "h": "Primo meccanismo: la fagliazione trasformazionale",
+        "p": [
+          "L’olivina, il minerale principale del mantello superiore, si converte in strutture più dense con l’aumentare della pressione. Nelle lastre vecchie e fredde questa reazione è ostacolata dal punto di vista cinetico, per cui zone a cuneo di roccia metastabile contenente olivina persistono probabilmente fino a profondità superiori a 600 chilometri (Kirby et al. 1996). Esperimenti di laboratorio su alcuni minerali metastabili mostrano un’instabilità di taglio chiamata fagliazione trasformazionale, in cui il minerale ospite cede improvvisamente in sottili zone di taglio dove si trasforma in una fase più densa e a grana più fine (Kirby et al. 1996). Green and Burnley (1989) osservarono questa fagliazione in un analogo dell’olivina al germanio, Mg2GeO4, e proposero che derivi dalla formazione, dalla propagazione e dal collegamento di piccole inclusioni riempite della fase più densa. Hasegawa and Nakajima (2017) descrivono la stessa idea in termini di piccoli cristalli lenticolari della nuova fase che crescono e si allineano lungo un piano fino a formare una faglia.",
+          "Il lavoro di laboratorio sostiene questo quadro. Schubnel et al. (2013) registrarono emissioni acustiche simili a terremoti profondi in olivina Mg2GeO4 deformata a pressioni di 4-5 gigapascal durante la sua trasformazione, combinando misure a raggi X di sincrotrone con il monitoraggio acustico (Wang et al. 2017). Uno studio del 2022 ha usato olivina naturale (Mg,Fe)2SiO4 a 11-17 gigapascal e 860-1.350 kelvin, condizioni equivalenti a quelle delle lastre nella zona di transizione. Una fagliazione passante si verificò solo entro una stretta finestra di temperatura tra 1.100 e 1.160 kelvin, accompagnata da intense emissioni acustiche all’inizio della rottura. Lo scorrimento della faglia, favorito dal riscaldamento per taglio, avvenne lungo uno strato debole formato dal collegamento di pacchetti lenticolari di olivina e wadsleyite nanocristalline (Ohuchi et al. 2022).",
+          "L’ipotesi è coerente con due osservazioni: la sismicità profonda coincide da vicino con la zona di transizione, e i cunei di olivina metastabile sono attesi solo nelle lastre vecchie e fredde (Kirby et al. 1996). Deve però affrontare anche alcune obiezioni. Una prima versione, in cui il terremoto è prodotto da un collasso improvviso del minerale in una forma più densa, creerebbe nella sorgente una grande componente isotropa, o implosiva, che i terremoti profondi in genere non presentano (Hasegawa and Nakajima 2017). Silver et al. (1995) hanno rilevato che la rottura della Bolivia si estese per almeno 30 per 50 chilometri, più del triplo delle dimensioni attese per un cuneo di olivina metastabile nel nucleo della lastra, e la ritennero incompatibile con un’origine per fagliazione trasformazionale."
+        ]
+      },
+      {
+        "h": "Secondo meccanismo: l’infragilimento per disidratazione",
+        "p": [
+          "Le placche in subduzione trasportano minerali contenenti acqua che si decompongono con l’aumento di pressione e temperatura. Secondo l’ipotesi dell’infragilimento per disidratazione, l’acqua espulsa da questi minerali genera terremoti aumentando la pressione dei fluidi nei pori della roccia. Hasegawa and Nakajima (2017) osservano che i dettagli di come una sovrappressione locale dei pori porti alla rottura sono ancora dibattuti. Concludono che l’acqua proveniente dalla lastra ha un ruolo importante nel generare i terremoti di profondità intermedia, con una rottura che potrebbe iniziare per una sovrappressione locale dei pori e poi propagarsi attraverso un’instabilità termica di taglio.",
+          "Estendere l’idea al di sotto dei 300 chilometri è più difficile. Il comunicato della UC Santa Cruz sul terremoto di Ochotsk osservava che un fluido può lubrificare una faglia, ma che tutti i fluidi avrebbero dovuto essere espulsi dalla lastra prima che questa raggiungesse quella profondità (University of California, Santa Cruz 2013). Zhang et al. (2021) sostengono comunque che l’infragilimento per disidratazione sia un modello alternativo plausibile per l’evento di Ochotsk. La loro argomentazione si basa sull’orientazione e sulle dimensioni del piano che si è rotto, sulla sua velocità di rottura ed efficienza di radiazione, e su prove di vario tipo che l’acqua viene trasportata fino alla zona di transizione e oltre. È una delle diverse interpretazioni in competizione di quel terremoto."
+        ]
+      },
+      {
+        "h": "Terzo meccanismo: la fuga termica",
+        "p": [
+          "La terza ipotesi, l’instabilità termica di taglio, parte dalla deformazione plastica. Se la roccia si deforma più velocemente di quanto il calore generato riesca a disperdersi, una retroazione positiva favorisce un’ulteriore deformazione. La deformazione procede allora rapidamente finché il materiale in quella parte della lastra comincia a fondere, producendo uno scorrimento improvviso, cioè un terremoto (Hasegawa and Nakajima 2017).",
+          "Lay diede una descrizione simile per Ochotsk: se la faglia scorre anche solo di poco, l’attrito potrebbe fondere la roccia e fornire il fluido, innescando un effetto di fuga termica. Aggiunse che qualcosa deve prima avviare lo scorrimento (University of California, Santa Cruz 2013). Zhan et al. (2014) propongono che questo tipo di fusione per taglio agisca all’interno delle lastre calde una volta che una rottura è stata innescata."
+        ]
+      },
+      {
+        "h": "Dove gli scienziati non sono d’accordo",
+        "p": [
+          "Una rassegna di Zhan (2020) giunge a una conclusione netta sui tre meccanismi principali. La fagliazione trasformazionale, l’infragilimento per disidratazione e la fuga termica possono ciascuno spiegare parte delle osservazioni, e ciascuno incontra difficoltà potenzialmente fondamentali nello spiegare il resto. La rassegna invita a considerare più seriamente ipotesi che coinvolgano più di un meccanismo: un terremoto profondo potrebbe iniziare con un processo e, una volta innescato, propagarsi con un altro.",
+          "Il confronto tra i due eventi più forti va nella stessa direzione. Zhan et al. (2014) spiegano le differenze tra i due come il risultato di due meccanismi di fagliazione fondamentalmente diversi in lastre con stati termici diversi: la fagliazione trasformazionale all’interno del cuneo di olivina metastabile nei nuclei delle lastre fredde e, una volta innescata, la fusione per taglio all’interno delle lastre calde. Lay osservò che una trasformazione delle forme minerali potrebbe dare la spinta iniziale, ma che gli scienziati non sono in grado di rilevarla direttamente (University of California, Santa Cruz 2013). Questo problema di rilevamento lascia aperta la questione di come inizino le rotture, anche dove la loro propagazione è meglio vincolata.",
+          "Anche la scala è un limite. I campioni di olivina degli esperimenti del 2022 erano lunghi 1,2 millimetri (Ohuchi et al. 2022), mentre la rottura di Ochotsk si estese su molti chilometri di faglia. I ricercatori che studiano rotture di laboratorio in campioni di dimensioni millimetriche hanno osservato che i problemi di scala tra eventi di laboratorio e terremoti a fuoco profondo restano da risolvere (Wang et al. 2017). Ogni grande evento profondo aggiunge un vincolo su temperatura, composizione mineralogica e resistenza delle lastre a profondità che nessuna perforazione può raggiungere. Per chi segue un flusso di terremoti in tempo reale, un grande terremoto profondo è quindi soprattutto un’opportunità di ricerca, perché la profondità che lo rende difficile da spiegare è la stessa che tiene la maggior parte del suo scuotimento lontano dalla superficie."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Che cos’è un terremoto a fuoco profondo?",
+        "a": "Un terremoto a fuoco profondo ha inizio a più di 300 chilometri sotto la superficie, all’interno di una placca oceanica che sta sprofondando nel mantello. I terremoti tra circa 70 e 300 chilometri sono detti di profondità intermedia. I terremoti più profondi avvengono tra circa 325 e 690 chilometri, e l’attività cessa bruscamente intorno ai 700 chilometri."
+      },
+      {
+        "q": "Perché i terremoti profondi sono difficili da spiegare?",
+        "a": "A profondità superiori a 100-200 chilometri la pressione è così elevata che la normale frattura fragile e lo scorrimento per attrito richiederebbero resistenze della roccia irrealistiche. A quelle profondità la roccia di norma si deformerebbe lentamente invece di rompersi, quindi un meccanismo particolare deve indebolire la faglia."
+      },
+      {
+        "q": "Qual è il terremoto profondo più forte mai registrato?",
+        "a": "Il terremoto di magnitudo 8,3 del Mare di Ochotsk del 24 maggio 2013, a circa 600 chilometri di profondità. Il suo momento sismico era superiore di circa il 30 per cento a quello del terremoto della Bolivia del 1994, il precedente detentore del record, e liberò circa tre volte più energia."
+      },
+      {
+        "q": "I terremoti profondi sono pericolosi?",
+        "a": "Di solito i terremoti profondi non causano in superficie uno scuotimento sufficiente a renderli pericolosi, perché la rottura si trova centinaia di chilometri sotto il suolo."
+      },
+      {
+        "q": "Quali sono le principali spiegazioni dei terremoti profondi?",
+        "a": "Le tre ipotesi principali sono la fagliazione trasformazionale, in cui l’olivina rimasta nella sua forma di bassa pressione si trasforma improvvisamente lungo zone sottili; l’infragilimento per disidratazione, in cui l’acqua liberata dai minerali indebolisce la roccia; e la fuga termica, in cui una deformazione rapida riscalda e fonde una zona ristretta. Ciascuna spiega una parte delle osservazioni."
+      },
+      {
+        "q": "Gli scienziati sono d’accordo sulle cause dei terremoti profondi?",
+        "a": "No. Una rassegna del 2020 ha concluso che ciascuno dei meccanismi principali presenta difficoltà potenzialmente fondamentali e ha ipotizzato che un terremoto profondo possa iniziare con un meccanismo e proseguire con un altro. Gli studi sugli eventi della Bolivia del 1994 e di Ochotsk del 2013 suggeriscono che le lastre fredde e quelle calde possano cedere in modi diversi."
+      }
+    ]
+  },
+  "volcano-seismology": {
+    "title": "Ascoltare il magma: come terremoti vulcanici, tremore e sciami rivelano i fluidi in movimento",
+    "dek": "I vulcani tremano in modi che le faglie ordinarie non conoscono. Roccia che si frattura, fratture che risuonano e tremore prolungato raccontano ciascuno agli osservatori qualcosa di diverso sul magma e sul gas in movimento.",
+    "sections": [
+      {
+        "h": "Un segnale sismico di tipo diverso",
+        "p": [
+          "I vulcani producono una varietà di segnali sismici più ampia rispetto alle normali zone di faglia. I terremoti vulcano-tettonici (VT) sono stati i primi a essere studiati perché, come i terremoti tettonici, sono generati dalla rottura fragile della roccia (Konstantinou 2024). I terremoti a lungo periodo (LP) o ibridi e il tremore vulcanico sono generati dalla complessa interazione di fluidi e gas con la roccia solida, il che rende la loro sorgente molto più difficile da decifrare (Konstantinou 2024). Chouet (1996) descrive la sismicità a lungo periodo come caratterizzata da periodi tipici compresi tra 0,2 e 2 secondi e come il riflesso di fluttuazioni di pressione causate da un trasporto di massa non stazionario nel sistema di alimentazione sotto un vulcano.",
+          "Questa distinzione organizza il resto dell’articolo. I terremoti e gli sciami VT indicano agli osservatori che la roccia si sta fratturando mentre il magma o un fluido si fa strada in nuovo spazio. Gli eventi LP e il tremore suggeriscono che il fluido si stia muovendo all’interno di fratture e condotti già esistenti."
+        ]
+      },
+      {
+        "h": "Terremoti vulcano-tettonici e sciami",
+        "p": [
+          "White and McCausland (2016) hanno raccolto 136 terremoti e sciami VT che hanno preceduto 111 eruzioni in 83 vulcani. Hanno rilevato che la sismicità VT è di solito il primo precursore sismico segnalato nei vulcani rimasti quiescenti per decenni o più, e che ha preceduto tutte le eruzioni esplosive di Indice di Esplosività Vulcanica (VEI) pari o superiore a 5 presenti nel loro insieme di dati. L’attività tende ad assumere la forma di sciame, inizia da giorni ad anni prima di un’eruzione, raggiunge il picco al momento dell’eruzione iniziale e presenta nei meccanismi focali un’ampia componente non a doppia coppia. Gli sciami iniziano di solito su faglie tettoniche situate da uno o due fino a decine di chilometri dalla futura bocca eruttiva, anziché direttamente sotto di essa. Gli autori mostrano inoltre che il volume di magma intruso può essere stimato dal momento sismico cumulativo dei terremoti VT (White and McCausland 2016).",
+          "Gli sciami possono tracciare il movimento del magma anche quando non segue alcuna eruzione. Due sciami sotto il vulcano Iliamna, in Alaska, nel maggio e nell’agosto 1996 contarono 88 e 2.833 eventi localizzabili, con magnitudo da -0,9 a 3,3. I loro ipocentri formavano un addensamento in un volume di crosta in precedenza asismico a sud della vetta, e l’aumento delle emissioni di anidride solforosa e di anidride carbonica coincise con il secondo sciame. Gli autori spiegarono questo andamento con la messa in posto e il rigonfiamento di un dicco subverticale. Non si verificò alcuna eruzione (Roman et al. 2004).",
+          "Il 23 agosto 2021 l’Hawaiian Volcano Observatory (HVO) segnalò uno sciame sotto la parte meridionale della caldera sommitale del Kilauea. Nelle prime ore del mattino seguente lo sciame si intensificò, insieme a un ritmo più rapido di deformazione del suolo registrato da un inclinometro vicino. L’HVO dichiarò che queste osservazioni potevano indicare una piccola intrusione di dicco da 1 a 2 chilometri sotto la parte meridionale della caldera. A quel punto erano stati registrati oltre 100 terremoti, il più forte di magnitudo 3,3 e la maggior parte al di sotto di magnitudo 1 (USGS Hawaiian Volcano Observatory 2021).",
+          "Talvolta l’interpretazione è meno diretta. Un terremoto di magnitudo 4,2 avvenuto il 15 giugno 2020 sull’isola di Unalaska, in Alaska, diede inizio a una sequenza di centinaia di terremoti a una profondità da 7 a 10 chilometri, circa 12 chilometri a sud-est della vetta del vulcano Makushin, e non si osservarono attività eruttiva né cambiamenti in superficie. Lanza et al. (2022) osservano che stabilire se una sismicità di questo tipo rifletta sforzi magmatici o tettonici è spesso difficile, anche se fondamentale per la valutazione della pericolosità. La loro analisi ha trovato indizi di un campo di sforzi locale probabilmente indotto da un’intrusione di magma, e gli autori concludono che lo sciame è stato prodotto da una combinazione di sforzi magmatici e tettonici."
+        ]
+      },
+      {
+        "h": "Eventi a lungo periodo: fratture che risuonano",
+        "p": [
+          "Una delle principali spiegazioni degli eventi LP è la risonanza di una frattura riempita di fluido. Nel modello di Chouet (1988), una frattura tridimensionale contenente un fluido viscoso e comprimibile viene messa in risonanza da un transiente di pressione impulsivo applicato su una piccola parte della sua superficie, e un’onda molto lenta intrappolata nel fluido, chiamata onda di frattura, sostiene la vibrazione. La frequenza, la larghezza di banda e la spaziatura dei picchi di risonanza dipendono fortemente dalla rigidezza della frattura. Nello stesso modello, un evento LP e il tremore armonico condividono la stessa sorgente e differiscono per il modo in cui la risonanza viene innescata e per le condizioni al contorno del flusso del fluido (Chouet 1988).",
+          "Il modello offre un modo per leggere i fluidi a partire dalle forme d’onda. Kumagai and Chouet (2000) hanno stimato il fattore di qualità, una misura della lentezza con cui la vibrazione si smorza, per una frattura contenente miscele gas-gas, miscele liquido-gas e gas polverosi o nebulizzati, ottenendo valori che vanno da quasi l’unità a diverse centinaia. Gli autori suggeriscono che le variazioni delle frequenze complesse degli eventi LP possano essere interpretate in termini di cambiamenti nella composizione dei fluidi sotto i vulcani.",
+          "Brevi eventi LP di tipo impulsivo hanno accompagnato l’attività eruttiva dell’Etna, in Italia, nel 2004 e nel 2008, e dei vulcani Turrialba, in Costa Rica, e Ubinas, in Perù, nel 2009. Chouet and Dawson (2016) hanno rilevato che una frattura spinta da fluidi spiega questi impulsi con dimensioni della sorgente e proprietà dei fluidi realistiche, e che le sorgenti sono superficiali, a meno di 1 chilometro di profondità. Una rottura lenta resta un’alternativa possibile, anche se con quel modello le loro forme d’onda sintetiche si adattano peggio ai dati."
+        ]
+      },
+      {
+        "h": "Tremore vulcanico: un segnale prolungato con diverse possibili sorgenti",
+        "p": [
+          "Il tremore è una vibrazione prolungata che può verificarsi prima o dopo le eruzioni e durare da alcuni minuti a diversi giorni o mesi. La sua sorgente può trovarsi a qualsiasi profondità tra poche centinaia di metri e 40 chilometri, a seconda del vulcano. Konstantinou and Schlindwein (2003) raggruppano le sorgenti proposte in quattro famiglie: oscillazioni indotte dal flusso nei condotti che trasportano fluidi magmatici, risonanza di fratture riempite di fluido, crescita o collasso di bolle durante l’ebollizione idrotermale delle acque sotterranee e oscillazioni di corpi magmatici. Gli autori osservano che molti studiosi ritengono che la sorgente del tremore non sia unica e possa variare da un vulcano all’altro.",
+          "Julian (1994) ha descritto un processo non lineare analogo all’eccitazione degli strumenti musicali a fiato e delle corde vocali umane, in cui un fluido che scorre attraverso un canale con pareti elastiche mobili produce oscillazioni. In quel modello i terremoti LP compaiono quando la portata del magma è troppo bassa per sostenere un tremore continuo e un disturbo transitorio eccita invece il canale. McNutt (2005) riferisce che il tremore è più forte nelle eruzioni fissurali, nelle eruzioni freatiche e con contenuti di gas più elevati.",
+          "Uno studio sul tremore non eruttivo del 2 ottobre 2004 al Monte Sant’Elena offre una prospettiva diversa. Denlinger and Moran (2014) hanno rilevato che il segnale era composto interamente da onde di Love e di Rayleigh e che le forze che lo producevano erano in gran parte perpendicolari alle pareti del condotto. Ne hanno concluso che il modo in cui il tremore viene generato maschera la natura della sua sorgente, cosicché più modelli possono spiegare lo stesso segnale e servono altri dati per scegliere tra di essi. Con dati GPS e di terreno a sostegno di una rapida risalita del magma, hanno dedotto che questo tremore derivava dal trascinamento di magma quasi solido lungo le pareti scabre del condotto mentre veniva spinto verso la superficie."
+        ]
+      },
+      {
+        "h": "Monte Sant’Elena, 2004: i segnali in sequenza",
+        "p": [
+          "Dopo 17 anni e 11 mesi di quiete, il Monte Sant’Elena iniziò il suo risveglio il 23 settembre 2004 con uno sciame di terremoti VT superficiali a profondità inferiori a 2 chilometri. Entro il 29 settembre si verificavano terremoti di magnitudo superiore a 2 al ritmo di circa uno al minuto. Una graduale transizione da eventi VT a eventi ibridi e a bassa frequenza accompagnò l’intensificazione, una caratteristica di molti sciami precursori osservati al vulcano prima delle sue eruzioni di crescita del duomo negli anni Ottanta. La prima esplosione avvenne il 1° ottobre, 8,5 giorni dopo i primi terremoti (Moran et al. 2008).",
+          "Entro il 16 ottobre l’intervallo tra gli eventi era diventato così regolare che gli scienziati chiamarono questi terremoti “colpi di tamburo” (drumbeats), e furono loro a dominare la sismicità fino alla fine del 2005. Le loro dimensioni, la loro spaziatura e i loro spettri variavano con i cambiamenti nello stile dell’estrusione in superficie ma non con le variazioni del flusso di magma, il che suggerisce che dimensioni e spaziatura dei colpi di tamburo dipendessero più dalla meccanica dell’estrusione che dal tasso di estrusione (Moran et al. 2008). Matoza and Chouet (2010) hanno studiato i sottoeventi più piccoli che accompagnavano i colpi di tamburo e hanno concluso che l’interazione tra il sistema idrotermale e quello magmatico sotto il vulcano potrebbe spiegare un’ampia gamma di fenomeni osservati, tra cui sottoeventi, eventi LP, eventi più grandi ed esplosioni freatiche."
+        ]
+      },
+      {
+        "h": "Pinatubo, 1991: terremoti profondi a lungo periodo",
+        "p": [
+          "La stragrande maggioranza degli eventi LP descritti in letteratura ha origine a profondità inferiori a 3 chilometri, ma il Pinatubo produsse qualcosa di diverso. Circa 600 terremoti profondi a lungo periodo si verificarono sotto il vulcano tra la fine di maggio e l’inizio di giugno 1991, più del totale complessivo segnalato in precedenza per tutti i vulcani di margine convergente del mondo (White 1996). White li interpreta come l’espressione sismica di magma basaltico profondo iniettato alla base della camera magmatica, che innescò la sequenza eruttiva. L’inizio dell’attività profonda, il 26 maggio, fu seguito appena 1 ora dopo da terremoti LP superficiali ed entro 4 ore da un tremore superficiale continuo e da un’abbondante emissione di vapore (White 1996).",
+          "Il monitoraggio sismico fu lo strumento principale per valutare l’evoluzione del potenziale eruttivo prima dell’eruzione parossistica del 15 giugno. Il gruppo di ricerca previde l’escalation sulla base degli spostamenti della zona degli ipocentri, degli aumenti dell’energia sismica totale liberata, dei cambiamenti nel carattere delle forme d’onda e dei crescenti segnali non sismici di irrequietezza. Gli ultimi giorni videro una notevole progressione di eventi LP sempre più grandi dal 12 al 14 giugno, seguita da un periodo preparossistico di 24 ore con un’attività sismica ad alta ampiezza ed estremamente varia (Harlow et al. 1996)."
+        ]
+      },
+      {
+        "h": "Che cosa resta da chiarire",
+        "p": [
+          "La sismologia vulcanica fornisce prove solide che i fluidi sono in movimento, ma diverse questioni restano aperte. McNutt (2005) osserva che gli eventi LP profondi sono piuttosto comuni ma possono rappresentare processi diversi. Il tremore ha modelli di sorgente in competizione, come mostra lo studio sul Monte Sant’Elena. Sciami come quello vicino al Makushin possono riflettere insieme sforzi magmatici e tettonici, e uno sciame può esaurirsi senza un’eruzione, come all’Iliamna.",
+          "Per chi segue i flussi di dati sui terremoti, questi esempi offrono una lezione pratica. Molti eventi delle sequenze vulcaniche sono piccoli, e il loro significato dipende spesso da altre misure, come la registrazione dell’inclinometro al Kilauea e le emissioni di gas all’Iliamna. I segnali sismici, combinati con i dati di deformazione e di gas, offrono agli osservatori vulcanologici la base migliore per giudicare se il magma stia risalendo."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Che cos’è un terremoto vulcano-tettonico?",
+        "a": "Un terremoto vulcano-tettonico (VT) è causato dalla rottura fragile della roccia, come un normale terremoto tettonico, ma è prodotto dagli sforzi generati dal magma o dai fluidi che si spingono nella crosta vicino a un vulcano. Gli sciami VT sono di solito il primo segnale sismico di allarme nei vulcani rimasti quiescenti per decenni."
+      },
+      {
+        "q": "Che cosa sono i terremoti vulcanici a lungo periodo?",
+        "a": "Gli eventi a lungo periodo (LP) hanno periodi tipici compresi tra 0,2 e 2 secondi e si ritiene che derivino da variazioni di pressione dovute al movimento di magma, gas o vapore all’interno del vulcano. Un modello diffuso li spiega come la risonanza di una frattura riempita di fluido."
+      },
+      {
+        "q": "Che cos’è il tremore vulcanico?",
+        "a": "Il tremore vulcanico è un segnale sismico prolungato registrato vicino a un vulcano attivo, che può durare da minuti a giorni o mesi. Tra le sorgenti proposte figurano il flusso di fluidi nei condotti, fratture che risuonano, l’ebollizione delle acque sotterranee e l’oscillazione di corpi magmatici, e la sorgente può variare da un vulcano all’altro."
+      },
+      {
+        "q": "Uno sciame sismico sotto un vulcano significa che sta per arrivare un’eruzione?",
+        "a": "Non necessariamente. Gli sciami all’Iliamna nel 1996 e vicino al Makushin nel 2020 si sono esauriti senza un’eruzione. Gli osservatori vulcanologici combinano i dati sui terremoti con le misure di deformazione del suolo e di gas prima di giudicare se il magma stia risalendo verso la superficie."
+      },
+      {
+        "q": "In che modo la sismologia ha aiutato a prevedere l’eruzione del Pinatubo del 1991?",
+        "a": "Gli scienziati seguirono gli spostamenti della zona in cui avvenivano i terremoti, l’energia sismica totale liberata e i cambiamenti nelle forme d’onda. I terremoti profondi a lungo periodo a partire dalla fine di maggio segnarono l’arrivo di nuovo magma, e gli eventi LP sempre più grandi dal 12 al 14 giugno precedettero l’eruzione parossistica del 15 giugno."
+      },
+      {
+        "q": "Che cosa erano i terremoti “colpi di tamburo” del Monte Sant’Elena?",
+        "a": "Durante l’eruzione di crescita del duomo dal 2004 al 2008, piccoli terremoti si ripeterono a intervalli così regolari che gli scienziati li chiamarono colpi di tamburo (drumbeats). Le loro dimensioni e la loro spaziatura cambiavano con lo stile di estrusione della lava anziché con il tasso di alimentazione del magma."
+      }
+    ]
   }
 }

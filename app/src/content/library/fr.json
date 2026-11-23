@@ -638,5 +638,175 @@
         "a": "Ils peuvent utiliser des types de magnitude, des stations et des quantités de données différents. L’USGS calcule jusqu’à une douzaine de types de magnitude, car aucune méthode ne convient à tous les séismes, et les écarts entre types pour un même événement peuvent être importants."
       }
     ]
+  },
+  "deep-focus-earthquakes": {
+    "title": "Comment des séismes se produisent à 600 kilomètres de profondeur : l’énigme de la sismicité profonde",
+    "dek": "À 600 kilomètres, la roche subit une pression énorme et devrait fluer, non se rompre. Pourtant, de grands séismes y prennent naissance. Voici ce qu’ont révélé les deux plus grands événements profonds, et pourquoi aucune explication unique ne convient.",
+    "sections": [
+      {
+        "h": "Des séismes sous la zone fragile",
+        "p": [
+          "La plupart des séismes naissent à quelques dizaines de kilomètres de la surface, là où la roche froide se rompt et glisse le long de failles. Une petite part naît bien plus profondément, à l’intérieur de plaques océaniques qui s’enfoncent dans le manteau. Les séismes situés à plus d’environ 70 kilomètres de profondeur sont souvent regroupés sous le nom d’événements profonds (Wang et al. 2017). Au sein des plaques en subduction, les événements situés à moins de 300 kilomètres sont définis comme des séismes de profondeur intermédiaire, et ceux situés à plus de 300 kilomètres sont considérés comme des séismes à foyer profond (Hasegawa and Nakajima 2017). sisma.io utilise les mêmes limites pour ses étiquettes de profondeur : Superficiel au-dessus de 70 kilomètres, Intermédiaire de 70 à 300, et Profond au-delà de 300.",
+          "La population la plus profonde se situe entre environ 325 et 690 kilomètres, un intervalle qui encadre étroitement la zone de transition du manteau, où les principaux minéraux du manteau supérieur adoptent des structures cristallines plus denses (Kirby et al. 1996). L’existence de ces séismes pose problème. Green and Burnley (1989) font remarquer que la rupture fragile et le glissement par frottement à des profondeurs supérieures à 100 à 200 kilomètres exigeraient des résistances de roche irréalistes. Hasegawa and Nakajima (2017) formulent la difficulté en termes de contrainte : un séisme à de telles profondeurs nécessiterait que la contrainte de cisaillement dépasse une résistance au frottement très élevée ; or les séismes se produisent bel et bien, si bien qu’un mécanisme particulier doit abaisser la résistance de la faille. Plusieurs mécanismes plausibles ont été proposés, et la question de savoir lequel opère exactement reste non résolue (Hasegawa and Nakajima 2017)."
+        ]
+      },
+      {
+        "h": "Où se produisent les séismes profonds et comment ils se comportent",
+        "p": [
+          "Les séismes profonds se produisent dans la lithosphère océanique en cours de subduction ou anciennement subduite (Kirby et al. 1996). Ils suivent des bandes planes inclinées appelées zones de Wadati-Benioff, qui dessinent les cœurs froids et descendants des plaques qui s’enfoncent (Wang et al. 2017). Le nombre de séismes diminue de façon presque exponentielle avec la profondeur jusqu’à environ 300 kilomètres, atteint un minimum entre environ 300 et 450 kilomètres, puis augmente de nouveau jusqu’à un maximum local entre 550 et 600 kilomètres (Hasegawa and Nakajima 2017). L’activité s’arrête ensuite brusquement vers 700 kilomètres (Wang et al. 2017).",
+          "Zhan (2020) résume les observations dans un article de synthèse : les séismes profonds se comportent comme les séismes superficiels mais doivent relever de processus physiques fondamentalement différents, et leur comportement de rupture, leurs statistiques de taille et leurs répliques sont variés et ne dépendent qu’imparfaitement de facteurs tels que la température du panneau plongeant, la profondeur et la magnitude. Les événements profonds produisent généralement peu de répliques et ne laissent ni rupture en surface ni signal géodésique, ce qui rend la taille de leurs ruptures difficile à estimer (Zhan et al. 2014).",
+          "Pour qui suit les séismes, la conséquence pratique est que les séismes profonds ne provoquent généralement pas en surface des secousses assez fortes pour être dangereuses, même s’ils présentent un grand intérêt scientifique (University of California, Santa Cruz 2013). Un événement profond de magnitude 6 ou 7 peut donc apparaître sur un site de suivi avec un chiffre élevé et peu ou pas de dégâts signalés, car la rupture se situe à des centaines de kilomètres sous terre."
+        ]
+      },
+      {
+        "h": "Deux événements record",
+        "p": [
+          "Deux séismes concentrent l’essentiel des discussions. Le 9 juin 1994, un séisme profond a frappé sous la Bolivie. Silver et al. (1995) lui attribuent une magnitude de moment de 8,3 et une profondeur de 636 kilomètres, et le décrivent comme le plus grand séisme à foyer profond enregistré jusqu’alors. Le catalogue de l’USGS répertorie le même événement avec une magnitude de 8,2 à une profondeur de 631 kilomètres (USGS n.d.a). Le 24 mai 2013, un séisme de magnitude 8,3 a rompu une faille longue de 180 kilomètres au sein de la plaque Pacifique en subduction, à environ 609 kilomètres sous la mer d’Okhotsk (Ye et al. 2013). Le catalogue de l’USGS l’indique avec une magnitude de 8,3 à 598 kilomètres (USGS n.d.b). Les différentes méthodes donnent des profondeurs qui diffèrent de plusieurs kilomètres, si bien que les chiffres publiés varient légèrement.",
+          "Le séisme d’Okhotsk avait un moment sismique supérieur de 30 % à celui de l’événement de Bolivie et a libéré environ trois fois plus d’énergie (University of California, Santa Cruz 2013). Ye et al. (2013) ont mesuré une vitesse de rupture d’environ 4,0 à 4,5 kilomètres par seconde et une chute de contrainte statique d’environ 12 à 15 mégapascals, des valeurs compatibles avec l’efficacité de rayonnement théorique des modèles de fissure. Une réplique voisine présentait une chute de contrainte supérieure d’un à deux ordres de grandeur, ce que les auteurs interprètent comme une forte hétérogénéité des contraintes dans le panneau plongeant en profondeur. Thorne Lay, coauteur de l’étude, a qualifié de mystère le fait que la roche puisse glisser contre la roche aussi vite tout en étant comprimée par la pression de 610 kilomètres de roche sus-jacente (University of California, Santa Cruz 2013).",
+          "Les deux événements ont rompu différemment. Zhan et al. (2014) ont constaté que le séisme d’Okhotsk était essentiellement unilatéral, rompant sur environ 90 kilomètres selon la direction de la faille à plus de 4 kilomètres par seconde, tandis que le séisme de Bolivie a rompu sur environ la moitié de cette distance à une vitesse lente d’environ 1,5 kilomètre par seconde et a montré un changement majeur de direction de rupture. Cette différence compte, car chaque mécanisme candidat implique un comportement différent en matière de vitesse et d’étendue de la rupture. Une rupture rapide et longue avec une chute de contrainte modérée ressemble à celle d’un séisme superficiel ; Lay a dit du séisme d’Okhotsk qu’il ressemble beaucoup à un événement superficiel (University of California, Santa Cruz 2013). La rupture lente de Bolivie s’est comportée autrement, si bien qu’aucune description unique ne convient aux deux."
+        ]
+      },
+      {
+        "h": "Premier mécanisme : le faillage transformationnel",
+        "p": [
+          "L’olivine, principal minéral du manteau supérieur, se convertit en structures plus denses à mesure que la pression augmente. Dans les panneaux plongeants anciens et froids, cette réaction est freinée cinétiquement, si bien que des zones en forme de coin de roche à olivine métastable persistent probablement jusqu’à plus de 600 kilomètres de profondeur (Kirby et al. 1996). Des expériences de laboratoire sur certains minéraux métastables montrent une instabilité de cisaillement appelée faillage transformationnel, dans laquelle le minéral hôte cède brusquement dans de minces zones de cisaillement où il se transforme en une phase plus dense et à grain plus fin (Kirby et al. 1996). Green and Burnley (1989) ont observé ce faillage dans un analogue au germanium de l’olivine, Mg2GeO4, et ont proposé qu’il résulte de la formation, de la propagation et de la coalescence de petites inclusions remplies de la phase plus dense. Hasegawa and Nakajima (2017) décrivent la même idée en termes de petits cristaux lenticulaires de la nouvelle phase qui croissent et s’alignent le long d’un plan jusqu’à former une faille.",
+          "Les travaux de laboratoire confortent ce schéma. Schubnel et al. (2013) ont enregistré des émissions acoustiques semblables à des séismes profonds dans de l’olivine Mg2GeO4 déformée à des pressions de 4 à 5 gigapascals pendant sa transformation, en combinant des mesures par rayons X synchrotron et une surveillance acoustique (Wang et al. 2017). Une étude de 2022 a utilisé de l’olivine naturelle (Mg,Fe)2SiO4 à des pressions de 11 à 17 gigapascals et des températures de 860 à 1 350 kelvins, des conditions équivalentes à celles des panneaux plongeants dans la zone de transition. Un faillage traversant ne s’est produit que dans une étroite fenêtre de température de 1 100 à 1 160 kelvins, accompagné d’intenses émissions acoustiques au début de la rupture. Le glissement sur la faille, favorisé par l’échauffement par cisaillement, s’est produit le long d’une couche faible formée par la coalescence d’amas lenticulaires d’olivine nanocristalline et de wadsleyite (Ohuchi et al. 2022).",
+          "L’hypothèse concorde avec deux observations : la sismicité profonde encadre étroitement la zone de transition, et les coins d’olivine métastable ne sont attendus que dans les panneaux plongeants anciens et froids (Kirby et al. 1996). Elle se heurte aussi à des objections. Une première version, dans laquelle l’effondrement soudain du minéral vers une forme plus dense produit le séisme, créerait à la source une importante composante isotrope, ou implosive, dont les séismes profonds sont généralement dépourvus (Hasegawa and Nakajima 2017). Silver et al. (1995) ont constaté que la rupture de Bolivie s’étendait sur au moins 30 sur 50 kilomètres, soit plus de trois fois la taille attendue pour un coin d’olivine métastable au cœur du panneau plongeant, ce qu’ils ont jugé incompatible avec une origine par faillage transformationnel."
+        ]
+      },
+      {
+        "h": "Deuxième mécanisme : la fragilisation par déshydratation",
+        "p": [
+          "Les plaques en subduction transportent des minéraux hydratés qui se décomposent à mesure que la pression et la température augmentent. Selon l’hypothèse de la fragilisation par déshydratation, l’eau expulsée de ces minéraux engendre des séismes en élevant la pression de fluide interstitiel dans la roche. Hasegawa and Nakajima (2017) notent que le détail de la manière dont une surpression interstitielle locale conduit à la rupture fait encore débat. Ils concluent que l’eau provenant du panneau plongeant joue un rôle important dans la genèse des séismes de profondeur intermédiaire, la rupture débutant peut-être sous l’effet d’une surpression interstitielle locale avant de se propager par instabilité thermique en cisaillement.",
+          "Étendre cette idée au-delà de 300 kilomètres est plus difficile. Le communiqué de l’UC Santa Cruz sur le séisme d’Okhotsk notait qu’un fluide peut lubrifier une faille, mais que tous les fluides auraient dû être expulsés du panneau plongeant avant qu’il n’atteigne cette profondeur (University of California, Santa Cruz 2013). Zhang et al. (2021) soutiennent néanmoins que la fragilisation par déshydratation constitue un modèle alternatif plausible pour l’événement d’Okhotsk. Leur argumentation repose sur l’orientation et la taille du plan qui a rompu, sur sa vitesse de rupture et son efficacité de rayonnement, et sur des indices variés montrant que l’eau est transportée jusqu’à la zone de transition et au-delà. Il s’agit de l’une de plusieurs interprétations concurrentes de ce séisme."
+        ]
+      },
+      {
+        "h": "Troisième mécanisme : l’emballement thermique",
+        "p": [
+          "La troisième hypothèse, l’instabilité thermique en cisaillement, part de la déformation plastique. Si la roche se déforme plus vite que la chaleur produite ne peut s’évacuer, une rétroaction positive favorise une déformation accrue. La déformation progresse alors rapidement jusqu’à ce que le matériau de cette partie du panneau plongeant commence à fondre, ce qui produit un glissement soudain, autrement dit un séisme (Hasegawa and Nakajima 2017).",
+          "Lay a donné une description semblable pour Okhotsk : si la faille glisse ne serait-ce qu’un peu, le frottement pourrait faire fondre la roche et fournir le fluide, produisant un effet d’emballement thermique. Il a ajouté que quelque chose doit d’abord amorcer le glissement (University of California, Santa Cruz 2013). Zhan et al. (2014) proposent que ce type de fusion par cisaillement opère à l’intérieur des panneaux plongeants chauds une fois qu’une rupture a été déclenchée."
+        ]
+      },
+      {
+        "h": "Les points de désaccord entre scientifiques",
+        "p": [
+          "Une synthèse de Zhan (2020) aboutit à une conclusion nette sur les trois principaux mécanismes. Le faillage transformationnel, la fragilisation par déshydratation et l’emballement thermique peuvent chacun expliquer une partie des observations, et chacun se heurte à des difficultés potentiellement fondamentales pour expliquer le reste. La synthèse appelle à examiner plus sérieusement les hypothèses faisant intervenir plus d’un mécanisme : un séisme profond pourrait s’amorcer par un processus et se propager par un autre une fois déclenché.",
+          "La comparaison des deux plus grands événements va dans le même sens. Zhan et al. (2014) expliquent leurs différences par deux mécanismes de faillage fondamentalement différents dans des panneaux plongeants aux états thermiques distincts : le faillage transformationnel dans le coin d’olivine métastable au cœur des panneaux froids, et la fusion par cisaillement à l’intérieur des panneaux chauds une fois la rupture déclenchée. Lay a fait remarquer qu’une transformation des formes minérales pourrait donner l’impulsion initiale, mais que les scientifiques ne peuvent pas la détecter directement (University of California, Santa Cruz 2013). Ce problème de détection laisse ouverte la question de l’amorçage des ruptures, même là où leur propagation est mieux contrainte.",
+          "L’échelle constitue une autre limite. Les échantillons d’olivine des expériences de 2022 mesuraient 1,2 millimètre de long (Ohuchi et al. 2022), alors que la rupture d’Okhotsk s’est étendue sur de nombreux kilomètres de faille. Des chercheurs qui étudient des ruptures de laboratoire dans des échantillons millimétriques ont noté que les questions de changement d’échelle entre les événements de laboratoire et les séismes à foyer profond restent à résoudre (Wang et al. 2017). Chaque grand événement profond apporte une contrainte supplémentaire sur la température, la composition minérale et la résistance du panneau plongeant à des profondeurs qu’aucun forage ne peut atteindre. Pour qui suit un flux de séismes en direct, un grand séisme profond est donc avant tout une occasion de recherche, car la profondeur qui le rend difficile à expliquer maintient aussi l’essentiel de ses secousses loin de la surface."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qu’est-ce qu’un séisme à foyer profond ?",
+        "a": "Un séisme à foyer profond naît à plus de 300 kilomètres sous la surface, à l’intérieur d’une plaque océanique qui s’enfonce dans le manteau. Les séismes situés entre environ 70 et 300 kilomètres sont dits de profondeur intermédiaire. Les séismes les plus profonds se produisent entre environ 325 et 690 kilomètres, et l’activité s’arrête brusquement vers 700 kilomètres."
+      },
+      {
+        "q": "Pourquoi les séismes profonds sont-ils difficiles à expliquer ?",
+        "a": "Au-delà de 100 à 200 kilomètres de profondeur, la pression est si forte que la rupture fragile et le glissement par frottement ordinaires exigeraient des résistances de roche irréalistes. À ces profondeurs, la roche devrait normalement se déformer lentement plutôt que se rompre, si bien qu’un mécanisme particulier doit affaiblir la faille."
+      },
+      {
+        "q": "Quel est le plus grand séisme profond jamais enregistré ?",
+        "a": "Le séisme de la mer d’Okhotsk du 24 mai 2013, de magnitude 8,3, à environ 600 kilomètres de profondeur. Son moment sismique était supérieur d’environ 30 % à celui du séisme de Bolivie de 1994, le précédent détenteur du record, et il a libéré environ trois fois plus d’énergie."
+      },
+      {
+        "q": "Les séismes profonds sont-ils dangereux ?",
+        "a": "Les séismes profonds ne provoquent généralement pas en surface des secousses assez fortes pour être dangereuses, car la rupture se situe à des centaines de kilomètres de profondeur."
+      },
+      {
+        "q": "Quelles sont les principales explications des séismes profonds ?",
+        "a": "Les trois principales hypothèses sont le faillage transformationnel, où de l’olivine restée sous sa forme de basse pression se transforme brusquement le long de minces zones ; la fragilisation par déshydratation, où l’eau libérée par des minéraux affaiblit la roche ; et l’emballement thermique, où une déformation rapide chauffe et fait fondre une zone étroite. Chacune explique une partie des observations."
+      },
+      {
+        "q": "Les scientifiques s’accordent-ils sur la cause des séismes profonds ?",
+        "a": "Non. Une synthèse de 2020 a conclu que chacun des principaux mécanismes se heurte à des difficultés potentiellement fondamentales et a suggéré qu’un séisme profond pourrait s’amorcer par un mécanisme et se poursuivre par un autre. Les études des événements de Bolivie en 1994 et d’Okhotsk en 2013 suggèrent que les panneaux plongeants froids et chauds pourraient se rompre de façons différentes."
+      }
+    ]
+  },
+  "volcano-seismology": {
+    "title": "À l’écoute du magma : comment séismes volcaniques, trémor et essaims révèlent les fluides en mouvement",
+    "dek": "Les volcans tremblent d’une manière que les failles ordinaires ne connaissent pas. La roche qui se fracture, les fissures qui entrent en résonance et le trémor continu renseignent chacun les observateurs sur un aspect différent du magma et des gaz en mouvement.",
+    "sections": [
+      {
+        "h": "Un signal sismique d’un autre genre",
+        "p": [
+          "Les volcans produisent une plus grande variété de signaux sismiques que les zones de failles ordinaires. Les séismes volcano-tectoniques (VT) ont été les premiers étudiés car, comme les séismes tectoniques, ils sont produits par la rupture fragile de la roche (Konstantinou 2024). Les séismes longue période (LP) ou hybrides et le trémor volcanique résultent de l’interaction complexe des fluides et des gaz avec la roche solide, ce qui rend leur source beaucoup plus difficile à déchiffrer (Konstantinou 2024). Chouet (1996) décrit la sismicité longue période comme présentant des périodes typiques de 0,2 à 2 secondes et comme le reflet de fluctuations de pression causées par un transport de masse instationnaire dans le système d’alimentation situé sous un volcan.",
+          "Cette distinction structure la suite de cet article. Les séismes VT et les essaims indiquent aux observateurs que la roche se fracture à mesure que le magma ou les fluides s’ouvrent un nouvel espace. Les événements LP et le trémor suggèrent que des fluides circulent dans des fissures et des conduits qui existent déjà."
+        ]
+      },
+      {
+        "h": "Séismes volcano-tectoniques et essaims",
+        "p": [
+          "White and McCausland (2016) ont recensé 136 séismes VT et essaims ayant précédé 111 éruptions sur 83 volcans. Ils ont constaté que la sismicité VT est généralement le premier précurseur sismique signalé sur les volcans en sommeil depuis des décennies ou plus, et qu’elle a précédé toutes les éruptions explosives d’indice d’explosivité volcanique (VEI) égal ou supérieur à 5 de leur jeu de données. Cette activité prend souvent la forme d’essaims, commence de quelques jours à plusieurs années avant une éruption, culmine au moment de l’éruption initiale et présente une forte composante non double couple dans ses mécanismes au foyer. Les essaims débutent généralement sur des failles tectoniques situées à une distance allant d’un ou deux à plusieurs dizaines de kilomètres du futur évent, plutôt que directement en dessous. Les auteurs montrent également que le volume de magma injecté peut être estimé à partir du moment sismique cumulé des séismes VT (White and McCausland 2016).",
+          "Les essaims peuvent cartographier le déplacement du magma même lorsqu’aucune éruption ne suit. Deux essaims sous le volcan Iliamna, en Alaska, en mai et en août 1996, ont compté respectivement 88 et 2 833 événements localisables, de magnitudes comprises entre -0,9 et 3,3. Leurs hypocentres formaient un groupe dans un volume de croûte jusque-là asismique, au sud du sommet, et des hausses des émissions de dioxyde de soufre et de dioxyde de carbone ont coïncidé avec le second essaim. Les auteurs ont expliqué cette configuration par la mise en place et le gonflement d’un dyke subvertical. Aucune éruption ne s’est produite (Roman et al. 2004).",
+          "Le 23 août 2021, l’Observatoire volcanologique d’Hawaï (HVO) a signalé un essaim sous la partie sud de la caldeira sommitale du Kilauea. Tôt le lendemain matin, l’essaim s’est intensifié, en même temps que la déformation du sol s’accélérait sur un inclinomètre voisin. Le HVO a indiqué que ces observations pouvaient traduire une petite intrusion de dyke à 1 à 2 kilomètres sous le sud de la caldeira. Plus de 100 séismes avaient alors été enregistrés, le plus fort de magnitude 3,3 et la plupart inférieurs à magnitude 1 (USGS Hawaiian Volcano Observatory 2021).",
+          "L’interprétation est parfois moins directe. Un séisme de magnitude 4,2 survenu le 15 juin 2020 sur l’île d’Unalaska, en Alaska, a déclenché une séquence de plusieurs centaines de séismes à 7 à 10 kilomètres de profondeur, à environ 12 kilomètres au sud-est du sommet du volcan Makushin, sans qu’aucune activité éruptive ni modification de la surface ne soit observée. Lanza et al. (2022) notent qu’il est souvent difficile de déterminer si une telle sismicité reflète des contraintes magmatiques ou tectoniques, bien que ce soit essentiel pour l’évaluation de l’aléa. Leur analyse a mis en évidence un champ de contraintes local probablement induit par une intrusion magmatique, et ils concluent que l’essaim a été provoqué par une combinaison de contraintes magmatiques et tectoniques."
+        ]
+      },
+      {
+        "h": "Les événements longue période : des fissures qui résonnent",
+        "p": [
+          "L’une des principales explications des événements LP est la résonance d’une fissure remplie de fluide. Dans le modèle de Chouet (1988), une fissure tridimensionnelle contenant un fluide visqueux et compressible entre en résonance sous l’effet d’un transitoire de pression impulsionnel appliqué sur une petite partie de sa surface, et une onde très lente piégée dans le fluide, appelée onde de fissure, entretient la vibration. La fréquence, la largeur de bande et l’espacement des pics de résonance dépendent fortement de la rigidité de la fissure. Dans ce même modèle, un événement LP et le trémor harmonique partagent la même source et diffèrent par la manière dont la résonance est déclenchée et par les conditions aux limites de l’écoulement du fluide (Chouet 1988).",
+          "Le modèle permet de lire les fluides dans les formes d’onde. Kumagai and Chouet (2000) ont estimé le facteur de qualité, une mesure de la lenteur avec laquelle la vibration s’amortit, pour une fissure contenant des mélanges gaz-gaz, des mélanges liquide-gaz et des gaz chargés de poussières ou de gouttelettes, et ont obtenu des valeurs allant de près de l’unité à plusieurs centaines. Ils suggèrent que les variations des fréquences complexes des événements LP pourraient être interprétées en termes de changements de la composition des fluides sous les volcans.",
+          "De brefs événements LP en forme d’impulsions ont accompagné l’activité éruptive de l’Etna, en Italie, en 2004 et 2008, ainsi que celle des volcans Turrialba, au Costa Rica, et Ubinas, au Pérou, en 2009. Chouet and Dawson (2016) ont montré qu’une fissure mise en mouvement par un fluide explique ces impulsions avec des tailles de source et des propriétés de fluide réalistes, et que les sources sont superficielles, à moins de 1 kilomètre de profondeur. Une rupture lente reste une autre explication possible, même si, avec ce modèle, leurs formes d’onde synthétiques s’ajustent moins bien aux données."
+        ]
+      },
+      {
+        "h": "Le trémor volcanique : un signal continu aux sources multiples possibles",
+        "p": [
+          "Le trémor est une vibration continue qui peut se produire avant ou après les éruptions et durer de plusieurs minutes à plusieurs jours ou mois. Sa source peut se situer à n’importe quelle profondeur entre quelques centaines de mètres et 40 kilomètres, selon le volcan. Konstantinou and Schlindwein (2003) regroupent les sources proposées en quatre familles : les oscillations induites par l’écoulement dans les conduits transportant des fluides magmatiques, la résonance de fissures remplies de fluide, la croissance ou l’effondrement de bulles lors de l’ébullition hydrothermale des eaux souterraines, et les oscillations de corps magmatiques. Ils notent que de nombreux auteurs considèrent que la source du trémor n’est pas unique et peut varier d’un volcan à l’autre.",
+          "Julian (1994) a décrit un processus non linéaire analogue à l’excitation des instruments de musique à vent et des cordes vocales humaines, dans lequel un fluide s’écoulant dans un canal aux parois élastiques mobiles produit des oscillations. Dans ce modèle, les séismes LP apparaissent lorsque le débit de magma est trop faible pour entretenir un trémor continu et qu’une perturbation transitoire excite alors le canal. McNutt (2005) indique que le trémor est plus fort pour les éruptions fissurales, les éruptions phréatiques et les teneurs en gaz plus élevées.",
+          "Une étude du trémor non éruptif du 2 octobre 2004 au mont Saint Helens offre un éclairage différent. Denlinger and Moran (2014) ont constaté que le signal était entièrement composé d’ondes de Love et de Rayleigh, et que les forces qui le produisaient étaient en grande partie perpendiculaires aux parois du conduit. Ils en ont conclu que le mode de génération du trémor masque la nature de sa source, si bien que plusieurs modèles peuvent expliquer le même signal et que d’autres données sont nécessaires pour les départager. Des données GPS et de terrain indiquant une remontée rapide du magma les ont conduits à attribuer ce trémor au frottement d’un magma presque solide contre les parois rugueuses du conduit, tandis qu’il était poussé vers la surface."
+        ]
+      },
+      {
+        "h": "Mont Saint Helens, 2004 : la succession des signaux",
+        "p": [
+          "Après 17 ans et 11 mois de calme, le mont Saint Helens a commencé à se réveiller le 23 septembre 2004 par un essaim de séismes VT superficiels, à moins de 2 kilomètres de profondeur. Le 29 septembre, des séismes de magnitude supérieure à 2 se produisaient au rythme d’environ un par minute. Une transition progressive des événements VT vers des événements hybrides et basse fréquence a accompagné cette intensification, un trait caractéristique de nombreux essaims précurseurs observés sur ce volcan avant ses éruptions de croissance de dôme des années 1980. La première explosion a eu lieu le 1er octobre, 8,5 jours après les premiers séismes (Moran et al. 2008).",
+          "Dès le 16 octobre, l’intervalle entre les événements était devenu si régulier que les scientifiques ont baptisé ces séismes « battements de tambour » (drumbeats), et ceux-ci ont dominé la sismicité jusqu’à la fin de 2005. Leur taille, leur espacement et leurs spectres variaient avec les changements du style d’extrusion en surface, mais pas avec les variations du flux de magma, ce qui suggère que la taille et l’espacement des battements de tambour dépendaient davantage de la mécanique de l’extrusion que de son débit (Moran et al. 2008). Matoza and Chouet (2010) ont étudié les sous-événements plus petits qui accompagnaient les battements de tambour et ont conclu que l’interaction des systèmes hydrothermal et magmatique sous le volcan pouvait expliquer un large éventail de phénomènes observés, notamment les sous-événements, les événements LP, des événements plus importants et des explosions phréatiques."
+        ]
+      },
+      {
+        "h": "Mont Pinatubo, 1991 : des séismes longue période profonds",
+        "p": [
+          "La grande majorité des événements LP décrits dans la littérature prennent naissance à moins de 3 kilomètres de profondeur, mais le mont Pinatubo a produit autre chose. Environ 600 séismes longue période profonds se sont produits sous le volcan fin mai et début juin 1991, soit davantage que le total cumulé signalé jusque-là sur l’ensemble des volcans de marges convergentes du monde (White 1996). White les interprète comme l’expression sismique d’un magma basaltique profond injecté à la base de la chambre magmatique, qui a déclenché la séquence éruptive. Le début de l’activité profonde, le 26 mai, a été suivi seulement 1 heure plus tard par des séismes LP superficiels et, en moins de 4 heures, par un trémor superficiel continu et une importante émission de vapeur (White 1996).",
+          "La surveillance sismique a été le principal outil d’évaluation de l’évolution du potentiel éruptif avant l’éruption paroxysmale du 15 juin. L’équipe a prévu l’escalade à partir des déplacements de la zone des hypocentres, de l’augmentation de l’énergie sismique totale libérée, des changements de caractère des formes d’onde et des signes non sismiques croissants d’agitation. Les derniers jours ont été marqués par une progression remarquable d’événements LP de plus en plus grands du 12 au 14 juin, suivie d’une période préparoxysmale de 24 heures d’activité sismique de forte amplitude et très diversifiée (Harlow et al. 1996)."
+        ]
+      },
+      {
+        "h": "Ce qui reste à établir",
+        "p": [
+          "La sismologie volcanique fournit des indices solides du mouvement des fluides, mais plusieurs questions demeurent ouvertes. McNutt (2005) note que les événements LP profonds sont assez courants mais peuvent correspondre à plusieurs processus. Le trémor fait l’objet de modèles de source concurrents, comme le montre l’étude du mont Saint Helens. Des essaims comme celui proche du Makushin peuvent refléter à la fois des contraintes magmatiques et tectoniques, et un essaim peut prendre fin sans éruption, comme à l’Iliamna.",
+          "Pour les lecteurs qui suivent les flux de séismes, ces exemples offrent une leçon pratique. De nombreux événements des séquences volcaniques sont de faible ampleur, et leur signification dépend souvent d’autres mesures, comme l’enregistrement de l’inclinomètre au Kilauea et les émissions de gaz à l’Iliamna. Les signaux sismiques, combinés aux données de déformation et de gaz, donnent aux observatoires la meilleure base pour juger si le magma remonte."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Qu’est-ce qu’un séisme volcano-tectonique ?",
+        "a": "Un séisme volcano-tectonique (VT) est provoqué par la rupture fragile de la roche, comme un séisme tectonique ordinaire, mais il est dû aux contraintes exercées par le magma ou les fluides qui s’introduisent dans la croûte près d’un volcan. Les essaims VT constituent généralement le premier signal d’alerte sismique sur les volcans en sommeil depuis des décennies."
+      },
+      {
+        "q": "Que sont les séismes volcaniques longue période ?",
+        "a": "Les événements longue période (LP) ont des périodes typiques de 0,2 à 2 secondes et proviendraient de variations de pression lorsque le magma, les gaz ou la vapeur circulent dans le volcan. Un modèle courant les explique par la résonance d’une fissure remplie de fluide."
+      },
+      {
+        "q": "Qu’est-ce que le trémor volcanique ?",
+        "a": "Le trémor volcanique est un signal sismique continu enregistré près d’un volcan actif, qui peut durer de quelques minutes à plusieurs jours ou mois. Parmi les sources proposées figurent l’écoulement de fluides dans des conduits, des fissures en résonance, l’ébullition des eaux souterraines et l’oscillation de corps magmatiques, et la source peut varier d’un volcan à l’autre."
+      },
+      {
+        "q": "Un essaim de séismes sous un volcan annonce-t-il une éruption ?",
+        "a": "Pas nécessairement. Les essaims de l’Iliamna en 1996 et des environs du Makushin en 2020 ont pris fin sans éruption. Les observatoires croisent les données sismiques avec les mesures de déformation du sol et de gaz avant de juger si le magma remonte vers la surface."
+      },
+      {
+        "q": "Comment la sismologie a-t-elle aidé à prévoir l’éruption du Pinatubo en 1991 ?",
+        "a": "Les scientifiques ont suivi les déplacements des zones où se produisaient les séismes, l’énergie sismique totale libérée et les changements des formes d’onde. Les séismes longue période profonds survenus à partir de fin mai ont marqué l’arrivée de magma nouveau, et des événements LP de plus en plus grands du 12 au 14 juin ont précédé l’éruption paroxysmale du 15 juin."
+      },
+      {
+        "q": "Qu’étaient les séismes « battements de tambour » du mont Saint Helens ?",
+        "a": "Pendant l’éruption de croissance de dôme de 2004 à 2008, de petits séismes se sont répétés à des intervalles si réguliers que les scientifiques les ont appelés « battements de tambour » (drumbeats). Leur taille et leur espacement variaient avec le style d’extrusion de la lave plutôt qu’avec le débit d’alimentation en magma."
+      }
+    ]
   }
 }

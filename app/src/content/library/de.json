@@ -638,5 +638,175 @@
         "a": "Sie verwenden unter Umständen unterschiedliche Magnitudentypen, Stationen und Datenmengen. Der USGS berechnet bis zu einem Dutzend Magnitudentypen, weil keine einzelne Methode zu jedem Erdbeben passt, und die Abweichungen zwischen den Typen für dasselbe Ereignis können groß sein."
       }
     ]
+  },
+  "deep-focus-earthquakes": {
+    "title": "Wie Erdbeben in 600 Kilometern Tiefe entstehen: Das Rätsel der Tiefherdbeben",
+    "dek": "Gestein in 600 Kilometern Tiefe steht unter enormem Druck und sollte fließen, nicht brechen. Dennoch beginnen dort starke Erdbeben. Hier steht, was die beiden größten Tiefbeben gezeigt haben und warum keine einzelne Erklärung passt.",
+    "sections": [
+      {
+        "h": "Erdbeben unterhalb der spröden Zone",
+        "p": [
+          "Die meisten Erdbeben beginnen innerhalb weniger Dutzend Kilometer unter der Oberfläche, wo kaltes Gestein bricht und entlang von Verwerfungen gleitet. Ein kleiner Teil beginnt weit tiefer, in ozeanischen Platten, die in den Mantel absinken. Erdbeben unterhalb von etwa 70 Kilometern werden oft als tiefe Ereignisse zusammengefasst (Wang et al. 2017). Innerhalb abtauchender Platten gelten Ereignisse in weniger als 300 Kilometern Tiefe als mitteltiefe Erdbeben, solche in mehr als 300 Kilometern Tiefe als Tiefherdbeben (Hasegawa and Nakajima 2017). sisma.io verwendet für seine Tiefenangaben dieselben Grenzen: Flach oberhalb von 70 Kilometern, Mitteltief von 70 bis 300 und Tief unterhalb von 300.",
+          "Die tiefste Gruppe liegt zwischen etwa 325 und 690 Kilometern, ein Intervall, das die Übergangszone des Mantels eng umschließt; dort gehen die Hauptminerale des oberen Mantels in dichtere Kristallstrukturen über (Kirby et al. 1996). Die Existenz dieser Erdbeben wirft ein Problem auf. Green and Burnley (1989) weisen darauf hin, dass Sprödbruch und Reibungsgleiten in Tiefen von mehr als 100 bis 200 Kilometern unrealistische Gesteinsfestigkeiten erfordern würden. Hasegawa and Nakajima (2017) fassen die Schwierigkeit in Begriffe der Spannung: Ein Erdbeben in solchen Tiefen würde erfordern, dass die Scherspannung eine sehr große Reibungsfestigkeit übersteigt; dennoch treten die Erdbeben auf, also muss ein besonderer Mechanismus die Festigkeit der Verwerfung herabsetzen. Mehrere plausible Mechanismen wurden vorgeschlagen, und welcher es genau ist, bleibt ungeklärt (Hasegawa and Nakajima 2017)."
+        ]
+      },
+      {
+        "h": "Wo Tiefbeben auftreten und wie sie sich verhalten",
+        "p": [
+          "Tiefbeben treten in ozeanischer Lithosphäre auf, die gerade subduziert wird oder früher subduziert wurde (Kirby et al. 1996). Sie folgen geneigten, flächigen Bändern, den sogenannten Wadati-Benioff-Zonen, die die kalten, abwärts gerichteten Kerne der absinkenden Platten nachzeichnen (Wang et al. 2017). Die Zahl der Erdbeben nimmt mit der Tiefe bis etwa 300 Kilometer nahezu exponentiell ab, erreicht zwischen etwa 300 und 450 Kilometern ein Minimum und steigt bei 550 bis 600 Kilometern wieder auf ein lokales Maximum an (Hasegawa and Nakajima 2017). Nahe 700 Kilometern endet die Aktivität dann abrupt (Wang et al. 2017).",
+          "Zhan (2020) fasst die Beobachtungen in einem Übersichtsartikel zusammen: Tiefbeben verhalten sich wie flache Erdbeben, müssen aber auf grundlegend anderen physikalischen Prozessen beruhen, und ihr Bruchverhalten, ihre Größenstatistik und ihre Nachbeben sind vielfältig und hängen nur unvollkommen von Faktoren wie der Temperatur der abtauchenden Platte, der Tiefe und der Magnitude ab. Tiefe Ereignisse erzeugen in der Regel wenige Nachbeben und hinterlassen weder einen Oberflächenbruch noch ein geodätisches Signal, was es schwer macht, die Größe ihrer Brüche abzuschätzen (Zhan et al. 2014).",
+          "Für alle, die Erdbeben verfolgen, ist die praktische Folge, dass Tiefbeben an der Oberfläche meist keine Erschütterungen verursachen, die stark genug wären, um gefährlich zu sein, auch wenn sie wissenschaftlich von großem Interesse sind (University of California, Santa Cruz 2013). Ein tiefes Ereignis der Magnitude 6 oder 7 kann daher auf einer Erdbebenseite als große Zahl mit wenigen oder gar keinen gemeldeten Schäden erscheinen, weil der Bruch Hunderte Kilometer unter dem Boden liegt."
+        ]
+      },
+      {
+        "h": "Zwei Rekordbeben",
+        "p": [
+          "Zwei Erdbeben stehen im Mittelpunkt der meisten Diskussionen. Am 9. Juni 1994 ereignete sich unter Bolivien ein Tiefbeben. Silver et al. (1995) geben seine Momenten-Magnitude mit 8,3 und seine Tiefe mit 636 Kilometern an und beschreiben es als das stärkste bis dahin aufgezeichnete Tiefherdbeben. Der USGS-Katalog führt dasselbe Ereignis mit Magnitude 8,2 in 631 Kilometern Tiefe (USGS n.d.a). Am 24. Mai 2013 brach bei einem Erdbeben der Magnitude 8,3 eine 180 Kilometer lange Verwerfung innerhalb der abtauchenden Pazifischen Platte, etwa 609 Kilometer unter dem Ochotskischen Meer (Ye et al. 2013). Der USGS-Katalog führt es mit Magnitude 8,3 in 598 Kilometern Tiefe (USGS n.d.b). Unterschiedliche Methoden liefern Tiefen, die um mehrere Kilometer voneinander abweichen, daher variieren die veröffentlichten Werte leicht.",
+          "Das Ochotsk-Erdbeben hatte ein um 30 Prozent größeres seismisches Moment als das Bolivien-Beben und setzte etwa dreimal so viel Energie frei (University of California, Santa Cruz 2013). Ye et al. (2013) maßen eine Bruchgeschwindigkeit von etwa 4,0 bis 4,5 Kilometern pro Sekunde und einen statischen Spannungsabfall von etwa 12 bis 15 Megapascal, Werte, die mit der theoretischen Abstrahlungseffizienz von Rissmodellen vereinbar sind. Ein nahe gelegenes Nachbeben hatte einen um ein bis zwei Größenordnungen höheren Spannungsabfall, was die Autoren als große Spannungsheterogenität in der tiefen Platte deuten. Thorne Lay, Mitautor der Studie, nannte es ein Rätsel, wie Gestein so schnell an Gestein entlanggleiten kann, während es vom Druck von 610 Kilometern darüberliegenden Gesteins zusammengepresst wird (University of California, Santa Cruz 2013).",
+          "Die beiden Ereignisse brachen unterschiedlich. Zhan et al. (2014) fanden, dass das Ochotsk-Erdbeben überwiegend unilateral verlief und sich über etwa 90 Kilometer in Streichrichtung mit mehr als 4 Kilometern pro Sekunde ausbreitete, während das Bolivien-Beben etwa die Hälfte dieser Strecke mit einer langsamen Geschwindigkeit von etwa 1,5 Kilometern pro Sekunde brach und einen deutlichen Wechsel der Bruchrichtung zeigte. Der Unterschied ist wichtig, weil jeder in Frage kommende Mechanismus ein anderes Verhalten bei Bruchgeschwindigkeit und Bruchausdehnung erwarten lässt. Ein schneller, langer Bruch mit mäßigem Spannungsabfall ähnelt einem flachen Erdbeben; Lay sagte über Ochotsk, es sehe einem flachen Ereignis sehr ähnlich (University of California, Santa Cruz 2013). Der langsame Bruch in Bolivien verhielt sich anders, sodass keine einzelne Beschreibung auf beide passt."
+        ]
+      },
+      {
+        "h": "Mechanismus eins: Umwandlungsbrüche",
+        "p": [
+          "Olivin, das Hauptmineral des oberen Mantels, wandelt sich mit steigendem Druck in dichtere Strukturen um. In alten, kalten Platten ist diese Reaktion kinetisch gehemmt, sodass keilförmige Zonen aus metastabilem, olivinhaltigem Gestein wahrscheinlich bis in Tiefen von mehr als 600 Kilometern erhalten bleiben (Kirby et al. 1996). Laborexperimente an einigen metastabilen Mineralen zeigen eine Scherinstabilität, die als Umwandlungsbruch (Transformational Faulting) bezeichnet wird: Das Wirtsmineral versagt plötzlich in dünnen Scherzonen, in denen es sich in eine dichtere, feinkörnigere Phase umwandelt (Kirby et al. 1996). Green and Burnley (1989) beobachteten diese Bruchbildung in einem Germanium-Analogon von Olivin, Mg2GeO4, und schlugen vor, dass sie durch die Entstehung, Ausbreitung und Verknüpfung kleiner, mit der dichteren Phase gefüllter Einschlüsse zustande kommt. Hasegawa and Nakajima (2017) beschreiben dieselbe Idee anhand kleiner linsenförmiger Kristalle der neuen Phase, die wachsen und sich entlang einer Ebene ausrichten, bis sie eine Verwerfung bilden.",
+          "Laborarbeiten stützen dieses Bild. Schubnel et al. (2013) zeichneten Schallemissionen, die Tiefbeben ähneln, in Olivin der Zusammensetzung Mg2GeO4 auf, der bei Drücken von 4 bis 5 Gigapascal während seiner Umwandlung verformt wurde, und kombinierten dabei Synchrotron-Röntgenmessungen mit akustischer Überwachung (Wang et al. 2017). Eine Studie aus dem Jahr 2022 verwendete natürlichen Olivin der Zusammensetzung (Mg,Fe)2SiO4 bei 11 bis 17 Gigapascal und 860 bis 1.350 Kelvin, Bedingungen, die denen abtauchender Platten in der Übergangszone entsprechen. Durchgehende Brüche traten nur in einem schmalen Temperaturfenster von 1.100 bis 1.160 Kelvin auf, begleitet von intensiven Schallemissionen zu Beginn des Bruchs. Das Gleiten an der Verwerfung, unterstützt durch Schererwärmung, erfolgte entlang einer schwachen Schicht, die durch die Verknüpfung linsenförmiger Pakete aus nanokristallinem Olivin und Wadsleyit entstanden war (Ohuchi et al. 2022).",
+          "Die Hypothese passt zu zwei Beobachtungen: Die tiefe Seismizität umschließt die Übergangszone eng, und metastabile Olivinkeile sind nur in alten, kalten Platten zu erwarten (Kirby et al. 1996). Sie stößt jedoch auch auf Einwände. Eine frühe Version, in der ein plötzlicher Kollaps des Minerals in eine dichtere Form das Erdbeben erzeugt, würde in der Quelle eine große isotrope, also implosive, Komponente hervorrufen, und eine solche fehlt Tiefbeben in der Regel (Hasegawa and Nakajima 2017). Silver et al. (1995) stellten fest, dass sich der Bruch des Bolivien-Bebens über mindestens 30 mal 50 Kilometer erstreckte, mehr als das Dreifache der Größe, die für einen metastabilen Olivinkeil im Kern der Platte zu erwarten ist, und hielten dies für unvereinbar mit einer Entstehung durch Umwandlungsbrüche."
+        ]
+      },
+      {
+        "h": "Mechanismus zwei: Dehydratationsversprödung",
+        "p": [
+          "Abtauchende Platten führen wasserhaltige Minerale mit, die sich bei steigendem Druck und steigender Temperatur zersetzen. Nach der Hypothese der Dehydratationsversprödung erzeugt das aus diesen Mineralen freigesetzte Wasser Erdbeben, indem es den Porenfluiddruck im Gestein erhöht. Hasegawa and Nakajima (2017) merken an, dass die Einzelheiten, wie ein lokaler Porenüberdruck zum Bruch führt, noch umstritten sind. Sie folgern, dass Wasser aus der abtauchenden Platte eine wichtige Rolle bei der Entstehung mitteltiefer Erdbeben spielt, wobei der Bruch möglicherweise durch lokalen Porenüberdruck beginnt und sich dann durch thermische Scherinstabilität ausbreitet.",
+          "Die Idee auf Tiefen unterhalb von 300 Kilometern auszudehnen, ist schwieriger. Die Pressemitteilung der UC Santa Cruz zum Ochotsk-Erdbeben wies darauf hin, dass Fluide eine Verwerfung schmieren können, dass aber alle Fluide aus der Platte herausgepresst worden sein sollten, bevor sie diese Tiefe erreichte (University of California, Santa Cruz 2013). Zhang et al. (2021) argumentieren dennoch, dass die Dehydratationsversprödung ein plausibles alternatives Modell für das Ochotsk-Beben ist. Ihre Argumentation stützt sich auf die Orientierung und Größe der gebrochenen Fläche, deren Bruchgeschwindigkeit und Abstrahlungseffizienz sowie auf vielfältige Belege dafür, dass Wasser bis in die Übergangszone und darunter transportiert wird. Sie ist eine von mehreren konkurrierenden Deutungen dieses Erdbebens."
+        ]
+      },
+      {
+        "h": "Mechanismus drei: thermisches Durchgehen",
+        "p": [
+          "Die dritte Hypothese, die thermische Scherinstabilität, geht von plastischer Verformung aus. Verformt sich das Gestein schneller, als die erzeugte Wärme entweichen kann, begünstigt eine positive Rückkopplung weitere Verformung. Die Verformung schreitet dann rasch voran, bis das Material in diesem Teil der Platte zu schmelzen beginnt, was ein plötzliches Gleiten hervorruft, also ein Erdbeben (Hasegawa and Nakajima 2017).",
+          "Lay gab für Ochotsk eine ähnliche Beschreibung: Wenn die Verwerfung nur ein wenig gleitet, könnte Reibung das Gestein schmelzen und so das Fluid liefern, was zu einem thermischen Durchgehen führt, einem sich selbst verstärkenden Effekt. Er fügte hinzu, dass zuerst etwas das Gleiten in Gang setzen muss (University of California, Santa Cruz 2013). Zhan et al. (2014) schlagen vor, dass diese Art von Scherschmelzen in warmen Platten wirkt, sobald ein Bruch ausgelöst wurde."
+        ]
+      },
+      {
+        "h": "Worin sich die Forschung uneinig ist",
+        "p": [
+          "Ein Übersichtsartikel von Zhan (2020) kommt zu einem klaren Schluss über die drei führenden Mechanismen. Umwandlungsbrüche, Dehydratationsversprödung und thermisches Durchgehen können jeweils Teile der Beobachtungen erklären, und jeder dieser Mechanismen hat potenziell grundlegende Schwierigkeiten, den Rest zu erklären. Der Artikel fordert, Hypothesen mit mehr als einem Mechanismus ernsthafter in Betracht zu ziehen: Ein Tiefbeben könnte durch einen Prozess beginnen und sich nach seiner Auslösung durch einen anderen ausbreiten.",
+          "Der Vergleich der beiden größten Ereignisse weist in dieselbe Richtung. Zhan et al. (2014) erklären die Unterschiede zwischen ihnen mit zwei grundlegend verschiedenen Bruchmechanismen in Platten mit unterschiedlichem thermischem Zustand: Umwandlungsbrüche im metastabilen Olivinkeil in den Kernen kalter Platten und Scherschmelzen in warmen Platten, sobald ein Bruch ausgelöst ist. Lay merkte an, dass eine Umwandlung der Mineralformen den ersten Anstoß geben könnte, Forschende dies aber nicht direkt nachweisen können (University of California, Santa Cruz 2013). Dieses Nachweisproblem lässt die Frage offen, wie Brüche beginnen, selbst dort, wo ihre Ausbreitung besser eingegrenzt ist.",
+          "Auch der Maßstab setzt Grenzen. Die Olivinproben in den Experimenten von 2022 waren 1,2 Millimeter lang (Ohuchi et al. 2022), während sich der Bruch des Ochotsk-Bebens über viele Kilometer der Verwerfung erstreckte. Forschende, die Laborbrüche in millimetergroßen Proben untersuchen, haben darauf hingewiesen, dass Skalierungsfragen zwischen Laborereignissen und Tiefherdbeben noch zu klären sind (Wang et al. 2017). Jedes große Tiefbeben liefert eine weitere Randbedingung für Temperatur, Mineralbestand und Festigkeit der Platte in Tiefen, die keine Bohrung erreichen kann. Für alle, die einen Live-Erdbebenfeed verfolgen, ist ein starkes Tiefbeben daher vor allem eine Gelegenheit für die Forschung, denn dieselbe Tiefe, die es schwer erklärbar macht, hält auch den größten Teil seiner Erschütterungen von der Oberfläche fern."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Was ist ein Tiefherdbeben?",
+        "a": "Ein Tiefherdbeben beginnt mehr als 300 Kilometer unter der Oberfläche, in einer ozeanischen Platte, die in den Mantel absinkt. Erdbeben zwischen etwa 70 und 300 Kilometern Tiefe heißen mitteltief. Die tiefsten Erdbeben ereignen sich zwischen etwa 325 und 690 Kilometern, und nahe 700 Kilometern endet die Aktivität abrupt."
+      },
+      {
+        "q": "Warum sind Tiefbeben schwer zu erklären?",
+        "a": "In Tiefen von mehr als 100 bis 200 Kilometern ist der Druck so groß, dass gewöhnlicher Sprödbruch und Reibungsgleiten unrealistische Gesteinsfestigkeiten erfordern würden. Gestein in solchen Tiefen würde sich normalerweise langsam verformen, statt zu brechen, daher muss ein besonderer Mechanismus die Verwerfung schwächen."
+      },
+      {
+        "q": "Was ist das stärkste je aufgezeichnete Tiefbeben?",
+        "a": "Das Erdbeben im Ochotskischen Meer vom 24. Mai 2013 mit Magnitude 8,3 in etwa 600 Kilometern Tiefe. Sein seismisches Moment war etwa 30 Prozent größer als das des Bolivien-Bebens von 1994, des vorherigen Rekordhalters, und es setzte etwa dreimal so viel Energie frei."
+      },
+      {
+        "q": "Sind Tiefbeben gefährlich?",
+        "a": "Tiefbeben verursachen an der Oberfläche meist keine Erschütterungen, die stark genug wären, um gefährlich zu sein, weil der Bruch Hunderte Kilometer tief liegt."
+      },
+      {
+        "q": "Was sind die wichtigsten Erklärungen für Tiefbeben?",
+        "a": "Die drei führenden Hypothesen sind Umwandlungsbrüche, bei denen Olivin, der in seiner Niederdruckform verblieben ist, sich plötzlich entlang dünner Zonen umwandelt; Dehydratationsversprödung, bei der aus Mineralen freigesetztes Wasser das Gestein schwächt; und thermisches Durchgehen, bei dem rasche Verformung eine schmale Zone erhitzt und aufschmilzt. Jede erklärt einen Teil der Beobachtungen."
+      },
+      {
+        "q": "Sind sich die Fachleute einig, was Tiefbeben verursacht?",
+        "a": "Nein. Ein Übersichtsartikel aus dem Jahr 2020 kam zu dem Schluss, dass jeder führende Mechanismus potenziell grundlegende Schwierigkeiten hat, und schlug vor, dass ein Tiefbeben durch einen Mechanismus beginnen und durch einen anderen weiterlaufen könnte. Studien zu den Ereignissen in Bolivien 1994 und Ochotsk 2013 deuten darauf hin, dass kalte und warme Platten auf unterschiedliche Weise versagen könnten."
+      }
+    ]
+  },
+  "volcano-seismology": {
+    "title": "Dem Magma zuhören: Wie vulkanische Erdbeben, Tremor und Schwärme bewegte Fluide verraten",
+    "dek": "Vulkane beben auf eine Weise, wie es gewöhnliche Verwerfungen nicht tun. Brechendes Gestein, schwingende Risse und anhaltender Tremor verraten Beobachtern jeweils etwas anderes über Magma und Gas in Bewegung.",
+    "sections": [
+      {
+        "h": "Eine andere Art seismischen Signals",
+        "p": [
+          "Vulkane erzeugen eine größere Vielfalt seismischer Signale als gewöhnliche Verwerfungszonen. Vulkanotektonische (VT) Erdbeben wurden als Erste untersucht, weil sie wie tektonische Erdbeben durch Sprödbruch des Gesteins entstehen (Konstantinou 2024). Langperiodische (LP) oder hybride Erdbeben und vulkanischer Tremor entstehen durch das komplexe Zusammenspiel von Fluiden und Gas mit festem Gestein, was ihre Quelle viel schwerer zu entschlüsseln macht (Konstantinou 2024). Chouet (1996) beschreibt langperiodische Seismizität als Signal mit typischen Perioden von 0,2 bis 2 Sekunden und als Ausdruck von Druckschwankungen, die durch instationären Massentransport im Fördersystem unter einem Vulkan verursacht werden.",
+          "Diese Unterscheidung gliedert den Rest dieses Artikels. VT-Erdbeben und Schwärme zeigen Beobachtern, dass Gestein bricht, während Magma oder Fluide in neuen Raum vordringen. LP-Ereignisse und Tremor deuten darauf hin, dass sich Fluide in bereits vorhandenen Rissen und Förderschloten bewegen."
+        ]
+      },
+      {
+        "h": "Vulkanotektonische Erdbeben und Schwärme",
+        "p": [
+          "White and McCausland (2016) stellten 136 VT-Erdbeben und Schwärme zusammen, die 111 Eruptionen an 83 Vulkanen vorausgingen. Sie stellten fest, dass VT-Seismizität an Vulkanen, die seit Jahrzehnten oder länger ruhen, in der Regel der früheste gemeldete seismische Vorläufer ist und dass sie allen explosiven Eruptionen mit einem Vulkanexplosivitätsindex (VEI) von 5 oder mehr in ihrem Datensatz vorausging. Die Aktivität verläuft meist schwarmartig, beginnt Tage bis Jahre vor einer Eruption, erreicht zum Zeitpunkt der ersten Eruption ihren Höhepunkt und weist in ihren Herdmechanismen einen großen Nicht-Doppelkräftepaar-Anteil auf. Die Schwärme beginnen meist an tektonischen Verwerfungen, die ein bis zwei bis einige zehn Kilometer vom späteren Schlot entfernt liegen, und nicht direkt darunter. Die Autoren zeigen außerdem, dass sich das Volumen des eingedrungenen Magmas aus dem kumulativen seismischen Moment der VT-Erdbeben abschätzen lässt (White and McCausland 2016).",
+          "Schwärme können die Bewegung von Magma auch dann nachzeichnen, wenn keine Eruption folgt. Zwei Schwärme unter dem Vulkan Iliamna in Alaska im Mai und August 1996 umfassten 88 beziehungsweise 2.833 lokalisierbare Ereignisse mit Magnituden von -0,9 bis 3,3. Ihre Hypozentren bildeten eine Häufung in einem zuvor aseismischen Krustenbereich südlich des Gipfels, und ein Anstieg der Schwefeldioxid- und Kohlendioxidemissionen fiel mit dem zweiten Schwarm zusammen. Die Autoren erklärten das Muster mit der Platznahme und Aufblähung eines subvertikalen Gangs. Es kam zu keiner Eruption (Roman et al. 2004).",
+          "Am 23. August 2021 meldete das Hawaiian Volcano Observatory (HVO) einen Schwarm unter dem südlichen Teil der Gipfelcaldera des Kilauea. Am frühen Morgen des folgenden Tages verstärkte sich der Schwarm, zugleich beschleunigte sich die Bodenverformung an einem nahe gelegenen Neigungsmesser. Das HVO erklärte, diese Beobachtungen könnten auf eine kleine Gangintrusion 1 bis 2 Kilometer unter dem südlichen Teil der Caldera hindeuten. Bis dahin waren mehr als 100 Erdbeben registriert worden, das stärkste mit Magnitude 3,3, die meisten unterhalb von Magnitude 1 (USGS Hawaiian Volcano Observatory 2021).",
+          "Manchmal ist die Deutung weniger eindeutig. Ein Erdbeben der Magnitude 4,2 am 15. Juni 2020 auf der Insel Unalaska in Alaska leitete eine Abfolge von Hunderten von Erdbeben in 7 bis 10 Kilometern Tiefe ein, etwa 12 Kilometer südöstlich des Gipfels des Vulkans Makushin, und es wurden weder eruptive Aktivität noch Veränderungen an der Oberfläche beobachtet. Lanza et al. (2022) weisen darauf hin, dass sich oft nur schwer entscheiden lässt, ob eine solche Seismizität magmatische oder tektonische Spannungen widerspiegelt, obwohl dies für die Gefährdungsabschätzung entscheidend ist. Ihre Analyse ergab Hinweise auf ein lokales Spannungsfeld, das wahrscheinlich durch eine Magmaintrusion hervorgerufen wurde, und sie folgern, dass der Schwarm durch eine Kombination aus magmatischen und tektonischen Spannungen angetrieben wurde."
+        ]
+      },
+      {
+        "h": "Langperiodische Ereignisse: schwingende Risse",
+        "p": [
+          "Eine führende Erklärung für LP-Ereignisse ist die Resonanz eines fluidgefüllten Risses. Im Modell von Chouet (1988) wird ein dreidimensionaler Riss, der ein viskoses, kompressibles Fluid enthält, durch einen impulsartigen Drucktransienten, der auf einen kleinen Teil seiner Oberfläche wirkt, in Resonanz versetzt, und eine sehr langsame, im Fluid gefangene Welle, die sogenannte Risswelle, hält die Schwingung aufrecht. Frequenz, Bandbreite und Abstand der Resonanzspitzen hängen stark von der Steifigkeit des Risses ab. Im selben Modell haben ein LP-Ereignis und harmonischer Tremor dieselbe Quelle und unterscheiden sich darin, wie die Resonanz ausgelöst wird, sowie in den Randbedingungen für den Fluidfluss (Chouet 1988).",
+          "Das Modell bietet eine Möglichkeit, Fluide aus Wellenformen abzulesen. Kumagai and Chouet (2000) schätzten den Gütefaktor, ein Maß dafür, wie langsam die Schwingung abklingt, für einen Riss mit Gas-Gas-Gemischen, Flüssigkeit-Gas-Gemischen sowie staub- oder tröpfchenhaltigen Gasen und erhielten Werte von nahezu eins bis zu mehreren Hundert. Sie schlagen vor, Änderungen der komplexen Frequenzen von LP-Ereignissen als Änderungen der Fluidzusammensetzung unter Vulkanen zu deuten.",
+          "Kurze, impulsartige LP-Ereignisse begleiteten die eruptive Aktivität am Ätna in Italien in den Jahren 2004 und 2008 sowie an den Vulkanen Turrialba in Costa Rica und Ubinas in Peru im Jahr 2009. Chouet and Dawson (2016) stellten fest, dass ein fluidgetriebener Riss diese Impulse mit realistischen Quellgrößen und Fluideigenschaften erklärt und dass die Quellen flach liegen, weniger als 1 Kilometer tief. Ein langsamer Bruch bleibt eine mögliche Alternative, auch wenn ihre synthetischen Wellenformen bei diesem Modell schlechter zu den Daten passen."
+        ]
+      },
+      {
+        "h": "Vulkanischer Tremor: ein anhaltendes Signal mit mehreren möglichen Quellen",
+        "p": [
+          "Tremor ist eine anhaltende Schwingung, die vor oder nach Eruptionen auftreten und von mehreren Minuten bis zu mehreren Tagen oder Monaten andauern kann. Seine Quelle kann je nach Vulkan in einer Tiefe zwischen einigen Hundert Metern und 40 Kilometern liegen. Konstantinou and Schlindwein (2003) fassen die vorgeschlagenen Quellen in vier Gruppen zusammen: strömungsinduzierte Schwingungen von Förderschloten, die magmatische Fluide transportieren, Resonanz fluidgefüllter Risse, Wachstum oder Kollaps von Blasen beim hydrothermalen Sieden von Grundwasser und Schwingungen von Magmakörpern. Sie weisen darauf hin, dass viele Autoren die Quelle des Tremors nicht für einheitlich halten und dass sie sich von Vulkan zu Vulkan unterscheiden kann.",
+          "Julian (1994) beschrieb einen nichtlinearen Prozess, der der Anregung von Blasinstrumenten und menschlichen Stimmbändern ähnelt: Ein Fluid, das durch einen Kanal mit beweglichen elastischen Wänden strömt, erzeugt Schwingungen. In diesem Modell treten LP-Erdbeben auf, wenn die Magmaflussrate zu gering ist, um kontinuierlichen Tremor aufrechtzuerhalten, und stattdessen eine kurzzeitige Störung den Kanal anregt. McNutt (2005) berichtet, dass Tremor bei Spalteneruptionen, phreatischen Eruptionen und höheren Gasgehalten stärker ist.",
+          "Eine Untersuchung des nichteruptiven Tremors vom 2. Oktober 2004 am Mount St. Helens bietet eine andere Sicht. Denlinger and Moran (2014) stellten fest, dass das Signal vollständig aus Love- und Rayleigh-Wellen bestand und dass die erzeugenden Kräfte überwiegend senkrecht zu den Schlotwänden wirkten. Sie folgerten, dass die Art der Tremorentstehung die Natur seiner Quelle verschleiert, sodass mehrere Modelle dasselbe Signal erklären können und weitere Daten nötig sind, um zwischen ihnen zu entscheiden. Gestützt auf GPS- und Felddaten, die einen raschen Magmaaufstieg belegten, schlossen sie, dass dieser Tremor durch die Reibung nahezu festen Magmas an rauen Schlotwänden entstand, während es zur Oberfläche gedrückt wurde."
+        ]
+      },
+      {
+        "h": "Mount St. Helens, 2004: die Signale in ihrer Abfolge",
+        "p": [
+          "Nach 17 Jahren und 11 Monaten der Ruhe begann der Mount St. Helens am 23. September 2004 mit einem Schwarm flacher VT-Erdbeben in weniger als 2 Kilometern Tiefe wieder zu erwachen. Am 29. September ereigneten sich Erdbeben mit Magnituden über 2 im Takt von etwa einem pro Minute. Ein allmählicher Übergang von VT- zu hybriden und niederfrequenten Ereignissen begleitete die Verstärkung, ein Merkmal vieler Vorläuferschwärme an diesem Vulkan vor seinen domaufbauenden Eruptionen in den 1980er-Jahren. Die erste Explosion ereignete sich am 1. Oktober, 8,5 Tage nach den ersten Erdbeben (Moran et al. 2008).",
+          "Bis zum 16. Oktober waren die Abstände zwischen den Ereignissen so regelmäßig geworden, dass die Wissenschaftler die Erdbeben „Trommelschläge“ (drumbeats) nannten, und diese beherrschten die Seismizität bis Ende 2005. Ihre Größe, ihre Abstände und ihre Spektren änderten sich mit dem Stil der Extrusion an der Oberfläche, nicht aber mit Schwankungen des Magmaflusses. Das deutet darauf hin, dass Größe und Abstand der Trommelschläge stärker von der Mechanik der Extrusion abhingen als von der Extrusionsrate (Moran et al. 2008). Matoza and Chouet (2010) untersuchten die kleineren Teilereignisse, die die Trommelschläge begleiteten, und kamen zu dem Schluss, dass das Zusammenspiel des hydrothermalen und des magmatischen Systems unter dem Vulkan ein breites Spektrum beobachteter Phänomene erklären könnte, darunter Teilereignisse, LP-Ereignisse, größere Ereignisse und phreatische Explosionen."
+        ]
+      },
+      {
+        "h": "Pinatubo, 1991: tiefe langperiodische Erdbeben",
+        "p": [
+          "Die überwiegende Mehrheit der in der Fachliteratur beschriebenen LP-Ereignisse entsteht in weniger als 3 Kilometern Tiefe, doch der Pinatubo brachte etwas anderes hervor. Etwa 600 tiefe langperiodische Erdbeben ereigneten sich Ende Mai und Anfang Juni 1991 unter dem Vulkan, mehr als die Gesamtzahl, die bis dahin von allen Vulkanen an konvergenten Plattenrändern weltweit zusammen gemeldet worden war (White 1996). White deutet sie als seismischen Ausdruck von tiefem basaltischem Magma, das in die Basis der Magmakammer eingedrungen war und die Eruptionsfolge auslöste. Auf den Beginn der tiefen Aktivität am 26. Mai folgten nur 1 Stunde später flache LP-Erdbeben und innerhalb von 4 Stunden kontinuierlicher flacher Tremor sowie ein starker Dampfausstoß (White 1996).",
+          "Die seismische Überwachung war das wichtigste Werkzeug, um das sich entwickelnde Eruptionspotenzial vor der Haupteruption am 15. Juni zu beurteilen. Das Team sagte die Eskalation anhand von Verlagerungen des Hypozentrenbereichs, eines Anstiegs der insgesamt freigesetzten seismischen Energie, Veränderungen im Charakter der Wellenformen und zunehmender nichtseismischer Anzeichen von Unruhe voraus. Die letzten Tage umfassten eine bemerkenswerte Abfolge immer größerer LP-Ereignisse vom 12. bis 14. Juni, gefolgt von einer 24-stündigen Phase vor der Haupteruption mit seismischer Aktivität von hoher Amplitude und großer Vielfalt (Harlow et al. 1996)."
+        ]
+      },
+      {
+        "h": "Was noch offen ist",
+        "p": [
+          "Die Vulkanseismologie liefert starke Belege dafür, dass sich Fluide bewegen, doch mehrere Fragen bleiben offen. McNutt (2005) merkt an, dass tiefe LP-Ereignisse recht häufig sind, aber mehrere Prozesse darstellen können. Für den Tremor gibt es konkurrierende Quellmodelle, wie die Untersuchung am Mount St. Helens zeigt. Schwärme wie der nahe dem Makushin können magmatische und tektonische Spannungen zugleich widerspiegeln, und ein Schwarm kann ohne Eruption enden, wie am Iliamna.",
+          "Für Leser, die Erdbebenfeeds verfolgen, bieten diese Beispiele eine praktische Lehre. Viele Ereignisse in vulkanischen Abfolgen sind klein, und ihre Bedeutung hängt oft von anderen Messungen ab, etwa von der Neigungsmesser-Aufzeichnung am Kilauea und den Gasemissionen am Iliamna. Seismische Signale bieten zusammen mit Verformungs- und Gasdaten den Observatorien die beste Grundlage, um zu beurteilen, ob Magma aufsteigt."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Was ist ein vulkanotektonisches Erdbeben?",
+        "a": "Ein vulkanotektonisches (VT) Erdbeben entsteht wie ein gewöhnliches tektonisches Erdbeben durch Sprödbruch des Gesteins, wird aber durch Spannungen angetrieben, die von Magma oder Fluiden ausgehen, die in der Nähe eines Vulkans in die Erdkruste vordringen. VT-Schwärme sind an Vulkanen, die seit Jahrzehnten ruhen, in der Regel das früheste seismische Warnsignal."
+      },
+      {
+        "q": "Was sind langperiodische vulkanische Erdbeben?",
+        "a": "Langperiodische (LP) Ereignisse haben typische Perioden von 0,2 bis 2 Sekunden und gehen vermutlich auf Druckänderungen zurück, während sich Magma, Gas oder Dampf durch den Vulkan bewegen. Ein verbreitetes Modell erklärt sie als Resonanz eines fluidgefüllten Risses."
+      },
+      {
+        "q": "Was ist vulkanischer Tremor?",
+        "a": "Vulkanischer Tremor ist ein anhaltendes seismisches Signal in der Nähe eines aktiven Vulkans, das von Minuten bis zu Tagen oder Monaten andauern kann. Zu den vorgeschlagenen Quellen gehören Fluidströmungen durch Förderschlote, schwingende Risse, siedendes Grundwasser und schwingende Magmakörper, und die Quelle kann sich von Vulkan zu Vulkan unterscheiden."
+      },
+      {
+        "q": "Bedeutet ein Erdbebenschwarm unter einem Vulkan, dass eine Eruption bevorsteht?",
+        "a": "Nicht unbedingt. Schwärme am Iliamna im Jahr 1996 und nahe dem Makushin im Jahr 2020 endeten ohne Eruption. Observatorien kombinieren Erdbebendaten mit Messungen der Bodenverformung und der Gase, bevor sie beurteilen, ob Magma zur Oberfläche aufsteigt."
+      },
+      {
+        "q": "Wie half die Seismologie, die Eruption des Pinatubo 1991 vorherzusagen?",
+        "a": "Die Wissenschaftler verfolgten, wie sich die Orte der Erdbeben verlagerten, wie viel seismische Energie insgesamt freigesetzt wurde und wie sich die Wellenformen veränderten. Tiefe langperiodische Erdbeben ab Ende Mai kündigten die Ankunft neuen Magmas an, und immer größere LP-Ereignisse vom 12. bis 14. Juni gingen der Haupteruption am 15. Juni voraus."
+      },
+      {
+        "q": "Was waren die „Trommelschlag“-Erdbeben am Mount St. Helens?",
+        "a": "Während der domaufbauenden Eruption von 2004 bis 2008 wiederholten sich kleine Erdbeben in so regelmäßigen Abständen, dass die Wissenschaftler sie „Trommelschläge“ (drumbeats) nannten. Ihre Größe und ihre Abstände änderten sich mit dem Stil der Lavaextrusion und nicht mit der Rate der Magmazufuhr."
+      }
+    ]
   }
 }

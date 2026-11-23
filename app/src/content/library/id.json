@@ -638,5 +638,175 @@
         "a": "Lembaga-lembaga tersebut mungkin menggunakan jenis magnitudo, stasiun, dan jumlah data yang berbeda. USGS menghitung hingga selusin jenis magnitudo karena tidak ada satu metode pun yang cocok untuk setiap gempa, dan selisih antarjenis magnitudo untuk peristiwa yang sama bisa besar."
       }
     ]
+  },
+  "deep-focus-earthquakes": {
+    "title": "Bagaimana Gempa Bumi Terjadi di Kedalaman 600 Kilometer: Teka-teki Kegempaan Fokus Dalam",
+    "dek": "Batuan di kedalaman 600 kilometer berada di bawah tekanan yang sangat besar dan semestinya mengalir, bukan patah. Namun, gempa-gempa besar bermula di sana. Inilah yang diungkapkan oleh dua peristiwa dalam terbesar, dan alasan mengapa tidak ada satu penjelasan pun yang cocok untuk semuanya.",
+    "sections": [
+      {
+        "h": "Gempa Bumi di Bawah Zona Getas",
+        "p": [
+          "Sebagian besar gempa bumi bermula dalam jarak beberapa puluh kilometer dari permukaan, tempat batuan yang dingin patah dan bergeser di sepanjang sesar. Sebagian kecil bermula jauh lebih dalam, di dalam lempeng samudra yang sedang tenggelam ke dalam mantel. Gempa pada kedalaman lebih dari sekitar 70 kilometer sering dikelompokkan bersama sebagai peristiwa dalam (Wang et al. 2017). Di dalam lempeng yang menunjam, peristiwa yang lebih dangkal dari 300 kilometer didefinisikan sebagai gempa kedalaman menengah, sedangkan yang lebih dalam dari 300 kilometer dianggap sebagai gempa fokus dalam (Hasegawa and Nakajima 2017). sisma.io menggunakan batas yang sama pada label kedalamannya: Dangkal untuk kedalaman kurang dari 70 kilometer, Menengah untuk 70 hingga 300 kilometer, dan Dalam untuk lebih dari 300 kilometer.",
+          "Populasi terdalam terjadi pada kedalaman sekitar 325 hingga 690 kilometer, sebuah rentang yang hampir berimpit dengan zona transisi mantel, tempat mineral-mineral utama mantel atas berubah menjadi struktur kristal yang lebih rapat (Kirby et al. 1996). Keberadaan gempa-gempa ini menimbulkan masalah. Green and Burnley (1989) menunjukkan bahwa rekahan getas dan gelinciran friksional pada kedalaman lebih dari 100 hingga 200 kilometer akan membutuhkan kekuatan batuan yang tidak realistis. Hasegawa and Nakajima (2017) merumuskan kesulitan itu dari sisi tegangan: gempa pada kedalaman seperti itu memerlukan tegangan geser yang melampaui kekuatan friksi yang sangat besar, tetapi gempa-gempa itu memang terjadi, sehingga pasti ada mekanisme khusus yang menurunkan kekuatan sesar. Beberapa mekanisme yang masuk akal telah diusulkan, dan mekanisme yang sebenarnya masih belum terpecahkan (Hasegawa and Nakajima 2017)."
+        ]
+      },
+      {
+        "h": "Di Mana Gempa Dalam Terjadi dan Bagaimana Perilakunya",
+        "p": [
+          "Gempa dalam terjadi di litosfer samudra yang sedang menunjam atau yang pernah menunjam (Kirby et al. 1996). Gempa-gempa ini mengikuti pita-pita datar yang miring, yang dikenal sebagai zona Wadati-Benioff, yang menelusuri inti lempeng yang dingin dan bergerak turun (Wang et al. 2017). Jumlah gempa berkurang hampir secara eksponensial seiring bertambahnya kedalaman hingga sekitar 300 kilometer, mencapai titik terendah antara sekitar 300 dan 450 kilometer, lalu naik lagi hingga mencapai maksimum lokal pada 550 hingga 600 kilometer (Hasegawa and Nakajima 2017). Aktivitasnya kemudian berhenti secara tiba-tiba di dekat 700 kilometer (Wang et al. 2017).",
+          "Zhan (2020) merangkum pengamatan-pengamatan itu dalam sebuah tinjauan: gempa dalam berperilaku seperti gempa dangkal, tetapi pasti memiliki proses fisis yang berbeda secara mendasar, dan perilaku patahan, statistik ukuran, serta gempa susulannya beragam dan bergantung secara tidak sempurna pada faktor-faktor seperti suhu lempengan, kedalaman, dan magnitudo. Peristiwa dalam umumnya menghasilkan sedikit gempa susulan dan tidak meninggalkan patahan di permukaan maupun sinyal geodetik, sehingga ukuran patahannya sulit diperkirakan (Zhan et al. 2014).",
+          "Bagi pembaca yang mengikuti perkembangan gempa bumi, konsekuensi praktisnya adalah bahwa gempa dalam biasanya tidak menimbulkan guncangan yang cukup kuat di permukaan untuk membahayakan, meskipun gempa-gempa ini sangat menarik secara ilmiah (University of California, Santa Cruz 2013). Karena itu, gempa dalam bermagnitudo 6 atau 7 dapat muncul di situs pemantauan sebagai angka yang besar dengan sedikit atau tanpa laporan kerusakan, karena patahannya terletak ratusan kilometer di bawah tanah."
+        ]
+      },
+      {
+        "h": "Dua Peristiwa Pemecah Rekor",
+        "p": [
+          "Dua gempa menjadi pusat sebagian besar pembahasan. Pada 9 Juni 1994, sebuah gempa dalam melanda di bawah Bolivia. Silver et al. (1995) menyebutkan magnitudo momennya 8,3 dan kedalamannya 636 kilometer, serta menggambarkannya sebagai gempa fokus dalam terbesar yang tercatat hingga saat itu. Katalog USGS mencantumkan peristiwa yang sama dengan magnitudo 8,2 pada kedalaman 631 kilometer (USGS n.d.a). Pada 24 Mei 2013, gempa bermagnitudo 8,3 mematahkan sesar sepanjang 180 kilometer di dalam Lempeng Pasifik yang menunjam, sekitar 609 kilometer di bawah Laut Okhotsk (Ye et al. 2013). Katalog USGS mencantumkannya dengan magnitudo 8,3 pada kedalaman 598 kilometer (USGS n.d.b). Metode yang berbeda menghasilkan kedalaman yang berselisih beberapa kilometer, sehingga angka yang dipublikasikan sedikit bervariasi.",
+          "Gempa Okhotsk memiliki momen seismik 30 persen lebih besar daripada gempa Bolivia dan melepaskan energi sekitar tiga kali lipat (University of California, Santa Cruz 2013). Ye et al. (2013) mengukur kecepatan patahan sekitar 4,0 hingga 4,5 kilometer per detik dan penurunan tegangan statis (static stress drop) sekitar 12 hingga 15 megapascal, nilai-nilai yang sesuai dengan efisiensi radiasi teoretis untuk model retakan. Sebuah gempa susulan di dekatnya memiliki penurunan tegangan satu hingga dua orde besaran lebih tinggi, yang ditafsirkan para penulis sebagai heterogenitas tegangan yang besar di dalam lempengan dalam. Thorne Lay, salah satu penulis studi tersebut, menyebut bagaimana batuan dapat bergeser terhadap batuan lain secepat itu sambil terimpit tekanan dari batuan setebal 610 kilometer di atasnya sebagai sebuah misteri (University of California, Santa Cruz 2013).",
+          "Kedua peristiwa itu patah dengan cara yang berbeda. Zhan et al. (2014) menemukan bahwa gempa Okhotsk sebagian besar bersifat unilateral, mematahkan sekitar 90 kilometer searah jurus (strike) dengan kecepatan lebih dari 4 kilometer per detik, sedangkan gempa Bolivia mematahkan sekitar separuh jarak itu dengan kecepatan lambat, sekitar 1,5 kilometer per detik, dan menunjukkan perubahan arah patahan yang besar. Perbedaan ini penting karena setiap mekanisme kandidat menyiratkan perilaku yang berbeda dalam kecepatan dan jangkauan patahan. Patahan yang cepat dan panjang dengan penurunan tegangan sedang menyerupai gempa dangkal; Lay mengatakan tentang Okhotsk bahwa gempa itu sangat mirip dengan peristiwa dangkal (University of California, Santa Cruz 2013). Patahan Bolivia yang lambat berperilaku berbeda, sehingga tidak ada satu gambaran pun yang cocok untuk keduanya."
+        ]
+      },
+      {
+        "h": "Mekanisme Pertama: Pensesaran Transformasional",
+        "p": [
+          "Olivin, mineral utama mantel atas, berubah menjadi struktur yang lebih rapat seiring meningkatnya tekanan. Di lempengan yang tua dan dingin, reaksi itu terhambat secara kinetik, sehingga zona-zona berbentuk baji berisi batuan yang mengandung olivin metastabil kemungkinan bertahan hingga kedalaman lebih dari 600 kilometer (Kirby et al. 1996). Eksperimen laboratorium pada beberapa mineral metastabil menunjukkan ketidakstabilan geser yang disebut pensesaran transformasional (transformational faulting), yaitu ketika mineral induk gagal secara tiba-tiba di zona-zona geser tipis tempat mineral itu berubah menjadi fase yang lebih rapat dan berbutir lebih halus (Kirby et al. 1996). Green and Burnley (1989) mengamati pensesaran ini pada analog germanium dari olivin, Mg2GeO4, dan mengusulkan bahwa pensesaran itu timbul dari pembentukan, perambatan, dan penyambungan inklusi-inklusi kecil yang berisi fase yang lebih rapat. Hasegawa and Nakajima (2017) menggambarkan gagasan yang sama sebagai kristal-kristal kecil berbentuk lensa dari fase baru yang tumbuh dan berjajar di sepanjang sebuah bidang hingga membentuk sesar.",
+          "Penelitian laboratorium mendukung gambaran ini. Schubnel et al. (2013) merekam emisi akustik yang menyerupai gempa dalam pada olivin Mg2GeO4 yang dideformasi pada tekanan 4 hingga 5 gigapascal sambil mengalami transformasi, dengan menggabungkan pengukuran sinar-X sinkrotron dan pemantauan akustik (Wang et al. 2017). Sebuah studi tahun 2022 menggunakan olivin (Mg,Fe)2SiO4 alami pada 11 hingga 17 gigapascal dan 860 hingga 1.350 kelvin, kondisi yang setara dengan lempengan di zona transisi. Pensesaran yang menembus seluruh sampel hanya terjadi dalam rentang suhu sempit 1.100 hingga 1.160 kelvin, disertai emisi akustik yang kuat pada awal patahan. Gelinciran sesar, yang dibantu oleh pemanasan geser, terjadi di sepanjang lapisan lemah yang terbentuk dari tersambungnya paket-paket berbentuk lensa berisi olivin dan wadsleyit nanokristalin (Ohuchi et al. 2022).",
+          "Hipotesis ini sesuai dengan dua pengamatan: kegempaan dalam hampir berimpit dengan zona transisi, dan baji olivin metastabil diperkirakan hanya ada di lempengan yang tua dan dingin (Kirby et al. 1996). Hipotesis ini juga menghadapi keberatan. Versi awalnya, yang menyatakan bahwa keruntuhan mendadak mineral menjadi bentuk yang lebih rapat menghasilkan gempa, akan menimbulkan komponen isotropik, atau implosif, yang besar pada sumbernya, padahal gempa dalam umumnya tidak memilikinya (Hasegawa and Nakajima 2017). Silver et al. (1995) menemukan bahwa patahan Bolivia meluas sedikitnya 30 kali 50 kilometer, lebih dari tiga kali ukuran yang diperkirakan untuk baji olivin metastabil di inti lempengan, yang menurut mereka tidak sesuai dengan asal-usul berupa pensesaran transformasional."
+        ]
+      },
+      {
+        "h": "Mekanisme Kedua: Penggetasan akibat Dehidrasi",
+        "p": [
+          "Lempeng yang menunjam membawa mineral-mineral yang mengandung air, yang terurai seiring meningkatnya tekanan dan suhu. Menurut hipotesis penggetasan akibat dehidrasi (dehydration embrittlement), air yang dikeluarkan dari mineral-mineral ini membangkitkan gempa dengan menaikkan tekanan fluida pori di dalam batuan. Hasegawa and Nakajima (2017) mencatat bahwa rincian tentang bagaimana kelebihan tekanan pori setempat menyebabkan patahan masih diperdebatkan. Mereka menyimpulkan bahwa air dari lempengan memainkan peran penting dalam membangkitkan gempa kedalaman menengah, dengan patahan yang mungkin bermula melalui kelebihan tekanan pori setempat lalu merambat melalui ketidakstabilan geser termal.",
+          "Memperluas gagasan ini ke kedalaman lebih dari 300 kilometer lebih sulit. Siaran pers UC Santa Cruz tentang gempa Okhotsk mencatat bahwa fluida dapat melumasi sesar, tetapi seluruh fluida semestinya sudah terperas keluar dari lempengan sebelum lempengan itu mencapai kedalaman tersebut (University of California, Santa Cruz 2013). Meski demikian, Zhang et al. (2021) berpendapat bahwa penggetasan akibat dehidrasi merupakan model alternatif yang masuk akal untuk peristiwa Okhotsk. Argumen mereka bertumpu pada orientasi dan ukuran bidang yang patah, kecepatan patahan dan efisiensi radiasinya, serta beragam bukti bahwa air terbawa hingga sedalam zona transisi dan lebih dalam lagi. Ini adalah salah satu dari beberapa tafsiran yang saling bersaing tentang gempa tersebut."
+        ]
+      },
+      {
+        "h": "Mekanisme Ketiga: Pelarian Termal",
+        "p": [
+          "Hipotesis ketiga, ketidakstabilan geser termal, bermula dari deformasi plastis. Jika batuan terdeformasi lebih cepat daripada panas yang dihasilkan dapat keluar, umpan balik positif mendorong deformasi lebih lanjut. Deformasi kemudian berlangsung cepat hingga material di bagian lempengan itu mulai meleleh, yang menghasilkan gelinciran mendadak, yaitu gempa bumi (Hasegawa and Nakajima 2017).",
+          "Lay memberikan gambaran serupa untuk Okhotsk: jika sesar tergelincir sedikit saja, gesekan dapat melelehkan batuan dan menyediakan fluida, sehingga menimbulkan efek termal yang tak terkendali (thermal runaway). Ia menambahkan bahwa harus ada sesuatu yang terlebih dahulu memulai gelinciran itu (University of California, Santa Cruz 2013). Zhan et al. (2014) mengusulkan bahwa pelelehan geser semacam ini bekerja di dalam lempengan yang hangat setelah patahan terpicu."
+        ]
+      },
+      {
+        "h": "Di Mana Para Ilmuwan Berbeda Pendapat",
+        "p": [
+          "Sebuah tinjauan oleh Zhan (2020) sampai pada kesimpulan yang lugas tentang ketiga mekanisme utama. Pensesaran transformasional, penggetasan akibat dehidrasi, dan pelarian termal masing-masing dapat menjelaskan sebagian pengamatan, dan masing-masing berpotensi menghadapi kesulitan mendasar dalam menjelaskan sisanya. Tinjauan itu menyerukan pertimbangan yang lebih serius terhadap hipotesis yang melibatkan lebih dari satu mekanisme: sebuah gempa dalam mungkin bermula melalui satu proses dan merambat melalui proses lain setelah terpicu.",
+          "Perbandingan dua peristiwa terbesar mengarah ke hal yang sama. Zhan et al. (2014) menjelaskan perbedaan di antara keduanya sebagai hasil dari dua mekanisme pensesaran yang berbeda secara mendasar di lempengan dengan kondisi termal yang berbeda: pensesaran transformasional di dalam baji olivin metastabil di inti lempengan yang dingin, dan pelelehan geser di dalam lempengan yang hangat setelah terpicu. Lay mencatat bahwa transformasi bentuk mineral mungkin memberikan dorongan awal, tetapi para ilmuwan tidak dapat mendeteksinya secara langsung (University of California, Santa Cruz 2013). Masalah deteksi itu membuat pertanyaan tentang bagaimana patahan bermula tetap terbuka, bahkan ketika perambatannya sudah lebih terkendala dengan baik.",
+          "Skala merupakan batasan lain. Sampel olivin dalam eksperimen tahun 2022 memiliki panjang 1,2 milimeter (Ohuchi et al. 2022), sedangkan patahan Okhotsk membentang pada sesar sepanjang berkilo-kilometer. Para peneliti yang mempelajari patahan laboratorium pada sampel berukuran milimeter mencatat bahwa masalah penskalaan antara peristiwa laboratorium dan gempa fokus dalam masih harus dipecahkan (Wang et al. 2017). Setiap peristiwa dalam yang besar menambah satu batasan tentang suhu lempengan, kandungan mineral, dan kekuatan pada kedalaman yang tidak dapat dijangkau bor mana pun. Karena itu, bagi pembaca yang menyaksikan umpan gempa secara langsung, gempa dalam yang besar terutama merupakan peluang penelitian, sebab kedalaman yang membuatnya sulit dijelaskan juga menjauhkan sebagian besar guncangannya dari permukaan."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apa itu gempa fokus dalam?",
+        "a": "Gempa fokus dalam bermula lebih dari 300 kilometer di bawah permukaan, di dalam lempeng samudra yang sedang tenggelam ke dalam mantel. Gempa pada kedalaman sekitar 70 hingga 300 kilometer disebut gempa kedalaman menengah. Gempa-gempa terdalam terjadi pada kedalaman sekitar 325 hingga 690 kilometer, dan aktivitasnya berhenti secara tiba-tiba di dekat 700 kilometer."
+      },
+      {
+        "q": "Mengapa gempa dalam sulit dijelaskan?",
+        "a": "Pada kedalaman lebih dari 100 hingga 200 kilometer, tekanannya begitu besar sehingga rekahan getas dan gelinciran friksional biasa akan membutuhkan kekuatan batuan yang tidak realistis. Batuan pada kedalaman itu biasanya akan terdeformasi secara perlahan alih-alih patah, sehingga pasti ada mekanisme khusus yang melemahkan sesar."
+      },
+      {
+        "q": "Gempa dalam apa yang terbesar yang pernah tercatat?",
+        "a": "Gempa Laut Okhotsk bermagnitudo 8,3 pada 24 Mei 2013, dengan kedalaman sekitar 600 kilometer. Momen seismiknya sekitar 30 persen lebih besar daripada gempa Bolivia 1994, pemegang rekor sebelumnya, dan gempa ini melepaskan energi sekitar tiga kali lipat."
+      },
+      {
+        "q": "Apakah gempa dalam berbahaya?",
+        "a": "Gempa dalam biasanya tidak menimbulkan guncangan yang cukup kuat di permukaan untuk membahayakan, karena patahannya terletak ratusan kilometer di bawah tanah."
+      },
+      {
+        "q": "Apa penjelasan utama untuk gempa dalam?",
+        "a": "Tiga hipotesis utama adalah pensesaran transformasional, ketika olivin yang tetap berada dalam bentuk bertekanan rendahnya tiba-tiba bertransformasi di sepanjang zona-zona tipis; penggetasan akibat dehidrasi, ketika air yang dilepaskan dari mineral melemahkan batuan; dan pelarian termal, ketika deformasi yang cepat memanaskan dan melelehkan sebuah zona sempit. Masing-masing menjelaskan sebagian pengamatan."
+      },
+      {
+        "q": "Apakah para ilmuwan sepakat tentang penyebab gempa dalam?",
+        "a": "Tidak. Sebuah tinjauan tahun 2020 menyimpulkan bahwa setiap mekanisme utama berpotensi menghadapi kesulitan mendasar dan mengemukakan bahwa sebuah gempa dalam mungkin bermula melalui satu mekanisme dan berlanjut melalui mekanisme lain. Studi tentang peristiwa Bolivia 1994 dan Okhotsk 2013 menunjukkan bahwa lempengan yang dingin dan yang hangat mungkin gagal dengan cara yang berbeda."
+      }
+    ]
+  },
+  "volcano-seismology": {
+    "title": "Mendengarkan Magma: Bagaimana Gempa Vulkanik, Tremor, dan Gempa Swarm Mengungkap Fluida yang Bergerak",
+    "dek": "Gunung api berguncang dengan cara yang tidak dilakukan oleh sesar biasa. Batuan yang retak, rekahan yang beresonansi, dan tremor yang berlangsung terus-menerus masing-masing memberi tahu para pengamat hal yang berbeda tentang magma dan gas yang sedang bergerak.",
+    "sections": [
+      {
+        "h": "Jenis Sinyal Seismik yang Berbeda",
+        "p": [
+          "Gunung api menghasilkan sinyal seismik yang lebih beragam daripada zona sesar biasa. Gempa vulkanik-tektonik (VT) adalah yang pertama kali diteliti, karena seperti gempa tektonik, gempa ini dihasilkan oleh patahnya batuan secara getas (Konstantinou 2024). Gempa periode panjang (long-period, LP) atau gempa hibrida dan tremor vulkanik dihasilkan melalui interaksi yang rumit antara fluida dan gas dengan batuan padat, sehingga sumbernya jauh lebih sulit diuraikan (Konstantinou 2024). Chouet (1996) menggambarkan kegempaan periode panjang sebagai kegempaan dengan periode khas 0,2 hingga 2 detik dan sebagai cerminan fluktuasi tekanan yang disebabkan oleh perpindahan massa yang tidak tunak di dalam sistem saluran di bawah gunung api.",
+          "Pembedaan itulah yang menata bagian selanjutnya dari artikel ini. Gempa VT dan gempa swarm memberi tahu para pengamat bahwa batuan sedang retak ketika magma atau fluida mendesak masuk ke ruang baru. Peristiwa LP dan tremor menunjukkan bahwa fluida sedang bergerak di dalam rekahan dan saluran yang sudah ada."
+        ]
+      },
+      {
+        "h": "Gempa Vulkanik-Tektonik dan Gempa Swarm",
+        "p": [
+          "White and McCausland (2016) menghimpun 136 gempa VT dan gempa swarm yang mendahului 111 erupsi di 83 gunung api. Mereka menemukan bahwa kegempaan VT biasanya merupakan prekursor seismik paling awal yang dilaporkan di gunung api yang telah dorman selama puluhan tahun atau lebih, dan bahwa kegempaan ini mendahului semua erupsi eksplosif dengan Indeks Eksplosivitas Vulkanik (Volcanic Explosivity Index, VEI) 5 atau lebih dalam kumpulan data mereka. Aktivitas ini cenderung berbentuk swarm, dimulai beberapa hari hingga beberapa tahun sebelum erupsi, mencapai puncaknya pada saat erupsi awal, dan memiliki komponen non-kopel ganda (non-double-couple) yang besar dalam mekanisme fokusnya. Gempa swarm biasanya dimulai pada sesar tektonik yang berjarak satu atau dua hingga puluhan kilometer dari lubang kepundan yang kelak terbentuk, bukan tepat di bawahnya. Para penulis juga menunjukkan bahwa volume magma yang menerobos dapat diperkirakan dari momen seismik kumulatif gempa-gempa VT tersebut (White and McCausland 2016).",
+          "Gempa swarm dapat memetakan pergerakan magma bahkan ketika tidak ada erupsi yang menyusul. Dua gempa swarm di bawah Gunung Api Iliamna di Alaska pada Mei dan Agustus 1996 terdiri atas 88 dan 2.833 peristiwa yang dapat ditentukan lokasinya, dengan magnitudo -0,9 hingga 3,3. Hiposenternya membentuk kelompok di suatu volume kerak di selatan puncak yang sebelumnya tidak memiliki aktivitas seismik, dan peningkatan emisi sulfur dioksida dan karbon dioksida terjadi bersamaan dengan gempa swarm kedua. Para penulis menjelaskan pola ini dengan penempatan dan penggembungan sebuah dike yang hampir tegak. Tidak terjadi erupsi (Roman et al. 2004).",
+          "Pada 23 Agustus 2021, Hawaiian Volcano Observatory (HVO) melaporkan gempa swarm di bawah bagian selatan kaldera puncak Kilauea. Keesokan paginya, gempa swarm itu menguat, disertai laju deformasi tanah yang lebih cepat pada sebuah tiltmeter di dekatnya. HVO menyatakan bahwa pengamatan ini dapat menandakan intrusi dike kecil pada kedalaman 1 hingga 2 kilometer di bawah kaldera selatan. Pada saat itu, lebih dari 100 gempa telah tercatat, yang terbesar bermagnitudo 3,3 dan sebagian besar di bawah magnitudo 1 (USGS Hawaiian Volcano Observatory 2021).",
+          "Terkadang penafsirannya tidak selangsung itu. Gempa bermagnitudo 4,2 pada 15 Juni 2020 di Pulau Unalaska, Alaska, mengawali serangkaian ratusan gempa pada kedalaman 7 hingga 10 kilometer, sekitar 12 kilometer di tenggara puncak Gunung Api Makushin, dan tidak ada aktivitas erupsi atau perubahan permukaan yang teramati. Lanza et al. (2022) mencatat bahwa menentukan apakah kegempaan seperti itu mencerminkan tegangan magmatik atau tegangan tektonik sering kali sulit, meskipun sangat penting bagi penilaian bahaya. Analisis mereka menemukan bukti adanya medan tegangan lokal yang kemungkinan besar dipicu oleh intrusi magma, dan mereka menyimpulkan bahwa gempa swarm itu digerakkan oleh gabungan tegangan magmatik dan tektonik."
+        ]
+      },
+      {
+        "h": "Peristiwa Periode Panjang: Rekahan yang Beresonansi",
+        "p": [
+          "Penjelasan utama untuk peristiwa LP adalah resonansi rekahan yang berisi fluida. Dalam model Chouet (1988), sebuah rekahan tiga dimensi yang berisi fluida kental yang dapat dimampatkan dibuat beresonansi oleh perubahan tekanan sesaat yang bersifat impulsif pada sebagian kecil permukaannya, dan gelombang yang sangat lambat yang terperangkap di dalam fluida, yang disebut gelombang rekahan (crack wave), mempertahankan getaran tersebut. Frekuensi, lebar pita, dan jarak antarpuncak resonansi sangat bergantung pada kekakuan rekahan. Dalam model yang sama, peristiwa LP dan tremor harmonik memiliki sumber yang sama dan hanya berbeda dalam cara resonansi dipicu dan dalam kondisi batas aliran fluida (Chouet 1988).",
+          "Model ini memberikan cara untuk membaca fluida dari bentuk gelombang. Kumagai and Chouet (2000) memperkirakan faktor kualitas (quality factor), yaitu ukuran seberapa lambat getaran meluruh, untuk rekahan yang berisi campuran gas-gas, campuran cairan-gas, serta gas berdebu atau berkabut, dan memperoleh nilai yang berkisar dari hampir satu hingga beberapa ratus. Mereka berpendapat bahwa perubahan frekuensi kompleks peristiwa LP dapat ditafsirkan sebagai perubahan komposisi fluida di bawah gunung api.",
+          "Peristiwa LP yang singkat dan menyerupai pulsa menyertai aktivitas erupsi di Gunung Etna di Italia pada 2004 dan 2008 serta di Gunung Api Turrialba di Kosta Rika dan Gunung Api Ubinas di Peru pada 2009. Chouet and Dawson (2016) menemukan bahwa rekahan yang digerakkan oleh fluida dapat menjelaskan pulsa-pulsa ini dengan ukuran sumber dan sifat fluida yang realistis, dan bahwa sumbernya dangkal, kurang dari 1 kilometer. Kegagalan berupa perekahan lambat tetap menjadi kemungkinan alternatif, meskipun bentuk gelombang sintetis mereka kurang cocok dengan data menurut model tersebut."
+        ]
+      },
+      {
+        "h": "Tremor Vulkanik: Sinyal Berkelanjutan dengan Beberapa Kandidat Sumber",
+        "p": [
+          "Tremor adalah getaran berkelanjutan yang dapat terjadi sebelum atau sesudah erupsi dan berlangsung dari beberapa menit hingga beberapa hari atau bulan. Sumbernya dapat berada di kedalaman mana pun dari beberapa ratus meter hingga 40 kilometer, bergantung pada gunung apinya. Konstantinou and Schlindwein (2003) mengelompokkan sumber-sumber yang diusulkan ke dalam empat golongan: osilasi akibat aliran fluida di saluran yang mengangkut fluida magmatik, resonansi rekahan berisi fluida, pertumbuhan atau keruntuhan gelembung selama pendidihan hidrotermal air tanah, dan osilasi tubuh magma. Mereka mencatat bahwa banyak peneliti menganggap sumber tremor tidak tunggal dan dapat berbeda dari satu gunung api ke gunung api lainnya.",
+          "Julian (1994) menggambarkan suatu proses nonlinear yang serupa dengan cara alat musik tiup dan pita suara manusia bergetar, yaitu ketika fluida yang mengalir melalui saluran berdinding elastis yang dapat bergerak menghasilkan osilasi. Dalam model itu, gempa LP muncul ketika laju aliran magma terlalu rendah untuk mempertahankan tremor yang terus-menerus dan sebagai gantinya suatu gangguan sesaat menggetarkan saluran tersebut. McNutt (2005) melaporkan bahwa tremor lebih kuat pada erupsi celah (fissure eruption), erupsi freatik, dan kandungan gas yang lebih tinggi.",
+          "Sebuah studi tentang tremor non-erupsi pada 2 Oktober 2004 di Gunung St. Helens menawarkan sudut pandang yang berbeda. Denlinger and Moran (2014) menemukan bahwa sinyal itu seluruhnya terdiri atas gelombang Love dan Rayleigh dan bahwa gaya yang menghasilkannya sebagian besar tegak lurus terhadap dinding saluran. Mereka menyimpulkan bahwa cara tremor dihasilkan menyamarkan sifat sumbernya, sehingga beberapa model dapat menjelaskan sinyal yang sama dan data lain diperlukan untuk memilih di antaranya. Dengan data GPS dan data lapangan yang mendukung naiknya magma secara cepat, mereka menyimpulkan bahwa tremor ini ditimbulkan oleh seretan magma yang hampir padat di sepanjang dinding saluran yang kasar ketika magma itu didorong ke arah permukaan."
+        ]
+      },
+      {
+        "h": "Gunung St. Helens, 2004: Urutan Sinyal",
+        "p": [
+          "Setelah 17 tahun 11 bulan dalam keadaan tenang, Gunung St. Helens mulai aktif kembali pada 23 September 2004 dengan gempa swarm VT dangkal pada kedalaman kurang dari 2 kilometer. Pada 29 September, gempa bermagnitudo lebih dari 2 terjadi sekitar satu kali per menit. Peralihan bertahap dari gempa VT ke peristiwa hibrida dan peristiwa frekuensi rendah menyertai peningkatan aktivitas itu, suatu ciri dari banyak gempa swarm prekursor di gunung api tersebut sebelum erupsi pembentukan kubah lavanya pada 1980-an. Letusan pertama terjadi pada 1 Oktober, 8,5 hari setelah gempa-gempa pertama (Moran et al. 2008).",
+          "Pada 16 Oktober, jarak waktu antarperistiwa telah menjadi begitu teratur sehingga para ilmuwan menyebut gempa-gempa itu drumbeat (dentuman genderang), dan gempa-gempa ini mendominasi kegempaan hingga akhir 2005. Ukuran, jarak waktu, dan spektrumnya berubah mengikuti perubahan gaya ekstrusi di permukaan, tetapi tidak mengikuti variasi fluks magma, yang menunjukkan bahwa ukuran dan jarak waktu drumbeat lebih bergantung pada mekanika ekstrusi daripada pada laju ekstrusi (Moran et al. 2008). Matoza and Chouet (2010) meneliti subperistiwa yang lebih kecil yang menyertai drumbeat dan menyimpulkan bahwa interaksi sistem hidrotermal dan sistem magmatik di bawah gunung api itu dapat menjelaskan beragam fenomena yang teramati, termasuk subperistiwa, peristiwa LP, peristiwa yang lebih besar, dan letusan freatik."
+        ]
+      },
+      {
+        "h": "Gunung Pinatubo, 1991: Gempa Periode Panjang Dalam",
+        "p": [
+          "Sebagian besar peristiwa LP yang dilaporkan dalam literatur berasal dari kedalaman kurang dari 3 kilometer, tetapi Gunung Pinatubo menghasilkan sesuatu yang berbeda. Sekitar 600 gempa periode panjang dalam terjadi di bawah gunung api itu pada akhir Mei dan awal Juni 1991, lebih banyak daripada jumlah total yang sebelumnya dilaporkan di semua gunung api tepi konvergen di seluruh dunia (White 1996). White menafsirkannya sebagai ekspresi seismik dari magma basaltik dalam yang diinjeksikan ke dasar dapur magma, yang memicu rangkaian erupsi. Dimulainya aktivitas dalam pada 26 Mei disusul hanya 1 jam kemudian oleh gempa LP dangkal dan dalam 4 jam oleh tremor dangkal yang terus-menerus serta emisi uap yang besar (White 1996).",
+          "Pemantauan seismik merupakan alat utama untuk menilai potensi erupsi yang terus berkembang sebelum erupsi puncak (klimaks) pada 15 Juni. Tim memprakirakan peningkatan aktivitas dari pergeseran lokasi hiposenter gempa, peningkatan pelepasan energi seismik total, perubahan karakter bentuk gelombang, dan makin banyaknya tanda kerusuhan nonseismik. Hari-hari terakhir mencakup perkembangan yang luar biasa berupa peristiwa LP yang makin besar dari 12 hingga 14 Juni, disusul periode 24 jam menjelang klimaks dengan aktivitas seismik beramplitudo tinggi yang sangat beragam (Harlow et al. 1996)."
+        ]
+      },
+      {
+        "h": "Hal-hal yang Belum Terjawab",
+        "p": [
+          "Seismologi gunung api memberikan bukti kuat bahwa fluida sedang bergerak, tetapi beberapa pertanyaan masih terbuka. McNutt (2005) mencatat bahwa peristiwa LP dalam cukup umum tetapi dapat mewakili beberapa proses. Tremor memiliki model-model sumber yang saling bersaing, seperti yang ditunjukkan oleh studi Gunung St. Helens. Gempa swarm seperti yang terjadi di dekat Makushin dapat mencerminkan tegangan magmatik dan tektonik sekaligus, dan gempa swarm dapat berakhir tanpa erupsi, seperti di Iliamna.",
+          "Bagi pembaca yang memantau umpan informasi gempa, contoh-contoh ini memberikan pelajaran praktis. Banyak peristiwa dalam rangkaian gempa vulkanik berukuran kecil, dan maknanya sering kali bergantung pada pengukuran lain, seperti rekaman tiltmeter di Kilauea dan emisi gas di Iliamna. Sinyal seismik yang digabungkan dengan data deformasi dan gas memberikan dasar terbaik bagi observatorium untuk menilai apakah magma sedang naik."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "Apa itu gempa vulkanik-tektonik?",
+        "a": "Gempa vulkanik-tektonik (VT) disebabkan oleh patahnya batuan secara getas, seperti gempa tektonik biasa, tetapi digerakkan oleh tegangan dari magma atau fluida yang mendesak masuk ke kerak di dekat gunung api. Gempa swarm VT biasanya merupakan peringatan seismik paling awal di gunung api yang telah dorman selama puluhan tahun."
+      },
+      {
+        "q": "Apa itu gempa vulkanik periode panjang?",
+        "a": "Peristiwa periode panjang (LP) memiliki periode khas 0,2 hingga 2 detik dan diperkirakan berasal dari perubahan tekanan ketika magma, gas, atau uap bergerak melalui gunung api. Sebuah model yang umum menjelaskannya sebagai resonansi rekahan yang berisi fluida."
+      },
+      {
+        "q": "Apa itu tremor vulkanik?",
+        "a": "Tremor vulkanik adalah sinyal seismik berkelanjutan di dekat gunung api aktif yang dapat berlangsung dari beberapa menit hingga beberapa hari atau bulan. Sumber yang diusulkan mencakup aliran fluida melalui saluran, rekahan yang beresonansi, air tanah yang mendidih, dan tubuh magma yang berosilasi, dan sumbernya dapat berbeda dari satu gunung api ke gunung api lainnya."
+      },
+      {
+        "q": "Apakah gempa swarm di bawah gunung api berarti erupsi akan segera terjadi?",
+        "a": "Belum tentu. Gempa swarm di Iliamna pada 1996 dan di dekat Makushin pada 2020 berakhir tanpa erupsi. Observatorium menggabungkan data gempa dengan pengukuran deformasi tanah dan gas sebelum menilai apakah magma sedang naik ke arah permukaan."
+      },
+      {
+        "q": "Bagaimana seismologi membantu memprakirakan erupsi Pinatubo 1991?",
+        "a": "Para ilmuwan melacak pergeseran lokasi terjadinya gempa, total energi seismik yang dilepaskan, dan perubahan bentuk gelombang. Gempa periode panjang dalam sejak akhir Mei menandai kedatangan magma baru, dan peristiwa LP yang makin besar dari 12 hingga 14 Juni mendahului erupsi puncak pada 15 Juni."
+      },
+      {
+        "q": "Apa yang dimaksud dengan gempa drumbeat di Gunung St. Helens?",
+        "a": "Selama erupsi pembentukan kubah lava pada 2004 hingga 2008, gempa-gempa kecil berulang dengan selang waktu yang begitu teratur sehingga para ilmuwan menyebutnya drumbeat (dentuman genderang). Ukuran dan jarak waktunya berubah mengikuti gaya ekstrusi lava, bukan mengikuti laju pasokan magma."
+      }
+    ]
   }
 }

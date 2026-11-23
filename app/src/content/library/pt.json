@@ -638,5 +638,175 @@
         "a": "Elas podem usar tipos de magnitude, estações e quantidades de dados diferentes. O USGS calcula até uma dúzia de tipos de magnitude porque nenhum método isolado serve para todos os terremotos, e as discrepâncias entre tipos para um mesmo evento podem ser grandes."
       }
     ]
+  },
+  "deep-focus-earthquakes": {
+    "title": "Como acontecem terremotos a 600 quilômetros de profundidade: o enigma da sismicidade de foco profundo",
+    "dek": "A 600 quilômetros, a rocha está sob uma pressão enorme e deveria fluir, não se romper. Mesmo assim, grandes terremotos começam ali. Veja o que os dois maiores eventos profundos revelaram e por que nenhuma explicação isolada dá conta de tudo.",
+    "sections": [
+      {
+        "h": "Terremotos abaixo da zona rúptil",
+        "p": [
+          "A maioria dos terremotos começa a poucas dezenas de quilômetros da superfície, onde a rocha fria se rompe e desliza ao longo de falhas. Uma pequena parcela começa muito mais fundo, dentro de placas oceânicas que estão afundando no manto. Terremotos abaixo de cerca de 70 quilômetros costumam ser agrupados como eventos profundos (Wang et al. 2017). Dentro das placas em subducção, os eventos mais rasos que 300 quilômetros são definidos como terremotos de profundidade intermediária, e os mais profundos que 300 quilômetros são considerados terremotos de foco profundo (Hasegawa and Nakajima 2017). O sisma.io usa os mesmos limites em seus rótulos de profundidade: Raso acima de 70 quilômetros, Intermediário de 70 a 300 e Profundo abaixo de 300.",
+          "A população mais profunda ocorre entre cerca de 325 e 690 quilômetros, um intervalo que coincide de perto com a zona de transição do manto, onde os principais minerais do manto superior passam a estruturas cristalinas mais densas (Kirby et al. 1996). A existência desses terremotos é um problema. Green and Burnley (1989) observam que a fratura rúptil e o deslizamento por atrito em profundidades maiores que 100 a 200 quilômetros exigiriam resistências irrealistas da rocha. Hasegawa and Nakajima (2017) formulam a dificuldade em termos de tensão: um terremoto nessas profundidades exigiria que a tensão de cisalhamento superasse uma resistência ao atrito muito grande; no entanto, os terremotos acontecem, então algum mecanismo especial deve reduzir a resistência da falha. Vários mecanismos plausíveis foram propostos, e qual deles é o verdadeiro continua sem resposta (Hasegawa and Nakajima 2017)."
+        ]
+      },
+      {
+        "h": "Onde ocorrem os terremotos profundos e como se comportam",
+        "p": [
+          "Os terremotos profundos ocorrem na litosfera oceânica em subducção ou já subductada no passado (Kirby et al. 1996). Eles seguem faixas planas inclinadas conhecidas como zonas de Wadati-Benioff, que acompanham os núcleos frios e descendentes das placas que afundam (Wang et al. 2017). O número de terremotos cai de forma quase exponencial com a profundidade até cerca de 300 quilômetros, atinge um mínimo entre cerca de 300 e 450 quilômetros e volta a subir até um máximo local entre 550 e 600 quilômetros (Hasegawa and Nakajima 2017). A atividade então termina abruptamente perto de 700 quilômetros (Wang et al. 2017).",
+          "Zhan (2020) resume as observações num artigo de revisão: os terremotos profundos se comportam como os rasos, mas devem ter processos físicos fundamentalmente diferentes, e seu comportamento de ruptura, suas estatísticas de tamanho e suas réplicas são diversos e dependem de forma imperfeita de fatores como a temperatura da placa, a profundidade e a magnitude. Os eventos profundos geralmente produzem poucas réplicas e não deixam ruptura na superfície nem sinal geodésico, o que torna difícil estimar o tamanho de suas rupturas (Zhan et al. 2014).",
+          "Para quem acompanha terremotos, a consequência prática é que os terremotos profundos em geral não causam tremor suficiente na superfície para serem perigosos, embora tenham grande interesse científico (University of California, Santa Cruz 2013). Um evento profundo de magnitude 6 ou 7 pode, portanto, aparecer num site de monitoramento como um número alto com poucos ou nenhum dano relatado, porque a ruptura está centenas de quilômetros abaixo do solo."
+        ]
+      },
+      {
+        "h": "Dois eventos recordes",
+        "p": [
+          "Dois terremotos estão no centro da maior parte das discussões. Em 9 de junho de 1994, um terremoto profundo atingiu a região sob a Bolívia. Silver et al. (1995) indicam sua magnitude de momento como 8,3 e sua profundidade como 636 quilômetros, e o descrevem como o maior terremoto de foco profundo registrado até então. O catálogo do USGS lista o mesmo evento com magnitude 8,2 a uma profundidade de 631 quilômetros (USGS n.d.a). Em 24 de maio de 2013, um terremoto de magnitude 8,3 rompeu uma falha de 180 quilômetros de comprimento dentro da placa do Pacífico em subducção, cerca de 609 quilômetros abaixo do Mar de Okhotsk (Ye et al. 2013). O catálogo do USGS o lista com magnitude 8,3 a 598 quilômetros (USGS n.d.b). Métodos diferentes fornecem profundidades que diferem em vários quilômetros, por isso os valores publicados variam ligeiramente.",
+          "O terremoto de Okhotsk teve um momento sísmico 30 por cento maior que o do evento da Bolívia e liberou cerca de três vezes mais energia (University of California, Santa Cruz 2013). Ye et al. (2013) mediram uma velocidade de ruptura de cerca de 4,0 a 4,5 quilômetros por segundo e uma queda de tensão estática de cerca de 12 a 15 megapascals, valores compatíveis com a eficiência de radiação teórica de modelos de fratura. Uma réplica próxima teve uma queda de tensão uma a duas ordens de grandeza maior, o que os autores interpretam como uma grande heterogeneidade de tensão na placa profunda. Thorne Lay, coautor do estudo, disse ser um mistério como a rocha consegue deslizar contra rocha tão depressa enquanto é comprimida pela pressão de 610 quilômetros de rocha sobrejacente (University of California, Santa Cruz 2013).",
+          "Os dois eventos se romperam de maneiras diferentes. Zhan et al. (2014) constataram que o terremoto de Okhotsk foi predominantemente unilateral, rompendo cerca de 90 quilômetros ao longo da direção da falha a mais de 4 quilômetros por segundo, enquanto o terremoto da Bolívia rompeu cerca de metade dessa distância a uma velocidade lenta, de cerca de 1,5 quilômetro por segundo, e mostrou uma grande mudança na direção da ruptura. A diferença importa porque cada mecanismo candidato implica um comportamento diferente quanto à velocidade e à extensão da ruptura. Uma ruptura rápida e longa, com queda de tensão moderada, se assemelha à de um terremoto raso; Lay disse sobre Okhotsk que ele se parece muito com um evento raso (University of California, Santa Cruz 2013). A ruptura lenta da Bolívia se comportou de outra forma, de modo que nenhuma descrição única se aplica aos dois."
+        ]
+      },
+      {
+        "h": "Mecanismo um: falhamento transformacional",
+        "p": [
+          "A olivina, o principal mineral do manto superior, se converte em estruturas mais densas à medida que a pressão aumenta. Em placas antigas e frias, essa reação é dificultada do ponto de vista cinético, de modo que zonas em forma de cunha de rocha metaestável com olivina provavelmente persistem até profundidades de mais de 600 quilômetros (Kirby et al. 1996). Experimentos de laboratório com alguns minerais metaestáveis mostram uma instabilidade de cisalhamento chamada falhamento transformacional, em que o mineral hospedeiro cede de repente em zonas de cisalhamento finas, onde se transforma numa fase mais densa e de granulação mais fina (Kirby et al. 1996). Green and Burnley (1989) observaram esse falhamento num análogo da olivina com germânio, o Mg2GeO4, e propuseram que ele surge da geração, propagação e interligação de pequenas inclusões preenchidas pela fase mais densa. Hasegawa and Nakajima (2017) descrevem a mesma ideia em termos de pequenos cristais lenticulares da nova fase que crescem e se alinham ao longo de um plano até formarem uma falha.",
+          "O trabalho de laboratório apoia esse quadro. Schubnel et al. (2013) registraram emissões acústicas semelhantes a terremotos profundos em olivina Mg2GeO4 deformada a pressões de 4 a 5 gigapascals enquanto se transformava, combinando medições de raios X de síncrotron com monitoramento acústico (Wang et al. 2017). Um estudo de 2022 usou olivina natural (Mg,Fe)2SiO4 a 11 a 17 gigapascals e 860 a 1.350 kelvin, condições equivalentes às de placas na zona de transição. O falhamento completo só ocorreu numa estreita janela de temperatura, de 1.100 a 1.160 kelvin, acompanhado de intensas emissões acústicas no início da ruptura. O deslizamento da falha, auxiliado pelo aquecimento por cisalhamento, ocorreu ao longo de uma camada fraca formada pela interligação de pacotes lenticulares de olivina e wadsleyíta nanocristalinas (Ohuchi et al. 2022).",
+          "A hipótese se ajusta a duas observações: a sismicidade profunda coincide de perto com a zona de transição, e cunhas de olivina metaestável só são esperadas em placas antigas e frias (Kirby et al. 1996). Ela também enfrenta objeções. Uma versão inicial, em que um colapso repentino do mineral para uma forma mais densa produz o terremoto, criaria uma grande componente isotrópica, ou implosiva, na fonte, e os terremotos profundos geralmente não a apresentam (Hasegawa and Nakajima 2017). Silver et al. (1995) constataram que a ruptura da Bolívia se estendeu por pelo menos 30 por 50 quilômetros, mais de três vezes o tamanho esperado para uma cunha de olivina metaestável no núcleo da placa, o que consideraram incompatível com uma origem por falhamento transformacional."
+        ]
+      },
+      {
+        "h": "Mecanismo dois: fragilização por desidratação",
+        "p": [
+          "As placas em subducção carregam minerais que contêm água e que se decompõem à medida que a pressão e a temperatura aumentam. Segundo a hipótese da fragilização por desidratação, a água expelida desses minerais gera terremotos ao elevar a pressão de fluido nos poros da rocha. Hasegawa and Nakajima (2017) observam que os detalhes de como o excesso local de pressão de poros leva à ruptura ainda são debatidos. Eles concluem que a água vinda da placa desempenha um papel importante na geração dos terremotos de profundidade intermediária, com a ruptura possivelmente começando por excesso local de pressão de poros e depois se propagando por instabilidade térmica de cisalhamento.",
+          "Estender a ideia para baixo de 300 quilômetros é mais difícil. O comunicado da UC Santa Cruz sobre o terremoto de Okhotsk observou que um fluido pode lubrificar uma falha, mas que todos os fluidos deveriam ter sido espremidos para fora da placa antes de ela chegar àquela profundidade (University of California, Santa Cruz 2013). Ainda assim, Zhang et al. (2021) argumentam que a fragilização por desidratação é um modelo alternativo plausível para o evento de Okhotsk. Seu argumento se baseia na orientação e no tamanho do plano que se rompeu, em sua velocidade de ruptura e eficiência de radiação, e em evidências diversas de que a água é transportada até a zona de transição e abaixo dela. Trata-se de uma entre várias interpretações concorrentes desse terremoto."
+        ]
+      },
+      {
+        "h": "Mecanismo três: instabilidade térmica descontrolada",
+        "p": [
+          "A terceira hipótese, a instabilidade térmica de cisalhamento, parte da deformação plástica. Se a rocha se deforma mais depressa do que o calor gerado consegue escapar, uma retroalimentação positiva favorece mais deformação. A deformação então avança rapidamente até que o material naquela parte da placa começa a fundir, o que produz um deslizamento repentino, ou seja, um terremoto (Hasegawa and Nakajima 2017).",
+          "Lay deu uma descrição semelhante para Okhotsk: se a falha deslizar só um pouco, o atrito poderia fundir a rocha e fornecer o fluido, produzindo um efeito térmico descontrolado. Ele acrescentou que algo precisa primeiro dar início ao deslizamento (University of California, Santa Cruz 2013). Zhan et al. (2014) propõem que esse tipo de fusão por cisalhamento atua dentro de placas quentes depois que uma ruptura é desencadeada."
+        ]
+      },
+      {
+        "h": "Onde os cientistas discordam",
+        "p": [
+          "Uma revisão de Zhan (2020) chega a uma conclusão direta sobre os três principais mecanismos. O falhamento transformacional, a fragilização por desidratação e a instabilidade térmica descontrolada podem, cada um, explicar partes das observações, e cada um tem dificuldades potencialmente fundamentais para explicar o restante. A revisão pede que se considerem com mais seriedade hipóteses que envolvam mais de um mecanismo: um terremoto profundo poderia começar por um processo e, uma vez desencadeado, se propagar por outro.",
+          "A comparação entre os dois maiores eventos aponta na mesma direção. Zhan et al. (2014) explicam as diferenças entre eles como resultado de dois mecanismos de falhamento fundamentalmente diferentes em placas com estados térmicos distintos: o falhamento transformacional dentro da cunha de olivina metaestável nos núcleos de placas frias e a fusão por cisalhamento dentro de placas quentes, uma vez desencadeada. Lay observou que uma transformação das formas minerais poderia dar o impulso inicial, mas que os cientistas não conseguem detectá-la diretamente (University of California, Santa Cruz 2013). Esse problema de detecção deixa em aberto a questão de como as rupturas começam, mesmo onde sua propagação é mais bem delimitada.",
+          "A escala é outro limite. As amostras de olivina dos experimentos de 2022 tinham 1,2 milímetro de comprimento (Ohuchi et al. 2022), enquanto a ruptura de Okhotsk se estendeu por muitos quilômetros de falha. Pesquisadores que estudam rupturas de laboratório em amostras de tamanho milimétrico observaram que as questões de escala entre os eventos de laboratório e os terremotos de foco profundo ainda precisam ser resolvidas (Wang et al. 2017). Cada grande evento profundo acrescenta uma restrição sobre a temperatura, a composição mineral e a resistência das placas em profundidades que nenhuma perfuração consegue alcançar. Para quem acompanha um feed de terremotos em tempo real, um grande terremoto profundo é, portanto, sobretudo uma oportunidade de pesquisa, porque a profundidade que o torna difícil de explicar também mantém a maior parte de seu tremor longe da superfície."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "O que é um terremoto de foco profundo?",
+        "a": "Um terremoto de foco profundo começa a mais de 300 quilômetros abaixo da superfície, dentro de uma placa oceânica que está afundando no manto. Os terremotos entre cerca de 70 e 300 quilômetros são chamados de profundidade intermediária. Os terremotos mais profundos ocorrem entre cerca de 325 e 690 quilômetros, e a atividade termina abruptamente perto de 700 quilômetros."
+      },
+      {
+        "q": "Por que os terremotos profundos são difíceis de explicar?",
+        "a": "Em profundidades além de 100 a 200 quilômetros, a pressão é tão grande que a fratura rúptil comum e o deslizamento por atrito exigiriam resistências irrealistas da rocha. A rocha nessas profundidades normalmente se deformaria lentamente em vez de se romper, então algum mecanismo especial deve enfraquecer a falha."
+      },
+      {
+        "q": "Qual é o maior terremoto profundo já registrado?",
+        "a": "O terremoto de magnitude 8,3 do Mar de Okhotsk, em 24 de maio de 2013, a cerca de 600 quilômetros de profundidade. Seu momento sísmico foi cerca de 30 por cento maior que o do terremoto da Bolívia de 1994, o recordista anterior, e ele liberou cerca de três vezes mais energia."
+      },
+      {
+        "q": "Os terremotos profundos são perigosos?",
+        "a": "Os terremotos profundos em geral não causam tremor suficiente na superfície para serem perigosos, porque a ruptura está centenas de quilômetros abaixo."
+      },
+      {
+        "q": "Quais são as principais explicações para os terremotos profundos?",
+        "a": "As três principais hipóteses são o falhamento transformacional, em que a olivina que permaneceu em sua forma de baixa pressão se transforma de repente ao longo de zonas finas; a fragilização por desidratação, em que a água liberada pelos minerais enfraquece a rocha; e a instabilidade térmica descontrolada, em que a deformação rápida aquece e funde uma zona estreita. Cada uma explica parte das observações."
+      },
+      {
+        "q": "Os cientistas concordam sobre a causa dos terremotos profundos?",
+        "a": "Não. Uma revisão de 2020 concluiu que cada um dos principais mecanismos tem dificuldades potencialmente fundamentais e sugeriu que um terremoto profundo poderia começar por um mecanismo e continuar por outro. Estudos dos eventos da Bolívia, de 1994, e de Okhotsk, de 2013, sugerem que placas frias e quentes podem se romper de maneiras diferentes."
+      }
+    ]
+  },
+  "volcano-seismology": {
+    "title": "Escutando o magma: como terremotos vulcânicos, tremores e enxames revelam fluidos em movimento",
+    "dek": "Os vulcões tremem de maneiras que as falhas comuns não tremem. A rocha que se fratura, as fraturas que ressoam e o tremor contínuo contam, cada um, algo diferente aos observadores sobre o magma e os gases em movimento.",
+    "sections": [
+      {
+        "h": "Um tipo diferente de sinal sísmico",
+        "p": [
+          "Os vulcões produzem uma variedade de sinais sísmicos maior do que as zonas de falha comuns. Os terremotos vulcano-tectônicos (VT) foram os primeiros a ser estudados porque, assim como os terremotos tectônicos, são gerados pela ruptura frágil da rocha (Konstantinou 2024). Os terremotos de longo período (LP), ou híbridos, e o tremor vulcânico são gerados pela interação complexa de fluidos e gases com a rocha sólida, o que torna sua fonte muito mais difícil de decifrar (Konstantinou 2024). Chouet (1996) descreve a sismicidade de longo período como tendo períodos típicos de 0,2 a 2 segundos e como um reflexo de flutuações de pressão causadas pelo transporte instável de massa no sistema de condutos sob um vulcão.",
+          "Essa distinção organiza o restante deste artigo. Os terremotos e enxames VT indicam aos observadores que a rocha está se fraturando à medida que o magma ou um fluido avança para um novo espaço. Os eventos LP e o tremor sugerem que o fluido está se movendo dentro de fraturas e condutos que já existem."
+        ]
+      },
+      {
+        "h": "Terremotos vulcano-tectônicos e enxames",
+        "p": [
+          "White and McCausland (2016) compilaram 136 terremotos e enxames VT que precederam 111 erupções em 83 vulcões. Eles constataram que a sismicidade VT costuma ser o precursor sísmico mais precoce relatado em vulcões que estavam adormecidos havia décadas ou mais, e que ela precedeu todas as erupções explosivas de Índice de Explosividade Vulcânica (VEI) 5 ou superior em seu conjunto de dados. A atividade tende a ocorrer em enxames, começa de dias a anos antes de uma erupção, atinge o pico no momento da erupção inicial e apresenta uma grande componente não de duplo binário em seus mecanismos focais. Os enxames geralmente começam em falhas tectônicas situadas de um ou dois a dezenas de quilômetros da futura boca eruptiva, e não diretamente abaixo dela. Os autores também mostram que o volume de magma intrudido pode ser estimado a partir do momento sísmico acumulado dos terremotos VT (White and McCausland 2016).",
+          "Os enxames podem mapear o movimento do magma mesmo quando nenhuma erupção se segue. Dois enxames sob o vulcão Iliamna, no Alasca, em maio e agosto de 1996, reuniram 88 e 2.833 eventos localizáveis, com magnitudes de -0,9 a 3,3. Seus hipocentros formaram um aglomerado num volume da crosta antes assísmico ao sul do cume, e aumentos nas emissões de dióxido de enxofre e de dióxido de carbono coincidiram com o segundo enxame. Os autores explicaram o padrão pelo posicionamento e pela inflação de um dique subvertical. Nenhuma erupção ocorreu (Roman et al. 2004).",
+          "Em 23 de agosto de 2021, o Observatório Vulcanológico do Havaí (HVO) relatou um enxame sob a parte sul da caldeira do cume do Kilauea. Nas primeiras horas da manhã seguinte, o enxame se intensificou, junto com uma taxa mais rápida de deformação do solo registrada por um inclinômetro próximo. O HVO afirmou que essas observações podiam indicar uma pequena intrusão de dique de 1 a 2 quilômetros abaixo da parte sul da caldeira. Até então, mais de 100 terremotos haviam sido registrados, o maior de magnitude 3,3 e a maioria abaixo de magnitude 1 (USGS Hawaiian Volcano Observatory 2021).",
+          "Às vezes a interpretação é menos direta. Um terremoto de magnitude 4,2 em 15 de junho de 2020 na Ilha Unalaska, no Alasca, deu início a uma sequência de centenas de terremotos entre 7 e 10 quilômetros de profundidade, cerca de 12 quilômetros a sudeste do cume do vulcão Makushin, e não se observou atividade eruptiva nem mudança na superfície. Lanza et al. (2022) observam que decidir se essa sismicidade reflete tensões magmáticas ou tectônicas costuma ser difícil, embora seja crucial para a avaliação de riscos. A análise deles encontrou evidências de um campo de tensões local provavelmente induzido por intrusão de magma, e eles concluem que o enxame foi impulsionado por uma combinação de tensões magmáticas e tectônicas."
+        ]
+      },
+      {
+        "h": "Eventos de longo período: fraturas que ressoam",
+        "p": [
+          "Uma das principais explicações para os eventos LP é a ressonância de uma fratura preenchida por fluido. No modelo de Chouet (1988), uma fratura tridimensional contendo um fluido viscoso e compressível entra em ressonância por um transiente de pressão impulsivo aplicado sobre uma pequena parte de sua superfície, e uma onda muito lenta aprisionada no fluido, chamada onda de fratura, sustenta a vibração. A frequência, a largura de banda e o espaçamento dos picos de ressonância dependem fortemente da rigidez da fratura. No mesmo modelo, um evento LP e o tremor harmônico compartilham a mesma fonte e diferem na forma como a ressonância é desencadeada e nas condições de contorno do escoamento do fluido (Chouet 1988).",
+          "O modelo oferece uma maneira de ler os fluidos a partir das formas de onda. Kumagai and Chouet (2000) estimaram o fator de qualidade, uma medida de quão lentamente a vibração se extingue, para uma fratura contendo misturas gás-gás, misturas líquido-gás e gases com poeira ou névoa, e obtiveram valores que vão de quase a unidade a várias centenas. Eles sugerem que mudanças nas frequências complexas dos eventos LP poderiam ser interpretadas em termos de mudanças na composição dos fluidos sob os vulcões.",
+          "Eventos LP curtos, semelhantes a pulsos, acompanharam a atividade eruptiva do Monte Etna, na Itália, em 2004 e 2008, e dos vulcões Turrialba, na Costa Rica, e Ubinas, no Peru, em 2009. Chouet and Dawson (2016) constataram que uma fratura impulsionada por fluido explica esses pulsos com dimensões de fonte e propriedades de fluido realistas, e que as fontes são rasas, a menos de 1 quilômetro de profundidade. Uma ruptura lenta continua sendo uma alternativa possível, embora suas formas de onda sintéticas se ajustem pior aos dados nesse modelo."
+        ]
+      },
+      {
+        "h": "Tremor vulcânico: um sinal contínuo com várias fontes possíveis",
+        "p": [
+          "O tremor é uma vibração contínua que pode ocorrer antes ou depois de erupções e durar de vários minutos a vários dias ou meses. Sua fonte pode estar a qualquer profundidade entre algumas centenas de metros e 40 quilômetros, dependendo do vulcão. Konstantinou and Schlindwein (2003) agrupam as fontes propostas em quatro famílias: oscilações induzidas pelo escoamento em condutos que transportam fluidos magmáticos, ressonância de fraturas preenchidas por fluido, crescimento ou colapso de bolhas durante a ebulição hidrotermal da água subterrânea e oscilações de corpos de magma. Eles observam que muitos autores consideram que a fonte do tremor não é única e pode variar de um vulcão para outro.",
+          "Julian (1994) descreveu um processo não linear análogo à excitação de instrumentos musicais de sopro e das cordas vocais humanas, no qual um fluido que escoa por um canal com paredes elásticas móveis produz oscilações. Nesse modelo, os terremotos LP aparecem quando a vazão de magma é baixa demais para sustentar um tremor contínuo e, em vez disso, uma perturbação transitória excita o canal. McNutt (2005) relata que o tremor é mais forte em erupções fissurais, em erupções freáticas e com teores de gás mais altos.",
+          "Um estudo do tremor não eruptivo de 2 de outubro de 2004 no Monte Santa Helena oferece outra perspectiva. Denlinger and Moran (2014) constataram que o sinal era composto inteiramente por ondas Love e Rayleigh e que as forças que o produziam eram em grande parte perpendiculares às paredes do conduto. Eles concluíram que a forma como o tremor é gerado mascara a natureza de sua fonte, de modo que vários modelos podem explicar o mesmo sinal e são necessários outros dados para escolher entre eles. Com dados de GPS e de campo que apoiavam uma ascensão rápida do magma, eles inferiram que esse tremor resultou do arrasto de magma quase sólido ao longo das paredes ásperas do conduto enquanto era forçado em direção à superfície."
+        ]
+      },
+      {
+        "h": "Monte Santa Helena, 2004: os sinais em sequência",
+        "p": [
+          "Depois de 17 anos e 11 meses de calma, o Monte Santa Helena começou a despertar em 23 de setembro de 2004 com um enxame de terremotos VT rasos, a profundidades de menos de 2 quilômetros. Em 29 de setembro, terremotos de magnitude superior a 2 ocorriam a um ritmo de cerca de um por minuto. Uma transição gradual de eventos VT para eventos híbridos e de baixa frequência acompanhou a intensificação, uma característica de muitos enxames precursores no vulcão antes de suas erupções de formação de domo na década de 1980. A primeira explosão ocorreu em 1º de outubro, 8,5 dias após os primeiros terremotos (Moran et al. 2008).",
+          "Em 16 de outubro, o intervalo entre os eventos havia se tornado tão regular que os cientistas chamaram os terremotos de “batidas de tambor” (drumbeats), e eles dominaram a sismicidade até o fim de 2005. Seu tamanho, espaçamento e espectros variaram com as mudanças no estilo de extrusão na superfície, mas não com as variações no fluxo de magma, o que sugere que o tamanho e o espaçamento das batidas de tambor dependiam mais da mecânica da extrusão do que da taxa de extrusão (Moran et al. 2008). Matoza and Chouet (2010) estudaram os subeventos menores que acompanhavam as batidas de tambor e concluíram que a interação dos sistemas hidrotermal e magmático sob o vulcão poderia explicar uma ampla gama de fenômenos observados, incluindo subeventos, eventos LP, eventos maiores e explosões freáticas."
+        ]
+      },
+      {
+        "h": "Monte Pinatubo, 1991: terremotos profundos de longo período",
+        "p": [
+          "A grande maioria dos eventos LP relatados na literatura se origina a profundidades de menos de 3 quilômetros, mas o Monte Pinatubo produziu algo diferente. Cerca de 600 terremotos profundos de longo período ocorreram sob o vulcão no fim de maio e início de junho de 1991, mais do que o total combinado relatado anteriormente em todos os vulcões de margem convergente do mundo (White 1996). White os interpreta como a expressão sísmica de magma basáltico profundo injetado na base da câmara magmática, o que desencadeou a sequência eruptiva. O início da atividade profunda, em 26 de maio, foi seguido apenas 1 hora depois por terremotos LP rasos e, em até 4 horas, por tremor raso contínuo e uma grande emissão de vapor (White 1996).",
+          "O monitoramento sísmico foi a principal ferramenta para avaliar o potencial eruptivo em evolução antes da erupção paroxística de 15 de junho. A equipe previu a escalada a partir de deslocamentos na localização dos hipocentros, aumentos na liberação total de energia sísmica, mudanças no caráter das formas de onda e sinais não sísmicos crescentes de agitação. Os últimos dias incluíram uma notável progressão de eventos LP cada vez maiores de 12 a 14 de junho, seguida de um período pré-paroxístico de 24 horas de atividade sísmica de alta amplitude e muito diversificada (Harlow et al. 1996)."
+        ]
+      },
+      {
+        "h": "O que ainda está em aberto",
+        "p": [
+          "A sismologia vulcânica fornece fortes evidências de que há fluidos em movimento, mas várias questões continuam em aberto. McNutt (2005) observa que os eventos LP profundos são bastante comuns, mas podem representar vários processos. O tremor tem modelos de fonte concorrentes, como mostra o estudo no Monte Santa Helena. Enxames como o próximo ao Makushin podem refletir tensões magmáticas e tectônicas ao mesmo tempo, e um enxame pode terminar sem erupção, como no Iliamna.",
+          "Para os leitores que acompanham feeds de terremotos, esses exemplos oferecem uma lição prática. Muitos eventos em sequências vulcânicas são pequenos, e seu significado muitas vezes depende de outras medições, como o registro do inclinômetro no Kilauea e as emissões de gases no Iliamna. Os sinais sísmicos, combinados com dados de deformação e de gases, dão aos observatórios a melhor base para julgar se o magma está subindo."
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "q": "O que é um terremoto vulcano-tectônico?",
+        "a": "Um terremoto vulcano-tectônico (VT) é causado pela ruptura frágil da rocha, como um terremoto tectônico comum, mas é provocado por tensões do magma ou de fluidos que avançam pela crosta perto de um vulcão. Os enxames VT costumam ser o primeiro alerta sísmico em vulcões que ficaram adormecidos por décadas."
+      },
+      {
+        "q": "O que são terremotos vulcânicos de longo período?",
+        "a": "Os eventos de longo período (LP) têm períodos típicos de 0,2 a 2 segundos e acredita-se que resultem de variações de pressão à medida que magma, gás ou vapor se movem pelo vulcão. Um modelo comum os explica como a ressonância de uma fratura preenchida por fluido."
+      },
+      {
+        "q": "O que é tremor vulcânico?",
+        "a": "O tremor vulcânico é um sinal sísmico contínuo perto de um vulcão ativo que pode durar de minutos a dias ou meses. Entre as fontes propostas estão o escoamento de fluidos por condutos, fraturas que ressoam, a ebulição da água subterrânea e corpos de magma em oscilação, e a fonte pode variar de um vulcão para outro."
+      },
+      {
+        "q": "Um enxame de terremotos sob um vulcão significa que uma erupção está a caminho?",
+        "a": "Não necessariamente. Os enxames no Iliamna em 1996 e perto do Makushin em 2020 terminaram sem erupção. Os observatórios combinam os dados de terremotos com medições de deformação do solo e de gases antes de julgar se o magma está subindo em direção à superfície."
+      },
+      {
+        "q": "Como a sismologia ajudou a prever a erupção do Pinatubo em 1991?",
+        "a": "Os cientistas acompanharam as mudanças no local onde os terremotos ocorriam, a energia sísmica total liberada e as alterações nas formas de onda. Terremotos profundos de longo período a partir do fim de maio marcaram a chegada de magma novo, e eventos LP cada vez maiores de 12 a 14 de junho precederam a erupção paroxística de 15 de junho."
+      },
+      {
+        "q": "O que foram os terremotos “batidas de tambor” do Monte Santa Helena?",
+        "a": "Durante a erupção de formação de domo de 2004 a 2008, pequenos terremotos se repetiram em intervalos tão regulares que os cientistas os chamaram de batidas de tambor (drumbeats). Seu tamanho e espaçamento mudavam com o estilo de extrusão da lava, e não com a taxa de suprimento de magma."
+      }
+    ]
   }
 }
