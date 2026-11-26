@@ -26,7 +26,8 @@ import type { PlaceHit } from '@/lib/places';
 import { AlertDevice } from '@/components/alerts/shared';
 import styles from './me.module.css';
 
-const SOURCES = ['USGS', 'EMSC', 'GeoNet', 'JMA'];
+// Earthquake data, then GeoNames for the place names ("27 km SSE of …", lib/quakes/nearest-place.ts; CC BY 4.0).
+const SOURCES = ['USGS', 'EMSC', 'GeoNet', 'JMA', 'GeoNames'];
 
 export default function MePage() {
   const { t, m } = useT();
