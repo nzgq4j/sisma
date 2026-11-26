@@ -8,9 +8,19 @@
 .fresh { color: var(--mint-text); }
 .stale { color: var(--warm-text); }
 .fresh i, .stale i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
-.jump { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--ink2); }
-.jump span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-.jump select { flex: 1; min-height: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface2); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; padding: 0 10px; }
+.jump { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 44px; padding: 0 12px; border: 0; border-radius: 14px; background: var(--surface2); color: var(--ink); font: inherit; font-size: 15px; font-weight: 700; text-align: left; cursor: pointer; }
+.jump > span:nth-child(2) { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.jump :global(.ms) { font-size: 20px; color: var(--ink2); }
+.layers { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; font-weight: 700; color: var(--ink2); }
+.layers button { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px 0 8px; border: 1px solid var(--line); border-radius: 18px; background: transparent; color: var(--ink2); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.layers button[aria-pressed='true'] { background: var(--violet-soft); border-color: transparent; color: var(--violet-text); }
+.layers :global(.ms) { font-size: 18px; }
+.tri { flex: none; }
+.report { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 14px; background: var(--surface2); }
+.report h3 { margin: 0; font-size: 13px; font-weight: 800; color: var(--ink); }
+.report p { margin: 0; font-size: 13px; line-height: 1.45; color: var(--ink); text-wrap: pretty; }
+.report .reportSrc { color: var(--ink2); font-size: 12px; }
+.reportNote { margin: 0; font-size: 13px; line-height: 1.45; color: var(--ink2); text-wrap: pretty; }
 .plotWrap { position: relative; margin: 0 -16px; }
 .scroller { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; touch-action: pan-x pan-y; background: #0B1220; scrollbar-color: rgba(190, 205, 230, .35) #0B1220; }
 .scroller:focus-visible { outline: 2px solid var(--violet); outline-offset: -2px; }
