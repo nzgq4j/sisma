@@ -72,8 +72,7 @@ export function Home() {
           <AppPreview />
         </section>
 
-        <section id="features" className={styles.features} aria-labelledby="features-h">
-          <h2 id="features-h" className="sr-only">{w.nav_features}</h2>
+        <section id="features" className={styles.features}>
           {([
             ['sort', styles.toneViolet, w.f1_h, w.f1_p],
             ['public', styles.toneMint, w.f2_h, w.f2_p],

@@ -9,7 +9,7 @@
 .back { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px 0 8px; border-radius: 22px; color: var(--ink) !important; font-weight: 700; font-size: 15px; }
 .back:hover { background: var(--surface2); }
 .back :global(.ms) { font-size: 22px; }
-.brand { display: inline-flex; align-items: center; min-height: 44px; gap: 8px; color: var(--ink) !important; font-weight: 800; font-size: 16px; margin-right: auto; min-width: 0; }
+.brand { display: inline-flex; align-items: center; gap: 8px; color: var(--ink) !important; font-weight: 800; font-size: 16px; margin-right: auto; min-width: 0; }
 .brand > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .openApp { min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 20px; background: var(--violet); color: var(--on-violet) !important; font-weight: 800; font-size: 14px; white-space: nowrap; }
 @media (max-width: 420px) { .brand > span { display: none; } }
@@ -33,7 +33,7 @@
 
 .doc { font-size: 16px; line-height: 1.65; }
 .doc h2 { font-size: 22px; letter-spacing: -.01em; margin: 32px 0 8px; scroll-margin-top: 80px; }
-.doc h2:not([class]), .doc h3 { font-size: 18px; margin: 28px 0 6px; scroll-margin-top: 80px; }
+.doc h3 { font-size: 18px; margin: 28px 0 6px; scroll-margin-top: 80px; }
 .doc p, .doc li { text-wrap: pretty; }
 .doc ul, .doc ol { padding-left: 22px; }
 .doc li + li { margin-top: 6px; }

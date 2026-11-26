@@ -76,7 +76,7 @@ export function HelpChrome({ nav: navEn, current, title: titleEn, children }: { 
           <div className={s.doc} lang={current ? lang : undefined}><HelpLang.Provider value={lang}>{current ? body : children}</HelpLang.Provider></div>
 
           {current && (
-            <nav className={s.pager} aria-label={`${w.help_prev} / ${w.help_next}`}>
+            <nav className={s.pager} aria-label={w.help_topics}>
               {prev ? <Link href={`/help/${prev.slug}`} className={s.pagerLink}><small>{w.help_prev}</small><span lang={lang}><span className="ms" aria-hidden="true">arrow_back</span>{prev.title}</span></Link> : <span />}
               {next ? <Link href={`/help/${next.slug}`} className={`${s.pagerLink} ${s.pagerNext}`}><small>{w.help_next}</small><span lang={lang}>{next.title}<span className="ms" aria-hidden="true">arrow_forward</span></span></Link> : <span />}
             </nav>

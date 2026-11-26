@@ -1,5 +1,4 @@
 import type { TsunamiAlert } from '../tsunami/types';
-import type { WorldRegion } from '../world-regions';
 
 export type SourceId = 'usgs' | 'emsc' | 'geonet' | 'jma';
 
@@ -26,10 +25,6 @@ export interface Quake {
   status?: ReviewStatus; // agency review state, when the source publishes one
   alsoIn?: SourceId[];   // other sources reporting the same event
   otherIds?: string[];   // their ids: the event's id changes when a preferred source reports it later (e.g. EMSC first, then USGS)
-  /** Country it is in, or nearest within 300 km (`near`), for the flag; null far out at sea (lib/quakes/place-info.ts). */
-  country?: { code: string; near: boolean } | null;
-  /** World region for the region filter (lib/world-region-of.ts). */
-  worldRegion?: WorldRegion;
 }
 
 export type SortKey = 'time' | 'distance' | 'mag';

@@ -7,7 +7,6 @@ import { limits, type Plan } from '@/lib/entitlements';
 import { planForRequest } from '@/lib/auth';
 import { withTsunami } from '@/lib/tsunami/attach';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
-import { withPlaceInfo } from '@/lib/quakes/place-info';
 
 export const revalidate = 60;
 
@@ -40,8 +39,7 @@ export async function GET(req: NextRequest) {
     if (q.get('tsunami') === '1') list = list.filter(x => x.tsunami || (x.tsunamiAlert != null && TSUNAMI_HAZARD.has(x.tsunamiAlert.level)));
   }
   const lat = Number(q.get('lat')), lon = Number(q.get('lon'));
-  // Flag country and world region of each event (lib/quakes/place-info.ts), so the app doesn't work them out.
-  const withDist = withPlaceInfo(list).map(x => ({ ...x, distanceKm: Number.isFinite(lat) && Number.isFinite(lon) ? distanceKm(lat, lon, x.lat, x.lon) : null }));
+  const withDist = list.map(x => ({ ...x, distanceKm: Number.isFinite(lat) && Number.isFinite(lon) ? distanceKm(lat, lon, x.lat, x.lon) : null }));
   const sort = (q.get('sort') ?? 'time') as SortKey;
   if (sort === 'mag') withDist.sort((a, b) => b.mag - a.mag);
   if (sort === 'distance') withDist.sort((a, b) => (a.distanceKm ?? 0) - (b.distanceKm ?? 0));

@@ -55,7 +55,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <p>每一行显示彩色徽章中的震级、地点（附所在国家或邻近国家的国旗）、发生在多久以前、离你多远以及震源深度。继续向下滚动，到达列表末尾时会加载更多地震。</p>
           <p>在电脑上，列表位于左侧菜单第一项<Ui>概览</Ui>页面，旁边有一张地图。在列表或地图上选择一次地震，地图就会放大到该地震，并显示附近城市的名称。关闭地震后地图保持不变；<Ui>重置视图</Ui>可重新显示整个世界。在右上角的<Ui>地点</Ui>中选择一个国家或地区，或点按<Ui>主要地区</Ui>中的一项，地图就会缩放到该处的地震；选择<Ui>所有地点</Ui>可重新显示整个世界。</p>
-          <h2>震级颜色</h2>
+          <h3>震级颜色</h3>
           <p>列表、地图和地球使用相同的颜色：</p>
           <MagLegend words={{ label: '震级颜色', magnitude: '震级 {range}', orMore: '{n} 及以上', below: '低于 {n}', to: '{a} 至 {b}' }} />
           <Callout><p>打开列表底部的<Ui>筛选</Ui>，选择时间范围并缩小列表范围。请参阅<Link href="/help/map">地图和筛选</Link>。</p></Callout>
@@ -73,7 +73,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>点按任意地震即可打开详情：</p>
           <ul>
-            <li><strong>震级</strong>及其类型（例如 <em>Mww</em>，即用于较大地震的矩震级）。</li>
+            <li><strong>震级</strong>及其类型（例如 <em>mww</em>，即用于较大地震的矩震级）。</li>
             <li><strong>深度</strong>：地震在地表以下多深处发生。浅源地震的震感通常更强。</li>
             <li><strong>日期和时间</strong>，按你设备的时区显示。</li>
             <li>离你的<strong>距离</strong>，以及<strong>国家/地区</strong>（海上地震显示为某国“附近”）。</li>
@@ -111,7 +111,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="世界地图，地震图钉按震级着色" caption="地图" />
       </div>
-      <h2 id="region-view">区域视图</h2>
+      <h3 id="region-view">区域视图</h3>
       <div className={s.pair}>
         <div>
           <p>在地震上点按<Ui>显示区域</Ui>，会打开以它为中心、宽约 800 公里的近景地图，地震位置有一个跳动的标记，附近的地震带有标签。点按<Ui>返回世界地图</Ui>即可返回。</p>
@@ -119,10 +119,10 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="region" alt="区域视图：地震周边的近景，带跳动标记和摘要卡片" caption="区域视图" />
       </div>
-      <h2>筛选、图层和图例</h2>
+      <h3>筛选、图层和图例</h3>
       <div className={s.pair}>
         <div>
-          <p>在列表、地图或地球底部上拉<Ui>筛选</Ui>面板。点按一次打开一半，再点一次关闭；向上拖动可完全打开。</p>
+          <p>在列表、地图或地球底部上拉<Ui>筛选</Ui>面板。点按一次打开一半，再点一次完全打开，也可以拖动。</p>
           <ul>
             <li><strong>时间范围</strong>：24 小时、7 天或 30 天。查看一整年需要 sisma+。</li>
             <li><strong>震级</strong>和<strong>地区</strong>（国家或海洋区域）是 sisma+ 筛选项，在免费版中带有锁形标记。</li>
@@ -176,7 +176,7 @@ export const TOPICS: Topic[] = [
           <p>对于 USGS 记录的地震，区域视图还会以约 10 公里的彩色方块（每个烈度等级一种颜色）显示人们对 USGS<strong>Did You Feel It?</strong>调查的回答。</p>
           <p>对于 EMSC 记录的地震，通过 EMSC 网站和 LastQuake 应用提交的有感报告也计入同样的方块。EMSC 数据以 CC BY 4.0 许可共享。</p>
           <p>要一次显示或隐藏所有震感地图，请点按<Ui>返回世界地图</Ui>旁边的<Ui>图层</Ui>按钮并使用<Ui>震感地图</Ui>开关。你的选择会保存在此设备上。地震的<Ui>详情</Ui>中的震感图例显示报告总数和最高烈度，以及烈度颜色刻度。灰色方块是自动震感地图中没有报告给出烈度的区域。</p>
-          <h2>有感地图</h2>
+          <h3>有感地图</h3>
           <p>地震刚发生后，如果很多人同时打开 sisma，这股使用激增就能显示地震可能在哪里被感知到。sisma 会据此在区域视图中生成匿名的<strong>有感地图</strong>。位置会在你的设备上模糊处理，偏移最多 500 米，不带任何账户或设备标识，并且只在约 10 公里范围内至少有 3 人时才会显示。你可以在<Ui>我的</Ui> → <Ui>帮助绘制地震有感地图</Ui>中关闭此功能。</p>
         </div>
         <Shot src="felt" alt="“你感觉到了什么？”面板，含烈度滑块、可选备注、在地图上显示开关和提交报告" caption="报告你的感受" />
@@ -213,20 +213,20 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>前往<Ui>我的</Ui>，点按<Ui>登录</Ui>。你可以使用 Google，或使用邮箱和密码。</p>
-          <h2>用邮箱创建账户</h2>
+          <h3>用邮箱创建账户</h3>
           <ol className={s.steps}>
             <li>点按登录面板底部的<Ui>创建账户</Ui>。</li>
             <li>输入你的邮箱和密码：至少 8 个字符，包含字母和数字。出现在已知数据泄露中的密码会被拒绝。</li>
             <li>打开我们发给你的确认邮件，点按其中的链接。之后你就登录了。一分钟后仍未收到？请查看垃圾邮件文件夹。</li>
           </ol>
-          <h2>使用 Google 登录</h2>
+          <h3>使用 Google 登录</h3>
           <p>点按<Ui>使用 Google 继续</Ui>。在 Android 应用中，从出现的列表里选择你的 Google 账户。如果你的 Google 邮箱已有 sisma 账户，Google 会被添加到同一个账户。</p>
           <p>创建账户时，<Ui>使用 Google 继续</Ui> 也在最上方：无需密码或确认邮件，立即创建账户。</p>
         </div>
         <Shot src="signin" alt="登录面板：使用 Google 继续、邮箱和密码、忘记密码和创建账户" caption="登录" />
       </div>
 
-      <h2 id="password-reset">忘记密码？重置密码</h2>
+      <h3 id="password-reset">忘记密码？重置密码</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -240,7 +240,7 @@ export const TOPICS: Topic[] = [
         <Shot src="forgot" alt="请查收邮件：我们已发送重置密码的链接" caption="点按“忘记密码？”之后" />
       </div>
 
-      <h2>更改密码，或为 Google 账户添加密码</h2>
+      <h3>更改密码，或为 Google 账户添加密码</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -252,7 +252,7 @@ export const TOPICS: Topic[] = [
         <Shot src="password" alt="设置新密码面板，含新密码和确认密码输入框" caption="设置新密码" />
       </div>
 
-      <h2>其他账户操作</h2>
+      <h3>其他账户操作</h3>
       <div className={s.pair}>
         <div>
           <ul>
@@ -264,7 +264,7 @@ export const TOPICS: Topic[] = [
         <Shot src="me" alt="“我的”中的账户部分：帮助与支持、显示名称、邮箱、密码和退出登录；删除账户位于单独的红框卡片中" caption="账户，位于“我的”底部" />
       </div>
 
-      <h2 id="delete-account">删除你的账户</h2>
+      <h3 id="delete-account">删除你的账户</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -325,14 +325,14 @@ export const TOPICS: Topic[] = [
         <Shot src="paywall" alt={`sisma+ 面板，含功能、年费价格和“开始 ${TRIAL_DAYS} 天免费试用”`} caption="选择方案" />
       </div>
 
-      <h2>订阅</h2>
+      <h3>订阅</h3>
       <ul>
         <li><strong>在网站上</strong>：<Ui>我的</Ui> → <Ui>开始 {TRIAL_DAYS} 天免费试用</Ui>（或<Ui>订阅</Ui>），然后在 Stripe 的安全结账页面付款。如果你先创建账户，点按确认邮件中的链接后会打开结账页面。返回后，sisma 会显示<em>正在启用 sisma+…</em>几秒钟，然后显示<em>欢迎使用 sisma+</em>。</li>
         <li><strong>在 Android 应用中</strong>：同一个按钮会打开 Google Play 的付款面板，你可以使用 Google Pay、银行卡或其他 Google Play 付款方式支付。</li>
       </ul>
       <p>你需要先登录。之后，只要登录该账户，无论在网页还是应用中，你的订阅都有效。</p>
 
-      <h2>管理或切换方案</h2>
+      <h3>管理或切换方案</h3>
       <div className={s.pair}>
         <div>
           <p>前往<Ui>我的</Ui> → <Ui>管理订阅</Ui>，查看你的状态、方案和下一个日期。</p>
@@ -345,7 +345,7 @@ export const TOPICS: Topic[] = [
         <Shot src="subscription" alt="订阅页面：状态、方案、续订日期和在 Google Play 中管理" caption="你的订阅" />
       </div>
 
-      <h2 id="cancel">取消 sisma+</h2>
+      <h3 id="cancel">取消 sisma+</h3>
       <ol className={s.steps}>
         <li>打开<Ui>我的</Ui> → <Ui>管理订阅</Ui>。</li>
         <li>点按<Ui>管理账单</Ui>（网站）或<Ui>在 Google Play 中管理</Ui>（应用），然后在那里取消。在 Google Play 中，你也可以前往<em>付款和订阅 → 订阅</em>。</li>
@@ -353,10 +353,10 @@ export const TOPICS: Topic[] = [
       <p>在已付费的期限结束前，你仍可使用 sisma+。届时<Ui>我的</Ui>中的卡片会显示具体日期和<em>取消</em>字样，过了该日期后你会回到免费版。在免费试用结束前取消，则不会扣费。</p>
       <Callout kind="note"><p>卸载应用或删除 sisma 账户<strong>不会</strong>取消 Google Play 订阅。请在 Google Play 中取消。</p></Callout>
 
-      <h2>恢复购买</h2>
+      <h3>恢复购买</h3>
       <p>在新手机上或重新安装应用后，请登录同一个 sisma 账户。如果没有显示 sisma+，请打开 sisma+ 面板并点按<Ui>恢复购买</Ui>。此功能仅在 Android 应用中提供，会查找本设备上的 Google Play 订阅。</p>
 
-      <h2>退款</h2>
+      <h3>退款</h3>
       <p>Google Play 购买适用 Google Play 的退款政策，因此请通过 Google Play 申请退款。网站购买请写信至 <a href={`mailto:${MAIL}`}>{MAIL}</a>。我们的<Link href="/terms">服务条款</Link>说明了详细信息。</p>
       </>
     ),
@@ -378,7 +378,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="alerts" alt="提醒页面，含开关、你的提醒（0/5）、添加提醒和通知方式" caption="提醒页面" />
       </div>
-      <h2>设置提醒</h2>
+      <h3>设置提醒</h3>
       <ul>
         <li><strong>名称</strong>：例如<em>家附近</em>。</li>
         <li><strong>最小震级</strong>：达到此震级及更强的地震都会提醒你。</li>
@@ -389,7 +389,7 @@ export const TOPICS: Topic[] = [
       </ul>
       <p>当设备共享位置时，<strong>监测范围</strong>也包括<strong>我的位置</strong>：请参阅<Link href="/help/locations">已保存的地点</Link>。</p>
       <p>过去 30 天内收到的提醒列在<em>提醒记录</em>中。</p>
-      <h2>海啸通知</h2>
+      <h3>海啸通知</h3>
       <p>海啸通知对所有登录用户免费。在<Ui>我的</Ui>中打开<Ui>海啸通知</Ui>，然后点按<Ui>在此设备上开启通知</Ui>。当你保存地点 1000 公里范围内的地震发布官方海啸警报、威胁、监视或注意报时，你会收到通知。免打扰时段不适用，每个级别对每次地震只发送一次。 与其他提醒一样，我的位置也计算在内。</p>
       <Callout kind="note"><p><strong>iPhone 和 iPad：</strong>只有将 sisma 添加到主屏幕（分享 → 添加到主屏幕）并从主屏幕打开后，网页通知才能使用。 在 iPhone 或 iPad 的浏览器中首次打开 sisma 时，会弹出窗口显示这些步骤；点按<Ui>以后再说</Ui>会在两周后再次显示，点按<Ui>知道了</Ui>则不再显示。</p></Callout>
       </>

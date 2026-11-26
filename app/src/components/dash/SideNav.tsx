@@ -20,7 +20,7 @@ export function SideNav() {
   const { t, m } = useT();
   const { plan } = useApp();
   return (
-    <aside className={styles.side} aria-label="sisma">
+    <aside className={styles.side}>
       <Link href="/" className={styles.sideBrand} aria-label={m.dash.website}>
         <LogoMark size={34} />
         <span className={styles.wordmark}>sisma<span>.io</span></span>

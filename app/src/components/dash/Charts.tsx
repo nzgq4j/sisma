@@ -23,7 +23,7 @@ export function ChartCard({ title, sub, rows, children }: { title: string; sub?:
         </button>
       </header>
       {table ? (
-        <div className={styles.tableWrap} tabIndex={0} role="region" aria-label={title}>
+        <div className={styles.tableWrap}>
           <table className={styles.table}>
             <tbody>{rows.map(r => <tr key={r.key}><th scope="row">{r.tip ?? r.label}</th><td>{nf.format(r.value)}</td></tr>)}</tbody>
           </table>

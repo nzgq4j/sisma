@@ -55,7 +55,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <p>Jede Zeile zeigt die Magnitude in einem farbigen Kennzeichen, den Ort mit der Flagge des Landes, in dem oder nahe dem er liegt, wie lange es her ist, wie weit es von dir entfernt ist und wie tief es war. Scrolle weiter: Am Ende der Liste kommen weitere Erdbeben dazu.</p>
           <p>Auf einem Computer steht die Liste auf der Seite <Ui>Übersicht</Ui>, dem ersten Eintrag im Menü links, mit einer Karte daneben. Wählst du ein Erdbeben in der Liste oder auf der Karte, zoomt die Karte dorthin, mit den Namen naher Städte. Sie bleibt dort, wenn du das Erdbeben schließt; <Ui>Ansicht zurücksetzen</Ui> zeigt wieder die ganze Welt. Wählen Sie oben rechts unter <Ui>Ort</Ui> ein Land oder eine Region oder tippen Sie auf einen Eintrag unter <Ui>Häufigste Regionen</Ui>, und die Karte zoomt auf dessen Erdbeben; <Ui>Alle Orte</Ui> zeigt wieder die ganze Welt.</p>
-          <h2>Magnitudenfarben</h2>
+          <h3>Magnitudenfarben</h3>
           <p>Dieselben Farben gelten in der Liste, auf der Karte und auf dem Globus:</p>
           <MagLegend words={{ label: 'Magnitudenfarben', magnitude: 'Magnitude {range}', orMore: '{n} oder mehr', below: 'unter {n}', to: '{a} bis {b}' }} />
           <Callout><p>Öffne <Ui>Filter</Ui> unten in der Liste, um den Zeitraum zu wählen und die Liste einzugrenzen. Siehe <Link href="/help/map">Karte und Filter</Link>.</p></Callout>
@@ -73,7 +73,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Tippe auf ein Erdbeben, um seine Details zu öffnen:</p>
           <ul>
-            <li><strong>Magnitude</strong> und ihr Typ (zum Beispiel <em>Mww</em>, die Momenten-Magnitude für größere Beben).</li>
+            <li><strong>Magnitude</strong> und ihr Typ (zum Beispiel <em>mww</em>, die Momenten-Magnitude für größere Beben).</li>
             <li><strong>Tiefe</strong>: wie weit unter der Oberfläche es begann. Flache Erdbeben werden meist stärker gespürt.</li>
             <li><strong>Datum und Uhrzeit</strong> in der Zeitzone deines Geräts.</li>
             <li><strong>Entfernung</strong> von dir und das <strong>Land</strong> (oder „nahe“ einem Land bei Ereignissen vor der Küste).</li>
@@ -111,7 +111,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="Weltkarte mit nach Magnitude gefärbten Erdbebenmarkierungen" caption="Die Karte" />
       </div>
-      <h2 id="region-view">Regionsansicht</h2>
+      <h3 id="region-view">Regionsansicht</h3>
       <div className={s.pair}>
         <div>
           <p><Ui>Region zeigen</Ui> bei einem Erdbeben öffnet eine Nahansicht von etwa 800 km Breite rund um das Beben, mit einer pulsierenden Markierung am Ereignis und Beschriftungen an Erdbeben in der Nähe. Tippe auf <Ui>Zurück zur Weltkarte</Ui>, um zurückzukehren.</p>
@@ -119,10 +119,10 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="region" alt="Regionsansicht: eine Nahansicht rund um ein Erdbeben mit pulsierender Markierung und Übersichtskarte" caption="Regionsansicht" />
       </div>
-      <h2>Filter, Ebenen und Legende</h2>
+      <h3>Filter, Ebenen und Legende</h3>
       <div className={s.pair}>
         <div>
-          <p>Zieh das Feld <Ui>Filter</Ui> unten in Liste, Karte oder Globus nach oben. Tippe darauf, um es zur Hälfte zu öffnen, und noch einmal, um es zu schließen, oder zieh es nach oben, um es ganz zu öffnen.</p>
+          <p>Zieh das Feld <Ui>Filter</Ui> unten in Liste, Karte oder Globus nach oben. Tippe einmal darauf, um es zur Hälfte zu öffnen, noch einmal, um es ganz zu öffnen, oder zieh es.</p>
           <ul>
             <li><strong>Zeitraum</strong>: 24 Stunden, 7 Tage oder 30 Tage. Ein ganzes Jahr braucht sisma+.</li>
             <li><strong>Magnitude</strong> und <strong>Region</strong> (ein Land oder eine Meeresregion) sind sisma+-Filter und im kostenlosen Tarif mit einem Schloss markiert.</li>
@@ -176,7 +176,7 @@ export const TOPICS: Topic[] = [
           <p>Bei Erdbeben, die der USGS erfasst, zeigt die Regionsansicht auch die Antworten auf die USGS-Umfrage <strong>Did You Feel It?</strong> als farbige Quadrate von etwa 10 km, eine Farbe pro Intensitätsstufe.</p>
           <p>Bei Erdbeben, die das EMSC erfasst, fließen außerdem Meldungen über die EMSC-Websites und die App LastQuake in dieselben Quadrate ein. Die Daten des EMSC stehen unter der Lizenz CC BY 4.0.</p>
           <p>Um alle Spürkarten auf einmal ein- oder auszublenden, tippe auf die Schaltfläche <Ui>Ebenen</Ui> neben <Ui>Zurück zur Weltkarte</Ui> und nutze den Schalter <Ui>Spürkarten</Ui>. Deine Auswahl bleibt auf diesem Gerät gespeichert. Unter <Ui>Details</Ui> des Erdbebens nennt die Spürkarten-Legende die Gesamtzahl der Meldungen und die höchste Intensität, mit der Farbskala der Intensität. Graue Quadrate sind Gebiete der automatischen Spürkarte, für die keine Meldung eine Intensität angibt.</p>
-          <h2>Spürkarten</h2>
+          <h3>Spürkarten</h3>
           <p>Wenn viele Menschen sisma direkt nach einem Erdbeben öffnen, zeigt dieser Ansturm, wo es wahrscheinlich gespürt wurde. sisma macht daraus eine anonyme <strong>Spürkarte</strong> in der Regionsansicht. Positionen werden auf deinem Gerät um bis zu 500 m verschoben, enthalten keine Konto- oder Gerätekennung und werden nur für Gebiete von etwa 10 km mit mindestens 3 Personen angezeigt. Du kannst das unter <Ui>Profil</Ui> → <Ui>Helfen, Spürkarten zu erstellen</Ui> ausschalten.</p>
         </div>
         <Shot src="felt" alt="Fenster „Was hast du gespürt?“ mit Intensitätsregler, optionaler Notiz, dem Schalter Auf der Karte zeigen und Meldung senden" caption="Melden, was du gespürt hast" />
@@ -213,20 +213,20 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Geh zu <Ui>Profil</Ui> und tippe auf <Ui>Anmelden</Ui>. Du kannst Google oder deine E-Mail und ein Passwort verwenden.</p>
-          <h2>Konto mit E-Mail erstellen</h2>
+          <h3>Konto mit E-Mail erstellen</h3>
           <ol className={s.steps}>
             <li>Tippe unten im Anmeldefenster auf <Ui>Konto erstellen</Ui>.</li>
             <li>Gib deine E-Mail und ein Passwort ein: mindestens 8 Zeichen, mit Buchstaben und Zahlen. Passwörter, die in bekannten Datenlecks vorkommen, werden abgelehnt.</li>
             <li>Öffne die Bestätigungs-E-Mail, die wir dir schicken, und tippe auf den Link. Danach bist du angemeldet. Nach einer Minute noch nichts da? Sieh im Spam- oder Junk-Ordner nach.</li>
           </ol>
-          <h2>Mit Google anmelden</h2>
+          <h3>Mit Google anmelden</h3>
           <p>Tippe auf <Ui>Weiter mit Google</Ui>. Wähle in der Android-App dein Google-Konto aus der angezeigten Liste. Gibt es zu deiner Google-E-Mail schon ein sisma-Konto, wird Google genau diesem Konto hinzugefügt.</p>
           <p>Wenn du ein Konto erstellst, steht <Ui>Weiter mit Google</Ui> ebenfalls oben: Das Konto wird sofort erstellt, ohne Passwort und ohne Bestätigungs-E-Mail.</p>
         </div>
         <Shot src="signin" alt="Anmeldefenster: Weiter mit Google, E-Mail und Passwort, Passwort vergessen? und Konto erstellen" caption="Anmelden" />
       </div>
 
-      <h2 id="password-reset">Passwort vergessen? So setzt du es zurück</h2>
+      <h3 id="password-reset">Passwort vergessen? So setzt du es zurück</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -240,7 +240,7 @@ export const TOPICS: Topic[] = [
         <Shot src="forgot" alt="Prüfe deine E-Mails: Wir haben einen Link zum Zurücksetzen des Passworts gesendet" caption="Nach dem Tippen auf „Passwort vergessen?“" />
       </div>
 
-      <h2>Passwort ändern oder einem Google-Konto hinzufügen</h2>
+      <h3>Passwort ändern oder einem Google-Konto hinzufügen</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -252,7 +252,7 @@ export const TOPICS: Topic[] = [
         <Shot src="password" alt="Fenster „Neues Passwort festlegen“ mit Feldern für neues Passwort und Bestätigung" caption="Ein neues Passwort festlegen" />
       </div>
 
-      <h2>Weitere Kontoaufgaben</h2>
+      <h3>Weitere Kontoaufgaben</h3>
       <div className={s.pair}>
         <div>
           <ul>
@@ -264,7 +264,7 @@ export const TOPICS: Topic[] = [
         <Shot src="me" alt="Kontobereich unter Profil: Hilfe & Support, Anzeigename, E-Mail, Passwort und Abmelden, darunter Konto löschen in einer eigenen, rot umrandeten Karte" caption="Konto, ganz unten unter Profil" />
       </div>
 
-      <h2 id="delete-account">Konto löschen</h2>
+      <h3 id="delete-account">Konto löschen</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -325,14 +325,14 @@ export const TOPICS: Topic[] = [
         <Shot src="paywall" alt={`sisma+-Fenster mit den Funktionen, dem Jahrespreis und ${TRIAL_DAYS} Tage kostenlos testen`} caption="Einen Tarif wählen" />
       </div>
 
-      <h2>Abonnieren</h2>
+      <h3>Abonnieren</h3>
       <ul>
         <li><strong>Auf der Website</strong>: <Ui>Profil</Ui> → <Ui>{TRIAL_DAYS} Tage kostenlos testen</Ui> (oder <Ui>Abonnieren</Ui>), dann auf der sicheren Bezahlseite von Stripe bezahlen. Wenn du zuerst ein Konto erstellst, öffnet sich die Bezahlseite, sobald du auf den Link in der Bestätigungs-E-Mail tippst. Wenn du zurückkommst, zeigt sisma ein paar Sekunden lang <em>sisma+ wird aktiviert…</em> und dann <em>Willkommen bei sisma+</em>.</li>
         <li><strong>In der Android-App</strong>: Dieselbe Taste öffnet das Zahlungsfenster von Google Play, wo du mit Google Pay, einer Karte oder anderen Zahlungsmethoden von Google Play bezahlen kannst.</li>
       </ul>
       <p>Du musst angemeldet sein. Dein Abo gilt dann überall, wo du dich mit diesem Konto anmeldest, im Web und in der App.</p>
 
-      <h2>Abo verwalten oder wechseln</h2>
+      <h3>Abo verwalten oder wechseln</h3>
       <div className={s.pair}>
         <div>
           <p>Geh zu <Ui>Profil</Ui> → <Ui>Abo verwalten</Ui>, um Status, Tarif und nächstes Datum zu sehen.</p>
@@ -345,7 +345,7 @@ export const TOPICS: Topic[] = [
         <Shot src="subscription" alt="Abo-Seite: Status, Tarif, Verlängerungsdatum und In Google Play verwalten" caption="Dein Abo" />
       </div>
 
-      <h2 id="cancel">sisma+ kündigen</h2>
+      <h3 id="cancel">sisma+ kündigen</h3>
       <ol className={s.steps}>
         <li>Öffne <Ui>Profil</Ui> → <Ui>Abo verwalten</Ui>.</li>
         <li>Tippe auf <Ui>Zahlung verwalten</Ui> (Website) oder <Ui>In Google Play verwalten</Ui> (App) und kündige dort. In Google Play kannst du auch zu <em>Zahlungen und Abos → Abos</em> gehen.</li>
@@ -353,10 +353,10 @@ export const TOPICS: Topic[] = [
       <p>Du behältst sisma+ bis zum Ende des bezahlten Zeitraums. Die Karte unter <Ui>Profil</Ui> zeigt dann <em>Endet am</em> mit dem Datum, und danach bist du wieder im kostenlosen Tarif. Kündigst du einen kostenlosen Test vor seinem Ende, wird dir nichts berechnet.</p>
       <Callout kind="note"><p>Das Deinstallieren der App oder das Löschen deines sisma-Kontos kündigt ein Google Play-Abo <strong>nicht</strong>. Kündige es in Google Play.</p></Callout>
 
-      <h2>Kauf wiederherstellen</h2>
+      <h3>Kauf wiederherstellen</h3>
       <p>Melde dich auf einem neuen Smartphone oder nach einer Neuinstallation der App mit demselben sisma-Konto an. Wenn sisma+ nicht erscheint, öffne das sisma+-Fenster und tippe auf <Ui>Kauf wiederherstellen</Ui>. Das gibt es nur in der Android-App; es findet das Google Play-Abo auf diesem Gerät.</p>
 
-      <h2>Erstattungen</h2>
+      <h3>Erstattungen</h3>
       <p>Für Käufe über Google Play gelten die Erstattungsrichtlinien von Google Play; beantrage eine Erstattung daher über Google Play. Für Käufe auf der Website schreib an <a href={`mailto:${MAIL}`}>{MAIL}</a>. Unsere <Link href="/terms">Nutzungsbedingungen</Link> erklären die Einzelheiten.</p>
       </>
     ),
@@ -378,7 +378,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="alerts" alt="Warnungsseite mit dem Ein/Aus-Schalter, deinen Warnungen (0 von 5), Warnung hinzufügen und Zustellen per" caption="Die Warnungsseite" />
       </div>
-      <h2>Eine Warnung einrichten</h2>
+      <h3>Eine Warnung einrichten</h3>
       <ul>
         <li><strong>Name</strong>: zum Beispiel <em>Zuhause</em>.</li>
         <li><strong>Mindestmagnitude</strong>: Du wirst bei dieser Magnitude und allem Stärkeren gewarnt.</li>
@@ -389,7 +389,7 @@ export const TOPICS: Topic[] = [
       </ul>
       <p><strong>Überwacht</strong> umfasst auch <strong>Mein Standort</strong>, wenn dein Gerät seine Position teilt: siehe <Link href="/help/locations">Gespeicherte Orte</Link>.</p>
       <p>Warnungen, die du in den letzten 30 Tagen erhalten hast, stehen unter <em>Warnverlauf</em>.</p>
-      <h2>Tsunami-Benachrichtigungen</h2>
+      <h3>Tsunami-Benachrichtigungen</h3>
       <p>Tsunami-Benachrichtigungen sind für alle Angemeldeten kostenlos. Schalte unter <Ui>Profil</Ui> <Ui>Tsunami-Benachrichtigungen</Ui> ein und tippe auf <Ui>Mitteilungen auf diesem Gerät einschalten</Ui>. Du wirst benachrichtigt, wenn eine offizielle Tsunamiwarnung, -gefahr, -vorwarnung oder ein -hinweis für ein Erdbeben im Umkreis von 1.000 km um einen deiner gespeicherten Orte herausgegeben wird. Ruhezeiten gelten dafür nicht, und jede Stufe wird pro Erdbeben nur einmal gesendet. Mein Standort zählt auch, wie bei den anderen Alarmen.</p>
       <Callout kind="note"><p><strong>iPhone und iPad:</strong> Web-Mitteilungen funktionieren erst, wenn du sisma zum Home-Bildschirm hinzufügst (Teilen → Zum Home-Bildschirm) und es von dort öffnest. Wenn du sisma zum ersten Mal im Browser auf einem iPhone oder iPad öffnest, zeigt ein Fenster diese Schritte; tippe auf <Ui>Nicht jetzt</Ui>, um es in zwei Wochen wiederzusehen, oder auf <Ui>Verstanden</Ui>, um es auszublenden.</p></Callout>
       </>

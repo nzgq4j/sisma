@@ -27,7 +27,6 @@ import { CITIES_FROM, placeLabels, type Box, type City } from '@/lib/cities';
 import { overlayBoxes, useCities } from '@/lib/use-cities';
 import type { Quake } from '@/lib/quakes/types';
 import { useDistance } from '@/components/Units';
-import { placeDetail } from '@/lib/quakes/region';
 import styles from './dash.module.css';
 
 const GRATICULE = geoGraticule10();
@@ -623,7 +622,7 @@ export function WorldMap({ quakes, center, selectedId, onSelect, projection = 'e
       {hover && hover.q.id !== popup?.id && (
         <div className={styles.tooltip} style={{ left: Math.min(hover.x + 14, size.w - 230), top: Math.max(hover.y - 12, 8) }}>
           <strong>M{hover.q.mag.toFixed(1)} · {hover.q.region}</strong>
-          {placeDetail(hover.q) && <span>{u.text(hover.q.title)}</span>}
+          <span>{u.text(hover.q.title)}</span>
           <span>{timeAgo(t as never, hover.q.time)} · ↓ {u.depth(hover.q.depthKm)}</span>
         </div>
       )}

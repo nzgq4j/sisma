@@ -35,7 +35,7 @@ function MobileFeed() {
     else s.sort((a, b) => b.time - a.time);
     return s;
   }, [list, sort]);
-  // Infinite scroll: 30 rows, then 30 more as the end of the list comes near; back to 30 on a new sort or filter.
+  // Infinite scroll: 100 rows, then 100 more as the end of the list comes near; back to 100 on a new sort or filter.
   const { shown, more, sentinel } = useGrowingList(rows.length, `${sort}|${range}|${region}|${minMag}|${worldReg}`);
 
   return (
@@ -46,7 +46,7 @@ function MobileFeed() {
       {/* TODO: filter button (sisma+ advanced filters) and the "Nearest recent" card */}
       <div style={{ display: 'flex', background: 'var(--surface2)', borderRadius: 16, padding: 4, gap: 4 }}>
         {(['time', 'distance', 'mag'] as SortKey[]).map(k => (
-          <button key={k} type="button" aria-pressed={sort === k} onClick={() => setSort(k)} style={{ flex: 1, height: 44, border: 0, borderRadius: 12, background: sort === k ? 'var(--surface)' : 'transparent', color: sort === k ? 'var(--ink)' : 'var(--ink2)', fontWeight: 700, font: 'inherit', cursor: 'pointer' }}>
+          <button key={k} onClick={() => setSort(k)} style={{ flex: 1, height: 40, border: 0, borderRadius: 12, background: sort === k ? 'var(--surface)' : 'transparent', color: sort === k ? 'var(--ink)' : 'var(--ink2)', fontWeight: 700, font: 'inherit', cursor: 'pointer' }}>
             {t(k === 'time' ? 'sort_time' : k === 'distance' ? 'sort_distance' : 'sort_mag')}
           </button>
         ))}
