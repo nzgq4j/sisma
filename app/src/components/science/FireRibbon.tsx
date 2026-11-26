@@ -2,6 +2,8 @@
 // Science → Pacific Fire Ribbon: the Ring of Fire unrolled into one long depth profile (docs/fire-ribbon.md). Earthquakes
 // from GET /api/science/ribbon (sisma+; the API re-checks the plan), placed by distance along the route (across) and
 // depth (down). Checked again once an hour; when a check fails the last data stays, marked as such.
+// Volcanoes from GET /api/science/ribbon/volcanoes (Smithsonian catalogue; status from this week's Smithsonian / USGS
+// Weekly Volcanic Activity Report) are triangles above the surface line.
 // The plot is a canvas the width of the screen inside a sideways-scrolling strip (zoom widens the strip), so the page
 // still scrolls normally on phones and only the visible part is drawn.
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
@@ -11,6 +13,8 @@ import { useAccount } from '@/components/Account';
 import { useDistance } from '@/components/Units';
 import { KM_PER_MI } from '@/lib/units';
 import { TRIAL_DAYS } from '@/lib/entitlements';
+import { Sheet, SheetOptions } from '@/components/Sheet';
+import type { RibbonVolcano, VolcanoResponse, VolcanoStatus } from '@/lib/ribbon/volcanoes';
 import {
   DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, POLL_MS, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
   type MinMag, type Period, type RibbonQuake, type RibbonResponse,
@@ -22,6 +26,35 @@ import styles from './ribbon.module.css';
 function useMinute() {
   return useSyncExternalStore(f => { const id = setInterval(f, 15_000); return () => clearInterval(id); },
     () => Math.floor(Date.now() / 60_000) * 60_000, () => 0);
+}
+
+/** Volcano marker colours by status (lib/ribbon/volcanoes.ts), from the brief: white catalogued, amber new unrest,
+ * orange new eruptive activity, red continuing eruption, grey status unavailable. Other observations stay white. */
+export const VOLCANO_COLOURS: Record<VolcanoStatus, string> = {
+  catalogued: '#E9EDF5', other: '#E9EDF5', new_unrest: '#FFC233', new_eruptive: '#FF8A2A', continuing: '#FF4040', unknown: '#7D879B',
+};
+const STATUS_ORDER: VolcanoStatus[] = ['continuing', 'new_eruptive', 'new_unrest', 'other', 'catalogued', 'unknown'];
+const reported = (v: RibbonVolcano) => v.status !== 'catalogued' && v.status !== 'unknown';
+
+type VLoad = { s: 'loading' } | { s: 'error' } | { s: 'ready'; d: VolcanoResponse };
+/** Volcanoes, loaded with the person's session and again every hour while the page is open. */
+function useVolcanoes(enabled: boolean) {
+  const { accessToken } = useAccount();
+  const [st, setSt] = useState<VLoad>({ s: 'loading' });
+  useEffect(() => {
+    if (!enabled) return;
+    let alive = true;
+    const run = async () => {
+      const token = await accessToken().catch(() => null);
+      const r = await fetch('/api/science/ribbon/volcanoes', { headers: token ? { authorization: `Bearer ${token}` } : {} }).catch(() => null);
+      const d = r?.ok ? ((await r.json()) as VolcanoResponse) : null;
+      if (alive) setSt(s => (d ? { s: 'ready', d } : s.s === 'ready' ? s : { s: 'error' }));
+    };
+    void run();
+    const id = setInterval(run, POLL_MS);
+    return () => { alive = false; clearInterval(id); };
+  }, [enabled, accessToken]);
+  return st;
 }
 
 type Load = { s: 'loading' } | { s: 'error' } | { s: 'ready'; d: RibbonResponse; quakes: RibbonQuake[]; okAt: number; failedAt: number | null; fresh: Set<string> };
@@ -68,10 +101,21 @@ export function FireRibbonPage() {
   const [period, setPeriod] = useState<Period>('month');
   const [min, setMin] = useState<MinMag>(2.5);
   const st = useRibbon(plus, period, min);
+  const vst = useVolcanoes(plus);
   const [sel, setSel] = useState<string | null>(null);
+  const [selV, setSelV] = useState<number | null>(null);
+  const [show, setShow] = useState({ quakes: true, volcanoes: true });
+  const [picker, setPicker] = useState(false);
+  const [region, setRegion] = useState<string | null>(null);
+  const pickQuake = (id: string | null) => { setSel(id); if (id) setSelV(null); };
+  const pickVolcano = (n: number | null) => { setSelV(n); if (n !== null) setSel(null); };
   const [jump, setJump] = useState<{ x0: number; x1: number; n: number } | null>(null);
   const quakes = useMemo(() => (st.s === 'ready' ? st.quakes : []), [st]);
   const selected = quakes.find(q => q.id === sel) ?? null;
+  const volcanoes = useMemo(() => (vst.s === 'ready' ? vst.d.volcanoes : []), [vst]);
+  const selectedV = volcanoes.find(v => v.n === selV) ?? null;
+  const active = useMemo(() => volcanoes.filter(reported)
+    .sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || a.x - b.x), [volcanoes]);
   const largest = useMemo(() => [...quakes].filter(q => q.mag !== null).sort((a, b) => (b.mag ?? 0) - (a.mag ?? 0)).slice(0, 8), [quakes]);
   const now = useMinute();
   const when = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' });
@@ -117,30 +161,62 @@ export function FireRibbonPage() {
           {st.s === 'error' && <p className={data.status} role="alert">{k.error}</p>}
           {st.s === 'ready' && (
             <>
-              <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} />
-              <label className={styles.jump}>
-                <span>{k.go_to}</span>
-                <select value="" onChange={e => {
-                  const v = e.target.value;
+              <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} />
+              <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
+                <span className="ms" aria-hidden="true">travel_explore</span>
+                <span>{region === null ? k.go_to : region === 'all' ? k.whole : k.regions[region as keyof typeof k.regions]}</span>
+                <span className="ms" aria-hidden="true">expand_more</span>
+              </button>
+              <Sheet open={picker} onClose={() => setPicker(false)} title={k.go_to}>
+                <SheetOptions value={region ?? undefined} onPick={v => {
+                  setRegion(v); setPicker(false);
                   if (v === 'all') setJump({ x0: -st.d.corridor.endKm, x1: st.d.lengthKm + st.d.corridor.endKm, n: Date.now() });
                   else { const r = st.d.regions.find(g => g.group === v); if (r) setJump({ x0: r.x0, x1: r.x1, n: Date.now() }); }
-                }}>
-                  <option value="" disabled>{k.go_to}</option>
-                  <option value="all">{k.whole}</option>
-                  {st.d.regions.map(r => <option key={r.group} value={r.group}>{k.regions[r.group]}</option>)}
-                </select>
-              </label>
-              <Plot d={st.d} quakes={quakes} period={period} fresh={st.fresh} selected={sel} onSelect={setSel} jump={jump} now={now} />
-              <Key />
+                }} options={[
+                  { value: 'all', label: k.whole, meta: nf.format(quakes.length) },
+                  ...st.d.regions.map(r => {
+                    const i = GROUPS.indexOf(r.group);
+                    return { value: r.group as string, label: k.regions[r.group], meta: nf.format(quakes.filter(q => q.from === i || q.to === i).length) };
+                  }),
+                ]} />
+              </Sheet>
+              <div className={styles.layers} role="group" aria-label={k.show}>
+                <span>{k.show}</span>
+                {(['quakes', 'volcanoes'] as const).map(l => (
+                  <button key={l} type="button" aria-pressed={show[l]} onClick={() => setShow(x => ({ ...x, [l]: !x[l] }))}>
+                    <span className="ms" aria-hidden="true">{show[l] ? 'check' : 'add'}</span>{l === 'quakes' ? k.layer_quakes : k.layer_volcanoes}
+                  </button>
+                ))}
+              </div>
+              <Plot d={st.d} quakes={show.quakes ? quakes : []} volcanoes={show.volcanoes ? volcanoes : []} period={period} fresh={st.fresh}
+                selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={now} />
+              <Key volcanoes={vst.s === 'ready'} />
               {quakes.length === 0 && <p className={data.status}>{k.none}</p>}
               {selected && <Detail q={selected} onClose={() => setSel(null)} when={when} />}
+              {selectedV && <VolcanoDetail v={selectedV} onClose={() => setSelV(null)} />}
+              {active.length > 0 && (
+                <div className={styles.largest}>
+                  <h2>{k.active_h}</h2>
+                  <ul>
+                    {active.map(v => (
+                      <li key={v.n}>
+                        <button type="button" aria-pressed={v.n === selV} onClick={() => { pickVolcano(v.n); setShow(x => ({ ...x, volcanoes: true })); setJump({ x0: v.x - 400, x1: v.x + 400, n: Date.now() }); }}>
+                          <Tri colour={VOLCANO_COLOURS[v.status]} />
+                          <b>{v.name}</b>
+                          <span>{k[`st_${v.status}`]}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
               {largest.length > 0 && (
                 <div className={styles.largest}>
                   <h2>{k.largest}</h2>
                   <ul>
                     {largest.map(q => (
                       <li key={q.id}>
-                        <button type="button" aria-pressed={q.id === sel} onClick={() => { setSel(q.id); setJump({ x0: q.x - 400, x1: q.x + 400, n: Date.now() }); }}>
+                        <button type="button" aria-pressed={q.id === sel} onClick={() => { pickQuake(q.id); setShow(x => ({ ...x, quakes: true })); setJump({ x0: q.x - 400, x1: q.x + 400, n: Date.now() }); }}>
                           <i style={{ background: depthColour(q.depth) }} aria-hidden="true" />
                           <b>M{q.mag !== null ? mag1.format(q.mag) : '–'}</b>
                           <span>{q.place ?? k.regions[GROUPS[q.from]]}</span>
@@ -156,15 +232,15 @@ export function FireRibbonPage() {
       )}
       <section className={data.card}>
         <h2>{k.notes_h}</h2>
-        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
+        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_6, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
         <p className={styles.source}>{k.source}</p>
       </section>
     </div>
   );
 }
 
-function Status({ d, okAt, failedAt, fresh, when, ago, now }: {
-  d: RibbonResponse; okAt: number; failedAt: number | null; fresh: number; when: Intl.DateTimeFormat; ago: (ms: number) => string; now: number;
+function Status({ d, okAt, failedAt, fresh, when, ago, now, vst }: {
+  d: RibbonResponse; okAt: number; failedAt: number | null; fresh: number; when: Intl.DateTimeFormat; ago: (ms: number) => string; now: number; vst: VLoad;
 }) {
   const { m, nf } = useT();
   const k = m.ribbon;
@@ -183,11 +259,18 @@ function Status({ d, okAt, failedAt, fresh, when, ago, now }: {
         {fresh > 0 && <> · {k.new.replace('{n}', nf.format(fresh))}</>}
         {' · '}{k.hourly}
       </p>
+      {vst.s === 'error' && <p>{k.v_unavailable}</p>}
+      {vst.s === 'ready' && <p>{vst.d.report ? k.v_report.replace('{time}', when.format(vst.d.report.published ?? vst.d.report.retrieved)) : k.v_report_missing}</p>}
     </div>
   );
 }
 
-function Key() {
+/** A volcano marker for keys and lists. */
+function Tri({ colour, size = 12 }: { colour: string; size?: number }) {
+  return <svg width={size} height={size} viewBox="0 0 12 12" aria-hidden="true" className={styles.tri}><path d="M6 1 11 11H1Z" fill={colour} stroke="#0B1220" strokeWidth="1" /></svg>;
+}
+
+function Key({ volcanoes }: { volcanoes: boolean }) {
   const { m, nf } = useT();
   const k = m.ribbon;
   const dist = useDistance();
@@ -210,6 +293,14 @@ function Key() {
         ))}
         <span><i className={styles.gapSwatch} aria-hidden="true" />{k.no_arc}</span>
       </p>
+      {volcanoes && (
+        <p className={styles.keyRow}>
+          <b>{k.key_volcano}</b>
+          {(['continuing', 'new_eruptive', 'new_unrest', 'catalogued', 'unknown'] as const).map(st => (
+            <span key={st}><Tri colour={VOLCANO_COLOURS[st]} />{k[`st_${st}`]}</span>
+          ))}
+        </p>
+      )}
       <p className={styles.keyNote}>{k.key_age} {k.key_scale}</p>
     </div>
   );
@@ -258,15 +349,63 @@ function Detail({ q, onClose, when }: { q: RibbonQuake; onClose: () => void; whe
   );
 }
 
+function VolcanoDetail({ v, onClose }: { v: RibbonVolcano; onClose: () => void }) {
+  const { m, nf, locale } = useT();
+  const k = m.ribbon;
+  const dist = useDistance();
+  const f2 = new Intl.NumberFormat(locale, { maximumFractionDigits: 2 });
+  const na = <span className={styles.na}>{k.d_none}</span>;
+  const year = (y: number) => (y < 0 ? k.year_bce.replace('{n}', String(-y)) : String(y));
+  const elev = v.elevation === null ? na : dist.units === 'mi' ? `${nf.format(Math.round(v.elevation * 3.28084))} ft` : `${nf.format(v.elevation)} m`;
+  const rows: [string, React.ReactNode][] = [
+    [k.v_status, k[`st_${v.status}`]],
+    [k.v_elevation, elev],
+    [k.v_type, v.type ? <span lang="en">{v.type}</span> : na],
+    [k.v_last, v.lastEruption === null ? k.v_last_unknown : year(v.lastEruption)],
+    [k.v_eruptions, nf.format(v.eruptions)],
+    [k.v_latest, v.lastConfirmed === null ? na : year(v.lastConfirmed)],
+    [k.v_vei, v.maxVei === null ? na : nf.format(v.maxVei)],
+    [k.v_evidence, v.evidence ? <span lang="en">{v.evidence}</span> : na],
+    [k.v_tectonic, v.tectonic ? <span lang="en">{v.tectonic}</span> : na],
+    [k.v_country, v.country ? <span lang="en">{v.country}</span> : na],
+    [k.v_subregion, <span key="s" lang="en">{v.subregion}</span>],
+    [k.d_coords, `${f2.format(v.lat)}°, ${f2.format(v.lon)}°`],
+    [k.d_route, `${k.regions[GROUPS[v.group]]} · ${k.d_route_v.replace('{x}', dist.dist(v.x)).replace('{y}', dist.dist(Math.abs(v.y))).replace('{side}', v.y >= 0 ? k.d_left : k.d_right)}`],
+    [k.v_number, String(v.n)],
+  ];
+  return (
+    <div className={styles.detail}>
+      <div className={styles.detailHead}>
+        <Tri colour={VOLCANO_COLOURS[v.status]} size={14} />
+        <h2>{v.name}</h2>
+        <button type="button" className={styles.close} onClick={onClose} aria-label={k.d_close}><span className="ms" aria-hidden="true">close</span></button>
+      </div>
+      {v.report ? (
+        <div className={styles.report}>
+          <h3>{k.v_report_h.replace('{period}', v.report.period)}</h3>
+          {v.report.text.split('\n\n').map((p, i) => <p key={i} lang="en">{p}</p>)}
+          {v.report.sources && <p className={styles.reportSrc}>{k.v_sources.replace('{s}', v.report.sources)}</p>}
+        </div>
+      ) : <p className={styles.reportNote}>{v.status === 'unknown' ? k.v_unknown_note : k.v_no_report}</p>}
+      <dl>
+        {rows.map(([a, b]) => <div key={a}><dt>{a}</dt><dd>{b}</dd></div>)}
+      </dl>
+      <a href={`https://volcano.si.edu/volcano.cfm?vn=${v.n}`} target="_blank" rel="noopener noreferrer" className={styles.usgs}>{k.v_gvp}<span className="ms" aria-hidden="true">open_in_new</span></a>
+    </div>
+  );
+}
+
 // ——— The plot ———
 
-const H = 360, TOP = 34, BOTTOM = 26, GUTTER = 44, RIGHT_PAD = 10;
+const H = 366, TOP = 40, BOTTOM = 26, GUTTER = 44, RIGHT_PAD = 10;
+/** Volcano triangles sit above the surface line: height by status (reported ones larger). */
+const triH = (v: RibbonVolcano) => (reported(v) ? 11 : 7);
 const BG = '#0B1220', GRID = 'rgba(190, 205, 230, .13)', TEXT = 'rgba(214, 224, 240, .82)', MUTED = 'rgba(190, 205, 230, .55)';
 const ZOOMS = [1, 2, 4, 8, 16, 32, 64];
 
-function Plot({ d, quakes, period, fresh, selected, onSelect, jump, now }: {
-  d: RibbonResponse; quakes: RibbonQuake[]; period: Period; fresh: Set<string>; selected: string | null;
-  onSelect: (id: string | null) => void; jump: { x0: number; x1: number; n: number } | null; now: number;
+function Plot({ d, quakes, volcanoes, period, fresh, selected, selectedV, onSelect, onSelectV, jump, now }: {
+  d: RibbonResponse; quakes: RibbonQuake[]; volcanoes: RibbonVolcano[]; period: Period; fresh: Set<string>; selected: string | null; selectedV: number | null;
+  onSelect: (id: string | null) => void; onSelectV: (n: number | null) => void; jump: { x0: number; x1: number; n: number } | null; now: number;
 }) {
   const { m, nf, locale } = useT();
   const k = m.ribbon;
@@ -277,7 +416,7 @@ function Plot({ d, quakes, period, fresh, selected, onSelect, jump, now }: {
   const [width, setWidth] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [scroll, setScroll] = useState(0);
-  const [hover, setHover] = useState<{ q: RibbonQuake; px: number; py: number } | null>(null);
+  const [hover, setHover] = useState<{ q?: RibbonQuake; v?: RibbonVolcano; px: number; py: number } | null>(null);
   const [pulse, setPulse] = useState(0);
   const xMin = -d.corridor.endKm, xMax = d.lengthKm + d.corridor.endKm;
   const plotW = Math.max(1, width - GUTTER - RIGHT_PAD) * zoom;
@@ -394,7 +533,20 @@ function Plot({ d, quakes, period, fresh, selected, onSelect, jump, now }: {
       }
     }
     g.globalAlpha = 1;
-    for (const id of [hover?.q.id, selected]) {
+    // Volcanoes: catalogued first, reported ones on top.
+    const tri = (v: RibbonVolcano, ring = false) => {
+      const x = sx(v.x), h = triH(v), base = TOP - 2, w = h * 0.9;
+      g.beginPath(); g.moveTo(x, base - h); g.lineTo(x + w / 2, base); g.lineTo(x - w / 2, base); g.closePath();
+      if (ring) { g.lineWidth = 2; g.strokeStyle = '#FFFFFF'; g.stroke(); return; }
+      g.fillStyle = VOLCANO_COLOURS[v.status]; g.fill(); g.lineWidth = 1; g.strokeStyle = BG; g.stroke();
+    };
+    for (const v of [...volcanoes].sort((a, b) => Number(reported(a)) - Number(reported(b)))) {
+      const x = sx(v.x);
+      if (x < GUTTER - 8 || x > width + 8) continue;
+      tri(v);
+    }
+    for (const n of [hover?.v?.n, selectedV]) { const v = n != null ? volcanoes.find(e => e.n === n) : null; if (v) tri(v, true); }
+    for (const id of [hover?.q?.id, selected]) {
       const q = id ? quakes.find(e => e.id === id) : null;
       if (!q) continue;
       const x = sx(q.x), y = sy(q.depth);
@@ -417,19 +569,23 @@ function Plot({ d, quakes, period, fresh, selected, onSelect, jump, now }: {
       if (x < GUTTER + 12 || x > width - 12) continue;
       g.fillText(`${nf.format(v)} ${dist.unit}`, x, H - 8);
     }
-  }, [width, d, drawn, quakes, sx, sy, zoom, depthMax, unit, hover, selected, pulse, fresh, period, now, k, nf, dist, xMin, xMax, plotW]);
+  }, [width, d, drawn, quakes, volcanoes, sx, sy, zoom, depthMax, unit, hover, selected, selectedV, pulse, fresh, period, now, k, nf, dist, xMin, xMax, plotW]);
 
   const nearest = (clientX: number, clientY: number) => {
     const c = canvas.current;
     if (!c) return null;
     const rect = c.getBoundingClientRect();
     const px = clientX - rect.left, py = clientY - rect.top;
-    let best: RibbonQuake | null = null, bd = 16;
+    let best: RibbonQuake | null = null, bestV: RibbonVolcano | null = null, bd = 16;
     for (const q of quakes) {
       const dd = Math.hypot(sx(q.x) - px, sy(q.depth) - py) - markerRadius(q.mag);
       if (dd < bd) { bd = dd; best = q; }
     }
-    return best ? { q: best, px, py } : null;
+    for (const v of volcanoes) {
+      const dd = Math.hypot(sx(v.x) - px, TOP - 2 - triH(v) / 2 - py) - triH(v) / 2;
+      if (dd < bd) { bd = dd; bestV = v; best = null; }
+    }
+    return bestV ? { v: bestV, px, py } : best ? { q: best, px, py } : null;
   };
 
   const zi = ZOOMS.indexOf(zoom);
@@ -441,13 +597,19 @@ function Plot({ d, quakes, period, fresh, selected, onSelect, jump, now }: {
           <canvas ref={canvas} className={styles.canvas} style={{ width, height: H }}
             onPointerMove={e => { if (e.pointerType === 'mouse') setHover(nearest(e.clientX, e.clientY)); }}
             onPointerLeave={() => setHover(null)}
-            onClick={e => { const n = nearest(e.clientX, e.clientY); onSelect(n ? n.q.id : null); }} />
+            onClick={e => { const n = nearest(e.clientX, e.clientY); if (n?.v) onSelectV(n.v.n); else onSelect(n?.q ? n.q.id : null); }} />
         </div>
       </div>
-      {hover && (
+      {hover?.q && (
         <div className={styles.tip} style={{ left: Math.min(Math.max(8, hover.px + 12), width - 200), top: Math.max(8, hover.py - 60) }}>
           <b>M{hover.q.mag !== null ? mag1.format(hover.q.mag) : '–'}</b> · {dist.depth(hover.q.depth)}
           <span>{hover.q.place ?? k.regions[GROUPS[hover.q.from]]}</span>
+        </div>
+      )}
+      {hover?.v && (
+        <div className={styles.tip} style={{ left: Math.min(Math.max(8, hover.px + 12), width - 200), top: Math.max(8, hover.py + 16) }}>
+          <b>{hover.v.name}</b>
+          <span>{k[`st_${hover.v.status}`]}</span>
         </div>
       )}
       <div className={styles.zoom}>

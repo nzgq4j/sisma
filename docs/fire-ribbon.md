@@ -4,9 +4,9 @@ The Pacific Ring of Fire unrolled into one long strip, from the southern tip of 
 earthquakes placed by their distance along the volcanic arcs (across) and their depth (down). sisma+ only; the page and
 its explanations are open to everyone, the data is not (`GET /api/science/ribbon` checks the plan on the server).
 
-This is step 1 of the brief: the reference route, the coordinate transform and a live 2D depth profile. Volcano markers
-(step 2), terrain from ETOPO 2022 and Copernicus DEM (step 3), and historical playback, overlays and a linked map
-(later steps) are not built yet. Slab2 was dropped from scope.
+Built so far: step 1 (the reference route, the coordinate transform and a live 2D depth profile) and step 2 (volcano
+markers with this week's reported status). Terrain from ETOPO 2022 and Copernicus DEM (step 3), and historical
+playback, overlays and a linked map (later steps) are not built yet. Slab2 was dropped from scope.
 
 ## Files
 
@@ -137,6 +137,32 @@ inside; widening the far side to 900 km adds only 5. The 18 outside belong to ar
   represent seismic waves.
 - The plot is a canvas the width of the screen inside a sideways-scrolling strip; zoom (×1 to ×64) widens the strip.
   Only the visible part is drawn, and the page still scrolls normally on phones.
+
+## Volcanoes (step 2)
+
+`app/src/lib/ribbon/volcanoes.ts` and `GET /api/science/ribbon/volcanoes` (sisma+ only).
+
+| Data | Source | Refresh |
+|---|---|---|
+| Volcanoes: number, name, country, subregion, position, summit elevation, type, tectonic setting, last known eruption year, evidence | Smithsonian GVP web services, layer `GVP-VOTW:Smithsonian_VOTW_Holocene_Volcanoes` (1,209 Holocene volcanoes; the 681 in the ribbon's subregions are shown) | at most once a day |
+| Eruption history: confirmed Holocene eruptions, the latest year one began, the largest VEI | layer `GVP-VOTW:Smithsonian_VOTW_Holocene_Eruptions` (11,109 eruptions; "Uncertain Eruption" records are not counted) | at most once a day |
+| Status this week | Smithsonian / USGS Weekly Volcanic Activity Report, RSS `volcano.si.edu/news/WeeklyVolcanoRSS.xml`, joined by the volcano number in each item's link (`#vn_NNNNNN`) | at most once an hour |
+
+- **Status colours** (from the brief): red = "Continuing Eruptive Activity", orange = "New Eruptive Activity",
+  amber = "New Unrest", white = no report this week (or "Other Observations"), grey = the report couldn't be read.
+  Only the report's own category sets a colour.
+- **No report is not "dormant"**: the report "is not a comprehensive list of eruptions during the week, but rather a
+  summary of activity that meet selected criteria" (its own description). The page says so on every white volcano.
+- **Current Eruptions page**: not used (volcano.si.edu answers automated requests to it with a verification page).
+- **Encoding**: the RSS declares ISO-8859-1 but carries some UTF-8; it is read as Latin-1 and valid UTF-8 sequences are
+  repaired (tested).
+- **Drawing**: triangles just above the surface line at each volcano's own position along the route (taller when
+  reported). They mark positions only: no lava, plumes or animation. Summit elevation is shown in the details; drawing
+  it to scale, and checking it against terrain, waits for step 3.
+- **Failures**: catalogue unavailable → "Volcanoes couldn't be loaded", earthquakes unaffected; report unavailable →
+  every volcano grey ("Status unavailable"), never white.
+- **Layers**: "Show" turns earthquakes and volcanoes on and off. "Go to region" is a sisma sheet (not the system
+  picker) with each region's earthquake count.
 
 ## Verification
 
