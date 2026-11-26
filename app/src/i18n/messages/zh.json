@@ -780,7 +780,10 @@
     "disc_reply": "回复",
     "disc_counts": "点赞 {likes} · 转发 {reposts} · 回复 {replies}",
     "disc_found_by": "通过 {terms} 找到",
-    "disc_action_failed": "操作失败：{error}"
+    "disc_action_failed": "操作失败：{error}",
+    "disc_again": "重新搜索",
+    "disc_clear": "清除结果",
+    "disc_at": "· 搜索于 {time}"
   },
   "library": {
     "title": "深度阅读",

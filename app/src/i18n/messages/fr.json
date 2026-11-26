@@ -780,7 +780,10 @@
     "disc_reply": "Réponse",
     "disc_counts": "J’aime : {likes} · Republications : {reposts} · Réponses : {replies}",
     "disc_found_by": "Trouvé avec {terms}",
-    "disc_action_failed": "Ça n’a pas marché : {error}"
+    "disc_action_failed": "Ça n’a pas marché : {error}",
+    "disc_again": "Relancer la recherche",
+    "disc_clear": "Effacer les résultats",
+    "disc_at": "· recherche à {time}"
   },
   "library": {
     "title": "En profondeur",

@@ -780,7 +780,10 @@
     "disc_reply": "Risposta",
     "disc_counts": "Mi piace: {likes} · Ripubblicazioni: {reposts} · Risposte: {replies}",
     "disc_found_by": "Trovato con {terms}",
-    "disc_action_failed": "Non ha funzionato: {error}"
+    "disc_action_failed": "Non ha funzionato: {error}",
+    "disc_again": "Cerca di nuovo",
+    "disc_clear": "Cancella risultati",
+    "disc_at": "· ricerca delle {time}"
   },
   "library": {
     "title": "Approfondimenti",

@@ -780,7 +780,10 @@
     "disc_reply": "Reply",
     "disc_counts": "Likes {likes} · Reposts {reposts} · Replies {replies}",
     "disc_found_by": "Found by {terms}",
-    "disc_action_failed": "That didn’t work: {error}"
+    "disc_action_failed": "That didn’t work: {error}",
+    "disc_again": "Search again",
+    "disc_clear": "Clear results",
+    "disc_at": "· searched at {time}"
   },
   "library": {
     "title": "In Depth",

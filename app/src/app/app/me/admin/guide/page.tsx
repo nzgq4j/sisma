@@ -83,6 +83,7 @@ export default function AdminGuidePage() {
         <ul>
           <li><Ui>Search terms</Ui>: the hashtags (for example #geosky, #earthquake) and words (for example seismic) to look for, up to 20. Add or remove them, then <Ui>Save terms</Ui>. Each term is searched on its own; a short word such as fault also finds posts that aren’t about geology, so remove any that bring in too much else.</li>
           <li><Ui>Search now</Ui>: up to 25 of the newest posts for each term, combined into one list of up to 100, newest first. sisma’s own posts and posts labelled as adult or graphic content are left out. Each post shows who wrote it, when, its text and first image or link, its likes, reposts and replies, and which terms found it.</li>
+          <li><Ui>Search again</Ui> replaces the list with a fresh search (the time of the search is shown above the list); <Ui>Clear results</Ui> empties it. Saving new terms also clears the list, since it no longer matches them.</li>
           <li><Ui>Like</Ui>, <Ui>Repost</Ui> and <Ui>Follow</Ui> act as sisma’s account straight away and show <Ui>Liked</Ui>, <Ui>Reposted</Ui> or <Ui>Following</Ui>; tap again to undo. The arrow opens the post on Bluesky.</li>
         </ul>
         <Callout kind="note"><p>A repost shows the post to everyone who follows sisma, and a follow is public. Read the whole post, and open it on Bluesky to see its replies and context, before reposting. Liking or following large numbers of accounts quickly can look like spam to Bluesky.</p></Callout>
