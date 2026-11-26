@@ -1,13 +1,13 @@
 'use client';
-// A small round country flag for an event (the country containing it, or the nearest within 300 km: lib/country.ts),
-// shown before the place in the detail sheet, the summary card and the feed rows. Bundled SVGs in public/flags/.
+// A small round country flag for an event (the country containing it, or the nearest within 300 km: lib/country.ts,
+// worked out by the server for each event in GET /api/quakes), shown before the place in the detail sheet, the summary
+// card and the feed rows. Bundled SVGs in public/flags/.
 /* eslint-disable @next/next/no-img-element -- small bundled flag SVGs */
-import { useMemo } from 'react';
-import { countryAt } from '@/lib/country';
+import type { Quake } from '@/lib/quakes/types';
 
-/** Country code (lowercase ISO alpha-2) for a position, or null at sea far from any country. */
-export function useCountryCode(lat: number, lon: number): string | null {
-  return useMemo(() => countryAt(lat, lon)?.code ?? null, [lat, lon]);
+/** Country code (lowercase ISO alpha-2) of an event, or null at sea far from any country. */
+export function countryCode(q: Pick<Quake, 'country'>): string | null {
+  return q.country?.code ?? null;
 }
 
 export function Flag({ code, size = 20 }: { code: string; size?: number }) {

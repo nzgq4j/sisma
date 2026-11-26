@@ -82,7 +82,7 @@ div.row { cursor: default; }
 .block { display: flex; flex-direction: column; gap: 10px; padding: 14px 0; }
 .blockHead { display: flex; align-items: center; gap: 12px; font: 600 15px var(--font-figtree), sans-serif; }
 .seg { display: flex; background: var(--surface2); border-radius: 14px; padding: 4px; gap: 4px; }
-.seg button { flex: 1; height: 38px; border: 0; border-radius: 10px; background: transparent; color: var(--ink2); font: 700 13px var(--font-figtree), sans-serif; cursor: pointer; }
+.seg button { flex: 1; height: 44px; border: 0; border-radius: 10px; background: transparent; color: var(--ink2); font: 700 13px var(--font-figtree), sans-serif; cursor: pointer; }
 .seg button[aria-checked="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(27, 21, 48, .12); }
 .source { height: 30px; border-radius: 15px; background: var(--mint-soft); color: var(--mint-text); padding: 0 10px; display: flex; align-items: center; gap: 4px; font: 700 12px var(--font-figtree), sans-serif; }
 .source :global(.ms) { font-size: 15px; }

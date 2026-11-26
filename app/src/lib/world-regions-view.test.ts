@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { REGION_VIEW, WORLD_REGIONS, worldRegion } from './world-regions';
+import { REGION_VIEW, WORLD_REGIONS } from './world-regions';
+import { worldRegion } from './world-region-of';
 
 describe('REGION_VIEW', () => {
   it('has a view for every region but polar, centred inside that region', () => {

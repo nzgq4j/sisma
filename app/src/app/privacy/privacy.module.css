@@ -7,6 +7,7 @@
 .doc h2 { font-size: 22px; letter-spacing: -.01em; margin: 36px 0 8px; scroll-margin-top: 16px; }
 .doc h3 { font-size: 17px; margin: 22px 0 4px; }
 .doc p, .doc li { color: var(--ink); text-wrap: pretty; }
+.doc p a, .doc li a, .address a { text-decoration: underline; text-underline-offset: 2px; }
 .doc ul, .doc ol { padding-left: 22px; }
 .doc li + li { margin-top: 6px; }
 .meta { color: var(--ink2) !important; font-size: 14px; margin: 0 0 16px; }

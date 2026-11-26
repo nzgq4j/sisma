@@ -4,12 +4,15 @@ import { adminClient } from '@/lib/auth';
 // POST /api/presence { lat, lon } — one approximate position from an open app, for automatic felt maps.
 // The device has already blurred it (lib/feltmap.ts blur, up to ~500 m). Stored with a timestamp only: no user,
 // device or IP. Deleted after 7 days (pg_cron 'app-pings-retention').
+const LIMIT_PER_MINUTE = 30;
 const seen = new Map<string, number[]>();
 function limited(ip: string) {
   const now = Date.now(), hits = (seen.get(ip) ?? []).filter(t => now - t < 60_000);
   hits.push(now); seen.set(ip, hits);
   if (seen.size > 20_000) seen.clear();
-  return hits.length > 3; // the app sends at most one a minute; allow a little slack for several tabs
+  // An open app sends at most one a minute, but many people can share one address (mobile carriers, offices, schools),
+  // so the limit only stops floods.
+  return hits.length > LIMIT_PER_MINUTE;
 }
 
 export async function POST(req: NextRequest) {

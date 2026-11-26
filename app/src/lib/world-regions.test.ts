@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import CODES from './country-codes.json';
-import { worldRegion } from './world-regions';
+import { worldRegion } from './world-region-of';
 
 describe('worldRegion', () => {
   it('places well-known seismic areas', () => {

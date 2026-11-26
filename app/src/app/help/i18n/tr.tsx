@@ -55,7 +55,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <p>Her satırda renkli bir rozet içinde büyüklük, içinde ya da yakınında olduğu ülkenin bayrağıyla birlikte yer, ne kadar önce olduğu, sana olan uzaklığı ve derinliği görünür. Kaydırmaya devam et: listenin sonuna geldikçe daha fazla deprem eklenir.</p>
           <p>Bilgisayarda akış, soldaki menünün ilk öğesi olan <Ui>Genel bakış</Ui> sayfasında, yanında bir haritayla yer alır. Listede veya haritada bir deprem seçtiğinde harita, yakındaki şehirlerin adlarıyla birlikte o depreme yakınlaşır. Depremi kapattığında harita orada kalır; <Ui>Görünümü sıfırla</Ui> yeniden tüm dünyayı gösterir. Sağ üstteki <Ui>Yer</Ui> kutusundan bir ülke veya bölge seçin ya da <Ui>Öne çıkan bölgeler</Ui> altındakilerden birine dokunun; harita o yerin depremlerine yakınlaşır. <Ui>Tüm yerler</Ui> yeniden tüm dünyayı gösterir.</p>
-          <h3>Büyüklük renkleri</h3>
+          <h2>Büyüklük renkleri</h2>
           <p>Akışta, haritada ve kürede aynı renkler kullanılır:</p>
           <MagLegend words={{ label: 'Büyüklük renkleri', magnitude: 'Büyüklük {range}', orMore: '{n} ve üzeri', below: '{n} altı', to: '{a} – {b}' }} />
           <Callout><p>Zaman aralığını seçmek ve listeyi daraltmak için akışın altındaki <Ui>Filtreler</Ui> panelini aç. Bkz. <Link href="/help/map">Harita ve filtreler</Link>.</p></Callout>
@@ -73,7 +73,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Ayrıntılarını açmak için herhangi bir depreme dokun:</p>
           <ul>
-            <li><strong>Büyüklük</strong> ve türü (örneğin büyük depremlerde kullanılan moment büyüklüğü <em>mww</em>).</li>
+            <li><strong>Büyüklük</strong> ve türü (örneğin büyük depremlerde kullanılan moment büyüklüğü <em>Mww</em>).</li>
             <li><strong>Derinlik</strong>: yüzeyin ne kadar altında başladığı. Sığ depremler genellikle daha güçlü hissedilir.</li>
             <li><strong>Tarih ve saat</strong>: cihazının saat diliminde.</li>
             <li>Sana olan <strong>mesafe</strong> ve <strong>ülke</strong> (denizdeki depremlerde bir ülkenin “yakınında”).</li>
@@ -111,7 +111,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="Büyüklüğe göre renklendirilmiş deprem işaretleriyle dünya haritası" caption="Harita" />
       </div>
-      <h3 id="region-view">Bölge görünümü</h3>
+      <h2 id="region-view">Bölge görünümü</h2>
       <div className={s.pair}>
         <div>
           <p>Bir depremde <Ui>Bölgeyi göster</Ui>, çevresinde yaklaşık 800 km genişliğinde yakın plan bir görünüm açar; olayın üzerinde yanıp sönen bir işaret ve yakındaki depremlerde etiketler bulunur. Geri dönmek için <Ui>Dünya haritasına dön</Ui> düğmesine dokun.</p>
@@ -119,10 +119,10 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="region" alt="Bölge görünümü: yanıp sönen bir işaret ve özet kartıyla bir depremin çevresinin yakın planı" caption="Bölge görünümü" />
       </div>
-      <h3>Filtreler, katmanlar ve açıklama</h3>
+      <h2>Filtreler, katmanlar ve açıklama</h2>
       <div className={s.pair}>
         <div>
-          <p>Akış, Harita veya Küre’nin altındaki <Ui>Filtreler</Ui> panelini yukarı çek. Yarıya kadar açmak için bir kez, tamamen açmak için bir kez daha dokun ya da sürükle.</p>
+          <p>Akış, Harita veya Küre’nin altındaki <Ui>Filtreler</Ui> panelini yukarı çek. Yarıya kadar açmak için dokun, kapatmak için bir kez daha dokun ya da tamamen açmak için yukarı sürükle.</p>
           <ul>
             <li><strong>Zaman aralığı</strong>: 24 saat, 7 gün veya 30 gün. Bir yılın tamamı için sisma+ gerekir.</li>
             <li><strong>Büyüklük</strong> ve <strong>Bölge</strong> (bir ülke veya okyanus bölgesi) sisma+ filtreleridir; ücretsiz planda kilit simgesiyle işaretlidir.</li>
@@ -176,7 +176,7 @@ export const TOPICS: Topic[] = [
           <p>USGS’nin kaydettiği depremlerde bölge görünümü, USGS <strong>Did You Feel It?</strong> anketine verilen yanıtları da her şiddet düzeyi için ayrı renkte, yaklaşık 10 km’lik renkli kareler olarak gösterir.</p>
           <p>EMSC’nin kaydettiği depremlerde EMSC web siteleri ve LastQuake uygulaması üzerinden gönderilen hissetme raporları da aynı karelere dahil edilir. EMSC verileri CC BY 4.0 lisansıyla paylaşılır.</p>
           <p>Tüm sarsıntı haritalarını birlikte göstermek veya gizlemek için <Ui>Dünya haritasına dön</Ui> düğmesinin yanındaki <Ui>Katmanlar</Ui> düğmesine dokun ve <Ui>Sarsıntı haritaları</Ui> anahtarını kullan. Seçimin bu cihazda saklanır. Depremin <Ui>Ayrıntılar</Ui> bölümündeki sarsıntı açıklaması toplam rapor sayısını ve en yüksek şiddeti, şiddet renk ölçeğiyle birlikte verir. Gri kareler, otomatik sarsıntı haritasında hiçbir raporun şiddet bildirmediği alanlardır.</p>
-          <h3>Hissedilme haritaları</h3>
+          <h2>Hissedilme haritaları</h2>
           <p>Bir depremin hemen ardından birçok kişi sisma’yı açtığında, bu yoğunluk depremin muhtemelen nerede hissedildiğini gösterir. sisma bunu bölge görünümünde anonim bir <strong>hissedilme haritasına</strong> dönüştürür. Konumlar cihazında 500 m’ye kadar bulanıklaştırılır, hiçbir hesap veya cihaz tanımlayıcısı taşımaz ve yalnızca en az 3 kişinin bulunduğu yaklaşık 10 km’lik alanlarda gösterilir. Bunu <Ui>Profil</Ui> → <Ui>Depremin nerede hissedildiğini haritalamaya yardım et</Ui> bölümünden kapatabilirsin.</p>
         </div>
         <Shot src="felt" alt="Şiddet kaydırıcısı, isteğe bağlı not, Haritada göster anahtarı ve Bildirimi gönder düğmesiyle Ne hissettin? penceresi" caption="Hissettiklerini bildirme" />
@@ -213,20 +213,20 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p><Ui>Profil</Ui> sekmesine git ve <Ui>Giriş yap</Ui> düğmesine dokun. Google’ı ya da e-postanı ve bir şifreyi kullanabilirsin.</p>
-          <h3>E-postayla hesap oluştur</h3>
+          <h2>E-postayla hesap oluştur</h2>
           <ol className={s.steps}>
             <li>Giriş penceresinin altındaki <Ui>Hesap oluştur</Ui> düğmesine dokun.</li>
             <li>E-postanı ve bir şifre gir: en az 8 karakter, harf ve rakam içersin. Bilinen veri sızıntılarında bulunan şifreler kabul edilmez.</li>
             <li>Sana gönderdiğimiz onay e-postasını aç ve bağlantıya dokun. Ardından giriş yapmış olursun. Bir dakika içinde gelmedi mi? Spam veya gereksiz klasörüne bak.</li>
           </ol>
-          <h3>Google ile giriş yap</h3>
+          <h2>Google ile giriş yap</h2>
           <p><Ui>Google ile devam et</Ui> düğmesine dokun. Android uygulamasında, açılan listeden Google hesabını seç. Google e-postanın zaten bir sisma hesabı varsa Google aynı hesaba eklenir.</p>
           <p>Hesap oluştururken de <Ui>Google ile devam et</Ui> en üsttedir: hesap şifre ve onay e-postası olmadan hemen oluşturulur.</p>
         </div>
         <Shot src="signin" alt="Giriş penceresi: Google ile devam et, e-posta ve şifre, Şifreni mi unuttun? ve Hesap oluştur" caption="Giriş yapma" />
       </div>
 
-      <h3 id="password-reset">Şifreni mi unuttun? Sıfırla</h3>
+      <h2 id="password-reset">Şifreni mi unuttun? Sıfırla</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -240,7 +240,7 @@ export const TOPICS: Topic[] = [
         <Shot src="forgot" alt="E-postanı kontrol et: şifreyi sıfırlamak için bir bağlantı gönderdik" caption="Şifreni mi unuttun? bağlantısına dokunduktan sonra" />
       </div>
 
-      <h3>Şifreni değiştir veya Google hesabına şifre ekle</h3>
+      <h2>Şifreni değiştir veya Google hesabına şifre ekle</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -252,7 +252,7 @@ export const TOPICS: Topic[] = [
         <Shot src="password" alt="Yeni şifre ve onay alanlarıyla Yeni şifre belirle penceresi" caption="Yeni şifre belirleme" />
       </div>
 
-      <h3>Diğer hesap işlemleri</h3>
+      <h2>Diğer hesap işlemleri</h2>
       <div className={s.pair}>
         <div>
           <ul>
@@ -264,7 +264,7 @@ export const TOPICS: Topic[] = [
         <Shot src="me" alt="Profil’deki Hesap bölümü: yardım ve destek, görünen ad, e-posta, şifre ve çıkış; hesabı silme ise kırmızı çerçeveli ayrı bir kartta" caption="Hesap, Profil’in en altında" />
       </div>
 
-      <h3 id="delete-account">Hesabını sil</h3>
+      <h2 id="delete-account">Hesabını sil</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -325,14 +325,14 @@ export const TOPICS: Topic[] = [
         <Shot src="paywall" alt={`Özellikler, yıllık fiyat ve ${TRIAL_DAYS} günlük ücretsiz denemeyi başlat düğmesiyle sisma+ penceresi`} caption="Plan seçme" />
       </div>
 
-      <h3>Abone ol</h3>
+      <h2>Abone ol</h2>
       <ul>
         <li><strong>Web sitesinde</strong>: <Ui>Profil</Ui> → <Ui>{TRIAL_DAYS} günlük ücretsiz denemeyi başlat</Ui> (veya <Ui>Abone ol</Ui>), ardından Stripe’ın güvenli ödeme sayfasında öde. Önce hesap oluşturursan, onay e-postasındaki bağlantıya dokunduğunda ödeme sayfası açılır. Geri döndüğünde sisma birkaç saniye <em>sisma+ etkinleştiriliyor…</em>, ardından <em>sisma+’a hoş geldiniz</em> mesajını gösterir.</li>
         <li><strong>Android uygulamasında</strong>: aynı düğme Google Play’in ödeme penceresini açar; burada Google Pay, kart veya diğer Google Play ödeme yöntemleriyle ödeyebilirsin.</li>
       </ul>
       <p>Giriş yapmış olman gerekir. Aboneliğin, o hesapla giriş yaptığın her yerde, web’de ve uygulamada çalışır.</p>
 
-      <h3>Planı yönet veya değiştir</h3>
+      <h2>Planı yönet veya değiştir</h2>
       <div className={s.pair}>
         <div>
           <p>Durumunu, planını ve sonraki tarihi görmek için <Ui>Profil</Ui> → <Ui>Aboneliği yönet</Ui> bölümüne git.</p>
@@ -345,7 +345,7 @@ export const TOPICS: Topic[] = [
         <Shot src="subscription" alt="Abonelik sayfası: durum, plan, yenileme tarihi ve Google Play’de yönet" caption="Aboneliğin" />
       </div>
 
-      <h3 id="cancel">sisma+ iptali</h3>
+      <h2 id="cancel">sisma+ iptali</h2>
       <ol className={s.steps}>
         <li><Ui>Profil</Ui> → <Ui>Aboneliği yönet</Ui> bölümünü aç.</li>
         <li><Ui>Faturalandırmayı yönet</Ui> (web sitesi) veya <Ui>Google Play’de yönet</Ui> (uygulama) düğmesine dokun ve iptal işlemini orada yap. Google Play’de <em>Ödemeler ve abonelikler → Abonelikler</em> bölümüne de gidebilirsin.</li>
@@ -353,10 +353,10 @@ export const TOPICS: Topic[] = [
       <p>sisma+, ödediğin dönemin sonuna kadar devam eder. Ardından <Ui>Profil</Ui> kartında <em>… tarihinde sona eriyor</em> ifadesi tarihle birlikte görünür ve o tarihten sonra ücretsiz plana dönersin. Ücretsiz denemeyi bitmeden iptal edersen ücret alınmaz.</p>
       <Callout kind="note"><p>Uygulamayı kaldırmak veya sisma hesabını silmek Google Play aboneliğini <strong>iptal etmez</strong>. Aboneliği Google Play’de iptal et.</p></Callout>
 
-      <h3>Satın alımı geri yükle</h3>
+      <h2>Satın alımı geri yükle</h2>
       <p>Yeni bir telefonda veya uygulamayı yeniden yükledikten sonra aynı sisma hesabıyla giriş yap. sisma+ görünmezse sisma+ penceresini aç ve <Ui>Satın alımı geri yükle</Ui> düğmesine dokun. Bu yalnızca Android uygulamasında vardır ve bu cihazdaki Google Play aboneliğini bulur.</p>
 
-      <h3>İadeler</h3>
+      <h2>İadeler</h2>
       <p>Google Play satın alımları Google Play’in iade politikalarına tabidir; iadeyi Google Play üzerinden iste. Web sitesinden yapılan satın alımlar için <a href={`mailto:${MAIL}`}>{MAIL}</a> adresine yaz. Ayrıntıları <Link href="/terms">hizmet şartlarımız</Link> açıklar.</p>
       </>
     ),
@@ -378,7 +378,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="alerts" alt="Açma/kapama anahtarı, uyarıların (0 / 5), Uyarı ekle ve Gönderim yolu ile uyarılar sayfası" caption="Uyarılar sayfası" />
       </div>
-      <h3>Uyarı ayarlama</h3>
+      <h2>Uyarı ayarlama</h2>
       <ul>
         <li><strong>Ad</strong>: örneğin <em>Ev yakını</em>.</li>
         <li><strong>En düşük büyüklük</strong>: bu büyüklükte ve daha güçlü depremler için uyarı alırsın.</li>
@@ -389,7 +389,7 @@ export const TOPICS: Topic[] = [
       </ul>
       <p>Cihazın konumunu paylaştığında <strong>İzlenen</strong> <strong>Konumum</strong>’u da içerir: bkz. <Link href="/help/locations">Kayıtlı konumlar</Link>.</p>
       <p>Son 30 günde aldığın uyarılar <em>Uyarı geçmişi</em> altında listelenir.</p>
-      <h3>Tsunami bildirimleri</h3>
+      <h2>Tsunami bildirimleri</h2>
       <p>Tsunami bildirimleri oturum açan herkes için ücretsizdir. <Ui>Profil</Ui> bölümünde <Ui>Tsunami bildirimleri</Ui> seçeneğini açın ve <Ui>Bu cihazda bildirimleri aç</Ui> düğmesine dokunun. Kayıtlı yerlerinizden birine 1.000 km mesafedeki bir deprem için resmî tsunami uyarısı, tehdidi, izlemesi veya bildirimi yayımlandığında bildirim alırsınız. Sessiz saatler uygulanmaz ve her seviye deprem başına yalnızca bir kez gönderilir. Diğer uyarılarda olduğu gibi Konumum de sayılır.</p>
       <Callout kind="note"><p><strong>iPhone ve iPad:</strong> web bildirimleri yalnızca sisma’yı Ana Ekran’a ekledikten (Paylaş → Ana Ekrana Ekle) ve oradan açtıktan sonra çalışır. sisma’yı iPhone veya iPad’de tarayıcıda ilk kez açtığınızda bu adımlar bir açılır pencerede gösterilir; iki hafta sonra yeniden görmek için <Ui>Şimdi değil</Ui>, gizlemek için <Ui>Anladım</Ui> düğmesine dokunun.</p></Callout>
       </>

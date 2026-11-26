@@ -16,7 +16,8 @@
 .count { font-size: 13px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--ink2); }
 
 .rule { border-radius: 22px; background: var(--surface); overflow: hidden; }
-.rule[data-off] .ruleBody, .rule[data-off] .ruleName { opacity: .55; }
+/* Off: quieter ink, still readable (no transparency, which made labels fail contrast). */
+.rule[data-off] .ruleName, .rule[data-off] .value { color: var(--ink2); font-weight: 500; }
 .ruleHead { display: flex; align-items: center; gap: 8px; padding: 6px 8px 0 18px; }
 .ruleName { flex: 1; min-width: 0; display: flex; align-items: center; gap: 2px; min-height: 48px; color: var(--ink); font-size: 17px; font-weight: 800; text-decoration: none; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ruleName :global(.ms) { font-size: 20px; color: var(--ink2); }
@@ -24,7 +25,7 @@
 .ruleSwitch { flex: none; display: grid; place-items: center; width: 64px; height: 48px; border: 0; background: transparent; cursor: pointer; padding: 0; }
 .ruleBody { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; padding: 4px 18px 16px; color: var(--ink); text-decoration: none; }
 .ruleBody:hover { color: var(--ink); }
-.label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); padding-top: 3px; }
+.label { font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink2); padding-top: 3px; }
 .value { font-size: 14px; font-weight: 600; line-height: 1.4; min-width: 0; }
 
 .add { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 52px; border: 1.5px dashed var(--line); border-radius: 22px; background: transparent; color: var(--violet-text); font: inherit; font-size: 15px; font-weight: 800; cursor: pointer; }

@@ -2,7 +2,8 @@
 // tested in seismic-stats.test.ts. Global counts use M4.5+, the USGS National Earthquake Information Center's target
 // for global completeness; the long-term chart uses M7+, whose yearly numbers USGS describes as fairly constant since
 // about 1900 (more seismometers record more small earthquakes, not more earthquakes).
-import { worldRegion, WORLD_REGIONS, type WorldRegion } from './world-regions';
+import { WORLD_REGIONS, type WorldRegion } from './world-regions';
+import { worldRegion } from './world-region-of';
 import { onRingOfFire } from './ring-of-fire';
 
 export interface Ev { time: number; mag: number; depthKm: number; lat: number; lon: number }

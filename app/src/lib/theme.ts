@@ -7,7 +7,7 @@ export const THEME = {
 
 // Magnitude scale: [min magnitude, fill, text]
 export const MAG_SCALE: [number, string, string][] = [
-  [7, '#B5179E', '#FFFFFF'], [6, '#EE4266', '#FFFFFF'], [5, '#FF7A59', '#1B1530'],
+  [7, '#B5179E', '#FFFFFF'], [6, '#EE4266', '#1B1530'], [5, '#FF7A59', '#1B1530'],
   [4, '#FFA94D', '#1B1530'], [3, '#F7CF4A', '#1B1530'], [-99, '#86DCC4', '#1B1530'],
 ];
 export function magColor(m: number) {
@@ -17,7 +17,7 @@ export function magColor(m: number) {
 /** Map and globe markers in light mode: the same bands as MAG_SCALE (same order), in stronger, more saturated colours so
  *  they stand out on the light map and street tiles. Dark mode uses the MAG_SCALE fills. Mirrored in globals.css as
  *  --mag-0 … --mag-5 (light values in :root, MAG_SCALE fills in the dark blocks). */
-export const MAG_MARKER_LIGHT = ['#8E0F8C', '#C8102E', '#E8411F', '#F27A00', '#E2A400', '#139E73'];
+export const MAG_MARKER_LIGHT = ['#8E0F8C', '#C8102E', '#EC512C', '#F27A00', '#E2A400', '#139E73'];
 /** Text on MAG_MARKER_LIGHT fills (globals.css --mag-ink-N, light mode): the higher-contrast of white or ink. */
 export const MAG_INK_LIGHT = ['#FFFFFF', '#FFFFFF', '#1B1530', '#1B1530', '#1B1530', '#1B1530'];
 /** Band index into MAG_SCALE / MAG_MARKER_LIGHT for a magnitude (0 = 7+, 5 = below 3). */
