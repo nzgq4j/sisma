@@ -53,7 +53,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Nächste</strong>: die zu deinem Standort oder deinem gewählten gespeicherten Ort nächstgelegenen zuerst.</li>
             <li><strong>Stärkste</strong>: die mit der höchsten Magnitude zuerst.</li>
           </ul>
-          <p>Jede Zeile zeigt die Magnitude in einem farbigen Kennzeichen, den Ort mit der Flagge des Landes, in dem oder nahe dem er liegt, wie lange es her ist, wie weit es von dir entfernt ist und wie tief es war. Scrolle weiter: Am Ende der Liste kommen weitere Erdbeben dazu.</p>
+          <p>Jede Zeile zeigt die Magnitude in einem farbigen Kennzeichen, den Ort mit der Flagge des Landes, in dem oder nahe dem er liegt, Entfernung und Richtung von einem nahen Ort, wie lange es her ist, wie weit es von dir entfernt ist und wie tief es war. Scrolle weiter: Am Ende der Liste kommen weitere Erdbeben dazu.</p>
           <p>Auf einem Computer steht die Liste auf der Seite <Ui>Übersicht</Ui>, dem ersten Eintrag im Menü links, mit einer Karte daneben. Wählst du ein Erdbeben in der Liste oder auf der Karte, zoomt die Karte dorthin, mit den Namen naher Städte. Sie bleibt dort, wenn du das Erdbeben schließt; <Ui>Ansicht zurücksetzen</Ui> zeigt wieder die ganze Welt. Wählen Sie oben rechts unter <Ui>Ort</Ui> ein Land oder eine Region oder tippen Sie auf einen Eintrag unter <Ui>Häufigste Regionen</Ui>, und die Karte zoomt auf dessen Erdbeben; <Ui>Alle Orte</Ui> zeigt wieder die ganze Welt.</p>
           <h3>Magnitudenfarben</h3>
           <p>Dieselben Farben gelten in der Liste, auf der Karte und auf dem Globus:</p>
