@@ -20,12 +20,7 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 - Mobile first: 360-412 px widths, 44 px touch targets, env(safe-area-inset-*) padding.
 - sisma is not an official warning service; keep the disclaimer on Me and the site footer.
 - Selectors and pop-ups use components/Sheet.tsx (as in the polar lights app: swipe down, double tap away from
-  controls, tap outside or Escape to close; Escape and Back close only the top sheet: lib/sheet-history.ts). Lists of
-  choices use SheetOptions; no native <select> in the UI.
-- Icons are Material Symbols Rounded, loaded with only the icons the app uses (src/app/icon-names.ts). After using a
-  new icon, run `UPDATE_ICONS=1 npx vitest run icon-names` (the icon-names test fails until the list includes it).
-- Each event's flag country and world region come from the server (/api/quakes, lib/quakes/place-info.ts); client
-  code reads q.country and q.worldRegion rather than importing lib/country.ts (which loads the world outlines).
+  controls, tap outside or Escape to close). Lists of choices use SheetOptions; no native <select> in the UI.
 - Keep the help centre current: any change users can see (feature, wording, button, flow, price, plan limit) updates
   the matching topic in src/app/help/topics.tsx and in all 9 translations (src/app/help/i18n/<locale>.tsx, same
   structure; app labels exactly as in messages/<locale>.json; help-i18n.test.ts checks the structure) in the same PR.

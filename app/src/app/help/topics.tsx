@@ -68,7 +68,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <p>Each row shows the magnitude in a coloured badge, the place with the flag of the country it is in or near, how long ago it happened, how far it is from you and how deep it was. Keep scrolling and more earthquakes are added as you reach the end of the list.</p>
           <p>On a computer, the feed is on the <Ui>Overview</Ui> page, first in the menu on the left, with a map beside the list. Choose an earthquake in the list or on the map and the map zooms to it, with the names of nearby cities. It stays there when you close the earthquake; <Ui>Reset view</Ui> shows the whole world again. Choose a country or region in <Ui>Place</Ui> at the top right, or tap one under <Ui>Top regions</Ui>, and the map zooms to its earthquakes; <Ui>All places</Ui> shows the whole world again.</p>
-          <h2>Magnitude colours</h2>
+          <h3>Magnitude colours</h3>
           <p>The same colours are used in the feed, on the map and on the globe:</p>
           <MagLegend />
           <Callout><p>Open <Ui>Filters</Ui> at the bottom of the feed to choose the time range and narrow the list. See <Link href="/help/map">Map and filters</Link>.</p></Callout>
@@ -86,7 +86,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Tap any earthquake to open its details:</p>
           <ul>
-            <li><strong>Magnitude</strong> and its type (for example <em>Mww</em>, the moment magnitude used for larger quakes).</li>
+            <li><strong>Magnitude</strong> and its type (for example <em>mww</em>, the moment magnitude used for larger quakes).</li>
             <li><strong>Depth</strong>: how far below the surface it started. Shallow earthquakes are usually felt more strongly.</li>
             <li><strong>Date and time</strong> in your device’s time zone.</li>
             <li><strong>Distance</strong> from you, and the <strong>country</strong> (or “near” a country for offshore events).</li>
@@ -124,7 +124,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="World map with earthquake pins coloured by magnitude" caption="The map" />
       </div>
-      <h2 id="region-view">Region view</h2>
+      <h3 id="region-view">Region view</h3>
       <div className={s.pair}>
         <div>
           <p><Ui>Show region</Ui> on an earthquake opens a close-up about 800 km across around it, with a pulsing marker on the event and labels on nearby earthquakes. Tap <Ui>Back to world map</Ui> to return.</p>
@@ -132,10 +132,10 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="region" alt="Region view: a close-up around an earthquake with a pulsing marker and a summary card" caption="Region view" />
       </div>
-      <h2>Filters, layers and legend</h2>
+      <h3>Filters, layers and legend</h3>
       <div className={s.pair}>
         <div>
-          <p>Pull up the <Ui>Filters</Ui> panel at the bottom of the Feed, Map or Globe. Tap it to open it halfway and again to close it, or drag it up to open it fully.</p>
+          <p>Pull up the <Ui>Filters</Ui> panel at the bottom of the Feed, Map or Globe. Tap it once to open it halfway, again to open it fully, or drag it.</p>
           <ul>
             <li><strong>Time range</strong>: 24 hours, 7 days or 30 days. A full year needs sisma+.</li>
             <li><strong>Magnitude</strong> and <strong>Region</strong> (a country or ocean region) are sisma+ filters, marked with a lock on the free plan.</li>
@@ -189,7 +189,7 @@ export const TOPICS: Topic[] = [
           <p>For earthquakes recorded by the USGS, the region view also shows the answers people gave to the USGS <strong>Did You Feel It?</strong> survey, as coloured squares of about 10 km, one colour per intensity level.</p>
           <p>For earthquakes recorded by the EMSC, it also includes felt reports sent through the EMSC websites and the LastQuake app, in the same squares. EMSC data is shared under the CC BY 4.0 licence.</p>
           <p>To show or hide all felt maps at once, tap the <Ui>Layers</Ui> button next to <Ui>Back to world map</Ui> and use the <Ui>Felt maps</Ui> switch. Your choice is kept on this device. In the earthquake’s <Ui>Details</Ui>, the felt legend gives the total number of reports and the highest intensity, with the intensity colour scale. Grey squares are areas from the automatic felt map where no report gives an intensity.</p>
-          <h2>Felt maps</h2>
+          <h3>Felt maps</h3>
           <p>When many people open sisma right after an earthquake, that rush shows where it was probably felt. sisma turns it into an anonymous <strong>felt map</strong> in the region view. Positions are blurred on your device by up to 500 m, carry no account or device identifier, and are only shown for areas of about 10 km with at least 3 people. You can turn this off in <Ui>Me</Ui> → <Ui>Help map where quakes are felt</Ui>.</p>
         </div>
         <Shot src="felt" alt="What did you feel? sheet with an intensity slider, an optional note, the Show on the map switch and Send report" caption="Reporting what you felt" />
@@ -226,20 +226,20 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Go to <Ui>Me</Ui> and tap <Ui>Sign in</Ui>. You can use Google or your email and a password.</p>
-          <h2>Create an account with email</h2>
+          <h3>Create an account with email</h3>
           <ol className={s.steps}>
             <li>Tap <Ui>Create an account</Ui> at the bottom of the sign-in sheet.</li>
             <li>Enter your email and a password: at least 8 characters, with letters and numbers. Passwords found in known data breaches are refused.</li>
             <li>Open the confirmation email we send you and tap the link. You are then signed in. Not there within a minute? Check your spam or junk folder.</li>
           </ol>
-          <h2>Sign in with Google</h2>
+          <h3>Sign in with Google</h3>
           <p>Tap <Ui>Continue with Google</Ui>. In the Android app, choose your Google account from the list that appears. If your Google email already has a sisma account, Google is added to that same account.</p>
           <p>When you create an account, <Ui>Continue with Google</Ui> is at the top too: it creates the account straight away, with no password or confirmation email.</p>
         </div>
         <Shot src="signin" alt="Sign in sheet: Continue with Google, email and password, Forgot password and Create an account" caption="Signing in" />
       </div>
 
-      <h2 id="password-reset">Forgot your password? Reset it</h2>
+      <h3 id="password-reset">Forgot your password? Reset it</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -253,7 +253,7 @@ export const TOPICS: Topic[] = [
         <Shot src="forgot" alt="Check your email: we sent a link to reset the password" caption="After tapping Forgot password?" />
       </div>
 
-      <h2>Change your password, or add one to a Google account</h2>
+      <h3>Change your password, or add one to a Google account</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -265,7 +265,7 @@ export const TOPICS: Topic[] = [
         <Shot src="password" alt="Set a new password sheet with new and confirm fields" caption="Setting a new password" />
       </div>
 
-      <h2>Other account tasks</h2>
+      <h3>Other account tasks</h3>
       <div className={s.pair}>
         <div>
           <ul>
@@ -277,7 +277,7 @@ export const TOPICS: Topic[] = [
         <Shot src="me" alt="Account section in Me: help and support, display name, email, password and sign out, with delete account in its own card outlined in red" caption="Account, at the bottom of Me" />
       </div>
 
-      <h2 id="delete-account">Delete your account</h2>
+      <h3 id="delete-account">Delete your account</h3>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -338,14 +338,14 @@ export const TOPICS: Topic[] = [
         <Shot src="paywall" alt={`sisma+ sheet with the features, the yearly price and Start ${TRIAL_DAYS}-day free trial`} caption="Choosing a plan" />
       </div>
 
-      <h2>Subscribe</h2>
+      <h3>Subscribe</h3>
       <ul>
         <li><strong>On the website</strong>: <Ui>Me</Ui> → <Ui>Start {TRIAL_DAYS}-day free trial</Ui> (or <Ui>Subscribe</Ui>), then pay on Stripe’s secure checkout page. If you create an account first, checkout opens when you tap the link in the confirmation email. When you come back, sisma shows <em>Activating sisma+…</em> for a few seconds, then <em>Welcome to sisma+</em>.</li>
         <li><strong>In the Android app</strong>: the same button opens Google Play’s payment sheet, where you can pay with Google Pay, a card or other Google Play payment methods.</li>
       </ul>
       <p>You need to be signed in. Your subscription then works everywhere you sign in to that account, on the web and in the app.</p>
 
-      <h2>Manage or switch plans</h2>
+      <h3>Manage or switch plans</h3>
       <div className={s.pair}>
         <div>
           <p>Go to <Ui>Me</Ui> → <Ui>Manage subscription</Ui> to see your status, plan and next date.</p>
@@ -358,7 +358,7 @@ export const TOPICS: Topic[] = [
         <Shot src="subscription" alt="Subscription page: status, plan, renewal date and Manage in Google Play" caption="Your subscription" />
       </div>
 
-      <h2 id="cancel">Cancel sisma+</h2>
+      <h3 id="cancel">Cancel sisma+</h3>
       <ol className={s.steps}>
         <li>Open <Ui>Me</Ui> → <Ui>Manage subscription</Ui>.</li>
         <li>Tap <Ui>Manage billing</Ui> (website) or <Ui>Manage in Google Play</Ui> (app), and cancel there. In Google Play you can also go to <em>Payments &amp; subscriptions → Subscriptions</em>.</li>
@@ -366,10 +366,10 @@ export const TOPICS: Topic[] = [
       <p>You keep sisma+ until the end of the period you’ve paid for. The <Ui>Me</Ui> card then shows <em>Cancels on</em> and the date, and after that date you’re back on the free plan. Cancelling a free trial before it ends means you aren’t charged.</p>
       <Callout kind="note"><p>Uninstalling the app or deleting your sisma account does <strong>not</strong> cancel a Google Play subscription. Cancel it in Google Play.</p></Callout>
 
-      <h2>Restore a purchase</h2>
+      <h3>Restore a purchase</h3>
       <p>On a new phone or after reinstalling the app, sign in to the same sisma account. If sisma+ doesn’t appear, open the sisma+ sheet and tap <Ui>Restore purchase</Ui>. This is in the Android app only, and finds the Google Play subscription on this device.</p>
 
-      <h2>Refunds</h2>
+      <h3>Refunds</h3>
       <p>Google Play purchases follow Google Play’s refund policies, so request a refund through Google Play. For website purchases, write to <a href={`mailto:${MAIL}`}>{MAIL}</a>. Our <Link href="/terms">terms of service</Link> explain the details.</p>
       </>
     ),
@@ -391,7 +391,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="alerts" alt="Alerts page with the on/off switch, your alerts (0 of 5), Add an alert and Deliver via" caption="The alerts page" />
       </div>
-      <h2>Setting up an alert</h2>
+      <h3>Setting up an alert</h3>
       <ul>
         <li><strong>Name</strong>: for example <em>Near home</em>.</li>
         <li><strong>Minimum magnitude</strong>: you get alerts for this magnitude and anything stronger.</li>
@@ -402,7 +402,7 @@ export const TOPICS: Topic[] = [
       </ul>
       <p><strong>Watching</strong> also includes <strong>My location</strong> when your device shares its position: see <Link href="/help/locations">Saved locations</Link>.</p>
       <p>Alerts you received in the last 30 days are listed under <em>Alert history</em>.</p>
-      <h2>Tsunami alerts</h2>
+      <h3>Tsunami alerts</h3>
       <p>Tsunami alerts are free for everyone who is signed in. In <Ui>Me</Ui>, turn on <Ui>Tsunami alerts</Ui> and tap <Ui>Turn on notifications on this device</Ui>. You get a notification when an official tsunami warning, threat, watch or advisory is issued for an earthquake within 1,000 km of one of your saved places. Quiet hours don’t apply, and each level is sent once per earthquake. My location counts too, as for other alerts.</p>
       <Callout kind="note"><p><strong>iPhone and iPad:</strong> web notifications only work after you add sisma to the Home Screen (Share → Add to Home Screen) and open it from there. The first time you open sisma in the browser on an iPhone or iPad, a pop-up shows these steps; tap <Ui>Not now</Ui> to see it again in two weeks or <Ui>Got it</Ui> to hide it.</p></Callout>
       </>

@@ -19,7 +19,6 @@ import { emWidth, fitLine } from './share-text';
 import { tsunamiTone } from '@/lib/tsunami/view';
 import { tsunamiLine } from '@/lib/tsunami/text';
 import { WAVE_PATH } from '@/lib/pin';
-import { magTypeLabel } from '@/lib/quakes/magtype';
 const W = 1080, H = 1350, PAD = 56, MAP_W = W - PAD * 2, MAP_H = 600;
 const SPAN = 7.5;
 const C = THEME.light;
@@ -208,7 +207,7 @@ export async function shareCardResponse({ q, all, locale, units, tz, origin, fel
         <div style={{ display: 'flex', alignItems: 'center', gap: 32, marginTop: 32 }}>
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: 168, height: 168, borderRadius: 52, background: mc.fill, color: mc.text, flex: 'none' }}>
             <div style={{ display: 'flex', fontSize: 72, fontWeight: 800, lineHeight: 1 }}>{q.mag.toFixed(1)}</div>
-            <div style={{ display: 'flex', fontSize: 26, fontWeight: 700, marginTop: 6, opacity: 0.8 }}>{magTypeLabel(q.magType)}</div>
+            <div style={{ display: 'flex', fontSize: 26, fontWeight: 700, marginTop: 6, opacity: 0.8 }}>{q.magType ? `M${q.magType.replace(/^m/i, '').toLowerCase()}` : 'M'}</div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, flex: 1 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>

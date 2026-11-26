@@ -33,8 +33,7 @@ export default function PrivacyPage() {
       </p>
 
       <h2 id="collect">2. What we collect and why</h2>
-      {/* Scrolls sideways on phones: focusable so it can be scrolled with the keyboard. */}
-      <div className={styles.tableWrap} tabIndex={0} role="region" aria-labelledby="collect">
+      <div className={styles.tableWrap}>
         <table>
           <thead><tr><th>Data</th><th>When</th><th>Why</th><th>How long</th></tr></thead>
           <tbody>

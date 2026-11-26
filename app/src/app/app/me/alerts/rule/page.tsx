@@ -16,8 +16,7 @@ import { minutesToTime, timeToMinutes } from '@/components/alerts/describe';
 import { ALERT_RADII, snapRadius } from '@/lib/alert-radius';
 import { ruleMatch } from '@/lib/alerts/match';
 import { countryAt } from '@/lib/country';
-import { type WorldRegion } from '@/lib/world-regions';
-import { worldRegion } from '@/lib/world-region-of';
+import { worldRegion, type WorldRegion } from '@/lib/world-regions';
 import type { Quake } from '@/lib/quakes/types';
 import me from '../../me.module.css';
 import sub from '../../subscription/subscription.module.css';
@@ -174,7 +173,7 @@ function Last30({ rule }: { rule: Rule }) {
     const locs = [...places.map(p => ({ name: p.name, lat: p.lat, lon: p.lon })), ...(here ? [{ name: '@device', lat: here.lat, lon: here.lon }] : [])];
     for (const q of data.quakes) {
       if (q.time < start) continue;
-      const area = () => ({ country: q.country !== undefined ? q.country?.code ?? null : countryAt(q.lat, q.lon)?.code ?? null, region: q.worldRegion ?? worldRegion(q.lat, q.lon) });
+      const area = () => ({ country: countryAt(q.lat, q.lon)?.code ?? null, region: worldRegion(q.lat, q.lon) });
       if (ruleMatch(rule, q, locs, area, q.time)) out[Math.min(29, Math.floor((q.time - start) / 864e5))]++;
     }
     return out;

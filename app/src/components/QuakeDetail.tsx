@@ -2,8 +2,9 @@
 // Event views: QuakeSummary is the default (map panels, dashboard); QuakeDetail is the detailed view, opened from
 // its Details button and from Feed rows.
 /* eslint-disable @next/next/no-img-element -- small bundled flag SVGs */
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { countryAt } from '@/lib/country';
 import { formatDms } from '@/lib/geo';
 import { useT } from '@/i18n/I18nProvider';
 import { MagBadge } from './MagBadge';
@@ -16,8 +17,6 @@ import styles from './dash/dash.module.css';
 import { TsunamiBanner } from './Tsunami';
 import { tsunamiLine } from '@/lib/tsunami/text';
 import { fillPost } from '@/lib/share-text';
-import { placeDetail } from '@/lib/quakes/region';
-import { magTypeLabel } from '@/lib/quakes/magtype';
 
 /** Map URL that zooms to a quake and shows its felt reports. */
 export const regionHref = (id: string) => '/app/map?focus=' + encodeURIComponent(id);
@@ -25,7 +24,7 @@ export const regionHref = (id: string) => '/app/map?focus=' + encodeURIComponent
 /** Values shared by the compact summary and the detailed view. */
 function useQuakeFacts(q: Row) {
   const { locale } = useT();
-  const country = q.country ?? null; // worked out by the server (lib/quakes/place-info.ts)
+  const country = useMemo(() => countryAt(q.lat, q.lon), [q.lat, q.lon]);
   return {
     country,
     countryName: country ? regionName(locale, country.code) : null,
@@ -57,7 +56,7 @@ export function QuakeSummary({ q, onClose, onDetails }: { q: Row; onClose?: () =
           <FitLine min={10}>{date} · {time}</FitLine>
           <FitLine min={10}>{q.distanceKm != null ? `${u.dist(q.distanceKm)} · ` : ''}{t('depth_deep', { d: u.depth(q.depthKm) })}</FitLine>
         </div>
-        {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={m.dash.close}><span className="ms" aria-hidden="true">close</span></button>}
+        {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
       </div>
       <TsunamiBanner q={q} />
       <div className={styles.summaryActions}>
@@ -96,28 +95,27 @@ export function QuakeDetail({ q, onClose, onShowRegion, extra }: { q: Row; onClo
         <MagBadge mag={q.mag} size={56} />
         <div className={styles.detailTitle}>
           <Place q={q} code={country?.code} />
-          {placeDetail(q) && <FitLine min={10}>{u.text(q.title)}</FitLine>}
+          <FitLine min={10}>{u.text(q.title)}</FitLine>
         </div>
-        {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={m.dash.close}><span className="ms" aria-hidden="true">close</span></button>}
+        {onClose && <button type="button" className={styles.iconBtn} onClick={onClose} aria-label={t('done')}><span className="ms">close</span></button>}
       </div>
       <TsunamiBanner q={q} areas={12} full />
       {extra}
       <dl className={styles.stats}>
-        <div><dt>{t('magnitude')}</dt><FitLine as="dd">{q.mag.toFixed(1)} {magTypeLabel(q.magType)}</FitLine></div>
+        <div><dt>{t('magnitude')}</dt><FitLine as="dd">{q.mag.toFixed(1)}{q.magType ? ` ${q.magType}` : ''}</FitLine></div>
         <div><dt>{t('depth')}</dt><FitLine as="dd">{u.depth(q.depthKm)}</FitLine></div>
         <div><dt>{t('date')}</dt><FitLine as="dd">{date}</FitLine></div>
         <div><dt>{t('time')}</dt><FitLine as="dd">{time}</FitLine></div>
-        {/* Rows without a value are left out; when only one of this pair remains it takes the full width. */}
-        {q.distanceKm != null && <div className={countryName ? undefined : styles.statWide}><dt>{m.dash.distance}</dt><FitLine as="dd">{u.dist(q.distanceKm)}</FitLine></div>}
-        {countryName && <div className={q.distanceKm != null ? undefined : styles.statWide}><dt>{t('country')}</dt><FitLine as="dd">{country!.near ? t('near_country', { country: countryName }) : countryName}</FitLine></div>}
+        <div><dt>{m.dash.distance}</dt><FitLine as="dd">{q.distanceKm != null ? u.dist(q.distanceKm) : '—'}</FitLine></div>
+        <div><dt>{t('country')}</dt><FitLine as="dd">{countryName ? (country!.near ? t('near_country', { country: countryName }) : countryName) : '—'}</FitLine></div>
         <div className={styles.statWide}><dt>{t('coords')}</dt><FitLine as="dd">{formatDms(q.lat, q.lon)}</FitLine></div>
-        {q.status && <div><dt>{t('review_status')}</dt>
+        <div><dt>{t('review_status')}</dt>
           <dd className={`${styles.statusVal} ${q.status === 'reviewed' ? styles.statusOk : ''}`}>
-            <span className="ms" aria-hidden="true">{q.status === 'reviewed' ? 'verified' : 'schedule'}</span>
-            {t(`st_${q.status}`)}
+            {q.status && <span className="ms" aria-hidden="true">{q.status === 'reviewed' ? 'verified' : 'schedule'}</span>}
+            {q.status ? t(`st_${q.status}`) : '—'}
           </dd>
-        </div>}
-        <div className={q.status ? undefined : styles.statWide}><dt>{t('source')}</dt><FitLine as="dd">{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</FitLine></div>
+        </div>
+        <div><dt>{t('source')}</dt><FitLine as="dd">{[q.source, ...(q.alsoIn ?? [])].map(s => s.toUpperCase()).join(' · ')}</FitLine></div>
       </dl>
       <div className={styles.detailActions}>
         <button type="button" className={styles.regionBtn} onClick={onShowRegion ?? (() => router.push(regionHref(q.id)))}>

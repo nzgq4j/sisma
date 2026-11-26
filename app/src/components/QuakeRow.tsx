@@ -4,8 +4,7 @@ import { MagBadge } from './MagBadge';
 import { useT } from '@/i18n/I18nProvider';
 import { useDistance } from './Units';
 import { TsunamiIcon } from './Tsunami';
-import { Flag, countryCode } from './Flag';
-import { placeDetail } from '@/lib/quakes/region';
+import { Flag, useCountryCode } from './Flag';
 
 export function timeAgo(t: (k: never, v?: Record<string, number>) => string, ms: number) {
   const m = Math.round((Date.now() - ms) / 6e4);
@@ -19,7 +18,7 @@ export function timeAgo(t: (k: never, v?: Record<string, number>) => string, ms:
 export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | null }; onOpen: () => void }) {
   const { t } = useT();
   const u = useDistance();
-  const code = countryCode(q);
+  const code = useCountryCode(q.lat, q.lon);
   return (
     <button type="button" data-quake-row="" onClick={onOpen} style={{ width: '100%', minWidth: 0, display: 'flex', alignItems: 'center', gap: 12, padding: 12, border: 0, background: 'var(--surface)', borderRadius: 18, textAlign: 'left', color: 'var(--ink)', font: 'inherit', cursor: 'pointer' }}>
       <MagBadge mag={q.mag} />
@@ -28,7 +27,7 @@ export function QuakeRow({ q, onOpen }: { q: Quake & { distanceKm?: number | nul
           {code && <Flag code={code} size={16} />}
           <span style={{ fontWeight: 700, fontSize: 15, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', minWidth: 0 }}>{q.region}</span>
         </div>
-        {placeDetail(q) && <div style={{ fontSize: 13, color: 'var(--ink2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{u.text(q.title)}</div>}
+        <div style={{ fontSize: 13, color: 'var(--ink2)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{u.text(q.title)}</div>
         <div style={{ fontSize: 12, color: 'var(--ink2)', display: 'flex', gap: 10 }}>
           <span>{timeAgo(t as never, q.time)}</span>
           {q.distanceKm != null && <span>{u.dist(q.distanceKm)}</span>}

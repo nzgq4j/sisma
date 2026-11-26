@@ -14,12 +14,3 @@ export function splitPlace(place: string): { title: string; region: string } {
 }
 // TODO: replace string parsing with reverse geocoding against world-atlas polygons (point-in-polygon)
 // so every source yields ISO country codes and localized country names via Intl.DisplayNames.
-
-const simple = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-/**
- * The line under the place name, or null when it only repeats it: EMSC names an event by its region alone
- * ("FLORES REGION, INDONESIA"), which is also the place name shown above it.
- */
-export function placeDetail(q: { title: string; region: string }): string | null {
-  return simple(q.title) === simple(q.region) ? null : q.title;
-}

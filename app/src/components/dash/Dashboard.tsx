@@ -21,10 +21,9 @@ import styles from './dash.module.css';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
 import { REGION_SPAN, REGION_VIEW } from '@/lib/world-regions';
 import { FIT_Y, fitArea } from '@/lib/map-fit';
-import { Flag, countryCode } from '@/components/Flag';
+import { Flag, useCountryCode } from '@/components/Flag';
 import { useGrowingList } from '@/components/useGrowingList';
 import type { Quake } from '@/lib/quakes/types';
-import { placeDetail } from '@/lib/quakes/region';
 
 const SORT_LABEL = { time: 'sort_time', distance: 'sort_distance', mag: 'sort_mag' } as const;
 const MAG_BINS = [...MAG_SCALE].reverse().map(([min], i, a) => ({ min: i === 0 ? -99 : min, max: a[i + 1]?.[0] ?? 99 }));
@@ -47,7 +46,7 @@ export function Dashboard() {
     else s.sort((a, b) => b.time - a.time);
     return s;
   }, [list, sort]);
-  // Infinite scroll: 30 rows, then 30 more as the end of the list comes into view; back to 30 on a new sort or filter.
+  // Infinite scroll: 100 rows, then 100 more as the end of the list comes into view; back to 100 on a new sort or filter.
   const { shown, more, sentinel } = useGrowingList(sorted.length, `${sort}|${range}|${region}|${minMag}|${worldReg}`);
   const listRef = useRef<HTMLUListElement>(null);
   const sel = list.find(q => q.id === selId) ?? null;
@@ -175,7 +174,7 @@ export function Dashboard() {
           </div>
         </div>
 
-        <aside className={styles.rightCol} aria-label={m.dash.details}>
+        <aside className={styles.rightCol}>
           <section className={`${styles.card} ${styles.detail}`} aria-live="polite">
             {sel ? (
               <QuakeSummary q={sel} onClose={() => setSelId(null)} onDetails={() => setDetailOpen(true)} />
@@ -200,7 +199,7 @@ export function Dashboard() {
                     <MagBadge mag={q.mag} size={38} />
                     <span className={styles.rowText}>
                       <RowPlace q={q} />
-                      {placeDetail(q) && <span>{u.text(q.title)}</span>}
+                      <span>{u.text(q.title)}</span>
                     </span>
                     <span className={styles.rowMeta}>
                       <span>{timeAgo(t as never, q.time)}</span>
@@ -225,7 +224,7 @@ export function Dashboard() {
 }
 
 /** The place in a list row, after the country's flag (as in the phone feed and the detail sheet). */
-function RowPlace({ q }: { q: Pick<Quake, 'country' | 'region'> }) {
-  const code = countryCode(q);
+function RowPlace({ q }: { q: Pick<Quake, 'lat' | 'lon' | 'region'> }) {
+  const code = useCountryCode(q.lat, q.lon);
   return <strong className={styles.rowPlace}>{code && <Flag code={code} size={14} />}<b>{q.region}</b></strong>;
 }

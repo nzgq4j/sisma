@@ -2,7 +2,7 @@
 // Pull-up filter panel for the Map and Globe tabs, after the polar lights app's map sheet (aurora-monitor MapPanel):
 // collapsed it shows the active filters in one line; dragged or tapped open it lists the filters (time range,
 // minimum magnitude, region) as rows that open their choice sheets, the map layers as switches, and the legend.
-// Drag the top strip to any height and it snaps to collapsed, half or nearly full; a tap on it opens it halfway or closes it.
+// Drag the top strip to any height and it snaps to collapsed, half or nearly full; a tap on it steps through them.
 // Like every selector (components/Sheet.tsx) it closes (collapses) on a swipe down (from the strip, or from the list
 // while it is scrolled to the top) and on a double tap away from its controls. `fixed` pins it above the bottom
 // navigation for scrolling pages (the Feed) instead of the bottom of a map stage.
@@ -20,8 +20,7 @@ type Snap = 'peek' | 'half' | 'full';
 /** Collapsed height in px; half and full are shares of the stage height. */
 export const PANEL_PEEK = 84;
 const HALF = 0.5, FULL = 0.88;
-/** A tap on the header opens the panel halfway or closes it; dragging reaches the full height. */
-const NEXT: Record<Snap, Snap> = { peek: 'half', half: 'peek', full: 'peek' };
+const NEXT: Record<Snap, Snap> = { peek: 'half', half: 'full', full: 'peek' };
 /** Swipe down this far (px) or this fast (px/ms) from the list to close; two taps this close in time/space = double tap. */
 const CLOSE_DISTANCE = 90, CLOSE_SPEED = 0.5, DOUBLE_TAP_MS = 320, DOUBLE_TAP_PX = 30;
 const INTERACTIVE = 'button, a, input, select, textarea, label, summary, [role="button"], [role="slider"], [role="switch"]';
@@ -149,7 +148,7 @@ export function FilterPanel({ layers, legend, hint, fixed = false }: { layers?: 
     <section ref={ref} data-filter-panel="" className={[styles.sheet, fixed && styles.fixed, drag !== null && styles.dragging].filter(Boolean).join(' ')} style={{ height: h }} aria-label={m.map.filters}>
       <div className={styles.grip} onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}>
         <button type="button" className={styles.handle} aria-expanded={snap !== 'peek'}
-          aria-label={snap === 'peek' ? m.map.expand : m.map.collapse}
+          aria-label={snap === 'full' ? m.map.collapse : m.map.expand}
           onClick={e => { if (e.detail === 0) setSnap(NEXT[snap]); /* keyboard; taps go through the strip */ }}>
           <i />
         </button>

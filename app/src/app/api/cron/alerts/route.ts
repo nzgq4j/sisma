@@ -16,8 +16,7 @@ import { alertMessage } from '@/lib/alerts/message';
 import { sendPush } from '@/lib/alerts/send';
 import { asLocale, serverMessages } from '@/i18n/server';
 import { countryAt } from '@/lib/country';
-import { type WorldRegion } from '@/lib/world-regions';
-import { worldRegion } from '@/lib/world-region-of';
+import { worldRegion, type WorldRegion } from '@/lib/world-regions';
 
 export const dynamic = 'force-dynamic';
 export const maxDuration = 60;
