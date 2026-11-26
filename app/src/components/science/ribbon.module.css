@@ -1,0 +1,51 @@
+/* Science → Pacific Fire Ribbon (components/science/FireRibbon.tsx). The plot is a dark observatory panel in both themes
+   (its own colours below; depth colours in lib/ribbon/shared.ts); the rest uses the app tokens and data.module.css. */
+.card { gap: 12px; }
+.controls { display: flex; flex-direction: column; gap: 8px; }
+.status { display: flex; flex-direction: column; gap: 2px; font-size: 12px; font-weight: 600; color: var(--ink2); }
+.status p { margin: 0; text-wrap: pretty; }
+.fresh, .stale { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; }
+.fresh { color: var(--mint-text); }
+.stale { color: var(--warm-text); }
+.fresh i, .stale i { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.jump { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--ink2); }
+.jump span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.jump select { flex: 1; min-height: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface2); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; padding: 0 10px; }
+.plotWrap { position: relative; margin: 0 -16px; }
+.scroller { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; touch-action: pan-x pan-y; background: #0B1220; scrollbar-color: rgba(190, 205, 230, .35) #0B1220; }
+.scroller:focus-visible { outline: 2px solid var(--violet); outline-offset: -2px; }
+.track { position: relative; }
+.canvas { position: sticky; left: 0; display: block; cursor: crosshair; }
+.tip { position: absolute; z-index: 2; max-width: 200px; padding: 6px 10px; border-radius: 10px; background: rgba(11, 18, 32, .94); border: 1px solid rgba(190, 205, 230, .25); color: #E6EDF8; font-size: 12px; pointer-events: none; display: flex; flex-direction: column; gap: 2px; }
+.tip span { color: rgba(214, 224, 240, .75); }
+.zoom { display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding: 8px 16px 0; font-size: 12px; font-weight: 700; color: var(--ink2); }
+.zoom button { width: 40px; height: 40px; border-radius: 12px; border: 0; background: var(--surface2); color: var(--ink); cursor: pointer; display: grid; place-items: center; }
+.zoom button:disabled { opacity: .4; cursor: default; }
+.key { display: flex; flex-direction: column; gap: 6px; }
+.keyRow { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; font-size: 12px; font-weight: 600; color: var(--ink2); }
+.keyRow b { color: var(--ink); font-weight: 800; }
+.keyRow span { display: inline-flex; align-items: center; gap: 5px; }
+.keyRow i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.keyDot { fill: var(--ink2); }
+.keyRow .gapSwatch { width: 14px; height: 10px; border-radius: 2px; background: repeating-linear-gradient(135deg, var(--line) 0 2px, transparent 2px 5px); border: 1px solid var(--line); }
+.keyNote { margin: 0; font-size: 12px; color: var(--ink2); text-wrap: pretty; }
+.detail { border: 1px solid var(--line); border-radius: 18px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+.detailHead { display: flex; align-items: center; gap: 10px; }
+.detailHead > i { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.detailHead h2 { margin: 0; flex: 1; font-size: 16px; font-weight: 800; line-height: 1.25; }
+.close { width: 40px; height: 40px; border: 0; border-radius: 12px; background: var(--surface2); color: var(--ink); cursor: pointer; display: grid; place-items: center; flex: none; }
+.detail dl { margin: 0; display: grid; grid-template-columns: 1fr; gap: 6px; }
+.detail dl > div { display: grid; grid-template-columns: minmax(110px, 42%) 1fr; gap: 8px; font-size: 13px; }
+.detail dt { color: var(--ink2); font-weight: 600; }
+.detail dd { margin: 0; color: var(--ink); font-weight: 700; overflow-wrap: anywhere; }
+.na { color: var(--ink2); font-weight: 600; }
+.usgs { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; color: var(--violet-text); font-weight: 800; font-size: 14px; text-decoration: none; }
+.usgs :global(.ms) { font-size: 18px; }
+.largest h2 { margin: 0 0 6px; font-size: 16px; font-weight: 800; }
+.largest ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.largest button { width: 100%; min-height: 40px; display: flex; align-items: center; gap: 10px; padding: 6px 10px; border: 0; border-radius: 12px; background: transparent; color: var(--ink); font: inherit; font-size: 13px; text-align: left; cursor: pointer; }
+.largest button[aria-pressed='true'], .largest button:hover { background: var(--surface2); }
+.largest i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.largest b { font-weight: 800; min-width: 40px; }
+.largest span { color: var(--ink2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.source { margin: 0; font-size: 12px; color: var(--ink2); text-wrap: pretty; }
