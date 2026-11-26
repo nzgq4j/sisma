@@ -2,7 +2,7 @@
 // Me → Administration → Admin guide: how the administration features work, for the sisma team only. English (the
 // team's working language), shown to administrators only, and kept out of search like every page under /app/me
 // (noindex in app/app/me/layout.tsx and the X-Robots-Tag header). Keep it in step with app/me/admin, components/admin,
-// lib/bluesky.ts, lib/promo.ts, lib/library-posts.ts and docs/bluesky-setup.md.
+// lib/bluesky.ts, lib/bluesky-discover.ts, lib/promo.ts, lib/library-posts.ts and docs/bluesky-setup.md.
 import Link from 'next/link';
 import { useT } from '@/i18n/I18nProvider';
 import { useIsAdmin } from '@/components/admin/LibraryBluesky';
@@ -21,8 +21,8 @@ export default function AdminGuidePage() {
       {back}
       <h1 className={sub.h1} lang="en">Admin guide</h1>
       <div className={help.doc} lang="en">
-        <p>Everything in <Ui>Me → Administration</Ui> posts to sisma’s Bluesky account. Only accounts marked as administrators see the page, and the server checks again on every action. Nothing is posted until you switch a feed on or press <Ui>Post now</Ui>.</p>
-        <p>Sections: <a href="#connect">Bluesky account</a> · <a href="#quakes">Automatic earthquake posts</a> · <a href="#indepth">In Depth on Bluesky</a> · <a href="#playstore">Play Store posts</a> · <a href="#indepthposts">In Depth posts</a> · <a href="#lists">Lists</a></p>
+        <p>Everything in <Ui>Me → Administration</Ui> posts or acts as sisma’s Bluesky account. Only accounts marked as administrators see the page, and the server checks again on every action. Nothing is posted until you switch a feed on or press <Ui>Post now</Ui>.</p>
+        <p>Sections: <a href="#connect">Bluesky account</a> · <a href="#quakes">Automatic earthquake posts</a> · <a href="#indepth">In Depth on Bluesky</a> · <a href="#playstore">Play Store posts</a> · <a href="#indepthposts">In Depth posts</a> · <a href="#discover">Discover</a> · <a href="#lists">Lists</a></p>
 
         <h2 id="connect">Bluesky account</h2>
         <ol>
@@ -77,6 +77,15 @@ export default function AdminGuidePage() {
           <li><Ui>Post now</Ui>: leave <Ui>Article</Ui> and <Ui>Language</Ui> on <Ui>Random</Ui> for an unused combination, or choose both to see the card, text and image description first. A combination already posted this round is marked; posting it again repeats it.</li>
         </ul>
         <Callout kind="note"><p>A post made with <Ui>Post now</Ui> counts as the post for that half of the day: if the automatic one was still due in the same half, it moves to the next half. A post that fails stays unused and can come up again.</p></Callout>
+
+        <h2 id="discover">Discover</h2>
+        <p>Finds geoscience posts by other people on Bluesky, using sisma’s signed-in account, so you can read them and support them by hand. Nothing happens until you tap a button, and every button can be tapped again to undo it.</p>
+        <ul>
+          <li><Ui>Search terms</Ui>: the hashtags (for example #geosky, #earthquake) and words (for example seismic) to look for, up to 20. Add or remove them, then <Ui>Save terms</Ui>. Each term is searched on its own; a short word such as fault also finds posts that aren’t about geology, so remove any that bring in too much else.</li>
+          <li><Ui>Search now</Ui>: up to 25 of the newest posts for each term, combined into one list of up to 100, newest first. sisma’s own posts and posts labelled as adult or graphic content are left out. Each post shows who wrote it, when, its text and first image or link, its likes, reposts and replies, and which terms found it.</li>
+          <li><Ui>Like</Ui>, <Ui>Repost</Ui> and <Ui>Follow</Ui> act as sisma’s account straight away and show <Ui>Liked</Ui>, <Ui>Reposted</Ui> or <Ui>Following</Ui>; tap again to undo. The arrow opens the post on Bluesky.</li>
+        </ul>
+        <Callout kind="note"><p>A repost shows the post to everyone who follows sisma, and a follow is public. Read the whole post, and open it on Bluesky to see its replies and context, before reposting. Liking or following large numbers of accounts quickly can look like spam to Bluesky.</p></Callout>
 
         <h2 id="lists">Lists</h2>
         <p><Ui>Last 24 hours (M4.5+)</Ui>, <Ui>Posts</Ui>, <Ui>Recent Play Store posts</Ui> and <Ui>Recent In Depth posts</Ui> start closed, with the number of items on the right. Tap a header to open or close the list.</p>

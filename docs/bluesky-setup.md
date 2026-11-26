@@ -105,6 +105,19 @@ the app applies for that visit without changing the reader's saved language). Ar
   language: `node scripts/og-cards.mjs http://localhost:3100 --locale=all library-<id>` (server started with
   `OG_CARDS=1`). `lib/library-posts.test.ts` checks that every post fits in 300 characters and that every card exists.
 
+## Discover (geoscience posts by others, acted on by hand)
+
+Me → Administration → **Discover** searches Bluesky with the signed-in account (`app.bsky.feed.searchPosts`, sent to
+the account's own server, which passes it to the Bluesky app view) for each saved term: hashtags such as `#geosky` and
+words such as `seismic`, up to 20, editable on the page. Up to 25 of the newest posts per term are merged into one list
+of up to 100, newest first; sisma's own posts and posts labelled as adult or graphic content are left out.
+
+- Nothing runs on a schedule and nothing is done without a tap. **Like**, **Repost** and **Follow** create a record in
+  sisma's repo (`app.bsky.feed.like`, `app.bsky.feed.repost`, `app.bsky.graph.follow`); tapping again deletes it.
+- Code: `lib/bluesky-discover.ts` (+ test), `components/admin/BlueskyDiscover.tsx`. API:
+  `GET/PATCH/POST /api/admin/bluesky/discover` (administrators only). Terms: `bluesky_settings.discover_terms`, migration
+  `supabase/migrations/20261126015051_bluesky_discover_terms.sql`.
+
 ## Setup (once)
 
 Do not send the password to Claude.

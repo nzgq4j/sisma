@@ -149,14 +149,14 @@ export function draftTsunamiPost(i: Incident, q: Quake | null): PostDraft {
 // encrypted in Supabase Vault: public.bluesky_session_get/set), then the BLUESKY_IDENTIFIER / BLUESKY_APP_PASSWORD env.
 export const DEFAULT_SERVICE = 'https://bsky.social';
 export interface StoredSession { service: string; did: string; handle: string; accessJwt: string; refreshJwt: string }
-interface Auth { service: string; did: string; handle: string; accessJwt: string; source: 'account' | 'env' }
+export interface Auth { service: string; did: string; handle: string; accessJwt: string; source: 'account' | 'env' }
 
 /** An error answered by the Bluesky server; `code` is its error name (e.g. AuthFactorTokenRequired) or HTTP_<status>. */
 export class BlueskyError extends Error {
   constructor(public code: string, message: string) { super(message); }
 }
 
-async function xrpc<T>(base: string, method: string, init: RequestInit): Promise<T> {
+export async function xrpc<T>(base: string, method: string, init: RequestInit): Promise<T> {
   let r: Response;
   try { r = await fetch(`${base.replace(/\/$/, '')}/xrpc/${method}`, init); } catch (e) { throw new BlueskyError('unreachable', `${method}: ${String((e as Error)?.message ?? e)}`); }
   if (!r.ok) {
@@ -213,7 +213,7 @@ export async function disconnectAccount(db: SupabaseClient) {
  * A usable access token: the stored session (renewed with its refresh token when it is about to expire; Bluesky
  * rotates the refresh token, so the new pair is saved), else a session from the env credentials.
  */
-async function authFor(db: SupabaseClient, now = Date.now()): Promise<Auth> {
+export async function authFor(db: SupabaseClient, now = Date.now()): Promise<Auth> {
   const s = await storedSession(db);
   if (s) {
     if (jwtExpiry(s.accessJwt) > now + 5 * 60_000) return { ...s, source: 'account' };
