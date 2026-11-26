@@ -53,7 +53,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Vicini</strong>: prima i più vicini alla tua posizione o al luogo salvato che hai scelto.</li>
             <li><strong>Più forti</strong>: prima quelli di magnitudo più alta.</li>
           </ul>
-          <p>Ogni riga mostra la magnitudo in un badge colorato, il luogo con la bandiera del paese in cui si trova o a cui è vicino, quanto tempo fa è avvenuto, quanto dista da te e a che profondità. Continua a scorrere: altri terremoti vengono aggiunti quando arrivi in fondo all’elenco.</p>
+          <p>Ogni riga mostra la magnitudo in un badge colorato, il luogo con la bandiera del paese in cui si trova o a cui è vicino, distanza e direzione da un centro vicino, quanto tempo fa è avvenuto, quanto dista da te e a che profondità. Continua a scorrere: altri terremoti vengono aggiunti quando arrivi in fondo all’elenco.</p>
           <p>Su un computer, l’elenco si trova nella pagina <Ui>Panoramica</Ui>, la prima del menu a sinistra, con una mappa accanto. Scegli un terremoto nell’elenco o sulla mappa e la mappa si ingrandisce su di esso, con i nomi delle città vicine. Resta lì quando chiudi il terremoto; <Ui>Ripristina vista</Ui> mostra di nuovo tutto il mondo. Scegli un paese o una regione in <Ui>Luogo</Ui>, in alto a destra, oppure toccane uno in <Ui>Regioni principali</Ui>, e la mappa si avvicina ai suoi terremoti; <Ui>Tutti i luoghi</Ui> mostra di nuovo tutto il mondo.</p>
           <h3>Colori della magnitudo</h3>
           <p>Gli stessi colori sono usati nell’elenco, sulla mappa e sul globo:</p>

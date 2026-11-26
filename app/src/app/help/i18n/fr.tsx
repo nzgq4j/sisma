@@ -53,7 +53,7 @@ export const TOPICS: Topic[] = [
             <li><strong>Proches</strong> : les plus proches de votre position ou du lieu enregistré choisi d’abord.</li>
             <li><strong>Plus forts</strong> : la magnitude la plus élevée d’abord.</li>
           </ul>
-          <p>Chaque ligne indique la magnitude dans une pastille colorée, le lieu avec le drapeau du pays où il se trouve ou dont il est proche, il y a combien de temps le séisme s’est produit, à quelle distance de vous et à quelle profondeur. Continuez à faire défiler : d’autres séismes s’ajoutent quand vous arrivez en bas de la liste.</p>
+          <p>Chaque ligne indique la magnitude dans une pastille colorée, le lieu avec le drapeau du pays où il se trouve ou dont il est proche, la distance et la direction depuis une localité proche, il y a combien de temps le séisme s’est produit, à quelle distance de vous et à quelle profondeur. Continuez à faire défiler : d’autres séismes s’ajoutent quand vous arrivez en bas de la liste.</p>
           <p>Sur un ordinateur, le fil se trouve sur la page <Ui>{"Vue d'ensemble"}</Ui>, la première du menu de gauche, avec une carte à côté de la liste. Choisissez un séisme dans la liste ou sur la carte et la carte zoome dessus, avec le nom des villes proches. Elle reste là quand vous fermez le séisme ; <Ui>Réinitialiser la vue</Ui> affiche à nouveau le monde entier. Choisissez un pays ou une région dans <Ui>Lieu</Ui>, en haut à droite, ou touchez-en un dans <Ui>Principales régions</Ui>, et la carte zoome sur ses séismes ; <Ui>Tous les lieux</Ui> affiche à nouveau le monde entier.</p>
           <h3>Couleurs des magnitudes</h3>
           <p>Les mêmes couleurs sont utilisées dans le fil, sur la carte et sur le globe :</p>

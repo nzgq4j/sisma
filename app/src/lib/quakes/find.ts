@@ -2,6 +2,7 @@ import { SOURCES } from './sources';
 import { hasId, mergeQuakes } from './merge';
 export { hasId };
 import type { Quake } from './types';
+import { withNearestPlace } from './nearest-place';
 
 /** Merged feed of the last `days` days from every source (source responses are cached for 60 s). */
 export async function recentQuakes(days = 7): Promise<Quake[]> {
@@ -9,7 +10,7 @@ export async function recentQuakes(days = 7): Promise<Quake[]> {
     SOURCES.usgs({ days, minMag: 2.5 }), SOURCES.emsc({ days, minMag: 2.5 }),
     SOURCES.geonet({ days, minMag: 0 }), SOURCES.jma({ days, minMag: 0 }),
   ]);
-  return mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])));
+  return withNearestPlace(mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : []))));
 }
 
 /** Finds a quake by id in the merged feed of the last `days` days, also under an id it had before another agency

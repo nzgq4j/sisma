@@ -7,6 +7,7 @@ import { limits, type Plan } from '@/lib/entitlements';
 import { planForRequest } from '@/lib/auth';
 import { withTsunami } from '@/lib/tsunami/attach';
 import { TSUNAMI_HAZARD } from '@/lib/tsunami/types';
+import { withNearestPlace } from '@/lib/quakes/nearest-place';
 
 export const revalidate = 60;
 
@@ -26,7 +27,8 @@ export async function GET(req: NextRequest) {
     SOURCES.jma({ days, minMag: 0 }),
   ]);
   // Official tsunami messages (PTWC, NTWC, JMA) matched to their earthquakes (lib/tsunami/).
-  let list = await withTsunami(mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : []))), Math.min(days, 400));
+  // Events whose source gives only a region name get distance and direction from the nearest town (lib/quakes/nearest-place.ts).
+  let list = await withTsunami(withNearestPlace(mergeQuakes(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])))), Math.min(days, 400));
   const since = Date.now() - days * 864e5;
   list = list.filter(x => x.time >= since);
 
