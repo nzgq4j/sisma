@@ -931,7 +931,7 @@
     "note_3": "Les profondeurs de l’USGS sont mesurées depuis le géoïde, le niveau moyen de la mer ou l’altitude moyenne des stations d’enregistrement, selon le réseau sismique. La profondeur est la partie la moins sûre d’une localisation, et certaines profondeurs sont des valeurs fixes (33 km est une valeur par défaut courante).",
     "note_4": "Les données proviennent du flux de l’USGS de tous les séismes de la période choisie. La couverture n’est pas la même partout : les petits séismes sont enregistrés bien plus complètement là où les réseaux sismiques sont denses, comme dans l’ouest des États-Unis et en Alaska, qu’en mer ou dans les régions isolées.",
     "note_5": "La magnitude n’indique ni la force des secousses en un lieu ni les dégâts, et les essaims de séismes ne prédisent ni séismes plus forts ni éruptions.",
-    "source": "Séismes : USGS Earthquake Hazards Program. Tracé et volcans : Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (consulté le 26 novembre 2026). État des volcans : Smithsonian / USGS Weekly Volcanic Activity Report.",
+    "source": "Séismes : USGS Earthquake Hazards Program. Tracé et volcans : Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (consulté le 26 novembre 2026). État des volcans : Smithsonian / USGS Weekly Volcanic Activity Report. Relief : NOAA NCEI ETOPO 2022 Global Relief Model.",
     "regions": {
       "southern_andes": "Andes du Sud",
       "central_andes": "Andes centrales",
@@ -989,7 +989,18 @@
     "v_evidence": "Indices d’activité",
     "v_gvp": "Page du volcan sur le site du Smithsonian",
     "year_bce": "{n} av. J.-C.",
-    "note_6": "Les volcans proviennent du catalogue Volcanoes of the World de la Smithsonian Institution et sont dessinés au-dessus de la ligne de surface ; le relief viendra dans une étape ultérieure. Leur couleur indique la catégorie du rapport hebdomadaire d’activité volcanique Smithsonian / USGS. Ce rapport résume une sélection de l’activité et n’est pas une liste complète : un triangle blanc ne signifie donc pas qu’un volcan est calme, endormi ou sans danger."
+    "note_6": "Les volcans proviennent du catalogue Volcanoes of the World de la Smithsonian Institution et sont dessinés au-dessus de la ligne de surface ; le relief viendra dans une étape ultérieure. Leur couleur indique la catégorie du rapport hebdomadaire d’activité volcanique Smithsonian / USGS. Ce rapport résume une sélection de l’activité et n’est pas une liste complète : un triangle blanc ne signifie donc pas qu’un volcan est calme, endormi ou sans danger.",
+    "layer_terrain": "Relief",
+    "relief": "Relief",
+    "relief_scientific": "Échelle réelle",
+    "relief_enhanced": "Exagéré ×{n}",
+    "relief_label": "Altitudes ×{n}",
+    "key_land": "Point le plus haut à moins de {n} du tracé",
+    "key_sea": "Fond marin le plus profond à moins de {n}",
+    "key_relief_1": "Altitudes et profondeurs à la même échelle.",
+    "key_relief_n": "Altitudes exagérées ×{n} ; pas les profondeurs des séismes.",
+    "t_unavailable": "Le relief n’a pas pu être chargé.",
+    "note_7": "Le relief provient du modèle ETOPO 2022 de la NOAA : cellules d’environ 1,85 km, altitudes au-dessus du géoïde EGM2008 (proche du niveau moyen de la mer). Le brun est le point le plus haut à moins de 25 km du tracé ; le bleu, le fond marin le plus profond à moins de 400 km, là où apparaissent les fosses océaniques. Des cellules de cette taille lissent les sommets : les montagnes paraissent plus basses qu’elles ne sont (la cellule la plus haute du mont Fuji est à 3 378 m, son sommet à 3 776 m). Le relief exagéré n’étire que les altitudes ; les profondeurs des séismes gardent leur propre échelle et ne sont jamais corrigées du relief au-dessus."
   },
   "tsu": {
     "lv_major_warning": "Alerte majeure au tsunami",

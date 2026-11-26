@@ -78,3 +78,16 @@ export function markerOpacity(ageMs: number, period: Period) {
   if (ageMs <= fresh) return 1;
   return 1 - 0.65 * Math.min(1, (ageMs - fresh) / (PERIOD_MS[period] - fresh));
 }
+
+/** The terrain profile (GET /api/science/ribbon/terrain), from NOAA ETOPO 2022 (60 arc-second), heights in metres above
+ * the EGM2008 geoid. crest[i]: the highest cell within params.crestBandKm of the route for x in [i·step, (i+1)·step);
+ * trench[i]: the deepest cell within params.trenchBandKm, and trenchY[i] its distance from the route (km, + = left).
+ * null = no cell there. */
+export interface TerrainResponse {
+  builtAt: number; source: string;
+  params: { lengthKm: number; crestStepKm: number; crestBandKm: number; crestGrid: string; trenchStepKm: number; trenchBandKm: number; trenchGrid: string; pieces: number };
+  crest: (number | null)[]; trench: (number | null)[]; trenchY: (number | null)[];
+}
+/** Relief modes: the same vertical scale as earthquake depth, or heights exaggerated (earthquake depths never are). */
+export const RELIEF = { scientific: 1, enhanced: 10 } as const;
+export type Relief = keyof typeof RELIEF;

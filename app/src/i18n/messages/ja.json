@@ -931,7 +931,7 @@
     "note_3": "USGS の深さは、観測網によってジオイド、平均海面、または記録した観測点の平均標高から測られています。深さは震源決定のなかで最も不確かな値で、固定値のものもあります（33 km はよく使われる既定値です）。",
     "note_4": "データは、選んだ期間のすべての地震を含む USGS フィードによるものです。観測の網羅性は場所によって異なり、小さな地震は、米国西部やアラスカのように観測網が密な地域では、海上や遠隔地よりはるかに漏れなく記録されます。",
     "note_5": "マグニチュードから、ある場所の揺れの強さや被害はわかりません。また、地震の集中はより大きな地震や噴火を予知するものではありません。",
-    "source": "地震：USGS Earthquake Hazards Program。ルートと火山：Smithsonian Institution, Global Volcanism Program, Volcanoes of the World（2026年11月26日アクセス）。火山の状況：Smithsonian / USGS Weekly Volcanic Activity Report。",
+    "source": "地震：USGS Earthquake Hazards Program。ルートと火山：Smithsonian Institution, Global Volcanism Program, Volcanoes of the World（2026年11月26日アクセス）。火山の状況：Smithsonian / USGS Weekly Volcanic Activity Report。地形：NOAA NCEI ETOPO 2022 Global Relief Model。",
     "regions": {
       "southern_andes": "アンデス南部",
       "central_andes": "アンデス中部",
@@ -989,7 +989,18 @@
     "v_evidence": "活動の証拠",
     "v_gvp": "スミソニアンの火山ページ",
     "year_bce": "紀元前{n}年",
-    "note_6": "火山はスミソニアン協会の Volcanoes of the World カタログによるもので、地表線の上に描いています。地形の高さは今後の段階で追加します。色は Smithsonian / USGS 週間火山活動報告の区分を表します。この報告は一部の活動をまとめたもので完全な一覧ではないため、白い三角は火山が静穏・休止中・安全であることを意味しません。"
+    "note_6": "火山はスミソニアン協会の Volcanoes of the World カタログによるもので、地表線の上に描いています。地形の高さは今後の段階で追加します。色は Smithsonian / USGS 週間火山活動報告の区分を表します。この報告は一部の活動をまとめたもので完全な一覧ではないため、白い三角は火山が静穏・休止中・安全であることを意味しません。",
+    "layer_terrain": "地形",
+    "relief": "起伏",
+    "relief_scientific": "実際の縮尺",
+    "relief_enhanced": "誇張 ×{n}",
+    "relief_label": "高さ ×{n}",
+    "key_land": "ルートから {n} 以内の最高地点",
+    "key_sea": "{n} 以内の最深の海底",
+    "key_relief_1": "高さと深さは同じ縮尺です。",
+    "key_relief_n": "高さは ×{n} に誇張しています。地震の深さはそのままです。",
+    "t_unavailable": "地形を読み込めませんでした。",
+    "note_7": "地形は NOAA の起伏モデル ETOPO 2022 によるものです。セルは約 1.85 km、高さは EGM2008 ジオイド（平均海面に近い）からの値です。茶色はルートから 25 km 以内の最も高い地点、青は 400 km 以内の最も深い海底で、海溝はここに現れます。この大きさのセルでは山頂がならされるため、山は実際より低く見えます（富士山の最も高いセルは 3,378 m、山頂は 3,776 m）。誇張表示は高さだけを伸ばし、地震の深さは独自の縮尺のままで、上にある地形に合わせて補正することはありません。"
   },
   "tsu": {
     "lv_major_warning": "大津波警報",

@@ -931,7 +931,7 @@
     "note_3": "Kedalaman USGS diukur dari geoid, dari permukaan laut rata-rata, atau dari ketinggian rata-rata stasiun perekam, tergantung jaringan seismiknya. Kedalaman adalah bagian lokasi yang paling tidak pasti, dan sebagian kedalaman adalah nilai tetap (33 km adalah nilai bawaan yang umum).",
     "note_4": "Data berasal dari feed USGS berisi semua gempa untuk periode yang dipilih. Cakupannya tidak sama di semua tempat: gempa kecil tercatat jauh lebih lengkap di tempat jaringan seismik rapat, seperti di AS bagian barat dan Alaska, daripada di laut atau di daerah terpencil.",
     "note_5": "Magnitudo tidak menunjukkan seberapa kuat guncangan di suatu tempat atau kerusakan yang terjadi, dan kumpulan gempa tidak meramalkan gempa yang lebih besar atau letusan.",
-    "source": "Gempa: USGS Earthquake Hazards Program. Rute dan gunung api: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (diakses 26 November 2026). Status gunung api: Smithsonian / USGS Weekly Volcanic Activity Report.",
+    "source": "Gempa: USGS Earthquake Hazards Program. Rute dan gunung api: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (diakses 26 November 2026). Status gunung api: Smithsonian / USGS Weekly Volcanic Activity Report. Medan: NOAA NCEI ETOPO 2022 Global Relief Model.",
     "regions": {
       "southern_andes": "Andes Selatan",
       "central_andes": "Andes Tengah",
@@ -989,7 +989,18 @@
     "v_evidence": "Bukti aktivitas",
     "v_gvp": "Halaman gunung api Smithsonian",
     "year_bce": "{n} SM",
-    "note_6": "Gunung api berasal dari katalog Volcanoes of the World milik Smithsonian Institution dan digambar di atas garis permukaan; ketinggian medan menyusul pada langkah berikutnya. Warnanya menunjukkan kategori dalam Laporan Aktivitas Gunung Api Mingguan Smithsonian / USGS. Laporan itu merangkum aktivitas terpilih dan bukan daftar lengkap, jadi segitiga putih tidak berarti gunung api itu tenang, tidur, atau aman."
+    "note_6": "Gunung api berasal dari katalog Volcanoes of the World milik Smithsonian Institution dan digambar di atas garis permukaan; ketinggian medan menyusul pada langkah berikutnya. Warnanya menunjukkan kategori dalam Laporan Aktivitas Gunung Api Mingguan Smithsonian / USGS. Laporan itu merangkum aktivitas terpilih dan bukan daftar lengkap, jadi segitiga putih tidak berarti gunung api itu tenang, tidur, atau aman.",
+    "layer_terrain": "Medan",
+    "relief": "Relief",
+    "relief_scientific": "Skala sebenarnya",
+    "relief_enhanced": "Dibesarkan ×{n}",
+    "relief_label": "Ketinggian ×{n}",
+    "key_land": "Daratan tertinggi dalam {n} dari rute",
+    "key_sea": "Dasar laut terdalam dalam {n}",
+    "key_relief_1": "Ketinggian dan kedalaman memakai skala yang sama.",
+    "key_relief_n": "Ketinggian dibesarkan ×{n}; kedalaman gempa tidak.",
+    "t_unavailable": "Medan tidak dapat dimuat.",
+    "note_7": "Medan berasal dari model relief ETOPO 2022 milik NOAA: sel sekitar 1,85 km, ketinggian di atas geoid EGM2008 (mendekati permukaan laut rata-rata). Cokelat adalah daratan tertinggi dalam 25 km dari rute; biru adalah dasar laut terdalam dalam 400 km, tempat palung samudra terlihat. Sel sebesar ini menghaluskan puncak, sehingga gunung tampak lebih rendah dari sebenarnya: sel tertinggi Gunung Fuji 3.378 m, puncaknya 3.776 m. Relief yang dibesarkan hanya meregangkan ketinggian; kedalaman gempa tetap memakai skalanya sendiri dan tidak pernah disesuaikan dengan medan di atasnya."
   },
   "tsu": {
     "lv_major_warning": "Peringatan tsunami besar",

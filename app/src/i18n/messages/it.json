@@ -931,7 +931,7 @@
     "note_3": "Le profondità USGS sono misurate dal geoide, dal livello medio del mare o dall’altitudine media delle stazioni che registrano il terremoto, a seconda della rete sismica. La profondità è la parte meno certa di una localizzazione e alcune profondità sono valori fissi (33 km è un valore predefinito comune).",
     "note_4": "I dati provengono dal feed USGS di tutti i terremoti del periodo scelto. La copertura non è uguale ovunque: i terremoti piccoli sono registrati in modo molto più completo dove le reti sismiche sono fitte, come negli Stati Uniti occidentali e in Alaska, che in mare o nelle zone remote.",
     "note_5": "La magnitudo non dice quanto forte ha tremato un luogo né quali danni ci sono stati, e gli sciami di terremoti non prevedono terremoti più forti né eruzioni.",
-    "source": "Terremoti: USGS Earthquake Hazards Program. Percorso e vulcani: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (consultato il 26 novembre 2026). Stato dei vulcani: Smithsonian / USGS Weekly Volcanic Activity Report.",
+    "source": "Terremoti: USGS Earthquake Hazards Program. Percorso e vulcani: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (consultato il 26 novembre 2026). Stato dei vulcani: Smithsonian / USGS Weekly Volcanic Activity Report. Rilievo: NOAA NCEI ETOPO 2022 Global Relief Model.",
     "regions": {
       "southern_andes": "Ande meridionali",
       "central_andes": "Ande centrali",
@@ -989,7 +989,18 @@
     "v_evidence": "Prove di attività",
     "v_gvp": "Pagina del vulcano sul sito Smithsonian",
     "year_bce": "{n} a.C.",
-    "note_6": "I vulcani provengono dal catalogo Volcanoes of the World della Smithsonian Institution e sono disegnati sopra la linea della superficie; le quote del terreno arriveranno in un passaggio successivo. Il loro colore indica la categoria del rapporto settimanale sull’attività vulcanica Smithsonian / USGS. Quel rapporto riassume una selezione dell’attività e non è un elenco completo: un triangolo bianco non significa che un vulcano sia tranquillo, quiescente o sicuro."
+    "note_6": "I vulcani provengono dal catalogo Volcanoes of the World della Smithsonian Institution e sono disegnati sopra la linea della superficie; le quote del terreno arriveranno in un passaggio successivo. Il loro colore indica la categoria del rapporto settimanale sull’attività vulcanica Smithsonian / USGS. Quel rapporto riassume una selezione dell’attività e non è un elenco completo: un triangolo bianco non significa che un vulcano sia tranquillo, quiescente o sicuro.",
+    "layer_terrain": "Rilievo",
+    "relief": "Rilievo",
+    "relief_scientific": "Scala reale",
+    "relief_enhanced": "Esagerato ×{n}",
+    "relief_label": "Quote ×{n}",
+    "key_land": "Terreno più alto entro {n} dal percorso",
+    "key_sea": "Fondale più profondo entro {n}",
+    "key_relief_1": "Quote e profondità usano la stessa scala.",
+    "key_relief_n": "Le quote sono esagerate ×{n}; le profondità dei terremoti no.",
+    "t_unavailable": "Non è stato possibile caricare il rilievo.",
+    "note_7": "Il rilievo proviene dal modello ETOPO 2022 della NOAA: celle di circa 1,85 km, quote sopra il geoide EGM2008 (vicino al livello medio del mare). Il marrone è il terreno più alto entro 25 km dal percorso; il blu è il fondale più profondo entro 400 km, dove si vedono le fosse oceaniche. Celle di queste dimensioni smussano le cime, quindi le montagne sembrano più basse di quanto siano: la cella più alta del monte Fuji è a 3.378 m, la sua cima a 3.776 m. Il rilievo esagerato allunga solo le quote; le profondità dei terremoti mantengono la propria scala e non vengono mai corrette per il terreno sovrastante."
   },
   "tsu": {
     "lv_major_warning": "Allerta tsunami maggiore",
