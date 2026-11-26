@@ -6,6 +6,11 @@
 // A sheet closed some other way (Done, a tap outside, a swipe) takes its entry back off when that entry is still the
 // current one. If something was added after it (a navigation from inside the sheet), the entry stays behind and is
 // skipped when Back reaches it later.
+//
+// Scroll: an open sheet locks the page behind it (components/Sheet.tsx), which leaves the page at scroll position 0
+// while the sheet's entry is added. Going back to the page's entry would then make the browser "restore" 0 (or, on
+// iPhone, a position that leaves the list blank) over the place the sheet puts back on close. So while sheets are open,
+// and until the step back that removes the last one has happened, the browser's own scroll restoration is off.
 
 type Entry = { id: number; close: () => void; inHistory: boolean };
 
@@ -17,6 +22,12 @@ const stale = new Set<number>();
 let seq = 0;
 let ignorePops = 0;
 let installed = false;
+/** A step back of ours is on its way; scroll restoration comes back on after it. */
+let restoreAfterPop = false;
+
+function manualScroll(on: boolean) {
+  try { history.scrollRestoration = on ? 'manual' : 'auto'; } catch { /* not supported */ }
+}
 
 type Mark = { load: string; id: number };
 const markOf = (state: unknown): Mark | null => {
@@ -35,8 +46,10 @@ function install() {
   window.addEventListener('popstate', e => {
     const mark = markOf(e.state);
     // Our own step back after a sheet closed by other means: nothing more to close.
-    if (ignorePops > 0) ignorePops--;
-    else {
+    if (ignorePops > 0) {
+      ignorePops--;
+      if (!ignorePops && restoreAfterPop && !stack.length) { restoreAfterPop = false; manualScroll(false); }
+    } else {
       const here = mark && mark.load === LOAD ? mark.id : 0;
       // Back past one or more open sheets: they close (their entries are already gone).
       const gone = stack.filter(s => s.id > here);
@@ -58,6 +71,8 @@ function install() {
 export function pushSheet(close: () => void): () => void {
   install();
   const entry: Entry = { id: ++seq, close, inHistory: false };
+  manualScroll(true);
+  restoreAfterPop = false;
   // Added a moment later, so a sheet that opens and closes at once (React's development double run) leaves no trace.
   const timer = setTimeout(() => {
     try {
@@ -70,11 +85,18 @@ export function pushSheet(close: () => void): () => void {
     clearTimeout(timer);
     const i = stack.indexOf(entry);
     if (i >= 0) stack.splice(i, 1);
-    if (!entry.inHistory) return;
-    entry.inHistory = false;
-    const mark = markOf(history.state);
-    if (mark?.load === LOAD && mark.id === entry.id) { ignorePops++; history.back(); }
-    else stale.add(entry.id);
+    let stepping = false;
+    if (entry.inHistory) {
+      entry.inHistory = false;
+      const mark = markOf(history.state);
+      if (mark?.load === LOAD && mark.id === entry.id) { ignorePops++; history.back(); stepping = true; }
+      else stale.add(entry.id);
+    }
+    // Last sheet closed: scroll restoration back on, after our step back if one is on its way.
+    if (!stack.length) {
+      if (stepping || ignorePops > 0) restoreAfterPop = true;
+      else manualScroll(false);
+    }
   };
 }
 

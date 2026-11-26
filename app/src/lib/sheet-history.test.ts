@@ -88,6 +88,24 @@ describe('sheet stack', () => {
     expect(hist.state).toEqual({ router: 'feed' }); // one Back from the map reaches the feed itself
   });
 
+  it('turns the browser’s scroll restoration off while sheets are open, and back on after the last one closes', async () => {
+    const { pushSheet } = await load();
+    const h = hist as FakeHistory & { scrollRestoration?: string };
+    h.scrollRestoration = 'auto';
+    const detail = sheet(pushSheet); await tick();
+    expect(h.scrollRestoration).toBe('manual');
+    const share = sheet(pushSheet); await tick();
+    share.close(); await tick();
+    expect(h.scrollRestoration).toBe('manual'); // the detail is still open
+    detail.close();
+    expect(h.scrollRestoration).toBe('manual'); // until our step back has happened
+    await tick();
+    expect(h.scrollRestoration).toBe('auto');
+    sheet(pushSheet); await tick();
+    hist.back(); await tick(); // closed with Back
+    expect(h.scrollRestoration).toBe('auto');
+  });
+
   it('a sheet that opens and closes at once leaves no entry', async () => {
     const { pushSheet } = await load();
     const release = pushSheet(() => {});
