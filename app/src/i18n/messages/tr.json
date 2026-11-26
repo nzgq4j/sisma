@@ -931,7 +931,7 @@
     "note_3": "USGS derinlikleri, sismik ağa bağlı olarak jeoitten, ortalama deniz seviyesinden ya da kayıt yapan istasyonların ortalama yüksekliğinden ölçülür. Derinlik, bir konum belirlemenin en belirsiz kısmıdır ve bazı derinlikler sabit değerlerdir (33 km yaygın bir varsayılan değerdir).",
     "note_4": "Veriler, seçilen dönemdeki tüm depremleri içeren USGS akışından gelir. Kapsam her yerde aynı değildir: küçük depremler, sismik ağların yoğun olduğu yerlerde (ABD’nin batısı ve Alaska gibi) denizde ya da uzak bölgelerde olduğundan çok daha eksiksiz kaydedilir.",
     "note_5": "Büyüklük, bir yerin ne kadar şiddetli sarsıldığını ya da ne hasar oluştuğunu söylemez; deprem kümeleri de daha büyük depremleri ya da püskürmeleri önceden bildirmez.",
-    "source": "Depremler: USGS Earthquake Hazards Program. Güzergâh ve volkanlar: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (erişim: 26 Kasım 2026). Volkan durumu: Smithsonian / USGS Weekly Volcanic Activity Report.",
+    "source": "Depremler: USGS Earthquake Hazards Program. Güzergâh ve volkanlar: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (erişim: 26 Kasım 2026). Volkan durumu: Smithsonian / USGS Weekly Volcanic Activity Report. Arazi: NOAA NCEI ETOPO 2022 Global Relief Model.",
     "regions": {
       "southern_andes": "Güney And Dağları",
       "central_andes": "Orta And Dağları",
@@ -989,7 +989,18 @@
     "v_evidence": "Etkinlik kanıtı",
     "v_gvp": "Smithsonian volkan sayfası",
     "year_bce": "MÖ {n}",
-    "note_6": "Volkanlar Smithsonian Enstitüsü’nün Volcanoes of the World kataloğundan alınır ve yüzey çizgisinin üstünde gösterilir; arazi yükseklikleri sonraki bir adımda eklenecek. Renkleri, Smithsonian / USGS Haftalık Volkanik Etkinlik Raporu’ndaki kategoriyi gösterir. Bu rapor seçilmiş etkinlikleri özetler ve tam bir liste değildir; bu yüzden beyaz bir üçgen, volkanın sakin, uykuda ya da güvenli olduğu anlamına gelmez."
+    "note_6": "Volkanlar Smithsonian Enstitüsü’nün Volcanoes of the World kataloğundan alınır ve yüzey çizgisinin üstünde gösterilir; arazi yükseklikleri sonraki bir adımda eklenecek. Renkleri, Smithsonian / USGS Haftalık Volkanik Etkinlik Raporu’ndaki kategoriyi gösterir. Bu rapor seçilmiş etkinlikleri özetler ve tam bir liste değildir; bu yüzden beyaz bir üçgen, volkanın sakin, uykuda ya da güvenli olduğu anlamına gelmez.",
+    "layer_terrain": "Arazi",
+    "relief": "Kabartma",
+    "relief_scientific": "Gerçek ölçek",
+    "relief_enhanced": "Abartılı ×{n}",
+    "relief_label": "Yükseklikler ×{n}",
+    "key_land": "Güzergâha {n} içindeki en yüksek arazi",
+    "key_sea": "{n} içindeki en derin deniz tabanı",
+    "key_relief_1": "Yükseklikler ve derinlikler aynı ölçeği kullanır.",
+    "key_relief_n": "Yükseklikler ×{n} abartılmıştır; deprem derinlikleri değil.",
+    "t_unavailable": "Arazi yüklenemedi.",
+    "note_7": "Arazi, NOAA’nın ETOPO 2022 kabartma modelinden gelir: yaklaşık 1,85 km’lik hücreler, EGM2008 jeoidinin (ortalama deniz seviyesine yakın) üstündeki yükseklikler. Kahverengi, güzergâha 25 km içindeki en yüksek arazidir; mavi, 400 km içindeki en derin deniz tabanıdır ve okyanus çukurları burada görünür. Bu boyuttaki hücreler zirveleri yumuşatır, bu yüzden dağlar olduklarından alçak görünür: Fuji Dağı’nın en yüksek hücresi 3.378 m, zirvesi 3.776 m’dir. Abartılı kabartma yalnızca yükseklikleri uzatır; deprem derinlikleri kendi ölçeğini korur ve üstlerindeki araziye göre asla düzeltilmez."
   },
   "tsu": {
     "lv_major_warning": "Büyük tsunami uyarısı",

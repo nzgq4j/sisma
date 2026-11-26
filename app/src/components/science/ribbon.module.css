@@ -37,6 +37,8 @@
 .keyRow span { display: inline-flex; align-items: center; gap: 5px; }
 .keyRow i { width: 10px; height: 10px; border-radius: 50%; flex: none; }
 .keyDot { fill: var(--ink2); }
+.keyRow .landSwatch { width: 14px; height: 10px; border-radius: 2px; background: #7A5C43; border-top: 2px solid #C29A6B; }
+.keyRow .seaSwatch { width: 14px; height: 10px; border-radius: 2px; background: rgba(38, 104, 168, .45); border-bottom: 2px solid #5AA9E0; }
 .keyRow .gapSwatch { width: 14px; height: 10px; border-radius: 2px; background: repeating-linear-gradient(135deg, var(--line) 0 2px, transparent 2px 5px); border: 1px solid var(--line); }
 .keyNote { margin: 0; font-size: 12px; color: var(--ink2); text-wrap: pretty; }
 .detail { border: 1px solid var(--line); border-radius: 18px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }

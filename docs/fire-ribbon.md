@@ -4,9 +4,10 @@ The Pacific Ring of Fire unrolled into one long strip, from the southern tip of 
 earthquakes placed by their distance along the volcanic arcs (across) and their depth (down). sisma+ only; the page and
 its explanations are open to everyone, the data is not (`GET /api/science/ribbon` checks the plan on the server).
 
-Built so far: step 1 (the reference route, the coordinate transform and a live 2D depth profile) and step 2 (volcano
-markers with this week's reported status). Terrain from ETOPO 2022 and Copernicus DEM (step 3), and historical
-playback, overlays and a linked map (later steps) are not built yet. Slab2 was dropped from scope.
+Built so far: step 1 (the reference route, the coordinate transform and a live 2D depth profile), step 2 (volcano
+markers with this week's reported status) and step 3 (terrain along the ribbon from ETOPO 2022, with true-scale and
+exaggerated relief). Copernicus DEM detail for individual volcanoes, a 3D view, historical playback, overlays and a
+linked map (later steps) are not built yet. Slab2 was dropped from scope.
 
 ## Files
 
@@ -163,6 +164,58 @@ inside; widening the far side to 900 km adds only 5. The 18 outside belong to ar
   every volcano grey ("Status unavailable"), never white.
 - **Layers**: "Show" turns earthquakes and volcanoes on and off. "Go to region" is a sisma sheet (not the system
   picker) with each region's earthquake count.
+
+## Terrain (step 3)
+
+**Source**: NOAA NCEI ETOPO 2022 Global Relief Model, 60 arc-second surface elevation
+(`ETOPO_2022_v1_60s_N90W180_surface.nc`, THREDDS OPeNDAP). Grid 10,800 × 21,600 cells on WGS84, cell centres at
+−89.99167° + i/60 and −179.99167° + j/60; heights in metres, positive up, relative to the EGM2008 geoid (EPSG:3855),
+which is close to mean sea level (checked from the dataset's own attributes).
+
+**Where it is processed**: on the database. This app's build environment can't reach NOAA, but the Supabase project
+can (pg_net). `supabase/migrations/*_ribbon_terrain.sql` creates a private schema `ribbon_build` with the route
+(`route.json`, 167 points) and four functions:
+
+1. `make_pieces()` splits each route segment into stretches of up to 250 km and, for each, works out the grid index
+   range covering the stretch and a band around it (35 km for the crest, 420 km for the trench), split at the 180°
+   meridian. 515 pieces (249 crest, 266 trench; about 6.4 million cells in all).
+2. `fetch(n)` requests the next n pieces from NOAA (crest: every cell; trench: every third cell in each direction).
+3. `parse(n)` reads each downloaded piece and places every cell on its stretch of route: distance across =
+   asin(v·n)·R and distance along = atan2(v·u, v·a)·R on the sphere (a = the stretch's start, n = its normal, u = its
+   direction), scaled to the route's WGS84 distances. Cells within 25 km either side update the **crest** (highest
+   cell per 2 km of route); cells within 400 km update the **trench** (deepest cell per 10 km, with its distance from
+   the route). A failed download (NOAA's server answered some requests with HTTP 500 during the build) is requested
+   again; each processed response is deleted.
+4. `finish()` writes `public.ribbon_terrain` (row `etopo2022-60s`): the crest and trench arrays in whole metres, the
+   trench's distances, the source and the parameters. RLS is on with no policies: only the server's service role
+   reads it, through `GET /api/science/ribbon/terrain` (sisma+, cached for a day).
+
+A pg_cron job ran `parse` and `fetch` every minute during the build (15 pieces a minute; NOAA answered with 500 and 503 errors when asked for 50 a minute) and was then removed. To rebuild:
+`select ribbon_build.make_pieces();` then repeat `fetch` / `parse` until `parse` reports nothing left, then
+`select ribbon_build.finish();`.
+
+**What is drawn**: per screen column, the highest crest value (brown above sea level, dark blue where the highest
+ground near the route is under water) and the deepest trench value (a blue sea fill and line). These are extremes in
+bands, not a single cross-section: the crest is the arc's high ground, not the height of the route line itself, and
+the trench line may come from either side of the route.
+
+**Resolution**: cells are about 1.85 km across, which smooths summits. Mount Fuji's highest ETOPO cell is 3,378 m
+(checked: rows 7520–7523, columns 19122–19125) against a summit of 3,776 m. Volcano triangles stand at the catalogue's
+summit elevation, so a triangle can sit above the brown crest. The trench band uses every third cell (about 5.5 km),
+so the deepest point of a narrow trench can be missed by up to one or two cells' depth difference.
+
+**Result of the first build (26 November 2026)**: 515 pieces, 3,621,090 cells placed on the route, 19,731 crest values
+and 3,947 trench values with none missing. Deepest trench value per region (metres, ETOPO): Kermadec −10,019, Philippines
+−10,033, Tonga −9,840, Kurils −9,588, Papua New Guinea −8,624, Japan −8,019, Central Andes (Peru–Chile) −7,965,
+Kamchatka −7,912, Vanuatu −7,588, Aleutians −7,526, Central America −6,566. Highest crest: 6,165 m (Central Andes).
+The trench is on the left (Pacific) side of the route except at Papua New Guinea, the Solomons and Vanuatu, where it
+lies on the other side.
+
+**Relief modes** (brief §5): *True scale* uses the depth axis's scale for heights too (1 km of height = 1 km of depth);
+*Exaggerated ×10* multiplies heights and sea-floor depths by 10. The factor is written on the chart and in the key.
+Earthquake depths always use the depth axis and are never adjusted for the terrain above them. Depth reference:
+terrain is relative to EGM2008; USGS depths may be relative to the geoid, mean sea level or the stations' average
+height (see Earthquakes); the chart draws both from one sea-level line and says so.
 
 ## Verification
 

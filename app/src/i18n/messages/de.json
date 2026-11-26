@@ -931,7 +931,7 @@
     "note_3": "USGS-Tiefen beziehen sich je nach seismischem Netz auf das Geoid, den mittleren Meeresspiegel oder die mittlere Höhe der aufzeichnenden Stationen. Die Tiefe ist der unsicherste Teil einer Ortung, und manche Tiefen sind feste Werte (33 km ist ein häufiger Standardwert).",
     "note_4": "Die Daten stammen aus dem USGS-Feed aller Erdbeben im gewählten Zeitraum. Die Abdeckung ist nicht überall gleich: Kleine Erdbeben werden dort, wo seismische Netze dicht sind – etwa im Westen der USA und in Alaska –, viel vollständiger erfasst als auf See oder in abgelegenen Gebieten.",
     "note_5": "Die Magnitude sagt nichts darüber, wie stark ein Ort erschüttert wurde oder welche Schäden entstanden, und Häufungen von Erdbeben sagen keine größeren Erdbeben oder Ausbrüche voraus.",
-    "source": "Erdbeben: USGS Earthquake Hazards Program. Route und Vulkane: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (abgerufen am 26. November 2026). Vulkanstatus: Smithsonian / USGS Weekly Volcanic Activity Report.",
+    "source": "Erdbeben: USGS Earthquake Hazards Program. Route und Vulkane: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (abgerufen am 26. November 2026). Vulkanstatus: Smithsonian / USGS Weekly Volcanic Activity Report. Gelände: NOAA NCEI ETOPO 2022 Global Relief Model.",
     "regions": {
       "southern_andes": "Südanden",
       "central_andes": "Zentralanden",
@@ -989,7 +989,18 @@
     "v_evidence": "Belege für Aktivität",
     "v_gvp": "Smithsonian-Vulkanseite",
     "year_bce": "{n} v. Chr.",
-    "note_6": "Die Vulkane stammen aus dem Katalog Volcanoes of the World der Smithsonian Institution und sind über der Oberflächenlinie eingezeichnet; Geländehöhen folgen in einem späteren Schritt. Ihre Farbe zeigt die Kategorie im wöchentlichen Vulkanaktivitätsbericht von Smithsonian / USGS. Dieser Bericht fasst ausgewählte Aktivität zusammen und ist keine vollständige Liste – ein weißes Dreieck heißt also nicht, dass ein Vulkan ruhig, schlafend oder ungefährlich ist."
+    "note_6": "Die Vulkane stammen aus dem Katalog Volcanoes of the World der Smithsonian Institution und sind über der Oberflächenlinie eingezeichnet; Geländehöhen folgen in einem späteren Schritt. Ihre Farbe zeigt die Kategorie im wöchentlichen Vulkanaktivitätsbericht von Smithsonian / USGS. Dieser Bericht fasst ausgewählte Aktivität zusammen und ist keine vollständige Liste – ein weißes Dreieck heißt also nicht, dass ein Vulkan ruhig, schlafend oder ungefährlich ist.",
+    "layer_terrain": "Gelände",
+    "relief": "Relief",
+    "relief_scientific": "Maßstabsgetreu",
+    "relief_enhanced": "Überhöht ×{n}",
+    "relief_label": "Höhen ×{n}",
+    "key_land": "Höchstes Gelände bis {n} von der Route",
+    "key_sea": "Tiefster Meeresboden bis {n}",
+    "key_relief_1": "Höhen und Tiefen haben denselben Maßstab.",
+    "key_relief_n": "Höhen sind ×{n} überhöht, Erdbebentiefen nicht.",
+    "t_unavailable": "Das Gelände konnte nicht geladen werden.",
+    "note_7": "Das Gelände stammt aus dem Reliefmodell ETOPO 2022 der NOAA: Zellen von etwa 1,85 km, Höhen über dem Geoid EGM2008 (nahe dem mittleren Meeresspiegel). Braun ist das höchste Gelände bis 25 km von der Route, Blau der tiefste Meeresboden bis 400 km – dort zeigen sich die Tiefseegräben. Zellen dieser Größe glätten Gipfel, Berge wirken also niedriger, als sie sind: Die höchste Zelle des Fuji liegt bei 3.378 m, sein Gipfel bei 3.776 m. Überhöhtes Relief streckt nur die Höhen; Erdbebentiefen behalten ihren eigenen Maßstab und werden nie an das Gelände darüber angepasst."
   },
   "tsu": {
     "lv_major_warning": "Große Tsunamiwarnung",

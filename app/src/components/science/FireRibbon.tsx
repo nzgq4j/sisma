@@ -16,8 +16,8 @@ import { TRIAL_DAYS } from '@/lib/entitlements';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import type { RibbonVolcano, VolcanoResponse, VolcanoStatus } from '@/lib/ribbon/volcanoes';
 import {
-  DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, POLL_MS, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
-  type MinMag, type Period, type RibbonQuake, type RibbonResponse,
+  DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, POLL_MS, RELIEF, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
+  type MinMag, type Period, type Relief, type RibbonQuake, type RibbonResponse, type TerrainResponse,
 } from '@/lib/ribbon/shared';
 import data from './data.module.css';
 import styles from './ribbon.module.css';
@@ -53,6 +53,25 @@ function useVolcanoes(enabled: boolean) {
     void run();
     const id = setInterval(run, POLL_MS);
     return () => { alive = false; clearInterval(id); };
+  }, [enabled, accessToken]);
+  return st;
+}
+
+type TLoad = { s: 'loading' } | { s: 'error' } | { s: 'ready'; d: TerrainResponse };
+/** The terrain profile: loaded once (it changes only when rebuilt from ETOPO). */
+function useTerrain(enabled: boolean) {
+  const { accessToken } = useAccount();
+  const [st, setSt] = useState<TLoad>({ s: 'loading' });
+  useEffect(() => {
+    if (!enabled) return;
+    let alive = true;
+    void (async () => {
+      const token = await accessToken().catch(() => null);
+      const r = await fetch('/api/science/ribbon/terrain', { headers: token ? { authorization: `Bearer ${token}` } : {} }).catch(() => null);
+      const d = r?.ok ? ((await r.json()) as TerrainResponse) : null;
+      if (alive) setSt(d ? { s: 'ready', d } : { s: 'error' });
+    })();
+    return () => { alive = false; };
   }, [enabled, accessToken]);
   return st;
 }
@@ -102,9 +121,11 @@ export function FireRibbonPage() {
   const [min, setMin] = useState<MinMag>(2.5);
   const st = useRibbon(plus, period, min);
   const vst = useVolcanoes(plus);
+  const tst = useTerrain(plus);
+  const [relief, setRelief] = useState<Relief>('enhanced');
   const [sel, setSel] = useState<string | null>(null);
   const [selV, setSelV] = useState<number | null>(null);
-  const [show, setShow] = useState({ quakes: true, volcanoes: true });
+  const [show, setShow] = useState({ quakes: true, volcanoes: true, terrain: true });
   const [picker, setPicker] = useState(false);
   const [region, setRegion] = useState<string | null>(null);
   const pickQuake = (id: string | null) => { setSel(id); if (id) setSelV(null); };
@@ -161,7 +182,7 @@ export function FireRibbonPage() {
           {st.s === 'error' && <p className={data.status} role="alert">{k.error}</p>}
           {st.s === 'ready' && (
             <>
-              <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} />
+              <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />
               <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
                 <span className="ms" aria-hidden="true">travel_explore</span>
                 <span>{region === null ? k.go_to : region === 'all' ? k.whole : k.regions[region as keyof typeof k.regions]}</span>
@@ -182,15 +203,25 @@ export function FireRibbonPage() {
               </Sheet>
               <div className={styles.layers} role="group" aria-label={k.show}>
                 <span>{k.show}</span>
-                {(['quakes', 'volcanoes'] as const).map(l => (
+                {(['quakes', 'volcanoes', 'terrain'] as const).map(l => (
                   <button key={l} type="button" aria-pressed={show[l]} onClick={() => setShow(x => ({ ...x, [l]: !x[l] }))}>
-                    <span className="ms" aria-hidden="true">{show[l] ? 'check' : 'add'}</span>{l === 'quakes' ? k.layer_quakes : k.layer_volcanoes}
+                    <span className="ms" aria-hidden="true">{show[l] ? 'check' : 'add'}</span>{k[`layer_${l}`]}
                   </button>
                 ))}
               </div>
+              {show.terrain && tst.s === 'ready' && (
+                <div className={data.seg} role="tablist" aria-label={k.relief}>
+                  {(['scientific', 'enhanced'] as const).map(r => (
+                    <button key={r} type="button" role="tab" aria-selected={relief === r} onClick={() => setRelief(r)}>
+                      {k[`relief_${r}`].replace('{n}', nf.format(RELIEF[r]))}
+                    </button>
+                  ))}
+                </div>
+              )}
               <Plot d={st.d} quakes={show.quakes ? quakes : []} volcanoes={show.volcanoes ? volcanoes : []} period={period} fresh={st.fresh}
+                terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]}
                 selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={now} />
-              <Key volcanoes={vst.s === 'ready'} />
+              <Key volcanoes={vst.s === 'ready'} terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]} />
               {quakes.length === 0 && <p className={data.status}>{k.none}</p>}
               {selected && <Detail q={selected} onClose={() => setSel(null)} when={when} />}
               {selectedV && <VolcanoDetail v={selectedV} onClose={() => setSelV(null)} />}
@@ -232,15 +263,15 @@ export function FireRibbonPage() {
       )}
       <section className={data.card}>
         <h2>{k.notes_h}</h2>
-        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_6, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
+        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_6, k.note_7, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
         <p className={styles.source}>{k.source}</p>
       </section>
     </div>
   );
 }
 
-function Status({ d, okAt, failedAt, fresh, when, ago, now, vst }: {
-  d: RibbonResponse; okAt: number; failedAt: number | null; fresh: number; when: Intl.DateTimeFormat; ago: (ms: number) => string; now: number; vst: VLoad;
+function Status({ d, okAt, failedAt, fresh, when, ago, now, vst, tst }: {
+  d: RibbonResponse; okAt: number; failedAt: number | null; fresh: number; when: Intl.DateTimeFormat; ago: (ms: number) => string; now: number; vst: VLoad; tst: TLoad;
 }) {
   const { m, nf } = useT();
   const k = m.ribbon;
@@ -260,6 +291,7 @@ function Status({ d, okAt, failedAt, fresh, when, ago, now, vst }: {
         {' · '}{k.hourly}
       </p>
       {vst.s === 'error' && <p>{k.v_unavailable}</p>}
+      {tst.s === 'error' && <p>{k.t_unavailable}</p>}
       {vst.s === 'ready' && <p>{vst.d.report ? k.v_report.replace('{time}', when.format(vst.d.report.published ?? vst.d.report.retrieved)) : k.v_report_missing}</p>}
     </div>
   );
@@ -270,7 +302,7 @@ function Tri({ colour, size = 12 }: { colour: string; size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 12 12" aria-hidden="true" className={styles.tri}><path d="M6 1 11 11H1Z" fill={colour} stroke="#0B1220" strokeWidth="1" /></svg>;
 }
 
-function Key({ volcanoes }: { volcanoes: boolean }) {
+function Key({ volcanoes, terrain, relief }: { volcanoes: boolean; terrain: TerrainResponse | null; relief: number }) {
   const { m, nf } = useT();
   const k = m.ribbon;
   const dist = useDistance();
@@ -301,7 +333,14 @@ function Key({ volcanoes }: { volcanoes: boolean }) {
           ))}
         </p>
       )}
-      <p className={styles.keyNote}>{k.key_age} {k.key_scale}</p>
+      {terrain && (
+        <p className={styles.keyRow}>
+          <b>{k.layer_terrain}</b>
+          <span><i className={styles.landSwatch} aria-hidden="true" />{k.key_land.replace('{n}', dist.dist(terrain.params.crestBandKm))}</span>
+          <span><i className={styles.seaSwatch} aria-hidden="true" />{k.key_sea.replace('{n}', dist.dist(terrain.params.trenchBandKm))}</span>
+        </p>
+      )}
+      <p className={styles.keyNote}>{k.key_age} {k.key_scale}{terrain ? ` ${relief === 1 ? k.key_relief_1 : k.key_relief_n.replace('{n}', nf.format(relief))}` : ''}</p>
     </div>
   );
 }
@@ -397,14 +436,17 @@ function VolcanoDetail({ v, onClose }: { v: RibbonVolcano; onClose: () => void }
 
 // ——— The plot ———
 
-const H = 366, TOP = 40, BOTTOM = 26, GUTTER = 44, RIGHT_PAD = 10;
+// TOP is sea level (depth 0); above it: region names, the relief label and room for exaggerated land and volcanoes.
+const H = 404, TOP = 74, BOTTOM = 26, GUTTER = 44, RIGHT_PAD = 10;
+const LAND = '#7A5C43', LAND_EDGE = '#C29A6B', SHOAL = '#2B5277', SEA = 'rgba(38, 104, 168, .30)', TRENCH = '#5AA9E0';
 /** Volcano triangles sit above the surface line: height by status (reported ones larger). */
 const triH = (v: RibbonVolcano) => (reported(v) ? 11 : 7);
 const BG = '#0B1220', GRID = 'rgba(190, 205, 230, .13)', TEXT = 'rgba(214, 224, 240, .82)', MUTED = 'rgba(190, 205, 230, .55)';
 const ZOOMS = [1, 2, 4, 8, 16, 32, 64];
 
-function Plot({ d, quakes, volcanoes, period, fresh, selected, selectedV, onSelect, onSelectV, jump, now }: {
-  d: RibbonResponse; quakes: RibbonQuake[]; volcanoes: RibbonVolcano[]; period: Period; fresh: Set<string>; selected: string | null; selectedV: number | null;
+function Plot({ d, quakes, volcanoes, terrain, relief, period, fresh, selected, selectedV, onSelect, onSelectV, jump, now }: {
+  d: RibbonResponse; quakes: RibbonQuake[]; volcanoes: RibbonVolcano[]; terrain: TerrainResponse | null; relief: number;
+  period: Period; fresh: Set<string>; selected: string | null; selectedV: number | null;
   onSelect: (id: string | null) => void; onSelectV: (n: number | null) => void; jump: { x0: number; x1: number; n: number } | null; now: number;
 }) {
   const { m, nf, locale } = useT();
@@ -425,6 +467,16 @@ function Plot({ d, quakes, volcanoes, period, fresh, selected, selectedV, onSele
   const depthMax = Math.ceil(maxDepth / unit / 100) * 100 * unit;
   const sx = useCallback((x: number) => GUTTER + ((x - xMin) / (xMax - xMin)) * plotW - scroll, [xMin, xMax, plotW, scroll]);
   const sy = useCallback((z: number) => TOP + (Math.max(0, z) / depthMax) * (H - TOP - BOTTOM), [depthMax]);
+  /** Screen y of a height in metres (negative = below sea level), on the depth axis's scale times the relief factor. */
+  const ey = useCallback((m: number) => TOP - (m / 1000) * relief * ((H - TOP - BOTTOM) / depthMax), [relief, depthMax]);
+  /** Highest ground (crest profile) at a route position, metres, or null. */
+  const crestAt = useCallback((x: number) => {
+    if (!terrain) return null;
+    const i = Math.floor(x / terrain.params.crestStepKm);
+    return terrain.crest[i] ?? null;
+  }, [terrain]);
+  /** Where a volcano's triangle stands: on its catalogued summit height, else on the crest profile, else at sea level. */
+  const volcanoBase = useCallback((v: RibbonVolcano) => Math.max(26, ey(terrain ? (v.elevation ?? crestAt(v.x) ?? 0) : 0) - 1), [ey, terrain, crestAt]);
 
   useEffect(() => {
     const el = wrap.current;
@@ -515,8 +567,41 @@ function Plot({ d, quakes, volcanoes, period, fresh, selected, selectedV, onSele
     g.setLineDash([3, 5]); g.strokeStyle = GRID;
     for (let z = 100 * unit; z <= depthMax + 1e-6; z += 100 * unit) { const y = Math.round(sy(z)) + 0.5; g.beginPath(); g.moveTo(GUTTER, y); g.lineTo(width, y); g.stroke(); }
     g.setLineDash([]);
-    // Surface (depth 0): the route itself; terrain comes in a later step.
-    g.strokeStyle = 'rgba(255, 170, 110, .55)'; g.lineWidth = 1.5; g.beginPath(); g.moveTo(GUTTER, sy(0)); g.lineTo(width, sy(0)); g.stroke();
+    // Terrain (ETOPO 2022), per screen column: the deepest sea floor within the trench band (sea fill + line) and the
+    // highest ground within the crest band (land above sea level, a darker blue where the highest ground is under water).
+    if (terrain) {
+      const p = terrain.params;
+      const cols: { x: number; crest: number | null; trench: number | null }[] = [];
+      for (let px = GUTTER; px <= width; px++) {
+        const xa = xMin + ((px - GUTTER + scroll) / plotW) * (xMax - xMin), xb = xMin + ((px + 1 - GUTTER + scroll) / plotW) * (xMax - xMin);
+        let hi: number | null = null, lo: number | null = null;
+        for (let i = Math.max(0, Math.floor(xa / p.crestStepKm)); i <= Math.min(terrain.crest.length - 1, Math.floor(xb / p.crestStepKm)); i++) {
+          const v = terrain.crest[i]; if (v != null && (hi === null || v > hi)) hi = v;
+        }
+        for (let i = Math.max(0, Math.floor(xa / p.trenchStepKm)); i <= Math.min(terrain.trench.length - 1, Math.floor(xb / p.trenchStepKm)); i++) {
+          const v = terrain.trench[i]; if (v != null && (lo === null || v < lo)) lo = v;
+        }
+        cols.push({ x: px, crest: hi, trench: lo });
+      }
+      const band = (pick: (c: typeof cols[number]) => number | null, fill: string) => {
+        g.fillStyle = fill;
+        for (const c of cols) { const v = pick(c); if (v == null) continue; const y = ey(v); g.fillRect(c.x, Math.min(TOP, y), 1, Math.abs(y - TOP)); }
+      };
+      band(c => (c.trench != null && c.trench < 0 ? c.trench : null), SEA);
+      band(c => (c.crest != null && c.crest < 0 ? c.crest : null), SHOAL);
+      band(c => (c.crest != null && c.crest > 0 ? c.crest : null), LAND);
+      const line = (pick: (c: typeof cols[number]) => number | null, colour: string, onlyBelow: boolean) => {
+        g.strokeStyle = colour; g.lineWidth = 1.2; g.beginPath(); let on = false;
+        for (const c of cols) { const v = pick(c); if (v == null || (onlyBelow && v >= 0)) { on = false; continue; } const y = ey(v); if (on) g.lineTo(c.x + 0.5, y); else { g.moveTo(c.x + 0.5, y); on = true; } }
+        g.stroke();
+      };
+      line(c => c.trench, TRENCH, true);
+      line(c => (c.crest != null && c.crest > 0 ? c.crest : null), LAND_EDGE, false);
+      g.fillStyle = MUTED; g.font = '600 10px system-ui, sans-serif'; g.textAlign = 'left'; g.textBaseline = 'middle';
+      g.fillText(k.relief_label.replace('{n}', nf.format(relief)), GUTTER + 6, 30);
+    }
+    // Sea level (depth 0).
+    g.strokeStyle = 'rgba(255, 170, 110, .55)'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(GUTTER, sy(0)); g.lineTo(width, sy(0)); g.stroke();
 
     // Earthquakes, smallest first so the largest sit on top; a surface-coloured ring separates overlapping dots.
     for (const q of drawn) {
@@ -535,7 +620,7 @@ function Plot({ d, quakes, volcanoes, period, fresh, selected, selectedV, onSele
     g.globalAlpha = 1;
     // Volcanoes: catalogued first, reported ones on top.
     const tri = (v: RibbonVolcano, ring = false) => {
-      const x = sx(v.x), h = triH(v), base = TOP - 2, w = h * 0.9;
+      const x = sx(v.x), h = triH(v), base = volcanoBase(v), w = h * 0.9;
       g.beginPath(); g.moveTo(x, base - h); g.lineTo(x + w / 2, base); g.lineTo(x - w / 2, base); g.closePath();
       if (ring) { g.lineWidth = 2; g.strokeStyle = '#FFFFFF'; g.stroke(); return; }
       g.fillStyle = VOLCANO_COLOURS[v.status]; g.fill(); g.lineWidth = 1; g.strokeStyle = BG; g.stroke();
@@ -569,7 +654,7 @@ function Plot({ d, quakes, volcanoes, period, fresh, selected, selectedV, onSele
       if (x < GUTTER + 12 || x > width - 12) continue;
       g.fillText(`${nf.format(v)} ${dist.unit}`, x, H - 8);
     }
-  }, [width, d, drawn, quakes, volcanoes, sx, sy, zoom, depthMax, unit, hover, selected, selectedV, pulse, fresh, period, now, k, nf, dist, xMin, xMax, plotW]);
+  }, [width, d, drawn, quakes, volcanoes, terrain, relief, ey, volcanoBase, scroll, sx, sy, zoom, depthMax, unit, hover, selected, selectedV, pulse, fresh, period, now, k, nf, dist, xMin, xMax, plotW]);
 
   const nearest = (clientX: number, clientY: number) => {
     const c = canvas.current;
@@ -582,7 +667,7 @@ function Plot({ d, quakes, volcanoes, period, fresh, selected, selectedV, onSele
       if (dd < bd) { bd = dd; best = q; }
     }
     for (const v of volcanoes) {
-      const dd = Math.hypot(sx(v.x) - px, TOP - 2 - triH(v) / 2 - py) - triH(v) / 2;
+      const dd = Math.hypot(sx(v.x) - px, volcanoBase(v) - triH(v) / 2 - py) - triH(v) / 2;
       if (dd < bd) { bd = dd; bestV = v; best = null; }
     }
     return bestV ? { v: bestV, px, py } : best ? { q: best, px, py } : null;

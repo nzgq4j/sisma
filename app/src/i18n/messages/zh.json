@@ -931,7 +931,7 @@
     "note_3": "USGS 的深度根据地震台网的不同，可能从大地水准面、平均海平面或记录台站的平均高度起算。深度是定位中最不确定的部分，有些深度是固定值（33 公里是常用的默认值）。",
     "note_4": "数据来自 USGS 所选时段内全部地震的数据源。各地的覆盖程度并不相同：在地震台网密集的地方（如美国西部和阿拉斯加），小地震的记录远比海上或偏远地区完整。",
     "note_5": "震级不能说明某地震动有多强或造成了什么损失，地震的聚集也不能预测更大的地震或火山喷发。",
-    "source": "地震：USGS Earthquake Hazards Program。路线与火山：Smithsonian Institution, Global Volcanism Program, Volcanoes of the World（访问于 2026 年 11 月 26 日）。火山状态：Smithsonian / USGS Weekly Volcanic Activity Report。",
+    "source": "地震：USGS Earthquake Hazards Program。路线与火山：Smithsonian Institution, Global Volcanism Program, Volcanoes of the World（访问于 2026 年 11 月 26 日）。火山状态：Smithsonian / USGS Weekly Volcanic Activity Report。地形：NOAA NCEI ETOPO 2022 Global Relief Model。",
     "regions": {
       "southern_andes": "安第斯南部",
       "central_andes": "安第斯中部",
@@ -989,7 +989,18 @@
     "v_evidence": "活动证据",
     "v_gvp": "史密森学会火山页面",
     "year_bce": "公元前 {n} 年",
-    "note_6": "火山数据来自史密森学会的 Volcanoes of the World 目录，绘制在地表线上方；地形高度将在后续步骤加入。颜色表示 Smithsonian / USGS 每周火山活动报告中的类别。该报告只汇总部分活动，并非完整列表，因此白色三角形并不表示火山平静、休眠或安全。"
+    "note_6": "火山数据来自史密森学会的 Volcanoes of the World 目录，绘制在地表线上方；地形高度将在后续步骤加入。颜色表示 Smithsonian / USGS 每周火山活动报告中的类别。该报告只汇总部分活动，并非完整列表，因此白色三角形并不表示火山平静、休眠或安全。",
+    "layer_terrain": "地形",
+    "relief": "起伏",
+    "relief_scientific": "真实比例",
+    "relief_enhanced": "夸大 ×{n}",
+    "relief_label": "高度 ×{n}",
+    "key_land": "路线 {n} 以内的最高地面",
+    "key_sea": "{n} 以内最深的海底",
+    "key_relief_1": "高度和深度使用相同比例。",
+    "key_relief_n": "高度夸大 ×{n}；地震深度不夸大。",
+    "t_unavailable": "无法加载地形。",
+    "note_7": "地形来自 NOAA 的 ETOPO 2022 地形模型：网格约 1.85 公里，高度相对于 EGM2008 大地水准面（接近平均海平面）。棕色是路线 25 公里以内的最高地面；蓝色是 400 公里以内最深的海底，海沟就显示在这里。这种大小的网格会削平山顶，因此山看起来比实际低：富士山最高的网格为 3,378 米，山顶为 3,776 米。夸大起伏只拉伸高度；地震深度保持自己的比例，从不按上方地形调整。"
   },
   "tsu": {
     "lv_major_warning": "大海啸警报",

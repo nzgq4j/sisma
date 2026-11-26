@@ -931,7 +931,7 @@
     "note_3": "USGS depths are measured from the geoid, from mean sea level or from the average height of the recording stations, depending on the seismic network. Depth is the least certain part of a location, and some depths are fixed values (33 km is a common default).",
     "note_4": "The data comes from the USGS feed of all earthquakes for the chosen period. Coverage isn’t the same everywhere: small earthquakes are recorded far more completely where seismic networks are dense, as in the western US and Alaska, than at sea or in remote areas.",
     "note_5": "Magnitude doesn’t tell you how strongly a place shook or what damage was done, and clusters of earthquakes don’t predict larger earthquakes or eruptions.",
-    "source": "Earthquakes: USGS Earthquake Hazards Program. Route and volcanoes: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (accessed 26 November 2026). Volcano status: Smithsonian / USGS Weekly Volcanic Activity Report.",
+    "source": "Earthquakes: USGS Earthquake Hazards Program. Route and volcanoes: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (accessed 26 November 2026). Volcano status: Smithsonian / USGS Weekly Volcanic Activity Report. Terrain: NOAA NCEI ETOPO 2022 Global Relief Model.",
     "regions": {
       "southern_andes": "Southern Andes",
       "central_andes": "Central Andes",
@@ -989,7 +989,18 @@
     "v_evidence": "Evidence of activity",
     "v_gvp": "Smithsonian volcano page",
     "year_bce": "{n} BCE",
-    "note_6": "Volcanoes come from the Smithsonian’s Volcanoes of the World catalogue and are drawn above the surface line; terrain heights come in a later step. Their colour shows the category of this week’s Smithsonian / USGS Weekly Volcanic Activity Report. That report summarises selected activity and isn’t a complete list, so a white triangle doesn’t mean a volcano is quiet, dormant or safe."
+    "note_6": "Volcanoes come from the Smithsonian’s Volcanoes of the World catalogue and are drawn above the surface line; terrain heights come in a later step. Their colour shows the category of this week’s Smithsonian / USGS Weekly Volcanic Activity Report. That report summarises selected activity and isn’t a complete list, so a white triangle doesn’t mean a volcano is quiet, dormant or safe.",
+    "layer_terrain": "Terrain",
+    "relief": "Relief",
+    "relief_scientific": "True scale",
+    "relief_enhanced": "Exaggerated ×{n}",
+    "relief_label": "Heights ×{n}",
+    "key_land": "Highest ground within {n} of the route",
+    "key_sea": "Deepest sea floor within {n}",
+    "key_relief_1": "Heights and depths use the same scale.",
+    "key_relief_n": "Heights are exaggerated ×{n}; earthquake depths are not.",
+    "t_unavailable": "Terrain couldn’t be loaded.",
+    "note_7": "Terrain comes from NOAA’s ETOPO 2022 relief model: cells about 1.85 km across, heights above the EGM2008 geoid (close to mean sea level). Brown is the highest ground within 25 km of the route; blue is the deepest sea floor within 400 km, which is where the ocean trenches show. Cells this size smooth summits, so mountains look lower than they are: Mount Fuji’s highest cell is 3,378 m, its summit 3,776 m. Exaggerated relief stretches heights only; earthquake depths keep their own scale and are never adjusted for the ground above them."
   },
   "tsu": {
     "lv_major_warning": "Major tsunami warning",

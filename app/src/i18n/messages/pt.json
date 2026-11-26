@@ -931,7 +931,7 @@
     "note_3": "As profundidades do USGS são medidas a partir do geoide, do nível médio do mar ou da altitude média das estações que registram o sismo, conforme a rede sismológica. A profundidade é a parte menos precisa de uma localização, e algumas são valores fixos (33 km é um valor padrão comum).",
     "note_4": "Os dados vêm do feed do USGS com todos os sismos do período escolhido. A cobertura não é igual em todo lugar: sismos pequenos são registrados de forma muito mais completa onde as redes sismológicas são densas, como no oeste dos EUA e no Alasca, do que no mar ou em áreas remotas.",
     "note_5": "A magnitude não diz com que força um lugar tremeu nem quais danos houve, e agrupamentos de sismos não preveem sismos maiores nem erupções.",
-    "source": "Terremotos: USGS Earthquake Hazards Program. Rota e vulcões: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (consultado em 26 de novembro de 2026). Status dos vulcões: Smithsonian / USGS Weekly Volcanic Activity Report.",
+    "source": "Terremotos: USGS Earthquake Hazards Program. Rota e vulcões: Smithsonian Institution, Global Volcanism Program, Volcanoes of the World (consultado em 26 de novembro de 2026). Status dos vulcões: Smithsonian / USGS Weekly Volcanic Activity Report. Relevo: NOAA NCEI ETOPO 2022 Global Relief Model.",
     "regions": {
       "southern_andes": "Andes do sul",
       "central_andes": "Andes centrais",
@@ -989,7 +989,18 @@
     "v_evidence": "Evidência de atividade",
     "v_gvp": "Página do vulcão no Smithsonian",
     "year_bce": "{n} a.C.",
-    "note_6": "Os vulcões vêm do catálogo Volcanoes of the World da Smithsonian Institution e são desenhados acima da linha da superfície; as altitudes do terreno virão numa etapa posterior. A cor mostra a categoria do relatório semanal de atividade vulcânica Smithsonian / USGS. Esse relatório resume uma seleção da atividade e não é uma lista completa, então um triângulo branco não significa que um vulcão esteja calmo, adormecido ou seguro."
+    "note_6": "Os vulcões vêm do catálogo Volcanoes of the World da Smithsonian Institution e são desenhados acima da linha da superfície; as altitudes do terreno virão numa etapa posterior. A cor mostra a categoria do relatório semanal de atividade vulcânica Smithsonian / USGS. Esse relatório resume uma seleção da atividade e não é uma lista completa, então um triângulo branco não significa que um vulcão esteja calmo, adormecido ou seguro.",
+    "layer_terrain": "Relevo",
+    "relief": "Relevo",
+    "relief_scientific": "Escala real",
+    "relief_enhanced": "Exagerado ×{n}",
+    "relief_label": "Altitudes ×{n}",
+    "key_land": "Terreno mais alto a até {n} da rota",
+    "key_sea": "Fundo do mar mais profundo a até {n}",
+    "key_relief_1": "Altitudes e profundidades usam a mesma escala.",
+    "key_relief_n": "As altitudes estão exageradas ×{n}; as profundidades dos terremotos não.",
+    "t_unavailable": "Não foi possível carregar o relevo.",
+    "note_7": "O relevo vem do modelo ETOPO 2022 da NOAA: células de cerca de 1,85 km, altitudes acima do geoide EGM2008 (próximo ao nível médio do mar). O marrom é o terreno mais alto a até 25 km da rota; o azul, o fundo do mar mais profundo a até 400 km, onde aparecem as fossas oceânicas. Células desse tamanho suavizam os cumes, então as montanhas parecem mais baixas do que são: a célula mais alta do monte Fuji tem 3.378 m, e o cume, 3.776 m. O relevo exagerado estica só as altitudes; as profundidades dos terremotos mantêm a própria escala e nunca são ajustadas ao terreno acima delas."
   },
   "tsu": {
     "lv_major_warning": "Alerta máximo de tsunami",
