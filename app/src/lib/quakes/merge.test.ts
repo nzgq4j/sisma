@@ -11,6 +11,16 @@ describe('mergeQuakes', () => {
     expect(out[0].source).toBe('jma');
     expect(out[0].alsoIn).toContain('usgs');
   });
+  it('lists each other agency once and never the winning one (USGS reporting one event under two ids)', () => {
+    const out = mergeQuakes([[q({ id: 'usgs:us1', region: 'Arabian Sea', lat: 9.75, lon: 57.84 }), q({ id: 'usgs:us2', time: 30_000, region: 'Arabian Sea', lat: 9.76, lon: 57.85 })],
+      [q({ id: 'emsc:1', source: 'emsc', time: 10_000, region: 'Arabian Sea', lat: 9.7, lon: 57.8 })]]);
+    expect(out).toHaveLength(1);
+    expect(out[0].source).toBe('usgs');
+    expect(out[0].alsoIn).toEqual(['emsc']);
+    const jp = mergeQuakes([[q({ id: 'usgs:1' }), q({ id: 'emsc:1', source: 'emsc', time: 5_000 })], [q({ id: 'jma:1', source: 'jma', time: 20_000, lat: 35.2 })]]);
+    expect(jp[0].source).toBe('jma');
+    expect([...(jp[0].alsoIn ?? [])].sort()).toEqual(['emsc', 'usgs']);
+  });
   it('keeps distinct events apart', () => {
     expect(mergeQuakes([[q({ id: 'a' }), q({ id: 'b', time: 600_000 })]])).toHaveLength(2);
   });
