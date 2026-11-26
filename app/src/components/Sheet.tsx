@@ -1,8 +1,8 @@
 'use client';
 // Bottom sheet for every selector and detail pop-up. Behaviour matches the polar lights app (aurora-monitor
 // BottomSheet): closes on a tap outside, a swipe down (from anywhere on it while its content is scrolled to the
-// top), a double tap on it away from its controls, Escape, or Back (browser or Android); Escape and Back close only
-// the top sheet. The page behind doesn't scroll while it's open.
+// top), a double tap on it away from its controls, Escape, or the Android back button (those two close only the top
+// sheet: lib/sheet-history.ts). The page behind doesn't scroll while it's open.
 // Rendered at the end of <body> so a clipped or positioned parent (map stage) can't hide it.
 import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';

@@ -20,7 +20,8 @@ Rename app/src/app/app/science/-slug-/ to app/src/app/app/science/[slug]/ (the e
 - Mobile first: 360-412 px widths, 44 px touch targets, env(safe-area-inset-*) padding.
 - sisma is not an official warning service; keep the disclaimer on Me and the site footer.
 - Selectors and pop-ups use components/Sheet.tsx (as in the polar lights app: swipe down, double tap away from
-  controls, tap outside or Escape to close; Escape and Back close only the top sheet: lib/sheet-history.ts). Lists of
+  controls, tap outside or Escape to close; Escape and the Android back button close only the top sheet:
+  lib/sheet-history.ts, which deliberately adds no browser history entries). Lists of
   choices use SheetOptions; no native <select> in the UI.
 - Icons are Material Symbols Rounded, loaded with only the icons the app uses (src/app/icon-names.ts). After using a
   new icon, run `UPDATE_ICONS=1 npx vitest run icon-names` (the icon-names test fails until the list includes it).

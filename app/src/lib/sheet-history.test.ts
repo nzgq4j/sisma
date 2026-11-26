@@ -1,23 +1,22 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-// A minimal browser: one window for key and popstate events, and a session history whose back() completes later,
-// as in browsers.
-class FakeHistory {
-  entries: unknown[] = [{ router: 'feed' }];
-  i = 0;
-  constructor(private win: EventTarget) {}
-  get state() { return this.entries[this.i]; }
-  get length() { return this.entries.length; }
-  pushState(s: unknown) { this.entries = [...this.entries.slice(0, this.i + 1), s]; this.i++; }
-  back() { setTimeout(() => { if (this.i === 0) return; this.i--; this.win.dispatchEvent(Object.assign(new Event('popstate'), { state: this.state })); }, 1); }
-}
-
-let win: EventTarget, hist: FakeHistory;
-const tick = () => new Promise(r => setTimeout(r, 5));
+// A minimal browser: one window for key events, a history that records what is done to it, and optionally the
+// Android app's native App plugin.
+let win: EventTarget;
+let hist: { length: number; pushes: number; backs: number; pushState: () => void; back: () => void };
+let backButton: ((d: { canGoBack: boolean }) => void) | null;
+let exits: number;
 const key = (k: string) => { const e = new Event('keydown', { cancelable: true }); Object.assign(e, { key: k }); win.dispatchEvent(e); };
-async function load() { vi.resetModules(); return import('./sheet-history'); }
-
-/** A sheet as Sheet.tsx uses it: registered while open; closing (from the stack or its own controls) releases it. */
+async function load(native = false) {
+  vi.resetModules();
+  if (native) {
+    (win as unknown as { Capacitor: unknown }).Capacitor = {
+      isNativePlatform: () => true,
+      Plugins: { App: { addListener: (_: string, cb: typeof backButton) => { backButton = cb; }, exitApp: async () => { exits++; } } },
+    };
+  }
+  return import('./sheet-history');
+}
 function sheet(push: (close: () => void) => () => void) {
   const s = { open: true, release: () => {} };
   const close = () => { if (!s.open) return; s.open = false; s.release(); };
@@ -26,8 +25,8 @@ function sheet(push: (close: () => void) => () => void) {
 }
 
 beforeEach(() => {
-  win = new EventTarget();
-  hist = new FakeHistory(win);
+  win = new EventTarget(); backButton = null; exits = 0;
+  hist = { length: 1, pushes: 0, backs: 0, pushState() { this.pushes++; }, back() { this.backs++; } };
   vi.stubGlobal('window', win);
   vi.stubGlobal('history', hist);
 });
@@ -35,81 +34,43 @@ afterEach(() => vi.unstubAllGlobals());
 
 describe('sheet stack', () => {
   it('Escape closes only the top sheet', async () => {
-    const { pushSheet } = await load();
-    const detail = sheet(pushSheet); await tick();
-    const share = sheet(pushSheet); await tick();
-    key('Escape'); await tick();
+    const { pushSheet, openSheets } = await load();
+    const detail = sheet(pushSheet);
+    const share = sheet(pushSheet);
+    key('Escape');
     expect(share.open).toBe(false);
     expect(detail.open).toBe(true);
-    key('Escape'); await tick();
+    key('Escape');
     expect(detail.open).toBe(false);
-    expect(hist.i).toBe(0); // both history entries taken back off
+    expect(openSheets()).toBe(0);
   });
 
-  it('Back closes the top sheet and keeps the page', async () => {
+  it('never touches the browser history (it fought with the page lock and scroll)', async () => {
     const { pushSheet } = await load();
-    const detail = sheet(pushSheet); await tick();
-    const share = sheet(pushSheet); await tick();
-    expect(hist.length).toBe(3);
-    hist.back(); await tick();
-    expect(share.open).toBe(false);
-    expect(detail.open).toBe(true);
-    hist.back(); await tick();
-    expect(detail.open).toBe(false);
-    expect(hist.i).toBe(0);
-    expect(hist.state).toEqual({ router: 'feed' });
+    const a = sheet(pushSheet); const b = sheet(pushSheet);
+    b.close(); key('Escape');
+    expect(a.open).toBe(false);
+    expect(hist.pushes).toBe(0);
+    expect(hist.backs).toBe(0);
   });
 
-  it('keeps the router state on its entries', async () => {
-    const { pushSheet } = await load();
-    sheet(pushSheet); await tick();
-    expect(hist.state).toMatchObject({ router: 'feed' });
+  it('Android back button: closes the top sheet, then goes back, then closes the app', async () => {
+    const { pushSheet } = await load(true);
+    const detail = sheet(pushSheet); const share = sheet(pushSheet);
+    expect(backButton).not.toBeNull();
+    backButton!({ canGoBack: true });
+    expect(share.open).toBe(false); expect(detail.open).toBe(true); expect(hist.backs).toBe(0);
+    backButton!({ canGoBack: true });
+    expect(detail.open).toBe(false); expect(hist.backs).toBe(0);
+    backButton!({ canGoBack: true });
+    expect(hist.backs).toBe(1);
+    backButton!({ canGoBack: false });
+    expect(exits).toBe(1);
   });
 
-  it('closing with its own controls removes its entry, without closing anything else', async () => {
-    const { pushSheet } = await load();
-    const detail = sheet(pushSheet); await tick();
-    const share = sheet(pushSheet); await tick();
-    share.close(); await tick();
-    expect(detail.open).toBe(true);
-    expect(hist.i).toBe(1);
-    hist.back(); await tick();
-    expect(detail.open).toBe(false);
-    expect(hist.i).toBe(0);
-  });
-
-  it('skips the entry of a sheet that closed after a navigation from inside it', async () => {
-    const { pushSheet } = await load();
-    const detail = sheet(pushSheet); await tick();
-    hist.pushState({ router: 'map' });   // "Show region" navigates…
-    detail.close(); await tick();         // …and the feed (with its sheet) goes away
-    expect(hist.i).toBe(2);
-    hist.back(); await tick(); await tick();
-    expect(hist.state).toEqual({ router: 'feed' }); // one Back from the map reaches the feed itself
-  });
-
-  it('turns the browser’s scroll restoration off while sheets are open, and back on after the last one closes', async () => {
-    const { pushSheet } = await load();
-    const h = hist as FakeHistory & { scrollRestoration?: string };
-    h.scrollRestoration = 'auto';
-    const detail = sheet(pushSheet); await tick();
-    expect(h.scrollRestoration).toBe('manual');
-    const share = sheet(pushSheet); await tick();
-    share.close(); await tick();
-    expect(h.scrollRestoration).toBe('manual'); // the detail is still open
-    detail.close();
-    expect(h.scrollRestoration).toBe('manual'); // until our step back has happened
-    await tick();
-    expect(h.scrollRestoration).toBe('auto');
-    sheet(pushSheet); await tick();
-    hist.back(); await tick(); // closed with Back
-    expect(h.scrollRestoration).toBe('auto');
-  });
-
-  it('a sheet that opens and closes at once leaves no entry', async () => {
-    const { pushSheet } = await load();
-    const release = pushSheet(() => {});
-    release(); await tick();
-    expect(hist.length).toBe(1);
+  it('in the browser the back button is left alone', async () => {
+    const { pushSheet } = await load(false);
+    sheet(pushSheet);
+    expect(backButton).toBeNull();
   });
 });
