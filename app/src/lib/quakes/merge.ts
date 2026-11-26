@@ -24,7 +24,9 @@ export function mergeQuakes(lists: Quake[][]): Quake[] {
     if (!dup) { out.push({ ...q, alsoIn: [], otherIds: [] }); continue; }
     const winner = rank(q) < rank(dup) ? q : dup, loser = winner === q ? dup : q;
     const merged: Quake = { ...winner, felt: winner.felt ?? loser.felt, cdi: winner.cdi ?? loser.cdi, tsunami: winner.tsunami || loser.tsunami,
-      alsoIn: Array.from(new Set([...(dup.alsoIn ?? []), loser.source])),
+      // Other agencies only: a second report from the winner's own agency (USGS sometimes lists one event under two
+      // ids) doesn't add it again (the detail showed "USGS · EMSC · USGS").
+      alsoIn: Array.from(new Set([...(dup.alsoIn ?? []), dup.source, loser.source])).filter(s => s !== winner.source),
       otherIds: Array.from(new Set([...(dup.otherIds ?? []), loser.id, ...(loser.otherIds ?? [])])).filter(i => i !== winner.id) };
     out[out.indexOf(dup)] = merged;
   }
