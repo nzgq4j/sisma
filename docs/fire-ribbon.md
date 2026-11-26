@@ -31,7 +31,8 @@ This is step 1 of the brief: the reference route, the coordinate transform and a
 Checked on 26 November 2026 and not reachable automatically (so not used): the Smithsonian's *Pacific Ring of Fire*
 and *Current Eruptions* pages on volcano.si.edu (both answer automated requests with a verification page), and USGS
 Slab2 on ScienceBase (a Cloudflare challenge). The region list below is therefore built from the catalogue's own
-Region and Subregion fields, not from the Ring of Fire page; it should be checked against that page by hand.
+Region and Subregion fields, not from the Ring of Fire page. Decision (26 November 2026): this catalogue-based list is
+the definition used; it is not checked against the Ring of Fire page.
 
 ## Regions and the route
 
@@ -149,7 +150,7 @@ inside; widening the far side to 900 km adds only 5. The 18 outside belong to ar
 ## Known limits
 
 - The region list comes from the catalogue's subregions, not from the Smithsonian's Ring of Fire page (not reachable
-  automatically).
+  automatically); by decision, it is not checked against that page.
 - New Zealand's South Island is mostly beyond the route's end allowance (the route ends at the Taupo arc): Kaikoura is
   inside, Christchurch is not.
 - Stretches between arcs (for example California and the Basin and Range between Mexico and the Cascades, or Taiwan
