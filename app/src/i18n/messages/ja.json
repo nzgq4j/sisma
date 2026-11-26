@@ -177,7 +177,7 @@
     "price_h": "無料で使えます。もっと欲しいときは sisma+。",
     "price_p": "sisma+ を{n}日間無料でお試しください。",
     "lang_h": "あなたの言語で",
-    "footer": "データ：USGS、EMSC、GeoNet、JMA。揺れの報告：sisma のユーザー、USGS「Did You Feel It?」、EMSC（CC BY 4.0）。sisma.io は公式の警報サービスではありません。必ず地域の当局の指示に従ってください。",
+    "footer": "データ：USGS、EMSC、GeoNet、JMA。揺れの報告：sisma のユーザー、USGS「Did You Feel It?」、EMSC（CC BY 4.0）。地名：GeoNames（CC BY 4.0）。sisma.io は公式の警報サービスではありません。必ず地域の当局の指示に従ってください。",
     "privacy": "プライバシーポリシー",
     "privacy_updated": "最終更新日：{date}",
     "privacy_english": "このポリシーは英語で公開しています。",

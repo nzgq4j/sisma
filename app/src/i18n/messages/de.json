@@ -177,7 +177,7 @@
     "price_h": "Kostenlos nutzbar. sisma+, wenn du mehr willst.",
     "price_p": "Teste sisma+ {n} Tage kostenlos.",
     "lang_h": "Spricht deine Sprache",
-    "footer": "Daten: USGS, EMSC, GeoNet, JMA. Spürmeldungen: sisma-Nutzer, „Did You Feel It?“ des USGS, EMSC (CC BY 4.0). sisma.io ist kein offizieller Warndienst – folge immer den Anweisungen der örtlichen Behörden.",
+    "footer": "Daten: USGS, EMSC, GeoNet, JMA. Spürmeldungen: sisma-Nutzer, „Did You Feel It?“ des USGS, EMSC (CC BY 4.0). Ortsnamen: GeoNames (CC BY 4.0). sisma.io ist kein offizieller Warndienst – folge immer den Anweisungen der örtlichen Behörden.",
     "privacy": "Datenschutzerklärung",
     "privacy_updated": "Zuletzt aktualisiert: {date}",
     "privacy_english": "Diese Erklärung wird auf Englisch veröffentlicht.",
