@@ -271,3 +271,9 @@ GRID_RESULT
   between the Ryukyus and Luzon) are inside the corridor and shown on hatched joins.
 - Catalogue completeness varies by region and time: small earthquakes are far more completely recorded under dense
   networks (western US, Alaska) than at sea.
+
+## Backlog
+
+- **Share the ribbon**: a visually striking share image of the ribbon (or of the current 3D or profile window), with
+  alt text describing what it shows and ready-to-post text, in the app's share style. Requested 26 November 2026; not
+  started.
