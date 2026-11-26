@@ -55,7 +55,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <p>Cada linha mostra a magnitude em um selo colorido, o local com a bandeira do país onde fica ou do qual está perto, há quanto tempo aconteceu, a que distância fica de você e a profundidade. Continue rolando e mais terremotos são adicionados ao chegar ao fim da lista.</p>
           <p>No computador, a lista fica na página <Ui>Visão geral</Ui>, a primeira do menu à esquerda, com um mapa ao lado. Escolha um terremoto na lista ou no mapa e o mapa se aproxima dele, com os nomes das cidades próximas. Ele fica ali quando você fecha o terremoto; <Ui>Redefinir visualização</Ui> mostra o mundo inteiro de novo. Escolha um país ou região em <Ui>Local</Ui>, no canto superior direito, ou toque em um em <Ui>Principais regiões</Ui>, e o mapa se aproxima dos seus terremotos; <Ui>Todos os locais</Ui> mostra o mundo inteiro de novo.</p>
-          <h3>Cores de magnitude</h3>
+          <h2>Cores de magnitude</h2>
           <p>As mesmas cores são usadas na lista, no mapa e no globo:</p>
           <MagLegend words={{ label: 'Cores de magnitude', magnitude: 'Magnitude {range}', orMore: '{n} ou mais', below: 'abaixo de {n}', to: '{a} a {b}' }} />
           <Callout><p>Abra <Ui>Filtros</Ui> na parte de baixo da lista para escolher o período e refinar a lista. Veja <Link href="/help/map">Mapa e filtros</Link>.</p></Callout>
@@ -73,7 +73,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Toque em qualquer terremoto para abrir os detalhes:</p>
           <ul>
-            <li><strong>Magnitude</strong> e o tipo dela (por exemplo <em>mww</em>, a magnitude de momento usada para terremotos maiores).</li>
+            <li><strong>Magnitude</strong> e o tipo dela (por exemplo <em>Mww</em>, a magnitude de momento usada para terremotos maiores).</li>
             <li><strong>Profundidade</strong>: a que distância abaixo da superfície ele começou. Terremotos rasos costumam ser sentidos com mais força.</li>
             <li><strong>Data e hora</strong> no fuso horário do seu dispositivo.</li>
             <li><strong>Distância</strong> até você e o <strong>país</strong> (ou “perto de” um país, para eventos no mar).</li>
@@ -111,7 +111,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="Mapa-múndi com alfinetes de terremotos coloridos pela magnitude" caption="O mapa" />
       </div>
-      <h3 id="region-view">Visão da região</h3>
+      <h2 id="region-view">Visão da região</h2>
       <div className={s.pair}>
         <div>
           <p><Ui>Mostrar região</Ui> em um terremoto abre uma visão aproximada de cerca de 800 km em volta dele, com um marcador pulsante no evento e rótulos nos terremotos próximos. Toque em <Ui>Voltar ao mapa-múndi</Ui> para voltar.</p>
@@ -119,10 +119,10 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="region" alt="Visão da região: um mapa aproximado em volta de um terremoto com um marcador pulsante e um cartão de resumo" caption="Visão da região" />
       </div>
-      <h3>Filtros, camadas e legenda</h3>
+      <h2>Filtros, camadas e legenda</h2>
       <div className={s.pair}>
         <div>
-          <p>Puxe para cima o painel <Ui>Filtros</Ui> na parte de baixo da Lista, do Mapa ou do Globo. Toque uma vez para abri-lo até a metade, outra vez para abri-lo por completo, ou arraste-o.</p>
+          <p>Puxe para cima o painel <Ui>Filtros</Ui> na parte de baixo da Lista, do Mapa ou do Globo. Toque para abri-lo até a metade e outra vez para fechá-lo, ou arraste-o para cima para abri-lo por completo.</p>
           <ul>
             <li><strong>Período</strong>: 24 horas, 7 dias ou 30 dias. Um ano inteiro exige o sisma+.</li>
             <li><strong>Magnitude</strong> e <strong>Região</strong> (um país ou uma região oceânica) são filtros do sisma+, marcados com um cadeado no plano grátis.</li>
@@ -176,7 +176,7 @@ export const TOPICS: Topic[] = [
           <p>Nos terremotos registrados pelo USGS, a visualização da região também mostra as respostas à pesquisa <strong>Did You Feel It?</strong> do USGS, como quadrados coloridos de cerca de 10 km, uma cor por nível de intensidade.</p>
           <p>Nos terremotos registrados pelo EMSC, também inclui os relatos enviados pelos sites do EMSC e pelo app LastQuake, nos mesmos quadrados. Os dados do EMSC são compartilhados sob a licença CC BY 4.0.</p>
           <p>Para mostrar ou ocultar todos os mapas de tremores de uma vez, toque no botão <Ui>Camadas</Ui> ao lado de <Ui>Voltar ao mapa-múndi</Ui> e use a chave <Ui>Mapas de tremores</Ui>. Sua escolha fica salva neste dispositivo. Em <Ui>Detalhes</Ui> do terremoto, a legenda de tremores mostra o número total de relatos e a maior intensidade, com a escala de cores de intensidade. Os quadrados cinza são áreas do mapa automático onde nenhum relato indica uma intensidade.</p>
-          <h3>Mapas de percepção</h3>
+          <h2>Mapas de percepção</h2>
           <p>Quando muitas pessoas abrem o sisma logo depois de um terremoto, esse movimento mostra onde ele provavelmente foi sentido. O sisma transforma isso em um <strong>mapa de percepção</strong> anônimo na visão da região. As posições são embaralhadas no seu dispositivo em até 500 m, não levam nenhum identificador de conta ou de dispositivo e só aparecem para áreas de cerca de 10 km com pelo menos 3 pessoas. Você pode desativar isso em <Ui>Perfil</Ui> → <Ui>Ajudar a mapear onde os tremores são sentidos</Ui>.</p>
         </div>
         <Shot src="felt" alt="Tela O que você sentiu? com um controle deslizante de intensidade, uma observação opcional, a chave Mostrar no mapa e Enviar relato" caption="Relatando o que você sentiu" />
@@ -213,20 +213,20 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Vá em <Ui>Perfil</Ui> e toque em <Ui>Entrar</Ui>. Você pode usar o Google ou seu e-mail e uma senha.</p>
-          <h3>Criar uma conta com e-mail</h3>
+          <h2>Criar uma conta com e-mail</h2>
           <ol className={s.steps}>
             <li>Toque em <Ui>Criar uma conta</Ui> na parte de baixo da tela de entrada.</li>
             <li>Digite seu e-mail e uma senha: pelo menos 8 caracteres, com letras e números. Senhas encontradas em vazamentos de dados conhecidos são recusadas.</li>
             <li>Abra o e-mail de confirmação que enviamos e toque no link. Pronto, você já está conectado. Não chegou em um minuto? Confira a pasta de spam ou lixo eletrônico.</li>
           </ol>
-          <h3>Entrar com o Google</h3>
+          <h2>Entrar com o Google</h2>
           <p>Toque em <Ui>Continuar com o Google</Ui>. No app para Android, escolha sua conta do Google na lista que aparece. Se o seu e-mail do Google já tiver uma conta no sisma, o Google é adicionado a essa mesma conta.</p>
           <p>Ao criar uma conta, <Ui>Continuar com o Google</Ui> também aparece no topo: a conta é criada na hora, sem senha nem e-mail de confirmação.</p>
         </div>
         <Shot src="signin" alt="Tela de entrada: Continuar com o Google, e-mail e senha, Esqueceu a senha? e Criar uma conta" caption="Entrando" />
       </div>
 
-      <h3 id="password-reset">Esqueceu a senha? Redefina</h3>
+      <h2 id="password-reset">Esqueceu a senha? Redefina</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -240,7 +240,7 @@ export const TOPICS: Topic[] = [
         <Shot src="forgot" alt="Confira seu e-mail: enviamos um link para redefinir a senha" caption="Depois de tocar em Esqueceu a senha?" />
       </div>
 
-      <h3>Alterar a senha ou adicionar uma a uma conta do Google</h3>
+      <h2>Alterar a senha ou adicionar uma a uma conta do Google</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -252,7 +252,7 @@ export const TOPICS: Topic[] = [
         <Shot src="password" alt="Tela Definir nova senha com os campos de nova senha e confirmação" caption="Definindo uma nova senha" />
       </div>
 
-      <h3>Outras tarefas da conta</h3>
+      <h2>Outras tarefas da conta</h2>
       <div className={s.pair}>
         <div>
           <ul>
@@ -264,7 +264,7 @@ export const TOPICS: Topic[] = [
         <Shot src="me" alt="Seção Conta em Perfil: ajuda e suporte, nome de exibição, e-mail, senha e sair, com excluir conta em um cartão próprio com borda vermelha" caption="Conta, no fim de Perfil" />
       </div>
 
-      <h3 id="delete-account">Excluir sua conta</h3>
+      <h2 id="delete-account">Excluir sua conta</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -325,14 +325,14 @@ export const TOPICS: Topic[] = [
         <Shot src="paywall" alt={`Tela do sisma+ com os recursos, o preço anual e Começar teste grátis de ${TRIAL_DAYS} dias`} caption="Escolhendo um plano" />
       </div>
 
-      <h3>Assinar</h3>
+      <h2>Assinar</h2>
       <ul>
         <li><strong>No site</strong>: <Ui>Perfil</Ui> → <Ui>Começar teste grátis de {TRIAL_DAYS} dias</Ui> (ou <Ui>Assinar</Ui>) e depois pague na página de pagamento segura da Stripe. Se você criar uma conta antes, o pagamento abre quando você toca no link do e-mail de confirmação. Quando você volta, o sisma mostra <em>Ativando o sisma+…</em> por alguns segundos e depois <em>Boas-vindas ao sisma+</em>.</li>
         <li><strong>No app para Android</strong>: o mesmo botão abre a tela de pagamento do Google Play, onde você pode pagar com Google Pay, cartão ou outras formas de pagamento do Google Play.</li>
       </ul>
       <p>Você precisa estar conectado. Sua assinatura passa a valer em todo lugar onde você entrar nessa conta, na web e no app.</p>
 
-      <h3>Gerenciar ou mudar de plano</h3>
+      <h2>Gerenciar ou mudar de plano</h2>
       <div className={s.pair}>
         <div>
           <p>Vá em <Ui>Perfil</Ui> → <Ui>Gerenciar assinatura</Ui> para ver o status, o plano e a próxima data.</p>
@@ -345,7 +345,7 @@ export const TOPICS: Topic[] = [
         <Shot src="subscription" alt="Página da assinatura: status, plano, data de renovação e Gerenciar no Google Play" caption="Sua assinatura" />
       </div>
 
-      <h3 id="cancel">Cancelar o sisma+</h3>
+      <h2 id="cancel">Cancelar o sisma+</h2>
       <ol className={s.steps}>
         <li>Abra <Ui>Perfil</Ui> → <Ui>Gerenciar assinatura</Ui>.</li>
         <li>Toque em <Ui>Gerenciar cobrança</Ui> (site) ou <Ui>Gerenciar no Google Play</Ui> (app) e cancele por lá. No Google Play, você também pode ir em <em>Pagamentos e assinaturas → Assinaturas</em>.</li>
@@ -353,10 +353,10 @@ export const TOPICS: Topic[] = [
       <p>Você continua com o sisma+ até o fim do período já pago. O cartão em <Ui>Perfil</Ui> passa a mostrar <em>Termina em</em> e a data, e depois dessa data você volta ao plano grátis. Se você cancelar um teste grátis antes do fim, não há cobrança.</p>
       <Callout kind="note"><p>Desinstalar o app ou excluir sua conta do sisma <strong>não</strong> cancela uma assinatura do Google Play. Cancele no Google Play.</p></Callout>
 
-      <h3>Restaurar uma compra</h3>
+      <h2>Restaurar uma compra</h2>
       <p>Em um celular novo ou depois de reinstalar o app, entre na mesma conta do sisma. Se o sisma+ não aparecer, abra a tela do sisma+ e toque em <Ui>Restaurar compra</Ui>. Isso existe só no app para Android e encontra a assinatura do Google Play neste dispositivo.</p>
 
-      <h3>Reembolsos</h3>
+      <h2>Reembolsos</h2>
       <p>As compras no Google Play seguem as políticas de reembolso do Google Play, então peça o reembolso pelo Google Play. Para compras no site, escreva para <a href={`mailto:${MAIL}`}>{MAIL}</a>. Nossos <Link href="/terms">termos de serviço</Link> explicam os detalhes.</p>
       </>
     ),
@@ -378,7 +378,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="alerts" alt="Página de alertas com o botão de ativar e desativar, seus alertas (0 de 5), Adicionar um alerta e Enviar por" caption="A página de alertas" />
       </div>
-      <h3>Configurar um alerta</h3>
+      <h2>Configurar um alerta</h2>
       <ul>
         <li><strong>Nome</strong>: por exemplo <em>Perto de casa</em>.</li>
         <li><strong>Magnitude mínima</strong>: você recebe alertas para essa magnitude e para qualquer uma mais forte.</li>
@@ -389,7 +389,7 @@ export const TOPICS: Topic[] = [
       </ul>
       <p><strong>Monitorando</strong> também inclui <strong>Minha localização</strong> quando seu dispositivo compartilha a posição: veja <Link href="/help/locations">Locais salvos</Link>.</p>
       <p>Os alertas que você recebeu nos últimos 30 dias aparecem em <em>Histórico de alertas</em>.</p>
-      <h3>Alertas de tsunami</h3>
+      <h2>Alertas de tsunami</h2>
       <p>Os alertas de tsunami são grátis para quem está conectado. Em <Ui>Perfil</Ui>, ative <Ui>Alertas de tsunami</Ui> e toque em <Ui>Ativar notificações neste dispositivo</Ui>. Você recebe uma notificação quando um alerta, ameaça, vigilância ou aviso oficial de tsunami é emitido para um terremoto a até 1.000 km de um dos seus locais salvos. O horário de silêncio não se aplica, e cada nível é enviado uma única vez por terremoto. Minha localização também conta, como nos outros alertas.</p>
       <Callout kind="note"><p><strong>iPhone e iPad:</strong> as notificações da web só funcionam depois que você adiciona o sisma à Tela de Início (Compartilhar → Adicionar à Tela de Início) e o abre por lá. Na primeira vez que você abre o sisma no navegador de um iPhone ou iPad, uma janela mostra estas etapas; toque em <Ui>Agora não</Ui> para vê-la de novo em duas semanas ou em <Ui>Entendi</Ui> para ocultá-la.</p></Callout>
       </>

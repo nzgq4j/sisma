@@ -1,7 +1,7 @@
 // World regions for the region filter (Map, Globe, dashboard, Feed). An event takes the region of the country it is
 // in or nearest to within 800 km (the 1:110m outlines leave out many island arcs, e.g. the Kurils and the Banda Sea
-// islands); events further out at sea fall in an ocean region by position.
-import { countryAt } from './country';
+// islands); events further out at sea fall in an ocean region by position. The lookup itself is in
+// lib/world-region-of.ts (it needs the country outlines); /api/quakes sends each event's region with it.
 
 export const WORLD_REGIONS = [
   'north_america', 'central_america', 'south_america', 'europe', 'africa', 'middle_east', 'central_asia',
@@ -23,32 +23,9 @@ const GROUPS: Record<Exclude<WorldRegion, 'atlantic' | 'indian_ocean'>, string> 
   pacific: 'au nz pg sb vu nc fj',
   polar: 'aq tf',
 };
-const BY_CODE = new Map<string, WorldRegion>();
+/** World region of each country (ISO alpha-2, lowercase). */
+export const BY_CODE = new Map<string, WorldRegion>();
 for (const [r, codes] of Object.entries(GROUPS)) for (const c of codes.split(' ')) BY_CODE.set(c, r as WorldRegion);
-
-const REGION_NEAR_KM = 800;
-
-/** Open-ocean region by position (events more than 300 km from any country). */
-function oceanRegion(lat: number, lon: number): WorldRegion {
-  if (lat < -60 || lat > 66) return 'polar';
-  if (lon >= 20 && lon < 120 && lat < 25) return 'indian_ocean';
-  if (lon >= -70 && lon < 20) return 'atlantic';
-  if (lon >= -100 && lon < -70 && lat > 10) return 'atlantic'; // Caribbean side of the Americas
-  return 'pacific';
-}
-
-export function worldRegion(lat: number, lon: number): WorldRegion {
-  // Alaska's Aleutian arc (west of the outlines' mainland) counts as North America; Hawaii as the Pacific.
-  if (lat > 50 && lat < 60 && (lon < -160 || lon > 170)) return 'north_america';
-  if (lat > 15 && lat < 25 && lon > -162 && lon < -152) return 'pacific';
-  const c = countryAt(lat, lon, REGION_NEAR_KM);
-  if (c) {
-    if (c.code === 'ru') return lon < 60 ? 'europe' : 'east_asia'; // Russia: European part / Siberia and the Far East
-    const r = BY_CODE.get(c.code);
-    if (r) return r;
-  }
-  return oceanRegion(lat, lon);
-}
 
 /** Degrees of longitude across the shorter side of the map when it zooms to one event (region view, dashboard; ~800 km at the equator). */
 export const REGION_SPAN = 7.5;

@@ -160,6 +160,8 @@ function SignInSheet({ open, onClose, onCancel }: { open: boolean; onClose: () =
   const [err, setErr] = useState<string | null>(null);
   const [providers, setProviders] = useState<string[]>([]);
   useEffect(() => { if (open) void enabledProviders().then(setProviders); }, [open]);
+  // Every Sign in opens on signing in, even after a sign-up was started earlier.
+  useEffect(() => { if (open) void Promise.resolve().then(() => setMode('password')); }, [open]);
   // Closed from outside while waiting on an email (signed in from another tab): start afresh next time, as close() does.
   useEffect(() => { if (!open && (status === 'signup_sent' || status === 'reset_sent')) void Promise.resolve().then(() => { setStatus('idle'); setPassword(''); }); }, [open, status]);
   // Read on click (`location` doesn't exist while prerendering). A plan chosen before signing up travels in the

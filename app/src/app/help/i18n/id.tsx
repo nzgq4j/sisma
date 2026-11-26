@@ -55,7 +55,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <p>Setiap baris menampilkan magnitudo dalam lencana berwarna, tempatnya beserta bendera negara tempatnya berada atau yang terdekat, berapa lama yang lalu terjadi, seberapa jauh dari Anda, dan seberapa dalam. Terus gulir dan gempa lainnya ditambahkan saat Anda mencapai akhir daftar.</p>
           <p>Di komputer, daftar ada di halaman <Ui>Ringkasan</Ui>, item pertama di menu kiri, dengan peta di sampingnya. Pilih gempa di daftar atau di peta dan peta akan memperbesar ke gempa itu, dengan nama kota di sekitarnya. Peta tetap di sana saat Anda menutup gempa; <Ui>Atur ulang tampilan</Ui> menampilkan seluruh dunia lagi. Pilih negara atau wilayah di <Ui>Tempat</Ui> di kanan atas, atau ketuk salah satu di <Ui>Wilayah teratas</Ui>, dan peta memperbesar ke gempa-gempanya; <Ui>Semua tempat</Ui> menampilkan seluruh dunia lagi.</p>
-          <h3>Warna magnitudo</h3>
+          <h2>Warna magnitudo</h2>
           <p>Warna yang sama dipakai di daftar, di peta, dan di globe:</p>
           <MagLegend words={{ label: 'Warna magnitudo', magnitude: 'Magnitudo {range}', orMore: '{n} atau lebih', below: 'di bawah {n}', to: '{a} hingga {b}' }} />
           <Callout><p>Buka <Ui>Filter</Ui> di bagian bawah daftar untuk memilih rentang waktu dan mempersempit daftar. Lihat <Link href="/help/map">Peta dan filter</Link>.</p></Callout>
@@ -73,7 +73,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Ketuk gempa mana saja untuk membuka detailnya:</p>
           <ul>
-            <li><strong>Magnitudo</strong> dan jenisnya (misalnya <em>mww</em>, magnitudo momen yang dipakai untuk gempa yang lebih besar).</li>
+            <li><strong>Magnitudo</strong> dan jenisnya (misalnya <em>Mww</em>, magnitudo momen yang dipakai untuk gempa yang lebih besar).</li>
             <li><strong>Kedalaman</strong>: seberapa jauh di bawah permukaan gempa itu bermula. Gempa dangkal biasanya terasa lebih kuat.</li>
             <li><strong>Tanggal dan waktu</strong> menurut zona waktu perangkat Anda.</li>
             <li><strong>Jarak</strong> dari Anda, dan <strong>negara</strong> (atau “Dekat” suatu negara untuk kejadian di lepas pantai).</li>
@@ -111,7 +111,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="Peta dunia dengan pin gempa yang diwarnai menurut magnitudo" caption="Peta" />
       </div>
-      <h3 id="region-view">Tampilan wilayah</h3>
+      <h2 id="region-view">Tampilan wilayah</h2>
       <div className={s.pair}>
         <div>
           <p><Ui>Tampilkan wilayah</Ui> pada sebuah gempa membuka tampilan dekat selebar sekitar 800 km di sekitarnya, dengan penanda berdenyut pada kejadian tersebut dan label pada gempa di sekitarnya. Ketuk <Ui>Kembali ke peta dunia</Ui> untuk kembali.</p>
@@ -119,10 +119,10 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="region" alt="Tampilan wilayah: tampilan dekat di sekitar gempa dengan penanda berdenyut dan kartu ringkasan" caption="Tampilan wilayah" />
       </div>
-      <h3>Filter, lapisan, dan legenda</h3>
+      <h2>Filter, lapisan, dan legenda</h2>
       <div className={s.pair}>
         <div>
-          <p>Tarik ke atas panel <Ui>Filter</Ui> di bagian bawah Daftar, Peta, atau Globe. Ketuk sekali untuk membukanya setengah, sekali lagi untuk membukanya penuh, atau seret panelnya.</p>
+          <p>Tarik ke atas panel <Ui>Filter</Ui> di bagian bawah Daftar, Peta, atau Globe. Ketuk untuk membukanya setengah dan ketuk lagi untuk menutupnya, atau seret ke atas untuk membukanya penuh.</p>
           <ul>
             <li><strong>Rentang waktu</strong>: 24 jam, 7 hari, atau 30 hari. Satu tahun penuh memerlukan sisma+.</li>
             <li><strong>Magnitudo</strong> dan <strong>Wilayah</strong> (negara atau wilayah samudra) adalah filter sisma+, ditandai gembok pada paket gratis.</li>
@@ -176,7 +176,7 @@ export const TOPICS: Topic[] = [
           <p>Untuk gempa yang dicatat USGS, tampilan wilayah juga menunjukkan jawaban orang atas survei <strong>Did You Feel It?</strong> dari USGS, sebagai kotak berwarna sekitar 10 km, satu warna untuk tiap tingkat intensitas.</p>
           <p>Untuk gempa yang dicatat EMSC, laporan yang dikirim melalui situs EMSC dan aplikasi LastQuake juga dimasukkan ke kotak yang sama. Data EMSC dibagikan dengan lisensi CC BY 4.0.</p>
           <p>Untuk menampilkan atau menyembunyikan semua peta guncangan sekaligus, ketuk tombol <Ui>Lapisan</Ui> di samping <Ui>Kembali ke peta dunia</Ui> dan gunakan sakelar <Ui>Peta guncangan</Ui>. Pilihan Anda disimpan di perangkat ini. Di <Ui>Detail</Ui> gempa, legenda guncangan menunjukkan jumlah total laporan dan intensitas tertinggi, dengan skala warna intensitas. Kotak abu-abu adalah area dari peta guncangan otomatis yang tidak memiliki laporan intensitas.</p>
-          <h3>Peta guncangan</h3>
+          <h2>Peta guncangan</h2>
           <p>Saat banyak orang membuka sisma tepat setelah gempa, lonjakan itu menunjukkan di mana gempa kemungkinan besar terasa. sisma mengubahnya menjadi <strong>peta guncangan</strong> anonim di tampilan wilayah. Posisi dikaburkan di perangkat Anda hingga 500 m, tidak membawa pengenal akun atau perangkat, dan hanya ditampilkan untuk area sekitar 10 km dengan setidaknya 3 orang. Anda bisa menonaktifkannya di <Ui>Saya</Ui> → <Ui>Bantu memetakan di mana gempa terasa</Ui>.</p>
         </div>
         <Shot src="felt" alt="Lembar Apa yang Anda rasakan? dengan penggeser intensitas, catatan opsional, sakelar Tampilkan di peta, dan Kirim laporan" caption="Melaporkan apa yang Anda rasakan" />
@@ -213,20 +213,20 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Buka <Ui>Saya</Ui> lalu ketuk <Ui>Masuk</Ui>. Anda bisa memakai Google atau email dan kata sandi.</p>
-          <h3>Membuat akun dengan email</h3>
+          <h2>Membuat akun dengan email</h2>
           <ol className={s.steps}>
             <li>Ketuk <Ui>Buat akun</Ui> di bagian bawah lembar masuk.</li>
             <li>Masukkan email Anda dan kata sandi: minimal 8 karakter, berisi huruf dan angka. Kata sandi yang ditemukan dalam kebocoran data yang diketahui akan ditolak.</li>
             <li>Buka email konfirmasi yang kami kirim dan ketuk tautannya. Setelah itu Anda sudah masuk. Belum masuk dalam satu menit? Periksa folder spam atau sampah.</li>
           </ol>
-          <h3>Masuk dengan Google</h3>
+          <h2>Masuk dengan Google</h2>
           <p>Ketuk <Ui>Lanjutkan dengan Google</Ui>. Di aplikasi Android, pilih akun Google Anda dari daftar yang muncul. Jika email Google Anda sudah punya akun sisma, Google ditambahkan ke akun yang sama itu.</p>
           <p>Saat membuat akun, <Ui>Lanjutkan dengan Google</Ui> juga ada di paling atas: akun langsung dibuat, tanpa kata sandi atau email konfirmasi.</p>
         </div>
         <Shot src="signin" alt="Lembar masuk: Lanjutkan dengan Google, email dan kata sandi, Lupa kata sandi, dan Buat akun" caption="Masuk" />
       </div>
 
-      <h3 id="password-reset">Lupa kata sandi? Atur ulang</h3>
+      <h2 id="password-reset">Lupa kata sandi? Atur ulang</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -240,7 +240,7 @@ export const TOPICS: Topic[] = [
         <Shot src="forgot" alt="Periksa email Anda: kami mengirim tautan untuk mengatur ulang kata sandi" caption="Setelah mengetuk Lupa kata sandi?" />
       </div>
 
-      <h3>Mengubah kata sandi, atau menambahkannya ke akun Google</h3>
+      <h2>Mengubah kata sandi, atau menambahkannya ke akun Google</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -252,7 +252,7 @@ export const TOPICS: Topic[] = [
         <Shot src="password" alt="Lembar Atur kata sandi baru dengan kolom kata sandi baru dan konfirmasi" caption="Mengatur kata sandi baru" />
       </div>
 
-      <h3>Tugas akun lainnya</h3>
+      <h2>Tugas akun lainnya</h2>
       <div className={s.pair}>
         <div>
           <ul>
@@ -264,7 +264,7 @@ export const TOPICS: Topic[] = [
         <Shot src="me" alt="Bagian Akun di Saya: bantuan dan dukungan, nama tampilan, email, kata sandi, dan keluar, dengan hapus akun di kartu tersendiri berbingkai merah" caption="Akun, di bagian bawah Saya" />
       </div>
 
-      <h3 id="delete-account">Menghapus akun Anda</h3>
+      <h2 id="delete-account">Menghapus akun Anda</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -325,14 +325,14 @@ export const TOPICS: Topic[] = [
         <Shot src="paywall" alt={`Lembar sisma+ dengan fitur, harga tahunan, dan Mulai uji coba gratis ${TRIAL_DAYS} hari`} caption="Memilih paket" />
       </div>
 
-      <h3>Berlangganan</h3>
+      <h2>Berlangganan</h2>
       <ul>
         <li><strong>Di situs web</strong>: <Ui>Saya</Ui> → <Ui>Mulai uji coba gratis {TRIAL_DAYS} hari</Ui> (atau <Ui>Berlangganan</Ui>), lalu bayar di halaman pembayaran aman Stripe. Jika Anda membuat akun terlebih dahulu, halaman pembayaran terbuka saat Anda mengetuk tautan di email konfirmasi. Saat Anda kembali, sisma menampilkan <em>Mengaktifkan sisma+…</em> selama beberapa detik, lalu <em>Selamat datang di sisma+</em>.</li>
         <li><strong>Di aplikasi Android</strong>: tombol yang sama membuka lembar pembayaran Google Play, tempat Anda bisa membayar dengan Google Pay, kartu, atau metode pembayaran Google Play lainnya.</li>
       </ul>
       <p>Anda harus sudah masuk. Langganan Anda kemudian berlaku di mana pun Anda masuk ke akun tersebut, di web maupun di aplikasi.</p>
 
-      <h3>Mengelola atau mengganti paket</h3>
+      <h2>Mengelola atau mengganti paket</h2>
       <div className={s.pair}>
         <div>
           <p>Buka <Ui>Saya</Ui> → <Ui>Kelola langganan</Ui> untuk melihat status, paket, dan tanggal berikutnya.</p>
@@ -345,7 +345,7 @@ export const TOPICS: Topic[] = [
         <Shot src="subscription" alt="Halaman langganan: status, paket, tanggal perpanjangan, dan Kelola di Google Play" caption="Langganan Anda" />
       </div>
 
-      <h3 id="cancel">Membatalkan sisma+</h3>
+      <h2 id="cancel">Membatalkan sisma+</h2>
       <ol className={s.steps}>
         <li>Buka <Ui>Saya</Ui> → <Ui>Kelola langganan</Ui>.</li>
         <li>Ketuk <Ui>Kelola tagihan</Ui> (situs web) atau <Ui>Kelola di Google Play</Ui> (aplikasi), lalu batalkan di sana. Di Google Play Anda juga bisa membuka <em>Pembayaran &amp; langganan → Langganan</em>.</li>
@@ -353,10 +353,10 @@ export const TOPICS: Topic[] = [
       <p>Anda tetap memiliki sisma+ sampai akhir periode yang sudah Anda bayar. Kartu di <Ui>Saya</Ui> kemudian menampilkan <em>Berakhir pada</em> beserta tanggalnya, dan setelah tanggal itu Anda kembali ke paket gratis. Membatalkan uji coba gratis sebelum berakhir berarti Anda tidak dikenai biaya.</p>
       <Callout kind="note"><p>Mencopot pemasangan aplikasi atau menghapus akun sisma Anda <strong>tidak</strong> membatalkan langganan Google Play. Batalkan langganan di Google Play.</p></Callout>
 
-      <h3>Memulihkan pembelian</h3>
+      <h2>Memulihkan pembelian</h2>
       <p>Di ponsel baru atau setelah memasang ulang aplikasi, masuk ke akun sisma yang sama. Jika sisma+ tidak muncul, buka lembar sisma+ lalu ketuk <Ui>Pulihkan pembelian</Ui>. Fitur ini hanya ada di aplikasi Android, dan mencari langganan Google Play di perangkat ini.</p>
 
-      <h3>Pengembalian dana</h3>
+      <h2>Pengembalian dana</h2>
       <p>Pembelian di Google Play mengikuti kebijakan pengembalian dana Google Play, jadi ajukan pengembalian dana melalui Google Play. Untuk pembelian di situs web, kirim email ke <a href={`mailto:${MAIL}`}>{MAIL}</a>. <Link href="/terms">Ketentuan layanan</Link> kami menjelaskan rinciannya.</p>
       </>
     ),
@@ -378,7 +378,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="alerts" alt="Halaman peringatan dengan sakelar aktif/nonaktif, peringatan Anda (0 dari 5), Tambah peringatan, dan Kirim melalui" caption="Halaman peringatan" />
       </div>
-      <h3>Mengatur peringatan</h3>
+      <h2>Mengatur peringatan</h2>
       <ul>
         <li><strong>Nama</strong>: misalnya <em>Dekat rumah</em>.</li>
         <li><strong>Magnitudo minimum</strong>: Anda mendapat peringatan untuk magnitudo ini dan yang lebih kuat.</li>
@@ -389,7 +389,7 @@ export const TOPICS: Topic[] = [
       </ul>
       <p><strong>Memantau</strong> juga mencakup <strong>Lokasi saya</strong> saat perangkat Anda membagikan posisinya: lihat <Link href="/help/locations">Lokasi tersimpan</Link>.</p>
       <p>Peringatan yang Anda terima dalam 30 hari terakhir tercantum di <em>Riwayat peringatan</em>.</p>
-      <h3>Peringatan tsunami</h3>
+      <h2>Peringatan tsunami</h2>
       <p>Peringatan tsunami gratis untuk semua yang masuk. Di <Ui>Saya</Ui>, aktifkan <Ui>Peringatan tsunami</Ui> lalu ketuk <Ui>Aktifkan notifikasi di perangkat ini</Ui>. Anda akan menerima notifikasi saat peringatan, ancaman, pemantauan, atau imbauan tsunami resmi dikeluarkan untuk gempa dalam radius 1.000 km dari salah satu tempat tersimpan Anda. Jam tenang tidak berlaku, dan setiap tingkat hanya dikirim sekali per gempa. Lokasi saya juga dihitung, seperti pada peringatan lainnya.</p>
       <Callout kind="note"><p><strong>iPhone dan iPad:</strong> notifikasi web hanya berfungsi setelah Anda menambahkan sisma ke Layar Utama (Bagikan → Tambah ke Layar Utama) dan membukanya dari sana. Saat pertama kali membuka sisma di browser iPhone atau iPad, jendela pop-up menampilkan langkah-langkah ini; ketuk <Ui>Nanti saja</Ui> untuk melihatnya lagi dalam dua minggu atau <Ui>Mengerti</Ui> untuk menyembunyikannya.</p></Callout>
       </>

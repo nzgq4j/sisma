@@ -55,7 +55,7 @@ export const TOPICS: Topic[] = [
           </ul>
           <p>Chaque ligne indique la magnitude dans une pastille colorée, le lieu avec le drapeau du pays où il se trouve ou dont il est proche, il y a combien de temps le séisme s’est produit, à quelle distance de vous et à quelle profondeur. Continuez à faire défiler : d’autres séismes s’ajoutent quand vous arrivez en bas de la liste.</p>
           <p>Sur un ordinateur, le fil se trouve sur la page <Ui>{"Vue d'ensemble"}</Ui>, la première du menu de gauche, avec une carte à côté de la liste. Choisissez un séisme dans la liste ou sur la carte et la carte zoome dessus, avec le nom des villes proches. Elle reste là quand vous fermez le séisme ; <Ui>Réinitialiser la vue</Ui> affiche à nouveau le monde entier. Choisissez un pays ou une région dans <Ui>Lieu</Ui>, en haut à droite, ou touchez-en un dans <Ui>Principales régions</Ui>, et la carte zoome sur ses séismes ; <Ui>Tous les lieux</Ui> affiche à nouveau le monde entier.</p>
-          <h3>Couleurs des magnitudes</h3>
+          <h2>Couleurs des magnitudes</h2>
           <p>Les mêmes couleurs sont utilisées dans le fil, sur la carte et sur le globe :</p>
           <MagLegend words={{ label: 'Couleurs des magnitudes', magnitude: 'Magnitude {range}', orMore: '{n} ou plus', below: 'moins de {n}', to: '{a} à {b}' }} />
           <Callout><p>Ouvrez <Ui>Filtres</Ui> en bas du fil pour choisir la période et affiner la liste. Voir <Link href="/help/map">Carte et filtres</Link>.</p></Callout>
@@ -73,7 +73,7 @@ export const TOPICS: Topic[] = [
         <div>
           <p>Touchez un séisme pour ouvrir ses détails :</p>
           <ul>
-            <li><strong>Magnitude</strong> et son type (par exemple <em>mww</em>, la magnitude de moment utilisée pour les séismes plus importants).</li>
+            <li><strong>Magnitude</strong> et son type (par exemple <em>Mww</em>, la magnitude de moment utilisée pour les séismes plus importants).</li>
             <li><strong>Profondeur</strong> : la profondeur sous la surface à laquelle il a commencé. Les séismes superficiels sont généralement ressentis plus fortement.</li>
             <li><strong>Date et heure</strong> dans le fuseau horaire de votre appareil.</li>
             <li><strong>Distance</strong> par rapport à vous, et le <strong>pays</strong> (ou « Près de » un pays pour les événements en mer).</li>
@@ -111,7 +111,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="map" alt="Carte du monde avec des épingles de séismes colorées selon la magnitude" caption="La carte" />
       </div>
-      <h3 id="region-view">Vue régionale</h3>
+      <h2 id="region-view">Vue régionale</h2>
       <div className={s.pair}>
         <div>
           <p><Ui>Afficher la région</Ui> sur un séisme ouvre une vue rapprochée d’environ 800 km de large autour de lui, avec un repère pulsant sur l’événement et des étiquettes sur les séismes voisins. Touchez <Ui>Retour à la carte du monde</Ui> pour revenir.</p>
@@ -119,10 +119,10 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="region" alt="Vue régionale : une vue rapprochée autour d’un séisme avec un repère pulsant et une fiche résumée" caption="Vue régionale" />
       </div>
-      <h3>Filtres, calques et légende</h3>
+      <h2>Filtres, calques et légende</h2>
       <div className={s.pair}>
         <div>
-          <p>Faites remonter le panneau <Ui>Filtres</Ui> en bas du Fil, de la Carte ou du Globe. Touchez-le une fois pour l’ouvrir à moitié, une seconde fois pour l’ouvrir entièrement, ou faites-le glisser.</p>
+          <p>Faites remonter le panneau <Ui>Filtres</Ui> en bas du Fil, de la Carte ou du Globe. Touchez-le pour l’ouvrir à moitié et une seconde fois pour le fermer, ou faites-le glisser vers le haut pour l’ouvrir entièrement.</p>
           <ul>
             <li><strong>Période</strong> : 24 heures, 7 jours ou 30 jours. Une année complète nécessite sisma+.</li>
             <li><strong>Magnitude</strong> et <strong>Région</strong> (un pays ou une région océanique) sont des filtres sisma+, marqués d’un cadenas en formule gratuite.</li>
@@ -176,7 +176,7 @@ export const TOPICS: Topic[] = [
           <p>Pour les séismes enregistrés par l’USGS, la vue de la région montre aussi les réponses à l’enquête <strong>Did You Feel It?</strong> de l’USGS, sous forme de carrés colorés d’environ 10 km, une couleur par niveau d’intensité.</p>
           <p>Pour les séismes enregistrés par l’EMSC, elle inclut aussi les témoignages envoyés via les sites de l’EMSC et l’application LastQuake, dans les mêmes carrés. Les données de l’EMSC sont diffusées sous licence CC BY 4.0.</p>
           <p>Pour afficher ou masquer toutes les cartes des secousses à la fois, touchez le bouton <Ui>Couches</Ui> à côté de <Ui>Retour à la carte du monde</Ui> et utilisez l’interrupteur <Ui>Cartes des secousses</Ui>. Votre choix est gardé sur cet appareil. Dans <Ui>Détails</Ui> du séisme, la légende des secousses indique le nombre total de témoignages et l’intensité la plus forte, avec l’échelle de couleurs d’intensité. Les carrés gris sont des zones de la carte automatique où aucun témoignage ne donne d’intensité.</p>
-          <h3>Cartes des ressentis</h3>
+          <h2>Cartes des ressentis</h2>
           <p>Quand beaucoup de personnes ouvrent sisma juste après un séisme, cet afflux montre où il a probablement été ressenti. sisma en fait une <strong>carte des ressentis</strong> anonyme dans la vue régionale. Les positions sont floutées sur votre appareil jusqu’à 500 m, ne portent aucun identifiant de compte ni d’appareil, et ne sont affichées que pour des zones d’environ 10 km comptant au moins 3 personnes. Vous pouvez désactiver cette fonction dans <Ui>Profil</Ui> → <Ui>Aider à cartographier où les séismes sont ressentis</Ui>.</p>
         </div>
         <Shot src="felt" alt="Fiche Qu’avez-vous ressenti ? avec un curseur d’intensité, une note facultative, l’interrupteur Afficher sur la carte et Envoyer" caption="Signaler ce que vous avez ressenti" />
@@ -213,20 +213,20 @@ export const TOPICS: Topic[] = [
       <div className={s.pair}>
         <div>
           <p>Allez dans <Ui>Profil</Ui> et touchez <Ui>Se connecter</Ui>. Vous pouvez utiliser Google ou votre e-mail et un mot de passe.</p>
-          <h3>Créer un compte avec un e-mail</h3>
+          <h2>Créer un compte avec un e-mail</h2>
           <ol className={s.steps}>
             <li>Touchez <Ui>Créer un compte</Ui> en bas de la fiche de connexion.</li>
             <li>Saisissez votre e-mail et un mot de passe : au moins 8 caractères, avec des lettres et des chiffres. Les mots de passe trouvés dans des fuites de données connues sont refusés.</li>
             <li>Ouvrez l’e-mail de confirmation que nous vous envoyons et touchez le lien. Vous êtes alors connecté. Rien au bout d’une minute ? Regardez dans vos courriers indésirables (spam).</li>
           </ol>
-          <h3>Se connecter avec Google</h3>
+          <h2>Se connecter avec Google</h2>
           <p>Touchez <Ui>Continuer avec Google</Ui>. Dans l’app Android, choisissez votre compte Google dans la liste qui s’affiche. Si votre adresse Google a déjà un compte sisma, Google est ajouté à ce même compte.</p>
           <p>Quand vous créez un compte, <Ui>Continuer avec Google</Ui> est aussi en haut : le compte est créé tout de suite, sans mot de passe ni e-mail de confirmation.</p>
         </div>
         <Shot src="signin" alt="Fiche de connexion : Continuer avec Google, e-mail et mot de passe, Mot de passe oublié ? et Créer un compte" caption="Se connecter" />
       </div>
 
-      <h3 id="password-reset">Mot de passe oublié ? Réinitialisez-le</h3>
+      <h2 id="password-reset">Mot de passe oublié ? Réinitialisez-le</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -240,7 +240,7 @@ export const TOPICS: Topic[] = [
         <Shot src="forgot" alt="Consultez vos e-mails : nous avons envoyé un lien pour réinitialiser le mot de passe" caption="Après avoir touché Mot de passe oublié ?" />
       </div>
 
-      <h3>Changer votre mot de passe, ou en ajouter un à un compte Google</h3>
+      <h2>Changer votre mot de passe, ou en ajouter un à un compte Google</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -252,7 +252,7 @@ export const TOPICS: Topic[] = [
         <Shot src="password" alt="Fiche Définir un nouveau mot de passe avec les champs nouveau mot de passe et confirmation" caption="Définir un nouveau mot de passe" />
       </div>
 
-      <h3>Autres actions sur le compte</h3>
+      <h2>Autres actions sur le compte</h2>
       <div className={s.pair}>
         <div>
           <ul>
@@ -264,7 +264,7 @@ export const TOPICS: Topic[] = [
         <Shot src="me" alt="Section Compte dans Profil : aide et assistance, nom affiché, e-mail, mot de passe et déconnexion, avec la suppression du compte dans une carte à part, bordée de rouge" caption="Le compte, en bas de Profil" />
       </div>
 
-      <h3 id="delete-account">Supprimer votre compte</h3>
+      <h2 id="delete-account">Supprimer votre compte</h2>
       <div className={s.pair}>
         <div>
           <ol className={s.steps}>
@@ -325,14 +325,14 @@ export const TOPICS: Topic[] = [
         <Shot src="paywall" alt={`Fiche sisma+ avec les fonctionnalités, le prix annuel et Essai gratuit de ${TRIAL_DAYS} jours`} caption="Choisir une formule" />
       </div>
 
-      <h3>S’abonner</h3>
+      <h2>S’abonner</h2>
       <ul>
         <li><strong>Sur le site</strong> : <Ui>Profil</Ui> → <Ui>Essai gratuit de {TRIAL_DAYS} jours</Ui> (ou <Ui>S’abonner</Ui>), puis payez sur la page de paiement sécurisée de Stripe. Si vous créez d’abord un compte, le paiement s’ouvre quand vous touchez le lien de l’e-mail de confirmation. À votre retour, sisma affiche <em>Activation de sisma+…</em> pendant quelques secondes, puis <em>Bienvenue dans sisma+</em>.</li>
         <li><strong>Dans l’app Android</strong> : le même bouton ouvre la fiche de paiement de Google Play, où vous pouvez payer avec Google Pay, une carte ou d’autres moyens de paiement Google Play.</li>
       </ul>
       <p>Vous devez être connecté. Votre abonnement fonctionne ensuite partout où vous vous connectez à ce compte, sur le web et dans l’app.</p>
 
-      <h3>Gérer ou changer de formule</h3>
+      <h2>Gérer ou changer de formule</h2>
       <div className={s.pair}>
         <div>
           <p>Allez dans <Ui>Profil</Ui> → <Ui>Gérer l’abonnement</Ui> pour voir votre statut, votre formule et la prochaine échéance.</p>
@@ -345,7 +345,7 @@ export const TOPICS: Topic[] = [
         <Shot src="subscription" alt="Page de l’abonnement : statut, formule, date de renouvellement et Gérer dans Google Play" caption="Votre abonnement" />
       </div>
 
-      <h3 id="cancel">Résilier sisma+</h3>
+      <h2 id="cancel">Résilier sisma+</h2>
       <ol className={s.steps}>
         <li>Ouvrez <Ui>Profil</Ui> → <Ui>Gérer l’abonnement</Ui>.</li>
         <li>Touchez <Ui>Gérer la facturation</Ui> (site) ou <Ui>Gérer dans Google Play</Ui> (app), et résiliez à cet endroit. Dans Google Play, vous pouvez aussi aller dans <em>Paiements et abonnements → Abonnements</em>.</li>
@@ -353,10 +353,10 @@ export const TOPICS: Topic[] = [
       <p>Vous gardez sisma+ jusqu’à la fin de la période payée. La carte <Ui>Profil</Ui> affiche alors <em>Prend fin le</em> et la date, et après cette date vous repassez en formule gratuite. Si vous résiliez un essai gratuit avant sa fin, vous n’êtes pas débité.</p>
       <Callout kind="note"><p>Désinstaller l’app ou supprimer votre compte sisma ne résilie <strong>pas</strong> un abonnement Google Play. Résiliez-le dans Google Play.</p></Callout>
 
-      <h3>Restaurer un achat</h3>
+      <h2>Restaurer un achat</h2>
       <p>Sur un nouveau téléphone ou après avoir réinstallé l’app, connectez-vous au même compte sisma. Si sisma+ n’apparaît pas, ouvrez la fiche sisma+ et touchez <Ui>Restaurer l’achat</Ui>. Cette option n’existe que dans l’app Android et retrouve l’abonnement Google Play sur cet appareil.</p>
 
-      <h3>Remboursements</h3>
+      <h2>Remboursements</h2>
       <p>Les achats Google Play suivent les règles de remboursement de Google Play : demandez donc un remboursement via Google Play. Pour les achats sur le site, écrivez à <a href={`mailto:${MAIL}`}>{MAIL}</a>. Nos <Link href="/terms">conditions d’utilisation</Link> donnent le détail.</p>
       </>
     ),
@@ -378,7 +378,7 @@ export const TOPICS: Topic[] = [
         </div>
         <Shot src="alerts" alt="Page des alertes avec l’interrupteur, vos alertes (0 sur 5), Ajouter une alerte et Envoyer par" caption="La page des alertes" />
       </div>
-      <h3>Configurer une alerte</h3>
+      <h2>Configurer une alerte</h2>
       <ul>
         <li><strong>Nom</strong> : par exemple <em>Près de chez moi</em>.</li>
         <li><strong>Magnitude minimale</strong> : vous recevez des alertes pour cette magnitude et tout ce qui est plus fort.</li>
@@ -389,7 +389,7 @@ export const TOPICS: Topic[] = [
       </ul>
       <p><strong>Surveillance</strong> inclut aussi <strong>Ma position</strong> quand votre appareil partage sa position : voir <Link href="/help/locations">Lieux enregistrés</Link>.</p>
       <p>Les alertes reçues au cours des 30 derniers jours sont listées sous <em>Historique des alertes</em>.</p>
-      <h3>Alertes tsunami</h3>
+      <h2>Alertes tsunami</h2>
       <p>Les alertes tsunami sont gratuites pour toute personne connectée. Dans <Ui>Profil</Ui>, activez <Ui>Alertes tsunami</Ui> et touchez <Ui>Activer les notifications sur cet appareil</Ui>. Vous recevez une notification quand une alerte, une menace, une veille ou un avis officiel de tsunami est émis pour un séisme à moins de 1 000 km de l’un de vos lieux enregistrés. Les heures calmes ne s’appliquent pas, et chaque niveau n’est envoyé qu’une fois par séisme. Ma position compte aussi, comme pour les autres alertes.</p>
       <Callout kind="note"><p><strong>iPhone et iPad :</strong> les notifications web ne fonctionnent qu’après avoir ajouté sisma à l’écran d’accueil (Partager → Sur l’écran d’accueil) et l’avoir ouvert depuis celui-ci. La première fois que vous ouvrez sisma dans le navigateur d’un iPhone ou d’un iPad, une fenêtre affiche ces étapes ; touchez <Ui>Plus tard</Ui> pour la revoir dans deux semaines ou <Ui>Compris</Ui> pour la masquer.</p></Callout>
       </>

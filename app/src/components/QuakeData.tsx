@@ -6,7 +6,7 @@ import { useApp } from './AppState';
 import { takePendingYearRange } from '@/lib/pending-upgrade';
 import type { Quake } from '@/lib/quakes/types';
 import { can } from '@/lib/entitlements';
-import { worldRegion, WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
+import { WORLD_REGIONS, type WorldRegion } from '@/lib/world-regions';
 
 export type ViewRange = '24h' | '7d' | '30d' | '1y';
 export const VIEW_RANGES: ViewRange[] = ['24h', '7d', '30d', '1y'];
@@ -73,8 +73,8 @@ export function QuakeDataProvider({ children }: { children: ReactNode }) {
   }, [range, loc.lat, loc.lon]);
   const refresh = useCallback(() => loadRef.current(true), []);
 
-  // World region of each event, worked out once per load (country outlines + ocean boxes).
-  const regionOf = useMemo(() => new Map((rows ?? []).map(q => [q.id, worldRegion(q.lat, q.lon)])), [rows]);
+  // World region of each event (sent with it by the server: lib/quakes/place-info.ts).
+  const regionOf = useMemo(() => new Map((rows ?? []).flatMap(q => (q.worldRegion ? [[q.id, q.worldRegion] as const] : []))), [rows]);
 
   const value = useMemo<QuakeData>(() => {
     // Defensive: one row per id and only plottable coordinates, so map keys stay unique.

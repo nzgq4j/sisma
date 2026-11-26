@@ -29,8 +29,9 @@ const EN_LEGEND: LegendWords = { label: 'Magnitude colours', magnitude: 'Magnitu
 
 export function MagLegend({ words = EN_LEGEND }: { words?: LegendWords }) {
   const fill = (t: string, v: Record<string, string | number>) => t.replace(/\{(\w+)\}/g, (_, k) => String(v[k]));
-  const bands = MAG_SCALE.map(([min, color, ink], i) => ({
-    color, ink,
+  // The app's own badge colours for each theme (--mag-N / --mag-ink-N in globals.css, in MAG_SCALE order).
+  const bands = MAG_SCALE.map(([min], i) => ({
+    color: `var(--mag-${i})`, ink: `var(--mag-ink-${i})`,
     label: i === 0 ? fill(words.orMore, { n: min }) : i === MAG_SCALE.length - 1 ? fill(words.below, { n: MAG_SCALE[i - 1][0] })
       : fill(words.to, { a: min, b: MAG_SCALE[i - 1][0] - 0.1 }),
     sample: i === MAG_SCALE.length - 1 ? '2.5' : (min + 0.4).toFixed(1),

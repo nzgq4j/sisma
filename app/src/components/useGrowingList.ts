@@ -4,7 +4,8 @@
 // only the drawing is spread out. Starts again from `step` when `resetKey` changes (a new sort order or filter).
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-export const LIST_STEP = 100;
+/** Rows drawn at first and per batch: a few screens ahead, so the first paint after loading stays short. */
+export const LIST_STEP = 30;
 
 export function useGrowingList(total: number, resetKey: unknown, step = LIST_STEP, margin = 800) {
   const [shown, setShown] = useState(step);
