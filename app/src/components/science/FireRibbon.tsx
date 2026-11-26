@@ -16,6 +16,7 @@ import { TRIAL_DAYS } from '@/lib/entitlements';
 import dynamic from 'next/dynamic';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import type { Camera3D } from './Ribbon3D';
+import { RibbonShareSheet } from './RibbonShare';
 import type { RibbonVolcano, VolcanoResponse, VolcanoStatus } from '@/lib/ribbon/volcanoes';
 import {
   DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, POLL_MS, RELIEF, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
@@ -133,6 +134,7 @@ export function FireRibbonPage() {
   const [selV, setSelV] = useState<number | null>(null);
   const [show, setShow] = useState({ quakes: true, volcanoes: true, terrain: true });
   const [picker, setPicker] = useState(false);
+  const [sharing, setSharing] = useState(false);
   const [region, setRegion] = useState<string | null>(null);
   const pickQuake = (id: string | null) => { setSel(id); if (id) setSelV(null); };
   const pickVolcano = (n: number | null) => { setSelV(n); if (n !== null) setSel(null); };
@@ -198,6 +200,11 @@ export function FireRibbonPage() {
           {st.s === 'ready' && (
             <>
               <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />
+              <button type="button" className={styles.shareBtn} onClick={() => setSharing(true)} aria-haspopup="dialog">
+                <span className="ms" aria-hidden="true">ios_share</span>{k.share}
+              </button>
+              <RibbonShareSheet open={sharing} onClose={() => setSharing(false)} d={st.d} quakes={quakes} volcanoes={volcanoes}
+                terrain={tst.s === 'ready' ? tst.d : null} period={period} min={min} now={now} />
               <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
                 <span className="ms" aria-hidden="true">travel_explore</span>
                 <span>{region === null ? k.go_to : region === 'all' ? k.whole : k.regions[region as keyof typeof k.regions]}</span>

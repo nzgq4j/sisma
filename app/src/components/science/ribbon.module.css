@@ -75,3 +75,6 @@
   .layers button { flex: 1 1 auto; min-width: 0; justify-content: center; gap: 3px; padding: 0 8px 0 5px; white-space: nowrap; }
   .layers :global(.ms) { font-size: 16px; }
 }
+.shareBtn { align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0 16px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 700; cursor: pointer; }
+.shareBtn :global(.ms) { font-size: 20px; color: var(--violet-text); }
+.shareBtn:hover { border-color: var(--violet); }
