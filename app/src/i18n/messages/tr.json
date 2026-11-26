@@ -780,7 +780,10 @@
     "disc_reply": "Yanıt",
     "disc_counts": "Beğeni {likes} · Yeniden paylaşım {reposts} · Yanıt {replies}",
     "disc_found_by": "{terms} ile bulundu",
-    "disc_action_failed": "Olmadı: {error}"
+    "disc_action_failed": "Olmadı: {error}",
+    "disc_again": "Yeniden ara",
+    "disc_clear": "Sonuçları temizle",
+    "disc_at": "· {time} itibarıyla arandı"
   },
   "library": {
     "title": "Derinlemesine",

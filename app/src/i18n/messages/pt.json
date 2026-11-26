@@ -780,7 +780,10 @@
     "disc_reply": "Resposta",
     "disc_counts": "Curtidas: {likes} · Reposts: {reposts} · Respostas: {replies}",
     "disc_found_by": "Encontrado com {terms}",
-    "disc_action_failed": "Não deu certo: {error}"
+    "disc_action_failed": "Não deu certo: {error}",
+    "disc_again": "Buscar de novo",
+    "disc_clear": "Limpar resultados",
+    "disc_at": "· busca às {time}"
   },
   "library": {
     "title": "Em profundidade",

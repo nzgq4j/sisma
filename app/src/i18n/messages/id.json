@@ -780,7 +780,10 @@
     "disc_reply": "Balasan",
     "disc_counts": "Suka {likes} · Repost {reposts} · Balasan {replies}",
     "disc_found_by": "Ditemukan dengan {terms}",
-    "disc_action_failed": "Tidak berhasil: {error}"
+    "disc_action_failed": "Tidak berhasil: {error}",
+    "disc_again": "Cari lagi",
+    "disc_clear": "Hapus hasil",
+    "disc_at": "· dicari pukul {time}"
   },
   "library": {
     "title": "Mendalam",

@@ -780,7 +780,10 @@
     "disc_reply": "返信",
     "disc_counts": "いいね {likes} · リポスト {reposts} · 返信 {replies}",
     "disc_found_by": "{terms} で見つかりました",
-    "disc_action_failed": "うまくいきませんでした: {error}"
+    "disc_action_failed": "うまくいきませんでした: {error}",
+    "disc_again": "もう一度検索",
+    "disc_clear": "結果をクリア",
+    "disc_at": "· {time} に検索"
   },
   "library": {
     "title": "詳しく学ぶ",

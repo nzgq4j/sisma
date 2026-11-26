@@ -29,8 +29,9 @@ export function BlueskyDiscover() {
     void api('/api/admin/bluesky/discover?terms=1').then(r => (r.ok ? r.json() : null)).then((j: { terms?: string[] } | null) => setTerms(j?.terms ?? [])).catch(() => setTerms([]));
   }, [api]);
 
+  // A new search starts from an empty list, so it's clear the results are fresh.
   const search = useCallback(async () => {
-    setBusy(true); setErr(null);
+    setBusy(true); setErr(null); setRes(null);
     const r = await api('/api/admin/bluesky/discover').catch(() => null);
     const j = (await r?.json().catch(() => ({}))) as { posts?: FoundPost[]; failed?: string[]; terms?: string[]; error?: string };
     if (j.terms) setTerms(j.terms);
@@ -56,14 +57,20 @@ export function BlueskyDiscover() {
           <span className={`ms ${me.chev}`} aria-hidden="true">chevron_right</span>
         </button>
       </div>
-      <button type="button" className={sub.primary} onClick={() => void search()} disabled={busy || !terms?.length}>
-        <span className="ms" aria-hidden="true">travel_explore</span>{busy ? k.disc_searching : k.disc_search}
-      </button>
+      <div className={styles.actions}>
+        <button type="button" className={sub.primary} style={{ flex: 2 }} onClick={() => void search()} disabled={busy || !terms?.length}>
+          <span className="ms" aria-hidden="true">{res ? 'refresh' : 'travel_explore'}</span>{busy ? k.disc_searching : res ? k.disc_again : k.disc_search}
+        </button>
+        {(res || err) && !busy && (
+          <button type="button" className={styles.secondary} onClick={() => { setRes(null); setErr(null); }}>{k.disc_clear}</button>
+        )}
+      </div>
       {err && <p className={me.errLine} role="alert">{err}</p>}
       {res && (
         <>
           <p className={me.hint} role="status">
             {res.posts.length ? k.disc_found.replace('{n}', nf.format(res.posts.length)) : k.disc_none}
+            {' '}{k.disc_at.replace('{time}', new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit' }).format(res.at))}
             {res.failed.length > 0 && <> {k.disc_failed_terms.replace('{terms}', res.failed.join(', '))}</>}
           </p>
           {res.posts.length > 0 && (
@@ -73,7 +80,8 @@ export function BlueskyDiscover() {
           )}
         </>
       )}
-      <TermsSheet open={termsOpen} terms={terms ?? []} onClose={() => setTermsOpen(false)} onSaved={setTerms} />
+      {/* New terms: the old results no longer match them. */}
+      <TermsSheet open={termsOpen} terms={terms ?? []} onClose={() => setTermsOpen(false)} onSaved={t => { setTerms(t); setRes(null); }} />
     </>
   );
 }

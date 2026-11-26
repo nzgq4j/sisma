@@ -780,7 +780,10 @@
     "disc_reply": "Antwort",
     "disc_counts": "Likes: {likes} · Reposts: {reposts} · Antworten: {replies}",
     "disc_found_by": "Gefunden mit {terms}",
-    "disc_action_failed": "Das hat nicht geklappt: {error}"
+    "disc_action_failed": "Das hat nicht geklappt: {error}",
+    "disc_again": "Erneut suchen",
+    "disc_clear": "Ergebnisse löschen",
+    "disc_at": "· gesucht um {time}"
   },
   "library": {
     "title": "Im Detail",
