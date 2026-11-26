@@ -13,7 +13,10 @@ import { useAccount } from '@/components/Account';
 import { useDistance } from '@/components/Units';
 import { KM_PER_MI } from '@/lib/units';
 import { TRIAL_DAYS } from '@/lib/entitlements';
+import dynamic from 'next/dynamic';
 import { Sheet, SheetOptions } from '@/components/Sheet';
+import type { Camera3D } from './Ribbon3D';
+import { RibbonShareSheet } from './RibbonShare';
 import type { RibbonVolcano, VolcanoResponse, VolcanoStatus } from '@/lib/ribbon/volcanoes';
 import {
   DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, POLL_MS, RELIEF, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
@@ -21,6 +24,10 @@ import {
 } from '@/lib/ribbon/shared';
 import data from './data.module.css';
 import styles from './ribbon.module.css';
+
+/** The 3D view (Three.js), loaded only when someone switches to it. */
+const Ribbon3D = dynamic(() => import('./Ribbon3D'), { ssr: false });
+const SPANS = [800, 1600, 3200];
 
 /** The time, to the minute, for ages and fading (re-renders once a minute). */
 function useMinute() {
@@ -127,10 +134,20 @@ export function FireRibbonPage() {
   const [selV, setSelV] = useState<number | null>(null);
   const [show, setShow] = useState({ quakes: true, volcanoes: true, terrain: true });
   const [picker, setPicker] = useState(false);
+  const [sharing, setSharing] = useState(false);
   const [region, setRegion] = useState<string | null>(null);
   const pickQuake = (id: string | null) => { setSel(id); if (id) setSelV(null); };
   const pickVolcano = (n: number | null) => { setSelV(n); if (n !== null) setSel(null); };
   const [jump, setJump] = useState<{ x0: number; x1: number; n: number } | null>(null);
+  const [view, setView] = useState<'2d' | '3d'>('2d');
+  const [cam, setCam] = useState<Camera3D>('oblique');
+  const [win, setWin] = useState<{ centre: number; span: number } | null>(null);
+  /** Moves both views to a stretch of the route: the profile zooms to it, the 3D window centres on it. */
+  const goTo = (x0: number, x1: number) => {
+    setJump({ x0, x1, n: Date.now() });
+    const span = SPANS.reduce((a, b) => (Math.abs(b - (x1 - x0) * 1.2) < Math.abs(a - (x1 - x0) * 1.2) ? b : a), SPANS[1]);
+    setWin({ centre: (x0 + x1) / 2, span: Math.min(span, SPANS[SPANS.length - 1]) });
+  };
   const quakes = useMemo(() => (st.s === 'ready' ? st.quakes : []), [st]);
   const selected = quakes.find(q => q.id === sel) ?? null;
   const volcanoes = useMemo(() => (vst.s === 'ready' ? vst.d.volcanoes : []), [vst]);
@@ -183,6 +200,11 @@ export function FireRibbonPage() {
           {st.s === 'ready' && (
             <>
               <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />
+              <button type="button" className={styles.shareBtn} onClick={() => setSharing(true)} aria-haspopup="dialog">
+                <span className="ms" aria-hidden="true">ios_share</span>{k.share}
+              </button>
+              <RibbonShareSheet open={sharing} onClose={() => setSharing(false)} d={st.d} quakes={quakes} volcanoes={volcanoes}
+                terrain={tst.s === 'ready' ? tst.d : null} period={period} min={min} now={now} />
               <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
                 <span className="ms" aria-hidden="true">travel_explore</span>
                 <span>{region === null ? k.go_to : region === 'all' ? k.whole : k.regions[region as keyof typeof k.regions]}</span>
@@ -191,8 +213,8 @@ export function FireRibbonPage() {
               <Sheet open={picker} onClose={() => setPicker(false)} title={k.go_to}>
                 <SheetOptions value={region ?? undefined} onPick={v => {
                   setRegion(v); setPicker(false);
-                  if (v === 'all') setJump({ x0: -st.d.corridor.endKm, x1: st.d.lengthKm + st.d.corridor.endKm, n: Date.now() });
-                  else { const r = st.d.regions.find(g => g.group === v); if (r) setJump({ x0: r.x0, x1: r.x1, n: Date.now() }); }
+                  if (v === 'all') goTo(-st.d.corridor.endKm, st.d.lengthKm + st.d.corridor.endKm);
+                  else { const r = st.d.regions.find(g => g.group === v); if (r) goTo(r.x0, r.x1); }
                 }} options={[
                   { value: 'all', label: k.whole, meta: nf.format(quakes.length) },
                   ...st.d.regions.map(r => {
@@ -218,9 +240,21 @@ export function FireRibbonPage() {
                   ))}
                 </div>
               )}
-              <Plot d={st.d} quakes={show.quakes ? quakes : []} volcanoes={show.volcanoes ? volcanoes : []} period={period} fresh={st.fresh}
-                terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]}
-                selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={now} />
+              <div className={data.seg} role="tablist" aria-label={k.view}>
+                {(['2d', '3d'] as const).map(v => (
+                  <button key={v} type="button" role="tab" aria-selected={view === v} onClick={() => setView(v)}>{k[`view_${v}`]}</button>
+                ))}
+              </div>
+              {view === '2d' ? (
+                <Plot d={st.d} quakes={show.quakes ? quakes : []} volcanoes={show.volcanoes ? volcanoes : []} period={period} fresh={st.fresh}
+                  terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]}
+                  selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={now} />
+              ) : (
+                <View3D d={st.d} win={win ?? { centre: largest[0]?.x ?? (st.d.regions.find(r => r.group === 'japan')?.x0 ?? 23000) + 400, span: SPANS[1] }}
+                  setWin={setWin} cam={cam} setCam={setCam} quakes={show.quakes ? quakes : []} volcanoes={show.volcanoes ? volcanoes : []}
+                  showTerrain={show.terrain} relief={RELIEF[relief]} period={period} now={now} selected={sel} selectedV={selV}
+                  onSelect={pickQuake} onSelectV={pickVolcano} />
+              )}
               <Key volcanoes={vst.s === 'ready'} terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]} />
               {quakes.length === 0 && <p className={data.status}>{k.none}</p>}
               {selected && <Detail q={selected} onClose={() => setSel(null)} when={when} />}
@@ -231,7 +265,7 @@ export function FireRibbonPage() {
                   <ul>
                     {active.map(v => (
                       <li key={v.n}>
-                        <button type="button" aria-pressed={v.n === selV} onClick={() => { pickVolcano(v.n); setShow(x => ({ ...x, volcanoes: true })); setJump({ x0: v.x - 400, x1: v.x + 400, n: Date.now() }); }}>
+                        <button type="button" aria-pressed={v.n === selV} onClick={() => { pickVolcano(v.n); setShow(x => ({ ...x, volcanoes: true })); goTo(v.x - 400, v.x + 400); }}>
                           <Tri colour={VOLCANO_COLOURS[v.status]} />
                           <b>{v.name}</b>
                           <span>{k[`st_${v.status}`]}</span>
@@ -247,7 +281,7 @@ export function FireRibbonPage() {
                   <ul>
                     {largest.map(q => (
                       <li key={q.id}>
-                        <button type="button" aria-pressed={q.id === sel} onClick={() => { pickQuake(q.id); setShow(x => ({ ...x, quakes: true })); setJump({ x0: q.x - 400, x1: q.x + 400, n: Date.now() }); }}>
+                        <button type="button" aria-pressed={q.id === sel} onClick={() => { pickQuake(q.id); setShow(x => ({ ...x, quakes: true })); goTo(q.x - 400, q.x + 400); }}>
                           <i style={{ background: depthColour(q.depth) }} aria-hidden="true" />
                           <b>M{q.mag !== null ? mag1.format(q.mag) : '–'}</b>
                           <span>{q.place ?? k.regions[GROUPS[q.from]]}</span>
@@ -263,7 +297,7 @@ export function FireRibbonPage() {
       )}
       <section className={data.card}>
         <h2>{k.notes_h}</h2>
-        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_6, k.note_7, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
+        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_6, k.note_7, k.note_8, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
         <p className={styles.source}>{k.source}</p>
       </section>
     </div>
@@ -430,6 +464,47 @@ function VolcanoDetail({ v, onClose }: { v: RibbonVolcano; onClose: () => void }
         {rows.map(([a, b]) => <div key={a}><dt>{a}</dt><dd>{b}</dd></div>)}
       </dl>
       <a href={`https://volcano.si.edu/volcano.cfm?vn=${v.n}`} target="_blank" rel="noopener noreferrer" className={styles.usgs}>{k.v_gvp}<span className="ms" aria-hidden="true">open_in_new</span></a>
+    </div>
+  );
+}
+
+// ——— The 3D view ———
+
+function View3D({ d, win, setWin, cam, setCam, quakes, volcanoes, showTerrain, relief, period, now, selected, selectedV, onSelect, onSelectV }: {
+  d: RibbonResponse; win: { centre: number; span: number }; setWin: (w: { centre: number; span: number }) => void;
+  cam: Camera3D; setCam: (c: Camera3D) => void; quakes: RibbonQuake[]; volcanoes: RibbonVolcano[]; showTerrain: boolean; relief: number;
+  period: Period; now: number; selected: string | null; selectedV: number | null; onSelect: (id: string | null) => void; onSelectV: (n: number | null) => void;
+}) {
+  const { m, nf } = useT();
+  const k = m.ribbon;
+  const dist = useDistance();
+  const lo = -d.corridor.endKm + win.span / 2, hi = d.lengthKm + d.corridor.endKm - win.span / 2;
+  const move = (dir: number) => setWin({ ...win, centre: Math.max(lo, Math.min(hi, win.centre + (dir * win.span) / 2)) });
+  const si = SPANS.indexOf(win.span);
+  const labels = useMemo(() => ({
+    pacific: k.pacific, behind: k.behind, depth: k.depth_axis, km: 'km', loading: k.t3d_loading, unavailable: k.t3d_unavailable, noWebgl: k.no_webgl,
+    regions: d.regions.map(r => ({ name: k.regions[r.group], x0: r.x0, x1: r.x1 })),
+  }), [k, d.regions]);
+  const inView = quakes.filter(q => q.x >= win.centre - win.span / 2 && q.x <= win.centre + win.span / 2).length;
+  return (
+    <div className={styles.plotWrap}>
+      <div className={`${data.seg} ${styles.camSeg}`} role="tablist" aria-label={k.camera}>
+        {(['oblique', 'section', 'top'] as const).map(c => (
+          <button key={c} type="button" role="tab" aria-selected={cam === c} onClick={() => setCam(c)}>{k[`cam_${c}`]}</button>
+        ))}
+      </div>
+      <div role="figure" aria-label={k.chart_label_3d.replace('{n}', nf.format(inView)).replace('{a}', dist.dist(Math.max(0, win.centre - win.span / 2))).replace('{b}', dist.dist(Math.min(d.lengthKm, win.centre + win.span / 2)))}>
+        <Ribbon3D centre={win.centre} span={win.span} quakes={quakes} volcanoes={volcanoes} showTerrain={showTerrain} relief={relief} camera={cam}
+          period={period} now={now} selected={selected} selectedV={selectedV} onSelect={onSelect} onSelectV={onSelectV} labels={labels} />
+      </div>
+      <p className={styles.hint3d}>{k.hint_3d}</p>
+      <div className={styles.zoom}>
+        <button type="button" onClick={() => move(-1)} disabled={win.centre <= lo} aria-label={k.prev}><span className="ms" aria-hidden="true">chevron_left</span></button>
+        <span>{k.window.replace('{a}', dist.dist(Math.max(0, win.centre - win.span / 2))).replace('{b}', dist.dist(Math.min(d.lengthKm, win.centre + win.span / 2)))}</span>
+        <button type="button" onClick={() => move(1)} disabled={win.centre >= hi} aria-label={k.next}><span className="ms" aria-hidden="true">chevron_right</span></button>
+        <button type="button" onClick={() => setWin({ ...win, span: SPANS[Math.min(SPANS.length - 1, si + 1)] })} disabled={si >= SPANS.length - 1} aria-label={k.wider}><span className="ms" aria-hidden="true">zoom_out</span></button>
+        <button type="button" onClick={() => setWin({ ...win, span: SPANS[Math.max(0, si - 1)] })} disabled={si <= 0} aria-label={k.narrower}><span className="ms" aria-hidden="true">zoom_in</span></button>
+      </div>
     </div>
   );
 }

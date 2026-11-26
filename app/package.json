@@ -23,6 +23,7 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "stripe": "23.0.0",
+    "three": "^0.187.0",
     "topojson-client": "^3.1.0",
     "web-push": "3.6.7",
     "world-atlas": "^2.0.2"
@@ -34,6 +35,7 @@
     "@types/node": "22.20.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "@types/three": "^0.187.0",
     "@types/topojson-client": "^3.1.5",
     "@types/web-push": "3.6.4",
     "eslint": "9.39.5",
