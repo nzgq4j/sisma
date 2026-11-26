@@ -6,7 +6,7 @@ its explanations are open to everyone, the data is not (`GET /api/science/ribbon
 
 Built so far: step 1 (the reference route, the coordinate transform and a live 2D depth profile), step 2 (volcano
 markers with this week's reported status), step 3 (terrain along the ribbon from ETOPO 2022, with true-scale and
-exaggerated relief) and step 4 (a 3D view of a stretch of the ribbon). Copernicus DEM detail for individual volcanoes,
+exaggerated relief) and step 4 (a 3D view of a stretch of the ribbon), plus a share card. Copernicus DEM detail for individual volcanoes,
 historical playback, overlays and a linked map (later steps) are not built yet. Slab2 was dropped from scope.
 
 ## Files
@@ -22,6 +22,8 @@ historical playback, overlays and a linked map (later steps) are not built yet. 
 | `app/src/app/api/science/ribbon/route.ts` | The API: plan check, hourly cached download per period, magnitude filter. |
 | `app/src/components/science/FireRibbon.tsx` | The page: controls, status, the plot, key, details, largest list, notes. |
 | `app/src/components/science/Ribbon3D.tsx` | The 3D view (Three.js, loaded only when someone opens it). |
+| `app/src/components/science/RibbonShare.tsx` | The share card (drawn in the browser) and its share sheet. |
+| `app/src/lib/ribbon/share.ts` | The card's facts, post text, image description and row layout (tested in `share.test.ts`). |
 | `app/src/app/api/science/ribbon/terrain3d/route.ts` | A window of the 3D terrain grid (sisma+, cached for a day). |
 
 ## Sources
@@ -204,7 +206,7 @@ the trench line may come from either side of the route.
 **Resolution**: cells are about 1.85 km across, which smooths summits. Mount Fuji's highest ETOPO cell is 3,378 m
 (checked: rows 7520–7523, columns 19122–19125) against a summit of 3,776 m. Volcano triangles stand at the catalogue's
 summit elevation, so a triangle can sit above the brown crest. The trench band uses every third cell (about 5.5 km),
-so the deepest point of a narrow trench can be missed by up to one or two cells' depth difference.
+so the deepest point of a narrow trench can be missed: at Tonga by about 900 m (see step 4).
 
 **Result of the first build (26 November 2026)**: 515 pieces, 3,621,090 cells placed on the route, 19,731 crest values
 and 3,947 trench values with none missing. Deepest trench value per region (metres, ETOPO): Kermadec −10,019, Philippines
@@ -250,7 +252,14 @@ the profile; the profile is the place to read extremes.
 **Browsers**: needs WebGL; without it the view says so and the profile stays available. Tested in Chromium (desktop
 and a 390 px phone viewport); not tested on Safari or a real iPhone in this environment.
 
-GRID_RESULT
+**Result of the build (26 November 2026)**: 272 pieces, 2,411,156 cells placed, 3,947 rows × 110 squares. Every square
+within the route has a value; the 90 empty squares are all in the last row (xbin 3,946), the stub past the route's end.
+Range of the 10 km means: −10,364 m to 5,963 m. The deepest mean is on the Pacific side of Tonga (37,460 km along,
+170 km from the route), at the Horizon Deep; NOAA's full-resolution cells in that window reach −10,752 m (checked with
+one OpenDAP request, rows 3985–4025, columns 290–340).
+
+**Note on the step 3 profile**: its trench values sample every third cell, so they can miss the deepest cell of a narrow
+trench. At Tonga the profile's −9,840 m is about 900 m shallower than the deepest full-resolution cell (−10,752 m).
 
 ## Verification
 
@@ -272,8 +281,20 @@ GRID_RESULT
 - Catalogue completeness varies by region and time: small earthquakes are far more completely recorded under dense
   networks (western US, Alaska) than at sea.
 
-## Backlog
+## Share card
 
-- **Share the ribbon**: a visually striking share image of the ribbon (or of the current 3D or profile window), with
-  alt text describing what it shows and ready-to-post text, in the app's share style. Requested 26 November 2026; not
-  started.
+**Share** (under the status line) opens a sheet with a 1080 × 1350 PNG drawn in the browser from the data already on
+the page, so nothing new is requested and the sisma+ data goes only where the person shares it. The card shows the
+whole route as one ribbon folded into four rows (left to right, back, and so on, with arrows at the folds), from the
+southern Andes (top left) to New Zealand (bottom left): region names above each row; the highest ground near the route
+above the line and the deepest sea floor below it (both ×20, stated on the card); the period's earthquakes as glowing
+dots by depth class and magnitude, faded with age as on the page; the volcanoes in this week's Smithsonian / USGS report
+as coloured triangles; the largest earthquake ringed and labelled. Header: earthquake count, largest magnitude, number
+of reported volcanoes. Footer: depth key, how to read it, sources, and the "not an official warning service" line. The
+card always shows all three layers, whatever the page's layer switches.
+
+The post text (period, count, filter, largest event, hashtag, link to the page) and the image description (what the
+card shows, in reading order, with the largest and deepest earthquakes, the number deeper than 300 km, the reported
+volcanoes and the relief factor) are built from the same facts (`lib/ribbon/share.ts`) and can be edited before
+sharing. Sharing, saving and copying work as for earthquake share cards; the text is copied first because many apps
+drop text sent with an image.
