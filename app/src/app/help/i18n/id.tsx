@@ -317,6 +317,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Notifikasi push dengan aturan Anda sendiri</td><td>–</td><td>Hingga 5 peringatan</td></tr>
                 <tr><td>Filter magnitudo dan wilayah</td><td>–</td><td>✓</td></tr>
                 <tr><td>Grafik data gempa langsung</td><td>–</td><td>✓</td></tr>
+                <tr><td>Pita Api Pasifik</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -427,6 +428,7 @@ export const TOPICS: Topic[] = [
           <p>Ketuk tombol di bawah diagram untuk berganti tampilan, dan tombol jeda untuk menghentikan animasi. Panduan mengikuti bahasa Anda, seperti bagian lain aplikasi. Ketuk <Ui>Bagikan</Ui> di bagian atas panduan untuk mengirimkannya kepada seseorang, beserta gambarnya, ringkasan singkat, dan tautannya.</p>
           <p>Di bawah panduan, <Ui>Mendalam</Ui> berisi artikel yang lebih panjang untuk Anda yang ingin tahu lebih jauh: mengapa gempa tidak bisa diprediksi, tektonik lempeng dan sesar, bagian dalam Bumi dan gelombang seismik, gempa susulan, magnitudo, gempa dalam, gunung api, gempa-gempa di Italia serta tsunami 2004 yang mencapai Phuket. Setiap artikel dibuka dengan gambar topiknya di bawah judul, mencantumkan sumbernya, dan menjawab pertanyaan umum di bagian akhir. Artikel-artikel ini juga tersedia dalam bahasa Anda; daftar sumbernya tetap dalam bahasa Inggris.</p>
           <p>Di <Ui>Data</Ui>, <Ui>Data gempa</Ui> (sisma+) menampilkan grafik gempa M4.5+ selama 30 hari terakhir di seluruh dunia dari USGS: berapa banyak yang terjadi, magnitudo dan kedalamannya, wilayah tempat terjadinya, energi yang dilepaskan, dan jumlah gempa M7+ per tahun sejak 1900. Setiap grafik disertai penjelasan singkat; ketuk batang untuk melihat nilainya. Tanpa sisma+, Anda melihat penjelasannya dan tombol untuk memulai uji coba gratis. Warna memiliki arti: magnitudo memakai warna penanda peta, kedalaman memakai warna mode Kedalaman pada globe, wilayah yang sebagian besar di Cincin Api disorot, dan batang di atas rata-rata berwarna koral.</p>
+          <p><Ui>Pita Api Pasifik</Ui> (sisma+) membentangkan Cincin Api menjadi satu jalur panjang, dari ujung selatan Andes hingga Selandia Baru, dan menampilkan gempa USGS dalam 24 jam, 7 hari, atau 30 hari terakhir menurut jaraknya di sepanjang busur gunung api (mendatar) dan kedalamannya (tegak). Gulir ke samping atau perbesar untuk menyusurinya, pilih wilayah untuk langsung ke sana, dan ketuk titik untuk melihat detail gempa. Warna titik menunjukkan kedalaman dan ukurannya menunjukkan magnitudo. Gempa baru dicari sekali setiap jam, dan waktu terbit data ditampilkan.</p>
         </div>
         <Shot src="science" alt="Artikel gelombang seismik dengan diagram animasi gelombang P" caption="Sebuah panduan sains" />
       </div>

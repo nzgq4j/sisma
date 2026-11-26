@@ -317,6 +317,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Kendi kurallarınla anlık uyarılar</td><td>–</td><td>En fazla 5 uyarı</td></tr>
                 <tr><td>Büyüklük ve bölge filtreleri</td><td>–</td><td>✓</td></tr>
                 <tr><td>Canlı deprem verisi grafikleri</td><td>–</td><td>✓</td></tr>
+                <tr><td>Pasifik Ateş Şeridi</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -427,6 +428,7 @@ export const TOPICS: Topic[] = [
           <p>Görünümü değiştirmek için şemanın altındaki düğmelere, animasyonu durdurmak için duraklat düğmesine dokun. Rehberler, uygulamanın geri kalanı gibi senin dilinde görünür. Bir rehberi birine göndermek için rehberin üstündeki <Ui>Paylaş</Ui> düğmesine dokun; görseli, kısa bir özeti ve bağlantısıyla gönderilir.</p>
           <p>Rehberlerin altında, <Ui>Derinlemesine</Ui> bölümünde daha ileri gitmek istediğinde okuyabileceğin daha uzun makaleler var: depremler neden önceden tahmin edilemez, levha tektoniği ve faylar, Dünya’nın içi ve sismik dalgalar, artçı sarsıntılar, büyüklük, derin depremler, volkanlar, İtalya’nın depremleri ve Phuket’e ulaşan 2004 tsunamisi. Her biri başlığın altında konusunu gösteren bir görselle açılır, kaynaklarını listeler ve sonunda sık sorulan soruları yanıtlar. Bunlar da senin dilinde; kaynak listesi İngilizce kalır.</p>
           <p><Ui>Veriler</Ui> altındaki <Ui>Deprem verileri</Ui> (sisma+), USGS verilerine göre dünya genelinde son 30 günde olan M4.5+ depremleri grafiklerle gösterir: kaç deprem olduğu, büyüklükleri ve derinlikleri, gerçekleştikleri bölgeler, açığa çıkan enerji ve 1900’den bu yana her yıl olan M7+ deprem sayısı. Her grafiğin kısa bir açıklaması vardır; değerini görmek için bir çubuğa dokun. sisma+ olmadan açıklamaları ve ücretsiz denemeyi başlatma düğmesini görürsün. Renklerin bir anlamı var: büyüklükler haritadaki işaretlerin renklerini, derinlikler küredeki Derinlik modunun renklerini kullanır; çoğunlukla Ateş Çemberi’ndeki bölgeler vurgulanır ve ortalamanın üstündeki çubuklar mercan rengindedir.</p>
+          <p><Ui>Pasifik Ateş Şeridi</Ui> (sisma+), Ateş Çemberi’ni And Dağları’nın güney ucundan Yeni Zelanda’ya uzanan tek bir şeride açar ve son 24 saat, 7 gün ya da 30 gündeki USGS depremlerini volkanik yaylar boyunca uzaklıklarına (yatay) ve derinliklerine (dikey) göre gösterir. Şerit boyunca ilerlemek için yana kaydırın ya da yakınlaştırın, oraya gitmek için bir bölge seçin ve depremin ayrıntıları için bir noktaya dokunun. Noktaların rengi derinliği, boyutu büyüklüğü gösterir. Yeni depremler saatte bir kontrol edilir ve verilerin ne zaman yayımlandığı gösterilir.</p>
         </div>
         <Shot src="science" alt="P dalgalarının animasyonlu şemasıyla sismik dalgalar makalesi" caption="Bir bilim rehberi" />
       </div>

@@ -69,6 +69,12 @@ export const CARDS = {
     path: '/app/science/data', image: 'science', alt: 'Diagrams of plate tectonics, fault types, seismic waves and a tsunami',
     kicker: 'Science · Data', heading: 'Earthquake data', sub: 'Live charts of worldwide seismic activity.',
   },
+  ribbon: {
+    title: 'Pacific Fire Ribbon: the Ring of Fire as a Live Depth Profile | sisma',
+    description: 'The Pacific Ring of Fire unrolled into one long strip from the Andes to New Zealand, with USGS earthquakes placed by distance along the volcanic arcs and by depth.',
+    path: '/app/science/ribbon', image: 'science', alt: 'Diagrams of plate tectonics, fault types, seismic waves and a tsunami',
+    kicker: 'Science · Pacific Fire Ribbon', heading: 'Pacific Fire Ribbon', sub: 'The Ring of Fire as one long depth profile.',
+  },
   library: {
     title: 'In Depth: Earthquakes, Geology and Plate Tectonics | sisma',
     description: 'Long-form, sourced articles on earthquake prediction, plate tectonics and subduction, faults, Earth’s interior, seismic waves, aftershocks and hazards.',

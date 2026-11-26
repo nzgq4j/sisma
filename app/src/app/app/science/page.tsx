@@ -1,6 +1,7 @@
 'use client';
 // Science list. Spec: design/SismaApp.dc.html (isSciList block). Below the illustrated topics, Data (live worldwide
-// charts, sisma+: app/science/data) and the In Depth library of long-form articles (lib/library.ts).
+// charts, sisma+: app/science/data), the Pacific Fire Ribbon (live depth profile of the Ring of Fire, sisma+:
+// app/science/ribbon) and the In Depth library of long-form articles (lib/library.ts).
 import Link from 'next/link';
 import science from '@/content/science.json';
 import { localArticle } from '@/lib/science';
@@ -35,6 +36,14 @@ export default function SciencePage() {
           <span className={styles.meta}>{m.data.plus}</span>
           <span className={styles.topicTitle}>{m.data.h1}</span>
           <span className={styles.blurb}>{m.data.card_sub}</span>
+        </span>
+      </Link>
+      <Link href="/app/science/ribbon" className={styles.topic}>
+        <span className={`${styles.tile} ${styles.warm}`}><span className="ms" aria-hidden="true">landscape</span></span>
+        <span className={styles.topicText}>
+          <span className={styles.meta}>{m.ribbon.plus}</span>
+          <span className={styles.topicTitle}>{m.ribbon.title}</span>
+          <span className={styles.blurb}>{m.ribbon.card_sub}</span>
         </span>
       </Link>
       <div className={styles.libraryHead}>

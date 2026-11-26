@@ -317,6 +317,7 @@ export const TOPICS: Topic[] = [
                 <tr><td>Alertas push con tus propias reglas</td><td>–</td><td>Hasta 5 alertas</td></tr>
                 <tr><td>Filtros de magnitud y región</td><td>–</td><td>✓</td></tr>
                 <tr><td>Gráficos de datos sísmicos en directo</td><td>–</td><td>✓</td></tr>
+                <tr><td>Cinta de Fuego del Pacífico</td><td>–</td><td>✓</td></tr>
               </tbody>
             </table>
           </div>
@@ -427,6 +428,7 @@ export const TOPICS: Topic[] = [
           <p>Toca los botones debajo de un diagrama para cambiar de vista, y el botón de pausa para detener la animación. Las guías siguen tu idioma, como el resto de la app. Toca <Ui>Compartir</Ui> en la parte superior de una guía para enviarla a alguien, con su imagen, un breve resumen y el enlace.</p>
           <p>Debajo de las guías, <Ui>En profundidad</Ui> tiene artículos más largos para cuando quieras ir más allá: por qué no se pueden predecir los sismos, la tectónica de placas y las fallas, el interior de la Tierra y las ondas sísmicas, las réplicas, la magnitud, los sismos profundos, los volcanes, los sismos de Italia y el tsunami de 2004 que llegó a Phuket. Cada uno empieza con una imagen de su tema bajo el título, incluye sus fuentes y responde preguntas frecuentes al final. También están en tu idioma; la lista de fuentes se mantiene en inglés.</p>
           <p>En <Ui>Datos</Ui>, <Ui>Datos sísmicos</Ui> (sisma+) muestra en gráficos los sismos de M4.5+ de los últimos 30 días en todo el mundo, según el USGS: cuántos hubo, sus magnitudes y profundidades, las regiones donde ocurrieron, la energía liberada y el número de sismos de M7+ por año desde 1900. Cada gráfico tiene una breve explicación; toca una barra para ver su valor. Sin sisma+ ves las explicaciones y un botón para empezar la prueba gratuita. Los colores tienen significado: las magnitudes usan los colores de los marcadores del mapa, las profundidades los del modo Profundidad del globo, las regiones mayormente en el Anillo de Fuego se resaltan y las barras por encima de la media son de color coral.</p>
+          <p><Ui>Cinta de Fuego del Pacífico</Ui> (sisma+) despliega el Cinturón de Fuego en una larga franja, desde el extremo sur de los Andes hasta Nueva Zelanda, y muestra los sismos del USGS de las últimas 24 horas, 7 días o 30 días según su distancia a lo largo de los arcos volcánicos (en horizontal) y su profundidad (en vertical). Desplázate hacia los lados o haz zoom para recorrerla, elige una región para saltar a ella y toca un punto para ver los detalles del sismo. El color de los puntos indica la profundidad y su tamaño, la magnitud. Busca sismos nuevos una vez por hora e indica cuándo se publicaron los datos.</p>
         </div>
         <Shot src="science" alt="Artículo sobre ondas sísmicas con un diagrama animado de ondas P" caption="Una guía de ciencia" />
       </div>
