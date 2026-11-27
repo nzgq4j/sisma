@@ -1126,7 +1126,8 @@
     "a_joins": "Raccordi tra archi",
     "a_of_mw": "da {n} Mw",
     "a_mag_h": "Magnitudo",
-    "a_depth_h": "Profondità"
+    "a_depth_h": "Profondità",
+    "h_info": "Informazioni sulla riproduzione"
   },
   "tsu": {
     "lv_major_warning": "Allerta tsunami maggiore",

@@ -1126,7 +1126,8 @@
     "a_joins": "岛弧之间的连接段",
     "a_of_mw": "来自 {n} 次 Mw",
     "a_mag_h": "震级",
-    "a_depth_h": "深度"
+    "a_depth_h": "深度",
+    "h_info": "回放信息"
   },
   "tsu": {
     "lv_major_warning": "大海啸警报",

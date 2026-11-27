@@ -1126,7 +1126,8 @@
     "a_joins": "Yaylar arası bağlantılar",
     "a_of_mw": "{n} Mw’den",
     "a_mag_h": "Büyüklük",
-    "a_depth_h": "Derinlik"
+    "a_depth_h": "Derinlik",
+    "h_info": "Oynatma bilgileri"
   },
   "tsu": {
     "lv_major_warning": "Büyük tsunami uyarısı",

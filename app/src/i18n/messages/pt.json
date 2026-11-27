@@ -1126,7 +1126,8 @@
     "a_joins": "Junções entre arcos",
     "a_of_mw": "de {n} Mw",
     "a_mag_h": "Magnitude",
-    "a_depth_h": "Profundidade"
+    "a_depth_h": "Profundidade",
+    "h_info": "Informações da reprodução"
   },
   "tsu": {
     "lv_major_warning": "Alerta máximo de tsunami",
