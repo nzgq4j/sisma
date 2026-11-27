@@ -310,8 +310,8 @@ before release and covered by a test).
 
 **Playback**: the page shows the earthquakes up to a play head, in the chosen depth band (all, < 70 km, 70–300 km,
 ≥ 300 km) and region, within a trail (1, 7 or 30 days behind the head, or everything since the start of the range),
-fading with age over the trail. Play / pause, a timeline slider (0–1,000 over the range), speeds of 1 hour, 6 hours,
-1 day, 1 week or 1 month of catalogue time per second (the default plays the range in about 30 seconds). Each earthquake
+fading with age over the trail. Play / pause, a timeline slider (0–1,000 over the range), and two selectors side by side for the speed (1 hour, 6 hours,
+1 day, 1 week or 1 month of catalogue time per second; the default plays the range in about 30 seconds) and the trail. Each earthquake
 appears at its catalogue time, position and depth; nothing is interpolated. The play head updates about 12 times a
 second; the 3D view rebuilds only its earthquake markers then, not the terrain.
 

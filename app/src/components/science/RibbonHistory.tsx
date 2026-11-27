@@ -179,6 +179,7 @@ export function Player({ from, to, head, setHead, playing, play, pause, speed, s
 }) {
   const { m, nf } = useT();
   const k = m.ribbon;
+  const [open, setOpen] = useState<null | 'speed' | 'trail'>(null);
   // The slider runs 0…1000 over the range (raw times in ms are too large for a range input to step through reliably).
   const span = Math.max(1, to - from), pos = Math.round(((head - from) / span) * 1000);
   return (
@@ -195,16 +196,27 @@ export function Player({ from, to, head, setHead, playing, play, pause, speed, s
       <input className={styles.scrub} type="range" min={0} max={1000} step={1} value={pos} aria-label={k.h_timeline}
         aria-valuetext={when.format(head)} onChange={e => { pause(); setHead(from + (Number(e.target.value) / 1000) * span); }} />
       <div className={styles.scrubEnds} aria-hidden="true"><span>{when.format(from)}</span><span>{when.format(to)}</span></div>
-      <div className={data.seg} role="tablist" aria-label={k.h_speed}>
-        {SPEEDS_MS.map((s, i) => (
-          <button key={s} type="button" role="tab" aria-selected={speed === s} onClick={() => setSpeed(s)}>{k[SPEED_KEYS[i]]}</button>
-        ))}
+      {/* Speed and trail: two selectors side by side, each opening the app's choice sheet. */}
+      <div className={styles.pickPair}>
+        <button type="button" className={styles.jump} onClick={() => setOpen('speed')} aria-haspopup="dialog" aria-label={`${k.h_speed}: ${k[SPEED_KEYS[Math.max(0, SPEEDS_MS.indexOf(speed as (typeof SPEEDS_MS)[number]))]]}`}>
+          <span className="ms" aria-hidden="true">speed</span>
+          <span>{k[SPEED_KEYS[Math.max(0, SPEEDS_MS.indexOf(speed as (typeof SPEEDS_MS)[number]))]]}</span>
+          <span className="ms" aria-hidden="true">expand_more</span>
+        </button>
+        <button type="button" className={styles.jump} onClick={() => setOpen('trail')} aria-haspopup="dialog" aria-label={`${k.h_trail}: ${k[`h_trail_${trail}`]}`}>
+          <span className="ms" aria-hidden="true">timeline</span>
+          <span>{k.h_trail}: {k[`h_trail_${trail}`]}</span>
+          <span className="ms" aria-hidden="true">expand_more</span>
+        </button>
       </div>
-      <div className={data.seg} role="tablist" aria-label={k.h_trail}>
-        {(['day', 'week', 'month', 'all'] as const).map(t => (
-          <button key={t} type="button" role="tab" aria-selected={trail === t} onClick={() => setTrail(t)}>{k[`h_trail_${t}`]}</button>
-        ))}
-      </div>
+      <Sheet open={open === 'speed'} onClose={() => setOpen(null)} title={k.h_speed}>
+        <SheetOptions value={String(speed)} onPick={v => { setSpeed(Number(v)); setOpen(null); }}
+          options={SPEEDS_MS.map((s, i) => ({ value: String(s), label: k[SPEED_KEYS[i]] }))} />
+      </Sheet>
+      <Sheet open={open === 'trail'} onClose={() => setOpen(null)} title={k.h_trail}>
+        <SheetOptions value={trail} onPick={v => { setTrail(v as Trail); setOpen(null); }}
+          options={(['day', 'week', 'month', 'all'] as const).map(t => ({ value: t, label: k[`h_trail_${t}`] }))} />
+      </Sheet>
     </div>
   );
 }
