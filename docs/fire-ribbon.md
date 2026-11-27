@@ -387,7 +387,9 @@ to that region; "Whole ribbon" clears it) and the layers. In history, picking a 
 longest range is shorter than the current range shortens the range to that limit (same end date) and says so in the
 option. The playback details (range, found / on the ribbon, retrieved, catalogue limits and coverage) are behind the
 ⓘ button in the player; loading and errors stay in the card. The player puts the timeline to the right of the time
-(below it on screens narrower than 600 px). The play controls in history mode, search, full screen and the 3D camera stay with the ribbon.
+(below it on screens narrower than 600 px). The time and the count always stay on one line, so the player never changes height while it
+plays; on phones the time's size follows its column (17 px at most, smaller on narrow phones), and on screens up to 360 px
+the play and info buttons are smaller. The play controls in history mode, search, full screen and the 3D camera stay with the ribbon.
 
 ## Verification
 
