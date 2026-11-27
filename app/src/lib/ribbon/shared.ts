@@ -107,3 +107,9 @@ export const GRID_Y0_KM = -700;
 export const GRID_Y1_KM = 400;
 /** Longest window the 3D view asks for (km). */
 export const WINDOW_MAX_KM = 4000;
+/**
+ * 3D view: scene Z for a distance across the route (y, + = left of the direction of travel). Three.js is right-handed:
+ * facing along +X with +Y up, the left is -Z. Putting the left side at -Z keeps the geography the right way round (not
+ * a mirror image): seen from above with the route running left to right, the left (Pacific) side is at the top.
+ */
+export const sceneZ = (y: number) => -y;

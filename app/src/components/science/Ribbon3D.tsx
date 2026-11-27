@@ -3,7 +3,7 @@
 // (FireRibbon.tsx imports it lazily), so Three.js never weighs on the 2D page.
 //
 // One window of the ribbon at a time, in kilometres: X along the route (centred on the window), Z across it
-// (+ = left, the Pacific side on most of the route), Y up. Terrain is the ETOPO 2022 grid (10 km cells) with heights
+// (Z = -y: the left of the route, the Pacific side on most of it, is at -Z, so the scene is not a mirror image), Y up. Terrain is the ETOPO 2022 grid (10 km cells) with heights
 // × the relief factor; earthquakes sit at their own position across the route and their reported depth (never
 // exaggerated); volcanoes at their catalogued summit height. Cameras: oblique (perspective), section (orthographic,
 // looking along the route: distance across vs depth) and top (orthographic, from above).
@@ -13,7 +13,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { useT } from '@/i18n/I18nProvider';
 import { useAccount } from '@/components/Account';
 import {
-  GRID_Y0_KM, GRID_Y1_KM, depthColour, markerRadius, markerOpacity,
+  GRID_Y0_KM, GRID_Y1_KM, sceneZ, depthColour, markerRadius, markerOpacity,
   type Period, type RibbonQuake, type Terrain3DResponse,
 } from '@/lib/ribbon/shared';
 import type { RibbonVolcano } from '@/lib/ribbon/volcanoes';
@@ -22,6 +22,7 @@ import styles from './ribbon.module.css';
 export type Camera3D = 'oblique' | 'section' | 'top';
 const BG = 0x0b1220;
 const DEPTH_KM = 700;
+const Z = sceneZ;
 
 /** Terrain colour by height (m): sea floor from deep to shallow blue, land from low green-brown to grey-ochre. */
 function terrainColour(m: number, c: THREE.Color) {
@@ -80,7 +81,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
   const x0 = centre - span / 2, x1 = centre + span / 2;
   const terrain = useTerrainWindow(x0, x1);
   const camRef = useRef<Camera3D>(camera);
-  // Compass: true north at the window's centre (from the terrain API) as a scene direction (X along, Z to the left),
+  // Compass: true north at the window's centre (from the terrain API) as a scene direction (X along, Z = Z(left)),
   // turned to the screen after every frame.
   const northRef = useRef<THREE.Vector3 | null>(null);
   const needleRef = useRef<SVGSVGElement>(null);
@@ -164,7 +165,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
   // North for this window: set when its terrain arrives, then redrawn.
   useEffect(() => {
     const n = terrain?.d?.north;
-    northRef.current = n ? new THREE.Vector3(n[0], 0, n[1]).normalize() : null;
+    northRef.current = n ? new THREE.Vector3(n[0], 0, Z(n[1])).normalize() : null;
     three.current?.render();
   }, [terrain]);
 
@@ -185,7 +186,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
         (Array.isArray(mat) ? mat : mat ? [mat] : []).forEach(x => { (x as THREE.SpriteMaterial).map?.dispose(); x.dispose(); });
       });
     });
-    const W = x1 - x0, zA = GRID_Y0_KM, zB = GRID_Y1_KM;
+    const W = x1 - x0, zA = Z(GRID_Y0_KM), zB = Z(GRID_Y1_KM); // zA: behind the arc (+Z), zB: Pacific side (-Z)
     const scale = W / 1600; // marker sizes follow the window's width
     const ls = scale * 1.6; // label size
 
@@ -196,7 +197,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
     for (const x of [-W / 2, W / 2]) for (const z of [zA, zB]) box(x, 0, z, x, -DEPTH_KM, z);
     const grid: number[] = [];
     for (let d = 100; d < DEPTH_KM; d += 100) {
-      grid.push(-W / 2, -d, zA, W / 2, -d, zA); // back wall
+      grid.push(-W / 2, -d, zB, W / 2, -d, zB); // back wall (Pacific side, far from the default camera)
       grid.push(-W / 2, -d, zA, -W / 2, -d, zB); // end wall
     }
     const lg = (pts: number[], colour: number, opacity: number) => {
@@ -204,12 +205,12 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
       return new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color: colour, transparent: true, opacity }));
     };
     world.add(lg(lines, 0xbecde6, 0.35), lg(grid, 0xbecde6, 0.14));
-    for (let d = 100; d <= DEPTH_KM; d += 200) { const s = label(`${nf.format(d)} ${labels.km}`, 28 * ls); s.position.set(-W / 2 - 40 * scale, -d, zA); s.userData.depthLabel = true; world.add(s); }
-    const dl = label(labels.depth, 30 * ls); dl.position.set(-W / 2 - 40 * scale, -DEPTH_KM - 60 * scale, zA); dl.userData.depthLabel = true; world.add(dl);
+    for (let d = 100; d <= DEPTH_KM; d += 200) { const s = label(`${nf.format(d)} ${labels.km}`, 28 * ls); s.position.set(-W / 2 - 40 * scale, -d, zB); s.userData.depthLabel = true; world.add(s); }
+    const dl = label(labels.depth, 30 * ls); dl.position.set(-W / 2 - 40 * scale, -DEPTH_KM - 60 * scale, zB); dl.userData.depthLabel = true; world.add(dl);
     // Depth labels are hidden from above, where they would all fall on one spot.
     world.children.forEach(o => { if (o.userData.depthLabel) o.visible = camRef.current !== 'top'; });
-    const lp = label(labels.pacific, 32 * ls, 'rgba(120,190,240,0.95)'); lp.position.set(0, 60 * scale, zB + 30 * scale); world.add(lp);
-    const lb = label(labels.behind, 32 * ls, 'rgba(230,190,150,0.95)'); lb.position.set(0, 60 * scale, zA - 30 * scale); world.add(lb);
+    const lp = label(labels.pacific, 32 * ls, 'rgba(120,190,240,0.95)'); lp.position.set(0, 60 * scale, zB - 30 * scale); world.add(lp);
+    const lb = label(labels.behind, 32 * ls, 'rgba(230,190,150,0.95)'); lb.position.set(0, 60 * scale, zA + 30 * scale); world.add(lb);
     for (const r of labels.regions) {
       const a = Math.max(r.x0, x0), b = Math.min(r.x1, x1);
       if (b - a < W * 0.08) continue;
@@ -226,7 +227,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
         const pos = new Float32Array(rows.length * nz * 3), col = new Float32Array(rows.length * nz * 3), c = new THREE.Color();
         rows.forEach((o, i) => o.r.forEach((m, j) => {
           const k = (i * nz + j) * 3, h = m ?? 0;
-          pos[k] = o.x - centre; pos[k + 1] = (h / 1000) * relief; pos[k + 2] = d.y0Km + j * d.stepKm + d.stepKm / 2;
+          pos[k] = o.x - centre; pos[k + 1] = (h / 1000) * relief; pos[k + 2] = Z(d.y0Km + j * d.stepKm + d.stepKm / 2);
           terrainColour(h, c); col[k] = c.r; col[k + 1] = c.g; col[k + 2] = c.b;
         }));
         const idx: number[] = [];
@@ -249,7 +250,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
       const o = new THREE.Object3D(), c = new THREE.Color(), bg = new THREE.Color(BG);
       inWindow.forEach((q, i) => {
         const r = markerRadius(q.mag) * 4 * scale * (q.id === selected ? 1.7 : 1);
-        o.position.set(q.x - centre, -q.depth, q.y); o.scale.setScalar(r); o.updateMatrix();
+        o.position.set(q.x - centre, -q.depth, Z(q.y)); o.scale.setScalar(r); o.updateMatrix();
         m.setMatrixAt(i, o.matrix);
         c.set(q.id === selected ? '#FFFFFF' : depthColour(q.depth)).lerp(bg, 1 - markerOpacity(now - q.time, period));
         m.setColorAt(i, c);
@@ -265,7 +266,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
       const o = new THREE.Object3D(), c = new THREE.Color();
       const colours: Record<string, string> = { catalogued: '#E9EDF5', other: '#E9EDF5', new_unrest: '#FFC233', new_eruptive: '#FF8A2A', continuing: '#FF4040', unknown: '#7D879B' };
       volcsIn.forEach((v, i) => {
-        o.position.set(v.x - centre, showTerrain ? ((v.elevation ?? 0) / 1000) * relief : 0, v.y);
+        o.position.set(v.x - centre, showTerrain ? ((v.elevation ?? 0) / 1000) * relief : 0, Z(v.y));
         o.scale.setScalar(v.n === selectedV ? 1.5 : v.status === 'catalogued' || v.status === 'unknown' ? 0.7 : 1); o.updateMatrix();
         m.setMatrixAt(i, o.matrix);
         m.setColorAt(i, c.set(v.n === selectedV ? '#FFFFFF' : colours[v.status]));
@@ -281,10 +282,11 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
     if (!t) return;
     const W = x1 - x0, el = host.current!;
     const aspect = el.clientWidth / Math.max(1, el.clientHeight);
-    const midZ = (GRID_Y0_KM + GRID_Y1_KM) / 2, midY = -DEPTH_KM / 2 + 60;
+    const midZ = Z((GRID_Y0_KM + GRID_Y1_KM) / 2), midY = -DEPTH_KM / 2 + 60;
     if (camera === 'oblique') {
       t.controls.object = t.persp;
-      t.persp.position.set(-W * 0.15, W * 0.28, GRID_Y1_KM + W * 0.95);
+      // From behind the arc, so the route runs left to right as in the profile, with the Pacific side beyond.
+      t.persp.position.set(-W * 0.15, W * 0.28, Z(GRID_Y0_KM) + W * 0.95);
       t.controls.target.set(0, midY, midZ);
       t.controls.enableRotate = true;
     } else {
