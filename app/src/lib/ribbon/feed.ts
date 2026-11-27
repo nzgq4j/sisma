@@ -1,6 +1,6 @@
 // Pacific Fire Ribbon: the USGS summary feeds turned into ribbon earthquakes. Server only (GET /api/science/ribbon).
 //
-// Source: the USGS Earthquake Hazards Program summary feeds for the past day, week or 30 days, all magnitudes: GeoJSON
+// Source: the USGS Earthquake Hazards Program summary feeds for the past hour, day, week or 30 days, all magnitudes: GeoJSON
 // for the event fields, and the CSV version of the same feed for the location, depth and magnitude uncertainties (the
 // GeoJSON feed doesn't carry them). Events are matched by their USGS id; an id seen twice keeps its latest update.
 // Only events of type "earthquake" are kept (the feeds also list quarry blasts, explosions, ice quakes and landslides).
@@ -10,7 +10,7 @@ import { GROUPS, type GroupId, type Period, type RibbonQuake } from './shared';
 import { inCorridor, toRibbon } from './transform';
 
 const BASE = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/';
-const NAME: Record<Period, string> = { day: 'all_day', week: 'all_week', month: 'all_month' };
+const NAME: Record<Period, string> = { hour: 'all_hour', day: 'all_day', week: 'all_week', month: 'all_month' };
 export const feedUrls = (p: Period) => ({ geojson: `${BASE}${NAME[p]}.geojson`, csv: `${BASE}${NAME[p]}.csv` });
 
 interface Feature {

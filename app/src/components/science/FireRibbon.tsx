@@ -17,11 +17,19 @@ import dynamic from 'next/dynamic';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import type { Camera3D } from './Ribbon3D';
 import { RibbonShareSheet } from './RibbonShare';
+import {
+  HistoryControls, HistoryStatus, Player, presetRange, trailPeriod, useHistory, usePlayback, visibleQuakes,
+  type HistoryRange, type Preset, type Trail,
+} from './RibbonHistory';
+import type { DepthFilter } from '@/lib/ribbon/history';
 import type { RibbonVolcano, VolcanoResponse, VolcanoStatus } from '@/lib/ribbon/volcanoes';
 import {
   DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, POLL_MS, RELIEF, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
-  type MinMag, type Period, type Relief, type RibbonQuake, type RibbonResponse, type TerrainResponse,
+  type GroupId, type MinMag, type Period, type Relief, type RibbonQuake, type RibbonResponse, type TerrainResponse,
 } from '@/lib/ribbon/shared';
+
+const NO_QUAKES: RibbonQuake[] = [];
+const NO_IDS = new Set<string>();
 import data from './data.module.css';
 import styles from './ribbon.module.css';
 
@@ -148,14 +156,37 @@ export function FireRibbonPage() {
     const span = SPANS.reduce((a, b) => (Math.abs(b - (x1 - x0) * 1.2) < Math.abs(a - (x1 - x0) * 1.2) ? b : a), SPANS[1]);
     setWin({ centre: (x0 + x1) / 2, span: Math.min(span, SPANS[SPANS.length - 1]) });
   };
-  const quakes = useMemo(() => (st.s === 'ready' ? st.quakes : []), [st]);
+  // History mode (step 5): a past range from the USGS catalogue, played back with a moving play head.
+  const [mode, setMode] = useState<'live' | 'history'>('live');
+  const [preset, setPreset] = useState<Preset>('90d');
+  const [hrange, setHrange] = useState<HistoryRange | null>(null);
+  const [depthF, setDepthF] = useState<DepthFilter>('all');
+  const [hregion, setHregion] = useState<GroupId | null>(null);
+  const [trail, setTrail] = useState<Trail>('all');
+  const history = mode === 'history';
+  const hst = useHistory(plus && history, hrange);
+  const hAll = hst.s === 'ready' ? hst.quakes : NO_QUAKES;
+  const pb = usePlayback(hst.s === 'ready' ? hst.d.from : 0, hst.s === 'ready' ? hst.d.to : 1);
+  const hShown = useMemo(() => visibleQuakes(hAll, { head: pb.head, trail, depth: depthF, region: hregion }), [hAll, pb.head, trail, depthF, hregion]);
+  const enterHistory = () => {
+    setMode('history'); setSel(null);
+    if (!hrange) setHrange({ ...presetRange('90d', Date.now()), min: 2.5 });
+  };
+  const liveQuakes = useMemo(() => (st.s === 'ready' ? st.quakes : NO_QUAKES), [st]);
+  const quakes = history ? hShown : liveQuakes;
+  /** Markers fade with age: from now in live mode, from the play head (over the trail) in history mode. */
+  const fadePeriod: Period = history ? trailPeriod(trail) : period;
   const selected = quakes.find(q => q.id === sel) ?? null;
   const volcanoes = useMemo(() => (vst.s === 'ready' ? vst.d.volcanoes : []), [vst]);
+  // This week's report says nothing about past dates: in history mode every triangle is drawn plain (details still
+  // show this week's status, labelled as such).
+  const drawnVolcanoes = useMemo(() => (history ? volcanoes.map(v => (reported(v) ? { ...v, status: 'catalogued' as const } : v)) : volcanoes), [history, volcanoes]);
   const selectedV = volcanoes.find(v => v.n === selV) ?? null;
   const active = useMemo(() => volcanoes.filter(reported)
     .sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || a.x - b.x), [volcanoes]);
   const largest = useMemo(() => [...quakes].filter(q => q.mag !== null).sort((a, b) => (b.mag ?? 0) - (a.mag ?? 0)).slice(0, 8), [quakes]);
   const now = useMinute();
+  const fadeNow = history ? pb.head : now;
   const when = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' });
   const mag1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const rel = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
@@ -179,7 +210,22 @@ export function FireRibbonPage() {
       {!plus && locked}
       {plus && (
         <section className={`${data.card} ${styles.card}`}>
-          <div className={styles.controls}>
+          <div className={data.seg} role="tablist" aria-label={k.mode}>
+            <button type="button" role="tab" aria-selected={!history} onClick={() => { pb.pause(); setMode('live'); setSel(null); }}>{k.mode_live}</button>
+            <button type="button" role="tab" aria-selected={history} onClick={enterHistory}>{k.mode_history}</button>
+          </div>
+          {history && hrange && (
+            <>
+              <HistoryControls preset={preset} setPreset={setPreset} range={hrange} setRange={r => { setHrange(r); setSel(null); }}
+                depth={depthF} setDepth={setDepthF} region={hregion} setRegion={setHregion} now={now} />
+              <HistoryStatus st={hst} range={hrange} when={when} />
+              {hst.s === 'ready' && (
+                <Player from={hst.d.from} to={hst.d.to} head={pb.head} setHead={pb.setHead} playing={pb.playing} play={pb.play} pause={pb.pause}
+                  speed={pb.speed} setSpeed={pb.setSpeed} trail={trail} setTrail={setTrail} shown={hShown.length} when={when} />
+              )}
+            </>
+          )}
+          {!history && <div className={styles.controls}>
             <div className={data.seg} role="tablist" aria-label={k.period}>
               {PERIODS.map(p => (
                 <button key={p} type="button" role="tab" aria-selected={period === p} onClick={() => { setPeriod(p); setSel(null); }}>
@@ -194,15 +240,15 @@ export function FireRibbonPage() {
                 </button>
               ))}
             </div>
-          </div>
+          </div>}
           {st.s === 'loading' && <p className={data.status}>{k.loading}</p>}
           {st.s === 'error' && <p className={data.status} role="alert">{k.error}</p>}
           {st.s === 'ready' && (
             <>
-              <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />
-              <button type="button" className={styles.shareBtn} onClick={() => setSharing(true)} aria-haspopup="dialog">
+              {!history && <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />}
+              {!history && <button type="button" className={styles.shareBtn} onClick={() => setSharing(true)} aria-haspopup="dialog">
                 <span className="ms" aria-hidden="true">ios_share</span>{k.share}
-              </button>
+              </button>}
               <RibbonShareSheet open={sharing} onClose={() => setSharing(false)} d={st.d} quakes={quakes} volcanoes={volcanoes}
                 terrain={tst.s === 'ready' ? tst.d : null} period={period} min={min} now={now} />
               <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
@@ -245,16 +291,18 @@ export function FireRibbonPage() {
                   <button key={v} type="button" role="tab" aria-selected={view === v} onClick={() => setView(v)}>{k[`view_${v}`]}</button>
                 ))}
               </div>
+              <div className={history ? styles.historyFrame : undefined}>
               {view === '2d' ? (
-                <Plot d={st.d} quakes={show.quakes ? quakes : []} volcanoes={show.volcanoes ? volcanoes : []} period={period} fresh={st.fresh}
+                <Plot d={st.d} quakes={show.quakes ? quakes : NO_QUAKES} volcanoes={show.volcanoes ? drawnVolcanoes : []} period={fadePeriod} fresh={history ? NO_IDS : st.fresh}
                   terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]}
-                  selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={now} />
+                  selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={fadeNow} />
               ) : (
                 <View3D d={st.d} win={win ?? { centre: largest[0]?.x ?? (st.d.regions.find(r => r.group === 'japan')?.x0 ?? 23000) + 400, span: SPANS[1] }}
-                  setWin={setWin} cam={cam} setCam={setCam} quakes={show.quakes ? quakes : []} volcanoes={show.volcanoes ? volcanoes : []}
-                  showTerrain={show.terrain} relief={RELIEF[relief]} period={period} now={now} selected={sel} selectedV={selV}
+                  setWin={setWin} cam={cam} setCam={setCam} quakes={show.quakes ? quakes : NO_QUAKES} volcanoes={show.volcanoes ? drawnVolcanoes : []}
+                  showTerrain={show.terrain} relief={RELIEF[relief]} period={fadePeriod} now={fadeNow} selected={sel} selectedV={selV}
                   onSelect={pickQuake} onSelectV={pickVolcano} />
               )}
+              </div>
               <Key volcanoes={vst.s === 'ready'} terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]} />
               {quakes.length === 0 && <p className={data.status}>{k.none}</p>}
               {selected && <Detail q={selected} onClose={() => setSel(null)} when={when} />}
@@ -297,7 +345,7 @@ export function FireRibbonPage() {
       )}
       <section className={data.card}>
         <h2>{k.notes_h}</h2>
-        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_6, k.note_7, k.note_8, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
+        <ul className={data.notes}>{[k.note_1, k.note_2, k.note_6, k.note_7, k.note_8, k.note_9, k.note_3, k.note_4, k.note_5].map(n => <li key={n}>{n}</li>)}</ul>
         <p className={styles.source}>{k.source}</p>
       </section>
     </div>

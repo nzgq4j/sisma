@@ -81,3 +81,26 @@
 .compass { position: absolute; top: 10px; right: 10px; width: 56px; height: 56px; border-radius: 50%; background: rgba(11, 18, 32, .82); border: 1px solid rgba(190, 205, 230, .35); pointer-events: none; }
 .compass svg { position: absolute; inset: 0; width: 56px; height: 56px; }
 .compass span { position: absolute; left: 50%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; line-height: 1; color: #FF8A7E; }
+
+/* History mode (step 5): amber, so a historical view is never mistaken for live monitoring. */
+.historyControls { display: flex; flex-direction: column; gap: 10px; }
+.dates { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; }
+.dates label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 700; color: var(--ink2); }
+.dates input { min-height: 44px; padding: 0 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); font: inherit; font-size: 15px; }
+.apply { min-height: 44px; padding: 0 18px; border: 0; border-radius: 22px; background: #B26A00; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; }
+.apply:disabled { opacity: .45; cursor: default; }
+.historyStatus { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 14px; background: rgba(242, 179, 61, .12); border: 1px solid rgba(242, 179, 61, .45); font-size: 13px; color: var(--ink); }
+.historyStatus p { margin: 0; text-wrap: pretty; }
+.historyTag { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 10px; background: #B26A00; color: #FFFFFF; font-weight: 800; font-size: 12px; }
+.historyTag :global(.ms) { font-size: 16px; }
+.historyFrame { position: relative; border: 2px solid #F2B33D; border-radius: 16px; overflow: hidden; }
+.historyFrame::before { content: ''; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 0 1px rgba(242, 179, 61, .35); z-index: 1; }
+.player { display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; border-radius: 14px; background: var(--surface2); }
+.playRow { display: flex; align-items: center; gap: 12px; }
+.playBtn { flex: none; width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: #B26A00; color: #FFFFFF; cursor: pointer; }
+.playBtn :global(.ms) { font-size: 28px; }
+.clock { display: flex; flex-direction: column; min-width: 0; }
+.clock b { font-size: 17px; font-variant-numeric: tabular-nums; color: var(--ink); }
+.clock span { font-size: 12px; color: var(--ink2); }
+.scrub { width: 100%; min-height: 32px; accent-color: #B26A00; }
+.scrubEnds { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--ink2); margin-top: -6px; }

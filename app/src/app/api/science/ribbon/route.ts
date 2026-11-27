@@ -5,7 +5,7 @@ import { feedUrls, ribbonQuakes, type FeedJson } from '@/lib/ribbon/feed';
 import { COLUMNS, MIN_MAGS, PERIODS, POLL_MS, toRow, type MinMag, type Period, type RibbonResponse } from '@/lib/ribbon/shared';
 import { END_ALLOWANCE_KM, LEFT_KM, RIGHT_KM, layout } from '@/lib/ribbon/transform';
 
-// GET /api/science/ribbon?period=day|week|month&min=0|2.5|4.5 → the earthquakes of Science → Pacific Fire Ribbon
+// GET /api/science/ribbon?period=hour|day|week|month&min=0|2.5|4.5 → the earthquakes of Science → Pacific Fire Ribbon
 // (sisma+ only; the plan is checked here, never trusted from the client). From the USGS summary feeds of all
 // earthquakes for that period (lib/ribbon/feed.ts), downloaded at most once an hour per period and kept between
 // requests; when a download fails the last good copy is kept and its USGS publication time shows its age.

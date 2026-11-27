@@ -6,8 +6,8 @@ its explanations are open to everyone, the data is not (`GET /api/science/ribbon
 
 Built so far: step 1 (the reference route, the coordinate transform and a live 2D depth profile), step 2 (volcano
 markers with this week's reported status), step 3 (terrain along the ribbon from ETOPO 2022, with true-scale and
-exaggerated relief) and step 4 (a 3D view of a stretch of the ribbon), plus a share card. Copernicus DEM detail for individual volcanoes,
-historical playback, overlays and a linked map (later steps) are not built yet. Slab2 was dropped from scope.
+exaggerated relief), step 4 (a 3D view of a stretch of the ribbon), a share card, and step 5 (historical playback). Copernicus DEM detail for individual volcanoes,
+overlays and a linked map (later steps) are not built yet. Slab2 was dropped from scope.
 
 ## Files
 
@@ -22,6 +22,9 @@ historical playback, overlays and a linked map (later steps) are not built yet. 
 | `app/src/app/api/science/ribbon/route.ts` | The API: plan check, hourly cached download per period, magnitude filter. |
 | `app/src/components/science/FireRibbon.tsx` | The page: controls, status, the plot, key, details, largest list, notes. |
 | `app/src/components/science/Ribbon3D.tsx` | The 3D view (Three.js, loaded only when someone opens it). |
+| `app/src/lib/ribbon/history.ts` | History ranges, their limits, the USGS search pieces and URLs, playback speeds and depth filters (tested in `history.test.ts`). |
+| `app/src/app/api/science/ribbon/history/route.ts` | The history API: plan check, cached searches per piece, one response per range. |
+| `app/src/components/science/RibbonHistory.tsx` | History mode: loading, the play head, the controls, the status (tested in `ribbon-history.test.ts`). |
 | `app/src/components/science/RibbonShare.tsx` | The share card (drawn in the browser) and its share sheet. |
 | `app/src/lib/ribbon/share.ts` | The card's facts, post text, image description and row layout (tested in `share.test.ts`). |
 | `app/src/app/api/science/ribbon/terrain3d/route.ts` | A window of the 3D terrain grid (sisma+, cached for a day). |
@@ -278,6 +281,44 @@ where the Horizon Deep lies) were downloaded again at every cell (`supabase/migr
 check. `params.trenchFullKm` records the stretch. (The table of deepest values per region above is limited to each
 region's own range: the Tonga region ends at 37,276 km, so its −9,840 m does not include the Horizon Deep, which lies
 in the join between Tonga and Kermadec.) The 3D grid's 10 km means were not rebuilt; they average every third cell.
+
+## Historical playback (step 5)
+
+**Periods**: live mode offers the past hour, 24 hours, 7 days and 30 days (USGS summary feeds `all_hour`, `all_day`,
+`all_week`, `all_month`). **History** mode offers the past 90 days, the past year, or any range of whole UTC days from
+1970, from the USGS ComCat event web service (FDSN event API), which is the catalogue the feeds come from.
+
+**Limits** (measured 27 November 2026, worldwide earthquakes: about 9,600 of all magnitudes per month, 1,900 of M2.5+
+per month, 29,500 of M2.5+ per year, 7,800 of M4.5+ per year; about half fall on the ribbon). The service refuses a
+search matching more than 20,000 events, and a response from this app must stay under the hosting limit (4.5 MB), so:
+all magnitudes up to 31 days, M2.5+ up to 366 days, M4.5+ up to 1,096 days, and at most 17,000 earthquakes on the
+ribbon per range (the event link is left out of each row and rebuilt by the page from the id, which is how USGS forms
+it). The page raises the magnitude filter when a range is too long for it and explains the limits.
+
+**How a range is loaded** (`GET /api/science/ribbon/history?start=&end=&min=`, sisma+): the range is split into
+calendar months (calendar quarters for M4.5+); each piece is searched (GeoJSON for the event fields and CSV for the
+uncertainties, `eventtype=earthquake`, oldest first; a piece that still matches too many is split in two) and placed
+on the ribbon exactly as the live feeds are (`lib/ribbon/feed.ts`). Each piece is cached for a week once it ended more
+than two days ago, otherwise for an hour; a range reaching today ends at the current time rounded up to 10 minutes.
+Events on a piece boundary are kept once. Times are sent in whole UTC seconds without a time zone suffix (a time with
+milliseconds was once sent with its "Z", which the stand-in used in tests rejected, dropping the newest month; fixed
+before release and covered by a test).
+
+**Playback**: the page shows the earthquakes up to a play head, in the chosen depth band (all, < 70 km, 70–300 km,
+≥ 300 km) and region, within a trail (1, 7 or 30 days behind the head, or everything since the start of the range),
+fading with age over the trail. Play / pause, a timeline slider (0–1,000 over the range), speeds of 1 hour, 6 hours,
+1 day, 1 week or 1 month of catalogue time per second (the default plays the range in about 30 seconds). Each earthquake
+appears at its catalogue time, position and depth; nothing is interpolated. The play head updates about 12 times a
+second; the 3D view rebuilds only its earthquake markers then, not the terrain.
+
+**Distinct from live**: amber controls, an amber frame round the views, a "Historical playback" tag with the range and
+filter, no "new since last check" marks, no Share button, and volcano triangles drawn plain (this week's activity report
+says nothing about past dates; a volcano's details still show this week's status, labelled as such). The status states
+how many earthquakes were found worldwide and how many are on the ribbon, and that catalogue completeness varies by
+place and time.
+
+**Revisions**: catalogue locations, depths and magnitudes are revised over time; a past event can differ from what was
+first published, and the cached pieces follow the catalogue within a week.
 
 ## Verification
 
