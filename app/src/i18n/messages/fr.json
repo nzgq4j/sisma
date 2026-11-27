@@ -1093,7 +1093,8 @@
     "full_enter": "Plein écran",
     "full_exit": "Quitter le plein écran",
     "map_label": "Carte du Pacifique avec le tracé du ruban, le tronçon affiché ci-dessus, et les séismes et volcans signalés qui s’y trouvent.",
-    "map_hint": "La bande ambre est le tronçon affiché ci-dessus (400 km côté Pacifique, 700 km en arrière de l’arc). Touchez un point ou un triangle pour le sélectionner dans les deux vues."
+    "map_hint": "La bande ambre est le tronçon affiché ci-dessus (400 km côté Pacifique, 700 km en arrière de l’arc). Touchez un point ou un triangle pour le sélectionner dans les deux vues.",
+    "panel": "Commandes"
   },
   "tsu": {
     "lv_major_warning": "Alerte majeure au tsunami",

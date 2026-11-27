@@ -120,3 +120,8 @@
   padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   background: var(--bg); }
 .full .view3d { height: min(78vh, 1000px); }
+
+/* The selectors' pull-up card (components/stage/PullPanel.tsx, pinned above the bottom navigation). */
+.panelBody { display: flex; flex-direction: column; gap: 12px; }
+@media (min-width: 1024px) { .ribbonPanel[data-filter-panel] { bottom: 16px; } }
+.viewLabel { flex: 1; min-width: 0; font-size: 15px; font-weight: 800; color: var(--ink); }

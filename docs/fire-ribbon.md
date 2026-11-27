@@ -347,6 +347,16 @@ the depth and region filters so it is on screen.
 scroll behind it; the 3D view grows to 78% of the screen height); the same button or Escape leaves. It is a layer over the
 page, not the browser's own full-screen mode, so it behaves the same in every browser.
 
+## Controls card
+
+All the selectors (Live / History, period, magnitude, history range and filters, the status, Share, Go to region,
+layers, relief, Profile / 3D) are in a pull-up card pinned above the bottom navigation (16 px from the bottom on
+desktop), so the ribbon follows the title directly. Collapsed, the card shows its title, the number of earthquakes
+shown and a one-line summary (for example "Live · 30 days · M2.5+ · Profile"); tap or drag it up to open it (half or
+nearly full height), drag it down or double-tap away from its controls to close it; picking a region closes it. It is
+the app's shared pull-up card (`components/stage/PullPanel.tsx`, extracted from the Map / Globe / Feed filter panel,
+which now uses it too). The play controls in history mode, search, full screen and the 3D camera stay with the ribbon.
+
 ## Verification
 
 - `app/src/lib/ribbon/transform.test.ts`: the route rebuilds identically; the regions are in order; the stored

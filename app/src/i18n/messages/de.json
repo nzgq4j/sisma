@@ -1093,7 +1093,8 @@
     "full_enter": "Vollbild",
     "full_exit": "Vollbild verlassen",
     "map_label": "Karte des Pazifiks mit der Route des Bands, dem oben gezeigten Abschnitt sowie den Erdbeben und gemeldeten Vulkanen darauf.",
-    "map_hint": "Das bernsteinfarbene Band ist der oben gezeigte Abschnitt (400 km zur Pazifikseite, 700 km hinter dem Bogen). Tippe auf einen Punkt oder ein Dreieck, um ihn in beiden auszuwählen."
+    "map_hint": "Das bernsteinfarbene Band ist der oben gezeigte Abschnitt (400 km zur Pazifikseite, 700 km hinter dem Bogen). Tippe auf einen Punkt oder ein Dreieck, um ihn in beiden auszuwählen.",
+    "panel": "Steuerung"
   },
   "tsu": {
     "lv_major_warning": "Große Tsunamiwarnung",

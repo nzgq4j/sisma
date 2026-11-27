@@ -1093,7 +1093,8 @@
     "full_enter": "Layar penuh",
     "full_exit": "Keluar dari layar penuh",
     "map_label": "Peta Pasifik dengan rute pita, bentang yang ditampilkan di atas, serta gempa dan gunung api yang dilaporkan di dalamnya.",
-    "map_hint": "Pita kuning sawo adalah bentang yang ditampilkan di atas (400 km ke sisi Pasifik, 700 km di belakang busur). Ketuk titik atau segitiga untuk memilihnya di keduanya."
+    "map_hint": "Pita kuning sawo adalah bentang yang ditampilkan di atas (400 km ke sisi Pasifik, 700 km di belakang busur). Ketuk titik atau segitiga untuk memilihnya di keduanya.",
+    "panel": "Kontrol"
   },
   "tsu": {
     "lv_major_warning": "Peringatan tsunami besar",

@@ -1093,7 +1093,8 @@
     "full_enter": "Pantalla completa",
     "full_exit": "Salir de pantalla completa",
     "map_label": "Mapa del Pacífico con la ruta de la cinta, el tramo que se muestra arriba y los sismos y volcanes reportados en él.",
-    "map_hint": "La franja ámbar es el tramo que se muestra arriba (400 km del lado del Pacífico, 700 km detrás del arco). Toca un punto o triángulo para seleccionarlo en ambos."
+    "map_hint": "La franja ámbar es el tramo que se muestra arriba (400 km del lado del Pacífico, 700 km detrás del arco). Toca un punto o triángulo para seleccionarlo en ambos.",
+    "panel": "Controles"
   },
   "tsu": {
     "lv_major_warning": "Aviso de tsunami mayor",

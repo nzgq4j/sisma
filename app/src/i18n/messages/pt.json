@@ -1093,7 +1093,8 @@
     "full_enter": "Tela cheia",
     "full_exit": "Sair da tela cheia",
     "map_label": "Mapa do Pacífico com a rota da fita, o trecho mostrado acima e os terremotos e vulcões relatados nele.",
-    "map_hint": "A faixa âmbar é o trecho mostrado acima (400 km do lado do Pacífico, 700 km atrás do arco). Toque em um ponto ou triângulo para selecioná-lo nos dois."
+    "map_hint": "A faixa âmbar é o trecho mostrado acima (400 km do lado do Pacífico, 700 km atrás do arco). Toque em um ponto ou triângulo para selecioná-lo nos dois.",
+    "panel": "Controles"
   },
   "tsu": {
     "lv_major_warning": "Alerta máximo de tsunami",

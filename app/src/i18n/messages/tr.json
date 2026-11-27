@@ -1093,7 +1093,8 @@
     "full_enter": "Tam ekran",
     "full_exit": "Tam ekrandan çık",
     "map_label": "Şeridin rotasını, yukarıda gösterilen bölümü ve üzerindeki depremlerle bildirilen volkanları gösteren Pasifik haritası.",
-    "map_hint": "Kehribar renkli bant, yukarıda gösterilen bölümdür (Pasifik tarafında 400 km, yayın arkasında 700 km). Her ikisinde de seçmek için bir noktaya veya üçgene dokunun."
+    "map_hint": "Kehribar renkli bant, yukarıda gösterilen bölümdür (Pasifik tarafında 400 km, yayın arkasında 700 km). Her ikisinde de seçmek için bir noktaya veya üçgene dokunun.",
+    "panel": "Kontroller"
   },
   "tsu": {
     "lv_major_warning": "Büyük tsunami uyarısı",
