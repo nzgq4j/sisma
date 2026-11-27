@@ -1,9 +1,9 @@
 'use client';
 // Me → Administration (profiles.is_admin only; every request is re-checked by /api/admin/*): automatic Bluesky posts —
 // on/off, minimum magnitude, the last 24 hours of M4.5+ events with a preview of each post (card image, text, alt text)
-// and "Post now", the log of posts with links, In Depth articles to post by hand (components/admin/LibraryBluesky) and
-// the daily Play Store posts (components/admin/PromoPosts) and the twice-daily In Depth posts in 10 languages
-// (components/admin/LibraryPosts), and Discover: geoscience posts by others to like, repost or follow by hand
+// and "Post now" and the log of those posts with links; then In Depth: articles to post by hand
+// (components/admin/LibraryBluesky) and the twice-daily In Depth posts in 10 languages (components/admin/LibraryPosts);
+// the daily Play Store posts (components/admin/PromoPosts); and Discover: geoscience posts by others to like, repost or follow by hand
 // (components/admin/BlueskyDiscover).
 // Posting itself is in lib/bluesky.ts (every-minute alert job).
 import Link from 'next/link';
@@ -116,22 +116,6 @@ export default function AdminPage() {
       )}
       </Collapsible>
 
-      <div className={styles.head}><span>{k.library_h}</span></div>
-      <p className={me.hint}>{k.library_p}</p>
-      {(() => {
-        const chosen = article ? localLibrary(LIBRARY.find(a => a.id === article)!, libTr, locale) : null;
-        return (
-          <div className={me.card}>
-            <button type="button" className={me.row} aria-haspopup="dialog" onClick={() => setPickOpen(true)}>
-              <span className="ms" aria-hidden="true">{chosen?.icon ?? 'menu_book'}</span>
-              <span className={me.grow}><span className={styles.pickLabel}>{k.library_article}</span><span lang={chosen?.lang}>{chosen?.title ?? k.library_choose}</span></span>
-              <span className={`ms ${me.chev}`} aria-hidden="true">expand_more</span>
-            </button>
-            {article && <div className={styles.composer}><LibraryBlueskyComposer key={article} id={article} /></div>}
-          </div>
-        );
-      })()}
-
       <Collapsible icon="campaign" title={k.log} count={nf.format(data.posts.length)}>
       {data.posts.length === 0 ? <p className={me.hint}>{k.log_none}</p> : (
         <div className={styles.list}>
@@ -151,9 +135,26 @@ export default function AdminPage() {
       {(() => { const n = data.posts.filter(p => p.status === 'posted').length; return n > 0 && <p className={me.hint}>{n === 1 ? k.count_1 : k.count.replace('{n}', nf.format(n))}</p>; })()}
       </Collapsible>
 
-      <PromoPosts />
+      <div className={styles.head}><span>{k.library_h}</span></div>
+      <p className={me.hint}>{k.library_p}</p>
+      {(() => {
+        const chosen = article ? localLibrary(LIBRARY.find(a => a.id === article)!, libTr, locale) : null;
+        return (
+          <div className={me.card}>
+            <button type="button" className={me.row} aria-haspopup="dialog" onClick={() => setPickOpen(true)}>
+              <span className="ms" aria-hidden="true">{chosen?.icon ?? 'menu_book'}</span>
+              <span className={me.grow}><span className={styles.pickLabel}>{k.library_article}</span><span lang={chosen?.lang}>{chosen?.title ?? k.library_choose}</span></span>
+              <span className={`ms ${me.chev}`} aria-hidden="true">expand_more</span>
+            </button>
+            {article && <div className={styles.composer}><LibraryBlueskyComposer key={article} id={article} /></div>}
+          </div>
+        );
+      })()}
+
 
       <LibraryPosts />
+
+      <PromoPosts />
 
       <BlueskyDiscover />
 
