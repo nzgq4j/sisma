@@ -102,6 +102,8 @@
 .clock { display: flex; flex-direction: column; min-width: 0; }
 .clock b { font-size: 17px; font-variant-numeric: tabular-nums; color: var(--ink); }
 .clock span { font-size: 12px; color: var(--ink2); }
+/* The time and count always stay on one line each, so the player never changes height while it plays. */
+.clock b, .clock span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .scrub { width: 100%; min-height: 32px; accent-color: #B26A00; }
 .scrubEnds { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--ink2); margin-top: -6px; }
 
@@ -176,4 +178,13 @@
   .playRow > :nth-child(2) { grid-area: clock; }
   .playRow > :nth-child(3) { grid-area: scrub; }
   .playRow > :nth-child(4) { grid-area: info; }
+  /* On phones the time scales with its column (the longest date in any language, about 13.5 em, fits). */
+  .clock { container-type: inline-size; }
+  .clock b { font-size: clamp(10px, 7.2cqi, 17px); }
+}
+/* Very narrow phones: a smaller play button, info button and gaps leave the time room for its longest form. */
+@media (max-width: 360px) {
+  .playRow { column-gap: 8px; }
+  .playRow .playBtn { width: 44px; height: 44px; }
+  .playRow .infoBtn { width: 32px; }
 }
