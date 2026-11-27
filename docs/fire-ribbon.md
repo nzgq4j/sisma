@@ -6,8 +6,7 @@ its explanations are open to everyone, the data is not (`GET /api/science/ribbon
 
 Built so far: step 1 (the reference route, the coordinate transform and a live 2D depth profile), step 2 (volcano
 markers with this week's reported status), step 3 (terrain along the ribbon from ETOPO 2022, with true-scale and
-exaggerated relief), step 4 (a 3D view of a stretch of the ribbon), a share card, step 5 (historical playback) and step 6 (linked map, search, full screen). Copernicus DEM detail for individual volcanoes,
-analytical overlays (a later step) are not built yet. Slab2 was dropped from scope.
+exaggerated relief), step 4 (a 3D view of a stretch of the ribbon), a share card, step 5 (historical playback), step 6 (linked map, search, full screen) and step 7 (analysis). Copernicus DEM detail for individual volcanoes is not built yet. Slab2 was dropped from scope.
 
 ## Files
 
@@ -28,6 +27,8 @@ analytical overlays (a later step) are not built yet. Slab2 was dropped from sco
 | `app/src/lib/ribbon/geo.ts` | The route and corridor drawn back onto the globe for the map (spherical, tested against the WGS84 transform in `geo.test.ts`). |
 | `app/src/components/science/RibbonMap.tsx` | The linked map. |
 | `app/src/components/science/RibbonSearch.tsx` | Search (tested in `ribbon-search.test.ts`). |
+| `app/src/lib/ribbon/analysis.ts` | Analysis: bins along the route, the region table, moment, the completeness estimate, histograms (tested in `analysis.test.ts`). |
+| `app/src/components/science/RibbonAnalysis.tsx` | The analysis charts and table. |
 | `app/src/components/science/RibbonShare.tsx` | The share card (drawn in the browser) and its share sheet. |
 | `app/src/lib/ribbon/share.ts` | The card's facts, post text, image description and row layout (tested in `share.test.ts`). |
 | `app/src/app/api/science/ribbon/terrain3d/route.ts` | A window of the 3D terrain grid (sisma+, cached for a day). |
@@ -346,6 +347,29 @@ the depth and region filters so it is on screen.
 **Full screen**: the view switch, the views and the map fill the screen (a fixed layer over the page, which doesn't
 scroll behind it; the 3D view grows to 78% of the screen height); the same button or Escape leaves. It is a layer over the
 page, not the browser's own full-screen mode, so it behaves the same in every browser.
+
+## Analysis (step 7)
+
+Chosen in the Controls card (**Analysis**: off, along the route, by region, magnitude and depth) and shown under the
+map. Computed in the browser from the earthquakes the views show (the same filters, layer switch and, in history mode,
+the play head and trail); nothing is modelled or forecast.
+
+- **Rates** are normalised by the days the shown earthquakes cover (the live period; in history, the trail behind the
+  play head, or the time from the start of the range for "All") and by route length: per 100 km per day in the bars
+  (500 km bins), per 1,000 km per day in the table (each region's stretch of route; earthquakes placed on a join
+  between arcs are counted under "Joins between arcs").
+- **Seismic moment** only where calculable: from moment magnitudes (magType Mw…: Mww, Mwc, Mwb, Mwr, Mw, Mwp), as
+  M0 = 10^(1.5·Mw + 9.1) N·m (Hanks & Kanamori 1979, in the IASPEI form). Other magnitude types (mb, ml, md…) are
+  counted but never converted; the page says how many earthquakes have a moment magnitude. Totals are also shown as the
+  Mw of one earthquake with the same moment.
+- **Volcano density**: catalogue (Holocene) volcanoes per 1,000 km of each region's stretch; **reported**: those in
+  this week's Smithsonian / USGS report (labelled "now" in history mode).
+- **Detection completeness**: the smallest magnitude recorded (observed) and Mc by maximum curvature (Wiemer & Wyss
+  2000; the lower edge of the most populated 0.1 magnitude bin), shown only from 50 earthquakes and marked ≈ as an
+  estimate that tends to come out low. Lower values usually reflect denser networks, not more earthquakes.
+- **Distributions**: magnitudes in 0.5 steps; depths in the ribbon's colour classes.
+- **Not shown**: distance to modelled subduction surfaces (needs Slab2, which was dropped). The page states this, and
+  that the figures describe what was recorded and don't predict earthquakes or eruptions.
 
 ## Controls card
 
