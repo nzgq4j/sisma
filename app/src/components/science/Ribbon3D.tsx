@@ -92,7 +92,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
   });
   const three = useRef<{
     renderer: THREE.WebGLRenderer; scene: THREE.Scene; persp: THREE.PerspectiveCamera; ortho: THREE.OrthographicCamera;
-    controls: OrbitControls; world: THREE.Group; render: () => void; quakeMesh: THREE.InstancedMesh | null; volcMesh: THREE.InstancedMesh | null;
+    controls: OrbitControls; world: THREE.Group; quakes: THREE.Group; render: () => void; quakeMesh: THREE.InstancedMesh | null; volcMesh: THREE.InstancedMesh | null;
     quakeIds: string[]; volcIds: number[];
   } | null>(null);
 
@@ -113,6 +113,8 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
     scene.add(sun);
     const world = new THREE.Group();
     scene.add(world);
+    const quakes = new THREE.Group();
+    scene.add(quakes);
     const persp = new THREE.PerspectiveCamera(40, 1, 5, 20000);
     const ortho = new THREE.OrthographicCamera(-1, 1, 1, -1, -20000, 20000);
     const controls = new OrbitControls(persp, renderer.domElement);
@@ -148,7 +150,7 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
     };
     const ro = new ResizeObserver(resize);
     ro.observe(el);
-    three.current = { renderer, scene, persp, ortho, controls, world, render, quakeMesh: null, volcMesh: null, quakeIds: [], volcIds: [] };
+    three.current = { renderer, scene, persp, ortho, controls, world, quakes, render, quakeMesh: null, volcMesh: null, quakeIds: [], volcIds: [] };
     resize();
     return () => {
       ro.disconnect(); cancelAnimationFrame(raf); controls.dispose();
@@ -243,20 +245,6 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
       }
     }
 
-    // Earthquakes: one instanced sphere mesh; colour by depth class, faded towards the background with age.
-    t.quakeMesh = null; t.quakeIds = [];
-    if (inWindow.length) {
-      const m = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 12, 8), new THREE.MeshStandardMaterial({ roughness: 0.5, emissiveIntensity: 0.35 }), inWindow.length);
-      const o = new THREE.Object3D(), c = new THREE.Color(), bg = new THREE.Color(BG);
-      inWindow.forEach((q, i) => {
-        const r = markerRadius(q.mag) * 4 * scale * (q.id === selected ? 1.7 : 1);
-        o.position.set(q.x - centre, -q.depth, Z(q.y)); o.scale.setScalar(r); o.updateMatrix();
-        m.setMatrixAt(i, o.matrix);
-        c.set(q.id === selected ? '#FFFFFF' : depthColour(q.depth)).lerp(bg, 1 - markerOpacity(now - q.time, period));
-        m.setColorAt(i, c);
-      });
-      world.add(m); t.quakeMesh = m; t.quakeIds = inWindow.map(q => q.id);
-    }
     // Volcanoes: instanced cones at the catalogued summit (× relief), coloured by this week's status.
     t.volcMesh = null; t.volcIds = [];
     if (volcsIn.length) {
@@ -274,7 +262,35 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
       world.add(m); t.volcMesh = m; t.volcIds = volcsIn.map(v => v.n);
     }
     t.render();
-  }, [terrain, showTerrain, relief, inWindow, volcsIn, selected, selectedV, centre, x0, x1, period, now, labels, nf]);
+  }, [terrain, showTerrain, relief, volcsIn, selectedV, centre, x0, x1, labels, nf]);
+
+  // Earthquakes: their own group, rebuilt alone when they change (many times a second during history playback),
+  // so the terrain, labels and volcanoes are not rebuilt with them.
+  useEffect(() => {
+    const t = three.current;
+    if (!t) return;
+    const { quakes: group } = t;
+    group.children.slice().forEach(o => {
+      group.remove(o);
+      const m = o as THREE.InstancedMesh;
+      m.geometry.dispose(); (m.material as THREE.Material).dispose(); m.dispose();
+    });
+    const scale = (x1 - x0) / 1600;
+    t.quakeMesh = null; t.quakeIds = [];
+    if (inWindow.length) {
+      const m = new THREE.InstancedMesh(new THREE.SphereGeometry(1, 12, 8), new THREE.MeshStandardMaterial({ roughness: 0.5, emissiveIntensity: 0.35 }), inWindow.length);
+      const o = new THREE.Object3D(), c = new THREE.Color(), bg = new THREE.Color(BG);
+      inWindow.forEach((q, i) => {
+        const r = markerRadius(q.mag) * 4 * scale * (q.id === selected ? 1.7 : 1);
+        o.position.set(q.x - centre, -q.depth, Z(q.y)); o.scale.setScalar(r); o.updateMatrix();
+        m.setMatrixAt(i, o.matrix);
+        c.set(q.id === selected ? '#FFFFFF' : depthColour(q.depth)).lerp(bg, 1 - markerOpacity(now - q.time, period));
+        m.setColorAt(i, c);
+      });
+      group.add(m); t.quakeMesh = m; t.quakeIds = inWindow.map(q => q.id);
+    }
+    t.render();
+  }, [inWindow, selected, centre, x0, x1, period, now]);
 
   // Camera: set when the mode or window changes (the person can then rotate, pan and zoom freely).
   useEffect(() => {

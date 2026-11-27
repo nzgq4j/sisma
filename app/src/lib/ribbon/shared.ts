@@ -1,9 +1,9 @@
 // Pacific Fire Ribbon: what GET /api/science/ribbon sends and how the page draws it. No server-only imports: shared by
 // the API (lib/ribbon/feed.ts) and the page (components/science/FireRibbon.tsx).
 
-export type Period = 'day' | 'week' | 'month';
-export const PERIODS: Period[] = ['day', 'week', 'month'];
-export const PERIOD_MS: Record<Period, number> = { day: 86_400_000, week: 7 * 86_400_000, month: 30 * 86_400_000 };
+export type Period = 'hour' | 'day' | 'week' | 'month';
+export const PERIODS: Period[] = ['hour', 'day', 'week', 'month'];
+export const PERIOD_MS: Record<Period, number> = { hour: 3_600_000, day: 86_400_000, week: 7 * 86_400_000, month: 30 * 86_400_000 };
 /** Minimum magnitudes the page offers; 0 = every earthquake in the feed. */
 export const MIN_MAGS = [0, 2.5, 4.5] as const;
 export type MinMag = (typeof MIN_MAGS)[number];
@@ -71,10 +71,11 @@ export const depthColour = (km: number) => DEPTH_BANDS[depthBand(km)].color;
 
 /** Marker radius (CSS px) from magnitude: grows by 45% per magnitude unit, from 1.5 px (M2.5 and below) to 11 px. */
 export const markerRadius = (mag: number | null) => Math.max(1.5, Math.min(11, 0.8 + 1.2 * 1.45 ** ((mag ?? 0) - 2.5)));
-/** Marker opacity from age: 1 for the last 24 hours (the last hour for the past-day view), then fading linearly to
+/** Marker opacity from age: 1 for the last 24 hours (the last hour for the past-day view, the last 5 minutes for the
+ * past-hour view), then fading linearly to
  * 0.35 at the start of the period, so recent earthquakes stand out. */
 export function markerOpacity(ageMs: number, period: Period) {
-  const fresh = period === 'day' ? 3_600_000 : 86_400_000;
+  const fresh = period === 'hour' ? 300_000 : period === 'day' ? 3_600_000 : 86_400_000;
   if (ageMs <= fresh) return 1;
   return 1 - 0.65 * Math.min(1, (ageMs - fresh) / (PERIOD_MS[period] - fresh));
 }
@@ -113,3 +114,16 @@ export const WINDOW_MAX_KM = 4000;
  * a mirror image): seen from above with the route running left to right, the left (Pacific) side is at the top.
  */
 export const sceneZ = (y: number) => -y;
+
+/** What GET /api/science/ribbon/history sends: earthquakes from the USGS catalogue for a range of whole UTC days. */
+export interface HistoryResponse {
+  start: string; end: string; min: MinMag;
+  /** Range searched, ms: from the start of the first day to the end of the last (or the time of the request). */
+  from: number; to: number;
+  retrieved: number;
+  /** Earthquakes the searches found worldwide, and those on the ribbon. */
+  counts: { earthquakes: number; ribbon: number };
+  columns: readonly string[];
+  /** Same columns as the live API; url is left empty (the page rebuilds it from the id). */
+  rows: Row[];
+}
