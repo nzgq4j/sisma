@@ -379,11 +379,11 @@ shown and a one-line summary (for example "Live · 30 days · M2.5+ · Profile")
 nearly full height), drag it down or double-tap away from its controls to close it; picking a region closes it. It is
 the app's shared pull-up card (`components/stage/PullPanel.tsx`, extracted from the Map / Globe / Feed filter panel,
 which now uses it too). Its first row holds a **History** switch (off = live) and two selectors, **timeframe** (live: 1 hour to 30 days;
-history: 90 days, past year, custom) and **magnitude**; below come the custom dates and depth band (history), the live
-status and Share, one **Go to region** selector (in history it also filters the earthquakes shown to that region;
-"Whole ribbon" clears it), the layers, then one row with a **×10** switch (exaggerated relief, on by default;
+history: 90 days, past year, custom) and **magnitude**; the second row holds a **×10** switch (exaggerated relief, on by default;
 off = true scale; shown when terrain is on), a **3D** switch (off = Profile, the default) and a compact **Analysis**
-selector (it reads "Analysis" when off and the chosen mode otherwise). In history, picking a magnitude whose
+selector (it reads "Analysis" when off and the chosen mode otherwise); below come the custom dates and depth band
+(history), the live status and Share, one **Go to region** selector (in history it also filters the earthquakes shown
+to that region; "Whole ribbon" clears it) and the layers. In history, picking a magnitude whose
 longest range is shorter than the current range shortens the range to that limit (same end date) and says so in the
 option. The playback details (range, found / on the ribbon, retrieved, catalogue limits and coverage) are behind the
 ⓘ button in the player; loading and errors stay in the card. The player puts the timeline to the right of the time

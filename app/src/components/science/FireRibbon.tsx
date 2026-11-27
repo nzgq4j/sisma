@@ -409,6 +409,27 @@ export function FireRibbonPage() {
               <span className="ms" aria-hidden="true">filter_alt</span><span>{magText(history && hrange ? hrange.min : min)}</span><span className="ms" aria-hidden="true">expand_more</span>
             </button>
           </div>
+          {/* Second row: exaggerated relief (on by default), 3D (off = profile, the default) and the analysis selector. */}
+          {st.s === 'ready' && (
+            <div className={styles.viewRow}>
+              {show.terrain && tst.s === 'ready' && (
+                <button type="button" role="switch" aria-checked={relief === 'enhanced'} className={`${styles.modeSwitch} ${styles.optSwitch}`}
+                  aria-label={k.relief_enhanced.replace('{n}', nf.format(RELIEF.enhanced))} onClick={() => setRelief(relief === 'enhanced' ? 'scientific' : 'enhanced')}>
+                  <span>×{nf.format(RELIEF.enhanced)}</span><span className={styles.switch} aria-hidden="true"><i /></span>
+                </button>
+              )}
+              <button type="button" role="switch" aria-checked={view === '3d'} className={`${styles.modeSwitch} ${styles.optSwitch}`}
+                aria-label={k.view_3d} onClick={() => setView(view === '3d' ? '2d' : '3d')}>
+                <span>{k.view_3d}</span><span className={styles.switch} aria-hidden="true"><i /></span>
+              </button>
+              <button type="button" className={`${styles.jump} ${styles.smallJump}`} onClick={() => setAPicker(true)} aria-haspopup="dialog"
+                aria-label={`${k.analysis}: ${k[`a_${analysis}`]}`}>
+                <span className="ms" aria-hidden="true">insights</span>
+                <span>{analysis === 'off' ? k.analysis : k[`a_${analysis}`]}</span>
+                <span className="ms" aria-hidden="true">expand_more</span>
+              </button>
+            </div>
+          )}
           {history && hrange && (
             <>
               <HistoryControls key={`${hrange.start}|${hrange.end}`} preset={preset} range={hrange} setRange={r => { setHrange(r); setSel(null); }}
@@ -434,25 +455,6 @@ export function FireRibbonPage() {
                     <span className="ms" aria-hidden="true">{show[l] ? 'check' : 'add'}</span>{k[`layer_${l}`]}
                   </button>
                 ))}
-              </div>
-              {/* One row: exaggerated relief (on by default), 3D (off = profile, the default) and the analysis selector. */}
-              <div className={styles.viewRow}>
-                {show.terrain && tst.s === 'ready' && (
-                  <button type="button" role="switch" aria-checked={relief === 'enhanced'} className={`${styles.modeSwitch} ${styles.optSwitch}`}
-                    aria-label={k.relief_enhanced.replace('{n}', nf.format(RELIEF.enhanced))} onClick={() => setRelief(relief === 'enhanced' ? 'scientific' : 'enhanced')}>
-                    <span>×{nf.format(RELIEF.enhanced)}</span><span className={styles.switch} aria-hidden="true"><i /></span>
-                  </button>
-                )}
-                <button type="button" role="switch" aria-checked={view === '3d'} className={`${styles.modeSwitch} ${styles.optSwitch}`}
-                  aria-label={k.view_3d} onClick={() => setView(view === '3d' ? '2d' : '3d')}>
-                  <span>{k.view_3d}</span><span className={styles.switch} aria-hidden="true"><i /></span>
-                </button>
-                <button type="button" className={`${styles.jump} ${styles.smallJump}`} onClick={() => setAPicker(true)} aria-haspopup="dialog"
-                  aria-label={`${k.analysis}: ${k[`a_${analysis}`]}`}>
-                  <span className="ms" aria-hidden="true">insights</span>
-                  <span>{analysis === 'off' ? k.analysis : k[`a_${analysis}`]}</span>
-                  <span className="ms" aria-hidden="true">expand_more</span>
-                </button>
               </div>
             </>
           )}
