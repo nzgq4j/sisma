@@ -1039,7 +1039,9 @@
     "alt_deep": "{n} deprem {depth} derinlikten daha derindedir.",
     "alt_volc": "Smithsonian / USGS haftalık etkinlik raporundaki {n} volkan renkli üçgenlerle gösterilir.",
     "alt_terrain": "Arazi çizginin üstünde, yükseklikler ×{n} abartılarak çizilmiştir.",
-    "alt_source": "Veri: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. sisma.io’dan."
+    "alt_source": "Veri: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. sisma.io’dan.",
+    "north": "K",
+    "compass": "Pusula: kırmızı ibre bu bölümün ortasındaki coğrafi kuzeyi gösterir."
   },
   "tsu": {
     "lv_major_warning": "Büyük tsunami uyarısı",

@@ -1039,7 +1039,9 @@
     "alt_deep": "{n} estão a mais de {depth}.",
     "alt_volc": "{n} vulcões do boletim semanal de atividade Smithsonian / USGS são triângulos coloridos.",
     "alt_terrain": "O relevo é desenhado acima da linha, com altitudes exageradas ×{n}.",
-    "alt_source": "Dados: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. De sisma.io."
+    "alt_source": "Dados: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. De sisma.io.",
+    "north": "N",
+    "compass": "Bússola: a agulha vermelha aponta para o norte geográfico no meio deste trecho."
   },
   "tsu": {
     "lv_major_warning": "Alerta máximo de tsunami",

@@ -1039,7 +1039,9 @@
     "alt_deep": "{n} lebih dalam dari {depth}.",
     "alt_volc": "{n} gunung api dalam laporan aktivitas mingguan Smithsonian / USGS berupa segitiga berwarna.",
     "alt_terrain": "Medan digambar di atas garis, ketinggian dilebihkan ×{n}.",
-    "alt_source": "Data: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. Dari sisma.io."
+    "alt_source": "Data: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. Dari sisma.io.",
+    "north": "U",
+    "compass": "Kompas: jarum merah menunjuk ke utara sejati di tengah bentang ini."
   },
   "tsu": {
     "lv_major_warning": "Peringatan tsunami besar",

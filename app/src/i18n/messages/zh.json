@@ -1039,7 +1039,9 @@
     "alt_deep": "{n} 次地震深于 {depth}。",
     "alt_volc": "本周史密森尼学会 / USGS 火山活动报告中的 {n} 座火山以彩色三角形表示。",
     "alt_terrain": "地形绘制在线的上方，高度夸大 ×{n}。",
-    "alt_source": "数据：USGS、史密森尼学会全球火山活动计划、NOAA ETOPO 2022。来自 sisma.io。"
+    "alt_source": "数据：USGS、史密森尼学会全球火山活动计划、NOAA ETOPO 2022。来自 sisma.io。",
+    "north": "北",
+    "compass": "指南针：红色指针指向这一段中点处的正北方向。"
   },
   "tsu": {
     "lv_major_warning": "大海啸警报",

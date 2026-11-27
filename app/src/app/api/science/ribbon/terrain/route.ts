@@ -15,7 +15,7 @@ const load = unstable_cache(async (): Promise<TerrainResponse | null> => {
   if (error) throw error;
   if (!data) return null;
   return { builtAt: Date.parse(data.built_at), source: data.source, params: data.params, crest: data.crest, trench: data.trench, trenchY: data.trench_y };
-}, ['fire-ribbon-terrain', 'v1'], { revalidate: 86_400 });
+}, ['fire-ribbon-terrain', 'v2'], { revalidate: 86_400 });
 
 export async function GET(req: NextRequest) {
   if ((await planForRequest(req)) !== 'plus') return NextResponse.json({ error: 'plus_required' }, { status: 403 });
