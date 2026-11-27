@@ -1093,7 +1093,8 @@
     "full_enter": "Schermo intero",
     "full_exit": "Esci dallo schermo intero",
     "map_label": "Mappa del Pacifico con il percorso del nastro, il tratto mostrato sopra e i terremoti e i vulcani segnalati che vi si trovano.",
-    "map_hint": "La fascia ambra è il tratto mostrato sopra (400 km sul lato Pacifico, 700 km dietro l’arco). Tocca un punto o un triangolo per selezionarlo in entrambe le viste."
+    "map_hint": "La fascia ambra è il tratto mostrato sopra (400 km sul lato Pacifico, 700 km dietro l’arco). Tocca un punto o un triangolo per selezionarlo in entrambe le viste.",
+    "panel": "Controlli"
   },
   "tsu": {
     "lv_major_warning": "Allerta tsunami maggiore",

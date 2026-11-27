@@ -18,6 +18,7 @@ import { Sheet, SheetOptions } from '@/components/Sheet';
 import type { Camera3D } from './Ribbon3D';
 import { RibbonShareSheet } from './RibbonShare';
 import { RibbonSearch } from './RibbonSearch';
+import { PANEL_PEEK, PullPanel, type Snap } from '@/components/stage/PullPanel';
 import {
   HistoryControls, HistoryStatus, Player, presetRange, trailPeriod, useHistory, usePlayback, visibleQuakes,
   type HistoryRange, type Preset, type Trail,
@@ -146,6 +147,8 @@ export function FireRibbonPage() {
   const [show, setShow] = useState({ quakes: true, volcanoes: true, terrain: true });
   const [picker, setPicker] = useState(false);
   const [searching, setSearching] = useState(false);
+  // The pull-up card with the selectors: collapsed it shows a one-line summary and reveals the ribbon.
+  const [panel, setPanel] = useState<Snap>('peek');
   const [full, setFull] = useState(false);
   // The stretch the profile shows (reported by it), for the linked map.
   const [view2d, setView2d] = useState<{ x0: number; x1: number } | null>(null);
@@ -218,6 +221,19 @@ export function FireRibbonPage() {
   const rel = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' });
   const ago = (ms: number) => { const mins = Math.max(0, Math.round((now - ms) / 60_000)); return mins < 90 ? rel.format(-mins, 'minute') : rel.format(-Math.round(mins / 60), 'hour'); };
 
+  const viewSeg = (
+    <div className={data.seg} role="tablist" aria-label={k.view}>
+      {(['2d', '3d'] as const).map(v => (
+        <button key={v} type="button" role="tab" aria-selected={view === v} onClick={() => setView(v)}>{k[`view_${v}`]}</button>
+      ))}
+    </div>
+  );
+  const magText = (v: MinMag) => (v === 0 ? k.min_all : `M${nf.format(v)}+`);
+  const dayFmt = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  const panelLine = (history && hrange
+    ? [k.h_tag, `${dayFmt.format(Date.parse(hrange.start))} – ${dayFmt.format(Date.parse(hrange.end))}`, magText(hrange.min), k[`view_${view}`]]
+    : [k.mode_live, k[`period_${period}`], magText(min), k[`view_${view}`]]).join(' · ');
+
   const locked = (
     <div className={data.locked}>
       <span className="ms" aria-hidden="true">lock</span>
@@ -230,95 +246,23 @@ export function FireRibbonPage() {
   );
 
   return (
-    <div className={data.page}>
+    <div className={data.page} style={plus ? { paddingBottom: PANEL_PEEK + 24 } : undefined}>
       <h1 className={data.h1}>{k.h1} <span className={data.badge}>{k.plus}</span></h1>
       <p className={data.lead}>{k.lead}</p>
       {!plus && locked}
       {plus && (
         <section className={`${data.card} ${styles.card}`}>
-          <div className={data.seg} role="tablist" aria-label={k.mode}>
-            <button type="button" role="tab" aria-selected={!history} onClick={() => { pb.pause(); setMode('live'); setSel(null); }}>{k.mode_live}</button>
-            <button type="button" role="tab" aria-selected={history} onClick={enterHistory}>{k.mode_history}</button>
-          </div>
-          {history && hrange && (
-            <>
-              <HistoryControls preset={preset} setPreset={setPreset} range={hrange} setRange={r => { setHrange(r); setSel(null); }}
-                depth={depthF} setDepth={setDepthF} region={hregion} setRegion={setHregion} now={now} />
-              <HistoryStatus st={hst} range={hrange} when={when} />
-              {hst.s === 'ready' && (
-                <Player from={hst.d.from} to={hst.d.to} head={pb.head} setHead={pb.setHead} playing={pb.playing} play={pb.play} pause={pb.pause}
-                  speed={pb.speed} setSpeed={pb.setSpeed} trail={trail} setTrail={setTrail} shown={hShown.length} when={when} />
-              )}
-            </>
-          )}
-          {!history && <div className={styles.controls}>
-            <div className={data.seg} role="tablist" aria-label={k.period}>
-              {PERIODS.map(p => (
-                <button key={p} type="button" role="tab" aria-selected={period === p} onClick={() => { setPeriod(p); setSel(null); }}>
-                  {k[`period_${p}`]}
-                </button>
-              ))}
-            </div>
-            <div className={data.seg} role="tablist" aria-label={k.min}>
-              {MIN_MAGS.map(v => (
-                <button key={v} type="button" role="tab" aria-selected={min === v} onClick={() => { setMin(v); setSel(null); }}>
-                  {v === 0 ? k.min_all : `M${nf.format(v)}+`}
-                </button>
-              ))}
-            </div>
-          </div>}
           {st.s === 'loading' && <p className={data.status}>{k.loading}</p>}
           {st.s === 'error' && <p className={data.status} role="alert">{k.error}</p>}
           {st.s === 'ready' && (
             <>
-              {!history && <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />}
-              {!history && <button type="button" className={styles.shareBtn} onClick={() => setSharing(true)} aria-haspopup="dialog">
-                <span className="ms" aria-hidden="true">ios_share</span>{k.share}
-              </button>}
-              <RibbonShareSheet open={sharing} onClose={() => setSharing(false)} d={st.d} quakes={quakes} volcanoes={volcanoes}
-                terrain={tst.s === 'ready' ? tst.d : null} period={period} min={min} now={now} />
-              <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
-                <span className="ms" aria-hidden="true">travel_explore</span>
-                <span>{region === null ? k.go_to : region === 'all' ? k.whole : k.regions[region as keyof typeof k.regions]}</span>
-                <span className="ms" aria-hidden="true">expand_more</span>
-              </button>
-              <Sheet open={picker} onClose={() => setPicker(false)} title={k.go_to}>
-                <SheetOptions value={region ?? undefined} onPick={v => {
-                  setRegion(v); setPicker(false);
-                  if (v === 'all') goTo(-st.d.corridor.endKm, st.d.lengthKm + st.d.corridor.endKm);
-                  else { const r = st.d.regions.find(g => g.group === v); if (r) goTo(r.x0, r.x1); }
-                }} options={[
-                  { value: 'all', label: k.whole, meta: nf.format(quakes.length) },
-                  ...st.d.regions.map(r => {
-                    const i = GROUPS.indexOf(r.group);
-                    return { value: r.group as string, label: k.regions[r.group], meta: nf.format(quakes.filter(q => q.from === i || q.to === i).length) };
-                  }),
-                ]} />
-              </Sheet>
-              <div className={styles.layers} role="group" aria-label={k.show}>
-                <span>{k.show}</span>
-                {(['quakes', 'volcanoes', 'terrain'] as const).map(l => (
-                  <button key={l} type="button" aria-pressed={show[l]} onClick={() => setShow(x => ({ ...x, [l]: !x[l] }))}>
-                    <span className="ms" aria-hidden="true">{show[l] ? 'check' : 'add'}</span>{k[`layer_${l}`]}
-                  </button>
-                ))}
-              </div>
-              {show.terrain && tst.s === 'ready' && (
-                <div className={data.seg} role="tablist" aria-label={k.relief}>
-                  {(['scientific', 'enhanced'] as const).map(r => (
-                    <button key={r} type="button" role="tab" aria-selected={relief === r} onClick={() => setRelief(r)}>
-                      {k[`relief_${r}`].replace('{n}', nf.format(RELIEF[r]))}
-                    </button>
-                  ))}
-                </div>
+              {history && hst.s === 'ready' && (
+                <Player from={hst.d.from} to={hst.d.to} head={pb.head} setHead={pb.setHead} playing={pb.playing} play={pb.play} pause={pb.pause}
+                  speed={pb.speed} setSpeed={pb.setSpeed} trail={trail} setTrail={setTrail} shown={hShown.length} when={when} />
               )}
               <div className={full ? styles.full : styles.viewArea} role={full ? 'dialog' : undefined} aria-modal={full || undefined} aria-label={full ? k.h1 : undefined}>
               <div className={styles.viewBar}>
-                <div className={data.seg} role="tablist" aria-label={k.view}>
-                  {(['2d', '3d'] as const).map(v => (
-                    <button key={v} type="button" role="tab" aria-selected={view === v} onClick={() => setView(v)}>{k[`view_${v}`]}</button>
-                  ))}
-                </div>
+                {full ? viewSeg : <span className={styles.viewLabel}>{k[`view_${view}`]}</span>}
                 <button type="button" className={styles.iconBtn} onClick={() => setSearching(true)} aria-label={k.search} aria-haspopup="dialog">
                   <span className="ms" aria-hidden="true">search</span>
                 </button>
@@ -385,6 +329,88 @@ export function FireRibbonPage() {
             </>
           )}
         </section>
+      )}
+      {plus && (
+        <PullPanel fixed className={styles.ribbonPanel} label={k.panel} icon="tune" title={k.panel}
+          count={t('count', { n: quakes.length })} line={panelLine} expand={m.map.expand} collapse={m.map.collapse}
+          snap={panel} onSnap={setPanel} outside={st.s === 'ready' ? <>
+              <RibbonShareSheet open={sharing} onClose={() => setSharing(false)} d={st.d} quakes={quakes} volcanoes={volcanoes}
+                terrain={tst.s === 'ready' ? tst.d : null} period={period} min={min} now={now} />
+              <Sheet open={picker} onClose={() => setPicker(false)} title={k.go_to}>
+                <SheetOptions value={region ?? undefined} onPick={v => {
+                  setRegion(v); setPicker(false); setPanel('peek');
+                  if (v === 'all') goTo(-st.d.corridor.endKm, st.d.lengthKm + st.d.corridor.endKm);
+                  else { const r = st.d.regions.find(g => g.group === v); if (r) goTo(r.x0, r.x1); }
+                }} options={[
+                  { value: 'all', label: k.whole, meta: nf.format(quakes.length) },
+                  ...st.d.regions.map(r => {
+                    const i = GROUPS.indexOf(r.group);
+                    return { value: r.group as string, label: k.regions[r.group], meta: nf.format(quakes.filter(q => q.from === i || q.to === i).length) };
+                  }),
+                ]} />
+              </Sheet>
+          </> : null}>
+          <div className={styles.panelBody}>
+          <div className={data.seg} role="tablist" aria-label={k.mode}>
+            <button type="button" role="tab" aria-selected={!history} onClick={() => { pb.pause(); setMode('live'); setSel(null); }}>{k.mode_live}</button>
+            <button type="button" role="tab" aria-selected={history} onClick={enterHistory}>{k.mode_history}</button>
+          </div>
+          {history && hrange && (
+            <>
+              <HistoryControls preset={preset} setPreset={setPreset} range={hrange} setRange={r => { setHrange(r); setSel(null); }}
+                depth={depthF} setDepth={setDepthF} region={hregion} setRegion={setHregion} now={now} />
+              <HistoryStatus st={hst} range={hrange} when={when} />
+            </>
+          )}
+          {!history && <div className={styles.controls}>
+            <div className={data.seg} role="tablist" aria-label={k.period}>
+              {PERIODS.map(p => (
+                <button key={p} type="button" role="tab" aria-selected={period === p} onClick={() => { setPeriod(p); setSel(null); }}>
+                  {k[`period_${p}`]}
+                </button>
+              ))}
+            </div>
+            <div className={data.seg} role="tablist" aria-label={k.min}>
+              {MIN_MAGS.map(v => (
+                <button key={v} type="button" role="tab" aria-selected={min === v} onClick={() => { setMin(v); setSel(null); }}>
+                  {v === 0 ? k.min_all : `M${nf.format(v)}+`}
+                </button>
+              ))}
+            </div>
+          </div>}
+          {st.s === 'ready' && (
+            <>
+              {!history && <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />}
+              {!history && <button type="button" className={styles.shareBtn} onClick={() => setSharing(true)} aria-haspopup="dialog">
+                <span className="ms" aria-hidden="true">ios_share</span>{k.share}
+              </button>}
+              <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
+                <span className="ms" aria-hidden="true">travel_explore</span>
+                <span>{region === null ? k.go_to : region === 'all' ? k.whole : k.regions[region as keyof typeof k.regions]}</span>
+                <span className="ms" aria-hidden="true">expand_more</span>
+              </button>
+              <div className={styles.layers} role="group" aria-label={k.show}>
+                <span>{k.show}</span>
+                {(['quakes', 'volcanoes', 'terrain'] as const).map(l => (
+                  <button key={l} type="button" aria-pressed={show[l]} onClick={() => setShow(x => ({ ...x, [l]: !x[l] }))}>
+                    <span className="ms" aria-hidden="true">{show[l] ? 'check' : 'add'}</span>{k[`layer_${l}`]}
+                  </button>
+                ))}
+              </div>
+              {show.terrain && tst.s === 'ready' && (
+                <div className={data.seg} role="tablist" aria-label={k.relief}>
+                  {(['scientific', 'enhanced'] as const).map(r => (
+                    <button key={r} type="button" role="tab" aria-selected={relief === r} onClick={() => setRelief(r)}>
+                      {k[`relief_${r}`].replace('{n}', nf.format(RELIEF[r]))}
+                    </button>
+                  ))}
+                </div>
+              )}
+              {viewSeg}
+            </>
+          )}
+          </div>
+        </PullPanel>
       )}
       <section className={data.card}>
         <h2>{k.notes_h}</h2>

@@ -1093,7 +1093,8 @@
     "full_enter": "Full screen",
     "full_exit": "Leave full screen",
     "map_label": "Map of the Pacific with the ribbon’s route, the stretch shown above, and the earthquakes and reported volcanoes on it.",
-    "map_hint": "The amber band is the stretch shown above (400 km on the Pacific side, 700 km behind the arc). Tap a dot or triangle to select it on both."
+    "map_hint": "The amber band is the stretch shown above (400 km on the Pacific side, 700 km behind the arc). Tap a dot or triangle to select it on both.",
+    "panel": "Controls"
   },
   "tsu": {
     "lv_major_warning": "Major tsunami warning",
