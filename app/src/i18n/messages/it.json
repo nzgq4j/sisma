@@ -1085,7 +1085,15 @@
     "h_found": "{n} terremoti sul nastro su {m} trovati nel mondo nel catalogo USGS",
     "h_retrieved": "scaricati {time}",
     "h_coverage": "Il catalogo non è ugualmente completo ovunque né in ogni epoca: i terremoti piccoli sono registrati molto meglio dove le reti sismiche sono fitte, e molto meno in mare e nei decenni passati. Nello storico i triangoli dei vulcani sono neutri, perché il bollettino settimanale non dice nulla delle date passate.",
-    "note_9": "Lo storico interroga il catalogo ComCat dell’USGS (la stessa fonte dei dati in diretta) per un intervallo di giorni interi in UTC e lo riproduce: ogni terremoto compare all’ora, nella posizione e alla profondità registrate. Gli intervalli sono limitati in base alla magnitudo, così che una ricerca resti entro i limiti del servizio del catalogo. Posizioni, profondità e magnitudo del catalogo vengono riviste nel tempo, quindi gli eventi passati possono differire da quanto pubblicato inizialmente."
+    "note_9": "Lo storico interroga il catalogo ComCat dell’USGS (la stessa fonte dei dati in diretta) per un intervallo di giorni interi in UTC e lo riproduce: ogni terremoto compare all’ora, nella posizione e alla profondità registrate. Gli intervalli sono limitati in base alla magnitudo, così che una ricerca resti entro i limiti del servizio del catalogo. Posizioni, profondità e magnitudo del catalogo vengono riviste nel tempo, quindi gli eventi passati possono differire da quanto pubblicato inizialmente.",
+    "search": "Cerca",
+    "search_ph": "Nome del vulcano, luogo o magnitudo",
+    "search_hint": "Vulcani per nome; terremoti per luogo, id USGS o magnitudo (per esempio «6» per M6 e oltre).",
+    "search_none": "Nessun risultato.",
+    "full_enter": "Schermo intero",
+    "full_exit": "Esci dallo schermo intero",
+    "map_label": "Mappa del Pacifico con il percorso del nastro, il tratto mostrato sopra e i terremoti e i vulcani segnalati che vi si trovano.",
+    "map_hint": "La fascia ambra è il tratto mostrato sopra (400 km sul lato Pacifico, 700 km dietro l’arco). Tocca un punto o un triangolo per selezionarlo in entrambe le viste."
   },
   "tsu": {
     "lv_major_warning": "Allerta tsunami maggiore",

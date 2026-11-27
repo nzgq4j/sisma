@@ -6,8 +6,8 @@ its explanations are open to everyone, the data is not (`GET /api/science/ribbon
 
 Built so far: step 1 (the reference route, the coordinate transform and a live 2D depth profile), step 2 (volcano
 markers with this week's reported status), step 3 (terrain along the ribbon from ETOPO 2022, with true-scale and
-exaggerated relief), step 4 (a 3D view of a stretch of the ribbon), a share card, and step 5 (historical playback). Copernicus DEM detail for individual volcanoes,
-overlays and a linked map (later steps) are not built yet. Slab2 was dropped from scope.
+exaggerated relief), step 4 (a 3D view of a stretch of the ribbon), a share card, step 5 (historical playback) and step 6 (linked map, search, full screen). Copernicus DEM detail for individual volcanoes,
+analytical overlays (a later step) are not built yet. Slab2 was dropped from scope.
 
 ## Files
 
@@ -25,6 +25,9 @@ overlays and a linked map (later steps) are not built yet. Slab2 was dropped fro
 | `app/src/lib/ribbon/history.ts` | History ranges, their limits, the USGS search pieces and URLs, playback speeds and depth filters (tested in `history.test.ts`). |
 | `app/src/app/api/science/ribbon/history/route.ts` | The history API: plan check, cached searches per piece, one response per range. |
 | `app/src/components/science/RibbonHistory.tsx` | History mode: loading, the play head, the controls, the status (tested in `ribbon-history.test.ts`). |
+| `app/src/lib/ribbon/geo.ts` | The route and corridor drawn back onto the globe for the map (spherical, tested against the WGS84 transform in `geo.test.ts`). |
+| `app/src/components/science/RibbonMap.tsx` | The linked map. |
+| `app/src/components/science/RibbonSearch.tsx` | Search (tested in `ribbon-search.test.ts`). |
 | `app/src/components/science/RibbonShare.tsx` | The share card (drawn in the browser) and its share sheet. |
 | `app/src/lib/ribbon/share.ts` | The card's facts, post text, image description and row layout (tested in `share.test.ts`). |
 | `app/src/app/api/science/ribbon/terrain3d/route.ts` | A window of the 3D terrain grid (sisma+, cached for a day). |
@@ -319,6 +322,30 @@ place and time.
 
 **Revisions**: catalogue locations, depths and magnitudes are revised over time; a past event can differ from what was
 first published, and the cached pieces follow the catalogue within a week.
+
+## Linked map, search and full screen (step 6)
+
+**Map**: below the views, an Equal Earth map centred on 170° W and fitted to the route (world-atlas 1:110m land, the
+same outlines as the app's other maps). It shows the route, the stretch the ribbon is showing (the profile's visible
+range as it scrolls and zooms, or the 3D window) as an amber band covering the corridor (400 km on the Pacific side,
+700 km behind the arc) with the route through it in white, the earthquakes the views show (depth colours, at their
+catalogue latitude and longitude, so they sit where they really are, not on the route), and the volcanoes in this
+week's report (coloured triangles; plain in history mode, where they are not shown). A tap within 16 px selects the
+nearest reported volcano, else the nearest earthquake; the ribbon selects it too and moves to it. A selection made on
+the ribbon is ringed on the map. The band is drawn on a sphere from route.json (`lib/ribbon/geo.ts`): within 1% of the
+WGS84 transform across the corridor and 6 km along the route (tested), which is fine for drawing; event positions on
+the ribbon always come from the WGS84 transform.
+
+**Search** (magnifier next to Profile / 3D): volcanoes by name (accents and case ignored, names starting with the text
+first; the 681 catalogue volcanoes on the route), earthquakes by place text or exact USGS id, or by magnitude ("6",
+"M6", "6+" = that magnitude and above), largest first. It searches the earthquakes loaded (live: the period and filter;
+history: the whole range, ignoring the depth and region filters). Picking a result selects it, shows its layer, moves
+the profile, 3D window and map to it, and in history mode moves the play head to its time if it is later and clears
+the depth and region filters so it is on screen.
+
+**Full screen**: the view switch, the views and the map fill the screen (a fixed layer over the page, which doesn't
+scroll behind it; the 3D view grows to 78% of the screen height); the same button or Escape leaves. It is a layer over the
+page, not the browser's own full-screen mode, so it behaves the same in every browser.
 
 ## Verification
 

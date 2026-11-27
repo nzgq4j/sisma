@@ -104,3 +104,19 @@
 .clock span { font-size: 12px; color: var(--ink2); }
 .scrub { width: 100%; min-height: 32px; accent-color: #B26A00; }
 .scrubEnds { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: var(--ink2); margin-top: -6px; }
+
+/* Step 6: view bar (view switch, search, full screen), linked map, search, full-screen mode. */
+.viewArea { display: flex; flex-direction: column; gap: 10px; }
+.viewBar { display: flex; align-items: center; gap: 8px; }
+.viewBar > :first-child { flex: 1; min-width: 0; }
+.iconBtn { flex: none; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.iconBtn :global(.ms) { font-size: 22px; color: var(--violet-text); }
+.iconBtn[aria-pressed='true'] { background: var(--violet-soft); border-color: transparent; }
+.mapWrap { border-radius: 16px; overflow: hidden; background: #0E1A2E; }
+.mapWrap canvas { touch-action: manipulation; }
+.searchInput { width: 100%; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); font: inherit; font-size: 16px; box-sizing: border-box; }
+.searchTri { width: 14px; text-align: center; color: #FF8A2A; font-size: 12px; }
+.full { position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; overscroll-behavior: contain;
+  padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  background: var(--bg); }
+.full .view3d { height: min(78vh, 1000px); }

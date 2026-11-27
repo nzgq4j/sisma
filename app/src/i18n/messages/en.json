@@ -1085,7 +1085,15 @@
     "h_found": "{n} earthquakes on the ribbon of {m} found worldwide in the USGS catalogue",
     "h_retrieved": "retrieved {time}",
     "h_coverage": "The catalogue isn’t equally complete everywhere or at all times: small earthquakes are recorded far more completely where seismic networks are dense, and much less completely at sea and in earlier decades. Volcano triangles are plain in history mode, because this week’s activity report says nothing about past dates.",
-    "note_9": "History mode searches the USGS ComCat catalogue (the same source as the live feeds) for a range of whole days in UTC and plays it back: each earthquake appears at its recorded time, position and depth. Ranges are limited by magnitude so that a search stays within what the catalogue service allows. Locations, depths and magnitudes in the catalogue are revised over time, so older events may differ from what was first published."
+    "note_9": "History mode searches the USGS ComCat catalogue (the same source as the live feeds) for a range of whole days in UTC and plays it back: each earthquake appears at its recorded time, position and depth. Ranges are limited by magnitude so that a search stays within what the catalogue service allows. Locations, depths and magnitudes in the catalogue are revised over time, so older events may differ from what was first published.",
+    "search": "Search",
+    "search_ph": "Volcano name, place or magnitude",
+    "search_hint": "Volcanoes by name; earthquakes by place, USGS id, or magnitude (for example “6” for M6 and above).",
+    "search_none": "Nothing found.",
+    "full_enter": "Full screen",
+    "full_exit": "Leave full screen",
+    "map_label": "Map of the Pacific with the ribbon’s route, the stretch shown above, and the earthquakes and reported volcanoes on it.",
+    "map_hint": "The amber band is the stretch shown above (400 km on the Pacific side, 700 km behind the arc). Tap a dot or triangle to select it on both."
   },
   "tsu": {
     "lv_major_warning": "Major tsunami warning",
