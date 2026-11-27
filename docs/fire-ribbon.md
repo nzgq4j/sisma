@@ -238,10 +238,14 @@ tested). The ribbon is the route unrolled, so north is only right near the middl
 route can turn a lot. The needle fades when north points mostly into or out of the screen (for example in
 *Cross-section* where the route runs north–south).
 
-**Cameras**: *Angled* (perspective, from the Pacific side and above), *Cross-section* (orthographic, looking along the
-route, so x is collapsed and the slab's dip shows) and *From above* (orthographic, map-like, behind the arc at the top).
-Drag to turn (not from above), pinch or scroll to zoom, two-finger drag to pan. Tapping a sphere or cone opens the same
-detail card as the profile. ◀ ▶ move half a window along the route; the region picker and the lists move both views.
+**Cameras**: *Angled* (perspective, from behind the arc and above, so the route runs left to right as in the profile,
+with the Pacific side beyond), *Cross-section* (orthographic, looking along the route: the Pacific side on the left,
+behind the arc on the right, as seen facing the direction of travel) and *From above* (orthographic: a map turned so the
+route runs left to right, which puts the Pacific side at the top). The scene places the left of the route (+y) at −Z,
+because Three.js is right-handed; until 27 November 2026 it was at +Z, which drew every window as a mirror image (for
+example the Pacific east of the Andes). Drag to turn (not from above), pinch or scroll to zoom, two-finger drag to pan.
+Tapping a sphere or cone opens the same detail card as the profile. ◀ ▶ move half a window along the route; the region
+picker and the lists move both views.
 
 **Terrain grid**: built on the database like step 3 (`supabase/migrations/*_ribbon_terrain_grid.sql`).
 `make_grid_pieces()` splits the route into stretches of up to 250 km with a 720 km band either side (272 pieces, every
