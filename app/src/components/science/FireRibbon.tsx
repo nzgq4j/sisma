@@ -482,7 +482,7 @@ function View3D({ d, win, setWin, cam, setCam, quakes, volcanoes, showTerrain, r
   const move = (dir: number) => setWin({ ...win, centre: Math.max(lo, Math.min(hi, win.centre + (dir * win.span) / 2)) });
   const si = SPANS.indexOf(win.span);
   const labels = useMemo(() => ({
-    pacific: k.pacific, behind: k.behind, depth: k.depth_axis, km: 'km', loading: k.t3d_loading, unavailable: k.t3d_unavailable, noWebgl: k.no_webgl,
+    pacific: k.pacific, behind: k.behind, depth: k.depth_axis, km: 'km', loading: k.t3d_loading, unavailable: k.t3d_unavailable, noWebgl: k.no_webgl, north: k.north, compass: k.compass,
     regions: d.regions.map(r => ({ name: k.regions[r.group], x0: r.x0, x1: r.x1 })),
   }), [k, d.regions]);
   const inView = quakes.filter(q => q.x >= win.centre - win.span / 2 && q.x <= win.centre + win.span / 2).length;

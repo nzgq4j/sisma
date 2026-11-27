@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { unstable_cache } from 'next/cache';
 import { adminClient, planForRequest } from '@/lib/auth';
 import { GRID_STEP_KM, GRID_Y0_KM, WINDOW_MAX_KM, type Terrain3DResponse } from '@/lib/ribbon/shared';
+import { northAt } from '@/lib/ribbon/north';
 
 // GET /api/science/ribbon/terrain3d?from=<km>&to=<km> → one window of the 3D terrain grid for Science → Pacific Fire
 // Ribbon (sisma+ only; plan checked here). Built once on the database from NOAA ETOPO 2022 (public.ribbon_terrain_grid,
@@ -14,8 +15,8 @@ const load = unstable_cache(async (b0: number, b1: number): Promise<Terrain3DRes
   const { data, error } = await db.from('ribbon_terrain_grid').select('xbin, z').gte('xbin', b0).lte('xbin', b1).order('xbin');
   if (error) throw error;
   if (!data?.length) return null;
-  return { stepKm: GRID_STEP_KM, y0Km: GRID_Y0_KM, x0bin: data[0].xbin, rows: data.map(r => r.z) };
-}, ['fire-ribbon-terrain3d', 'v1'], { revalidate: 86_400 });
+  return { stepKm: GRID_STEP_KM, y0Km: GRID_Y0_KM, x0bin: data[0].xbin, rows: data.map(r => r.z), north: northAt(((b0 + b1) / 2) * GRID_STEP_KM) };
+}, ['fire-ribbon-terrain3d', 'v2'], { revalidate: 86_400 });
 
 export async function GET(req: NextRequest) {
   if ((await planForRequest(req)) !== 'plus') return NextResponse.json({ error: 'plus_required' }, { status: 403 });

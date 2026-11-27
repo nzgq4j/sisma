@@ -206,7 +206,7 @@ the trench line may come from either side of the route.
 **Resolution**: cells are about 1.85 km across, which smooths summits. Mount Fuji's highest ETOPO cell is 3,378 m
 (checked: rows 7520–7523, columns 19122–19125) against a summit of 3,776 m. Volcano triangles stand at the catalogue's
 summit elevation, so a triangle can sit above the brown crest. The trench band uses every third cell (about 5.5 km),
-so the deepest point of a narrow trench can be missed: at Tonga by about 900 m (see step 4).
+so the deepest point of a narrow trench can be missed. The Tonga Trench (36,412–37,822 km) is read at every cell (see below).
 
 **Result of the first build (26 November 2026)**: 515 pieces, 3,621,090 cells placed on the route, 19,731 crest values
 and 3,947 trench values with none missing. Deepest trench value per region (metres, ETOPO): Kermadec −10,019, Philippines
@@ -230,6 +230,13 @@ except terrain heights in *Exaggerated ×10*. Earthquakes are spheres at their r
 from magnitude, colour from the depth classes, faded with age, as in the profile); volcanoes are cones at their
 catalogue summit elevation × the relief factor (at sea level when terrain is off). The depth grid has a line every
 100 km down to 700 km.
+
+**Compass**: a compass in the top right corner points to true north at the middle of the window, turned to match
+the camera after every frame. North comes from the terrain API (`north`: the direction in which latitude rises
+fastest, from the route transform 20 km along and across the route at the window's centre; `lib/ribbon/north.ts`,
+tested). The ribbon is the route unrolled, so north is only right near the middle of the window; on a long window the
+route can turn a lot. The needle fades when north points mostly into or out of the screen (for example in
+*Cross-section* where the route runs north–south).
 
 **Cameras**: *Angled* (perspective, from the Pacific side and above), *Cross-section* (orthographic, looking along the
 route, so x is collapsed and the slab's dip shows) and *From above* (orthographic, map-like, behind the arc at the top).
@@ -258,8 +265,15 @@ Range of the 10 km means: −10,364 m to 5,963 m. The deepest mean is on the Pac
 170 km from the route), at the Horizon Deep; NOAA's full-resolution cells in that window reach −10,752 m (checked with
 one OpenDAP request, rows 3985–4025, columns 290–340).
 
-**Note on the step 3 profile**: its trench values sample every third cell, so they can miss the deepest cell of a narrow
-trench. At Tonga the profile's −9,840 m is about 900 m shallower than the deepest full-resolution cell (−10,752 m).
+**Tonga Trench at full resolution (27 November 2026)**: the trench profile samples every third cell, so it can miss the
+deepest cell of a narrow trench. The 12 trench pieces from 36,412 to 37,822 km (Tonga and its join with Kermadec,
+where the Horizon Deep lies) were downloaded again at every cell (`supabase/migrations/*_ribbon_trench_full.sql`,
+`ribbon_build.add_trench_full(x0, x1)`); `parse` keeps the deeper value per 10 km bin, so this only adds cells. Result:
+126 of the 143 bins deepened, by 117 m on average and at most 637 m; the deepest value went from −10,721 m to
+−10,752 m at 37,460 km, 163 km on the Pacific side, matching the deepest full-resolution cell found by a separate
+check. `params.trenchFullKm` records the stretch. (The table of deepest values per region above is limited to each
+region's own range: the Tonga region ends at 37,276 km, so its −9,840 m does not include the Horizon Deep, which lies
+in the join between Tonga and Kermadec.) The 3D grid's 10 km means were not rebuilt; they average every third cell.
 
 ## Verification
 

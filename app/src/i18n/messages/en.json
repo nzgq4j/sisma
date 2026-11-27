@@ -1039,7 +1039,9 @@
     "alt_deep": "{n} are deeper than {depth}.",
     "alt_volc": "{n} volcanoes in this week’s Smithsonian / USGS activity report are coloured triangles.",
     "alt_terrain": "Terrain is drawn above the line, with heights exaggerated ×{n}.",
-    "alt_source": "Data: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. From sisma.io."
+    "alt_source": "Data: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. From sisma.io.",
+    "north": "N",
+    "compass": "Compass: the red needle points to true north at the middle of this stretch."
   },
   "tsu": {
     "lv_major_warning": "Major tsunami warning",

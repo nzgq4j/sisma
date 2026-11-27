@@ -1039,7 +1039,9 @@
     "alt_deep": "{n} liegen tiefer als {depth}.",
     "alt_volc": "{n} Vulkane aus dem Smithsonian-/USGS-Wochenbericht sind farbige Dreiecke.",
     "alt_terrain": "Das Gelände ist über der Linie gezeichnet, Höhen ×{n} überhöht.",
-    "alt_source": "Daten: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. Von sisma.io."
+    "alt_source": "Daten: USGS, Smithsonian Global Volcanism Program, NOAA ETOPO 2022. Von sisma.io.",
+    "north": "N",
+    "compass": "Kompass: Die rote Nadel zeigt zum geografischen Norden in der Mitte dieses Abschnitts."
   },
   "tsu": {
     "lv_major_warning": "Große Tsunamiwarnung",

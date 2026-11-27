@@ -73,13 +73,18 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
   centre: number; span: number; quakes: RibbonQuake[]; volcanoes: RibbonVolcano[]; showTerrain: boolean; relief: number;
   camera: Camera3D; period: Period; now: number; selected: string | null; selectedV: number | null;
   onSelect: (id: string | null) => void; onSelectV: (n: number | null) => void;
-  labels: { pacific: string; behind: string; depth: string; km: string; loading: string; unavailable: string; noWebgl: string; regions: { name: string; x0: number; x1: number }[] };
+  labels: { pacific: string; behind: string; depth: string; km: string; loading: string; unavailable: string; noWebgl: string; north: string; compass: string; regions: { name: string; x0: number; x1: number }[] };
 }) {
   const { nf } = useT();
   const host = useRef<HTMLDivElement>(null);
   const x0 = centre - span / 2, x1 = centre + span / 2;
   const terrain = useTerrainWindow(x0, x1);
   const camRef = useRef<Camera3D>(camera);
+  // Compass: true north at the window's centre (from the terrain API) as a scene direction (X along, Z to the left),
+  // turned to the screen after every frame.
+  const northRef = useRef<THREE.Vector3 | null>(null);
+  const needleRef = useRef<SVGSVGElement>(null);
+  const nRef = useRef<HTMLSpanElement>(null);
   // WebGL support, checked once (this component only renders in the browser); a renderer that still fails sets it false.
   const [webgl, setWebgl] = useState(() => {
     try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; }
@@ -112,9 +117,23 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
     const controls = new OrbitControls(persp, renderer.domElement);
     controls.enableDamping = true;
     let raf = 0;
+    /** Points the needle at north as seen by the camera; fades it when north points mostly into or out of the screen. */
+    const compass = (cam: THREE.Camera) => {
+      const n = northRef.current, needle = needleRef.current, label = nRef.current;
+      if (!needle || !label) return;
+      const box = needle.parentElement!;
+      if (!n) { box.style.visibility = 'hidden'; return; }
+      box.style.visibility = 'visible';
+      cam.updateMatrixWorld();
+      const v = n.clone().transformDirection(cam.matrixWorldInverse); // camera space: x right, y up
+      const flat = Math.hypot(v.x, v.y), a = Math.atan2(v.x, v.y);
+      needle.style.transform = `rotate(${a}rad)`;
+      needle.style.opacity = String(Math.max(0.35, Math.min(1, flat / 0.5)));
+      label.style.transform = `translate(${Math.sin(a) * 21}px, ${-Math.cos(a) * 21}px)`;
+    };
     const render = () => {
       cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => { if (controls.update()) render(); renderer.render(scene, controls.object as THREE.Camera); });
+      raf = requestAnimationFrame(() => { if (controls.update()) render(); renderer.render(scene, controls.object as THREE.Camera); compass(controls.object as THREE.Camera); });
     };
     controls.addEventListener('change', render);
     const resize = () => {
@@ -141,6 +160,13 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
       renderer.dispose(); renderer.domElement.remove(); three.current = null;
     };
   }, []);
+
+  // North for this window: set when its terrain arrives, then redrawn.
+  useEffect(() => {
+    const n = terrain?.d?.north;
+    northRef.current = n ? new THREE.Vector3(n[0], 0, n[1]).normalize() : null;
+    three.current?.render();
+  }, [terrain]);
 
   const inWindow = useMemo(() => quakes.filter(q => q.x >= x0 && q.x <= x1), [quakes, x0, x1]);
   const volcsIn = useMemo(() => volcanoes.filter(v => v.x >= x0 && v.x <= x1), [volcanoes, x0, x1]);
@@ -303,6 +329,14 @@ export default function Ribbon3D({ centre, span, quakes, volcanoes, showTerrain,
   return (
     <div className={styles.view3d}>
       <div ref={host} className={styles.host3d} />
+      <div className={styles.compass} role="img" aria-label={labels.compass} style={{ visibility: 'hidden' }}>
+        <svg ref={needleRef} viewBox="0 0 56 56" aria-hidden="true">
+          <path d="M28 14 32 28H24Z" fill="#FF5A4A" />
+          <path d="M24 28H32L28 42Z" fill="#AEB8CC" />
+          <circle cx="28" cy="28" r="2.2" fill="#0B1220" />
+        </svg>
+        <span ref={nRef} aria-hidden="true">{labels.north}</span>
+      </div>
       {showTerrain && !terrain && <p className={styles.overlay3d}>{labels.loading}</p>}
       {showTerrain && terrain?.failed && <p className={styles.overlay3d} role="alert">{labels.unavailable}</p>}
     </div>

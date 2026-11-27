@@ -1039,7 +1039,9 @@
     "alt_deep": "{n} 件は深さ {depth} より深い地震です。",
     "alt_volc": "今週のスミソニアン / USGS 火山活動報告にある火山 {n} 座が色付きの三角形で示されています。",
     "alt_terrain": "地形は線の上に描かれ、高さは ×{n} に強調されています。",
-    "alt_source": "データ：USGS、スミソニアン世界火山プログラム、NOAA ETOPO 2022。sisma.io より。"
+    "alt_source": "データ：USGS、スミソニアン世界火山プログラム、NOAA ETOPO 2022。sisma.io より。",
+    "north": "北",
+    "compass": "方位：赤い針はこの区間の中央での真北を指します。"
   },
   "tsu": {
     "lv_major_warning": "大津波警報",

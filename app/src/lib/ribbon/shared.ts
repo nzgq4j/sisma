@@ -85,7 +85,9 @@ export function markerOpacity(ageMs: number, period: Period) {
  * null = no cell there. */
 export interface TerrainResponse {
   builtAt: number; source: string;
-  params: { lengthKm: number; crestStepKm: number; crestBandKm: number; crestGrid: string; trenchStepKm: number; trenchBandKm: number; trenchGrid: string; pieces: number };
+  params: { lengthKm: number; crestStepKm: number; crestBandKm: number; crestGrid: string; trenchStepKm: number; trenchBandKm: number; trenchGrid: string; pieces: number;
+    /** Stretches of route [from, to] km where the trench was read at every cell (Tonga). */
+    trenchFullKm?: [number, number][] };
   crest: (number | null)[]; trench: (number | null)[]; trenchY: (number | null)[];
 }
 /** Relief modes: the same vertical scale as earthquake depth, or heights exaggerated (earthquake depths never are). */
@@ -95,7 +97,11 @@ export type Relief = keyof typeof RELIEF;
 /** A window of the 3D terrain grid (GET /api/science/ribbon/terrain3d): mean ETOPO 2022 height (m, EGM2008) per
  * 10 km × 10 km cell. rows[i] is x = (x0bin + i) · stepKm along the route; rows[i][j] is y = y0Km + j · stepKm across
  * it (+ = left, the Pacific side on most of the route); null = no cell. */
-export interface Terrain3DResponse { stepKm: number; y0Km: number; x0bin: number; rows: (number | null)[][] }
+export interface Terrain3DResponse {
+  stepKm: number; y0Km: number; x0bin: number; rows: (number | null)[][];
+  /** True north at the window's centre, as a unit vector [along the route, to the left of it]. */
+  north: [number, number];
+}
 export const GRID_STEP_KM = 10;
 export const GRID_Y0_KM = -700;
 export const GRID_Y1_KM = 400;
