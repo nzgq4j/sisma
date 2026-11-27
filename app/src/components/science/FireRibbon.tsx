@@ -17,6 +17,7 @@ import dynamic from 'next/dynamic';
 import { Sheet, SheetOptions } from '@/components/Sheet';
 import type { Camera3D } from './Ribbon3D';
 import { RibbonShareSheet } from './RibbonShare';
+import { RibbonSearch } from './RibbonSearch';
 import {
   HistoryControls, HistoryStatus, Player, presetRange, trailPeriod, useHistory, usePlayback, visibleQuakes,
   type HistoryRange, type Preset, type Trail,
@@ -35,6 +36,8 @@ import styles from './ribbon.module.css';
 
 /** The 3D view (Three.js), loaded only when someone switches to it. */
 const Ribbon3D = dynamic(() => import('./Ribbon3D'), { ssr: false });
+/** The linked map (world outlines and d3-geo), loaded with the data. */
+const RibbonMap = dynamic(() => import('./RibbonMap'), { ssr: false });
 const SPANS = [800, 1600, 3200];
 
 /** The time, to the minute, for ages and fading (re-renders once a minute). */
@@ -142,6 +145,20 @@ export function FireRibbonPage() {
   const [selV, setSelV] = useState<number | null>(null);
   const [show, setShow] = useState({ quakes: true, volcanoes: true, terrain: true });
   const [picker, setPicker] = useState(false);
+  const [searching, setSearching] = useState(false);
+  const [full, setFull] = useState(false);
+  // The stretch the profile shows (reported by it), for the linked map.
+  const [view2d, setView2d] = useState<{ x0: number; x1: number } | null>(null);
+  const onView = useCallback((x0: number, x1: number) => setView2d(v => (v && Math.abs(v.x0 - x0) < 1 && Math.abs(v.x1 - x1) < 1 ? v : { x0, x1 })), []);
+  // Full screen: the views and the map fill the screen; Escape or the button leaves it; the page behind doesn't scroll.
+  useEffect(() => {
+    if (!full) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') setFull(false); };
+    window.addEventListener('keydown', key);
+    return () => { document.body.style.overflow = prevOverflow; window.removeEventListener('keydown', key); };
+  }, [full]);
   const [sharing, setSharing] = useState(false);
   const [region, setRegion] = useState<string | null>(null);
   const pickQuake = (id: string | null) => { setSel(id); if (id) setSelV(null); };
@@ -185,7 +202,16 @@ export function FireRibbonPage() {
   const active = useMemo(() => volcanoes.filter(reported)
     .sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || a.x - b.x), [volcanoes]);
   const largest = useMemo(() => [...quakes].filter(q => q.mag !== null).sort((a, b) => (b.mag ?? 0) - (a.mag ?? 0)).slice(0, 8), [quakes]);
+  /** The 3D window: chosen by the person, else around the largest earthquake (else Japan). */
+  const win3 = win ?? { centre: largest[0]?.x ?? ((st.s === 'ready' ? st.d.regions.find(r => r.group === 'japan')?.x0 : undefined) ?? 23000) + 400, span: SPANS[1] };
   const now = useMinute();
+  /** Selects an earthquake from the map or search: shows the layer, moves both views to it, and in history mode makes
+   * sure it is on screen (play head at or after its time, no depth or region filter hiding it). */
+  const showQuake = (q: RibbonQuake) => {
+    pickQuake(q.id); setShow(x => ({ ...x, quakes: true })); goTo(q.x - 400, q.x + 400);
+    if (history) { pb.pause(); if (q.time > pb.head) pb.setHead(q.time); setDepthF('all'); setHregion(null); }
+  };
+  const showVolcano = (v: RibbonVolcano) => { pickVolcano(v.n); setShow(x => ({ ...x, volcanoes: true })); goTo(v.x - 400, v.x + 400); };
   const fadeNow = history ? pb.head : now;
   const when = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short' });
   const mag1 = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
@@ -286,23 +312,40 @@ export function FireRibbonPage() {
                   ))}
                 </div>
               )}
-              <div className={data.seg} role="tablist" aria-label={k.view}>
-                {(['2d', '3d'] as const).map(v => (
-                  <button key={v} type="button" role="tab" aria-selected={view === v} onClick={() => setView(v)}>{k[`view_${v}`]}</button>
-                ))}
+              <div className={full ? styles.full : styles.viewArea} role={full ? 'dialog' : undefined} aria-modal={full || undefined} aria-label={full ? k.h1 : undefined}>
+              <div className={styles.viewBar}>
+                <div className={data.seg} role="tablist" aria-label={k.view}>
+                  {(['2d', '3d'] as const).map(v => (
+                    <button key={v} type="button" role="tab" aria-selected={view === v} onClick={() => setView(v)}>{k[`view_${v}`]}</button>
+                  ))}
+                </div>
+                <button type="button" className={styles.iconBtn} onClick={() => setSearching(true)} aria-label={k.search} aria-haspopup="dialog">
+                  <span className="ms" aria-hidden="true">search</span>
+                </button>
+                <button type="button" className={styles.iconBtn} onClick={() => setFull(f => !f)} aria-label={full ? k.full_exit : k.full_enter} aria-pressed={full}>
+                  <span className="ms" aria-hidden="true">{full ? 'close_fullscreen' : 'open_in_full'}</span>
+                </button>
               </div>
               <div className={history ? styles.historyFrame : undefined}>
               {view === '2d' ? (
                 <Plot d={st.d} quakes={show.quakes ? quakes : NO_QUAKES} volcanoes={show.volcanoes ? drawnVolcanoes : []} period={fadePeriod} fresh={history ? NO_IDS : st.fresh}
                   terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]}
-                  selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={fadeNow} />
+                  selected={sel} selectedV={selV} onSelect={pickQuake} onSelectV={pickVolcano} jump={jump} now={fadeNow} onView={onView} />
               ) : (
-                <View3D d={st.d} win={win ?? { centre: largest[0]?.x ?? (st.d.regions.find(r => r.group === 'japan')?.x0 ?? 23000) + 400, span: SPANS[1] }}
+                <View3D d={st.d} win={win3}
                   setWin={setWin} cam={cam} setCam={setCam} quakes={show.quakes ? quakes : NO_QUAKES} volcanoes={show.volcanoes ? drawnVolcanoes : []}
                   showTerrain={show.terrain} relief={RELIEF[relief]} period={fadePeriod} now={fadeNow} selected={sel} selectedV={selV}
                   onSelect={pickQuake} onSelectV={pickVolcano} />
               )}
               </div>
+              <RibbonMap view={view === '2d' ? view2d : { x0: win3.centre - win3.span / 2, x1: win3.centre + win3.span / 2 }}
+                corridor={{ leftKm: st.d.corridor.leftKm, rightKm: st.d.corridor.rightKm }}
+                quakes={show.quakes ? quakes : NO_QUAKES} volcanoes={show.volcanoes ? drawnVolcanoes : []} selected={sel} selectedV={selV}
+                onPickQuake={showQuake} onPickVolcano={showVolcano} label={k.map_label} />
+              <p className={styles.hint3d}>{k.map_hint}</p>
+              </div>
+              <RibbonSearch open={searching} onClose={() => setSearching(false)} quakes={history ? hAll : liveQuakes} volcanoes={volcanoes}
+                onPickQuake={showQuake} onPickVolcano={showVolcano} when={when} />
               <Key volcanoes={vst.s === 'ready'} terrain={show.terrain && tst.s === 'ready' ? tst.d : null} relief={RELIEF[relief]} />
               {quakes.length === 0 && <p className={data.status}>{k.none}</p>}
               {selected && <Detail q={selected} onClose={() => setSel(null)} when={when} />}
@@ -567,10 +610,12 @@ const triH = (v: RibbonVolcano) => (reported(v) ? 11 : 7);
 const BG = '#0B1220', GRID = 'rgba(190, 205, 230, .13)', TEXT = 'rgba(214, 224, 240, .82)', MUTED = 'rgba(190, 205, 230, .55)';
 const ZOOMS = [1, 2, 4, 8, 16, 32, 64];
 
-function Plot({ d, quakes, volcanoes, terrain, relief, period, fresh, selected, selectedV, onSelect, onSelectV, jump, now }: {
+function Plot({ d, quakes, volcanoes, terrain, relief, period, fresh, selected, selectedV, onSelect, onSelectV, jump, now, onView }: {
   d: RibbonResponse; quakes: RibbonQuake[]; volcanoes: RibbonVolcano[]; terrain: TerrainResponse | null; relief: number;
   period: Period; fresh: Set<string>; selected: string | null; selectedV: number | null;
   onSelect: (id: string | null) => void; onSelectV: (n: number | null) => void; jump: { x0: number; x1: number; n: number } | null; now: number;
+  /** Reports the stretch of route on screen (for the linked map). */
+  onView?: (x0: number, x1: number) => void;
 }) {
   const { m, nf, locale } = useT();
   const k = m.ribbon;
@@ -590,6 +635,12 @@ function Plot({ d, quakes, volcanoes, terrain, relief, period, fresh, selected, 
   const depthMax = Math.ceil(maxDepth / unit / 100) * 100 * unit;
   const sx = useCallback((x: number) => GUTTER + ((x - xMin) / (xMax - xMin)) * plotW - scroll, [xMin, xMax, plotW, scroll]);
   const sy = useCallback((z: number) => TOP + (Math.max(0, z) / depthMax) * (H - TOP - BOTTOM), [depthMax]);
+  // The stretch on screen: from the left edge of the plot area to the right one.
+  useEffect(() => {
+    if (!onView || !width) return;
+    const kmPerPx = (xMax - xMin) / plotW;
+    onView(xMin + scroll * kmPerPx, xMin + (scroll + Math.max(1, width - GUTTER - RIGHT_PAD)) * kmPerPx);
+  }, [onView, width, plotW, scroll, xMin, xMax]);
   /** Screen y of a height in metres (negative = below sea level), on the depth axis's scale times the relief factor. */
   const ey = useCallback((m: number) => TOP - (m / 1000) * relief * ((H - TOP - BOTTOM) / depthMax), [relief, depthMax]);
   /** Highest ground (crest profile) at a route position, metres, or null. */

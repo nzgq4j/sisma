@@ -1085,7 +1085,15 @@
     "h_found": "USGS kataloğunda dünya genelinde bulunan {m} depremden şeritteki {n} deprem",
     "h_retrieved": "{time} alındı",
     "h_coverage": "Katalog her yerde ve her dönemde eşit derecede eksiksiz değildir: küçük depremler sismik ağların yoğun olduğu yerlerde çok daha eksiksiz, denizlerde ve önceki on yıllarda ise çok daha az kaydedilir. Haftalık etkinlik raporu geçmiş tarihler hakkında bilgi vermediğinden, geçmiş modunda volkan üçgenleri renksiz gösterilir.",
-    "note_9": "Geçmiş modu, USGS ComCat kataloğunda (canlı verilerle aynı kaynak) UTC’ye göre tam günlerden oluşan bir aralığı arar ve oynatır: her deprem kaydedilen zamanında, konumunda ve derinliğinde görünür. Bir aramanın katalog hizmetinin izin verdiği sınırlar içinde kalması için aralıklar büyüklüğe göre sınırlandırılmıştır. Katalogdaki konum, derinlik ve büyüklükler zamanla düzeltilir; bu nedenle eski olaylar ilk yayımlanan değerlerden farklı olabilir."
+    "note_9": "Geçmiş modu, USGS ComCat kataloğunda (canlı verilerle aynı kaynak) UTC’ye göre tam günlerden oluşan bir aralığı arar ve oynatır: her deprem kaydedilen zamanında, konumunda ve derinliğinde görünür. Bir aramanın katalog hizmetinin izin verdiği sınırlar içinde kalması için aralıklar büyüklüğe göre sınırlandırılmıştır. Katalogdaki konum, derinlik ve büyüklükler zamanla düzeltilir; bu nedenle eski olaylar ilk yayımlanan değerlerden farklı olabilir.",
+    "search": "Ara",
+    "search_ph": "Volkan adı, yer veya büyüklük",
+    "search_hint": "Volkanlar ada göre; depremler yere, USGS kimliğine veya büyüklüğe göre (örneğin M6 ve üzeri için “6”).",
+    "search_none": "Sonuç bulunamadı.",
+    "full_enter": "Tam ekran",
+    "full_exit": "Tam ekrandan çık",
+    "map_label": "Şeridin rotasını, yukarıda gösterilen bölümü ve üzerindeki depremlerle bildirilen volkanları gösteren Pasifik haritası.",
+    "map_hint": "Kehribar renkli bant, yukarıda gösterilen bölümdür (Pasifik tarafında 400 km, yayın arkasında 700 km). Her ikisinde de seçmek için bir noktaya veya üçgene dokunun."
   },
   "tsu": {
     "lv_major_warning": "Büyük tsunami uyarısı",

@@ -1085,7 +1085,15 @@
     "h_found": "{n} séismes sur le ruban parmi {m} trouvés dans le monde dans le catalogue de l’USGS",
     "h_retrieved": "obtenus {time}",
     "h_coverage": "Le catalogue n’est pas aussi complet partout ni à toutes les époques : les petits séismes sont bien mieux enregistrés là où les réseaux sismiques sont denses, et beaucoup moins en mer et lors des décennies passées. Les triangles des volcans sont neutres en mode historique, car le bulletin hebdomadaire ne dit rien des dates passées.",
-    "note_9": "Le mode historique interroge le catalogue ComCat de l’USGS (la même source que les données en direct) pour une période de jours entiers en UTC et la rejoue : chaque séisme apparaît à son heure, sa position et sa profondeur enregistrées. Les périodes sont limitées selon la magnitude pour qu’une recherche reste dans ce que permet le service du catalogue. Les localisations, profondeurs et magnitudes du catalogue sont révisées au fil du temps : les événements anciens peuvent différer de ce qui a été publié au départ."
+    "note_9": "Le mode historique interroge le catalogue ComCat de l’USGS (la même source que les données en direct) pour une période de jours entiers en UTC et la rejoue : chaque séisme apparaît à son heure, sa position et sa profondeur enregistrées. Les périodes sont limitées selon la magnitude pour qu’une recherche reste dans ce que permet le service du catalogue. Les localisations, profondeurs et magnitudes du catalogue sont révisées au fil du temps : les événements anciens peuvent différer de ce qui a été publié au départ.",
+    "search": "Rechercher",
+    "search_ph": "Nom de volcan, lieu ou magnitude",
+    "search_hint": "Volcans par nom ; séismes par lieu, identifiant USGS ou magnitude (par exemple « 6 » pour M6 et plus).",
+    "search_none": "Aucun résultat.",
+    "full_enter": "Plein écran",
+    "full_exit": "Quitter le plein écran",
+    "map_label": "Carte du Pacifique avec le tracé du ruban, le tronçon affiché ci-dessus, et les séismes et volcans signalés qui s’y trouvent.",
+    "map_hint": "La bande ambre est le tronçon affiché ci-dessus (400 km côté Pacifique, 700 km en arrière de l’arc). Touchez un point ou un triangle pour le sélectionner dans les deux vues."
   },
   "tsu": {
     "lv_major_warning": "Alerte majeure au tsunami",

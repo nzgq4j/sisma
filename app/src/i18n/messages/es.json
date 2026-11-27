@@ -1085,7 +1085,15 @@
     "h_found": "{n} sismos en la cinta de {m} encontrados en todo el mundo en el catálogo del USGS",
     "h_retrieved": "obtenidos {time}",
     "h_coverage": "El catálogo no es igual de completo en todas partes ni en todas las épocas: los sismos pequeños se registran mucho mejor donde las redes sísmicas son densas, y mucho menos en el mar y en décadas anteriores. Los triángulos de los volcanes aparecen sin color en el historial, porque el informe semanal no dice nada de fechas pasadas.",
-    "note_9": "El historial busca en el catálogo ComCat del USGS (la misma fuente que los datos en vivo) un periodo de días completos en UTC y lo reproduce: cada sismo aparece en su hora, posición y profundidad registradas. Los periodos se limitan según la magnitud para que una búsqueda quede dentro de lo que permite el servicio del catálogo. Las ubicaciones, profundidades y magnitudes del catálogo se revisan con el tiempo, así que los eventos antiguos pueden diferir de lo publicado al principio."
+    "note_9": "El historial busca en el catálogo ComCat del USGS (la misma fuente que los datos en vivo) un periodo de días completos en UTC y lo reproduce: cada sismo aparece en su hora, posición y profundidad registradas. Los periodos se limitan según la magnitud para que una búsqueda quede dentro de lo que permite el servicio del catálogo. Las ubicaciones, profundidades y magnitudes del catálogo se revisan con el tiempo, así que los eventos antiguos pueden diferir de lo publicado al principio.",
+    "search": "Buscar",
+    "search_ph": "Nombre de volcán, lugar o magnitud",
+    "search_hint": "Volcanes por nombre; sismos por lugar, id del USGS o magnitud (por ejemplo, «6» para M6 o más).",
+    "search_none": "No se encontró nada.",
+    "full_enter": "Pantalla completa",
+    "full_exit": "Salir de pantalla completa",
+    "map_label": "Mapa del Pacífico con la ruta de la cinta, el tramo que se muestra arriba y los sismos y volcanes reportados en él.",
+    "map_hint": "La franja ámbar es el tramo que se muestra arriba (400 km del lado del Pacífico, 700 km detrás del arco). Toca un punto o triángulo para seleccionarlo en ambos."
   },
   "tsu": {
     "lv_major_warning": "Aviso de tsunami mayor",

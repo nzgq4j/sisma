@@ -1085,7 +1085,15 @@
     "h_found": "{n} terremotos na fita de {m} encontrados no mundo no catálogo do USGS",
     "h_retrieved": "obtidos {time}",
     "h_coverage": "O catálogo não é igualmente completo em todos os lugares nem em todas as épocas: terremotos pequenos são registrados muito melhor onde as redes sísmicas são densas, e muito menos no mar e em décadas anteriores. No histórico, os triângulos dos vulcões ficam sem cor, porque o boletim semanal não diz nada sobre datas passadas.",
-    "note_9": "O histórico pesquisa o catálogo ComCat do USGS (a mesma fonte dos dados ao vivo) para um período de dias inteiros em UTC e o reproduz: cada terremoto aparece no horário, na posição e na profundidade registrados. Os períodos são limitados pela magnitude para que uma pesquisa fique dentro do que o serviço do catálogo permite. Localizações, profundidades e magnitudes do catálogo são revisadas ao longo do tempo, então eventos antigos podem diferir do que foi publicado inicialmente."
+    "note_9": "O histórico pesquisa o catálogo ComCat do USGS (a mesma fonte dos dados ao vivo) para um período de dias inteiros em UTC e o reproduz: cada terremoto aparece no horário, na posição e na profundidade registrados. Os períodos são limitados pela magnitude para que uma pesquisa fique dentro do que o serviço do catálogo permite. Localizações, profundidades e magnitudes do catálogo são revisadas ao longo do tempo, então eventos antigos podem diferir do que foi publicado inicialmente.",
+    "search": "Pesquisar",
+    "search_ph": "Nome do vulcão, local ou magnitude",
+    "search_hint": "Vulcões pelo nome; terremotos pelo local, id do USGS ou magnitude (por exemplo, “6” para M6 ou mais).",
+    "search_none": "Nada encontrado.",
+    "full_enter": "Tela cheia",
+    "full_exit": "Sair da tela cheia",
+    "map_label": "Mapa do Pacífico com a rota da fita, o trecho mostrado acima e os terremotos e vulcões relatados nele.",
+    "map_hint": "A faixa âmbar é o trecho mostrado acima (400 km do lado do Pacífico, 700 km atrás do arco). Toque em um ponto ou triângulo para selecioná-lo nos dois."
   },
   "tsu": {
     "lv_major_warning": "Alerta máximo de tsunami",

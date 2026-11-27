@@ -1085,7 +1085,15 @@
     "h_found": "{n} gempa di pita dari {m} yang ditemukan di seluruh dunia dalam katalog USGS",
     "h_retrieved": "diambil {time}",
     "h_coverage": "Katalog tidak sama lengkapnya di semua tempat dan waktu: gempa kecil tercatat jauh lebih lengkap di tempat jaringan seismik rapat, dan jauh kurang lengkap di laut serta pada dekade-dekade sebelumnya. Segitiga gunung api polos dalam mode riwayat, karena laporan mingguan tidak menyatakan apa pun tentang tanggal lampau.",
-    "note_9": "Mode riwayat mencari katalog ComCat USGS (sumber yang sama dengan data langsung) untuk rentang hari penuh dalam UTC lalu memutarnya: setiap gempa muncul pada waktu, posisi, dan kedalaman yang tercatat. Rentang dibatasi menurut magnitudo agar pencarian tetap dalam batas layanan katalog. Lokasi, kedalaman, dan magnitudo dalam katalog direvisi seiring waktu, sehingga peristiwa lama bisa berbeda dari yang pertama kali diterbitkan."
+    "note_9": "Mode riwayat mencari katalog ComCat USGS (sumber yang sama dengan data langsung) untuk rentang hari penuh dalam UTC lalu memutarnya: setiap gempa muncul pada waktu, posisi, dan kedalaman yang tercatat. Rentang dibatasi menurut magnitudo agar pencarian tetap dalam batas layanan katalog. Lokasi, kedalaman, dan magnitudo dalam katalog direvisi seiring waktu, sehingga peristiwa lama bisa berbeda dari yang pertama kali diterbitkan.",
+    "search": "Cari",
+    "search_ph": "Nama gunung api, tempat, atau magnitudo",
+    "search_hint": "Gunung api menurut nama; gempa menurut tempat, id USGS, atau magnitudo (misalnya “6” untuk M6 ke atas).",
+    "search_none": "Tidak ada hasil.",
+    "full_enter": "Layar penuh",
+    "full_exit": "Keluar dari layar penuh",
+    "map_label": "Peta Pasifik dengan rute pita, bentang yang ditampilkan di atas, serta gempa dan gunung api yang dilaporkan di dalamnya.",
+    "map_hint": "Pita kuning sawo adalah bentang yang ditampilkan di atas (400 km ke sisi Pasifik, 700 km di belakang busur). Ketuk titik atau segitiga untuk memilihnya di keduanya."
   },
   "tsu": {
     "lv_major_warning": "Peringatan tsunami besar",
