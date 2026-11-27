@@ -435,21 +435,25 @@ export function FireRibbonPage() {
                   </button>
                 ))}
               </div>
-              {show.terrain && tst.s === 'ready' && (
-                <div className={data.seg} role="tablist" aria-label={k.relief}>
-                  {(['scientific', 'enhanced'] as const).map(r => (
-                    <button key={r} type="button" role="tab" aria-selected={relief === r} onClick={() => setRelief(r)}>
-                      {k[`relief_${r}`].replace('{n}', nf.format(RELIEF[r]))}
-                    </button>
-                  ))}
-                </div>
-              )}
-              {viewSeg}
-              <button type="button" className={styles.jump} onClick={() => setAPicker(true)} aria-haspopup="dialog">
-                <span className="ms" aria-hidden="true">insights</span>
-                <span>{k.analysis}: {k[`a_${analysis}`]}</span>
-                <span className="ms" aria-hidden="true">expand_more</span>
-              </button>
+              {/* One row: exaggerated relief (on by default), 3D (off = profile, the default) and the analysis selector. */}
+              <div className={styles.viewRow}>
+                {show.terrain && tst.s === 'ready' && (
+                  <button type="button" role="switch" aria-checked={relief === 'enhanced'} className={`${styles.modeSwitch} ${styles.optSwitch}`}
+                    aria-label={k.relief_enhanced.replace('{n}', nf.format(RELIEF.enhanced))} onClick={() => setRelief(relief === 'enhanced' ? 'scientific' : 'enhanced')}>
+                    <span>×{nf.format(RELIEF.enhanced)}</span><span className={styles.switch} aria-hidden="true"><i /></span>
+                  </button>
+                )}
+                <button type="button" role="switch" aria-checked={view === '3d'} className={`${styles.modeSwitch} ${styles.optSwitch}`}
+                  aria-label={k.view_3d} onClick={() => setView(view === '3d' ? '2d' : '3d')}>
+                  <span>{k.view_3d}</span><span className={styles.switch} aria-hidden="true"><i /></span>
+                </button>
+                <button type="button" className={`${styles.jump} ${styles.smallJump}`} onClick={() => setAPicker(true)} aria-haspopup="dialog"
+                  aria-label={`${k.analysis}: ${k[`a_${analysis}`]}`}>
+                  <span className="ms" aria-hidden="true">insights</span>
+                  <span>{analysis === 'off' ? k.analysis : k[`a_${analysis}`]}</span>
+                  <span className="ms" aria-hidden="true">expand_more</span>
+                </button>
+              </div>
             </>
           )}
           </div>
