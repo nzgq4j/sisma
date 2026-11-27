@@ -1126,7 +1126,8 @@
     "a_joins": "Übergänge zwischen Bögen",
     "a_of_mw": "aus {n} Mw",
     "a_mag_h": "Magnitude",
-    "a_depth_h": "Tiefe"
+    "a_depth_h": "Tiefe",
+    "h_info": "Infos zur Wiedergabe"
   },
   "tsu": {
     "lv_major_warning": "Große Tsunamiwarnung",

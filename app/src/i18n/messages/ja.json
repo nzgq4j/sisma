@@ -1126,7 +1126,8 @@
     "a_joins": "弧と弧のつなぎ",
     "a_of_mw": "Mw {n} 件から",
     "a_mag_h": "マグニチュード",
-    "a_depth_h": "深さ"
+    "a_depth_h": "深さ",
+    "h_info": "再生の情報"
   },
   "tsu": {
     "lv_major_warning": "大津波警報",

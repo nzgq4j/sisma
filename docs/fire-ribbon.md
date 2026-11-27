@@ -373,13 +373,19 @@ the play head and trail); nothing is modelled or forecast.
 
 ## Controls card
 
-All the selectors (Live / History, period, magnitude, history range and filters, the status, Share, Go to region,
-layers, relief, Profile / 3D) are in a pull-up card pinned above the bottom navigation (16 px from the bottom on
+All the selectors are in a pull-up card pinned above the bottom navigation (16 px from the bottom on
 desktop), so the ribbon follows the title directly. Collapsed, the card shows its title, the number of earthquakes
 shown and a one-line summary (for example "Live · 30 days · M2.5+ · Profile"); tap or drag it up to open it (half or
 nearly full height), drag it down or double-tap away from its controls to close it; picking a region closes it. It is
 the app's shared pull-up card (`components/stage/PullPanel.tsx`, extracted from the Map / Globe / Feed filter panel,
-which now uses it too). The play controls in history mode, search, full screen and the 3D camera stay with the ribbon.
+which now uses it too). Its first row holds a **History** switch (off = live) and two selectors, **timeframe** (live: 1 hour to 30 days;
+history: 90 days, past year, custom) and **magnitude**; below come the custom dates and depth band (history), the live
+status and Share, one **Go to region** selector (in history it also filters the earthquakes shown to that region;
+"Whole ribbon" clears it), the layers, relief, Profile / 3D and Analysis. In history, picking a magnitude whose
+longest range is shorter than the current range shortens the range to that limit (same end date) and says so in the
+option. The playback details (range, found / on the ribbon, retrieved, catalogue limits and coverage) are behind the
+ⓘ button in the player; loading and errors stay in the card. The player puts the timeline to the right of the time
+(below it on screens narrower than 600 px). The play controls in history mode, search, full screen and the 3D camera stay with the ribbon.
 
 ## Verification
 

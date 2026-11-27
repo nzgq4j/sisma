@@ -1126,7 +1126,8 @@
     "a_joins": "Sambungan antarbusur",
     "a_of_mw": "dari {n} Mw",
     "a_mag_h": "Magnitudo",
-    "a_depth_h": "Kedalaman"
+    "a_depth_h": "Kedalaman",
+    "h_info": "Informasi pemutaran"
   },
   "tsu": {
     "lv_major_warning": "Peringatan tsunami besar",

@@ -21,10 +21,10 @@ import { RibbonSearch } from './RibbonSearch';
 import { RibbonAnalysis, type AnalysisMode } from './RibbonAnalysis';
 import { PANEL_PEEK, PullPanel, type Snap } from '@/components/stage/PullPanel';
 import {
-  HistoryControls, HistoryStatus, Player, presetRange, trailPeriod, useHistory, usePlayback, visibleQuakes,
+  HistoryControls, HistoryInfo, HistoryMessages, Player, presetRange, rangeFor, spanDays, trailPeriod, useHistory, usePlayback, visibleQuakes, withMagnitude,
   type HistoryRange, type Preset, type Trail,
 } from './RibbonHistory';
-import type { DepthFilter } from '@/lib/ribbon/history';
+import { MAX_SPAN_DAYS, type DepthFilter } from '@/lib/ribbon/history';
 import type { RibbonVolcano, VolcanoResponse, VolcanoStatus } from '@/lib/ribbon/volcanoes';
 import {
   DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, PERIOD_MS, POLL_MS, RELIEF, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
@@ -153,6 +153,7 @@ export function FireRibbonPage() {
   // Analysis (step 7): statistics of the earthquakes shown, under the map.
   const [analysis, setAnalysis] = useState<AnalysisMode>('off');
   const [aPicker, setAPicker] = useState(false);
+  const [choice, setChoice] = useState<null | 'time' | 'mag' | 'info'>(null);
   const [full, setFull] = useState(false);
   // The stretch the profile shows (reported by it), for the linked map.
   const [view2d, setView2d] = useState<{ x0: number; x1: number } | null>(null);
@@ -238,6 +239,10 @@ export function FireRibbonPage() {
   );
   const magText = (v: MinMag) => (v === 0 ? k.min_all : `M${nf.format(v)}+`);
   const dayFmt = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  /** The timeframe selector's value: the live period, or the history preset (a custom range shows its dates). */
+  const timeLabel = history && hrange
+    ? (preset === 'custom' ? `${dayFmt.format(Date.parse(hrange.start))} – ${dayFmt.format(Date.parse(hrange.end))}` : k[`h_${preset}`])
+    : k[`period_${period}`];
   const panelLine = (history && hrange
     ? [k.h_tag, `${dayFmt.format(Date.parse(hrange.start))} – ${dayFmt.format(Date.parse(hrange.end))}`, magText(hrange.min), k[`view_${view}`]]
     : [k.mode_live, k[`period_${period}`], magText(min), k[`view_${view}`]]).join(' · ');
@@ -266,7 +271,7 @@ export function FireRibbonPage() {
             <>
               {history && hst.s === 'ready' && (
                 <Player from={hst.d.from} to={hst.d.to} head={pb.head} setHead={pb.setHead} playing={pb.playing} play={pb.play} pause={pb.pause}
-                  speed={pb.speed} setSpeed={pb.setSpeed} trail={trail} setTrail={setTrail} shown={hShown.length} when={when} />
+                  speed={pb.speed} setSpeed={pb.setSpeed} trail={trail} setTrail={setTrail} shown={hShown.length} when={when} onInfo={() => setChoice('info')} />
               )}
               <div className={full ? styles.full : styles.viewArea} role={full ? 'dialog' : undefined} aria-modal={full || undefined} aria-label={full ? k.h1 : undefined}>
               <div className={styles.viewBar}>
@@ -346,6 +351,28 @@ export function FireRibbonPage() {
         <PullPanel fixed className={styles.ribbonPanel} label={k.panel} icon="tune" title={k.panel}
           count={t('count', { n: quakes.length })} line={panelLine} expand={m.map.expand} collapse={m.map.collapse}
           snap={panel} onSnap={setPanel} outside={st.s === 'ready' ? <>
+            <Sheet open={choice === 'time'} onClose={() => setChoice(null)} title={k.period}>
+              {history && hrange
+                ? <SheetOptions value={preset} onPick={p => { setPreset(p); setHrange(rangeFor(p, hrange, now)); setSel(null); setChoice(null); }}
+                    options={(['90d', 'year', 'custom'] as const).map(p => ({ value: p, label: k[`h_${p}`] }))} />
+                : <SheetOptions value={period} onPick={p => { setPeriod(p); setSel(null); setChoice(null); }}
+                    options={PERIODS.map(p => ({ value: p, label: k[`period_${p}`] }))} />}
+            </Sheet>
+            {hrange && (
+              <Sheet open={choice === 'info'} onClose={() => setChoice(null)} title={k.h_info}>
+                <HistoryInfo st={hst} range={hrange} when={when} />
+              </Sheet>
+            )}
+            <Sheet open={choice === 'mag'} onClose={() => setChoice(null)} title={k.min}>
+              <SheetOptions value={String(history && hrange ? hrange.min : min)}
+                onPick={v => {
+                  const mm = Number(v) as MinMag;
+                  if (history && hrange) { const r = withMagnitude(hrange, mm); if (r.shortened) setPreset('custom'); setHrange(r.range); } else setMin(mm);
+                  setSel(null); setChoice(null);
+                }}
+                options={MIN_MAGS.map(v => ({ value: String(v), label: magText(v),
+                  meta: history && hrange && MAX_SPAN_DAYS[v] < spanDays(hrange.start, hrange.end) ? k.h_mag_limit.replace('{n}', nf.format(MAX_SPAN_DAYS[v])) : undefined }))} />
+            </Sheet>
             <Sheet open={aPicker} onClose={() => setAPicker(false)} title={k.analysis}>
               <SheetOptions value={analysis} onPick={v => { setAnalysis(v as AnalysisMode); setAPicker(false); setPanel('peek'); }}
                 options={(['off', 'route', 'regions', 'dist'] as const).map(v => ({ value: v, label: k[`a_${v}`] }))} />
@@ -355,6 +382,8 @@ export function FireRibbonPage() {
               <Sheet open={picker} onClose={() => setPicker(false)} title={k.go_to}>
                 <SheetOptions value={region ?? undefined} onPick={v => {
                   setRegion(v); setPicker(false); setPanel('peek');
+                  // History mode: the region is also the filter for the earthquakes shown (one region selector for both).
+                  if (history) setHregion(v === 'all' ? null : (v as GroupId));
                   if (v === 'all') goTo(-st.d.corridor.endKm, st.d.lengthKm + st.d.corridor.endKm);
                   else { const r = st.d.regions.find(g => g.group === v); if (r) goTo(r.x0, r.x1); }
                 }} options={[
@@ -367,33 +396,26 @@ export function FireRibbonPage() {
               </Sheet>
           </> : null}>
           <div className={styles.panelBody}>
-          <div className={data.seg} role="tablist" aria-label={k.mode}>
-            <button type="button" role="tab" aria-selected={!history} onClick={() => { pb.pause(); setMode('live'); setSel(null); }}>{k.mode_live}</button>
-            <button type="button" role="tab" aria-selected={history} onClick={enterHistory}>{k.mode_history}</button>
+          {/* One row: the History switch (off = live), the timeframe and the magnitude, as selectors. */}
+          <div className={styles.topRow}>
+            <button type="button" role="switch" aria-checked={history} className={styles.modeSwitch}
+              onClick={() => (history ? (pb.pause(), setMode('live'), setSel(null)) : enterHistory())}>
+              <span>{k.mode_history}</span><span className={styles.switch} aria-hidden="true"><i /></span>
+            </button>
+            <button type="button" className={styles.jump} onClick={() => setChoice('time')} aria-haspopup="dialog" aria-label={`${k.period}: ${timeLabel}`}>
+              <span className="ms" aria-hidden="true">schedule</span><span>{timeLabel}</span><span className="ms" aria-hidden="true">expand_more</span>
+            </button>
+            <button type="button" className={styles.jump} onClick={() => setChoice('mag')} aria-haspopup="dialog" aria-label={`${k.min}: ${magText(history && hrange ? hrange.min : min)}`}>
+              <span className="ms" aria-hidden="true">filter_alt</span><span>{magText(history && hrange ? hrange.min : min)}</span><span className="ms" aria-hidden="true">expand_more</span>
+            </button>
           </div>
           {history && hrange && (
             <>
-              <HistoryControls preset={preset} setPreset={setPreset} range={hrange} setRange={r => { setHrange(r); setSel(null); }}
-                depth={depthF} setDepth={setDepthF} region={hregion} setRegion={setHregion} now={now} />
-              <HistoryStatus st={hst} range={hrange} when={when} />
+              <HistoryControls key={`${hrange.start}|${hrange.end}`} preset={preset} range={hrange} setRange={r => { setHrange(r); setSel(null); }}
+                depth={depthF} setDepth={setDepthF} now={now} />
+              <HistoryMessages st={hst} range={hrange} />
             </>
           )}
-          {!history && <div className={styles.controls}>
-            <div className={data.seg} role="tablist" aria-label={k.period}>
-              {PERIODS.map(p => (
-                <button key={p} type="button" role="tab" aria-selected={period === p} onClick={() => { setPeriod(p); setSel(null); }}>
-                  {k[`period_${p}`]}
-                </button>
-              ))}
-            </div>
-            <div className={data.seg} role="tablist" aria-label={k.min}>
-              {MIN_MAGS.map(v => (
-                <button key={v} type="button" role="tab" aria-selected={min === v} onClick={() => { setMin(v); setSel(null); }}>
-                  {v === 0 ? k.min_all : `M${nf.format(v)}+`}
-                </button>
-              ))}
-            </div>
-          </div>}
           {st.s === 'ready' && (
             <>
               {!history && <Status d={st.d} okAt={st.okAt} failedAt={st.failedAt} fresh={st.fresh.size} when={when} ago={ago} now={now} vst={vst} tst={tst} />}

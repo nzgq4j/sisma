@@ -109,32 +109,35 @@ export function visibleQuakes(all: RibbonQuake[], o: { head: number; trail: Trai
 
 const SPEED_KEYS = ['h_speed_hour', 'h_speed_6h', 'h_speed_day', 'h_speed_week', 'h_speed_month'] as const;
 
-/** Range, magnitude, depth and region choices for history mode. */
-export function HistoryControls({ preset, setPreset, range, setRange, depth, setDepth, region, setRegion, now }: {
-  preset: Preset; setPreset: (p: Preset) => void; range: HistoryRange; setRange: (r: HistoryRange) => void;
-  depth: DepthFilter; setDepth: (d: DepthFilter) => void; region: GroupId | null; setRegion: (g: GroupId | null) => void; now: number;
+/** Days in a range of whole UTC days (inclusive); 0 when a date is missing. */
+export const spanDays = (start: string, end: string) => { const a = utcDay(start), b = utcDay(end); return a !== null && b !== null ? Math.round((b - a) / DAY) + 1 : 0; };
+
+/** The range for a preset (custom keeps the current dates), with the magnitude raised if the range is too long for it. */
+export function rangeFor(p: Preset, current: HistoryRange, now: number): HistoryRange {
+  if (p === 'custom') return current;
+  const r = presetRange(p, now);
+  return { ...r, min: minFor(spanDays(r.start, r.end), current.min) };
+}
+/** A new magnitude filter; when the range is too long for it, the range is shortened to the longest allowed (same end). */
+export function withMagnitude(r: HistoryRange, v: MinMag): { range: HistoryRange; shortened: boolean } {
+  const max = MAX_SPAN_DAYS[v];
+  if (spanDays(r.start, r.end) <= max) return { range: { ...r, min: v }, shortened: false };
+  return { range: { start: isoDay(utcDay(r.end)! - (max - 1) * DAY), end: r.end, min: v }, shortened: true };
+}
+
+/** History mode's remaining choices in the card: the dates of a custom range, and the depth band. */
+export function HistoryControls({ preset, range, setRange, depth, setDepth, now }: {
+  preset: Preset; range: HistoryRange; setRange: (r: HistoryRange) => void;
+  depth: DepthFilter; setDepth: (d: DepthFilter) => void; now: number;
 }) {
   const { m, nf } = useT();
   const k = m.ribbon;
   const [draft, setDraft] = useState({ start: range.start, end: range.end });
-  const [picker, setPicker] = useState(false);
-  const days = (s: string, e: string) => { const a = utcDay(s), b = utcDay(e); return a !== null && b !== null ? Math.round((b - a) / DAY) + 1 : 0; };
-  const span = days(range.start, range.end);
   const today = isoDay(now);
-  const choose = (p: Preset) => {
-    setPreset(p);
-    if (p !== 'custom') { const r = presetRange(p, now); setRange({ ...r, min: minFor(days(r.start, r.end), range.min) }); }
-    else setDraft({ start: range.start, end: range.end });
-  };
-  const dDays = days(draft.start, draft.end);
+  const dDays = spanDays(draft.start, draft.end);
   const draftOk = dDays > 0 && draft.end <= today && draft.start >= HISTORY_EARLIEST && dDays <= MAX_SPAN_DAYS[4.5];
   return (
     <div className={styles.historyControls}>
-      <div className={data.seg} role="tablist" aria-label={k.h_range}>
-        {(['90d', 'year', 'custom'] as const).map(p => (
-          <button key={p} type="button" role="tab" aria-selected={preset === p} onClick={() => choose(p)}>{k[`h_${p}`]}</button>
-        ))}
-      </div>
       {preset === 'custom' && (
         <div className={styles.dates}>
           <label><span>{k.h_from}</span><input type="date" value={draft.start} min={HISTORY_EARLIEST} max={draft.end || today} onChange={e => setDraft(x => ({ ...x, start: e.target.value }))} /></label>
@@ -144,38 +147,21 @@ export function HistoryControls({ preset, setPreset, range, setRange, depth, set
           {!draftOk && dDays > MAX_SPAN_DAYS[4.5] && <p className={styles.hint3d} role="alert">{k.h_err_too_long.replace('{n}', nf.format(MAX_SPAN_DAYS[4.5]))}</p>}
         </div>
       )}
-      <div className={data.seg} role="tablist" aria-label={k.min}>
-        {MIN_MAGS.map(v => (
-          <button key={v} type="button" role="tab" aria-selected={range.min === v} disabled={MAX_SPAN_DAYS[v] < span}
-            title={MAX_SPAN_DAYS[v] < span ? k.h_mag_limit.replace('{n}', nf.format(MAX_SPAN_DAYS[v])) : undefined}
-            onClick={() => setRange({ ...range, min: v })}>
-            {v === 0 ? k.min_all : `M${nf.format(v)}+`}
-          </button>
-        ))}
-      </div>
-      <p className={styles.hint3d}>{k.h_limits.replace('{a}', nf.format(MAX_SPAN_DAYS[0])).replace('{b}', nf.format(MAX_SPAN_DAYS[2.5])).replace('{c}', nf.format(MAX_SPAN_DAYS[4.5]))}</p>
       <div className={data.seg} role="tablist" aria-label={k.h_depth}>
         {(Object.keys(DEPTH_FILTERS) as DepthFilter[]).map(d => (
           <button key={d} type="button" role="tab" aria-selected={depth === d} onClick={() => setDepth(d)}>{k[`h_depth_${d}`]}</button>
         ))}
       </div>
-      <button type="button" className={styles.jump} onClick={() => setPicker(true)} aria-haspopup="dialog">
-        <span className="ms" aria-hidden="true">filter_alt</span>
-        <span>{region ? k.regions[region] : k.h_all_regions}</span>
-        <span className="ms" aria-hidden="true">expand_more</span>
-      </button>
-      <Sheet open={picker} onClose={() => setPicker(false)} title={k.h_region}>
-        <SheetOptions value={region ?? 'all'} onPick={v => { setRegion(v === 'all' ? null : (v as GroupId)); setPicker(false); }}
-          options={[{ value: 'all', label: k.h_all_regions }, ...GROUPS.map(g => ({ value: g as string, label: k.regions[g] }))]} />
-      </Sheet>
     </div>
   );
 }
 
 /** Play / pause, the timeline, the time shown, speed and trail. */
-export function Player({ from, to, head, setHead, playing, play, pause, speed, setSpeed, trail, setTrail, shown, when }: {
+export function Player({ from, to, head, setHead, playing, play, pause, speed, setSpeed, trail, setTrail, shown, when, onInfo }: {
   from: number; to: number; head: number; setHead: (t: number) => void; playing: boolean; play: () => void; pause: () => void;
   speed: number; setSpeed: (s: number) => void; trail: Trail; setTrail: (t: Trail) => void; shown: number; when: Intl.DateTimeFormat;
+  /** Opens the playback information (what was searched, what was found, the catalogue's limits). */
+  onInfo: () => void;
 }) {
   const { m, nf } = useT();
   const k = m.ribbon;
@@ -184,6 +170,7 @@ export function Player({ from, to, head, setHead, playing, play, pause, speed, s
   const span = Math.max(1, to - from), pos = Math.round(((head - from) / span) * 1000);
   return (
     <div className={styles.player}>
+      {/* Play, the time shown, the timeline (to the right of the time on wide screens, below it on phones), info. */}
       <div className={styles.playRow}>
         <button type="button" className={styles.playBtn} onClick={playing ? pause : play} aria-label={playing ? k.h_pause : k.h_play}>
           <span className="ms" aria-hidden="true">{playing ? 'pause' : 'play_arrow'}</span>
@@ -192,10 +179,15 @@ export function Player({ from, to, head, setHead, playing, play, pause, speed, s
           <b>{when.format(head)}</b>
           <span>{k.h_shown.replace('{n}', nf.format(shown))}</span>
         </div>
+        <div className={styles.scrubBox}>
+          <input className={styles.scrub} type="range" min={0} max={1000} step={1} value={pos} aria-label={k.h_timeline}
+            aria-valuetext={when.format(head)} onChange={e => { pause(); setHead(from + (Number(e.target.value) / 1000) * span); }} />
+          <div className={styles.scrubEnds} aria-hidden="true"><span>{when.format(from)}</span><span>{when.format(to)}</span></div>
+        </div>
+        <button type="button" className={styles.infoBtn} onClick={onInfo} aria-label={k.h_info} aria-haspopup="dialog">
+          <span className="ms" aria-hidden="true">info</span>
+        </button>
       </div>
-      <input className={styles.scrub} type="range" min={0} max={1000} step={1} value={pos} aria-label={k.h_timeline}
-        aria-valuetext={when.format(head)} onChange={e => { pause(); setHead(from + (Number(e.target.value) / 1000) * span); }} />
-      <div className={styles.scrubEnds} aria-hidden="true"><span>{when.format(from)}</span><span>{when.format(to)}</span></div>
       {/* Speed and trail: two selectors side by side, each opening the app's choice sheet. */}
       <div className={styles.pickPair}>
         <button type="button" className={styles.jump} onClick={() => setOpen('speed')} aria-haspopup="dialog" aria-label={`${k.h_speed}: ${k[SPEED_KEYS[Math.max(0, SPEEDS_MS.indexOf(speed as (typeof SPEEDS_MS)[number]))]]}`}>
@@ -221,25 +213,33 @@ export function Player({ from, to, head, setHead, playing, play, pause, speed, s
   );
 }
 
-/** The history status: what was searched, what was found, and the catalogue's limits. */
-export function HistoryStatus({ st, range, when }: { st: ReturnType<typeof useHistory>; range: HistoryRange; when: Intl.DateTimeFormat }) {
+/** History messages that must stay in view: loading and errors. */
+export function HistoryMessages({ st, range }: { st: ReturnType<typeof useHistory>; range: HistoryRange }) {
+  const { m, nf } = useT();
+  const k = m.ribbon;
+  if (st.s === 'loading') return <p className={styles.historyMsg}>{k.h_loading}</p>;
+  if (st.s !== 'error') return null;
+  return (
+    <p className={styles.historyMsg} role="alert">{st.error === 'too_many'
+      ? k.h_err_too_many.replace('{n}', nf.format(st.ribbon ?? 0)).replace('{max}', nf.format(st.max ?? 0))
+      : st.error === 'too_long' ? k.h_err_too_long.replace('{n}', nf.format(MAX_SPAN_DAYS[range.min])) : k.h_error}</p>
+  );
+}
+
+/** The playback information (behind the ⓘ button): what was searched and found, and the catalogue's limits. */
+export function HistoryInfo({ st, range, when }: { st: ReturnType<typeof useHistory>; range: HistoryRange; when: Intl.DateTimeFormat }) {
   const { m, nf, locale } = useT();
   const k = m.ribbon;
   const day = new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeZone: 'UTC' });
   const label = `${day.format(utcDay(range.start)!)} – ${day.format(utcDay(range.end)!)} (UTC) · ${range.min === 0 ? k.min_all : `M${nf.format(range.min)}+`}`;
   return (
-    <div className={styles.historyStatus} aria-live="polite">
+    <div className={styles.historyStatus}>
       <p><span className={styles.historyTag}><span className="ms" aria-hidden="true">history</span>{k.h_tag}</span> {label}</p>
-      {st.s === 'loading' && <p>{k.h_loading}</p>}
-      {st.s === 'error' && (
-        <p role="alert">{st.error === 'too_many'
-          ? k.h_err_too_many.replace('{n}', nf.format(st.ribbon ?? 0)).replace('{max}', nf.format(st.max ?? 0))
-          : st.error === 'too_long' ? k.h_err_too_long.replace('{n}', nf.format(MAX_SPAN_DAYS[range.min])) : k.h_error}</p>
-      )}
       {st.s === 'ready' && (
         <p>{k.h_found.replace('{n}', nf.format(st.d.counts.ribbon)).replace('{m}', nf.format(st.d.counts.earthquakes))} · {k.h_retrieved.replace('{time}', when.format(st.d.retrieved))}</p>
       )}
       <p>{k.h_coverage}</p>
+      <p>{k.h_limits.replace('{a}', nf.format(MAX_SPAN_DAYS[0])).replace('{b}', nf.format(MAX_SPAN_DAYS[2.5])).replace('{c}', nf.format(MAX_SPAN_DAYS[4.5]))}</p>
     </div>
   );
 }
