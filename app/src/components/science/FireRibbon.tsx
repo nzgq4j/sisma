@@ -18,6 +18,7 @@ import { Sheet, SheetOptions } from '@/components/Sheet';
 import type { Camera3D } from './Ribbon3D';
 import { RibbonShareSheet } from './RibbonShare';
 import { RibbonSearch } from './RibbonSearch';
+import { RibbonAnalysis, type AnalysisMode } from './RibbonAnalysis';
 import { PANEL_PEEK, PullPanel, type Snap } from '@/components/stage/PullPanel';
 import {
   HistoryControls, HistoryStatus, Player, presetRange, trailPeriod, useHistory, usePlayback, visibleQuakes,
@@ -26,7 +27,7 @@ import {
 import type { DepthFilter } from '@/lib/ribbon/history';
 import type { RibbonVolcano, VolcanoResponse, VolcanoStatus } from '@/lib/ribbon/volcanoes';
 import {
-  DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, POLL_MS, RELIEF, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
+  DEPTH_BANDS, GROUPS, MIN_MAGS, PERIODS, PERIOD_MS, POLL_MS, RELIEF, STALE_MS, depthColour, fromRow, markerOpacity, markerRadius,
   type GroupId, type MinMag, type Period, type Relief, type RibbonQuake, type RibbonResponse, type TerrainResponse,
 } from '@/lib/ribbon/shared';
 
@@ -149,6 +150,9 @@ export function FireRibbonPage() {
   const [searching, setSearching] = useState(false);
   // The pull-up card with the selectors: collapsed it shows a one-line summary and reveals the ribbon.
   const [panel, setPanel] = useState<Snap>('peek');
+  // Analysis (step 7): statistics of the earthquakes shown, under the map.
+  const [analysis, setAnalysis] = useState<AnalysisMode>('off');
+  const [aPicker, setAPicker] = useState(false);
   const [full, setFull] = useState(false);
   // The stretch the profile shows (reported by it), for the linked map.
   const [view2d, setView2d] = useState<{ x0: number; x1: number } | null>(null);
@@ -196,6 +200,10 @@ export function FireRibbonPage() {
   const quakes = history ? hShown : liveQuakes;
   /** Markers fade with age: from now in live mode, from the play head (over the trail) in history mode. */
   const fadePeriod: Period = history ? trailPeriod(trail) : period;
+  /** Days the shown earthquakes cover: the live period, or in history the trail behind the play head (from the start). */
+  const shownDays = history && hst.s === 'ready'
+    ? Math.max(1 / 24, (pb.head - Math.max(hst.d.from, pb.head - ({ day: 1, week: 7, month: 30, all: Infinity }[trail] * 86_400_000))) / 86_400_000)
+    : PERIOD_MS[period] / 86_400_000;
   const selected = quakes.find(q => q.id === sel) ?? null;
   const volcanoes = useMemo(() => (vst.s === 'ready' ? vst.d.volcanoes : []), [vst]);
   // This week's report says nothing about past dates: in history mode every triangle is drawn plain (details still
@@ -287,6 +295,10 @@ export function FireRibbonPage() {
                 quakes={show.quakes ? quakes : NO_QUAKES} volcanoes={show.volcanoes ? drawnVolcanoes : []} selected={sel} selectedV={selV}
                 onPickQuake={showQuake} onPickVolcano={showVolcano} label={k.map_label} />
               <p className={styles.hint3d}>{k.map_hint}</p>
+              {analysis !== 'off' && (
+                <RibbonAnalysis mode={analysis} d={st.d} quakes={show.quakes ? quakes : NO_QUAKES} volcanoes={volcanoes} days={shownDays}
+                  view={view === '2d' ? view2d : { x0: win3.centre - win3.span / 2, x1: win3.centre + win3.span / 2 }} onGoTo={goTo} history={history} />
+              )}
               </div>
               <RibbonSearch open={searching} onClose={() => setSearching(false)} quakes={history ? hAll : liveQuakes} volcanoes={volcanoes}
                 onPickQuake={showQuake} onPickVolcano={showVolcano} when={when} />
@@ -334,6 +346,10 @@ export function FireRibbonPage() {
         <PullPanel fixed className={styles.ribbonPanel} label={k.panel} icon="tune" title={k.panel}
           count={t('count', { n: quakes.length })} line={panelLine} expand={m.map.expand} collapse={m.map.collapse}
           snap={panel} onSnap={setPanel} outside={st.s === 'ready' ? <>
+            <Sheet open={aPicker} onClose={() => setAPicker(false)} title={k.analysis}>
+              <SheetOptions value={analysis} onPick={v => { setAnalysis(v as AnalysisMode); setAPicker(false); setPanel('peek'); }}
+                options={(['off', 'route', 'regions', 'dist'] as const).map(v => ({ value: v, label: k[`a_${v}`] }))} />
+            </Sheet>
               <RibbonShareSheet open={sharing} onClose={() => setSharing(false)} d={st.d} quakes={quakes} volcanoes={volcanoes}
                 terrain={tst.s === 'ready' ? tst.d : null} period={period} min={min} now={now} />
               <Sheet open={picker} onClose={() => setPicker(false)} title={k.go_to}>
@@ -407,6 +423,11 @@ export function FireRibbonPage() {
                 </div>
               )}
               {viewSeg}
+              <button type="button" className={styles.jump} onClick={() => setAPicker(true)} aria-haspopup="dialog">
+                <span className="ms" aria-hidden="true">insights</span>
+                <span>{k.analysis}: {k[`a_${analysis}`]}</span>
+                <span className="ms" aria-hidden="true">expand_more</span>
+              </button>
             </>
           )}
           </div>

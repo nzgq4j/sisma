@@ -125,3 +125,21 @@
 .panelBody { display: flex; flex-direction: column; gap: 12px; }
 @media (min-width: 1024px) { .ribbonPanel[data-filter-panel] { bottom: 16px; } }
 .viewLabel { flex: 1; min-width: 0; font-size: 15px; font-weight: 800; color: var(--ink); }
+
+/* Analysis (step 7). */
+.analysis { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+.analysisBlock { display: flex; flex-direction: column; gap: 8px; }
+.tableWrap { overflow-x: auto; border-radius: 14px; background: var(--surface2); -webkit-overflow-scrolling: touch; }
+.aTable { border-collapse: collapse; min-width: 720px; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+.aTable th, .aTable td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top; white-space: nowrap; }
+.aTable thead th { font-size: 11px; font-weight: 800; color: var(--ink2); white-space: normal; vertical-align: bottom; }
+.aTable th[scope='row'], .aTable thead th:first-child { text-align: left; position: sticky; left: 0; background: var(--surface2); }
+.aTable th[scope='row'] button { padding: 0; border: 0; background: none; color: var(--violet-text); font: inherit; font-weight: 700; cursor: pointer; text-align: left; }
+.aTable small { display: block; font-size: 11px; font-weight: 600; color: var(--ink2); }
+.dists { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.dists h3 { margin: 0 0 6px; font-size: 13px; font-weight: 800; color: var(--ink2); }
+.hbars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.hbars li { display: grid; grid-template-columns: 92px 1fr 48px; align-items: center; gap: 8px; font-size: 12px; font-variant-numeric: tabular-nums; }
+.hbars span { color: var(--ink2); font-weight: 600; }
+.hbars i { height: 12px; min-width: 2px; border-radius: 0 3px 3px 0; }
+.hbars b { text-align: right; }
